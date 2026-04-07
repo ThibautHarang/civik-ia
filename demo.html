@@ -387,13 +387,19 @@
             .chat-header-info h2 { font-size: 13px; }
             .chat-header-info p { font-size: 10px; }
             .chat-avatar { width: 36px; height: 36px; }
-            .suggestions { padding: 0; }
-            .suggestion-categories, .suggestion-questions { padding: 10px 12px; gap: 6px; }
+            .suggestions { padding: 0; position: relative; }
+            /* Dégradé fade pour indiquer le scroll horizontal */
+            .suggestion-categories, .suggestion-questions {
+                padding: 10px 12px; gap: 6px;
+                -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+                mask-image: linear-gradient(to right, black 85%, transparent 100%);
+            }
             .suggestion-btn { font-size: 11px; padding: 6px 12px; }
             .cat-pill { font-size: 11px; padding: 6px 12px; }
             .chat-input { padding: 8px 10px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
-            .chat-input input { padding: 10px 12px; font-size: 14px; }
-            .chat-input button { padding: 10px 16px; font-size: 13px; }
+            /* font-size 16px = empêche le zoom automatique iOS sur les inputs */
+            .chat-input input { padding: 10px 12px; font-size: 16px; }
+            .chat-input button { padding: 10px 16px; font-size: 14px; }
             /* Espace pour le bandeau CTA fixe en bas */
             .app-wrapper { padding-bottom: 110px; }
         }
@@ -401,8 +407,8 @@
             .banner-title strong { font-size: 10px; }
             .chat-header-info h2 { font-size: 12px; }
             .msg { font-size: 13px; padding: 10px 14px; max-width: 90%; }
-            .chat-input input { font-size: 14px; padding: 10px; }
-            .chat-input button { padding: 10px 14px; font-size: 12px; }
+            .chat-input input { font-size: 16px; padding: 10px; }
+            .chat-input button { padding: 10px 14px; font-size: 13px; }
         }
     </style>
 </head>

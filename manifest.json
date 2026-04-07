@@ -1,0 +1,66 @@
+{
+  "name": "Civik-ia — Plateforme d'Intelligence Citoyenne",
+  "short_name": "Civik-ia",
+  "description": "Votre mairie connect\u00e9e 24h/24 gr\u00e2ce \u00e0 une IA souveraine form\u00e9e sur les donn\u00e9es de votre commune.",
+  "start_url": "/site-civic-ia.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#000091",
+  "background_color": "#ffffff",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "categories": ["government", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contacter la mairie",
+      "short_name": "Contact",
+      "url": "/site-civic-ia.html#contact",
+      "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Campagnes Citoyennes",
+      "short_name": "Campagnes",
+      "url": "/campagnes-citoyennes.html",
+      "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Tester la démo",
+      "short_name": "Démo",
+      "url": "/demo.html",
+      "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
+    }
+  ]
+}

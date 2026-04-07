@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-55JF49WB');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civik-ia — Démo Interactive | Plateforme d'Intelligence Citoyenne</title>
+    <meta name="description" content="Testez la Plateforme d'Intelligence Citoyenne Civik-ia. Posez des questions comme un citoyen et découvrez le dashboard élu en temps réel.">
+    <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { height: 100%; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: #333; height: 100%; overflow: hidden; }
+
+        /* ============================================ */
+        /* BANNER — Compact top bar with tabs           */
+        /* ============================================ */
+        .banner {
+            background: linear-gradient(135deg, #0F1B33 0%, #1B2A4A 50%, #0F1B33 100%);
+            color: white; padding: 8px 16px;
+            display: flex; align-items: center; gap: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+            flex-shrink: 0; position: relative; z-index: 10;
+        }
+        .banner-logo {
+            width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .banner-logo svg { width: 28px; height: 28px; }
+        .banner-title {
+            flex: 1; min-width: 0;
+        }
+        .banner-title strong {
+            font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+            letter-spacing: 0.3px; white-space: nowrap;
+        }
+        .banner-title span {
+            font-size: 10px; opacity: 0.5; font-weight: 400; display: block; margin-top: 1px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .banner-tabs {
+            display: flex; gap: 4px; flex-shrink: 0;
+        }
+        .tab-btn {
+            padding: 6px 14px; font-size: 11px; font-weight: 600;
+            border: 1.5px solid rgba(255,255,255,0.2); border-radius: 6px;
+            background: transparent; color: rgba(255,255,255,0.5);
+            cursor: pointer; transition: all 0.3s;
+            font-family: 'Inter', sans-serif; white-space: nowrap;
+        }
+        .tab-btn:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.9); }
+        .tab-btn.active {
+            background: rgba(255,255,255,0.15); color: #fff;
+            border-color: rgba(255,255,255,0.4);
+        }
+        .banner-badge {
+            display: flex; align-items: center; gap: 5px;
+            padding: 3px 10px; background: rgba(46,196,182,0.15); border-radius: 20px;
+            font-size: 10px; font-weight: 600; color: #2EC4B6; flex-shrink: 0;
+        }
+        .banner-badge .dot {
+            width: 6px; height: 6px; background: #2EC4B6; border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+        .app-wrapper { display: flex; flex-direction: column; height: 100%; }
+
+        /* ============================================ */
+        /* MAIN CONTAINER                               */
+        /* ============================================ */
+        .container { display: flex; flex: 1; min-height: 0; overflow: hidden; }
+
+        /* ============================================ */
+        /* LEFT: CHAT PANEL                             */
+        /* ============================================ */
+        .chat-panel {
+            flex: 1 1 50%; display: flex; flex-direction: column;
+            background: white; border-right: 1px solid #e0e0e0;
+            min-height: 0; min-width: 0;
+        }
+        .chat-panel.fullwidth {
+            flex: 1 1 100%; border-right: none;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #000091 0%, #1a1a6e 100%);
+            color: white; padding: 14px 20px; display: flex;
+            align-items: center; gap: 12px;
+        }
+        .chat-avatar {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: linear-gradient(135deg, #007bff, #2EC4B6);
+            display: flex; align-items: center; justify-content: center;
+            padding: 6px; flex-shrink: 0;
+        }
+        .chat-avatar svg { width: 24px; height: 24px; }
+        .chat-header-info h2 {
+            font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700;
+        }
+        .chat-header-info p { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+        .online-dot {
+            width: 10px; height: 10px; background: #2EC4B6; border-radius: 50%;
+            animation: pulse 2s infinite; margin-left: auto; flex-shrink: 0;
+        }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto; padding: 20px; display: flex;
+            flex-direction: column; gap: 14px; background: #fafafa;
+            min-height: 0; -webkit-overflow-scrolling: touch;
+        }
+        .msg { padding: 12px 16px; border-radius: 16px; max-width: 82%; font-size: 14px; line-height: 1.6; animation: slideIn 0.3s ease; }
+        .chat-panel.fullwidth .msg { max-width: 640px; }
+        .msg.bot {
+            background: white; border: 1px solid #e8e8e8; align-self: flex-start;
+            border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .msg.user {
+            background: linear-gradient(135deg, #000091, #1a1a6e); color: white;
+            align-self: flex-end; border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,145,0.25);
+        }
+        .msg.bot .source { display: inline-block; margin-top: 8px; font-size: 11px; color: #999; background: #f5f5f5; padding: 2px 8px; border-radius: 8px; }
+        @keyframes slideIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+        .typing { display: flex; gap: 4px; padding: 12px 16px; align-self: flex-start; }
+        .typing span {
+            width: 8px; height: 8px; background: #ccc; border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+        .typing span:nth-child(2) { animation-delay: 0.2s; }
+        .typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+        .suggestions {
+            border-top: 1px solid #eee; background: white; flex-shrink: 0;
+        }
+        .suggestion-categories, .suggestion-questions {
+            display: flex; flex-wrap: nowrap; gap: 8px; padding: 12px 20px;
+            background: white; flex-shrink: 0;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            align-items: center;
+        }
+        .cat-pill {
+            padding: 8px 16px; border-radius: 20px; border: 1.5px solid #000091;
+            background: white; color: #000091; font-size: 12px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+        }
+        .cat-pill:hover { background: #000091; color: white; }
+        .back-btn {
+            padding: 6px 12px; border-radius: 16px; border: 1px solid #ddd;
+            background: #f5f5f5; color: #666; font-size: 11px; font-weight: 600;
+            cursor: pointer; white-space: nowrap; flex-shrink: 0;
+        }
+        .back-btn:hover { background: #eee; }
+        .suggestion-btn {
+            padding: 8px 16px; border-radius: 20px; border: 1.5px solid #000091;
+            background: white; color: #000091; font-size: 12px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+        }
+        .suggestion-btn:hover { background: #000091; color: white; }
+
+        .chat-input {
+            display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid #eee;
+            background: white;
+        }
+        .chat-input input {
+            flex: 1; padding: 12px 16px; border: 1.5px solid #ddd; border-radius: 24px;
+            font-size: 14px; outline: none; transition: border-color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-input input:focus { border-color: #000091; }
+        .chat-input button {
+            padding: 12px 24px; background: linear-gradient(135deg, #000091, #1a1a6e);
+            color: white; border: none; border-radius: 24px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s; font-size: 14px;
+        }
+        .chat-input button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,145,0.3); }
+
+        /* ============================================ */
+        /* CAMPAIGN BANNER IN CHAT                      */
+        /* ============================================ */
+        .campaign-banner {
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #1B2A4A 0%, #2C3E50 100%);
+            color: white; padding: 14px 18px; display: flex; align-items: center; gap: 12px;
+            border-bottom: 2px solid #2EC4B6;
+            animation: bannerSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer; transition: background 0.2s;
+        }
+        .campaign-banner:hover { background: linear-gradient(135deg, #243558 0%, #34495e 100%); }
+        .campaign-banner .cb-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(135deg, #2EC4B6, #1B9E92);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+            animation: bannerPulse 2s infinite;
+        }
+        .campaign-banner .cb-text { flex: 1; }
+        .campaign-banner .cb-text strong { font-size: 13px; display: block; margin-bottom: 2px; }
+        .campaign-banner .cb-text span { font-size: 11px; opacity: 0.8; }
+        .campaign-banner .cb-cta {
+            padding: 6px 14px; background: #2EC4B6; color: white; border: none;
+            border-radius: 16px; font-size: 11px; font-weight: 700; cursor: pointer;
+            flex-shrink: 0; transition: all 0.2s;
+        }
+        .campaign-banner .cb-cta:hover { background: #25a99d; transform: scale(1.05); }
+        .campaign-banner .cb-close {
+            background: none; border: none; color: rgba(255,255,255,0.5);
+            font-size: 14px; cursor: pointer; padding: 4px; flex-shrink: 0;
+        }
+        .campaign-banner .cb-close:hover { color: white; }
+        @keyframes bannerSlideIn { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes bannerPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(46,196,182,0.4); } 50% { box-shadow: 0 0 0 8px rgba(46,196,182,0); } }
+
+        /* ============================================ */
+        /* INLINE SURVEY IN CHAT                        */
+        /* ============================================ */
+        .chat-survey {
+            align-self: stretch; background: linear-gradient(135deg, #f0faf9, #f8f9ff);
+            border: 1.5px solid #2EC4B6; border-radius: 16px; padding: 18px;
+            margin: 4px 0; animation: slideIn 0.4s ease;
+        }
+        .chat-survey h4 { font-size: 14px; color: #1B2A4A; margin-bottom: 6px; font-weight: 700; }
+        .chat-survey p { font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.4; }
+        .chat-survey .survey-stars { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
+        .chat-survey .survey-stars button {
+            font-size: 26px; background: none; border: none; cursor: pointer;
+            filter: grayscale(1) opacity(0.4); transition: all 0.15s;
+        }
+        .chat-survey .survey-stars button.active { filter: none; transform: scale(1.2); }
+        .chat-survey .survey-comment {
+            width: 100%; padding: 8px 12px; border: 1.5px solid #ddd; border-radius: 10px;
+            font-size: 12px; font-family: Inter; resize: none; height: 40px; margin-bottom: 8px; box-sizing: border-box;
+        }
+        .chat-survey .survey-submit {
+            width: 100%; padding: 8px; font-size: 12px; font-weight: 700;
+            background: linear-gradient(135deg, #2EC4B6, #1B9E92); color: white;
+            border: none; border-radius: 10px; cursor: pointer; opacity: 0.4; pointer-events: none;
+            transition: all 0.2s;
+        }
+        .chat-survey .survey-submit.enabled { opacity: 1; pointer-events: auto; }
+        .chat-survey .survey-thanks { text-align: center; padding: 10px 0; }
+
+        .rating-widget {
+            display: flex; align-items: center; gap: 8px; margin-top: 6px;
+            font-size: 11px; color: #999;
+        }
+        .rating-btn {
+            background: none; border: 1px solid #e0e0e0; border-radius: 12px;
+            padding: 2px 8px; cursor: pointer; font-size: 12px;
+            transition: all 0.2s;
+        }
+        .rating-btn:hover { background: #f0f0f0; border-color: #ccc; }
+        .rating-confirmed { color: #2EC4B6; font-weight: 600; font-size: 11px; }
+
+        /* ============================================ */
+        /* RIGHT: DASHBOARD PANEL                       */
+        /* ============================================ */
+        .dashboard-panel {
+            flex: 1 1 50%; display: flex; flex-direction: column; overflow-y: auto;
+            background: #f8f9fa; min-width: 0; min-height: 0;
+        }
+        .dashboard-panel.hidden { display: none; }
+
+        .dash-header {
+            background: linear-gradient(135deg, #000091 0%, #1a1a6e 100%);
+            color: white; padding: 14px 20px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .dash-logo {
+            width: 42px; height: 42px; border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .dash-logo svg { width: 22px; height: 22px; }
+        .dash-header h2 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; }
+        .dash-header p { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+
+        .dash-content { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+        .dash-card {
+            background: white; border-radius: 12px; padding: 16px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.05); border: 1px solid #eee;
+        }
+        .dash-card h3 {
+            font-size: 11px; font-weight: 700; color: #1B2A4A;
+            margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.8px;
+        }
+
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .kpi {
+            background: linear-gradient(135deg, #f8f9ff, #f0f4ff);
+            border-radius: 10px; padding: 14px; text-align: center;
+            border: 1px solid rgba(0,0,145,0.08);
+        }
+        .kpi-value {
+            font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 800;
+            color: #000091;
+        }
+        .kpi-label { font-size: 10px; color: #888; margin-top: 4px; font-weight: 500; }
+
+        .cat-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .cat-bar .label { font-size: 11px; width: 100px; color: #555; font-weight: 500; }
+        .cat-bar .bar-bg {
+            flex: 1; height: 20px; background: #f0f2ff; border-radius: 10px; overflow: hidden;
+        }
+        .cat-bar .bar-fill {
+            height: 100%; border-radius: 10px;
+            background: linear-gradient(90deg, #000091, #007bff);
+            transition: width 1s ease;
+        }
+        .cat-bar .pct { font-size: 11px; color: #000091; font-weight: 700; width: 35px; text-align: right; }
+
+        .satisfaction-circle {
+            width: 100px; height: 100px; border-radius: 50%; margin: 0 auto;
+            background: conic-gradient(#2EC4B6 0% 92%, #eee 92% 100%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .satisfaction-circle::after {
+            content: '92%'; position: absolute; font-family: 'Poppins', sans-serif;
+            font-size: 22px; font-weight: 800; color: #2EC4B6;
+            background: white; width: 76px; height: 76px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .satisfaction-label { text-align: center; font-size: 11px; color: #888; margin-top: 8px; }
+
+        /* Activity Chart */
+        .chart-wrapper {
+            position: relative; width: 100%; height: 110px;
+            cursor: crosshair;
+        }
+        .chart-wrapper svg { display: block; overflow: visible; }
+        .chart-tooltip {
+            position: absolute; display: none; pointer-events: none; z-index: 20;
+            background: #1B2A4A; color: white; font-size: 10px; font-weight: 600;
+            padding: 5px 10px; border-radius: 8px; white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+            transform: translateX(-50%);
+        }
+        .chart-tooltip::after {
+            content: ''; position: absolute; left: 50%; bottom: -5px;
+            transform: translateX(-50%);
+            border: 5px solid transparent; border-bottom: none;
+            border-top-color: #1B2A4A;
+        }
+
+        .recent-list { display: flex; flex-direction: column; gap: 6px; }
+        .recent-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 10px; background: #fafafa; border-radius: 8px;
+            font-size: 11px; border: 1px solid #f0f0f0;
+        }
+        .recent-item .q { color: #333; flex: 1; }
+        .recent-item .time { color: #aaa; font-size: 10px; white-space: nowrap; margin-left: 8px; }
+        .recent-item .badge {
+            font-size: 9px; padding: 2px 8px; border-radius: 8px;
+            font-weight: 600; margin-left: 8px; white-space: nowrap;
+        }
+        .badge-green { background: #e0f7f5; color: #2EC4B6; }
+        .badge-orange { background: #fff3e0; color: #e65100; }
+        .badge-blue { background: #e3f2fd; color: #1565c0; }
+
+        /* ============================================ */
+        /* RESPONSIVE                                   */
+        /* ============================================ */
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .chat-panel { flex: 1; flex-basis: auto; min-height: 0; }
+            .dashboard-panel { display: none; }
+            .banner { font-size: 11px; }
+            .banner-title strong { font-size: 12px; }
+            .banner-title span { display: none; }
+            .banner-right { display: none; }
+            .chat-header { padding: 12px 16px; }
+            .chat-header-info h2 { font-size: 14px; }
+            .suggestions { padding: 0; }
+            .suggestion-categories, .suggestion-questions { padding: 10px 12px; gap: 6px; }
+            .suggestion-btn { font-size: 11px; padding: 6px 12px; }
+            .cat-pill { font-size: 11px; padding: 6px 12px; }
+            .chat-input { padding: 8px 12px; }
+            .chat-input input { padding: 10px 12px; font-size: 13px; }
+            .chat-input button { padding: 10px 16px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55JF49WB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="app-wrapper">
+
+    <!-- ============================================ -->
+    <!-- PREMIUM BANNER WITH TABS                     -->
+    <!-- ============================================ -->
+    <div class="banner">
+        <div class="banner-logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 2L4 8v10c0 9.55 5.97 18.48 14 22 8.03-3.52 14-12.45 14-22V8L18 2z" fill="url(#shG)" fill-opacity="0.25" stroke="url(#shS)" stroke-width="1.5"/>
+                <path d="M18 9l-6 3v4h2v6h2v-6h4v6h2v-6h2v-4l-6-3z" fill="white" fill-opacity="0.9"/>
+                <defs>
+                    <linearGradient id="shG" x1="4" y1="2" x2="32" y2="32"><stop stop-color="#2EC4B6"/><stop offset="1" stop-color="#007bff"/></linearGradient>
+                    <linearGradient id="shS" x1="4" y1="2" x2="32" y2="32"><stop stop-color="#2EC4B6"/><stop offset="1" stop-color="#007bff"/></linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="banner-title">
+            <strong>Plateforme d'Intelligence Citoyenne — Démo</strong>
+            <span>Commune de Saint-Martin-des-Champs (29600) — Données fictives de démonstration</span>
+        </div>
+        <div class="banner-tabs">
+            <button class="tab-btn active" id="tabGlobalMairie" onclick="switchGlobalView('mairie')">Vue Mairie</button>
+            <button class="tab-btn" id="tabGlobalCitoyen" onclick="switchGlobalView('citoyen')">Vue Citoyen</button>
+        </div>
+        <div class="banner-badge">
+            <span class="dot"></span>
+            En ligne
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTAINER                               -->
+    <!-- ============================================ -->
+    <div class="container">
+        <!-- CHAT PANEL -->
+        <div class="chat-panel" id="chatPanel">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="chat-header-info">
+                    <h2 id="chatTitle">Civik-ia — Assistant Saint-Martin-des-Champs</h2>
+                    <p id="chatSubtitle">Votre mairie disponible 24h/24 — 3 500 habitants</p>
+                </div>
+                <div class="online-dot"></div>
+            </div>
+
+            <!-- Campaign banner container (populated dynamically) -->
+            <div id="campaignBannerZone"></div>
+
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <div class="suggestions" id="suggestions">
+                <div class="suggestion-categories" id="suggestionCategories">
+                    <button class="cat-pill" onclick="showCategoryQuestions('mairie')">Mairie</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('etat-civil')">État civil</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('urbanisme')">Urbanisme</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('dechets')">Déchets</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('ecole')">École</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('culture')">Vie locale</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('transport')">Transport</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('sante')">Santé</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('social')">Aides</button>
+                    <button class="cat-pill" onclick="showCategoryQuestions('actu')">Actualités</button>
+                </div>
+                <div class="suggestion-questions" id="suggestionQuestions" style="display:none;">
+                    <button class="back-btn" onclick="showCategories()">← Catégories</button>
+                    <div id="questionsList"></div>
+                </div>
+            </div>
+
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Posez votre question sur Saint-Martin-des-Champs..." onkeypress="if(event.key==='Enter')sendMessage()">
+                <button onclick="sendMessage()">Envoyer</button>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PANEL -->
+        <div class="dashboard-panel" id="dashboardPanel">
+            <div class="dash-header">
+                <div class="dash-logo">
+                    <!-- Dashboard premium icon: bar chart + shield -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="14" width="4" height="7" rx="1" fill="white" fill-opacity="0.9"/>
+                        <rect x="10" y="10" width="4" height="11" rx="1" fill="#2EC4B6"/>
+                        <rect x="17" y="6" width="4" height="15" rx="1" fill="white" fill-opacity="0.6"/>
+                        <circle cx="5" cy="10" r="1.5" fill="#2EC4B6"/>
+                        <circle cx="12" cy="6" r="1.5" fill="white" fill-opacity="0.8"/>
+                        <circle cx="19" cy="3" r="1.5" fill="#2EC4B6"/>
+                        <line x1="5" y1="10" x2="12" y2="6" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <line x1="12" y1="6" x2="19" y2="3" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div>
+                    <h2>Tableau de Bord — Saint-Martin-des-Champs</h2>
+                    <p>Vision temps réel des besoins citoyens</p>
+                </div>
+            </div>
+            <div class="dash-content">
+                <!-- KPIs -->
+                <div class="dash-card">
+                    <h3>Indicateurs clés</h3>
+                    <div class="kpi-grid">
+                        <div class="kpi"><div class="kpi-value" id="kpiQuestions">847</div><div class="kpi-label">Questions ce mois</div></div>
+                        <div class="kpi"><div class="kpi-value">2.1s</div><div class="kpi-label">Temps de réponse</div></div>
+                        <div class="kpi"><div class="kpi-value">24/7</div><div class="kpi-label">Disponibilité</div></div>
+                        <div class="kpi"><div class="kpi-value">-62%</div><div class="kpi-label">Appels mairie</div></div>
+                    </div>
+                </div>
+
+                <!-- Actualités de la commune -->
+                <div class="dash-card">
+                    <h3>Actualités</h3>
+                    <div style="font-size:12px; line-height:1.8; color:#555;">
+                        <div style="margin-bottom:6px;"><strong style="color:#2EC4B6;">28 mars</strong> — Début des travaux Place du Marché</div>
+                        <div style="margin-bottom:6px;"><strong style="color:#2EC4B6;">15 mars</strong> — Ouverture Maison de Santé Pluridisciplinaire</div>
+                        <div style="margin-bottom:6px;"><strong style="color:#2EC4B6;">1er mars</strong> — Budget 2026 voté : 4,2M€</div>
+                        <div><strong style="color:#2EC4B6;">20 fév.</strong> — Piste cyclable vers Morlaix inaugurée</div>
+                    </div>
+                </div>
+
+                <!-- Activity Chart — 7 derniers jours -->
+                <div class="dash-card" style="position:relative;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                        <h3 style="margin:0;">Activité — 7 derniers jours</h3>
+                        <div id="chartWeekDelta" style="font-size:10px; color:#2EC4B6; font-weight:700;">↑ +23% cette semaine</div>
+                    </div>
+                    <div class="chart-wrapper" id="activityChartWrapper">
+                        <svg id="activityChartSvg" width="100%"></svg>
+                        <div id="activityTooltip" class="chart-tooltip"></div>
+                    </div>
+                </div>
+
+                <!-- Category bars -->
+                <div class="dash-card">
+                    <h3>Thématiques les plus demandées</h3>
+                    <div id="categoryBars"></div>
+                </div>
+
+                <!-- Satisfaction + Peak -->
+                <div class="dash-card" style="display:flex; gap:20px; align-items:center;">
+                    <div style="flex:1;">
+                        <h3>Satisfaction citoyens</h3>
+                        <div class="satisfaction-circle"></div>
+                        <div class="satisfaction-label">Score moyen sur 30 jours</div>
+                    </div>
+                    <div style="flex:1;">
+                        <h3>Pic d'activité</h3>
+                        <div style="font-size:12px; color:#555; line-height:1.8;">
+                            <div>Lundi 14h-16h <strong style="color:#2EC4B6">+45%</strong></div>
+                            <div>Mercredi matin <strong style="color:#2EC4B6">+38%</strong></div>
+                            <div>Vendredi 10h <strong style="color:#e65100">+27%</strong></div>
+                            <div style="margin-top:8px; font-size:10px; color:#aaa;">= Heures creuses de la mairie</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent questions -->
+                <div class="dash-card">
+                    <h3>Dernières questions (temps réel)</h3>
+                    <div class="recent-list" id="recentList">
+                        <div class="recent-item">
+                            <span class="q">Horaires de la déchèterie ?</span>
+                            <span class="badge badge-green">Résolu</span>
+                            <span class="time">il y a 3 min</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="q">Inscription cantine école ?</span>
+                            <span class="badge badge-green">Résolu</span>
+                            <span class="time">il y a 8 min</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="q">Peut-on construire en zone A ?</span>
+                            <span class="badge badge-orange">Redirigé</span>
+                            <span class="time">il y a 15 min</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="q">Prochain Fest-Noz ?</span>
+                            <span class="badge badge-blue">Info</span>
+                            <span class="time">il y a 22 min</span>
+                        </div>
+                        <div class="recent-item">
+                            <span class="q">Jour de collecte des poubelles ?</span>
+                            <span class="badge badge-green">Résolu</span>
+                            <span class="time">il y a 31 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaigns Card -->
+                <div class="dash-card" id="campaignCard">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h3 style="margin:0;">Campagnes Citoyennes</h3>
+                        <div style="display:flex; gap:4px;">
+                            <button onclick="showCampaignView('mairie')" id="tabMairie" style="padding:4px 10px; font-size:10px; font-weight:600; border:1.5px solid #1B2A4A; background:#1B2A4A; color:#fff; border-radius:6px; cursor:pointer; transition:all 0.2s;">Vue Mairie</button>
+                            <button onclick="showCampaignView('citoyen')" id="tabCitoyen" style="padding:4px 10px; font-size:10px; font-weight:600; border:1.5px solid #ddd; background:#fff; color:#666; border-radius:6px; cursor:pointer; transition:all 0.2s;">Vue Citoyen</button>
+                        </div>
+                    </div>
+
+                    <!-- Quota indicator -->
+                    <div style="padding:10px; background:#f0f4ff; border-radius:8px; border-left:3px solid #000091; margin-bottom:12px; font-size:12px;">
+                        <div style="font-weight:600; color:#1B2A4A; margin-bottom:4px;">Plan : Communes rurales — 2 campagnes/an</div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <div style="flex:1;">
+                                <div style="height:6px; background:#e8e8e8; border-radius:3px; overflow:hidden;">
+                                    <div style="height:100%; background:linear-gradient(90deg,#000091,#007bff); width:50%;"></div>
+                                </div>
+                            </div>
+                            <div style="color:#666; white-space:nowrap;"><strong style="color:#000091;">1</strong>/2 utilisées</div>
+                        </div>
+                    </div>
+
+                    <!-- VUE MAIRIE -->
+                    <div id="viewMairie">
+                        <div style="padding:12px; background:#f9fafb; border-radius:10px; margin-bottom:10px;">
+                            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+                                <div style="font-size:13px; font-weight:600; color:#1B2A4A;">Aménagement de la Place du Marché</div>
+                                <div style="font-size:10px; color:#2EC4B6; font-weight:600;">En cours</div>
+                            </div>
+                            <div style="font-size:11px; color:#666; margin-bottom:6px;">47 réponses / 200 cibles — Score moyen : <strong style="color:#2EC4B6;">4.2/5</strong></div>
+                            <div style="height:6px; background:#e8e8e8; border-radius:3px; overflow:hidden; margin-bottom:8px;">
+                                <div style="height:100%; background:linear-gradient(90deg,#000091,#007bff); width:23.5%; transition:width 0.5s;"></div>
+                            </div>
+                            <div style="display:flex; gap:6px;">
+                                <button onclick="showCampaignResults()" style="flex:1; padding:6px; font-size:10px; font-weight:600; background:#1B2A4A; color:#fff; border:none; border-radius:6px; cursor:pointer;">Voir résultats</button>
+                                <button onclick="sendCampaignReminder()" style="flex:1; padding:6px; font-size:10px; font-weight:600; background:#fff; color:#1B2A4A; border:1.5px solid #1B2A4A; border-radius:6px; cursor:pointer;">Relancer</button>
+                            </div>
+                        </div>
+
+                        <div style="padding:12px; background:#f0faf9; border-radius:10px; margin-bottom:10px; border-left:3px solid #2EC4B6;">
+                            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                                <div style="font-size:12px; font-weight:600; color:#1B2A4A;">Éclairage du Parc Municipal</div>
+                                <div style="font-size:10px; color:#666;">Terminée</div>
+                            </div>
+                            <div style="font-size:11px; color:#666;">182 réponses — Score : <strong style="color:#2EC4B6;">3.8/5</strong></div>
+                        </div>
+
+                        <button onclick="openCampaignCreator()" id="btnCreateCampaign" style="width:100%; padding:10px; background:#f5f7fa; border:1.5px dashed #ddd; border-radius:8px; color:#666; font-size:12px; font-weight:600; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='#eef0f5'; this.style.borderColor='#bbb';" onmouseout="this.style.background='#f5f7fa'; this.style.borderColor='#ddd';">+ Créer une campagne</button>
+
+                        <!-- Campaign Creator (hidden by default) -->
+                        <div id="campaignCreator" style="display:none; margin-top:10px; padding:14px; background:#f9fafb; border-radius:10px; border:1.5px solid #e0e0e0;">
+                            <div style="font-size:13px; font-weight:700; color:#1B2A4A; margin-bottom:10px;">Nouvelle campagne</div>
+                            <input id="campTitle" type="text" placeholder="Sujet (ex: Nouvelle aire de jeux)" style="width:100%; padding:8px 10px; border:1.5px solid #ddd; border-radius:8px; font-size:12px; font-family:Inter; margin-bottom:8px; box-sizing:border-box;">
+                            <textarea id="campDesc" placeholder="Question posée aux citoyens..." style="width:100%; padding:8px 10px; border:1.5px solid #ddd; border-radius:8px; font-size:12px; font-family:Inter; height:48px; resize:none; margin-bottom:8px; box-sizing:border-box;"></textarea>
+                            <div style="display:flex; gap:6px; margin-bottom:8px;">
+                                <select id="campType" style="flex:1; padding:8px; border:1.5px solid #ddd; border-radius:8px; font-size:11px; font-family:Inter; background:#fff;">
+                                    <option value="stars">Note 1 à 5</option>
+                                    <option value="yesno">Oui / Non</option>
+                                    <option value="nps">NPS (0-10)</option>
+                                    <option value="text">Texte libre</option>
+                                </select>
+                                <select id="campTarget" style="flex:1; padding:8px; border:1.5px solid #ddd; border-radius:8px; font-size:11px; font-family:Inter; background:#fff;">
+                                    <option value="all">Tous les citoyens</option>
+                                    <option value="quartier-centre">À l'attention du centre-bourg</option>
+                                    <option value="quartier-genets">À l'attention du quartier des Genêts</option>
+                                    <option value="quartier-keravel">À l'attention du quartier Keravel</option>
+                                    <option value="parents">À l'attention des parents d'élèves</option>
+                                    <option value="commercants">À l'attention des commerçants</option>
+                                    <option value="nouveaux">À l'attention des nouveaux arrivants</option>
+                                </select>
+                            </div>
+                            <div style="display:flex; gap:6px;">
+                                <button onclick="launchCampaign()" style="flex:1; padding:8px; font-size:12px; font-weight:700; background:linear-gradient(135deg,#000091,#007bff); color:#fff; border:none; border-radius:8px; cursor:pointer;">Lancer la campagne</button>
+                                <button onclick="closeCampaignCreator()" style="padding:8px 12px; font-size:12px; background:#fff; color:#666; border:1.5px solid #ddd; border-radius:8px; cursor:pointer;">Annuler</button>
+                            </div>
+                        </div>
+
+                        <!-- Campaign Results (hidden by default) -->
+                        <div id="campaignResults" style="display:none; margin-top:10px; padding:14px; background:#f9fafb; border-radius:10px; border:1.5px solid #e0e0e0;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                <div style="font-size:13px; font-weight:700; color:#1B2A4A;">Résultats — Aménagement de la Place du Marché</div>
+                                <button onclick="closeCampaignResults()" style="background:none; border:none; font-size:16px; cursor:pointer; color:#999;">&#x2715;</button>
+                            </div>
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+                                <div style="text-align:center; padding:10px; background:#fff; border-radius:8px;">
+                                    <div style="font-size:20px; font-weight:800; color:#2EC4B6;">4.2<span style="font-size:12px; color:#999;">/5</span></div>
+                                    <div style="font-size:10px; color:#666;">Score moyen</div>
+                                </div>
+                                <div style="text-align:center; padding:10px; background:#fff; border-radius:8px;">
+                                    <div style="font-size:20px; font-weight:800; color:#000091;">47</div>
+                                    <div style="font-size:10px; color:#666;">Réponses</div>
+                                </div>
+                            </div>
+                            <div style="font-size:11px; color:#555; margin-bottom:6px; font-weight:600;">Répartition des avis</div>
+                            <div style="display:flex; gap:3px; margin-bottom:8px; height:20px;">
+                                <div style="flex:38; background:#2EC4B6; border-radius:4px 0 0 4px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:9px; font-weight:700;">Très satisfait (38%)</div>
+                                <div style="flex:34; background:#007bff; display:flex; align-items:center; justify-content:center; color:#fff; font-size:9px; font-weight:700;">Satisfait (34%)</div>
+                                <div style="flex:17; background:#ffd93d; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700;">Neutre (17%)</div>
+                                <div style="flex:11; background:#e65100; border-radius:0 4px 4px 0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:9px; font-weight:700;">Insatisfait (11%)</div>
+                            </div>
+                            <div style="font-size:11px; color:#555; margin-bottom:6px; font-weight:600;">Derniers commentaires</div>
+                            <div style="font-size:11px; color:#666; line-height:1.6; padding:8px; background:#fff; border-radius:8px;">
+                                <div style="margin-bottom:4px;">"Excellent projet ! La place sera enfin accueillante pour le marché du mercredi."</div>
+                                <div style="margin-bottom:4px;">"Il faudrait prévoir plus de places de stationnement à proximité."</div>
+                                <div>"Les bancs et la fontaine, très bonne idée. Hâte de voir le résultat !"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VUE CITOYEN -->
+                    <div id="viewCitoyen" style="display:none;">
+                        <div style="text-align:center; padding:10px 0 6px; font-size:11px; color:#666;">
+                            Votre mairie souhaite connaître votre avis !
+                        </div>
+
+                        <div id="citizenSurvey" style="padding:16px; background:linear-gradient(135deg,#f8f9ff,#f0faf9); border-radius:12px; border:1.5px solid #e0e8f0;">
+                            <div style="font-size:14px; font-weight:700; color:#1B2A4A; margin-bottom:4px;">Aménagement de la Place du Marché</div>
+                            <div style="font-size:11px; color:#666; margin-bottom:12px;">Campagne lancée par la Mairie de Saint-Martin-des-Champs — 47 participants</div>
+                            <div style="font-size:13px; color:#333; margin-bottom:14px; line-height:1.5;">
+                                <strong>Êtes-vous satisfait(e) du projet d'aménagement de la Place du Marché ?</strong>
+                            </div>
+                            <div id="starRating" style="text-align:center; margin-bottom:14px;">
+                                <div style="font-size:10px; color:#999; margin-bottom:6px; text-transform:uppercase; letter-spacing:1px;">Votre note</div>
+                                <div style="display:flex; justify-content:center; gap:6px;" id="starsContainer">
+                                    <button onclick="selectStar(1)" class="star-btn" style="font-size:28px; background:none; border:none; cursor:pointer; transition:transform 0.15s; filter:grayscale(1) opacity(0.4);">&#11088;</button>
+                                    <button onclick="selectStar(2)" class="star-btn" style="font-size:28px; background:none; border:none; cursor:pointer; transition:transform 0.15s; filter:grayscale(1) opacity(0.4);">&#11088;</button>
+                                    <button onclick="selectStar(3)" class="star-btn" style="font-size:28px; background:none; border:none; cursor:pointer; transition:transform 0.15s; filter:grayscale(1) opacity(0.4);">&#11088;</button>
+                                    <button onclick="selectStar(4)" class="star-btn" style="font-size:28px; background:none; border:none; cursor:pointer; transition:transform 0.15s; filter:grayscale(1) opacity(0.4);">&#11088;</button>
+                                    <button onclick="selectStar(5)" class="star-btn" style="font-size:28px; background:none; border:none; cursor:pointer; transition:transform 0.15s; filter:grayscale(1) opacity(0.4);">&#11088;</button>
+                                </div>
+                                <div id="starLabel" style="font-size:11px; color:#999; margin-top:4px; min-height:16px;"></div>
+                            </div>
+                            <textarea id="citizenComment" placeholder="Laissez un commentaire (optionnel)..." style="width:100%; padding:10px; border:1.5px solid #ddd; border-radius:8px; font-size:12px; font-family:Inter; height:50px; resize:none; margin-bottom:10px; box-sizing:border-box;"></textarea>
+                            <button onclick="submitCitizenSurvey()" id="btnSubmitSurvey" style="width:100%; padding:10px; font-size:13px; font-weight:700; background:linear-gradient(135deg,#2EC4B6,#1B9E92); color:#fff; border:none; border-radius:8px; cursor:pointer; transition:all 0.2s; opacity:0.5; pointer-events:none;">Envoyer mon avis</button>
+                        </div>
+
+                        <div id="citizenThanks" style="display:none; text-align:center; padding:30px 16px;">
+                            <div style="font-size:36px; margin-bottom:10px;">&#x1F389;</div>
+                            <div style="font-size:15px; font-weight:700; color:#1B2A4A; margin-bottom:6px;">Merci pour votre avis !</div>
+                            <div style="font-size:12px; color:#666; line-height:1.5;">Votre retour aide la mairie de Saint-Martin-des-Champs à améliorer votre cadre de vie.</div>
+                        </div>
+
+                        <div style="margin-top:12px; padding:12px; background:#f0faf9; border-radius:10px; border-left:3px solid #2EC4B6;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <div>
+                                    <div style="font-size:12px; font-weight:600; color:#1B2A4A;">Éclairage du Parc Municipal</div>
+                                    <div style="font-size:10px; color:#666;">Terminée — Résultat : 3.8/5</div>
+                                </div>
+                                <div style="font-size:10px; color:#2EC4B6; font-weight:600; background:#e8f8f5; padding:3px 8px; border-radius:10px;">Vous avez participé &#x2713;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend Alert -->
+                <div class="dash-card" style="background: linear-gradient(135deg, #1B2A4A, #2C3E50); color: white; border:none;">
+                    <h3 style="color: rgba(255,255,255,0.7);">Alerte Tendance</h3>
+                    <p style="font-size: 13px; line-height: 1.7;">
+                        <strong style="color: #2EC4B6;">+340%</strong> de questions sur les <strong>déchets et collecte</strong> cette semaine.
+                        <br><span style="opacity: 0.7; font-size: 12px;">Suggestion : communiquer sur le calendrier Morlaix Communauté et les jours de collecte.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div><!-- /app-wrapper -->
+
+<!-- CTA CONVERSION BANNER -->
+<div style="position:fixed; bottom:0; left:0; right:0; background:linear-gradient(135deg, #000091 0%, #1a1a6e 100%); color:white; padding:12px 24px; display:flex; align-items:center; justify-content:center; gap:16px; z-index:1000; box-shadow:0 -4px 20px rgba(0,0,0,0.15);">
+    <span style="font-size:14px; font-weight:500;">Cette démo utilise des données fictives. <strong>Votre commune aussi peut en bénéficier.</strong></span>
+    <a href="site-civic-ia.html#contact" style="padding:10px 28px; background:#2EC4B6; color:white; text-decoration:none; border-radius:9999px; font-weight:700; font-size:14px; white-space:nowrap; transition:all 0.2s;">Demander ma démo personnalisée</a>
+    <button onclick="this.parentElement.style.display='none'" style="background:none; border:none; color:rgba(255,255,255,0.5); font-size:18px; cursor:pointer; padding:4px 8px;">✕</button>
+</div>
+
+<script>
+// ============================================
+// GLOBAL VIEW SWITCHING (Mairie / Citoyen)
+// ============================================
+let currentView = 'mairie';
+
+let campaignShownInChat = false;
+
+function switchGlobalView(view) {
+    currentView = view;
+    const chatPanel = document.getElementById('chatPanel');
+    const dashPanel = document.getElementById('dashboardPanel');
+    const tabMairieGlobal = document.getElementById('tabGlobalMairie');
+    const tabCitoyenGlobal = document.getElementById('tabGlobalCitoyen');
+    const chatTitle = document.getElementById('chatTitle');
+    const chatSubtitle = document.getElementById('chatSubtitle');
+
+    if (view === 'mairie') {
+        chatPanel.classList.remove('fullwidth');
+        dashPanel.classList.remove('hidden');
+        tabMairieGlobal.classList.add('active');
+        tabCitoyenGlobal.classList.remove('active');
+        chatTitle.textContent = 'Civik-ia — Assistant Saint-Martin-des-Champs';
+        chatSubtitle.textContent = 'Votre mairie disponible 24h/24 — 3 500 habitants';
+        // Hide campaign banner in mairie view
+        closeCampaignBanner();
+    } else {
+        chatPanel.classList.add('fullwidth');
+        dashPanel.classList.add('hidden');
+        tabCitoyenGlobal.classList.add('active');
+        tabMairieGlobal.classList.remove('active');
+        chatTitle.textContent = 'Mairie de Saint-Martin-des-Champs — Assistant en ligne';
+        chatSubtitle.textContent = 'Posez vos questions, 24h/24, 7j/7 — réponse immédiate';
+        // Show campaign in citoyen view (only once)
+        if (!campaignShownInChat) {
+            campaignShownInChat = true;
+            setTimeout(() => {
+                showCampaignBanner(
+                    'Aménagement de la Place du Marché',
+                    'Êtes-vous satisfait(e) du projet d\'aménagement de la Place du Marché ?',
+                    'stars'
+                );
+                setTimeout(() => {
+                    injectChatSurvey(
+                        'Aménagement de la Place du Marché',
+                        'Êtes-vous satisfait(e) du projet d\'aménagement de la Place du Marché ?',
+                        'stars'
+                    );
+                }, 1500);
+            }, 1000);
+        }
+    }
+}
+
+// ============================================
+// KNOWLEDGE BASE — SAINT-MARTIN-DES-CHAMPS (29600)
+// ============================================
+const knowledgeBase = [
+    // === MAIRIE & ADMINISTRATION (5 entrées) ===
+    {
+        category: 'mairie',
+        keywords: ['mairie', 'horaire', 'ouverture', 'adresse', 'contact', 'téléphone', 'email', 'accueil', 'fermeture', 'ouvert', 'fermé'],
+        response: `<strong>Mairie de Saint-Martin-des-Champs</strong><br>
+        <strong>Adresse :</strong> 12, Place de la République — 29600 Saint-Martin-des-Champs<br>
+        <strong>Téléphone :</strong> 02 98 62 14 30<br>
+        <strong>Email :</strong> mairie@saint-martin-des-champs.fr<br><br>
+        <strong>Horaires d'ouverture :</strong><br>
+        Lundi à vendredi : <strong>8h30 — 12h00</strong> / <strong>13h30 — 17h30</strong><br>
+        Samedi : <strong>9h00 — 12h00</strong> (accueil sans rendez-vous)<br>
+        <em>Dimanche et jours fériés : fermé</em><br><br>
+        <strong>Accueil sans rendez-vous :</strong> du lundi au vendredi matin (8h30-12h) et samedi matin.<br>
+        <strong>Sur rendez-vous uniquement :</strong> après-midi (13h30-17h30) pour état civil, urbanisme et affaires sociales.<br><br>
+        <em>Astuce : pour éviter l'attente, privilégiez le mardi et jeudi matin, moins fréquentés.</em>`,
+        source: 'Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'mairie',
+        keywords: ['maire', 'élu', 'conseil municipal', 'adjoint', 'équipe municipale', 'délégation', 'élus'],
+        response: `<strong>La Maire : Marie DUPONT</strong><br>
+        Élue en 2020, réélue pour un mandat de 6 ans. Permanences sur rendez-vous le mercredi après-midi.<br><br>
+        <strong>Les 5 Adjoints :</strong><br>
+        <strong>1er adjoint :</strong> Jean-Yves LE GALL — <em>Urbanisme, Travaux & Voirie</em><br>
+        <strong>2e adjointe :</strong> Nathalie KERVARREC — <em>Affaires scolaires, Enfance & Jeunesse</em><br>
+        <strong>3e adjoint :</strong> Patrick MORVAN — <em>Finances, Budget & Marchés publics</em><br>
+        <strong>4e adjointe :</strong> Sylvie COAT — <em>Culture, Associations & Vie locale</em><br>
+        <strong>5e adjoint :</strong> Yann QUÉMÉNER — <em>Environnement, Transition écologique & Cadre de vie</em><br><br>
+        Le conseil municipal est composé de <strong>23 élus</strong> (12 femmes, 11 hommes).<br>
+        Les séances sont ouvertes au public, sauf huis-clos exceptionnel.`,
+        source: 'Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'mairie',
+        keywords: ['délibération', 'décision', 'conseil', 'compte-rendu', 'vote', 'séance', 'prochain conseil', 'budget'],
+        response: `<strong>Conseil Municipal de Saint-Martin-des-Champs</strong><br><br>
+        <strong>Prochaine séance :</strong> jeudi <strong>17 avril 2026</strong> à 20h30 — Salle du Conseil, Mairie<br>
+        <em>Ordre du jour prévisionnel : subventions aux associations, travaux d'été, avis sur le PLUi modificatif.</em><br><br>
+        <strong>Dernières décisions notables (conseil du 1er mars 2026) :</strong><br>
+        Budget primitif 2026 voté : <strong>4,2 millions d'euros</strong> (+3,5% en investissement vs 2025)<br>
+        Validation du marché de travaux Place du Marché (lot 1 : VRD, lot 2 : mobilier urbain)<br>
+        Attribution de la subvention DETR (120 000€) pour la rénovation énergétique de l'école Les Alouettes<br>
+        Renouvellement de la convention déchets avec Morlaix Communauté<br><br>
+        Les comptes-rendus sont consultables en mairie ou sur demande par email à mairie@saint-martin-des-champs.fr.`,
+        source: 'Conseil municipal — Saint-Martin-des-Champs'
+    },
+    {
+        category: 'mairie',
+        keywords: ['rendez-vous', 'rdv', 'prendre rendez-vous', 'réserver', 'disponibilité'],
+        response: `<strong>Prendre rendez-vous à la mairie</strong><br><br>
+        <strong>Par téléphone :</strong> 02 98 62 14 30 (du lundi au vendredi, 8h30-12h / 13h30-17h30)<br>
+        <strong>Par email :</strong> mairie@saint-martin-des-champs.fr (précisez le motif et vos disponibilités)<br>
+        <strong>En personne :</strong> à l'accueil de la mairie aux horaires d'ouverture<br><br>
+        <strong>Délais moyens :</strong><br>
+        État civil (CNI/passeport) : <strong>3 à 5 jours ouvrés</strong><br>
+        Urbanisme : <strong>5 à 10 jours ouvrés</strong> (permanence jeudi après-midi)<br>
+        Rendez-vous avec la Maire : <strong>1 à 2 semaines</strong><br><br>
+        <em>Astuce : les rendez-vous en ligne seront bientôt disponibles sur le site de la mairie !</em>`,
+        source: 'Mairie de Saint-Martin-des-Champs — Accueil'
+    },
+    {
+        category: 'mairie',
+        keywords: ['permanence', 'permanences', 'france services', 'service social', 'assistante sociale', 'spécialisé'],
+        response: `<strong>Permanences spécialisées en mairie</strong><br><br>
+        <strong>Urbanisme :</strong> Jeudi <strong>14h00 — 17h00</strong> (avec un instructeur de Morlaix Communauté, sur RDV)<br>
+        <strong>Service social (CCAS) :</strong> Mardi et jeudi <strong>9h00 — 12h00</strong> (sans RDV, avec l'assistante sociale du département)<br>
+        <strong>France Services :</strong> Mercredi <strong>9h00 — 12h30</strong> / <strong>13h30 — 16h30</strong> (aide aux démarches CAF, CPAM, impôts, Pôle emploi, ANTS...)<br>
+        <strong>Permanence juridique :</strong> 1er lundi du mois, <strong>14h00 — 17h00</strong> (gratuit, sur RDV)<br>
+        <strong>Permanence élus :</strong> Mercredi <strong>14h00 — 16h00</strong> (la Maire ou un adjoint reçoit sur RDV)<br><br>
+        <strong>Réservation :</strong> Toutes les permanences sur RDV au 02 98 62 14 30, sauf le service social (sans RDV).`,
+        source: 'Mairie de Saint-Martin-des-Champs — Services'
+    },
+
+    // === ÉTAT CIVIL (4 entrées) ===
+    {
+        category: 'etat-civil',
+        keywords: ['carte', 'identité', 'cni', 'pièce d\'identité', 'carte identité'],
+        response: `<strong>Carte Nationale d'Identité (CNI)</strong><br>
+        <strong>Gratuite</strong> (renouvellement ou première demande) — Validité : <strong>15 ans</strong> (adultes), <strong>10 ans</strong> (mineurs)<br><br>
+        <strong>Étape par étape :</strong><br>
+        <strong>1.</strong> Faites votre <strong>pré-demande en ligne</strong> sur <strong>ants.gouv.fr</strong> — notez le numéro de pré-demande<br>
+        <strong>2.</strong> Prenez <strong>rendez-vous en mairie</strong> au 02 98 62 14 30 (délai moyen : 3-5 jours)<br>
+        <strong>3.</strong> Présentez-vous avec les pièces suivantes :<br>
+        &nbsp;&nbsp;• Photo d'identité aux normes (< 6 mois, fond clair uni)<br>
+        &nbsp;&nbsp;• Justificatif de domicile (< 1 an : facture énergie, avis d'imposition, quittance)<br>
+        &nbsp;&nbsp;• Acte de naissance (< 3 mois si né en France, < 6 mois si né à l'étranger)<br>
+        &nbsp;&nbsp;• Ancienne CNI (si renouvellement)<br>
+        <strong>4.</strong> Recevez un SMS quand la carte est prête — retrait en mairie sous <strong>3 mois</strong><br><br>
+        <strong>Délai de fabrication :</strong> environ <strong>2 à 3 semaines</strong> (hors été : 4 à 6 semaines de juin à août)<br><br>
+        <em>Astuces : faites votre photo en cabine agréée (pharmacie ou Photomaton), et anticipez si vous voyagez !</em>`,
+        source: 'Service état civil — Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'etat-civil',
+        keywords: ['passeport', 'voyage', 'biométrique', 'tarif passeport', 'prix passeport'],
+        response: `<strong>Passeport biométrique</strong><br>
+        <strong>Validité :</strong> 10 ans (adultes), 5 ans (mineurs)<br><br>
+        <strong>Tarifs (en timbres fiscaux) :</strong><br>
+        Adulte (18 ans et +) : <strong>86€</strong><br>
+        Mineur 15-17 ans : <strong>42€</strong><br>
+        Mineur < 15 ans : <strong>17€</strong><br>
+        <em>Achat du timbre fiscal sur timbres.impots.gouv.fr ou en bureau de tabac.</em><br><br>
+        <strong>Démarches :</strong><br>
+        <strong>1.</strong> Pré-demande sur <strong>ants.gouv.fr</strong><br>
+        <strong>2.</strong> Rendez-vous en mairie avec : photo, justificatif de domicile, acte de naissance, timbre fiscal, ancienne pièce d'identité<br>
+        <strong>3.</strong> Empreintes digitales prises sur place (à partir de 12 ans)<br><br>
+        <strong>Délais :</strong><br>
+        Hors saison (sept-avril) : <strong>2 à 3 semaines</strong><br>
+        Période estivale (mai-août) : <strong>4 à 8 semaines</strong> — anticipez !<br><br>
+        <em>Conseil : faites la demande au moins 3 mois avant votre voyage en été.</em>`,
+        source: 'Service état civil — Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'etat-civil',
+        keywords: ['naissance', 'décès', 'acte', 'certificat', 'état civil', 'etat civil', 'extrait', 'copie intégrale'],
+        response: `<strong>Actes d'état civil — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Acte de naissance :</strong><br>
+        En ligne : <strong>service-public.fr</strong> (gratuit, reçu sous 5 à 10 jours par courrier)<br>
+        En mairie : sur présentation d'une pièce d'identité et justification du lien (pour copie intégrale)<br>
+        <em>Seule la mairie du lieu de naissance peut délivrer l'acte.</em><br><br>
+        <strong>Acte de mariage :</strong><br>
+        Délivré par la mairie du lieu de célébration — demande en ligne ou en mairie.<br><br>
+        <strong>Acte de décès :</strong><br>
+        Toute personne peut en faire la demande (pas de restriction). Disponible immédiatement en mairie.<br><br>
+        <strong>Formats disponibles :</strong> copie intégrale, extrait avec filiation, extrait sans filiation.<br>
+        <strong>Coût :</strong> <strong>Gratuit</strong> dans tous les cas.<br>
+        <strong>Délai en mairie :</strong> immédiat si acte disponible dans les registres locaux.`,
+        source: 'Service état civil — Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'etat-civil',
+        keywords: ['mariage', 'pacs', 'pacser', 'se marier', 'noce', 'cérémonie', 'union'],
+        response: `<strong>Mariage & PACS à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Mariage civil :</strong><br>
+        <strong>1.</strong> Retirer le dossier en mairie ou le télécharger sur service-public.fr<br>
+        <strong>2.</strong> Déposer le dossier complet <strong>au moins 2 mois avant</strong> la date souhaitée<br>
+        <strong>3.</strong> Publication des bans pendant 10 jours<br>
+        <strong>4.</strong> Cérémonie en Salle des Mariages (capacité : 60 places, décor soigné)<br>
+        <strong>Pièces :</strong> actes de naissance (< 3 mois), pièces d'identité, justificatif de domicile, liste des témoins (2 à 4)<br>
+        <strong>Coût :</strong> gratuit<br>
+        <strong>Créneaux :</strong> samedi de 10h à 17h (sur réservation), en semaine sur demande<br><br>
+        <strong>PACS :</strong><br>
+        Enregistré en mairie depuis novembre 2017 (plus au tribunal).<br>
+        Rendez-vous au 02 98 62 14 30 — délai : environ <strong>3 semaines</strong>.<br>
+        <strong>Pièces :</strong> convention de PACS (modèle sur service-public.fr), pièces d'identité, actes de naissance (< 3 mois).`,
+        source: 'Service état civil — Mairie de Saint-Martin-des-Champs'
+    },
+
+    // === DÉCHETS & ENVIRONNEMENT (3 entrées) ===
+    {
+        category: 'dechets',
+        keywords: ['déchet', 'poubelle', 'ordure', 'collecte', 'ramassage', 'tri', 'recyclage', 'bac', 'jaune', 'gris', 'verre', 'quel jour'],
+        response: `<strong>Collecte des déchets — Morlaix Communauté</strong><br><br>
+        <strong>Ordures ménagères (bac gris) :</strong> <strong>Mardi matin</strong> — sortir le bac la veille au soir avant 20h<br>
+        <strong>Tri sélectif (bac jaune) :</strong> <strong>Jeudi matin</strong> — plastiques, cartons, papiers, conserves, briques alimentaires<br><br>
+        <strong>Points d'apport volontaire (verre) :</strong><br>
+        &nbsp;&nbsp;• Parking Super U — Route de Morlaix<br>
+        &nbsp;&nbsp;• Place de l'Église — centre-bourg<br>
+        &nbsp;&nbsp;• Salle des Fêtes — Rue du Stade<br><br>
+        <strong>Composteur individuel :</strong> subventionné à <strong>70%</strong> par Morlaix Communauté ! Coût résiduel : environ <strong>15€</strong> (modèle 400L).<br>
+        Retrait sur inscription au 02 98 15 29 29 (Morlaix Communauté).<br><br>
+        <strong>Erreurs de tri fréquentes :</strong> les mouchoirs/essuie-tout vont dans le bac gris (pas le jaune), le verre ne va JAMAIS dans le bac jaune.<br><br>
+        <em>Calendrier complet téléchargeable sur morlaix-communaute.bzh/dechets</em>`,
+        source: 'Morlaix Communauté — Service déchets'
+    },
+    {
+        category: 'dechets',
+        keywords: ['déchèterie', 'déchetterie', 'encombrant', 'gros déchet', 'meuble', 'électroménager', 'badge'],
+        response: `<strong>Déchèteries proches de Saint-Martin-des-Champs</strong><br><br>
+        <strong>1. Déchèterie de Saint-Martin-des-Champs</strong><br>
+        Zone Artisanale de Keriven — <strong>2 km</strong> du centre-bourg<br>
+        Horaires : Lundi-samedi <strong>9h00-12h00 / 14h00-18h00</strong> (17h en hiver)<br>
+        Fermée dimanche et jours fériés<br><br>
+        <strong>2. Déchèterie de Morlaix — Plourin-lès-Morlaix</strong><br>
+        Route de Plourin — <strong>5 km</strong><br>
+        Mêmes horaires, plus grande capacité (bennes supplémentaires pour gravats et déchets verts)<br><br>
+        <strong>Accès :</strong> <strong>Gratuit</strong> avec badge résident. Badge à retirer gratuitement en mairie sur présentation d'un justificatif de domicile.<br>
+        <strong>Acceptés :</strong> encombrants, DEEE (électroménager), bois, métaux, gravats (limité à 1m³/semaine), cartons, huiles, piles, peintures, déchets verts.<br>
+        <strong>Refusés :</strong> amiante, pneus (dépôt en garage), bouteilles de gaz (retour fournisseur).`,
+        source: 'Morlaix Communauté — Déchèteries'
+    },
+    {
+        category: 'dechets',
+        keywords: ['compost', 'compostage', 'déchet vert', 'déchets verts', 'broyeur', 'tonte', 'feuille', 'branchage'],
+        response: `<strong>Compostage & Déchets verts à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Composteur individuel :</strong><br>
+        Subventionné à 70% par Morlaix Communauté — environ <strong>15€</strong> à votre charge (modèle 400L).<br>
+        Inscription : 02 98 15 29 29 ou en ligne sur morlaix-communaute.bzh<br>
+        Livraison à domicile + guide de démarrage fourni.<br><br>
+        <strong>Broyeur municipal gratuit :</strong><br>
+        La commune met à disposition un <strong>broyeur à végétaux</strong> pour les particuliers.<br>
+        Prêt gratuit sur réservation au 02 98 62 14 30 (service technique).<br>
+        Disponible du lundi au vendredi — à récupérer aux ateliers municipaux.<br><br>
+        <strong>Rappel :</strong> le <strong>brûlage des déchets verts est interdit</strong> toute l'année (arrêté préfectoral). Les déchets verts se déposent en déchèterie ou se compostent.<br><br>
+        <em>Bon à savoir : les tontes de gazon font d'excellents paillis au pied des haies et arbustes !</em>`,
+        source: 'Morlaix Communauté — Prévention déchets'
+    },
+
+    // === ÉCOLE & ENFANCE (3 entrées) ===
+    {
+        category: 'ecole',
+        keywords: ['école', 'ecole', 'primaire', 'maternelle', 'inscription', 'scolaire', 'rentrée', 'élève', 'collège', 'lycée'],
+        response: `<strong>Établissements scolaires — Saint-Martin-des-Champs</strong><br><br>
+        <strong>École publique Les Alouettes</strong><br>
+        12, Rue des Écoles — <strong>142 élèves</strong> répartis en 6 classes (PS au CM2)<br>
+        Directrice : Mme GUÉGUEN — Tél : 02 98 62 11 45<br><br>
+        <strong>École privée Saint-Joseph</strong><br>
+        8, Rue de la Chapelle — <strong>68 élèves</strong> répartis en 3 classes (PS au CM2)<br>
+        Directeur : M. ABGRALL — Tél : 02 98 62 17 20<br><br>
+        <strong>Collège de secteur :</strong> Collège du Château — Morlaix (3 km)<br>
+        <strong>Lycée de secteur :</strong> Lycée Tristan Corbière — Morlaix (4 km)<br><br>
+        <strong>Inscription école publique :</strong><br>
+        En mairie avec livret de famille, justificatif de domicile et carnet de santé (vaccinations à jour).<br>
+        Inscriptions pour septembre ouvertes <strong>dès mars</strong> chaque année.`,
+        source: 'Mairie de Saint-Martin-des-Champs — Service scolaire'
+    },
+    {
+        category: 'ecole',
+        keywords: ['cantine', 'repas', 'restaurant scolaire', 'périscolaire', 'garderie', 'après école', 'tarif cantine', 'centre de loisirs'],
+        response: `<strong>Cantine, périscolaire & centre de loisirs</strong><br><br>
+        <strong>Cantine scolaire (école Les Alouettes) :</strong><br>
+        Repas préparés sur place chaque jour (cuisine centrale municipale), menu bio 40%.<br>
+        <strong>Tarifs par quotient familial (QF) :</strong><br>
+        &nbsp;&nbsp;• QF < 500 : <strong>1,50€</strong> / repas<br>
+        &nbsp;&nbsp;• QF 500-800 : <strong>2,80€</strong> / repas<br>
+        &nbsp;&nbsp;• QF 800-1200 : <strong>3,80€</strong> / repas<br>
+        &nbsp;&nbsp;• QF > 1200 : <strong>4,50€</strong> / repas<br><br>
+        <strong>Garderie périscolaire :</strong><br>
+        Matin : <strong>7h30 — 8h35</strong> (1,50€/séance)<br>
+        Soir : <strong>16h30 — 18h30</strong> (2,00€/séance)<br><br>
+        <strong>Centre de loisirs (mercredi) :</strong><br>
+        De <strong>7h30 à 18h30</strong> — activités sportives, créatives et sorties.<br>
+        Tarif : <strong>8 à 18€/journée</strong> selon QF (repas inclus).<br><br>
+        Inscription : en mairie, service Enfance — 02 98 62 14 30.`,
+        source: 'Mairie de Saint-Martin-des-Champs — Service enfance'
+    },
+    {
+        category: 'ecole',
+        keywords: ['crèche', 'petite enfance', 'bébé', 'assistante maternelle', 'nounou', 'garde enfant', 'relais', 'ram', 'rpe'],
+        response: `<strong>Petite enfance à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Crèche municipale "Les P'tits Korrigans"</strong><br>
+        5, Rue des Lavandières — <strong>25 places</strong> (3 mois à 3 ans)<br>
+        Horaires : Lundi-vendredi <strong>7h30 — 18h30</strong><br>
+        Tarif : calculé par la CAF selon vos revenus (barème national PSU)<br>
+        <strong>Inscription :</strong> dossier à déposer dès la grossesse confirmée (liste d'attente de 3-6 mois).<br>
+        Contact : 02 98 62 19 50 — creche@saint-martin-des-champs.fr<br><br>
+        <strong>Assistantes maternelles agréées :</strong><br>
+        <strong>14 assistantes maternelles</strong> en activité sur la commune (environ 45 places disponibles).<br>
+        Liste actualisée disponible au Relais Petite Enfance (RPE) ou en mairie.<br><br>
+        <strong>Relais Petite Enfance (RPE) :</strong><br>
+        Espace de rencontre parents/assistantes maternelles — ateliers d'éveil le mardi matin.<br>
+        Contact RPE : 02 98 15 29 40 (Morlaix Communauté).`,
+        source: 'Mairie de Saint-Martin-des-Champs — Petite enfance'
+    },
+
+    // === EAU & ASSAINISSEMENT (1 entrée enrichie) ===
+    {
+        category: 'eau',
+        keywords: ['eau', 'assainissement', 'facture eau', 'fuite', 'compteur', 'coupure', 'spanc', 'fosse septique', 'qualité eau', 'prix eau'],
+        response: `<strong>Eau & Assainissement — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Distributeur :</strong> <strong>Véolia</strong> pour le compte de Morlaix Communauté<br>
+        <strong>Prix moyen :</strong> 3,85€/m³ TTC (eau + assainissement collectif, base 120m³/an)<br>
+        <strong>Qualité :</strong> eau conforme à 100% des analyses ARS en 2025 (résultats affichés en mairie et sur eaupotable.sante.gouv.fr)<br><br>
+        <strong>Contacts Véolia :</strong><br>
+        Service client : <strong>09 69 32 35 29</strong> (lun-ven 8h-19h, sam 8h-13h)<br>
+        <strong>Urgence fuite / coupure : 09 69 32 35 29 (24h/24, 7j/7)</strong><br>
+        En ligne : veolia.fr/eau/mon-espace<br><br>
+        <strong>Assainissement non collectif (SPANC) :</strong><br>
+        Si votre habitation n'est pas raccordée au tout-à-l'égout, le SPANC de Morlaix Communauté contrôle votre installation.<br>
+        Contrôle obligatoire tous les <strong>10 ans</strong> — Contact SPANC : 02 98 15 29 29<br><br>
+        <em>En cas de fuite sur le domaine public (chaussée, trottoir), appelez immédiatement Véolia ou la mairie.</em>`,
+        source: 'Morlaix Communauté / Véolia'
+    },
+
+    // === PATRIMOINE & HISTOIRE (2 entrées) ===
+    {
+        category: 'patrimoine',
+        keywords: ['histoire', 'patrimoine', 'église', 'saint-martin', 'monument', 'historique', 'ancien', 'chapelle', 'manoir', 'sentier', 'visite'],
+        response: `<strong>Patrimoine de Saint-Martin-des-Champs</strong><br><br>
+        <strong>Église Saint-Martin (XVe siècle)</strong><br>
+        Édifice classé Monument Historique. Architecture gothique bretonne, clocher à balcon remarquable, retable polychrome du XVIIe. Ouverte tous les jours 9h-18h (libre accès).<br><br>
+        <strong>Chapelle Notre-Dame-de-la-Fontaine (XVIe siècle)</strong><br>
+        Chapelle de dévotion populaire avec fontaine miraculeuse restaurée en 2019. Pardon annuel le 15 août.<br><br>
+        <strong>Manoir de Kergoat (XVIIe siècle)</strong><br>
+        Propriété privée visible depuis le chemin communal. Façade en granit avec tourelle d'escalier. Ouvert exceptionnellement aux Journées du Patrimoine.<br><br>
+        <strong>Sentier du Patrimoine</strong><br>
+        Boucle de <strong>4,5 km</strong> (1h30 de marche) reliant les 12 points d'intérêt historiques de la commune. Départ : parvis de l'église. Panneau d'interprétation à chaque étape. Balisage jaune.<br><br>
+        <em>Visites guidées gratuites aux Journées du Patrimoine (3e week-end de septembre).</em>`,
+        source: 'Office de Tourisme — Baie de Morlaix'
+    },
+    {
+        category: 'patrimoine',
+        keywords: ['commune', 'village', 'population', 'habitants', 'martinois', 'géographie', 'superficie', 'chiffres', 'densité', 'climat'],
+        response: `<strong>Saint-Martin-des-Champs en chiffres</strong><br><br>
+        <strong>Population :</strong> 3 500 habitants (les <em>Martinois</em> et <em>Martinoises</em>)<br>
+        <strong>Code postal :</strong> 29600 &nbsp;|&nbsp; <strong>Code INSEE :</strong> 29225<br>
+        <strong>Département :</strong> Finistère (29) &nbsp;|&nbsp; <strong>Région :</strong> Bretagne<br>
+        <strong>Superficie :</strong> 12,4 km² &nbsp;|&nbsp; <strong>Densité :</strong> 282 hab./km²<br>
+        <strong>Altitude :</strong> 12 à 118 mètres<br>
+        <strong>Intercommunalité :</strong> Morlaix Communauté (26 communes, 65 000 hab.)<br><br>
+        <strong>Situation :</strong> En périphérie immédiate de Morlaix, à 60 km de Brest et 175 km de Rennes. Accès direct par la RN12 (voie express).<br><br>
+        <strong>Climat :</strong> Océanique tempéré — température moyenne 11,5°C, pluviométrie ~1 000 mm/an. Hivers doux (5-8°C), étés frais (18-22°C).<br><br>
+        Commune résidentielle dynamique bénéficiant du bassin d'emploi de Morlaix, d'un cadre verdoyant et de tous les services de proximité.`,
+        source: 'INSEE / Données géographiques'
+    },
+
+    // === CULTURE & ÉVÉNEMENTS (3 entrées) ===
+    {
+        category: 'culture',
+        keywords: ['fest-noz', 'fest', 'noz', 'fête', 'festival', 'événement', 'animation', 'brocante', 'marché', 'agenda', 'noël', 'fête de la musique'],
+        response: `<strong>Agenda des événements — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Marché hebdomadaire :</strong> chaque <strong>mercredi matin</strong> (7h-13h), Place du Marché — producteurs locaux, primeurs, poissonnerie, crêperie, fromages fermiers (~15 exposants)<br><br>
+        <strong>Événements à venir :</strong><br>
+        <strong>11 mai 2026</strong> — Grande Brocante & Vide-grenier (Place du Marché + Rue de la Fontaine, ~120 exposants, buvette)<br>
+        <strong>21 juin 2026</strong> — Fête de la Musique (3 scènes : jazz au parc, rock place de l'Église, fest-noz place du Marché)<br>
+        <strong>12 juillet 2026</strong> — Fest-Noz annuel (Comité des Fêtes, groupes Startijenn et Plantec, entrée 8€, gratuit < 12 ans)<br>
+        <strong>15 août 2026</strong> — Pardon de Notre-Dame-de-la-Fontaine (procession + repas champêtre)<br>
+        <strong>6 décembre 2026</strong> — Marché de Noël (chalets artisans, vin chaud, patinoire, spectacle pour enfants)<br><br>
+        <em>Retrouvez l'agenda complet sur les panneaux d'affichage communaux et la page Facebook "Saint-Martin-des-Champs Officiel".</em>`,
+        source: 'Mairie de Saint-Martin-des-Champs — Vie locale'
+    },
+    {
+        category: 'culture',
+        keywords: ['association', 'sport', 'loisir', 'football', 'randonnée', 'club', 'tennis', 'forum', 'bénévole'],
+        response: `<strong>Vie associative à Saint-Martin-des-Champs — 28 associations</strong><br><br>
+        <strong>Sport :</strong><br>
+        AS Saint-Martin Football — 180 licenciés, toutes catégories (stade municipal, entraînements mer. + sam.)<br>
+        Tennis Club Martinois — 2 courts couverts + 2 extérieurs, cours et compétitions<br>
+        Randonneurs du Pays de Morlaix — sorties hebdomadaires (dimanche 9h, parking mairie)<br>
+        Yoga Harmony — cours lundi et jeudi soir (salle des fêtes)<br><br>
+        <strong>Culture :</strong><br>
+        Comité des Fêtes — organisation du Fest-Noz, brocante, marché de Noël<br>
+        Chorale An Dour — 35 choristes, répertoire breton et classique<br>
+        Atelier Peinture Martinois — expositions annuelles<br><br>
+        <strong>Solidarité :</strong><br>
+        Les Restos du Cœur (antenne locale) — distribution alimentaire mercredi matin<br>
+        Secours Populaire — permanence en mairie le 1er vendredi du mois<br>
+        Aînés Martinois — club senior, sorties et repas mensuels<br><br>
+        <strong>Forum des associations :</strong> samedi <strong>6 septembre 2026</strong>, salle des fêtes, 10h-17h (inscription gratuite).`,
+        source: 'Mairie de Saint-Martin-des-Champs — Annuaire des associations'
+    },
+    {
+        category: 'culture',
+        keywords: ['médiathèque', 'bibliothèque', 'livre', 'lecture', 'prêt', 'numérique', 'heure du conte'],
+        response: `<strong>Médiathèque municipale — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Adresse :</strong> 3, Rue des Lavandières (à côté de la crèche)<br><br>
+        <strong>Horaires :</strong><br>
+        Mardi : <strong>14h00 — 18h00</strong><br>
+        Mercredi : <strong>10h00 — 12h30</strong> / <strong>14h00 — 18h00</strong><br>
+        Vendredi : <strong>16h00 — 19h00</strong><br>
+        Samedi : <strong>10h00 — 12h30</strong><br><br>
+        <strong>Services :</strong><br>
+        <strong>Prêt gratuit</strong> pour tous les habitants de la commune (inscription sur présentation d'un justificatif de domicile)<br>
+        Fonds : <strong>8 500 ouvrages</strong> (adultes, jeunesse, BD, DVD, CD)<br>
+        <strong>Espace numérique :</strong> 3 postes informatiques avec accès internet (gratuit, créneaux de 1h)<br>
+        <strong>Heure du conte :</strong> mercredi à <strong>10h30</strong> pour les 3-6 ans (gratuit, sans inscription)<br>
+        <strong>Club de lecture adultes :</strong> 1er vendredi du mois à 18h<br><br>
+        <em>Réseau : la médiathèque participe au réseau intercommunal — empruntez dans toutes les médiathèques de Morlaix Communauté avec votre carte unique.</em>`,
+        source: 'Médiathèque de Saint-Martin-des-Champs'
+    },
+
+    // === URBANISME (7 entrées) ===
+    {
+        category: 'urbanisme',
+        keywords: ['plu', 'urbanisme', 'construire', 'construction', 'terrain', 'zone', 'cadastre', 'PLUi', 'constructible'],
+        response: `<strong>PLUi de Morlaix Communauté — Règles applicables à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Zones principales :</strong><br>
+        <strong>Zone U</strong> (Urbaine) : centre-bourg et extensions — constructible sous conditions<br>
+        <strong>Zone AU</strong> (À Urbaniser) : secteurs ouverts à l'urbanisation future, selon OAP (Orientations d'Aménagement et de Programmation)<br>
+        <strong>Zone A</strong> (Agricole) : construction très limitée, uniquement liée à l'exploitation agricole<br>
+        <strong>Zone N</strong> (Naturelle) : protection des espaces naturels, boisements et cours d'eau<br><br>
+        <strong>Règles générales en zone U :</strong><br>
+        Hauteur max au faîtage : <strong>9 mètres</strong> (R+1+combles)<br>
+        Emprise au sol max : <strong>60%</strong> de la parcelle<br>
+        Recul minimum / voie publique : <strong>5 mètres</strong><br>
+        Stationnement : <strong>2 places minimum</strong> par logement neuf<br><br>
+        <strong>Consultation du zonage :</strong> en mairie (service urbanisme) ou sur <strong>geoportail-urbanisme.gouv.fr</strong><br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'PLUi Morlaix Communauté — Service urbanisme'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['clôture', 'cloture', 'mur', 'grillage', 'séparation', 'limite', 'propriété', 'voisin', 'mitoyen'],
+        response: `<strong>Règles applicables aux clôtures — Saint-Martin-des-Champs</strong><br><br>
+        <strong>En zone urbaine (U) :</strong><br>
+        Hauteur max en limite séparative : <strong>1,80 m</strong><br>
+        Hauteur max en bordure de voie publique : <strong>1,60 m</strong> (partie pleine) ou <strong>1,80 m</strong> si grillage ajouré<br><br>
+        <strong>Matériaux recommandés :</strong> pierre locale, enduit ton pierre, grillage rigide vert, haie vive<br>
+        <strong>Interdit :</strong> plaques béton apparentes, tôles, matériaux de récupération, canisses PVC<br><br>
+        <strong>Déclaration préalable obligatoire</strong> pour toute clôture nouvelle (Cerfa n°13703*03).<br>
+        En périmètre Monuments Historiques (100m autour de l'église) : avis ABF obligatoire.<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'PLUi Morlaix Communauté — Service urbanisme'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['hauteur', 'étage', 'immeuble', 'bâtiment', 'maximum', 'gabarit', 'faîtage', 'égout', 'toiture'],
+        response: `<strong>Hauteur maximale des constructions — Saint-Martin-des-Champs</strong><br><br>
+        <strong>En zone urbaine (U) :</strong><br>
+        Hauteur au faîtage : <strong>9 mètres maximum</strong> (R+1+combles)<br>
+        Hauteur à l'égout du toit : <strong>6 mètres maximum</strong><br><br>
+        <strong>En zone AU :</strong><br>
+        Hauteur au faîtage : <strong>9 mètres</strong><br><br>
+        <strong>Annexes</strong> (garages, abris) : <strong>3,50 m</strong> au faîtage, <strong>50 m²</strong> d'emprise max.<br><br>
+        <strong>Exceptions :</strong> les bâtiments agricoles en zone A peuvent atteindre <strong>12 mètres</strong> au faîtage sous conditions.<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'PLUi Morlaix Communauté'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['permis', 'construire', 'déclaration', 'préalable', 'autorisation', 'dossier', 'cerfa', 'délai', 'déposer'],
+        response: `<strong>Autorisations d'urbanisme à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Permis de construire</strong> (surface > 20 m²) :<br>
+        Cerfa n°13406*13 — Délai d'instruction : <strong>2 mois</strong> (maison individuelle) / <strong>3 mois</strong> (autres)<br>
+        Dossier en <strong>4 exemplaires</strong> (5 si périmètre ABF)<br><br>
+        <strong>Déclaration préalable</strong> (5 à 20 m²) :<br>
+        Cerfa n°13703*03 — Délai : <strong>1 mois</strong><br>
+        Dossier en <strong>2 exemplaires</strong><br><br>
+        <strong>Pas d'autorisation :</strong> surface < 5 m² ET hauteur < 1,80 m<br><br>
+        <strong>Où déposer :</strong> en mairie (accueil) ou par courrier RAR. Le récépissé avec date de dépôt vous sera remis.<br>
+        <strong>Attention :</strong> surface totale après travaux > 150 m² = <strong>architecte obligatoire</strong>.<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> — un instructeur vous aide à monter votre dossier. RDV au 02 98 62 14 30.`,
+        source: 'Service urbanisme — Mairie de Saint-Martin-des-Champs'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['implantation', 'recul', 'retrait', 'distance', 'limite', 'parcelle', 'alignement', 'voie'],
+        response: `<strong>Règles d'implantation — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Par rapport à la voie publique :</strong><br>
+        Centre-bourg : construction à l'<strong>alignement</strong> ou recul de <strong>5 mètres</strong><br>
+        Hors centre : recul minimum de <strong>5 mètres</strong> par rapport à l'axe de la voie<br><br>
+        <strong>Par rapport aux limites séparatives :</strong><br>
+        Construction en limite : autorisée si hauteur &#8804; 3 m<br>
+        Sinon : retrait minimum = <strong>la moitié de la hauteur</strong> (min. 3 m)<br><br>
+        Entre deux bâtiments sur même parcelle : <strong>4 mètres</strong> minimum.<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'PLUi Morlaix Communauté — Service urbanisme'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['abri', 'jardin', 'cabanon', 'garage', 'annexe', 'carport', 'piscine', 'véranda', 'extension'],
+        response: `<strong>Constructions annexes et extensions — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Abri de jardin / garage :</strong><br>
+        Surface &#8804; 5 m² et hauteur &#8804; 1,80 m : aucune formalité<br>
+        Entre 5 et 20 m² : déclaration préalable<br>
+        Plus de 20 m² : permis de construire<br><br>
+        <strong>Piscine :</strong><br>
+        Bassin &#8804; 10 m² : pas de formalité<br>
+        10 à 100 m² sans abri haut : déclaration préalable<br>
+        Plus de 100 m² ou abri > 1,80 m : permis de construire<br><br>
+        <strong>Véranda / Extension :</strong><br>
+        < 20 m² (ou < 40 m² en zone U si surface totale reste < 150 m²) : déclaration préalable<br>
+        Au-delà : permis de construire + architecte si > 150 m² au total<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'Code de l\'urbanisme / Service urbanisme Saint-Martin-des-Champs'
+    },
+    {
+        category: 'urbanisme',
+        keywords: ['façade', 'ravalement', 'couleur', 'volet', 'toiture', 'matériau', 'aspect', 'extérieur', 'enduit'],
+        response: `<strong>Aspect extérieur des constructions — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Façades :</strong> tons <strong>pierre locale</strong> (granit gris, enduit ton pierre). Bardage bois autorisé en complément.<br>
+        <strong>Interdit :</strong> couleurs vives, bardage métallique visible depuis l'espace public.<br><br>
+        <strong>Toitures :</strong> pente <strong>40° à 50°</strong>, ardoise naturelle privilégiée (tradition bretonne). Panneaux solaires : autorisés si encastrés ou posés à plat (non visibles depuis la voie).<br><br>
+        <strong>Volets :</strong> bois peint, PVC teinte bois/gris, aluminium laqué. Coffres de volets roulants non visibles depuis la voie.<br><br>
+        En périmètre <strong>Monuments Historiques</strong> (100m autour de l'église Saint-Martin) : avis de l'<strong>ABF</strong> (Architecte des Bâtiments de France) obligatoire. Délai supplémentaire d'1 mois.<br><br>
+        <strong>Permanence urbanisme :</strong> jeudi <strong>14h-17h</strong> sur RDV au 02 98 62 14 30.`,
+        source: 'PLUi Morlaix Communauté / ABF'
+    },
+
+    // === INTERCOMMUNALITÉ (1 entrée enrichie) ===
+    {
+        category: 'intercommunalite',
+        keywords: ['morlaix', 'communauté', 'agglomération', 'intercommunalité', 'territoire', 'interco'],
+        response: `<strong>Morlaix Communauté</strong><br>
+        Saint-Martin-des-Champs fait partie de <strong>Morlaix Communauté</strong>, intercommunalité regroupant <strong>26 communes</strong> et <strong>65 000 habitants</strong>.<br><br>
+        <strong>Compétences exercées par Morlaix Communauté :</strong><br>
+        Eau potable et assainissement (Véolia en délégation)<br>
+        Collecte et traitement des déchets (tri, déchèteries, compostage)<br>
+        Transports et mobilités (réseau BreizhGo, aires de covoiturage)<br>
+        Développement économique et zones d'activité<br>
+        Aménagement du territoire et PLUi<br>
+        Habitat et politique de la ville (OPAH, logement social)<br>
+        Sport : piscine intercommunale, gymnases<br>
+        Tourisme (Office de Tourisme Baie de Morlaix)<br><br>
+        <strong>Siège :</strong> 2 bis voie d'accès au port — 29600 Morlaix<br>
+        <strong>Contact :</strong> 02 98 15 29 29 — morlaix-communaute.bzh`,
+        source: 'Morlaix Communauté'
+    },
+
+    // === ÉLECTIONS (1 entrée enrichie) ===
+    {
+        category: 'elections',
+        keywords: ['élection', 'vote', 'scrutin', 'bureau de vote', 'résultat', 'municipales', 'inscription', 'liste électorale', 'procuration', 'carte électeur'],
+        response: `<strong>Élections à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Maire en exercice :</strong> <strong>Marie DUPONT</strong> (élue en 2020)<br>
+        <strong>Conseil municipal :</strong> 23 élus (majorité : "Saint-Martin Ensemble")<br><br>
+        <strong>Inscription sur les listes électorales :</strong><br>
+        En mairie avec pièce d'identité + justificatif de domicile, ou en ligne sur <strong>service-public.fr</strong><br>
+        Date limite : 6e vendredi avant le scrutin<br>
+        Les jeunes de 18 ans sont inscrits automatiquement (vérifier quand même !)<br><br>
+        <strong>Bureaux de vote :</strong><br>
+        Bureau n°1 : Salle des Fêtes — 18 Rue du Stade<br>
+        Bureau n°2 : École Les Alouettes — 12 Rue des Écoles<br>
+        Ouverture : <strong>8h — 18h</strong> le jour du scrutin<br><br>
+        <strong>Procuration :</strong> en ligne sur <strong>maprocuration.gouv.fr</strong> (validée ensuite au commissariat ou gendarmerie).<br>
+        <strong>Carte d'électeur :</strong> envoyée à domicile avant chaque scrutin (non obligatoire pour voter, la pièce d'identité suffit).`,
+        source: 'Mairie de Saint-Martin-des-Champs — Service élections'
+    },
+
+    // === TRANSPORTS (1 entrée enrichie) ===
+    {
+        category: 'transport',
+        keywords: ['transport', 'bus', 'train', 'gare', 'accès', 'route', 'voiture', 'covoiturage', 'breizhgo', 'vélo', 'piste cyclable', 'borne', 'recharge', 'électrique', 'tgv'],
+        response: `<strong>Transports & Mobilités — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Train (Gare de Morlaix — 5 km) :</strong><br>
+        Ligne TGV Paris-Brest : Paris en <strong>3h15</strong> (tarif SNCF dès ~29€ en Ouigo)<br>
+        TER vers Brest (45 min), Rennes (1h45), Quimper (1h30)<br><br>
+        <strong>Bus — Réseau BreizhGo :</strong><br>
+        Ligne 34 : Saint-Martin — Morlaix centre (toutes les 30 min en semaine, 7h-20h)<br>
+        Ligne 35 : Saint-Martin — Zone commerciale — Plouigneau<br>
+        <strong>Tarif unique :</strong> <strong>2€</strong> le trajet (1,50€ avec carte KorriGo)<br>
+        Gratuit pour les moins de 18 ans le week-end<br>
+        Infos : breizhgo.bzh ou appli BreizhGo<br><br>
+        <strong>Vélo :</strong><br>
+        <strong>Piste cyclable sécurisée</strong> Saint-Martin ↔ Morlaix centre (inaugurée février 2026, 4,2 km, éclairée)<br>
+        Arceaux vélo : mairie, école, médiathèque, Super U<br><br>
+        <strong>Bornes de recharge électrique :</strong><br>
+        <strong>2 bornes</strong> (4 points de charge) — Parking de la Mairie, accès <strong>gratuit</strong> (22 kW AC)<br>
+        Réseau IRIZIUM — badge ou CB sans contact<br><br>
+        <strong>Covoiturage :</strong> Aire de covoiturage officielle au rond-point de la zone commerciale (15 places).`,
+        source: 'BreizhGo / Morlaix Communauté / Mairie'
+    },
+
+    // === URGENCES & SANTÉ (1 entrée enrichie) ===
+    {
+        category: 'urgence',
+        keywords: ['urgence', 'pompier', 'police', 'gendarmerie', 'samu', 'médecin', 'pharmacie', 'docteur', 'santé', 'hôpital', 'infirmier', 'kiné', 'dentiste', 'garde'],
+        response: `<strong>Santé & Urgences — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Numéros d'urgence :</strong><br>
+        SAMU : <strong>15</strong> &nbsp;|&nbsp; Pompiers : <strong>18</strong> &nbsp;|&nbsp; Gendarmerie : <strong>17</strong> &nbsp;|&nbsp; Européen : <strong>112</strong><br>
+        Violences femmes : <strong>3919</strong> &nbsp;|&nbsp; Enfance en danger : <strong>119</strong><br><br>
+        <strong>Maison de Santé Pluridisciplinaire (ouverte le 15 mars 2026) :</strong><br>
+        6, Rue du Docteur Menguy — Saint-Martin-des-Champs<br>
+        <strong>4 médecins généralistes</strong> (Dr Le Bris, Dr Coat, Dr Salaün, Dr Jézéquel)<br>
+        <strong>2 infirmières</strong> libérales (Mme Corre, Mme Guivarc'h)<br>
+        <strong>1 kinésithérapeute</strong> (M. Stéphan)<br>
+        <strong>1 orthophoniste</strong> (Mme Prigent)<br>
+        Rendez-vous : <strong>02 98 62 22 10</strong> ou <strong>doctolib.fr</strong><br><br>
+        <strong>Pharmacie du Bourg :</strong><br>
+        4, Place de la République — Lun-sam 9h-19h30 — 02 98 62 13 15<br>
+        Pharmacie de garde : appeler le <strong>3237</strong> (0,35€/min)<br><br>
+        <strong>Hôpital :</strong> Centre Hospitalier des Pays de Morlaix — 5 km (urgences 24h/24)`,
+        source: 'Maison de Santé / Services d\'urgence'
+    },
+
+    // === SOCIAL & AIDES ===
+    {
+        category: 'social',
+        keywords: ['social', 'aide', 'ccas', 'rsa', 'alimentaire', 'logement social', 'hlm', 'mdph', 'handicap', 'senior', 'portage', 'repas', 'fsl'],
+        response: `<strong>Aides sociales & CCAS — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Centre Communal d'Action Sociale (CCAS) :</strong><br>
+        En mairie — Permanences mardi et jeudi <strong>9h-12h</strong> (sans RDV)<br>
+        Contact : 02 98 62 14 30 (demander le service social)<br><br>
+        <strong>Aides disponibles :</strong><br>
+        <strong>Aide alimentaire :</strong> distribution Restos du Cœur chaque mercredi matin (salle des fêtes)<br>
+        <strong>FSL (Fonds Solidarité Logement) :</strong> aide pour les impayés d'énergie, eau, loyer — dossier via l'assistante sociale<br>
+        <strong>Portage de repas à domicile :</strong> pour les seniors et personnes à mobilité réduite — <strong>7,50€/repas</strong> (aide CCAS possible), livraison lun-ven<br>
+        <strong>Logement social :</strong> 185 logements HLM sur la commune (Finistère Habitat, Aiguillon Construction). Demande sur <strong>demande-logement-social.gouv.fr</strong> (numéro unique national)<br>
+        <strong>MDPH :</strong> Maison Départementale des Personnes Handicapées du Finistère — 1C Rue de Brest, Quimper — 02 98 90 50 50<br><br>
+        <em>L'assistante sociale du département reçoit en mairie mardi et jeudi matin — n'hésitez pas, c'est gratuit et confidentiel.</em>`,
+        source: 'CCAS de Saint-Martin-des-Champs'
+    },
+
+    // === DÉMARCHES EN LIGNE ===
+    {
+        category: 'demarches',
+        keywords: ['démarche', 'en ligne', 'internet', 'numérique', 'service public', 'caf', 'cpam', 'impôt', 'ants', 'france services', 'site'],
+        response: `<strong>Démarches en ligne — Sites utiles</strong><br><br>
+        <strong>État civil & identité :</strong> <strong>ants.gouv.fr</strong> (CNI, passeport, permis de conduire, carte grise)<br>
+        <strong>Toutes démarches :</strong> <strong>service-public.fr</strong> (guide complet, simulateurs, formulaires Cerfa)<br>
+        <strong>Impôts :</strong> <strong>impots.gouv.fr</strong> (déclaration, avis, paiement)<br>
+        <strong>CAF :</strong> <strong>caf.fr</strong> (allocations, APL, prime d'activité)<br>
+        <strong>CPAM / Ameli :</strong> <strong>ameli.fr</strong> (carte vitale, remboursements, arrêts maladie)<br>
+        <strong>Retraite :</strong> <strong>info-retraite.fr</strong> (relevé de carrière, simulation)<br>
+        <strong>Emploi :</strong> <strong>francetravail.fr</strong> (ex-Pôle emploi)<br>
+        <strong>Justice :</strong> <strong>justice.fr</strong> (aide juridictionnelle, plainte en ligne)<br><br>
+        <strong>France Services en mairie :</strong><br>
+        Besoin d'aide pour vos démarches en ligne ? Un agent France Services vous accompagne gratuitement chaque <strong>mercredi de 9h à 16h30</strong> en mairie. Apportez vos identifiants et documents.`,
+        source: 'France Services / Service-public.fr'
+    },
+
+    // === FISCALITÉ LOCALE ===
+    {
+        category: 'fiscalite',
+        keywords: ['impôt', 'taxe', 'foncière', 'habitation', 'fiscalité', 'teom', 'taxe aménagement', 'taux'],
+        response: `<strong>Fiscalité locale — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Taxe foncière (propriétaires) :</strong><br>
+        Taux communal : <strong>24,87%</strong> (stable depuis 2023)<br>
+        + Part intercommunale : <strong>3,12%</strong><br>
+        + Part départementale : <strong>18,54%</strong><br>
+        <em>La taxe d'habitation sur les résidences principales est supprimée depuis 2023.</em><br><br>
+        <strong>TEOM (Taxe d'Enlèvement des Ordures Ménagères) :</strong><br>
+        Taux : <strong>8,15%</strong> de la valeur locative cadastrale<br>
+        Incluse dans l'avis de taxe foncière (octobre)<br><br>
+        <strong>Taxe d'aménagement :</strong><br>
+        Part communale : <strong>5%</strong> (taux de droit commun)<br>
+        Part départementale : <strong>2,5%</strong><br>
+        Exigible pour tout permis de construire ou DP créant de la surface — payable en 2 fois (12 et 24 mois après le permis).<br><br>
+        <em>Questions fiscales : contactez le Centre des Finances Publiques de Morlaix au 02 98 88 14 60.</em>`,
+        source: 'Centre des Finances Publiques / Mairie'
+    },
+
+    // === TRAVAUX & VOIRIE ===
+    {
+        category: 'travaux',
+        keywords: ['travaux', 'voirie', 'route', 'chantier', 'parking', 'stationnement', 'signaler', 'nid de poule', 'trottoir', 'éclairage public'],
+        response: `<strong>Travaux & Voirie — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Travaux en cours :</strong><br>
+        <strong>Place du Marché</strong> — Réaménagement complet (VRD, mobilier urbain, espaces verts, fontaine)<br>
+        Début : 28 mars 2026 — Fin prévue : juillet 2026<br>
+        <em>Déviation en place : le marché du mercredi est temporairement déplacé Rue de la Fontaine.</em><br><br>
+        <strong>Signaler un problème de voirie :</strong><br>
+        Nid-de-poule, éclairage en panne, panneau endommagé, trottoir dégradé...<br>
+        <strong>Par téléphone :</strong> 02 98 62 14 30 (service technique)<br>
+        <strong>Par email :</strong> technique@saint-martin-des-champs.fr<br>
+        Précisez l'adresse exacte et joignez une photo si possible. Délai d'intervention moyen : <strong>48 à 72h</strong> (urgence : le jour même).<br><br>
+        <strong>Parking :</strong><br>
+        Parking mairie : 45 places (dont 3 PMR + 2 bornes électriques)<br>
+        Parking Super U : 200 places<br>
+        Stationnement gratuit et non limité dans toute la commune.`,
+        source: 'Service technique — Mairie de Saint-Martin-des-Champs'
+    },
+
+    // === ENVIRONNEMENT & NATURE ===
+    {
+        category: 'nature',
+        keywords: ['parc', 'nature', 'randonnée', 'rando', 'sentier', 'promenade', 'balade', 'gr34', 'queffleuth', 'moulin', 'rucher', 'abeille', 'pesticide'],
+        response: `<strong>Nature & Randonnées — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Parc du Queffleuth :</strong><br>
+        Espace naturel en bord de rivière (Queffleuth) — 8 hectares, accès libre. Aire de pique-nique, jeux enfants, parcours santé. Point de départ de nombreuses randonnées.<br><br>
+        <strong>Randonnées balisées :</strong><br>
+        <strong>Boucle du Patrimoine</strong> (balisage jaune) : <strong>4,5 km</strong> — 1h30 — facile — 12 points d'intérêt historiques<br>
+        <strong>Sentier des Moulins</strong> (balisage bleu) : <strong>7 km</strong> — 2h15 — moyen — longe le Queffleuth, 3 anciens moulins à découvrir<br>
+        <strong>GR®34</strong> (sentier des douaniers) : accessible à 12 km (Carantec/Locquénolé) — randonnée côtière exceptionnelle<br>
+        Topoguides disponibles à la médiathèque et à l'Office de Tourisme de Morlaix.<br><br>
+        <strong>Engagements écologiques :</strong><br>
+        Commune <strong>zéro pesticide</strong> depuis 2019 (tous espaces publics)<br>
+        <strong>Rucher pédagogique municipal</strong> (4 ruches) — ateliers découverte en juin pour les scolaires et le grand public.`,
+        source: 'Mairie de Saint-Martin-des-Champs — Environnement'
+    },
+
+    // === ANIMAUX ===
+    {
+        category: 'animaux',
+        keywords: ['chien', 'chat', 'animal', 'animaux', 'laisse', 'déjection', 'perdu', 'trouvé', 'fourrière', 'spa'],
+        response: `<strong>Animaux — Réglementation à Saint-Martin-des-Champs</strong><br><br>
+        <strong>Chiens :</strong><br>
+        Tenus en <strong>laisse obligatoire</strong> dans tous les espaces publics (arrêté municipal)<br>
+        <strong>Déjections canines :</strong> le ramassage est obligatoire (amende : 68€). Distributeurs de sacs : mairie, parc du Queffleuth, place de l'Église<br>
+        Chiens de catégorie 1 et 2 : muselière obligatoire + déclaration en mairie<br><br>
+        <strong>Animal perdu ou trouvé :</strong><br>
+        Signalez à la mairie (02 98 62 14 30) et à la gendarmerie (17)<br>
+        <strong>Fourrière animale :</strong> SPA de Morlaix — 02 98 72 10 39 (Route de Pleyber)<br>
+        Consultez aussi <strong>filalapat.fr</strong> et <strong>icad.fr</strong> (fichier national d'identification)<br><br>
+        <strong>Identification :</strong> la puce électronique est obligatoire pour tous les chiens et chats. Vaccination antirabique non obligatoire sauf voyage à l'étranger.`,
+        source: 'Mairie de Saint-Martin-des-Champs — Police municipale'
+    },
+
+    // === NUISANCES & VOISINAGE ===
+    {
+        category: 'nuisances',
+        keywords: ['bruit', 'nuisance', 'voisin', 'voisinage', 'tapage', 'bricolage', 'tondeuse', 'brûlage', 'médiation', 'plainte'],
+        response: `<strong>Nuisances & Voisinage — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Horaires autorisés pour les travaux de bricolage et jardinage :</strong><br>
+        Lundi à vendredi : <strong>8h30 — 12h00</strong> / <strong>14h00 — 19h30</strong><br>
+        Samedi : <strong>9h00 — 12h00</strong> / <strong>15h00 — 19h00</strong><br>
+        Dimanche et jours fériés : <strong>10h00 — 12h00</strong> uniquement<br>
+        <em>(arrêté préfectoral du Finistère)</em><br><br>
+        <strong>Tapage nocturne :</strong> interdit de <strong>22h à 7h</strong>. En cas de trouble, appeler la gendarmerie : <strong>17</strong><br><br>
+        <strong>Brûlage à l'air libre :</strong> <strong>strictement interdit</strong> toute l'année (déchets verts comme autres déchets). Amende : 450€.<br><br>
+        <strong>Médiation :</strong><br>
+        Avant de porter plainte, tentez la médiation ! Le conciliateur de justice reçoit gratuitement en mairie le <strong>1er lundi du mois</strong> (14h-17h, sur RDV au 02 98 62 14 30).`,
+        source: 'Préfecture du Finistère / Mairie'
+    },
+
+    // === CIMETIÈRE ===
+    {
+        category: 'cimetiere',
+        keywords: ['cimetière', 'tombe', 'concession', 'columbarium', 'jardin du souvenir', 'inhumation', 'crémation', 'funéraire'],
+        response: `<strong>Cimetière communal — Saint-Martin-des-Champs</strong><br><br>
+        <strong>Adresse :</strong> Chemin du Repos — ouvert tous les jours de <strong>8h à 18h</strong> (19h en été)<br><br>
+        <strong>Concessions funéraires :</strong><br>
+        15 ans : <strong>200€</strong><br>
+        30 ans : <strong>380€</strong><br>
+        50 ans : <strong>580€</strong><br>
+        Perpétuelle : <strong>non proposée</strong> (conformément à la politique communale de gestion durable)<br><br>
+        <strong>Columbarium :</strong> 12 cases disponibles — <strong>450€</strong> pour 15 ans (case individuelle)<br>
+        <strong>Jardin du souvenir :</strong> espace de dispersion des cendres — gratuit pour les résidents<br><br>
+        <strong>Démarches :</strong> la demande de concession se fait en mairie (service état civil). Prévoir la pièce d'identité du demandeur et l'acte de décès.<br><br>
+        <em>Un plan du cimetière est affiché à l'entrée et consultable en mairie.</em>`,
+        source: 'Mairie de Saint-Martin-des-Champs — Service cimetière'
+    },
+
+    // === ACTUALITÉS DE LA COMMUNE ===
+    {
+        category: 'actualites',
+        keywords: ['actualité', 'actu', 'nouveau', 'quoi de neuf', 'info', 'dernières nouvelles', 'nouveauté', 'news'],
+        response: `<strong>Dernières actualités — Saint-Martin-des-Champs</strong><br><br>
+        <strong>28 mars 2026</strong> — <strong>Début des travaux Place du Marché</strong><br>
+        Réaménagement complet : VRD, mobilier urbain, espaces verts et fontaine. Fin prévue juillet 2026. Le marché du mercredi est déplacé Rue de la Fontaine pendant la durée des travaux.<br><br>
+        <strong>15 mars 2026</strong> — <strong>Ouverture de la Maison de Santé Pluridisciplinaire</strong><br>
+        4 médecins généralistes, 2 infirmières, 1 kiné et 1 orthophoniste. RDV sur Doctolib ou au 02 98 62 22 10.<br><br>
+        <strong>1er mars 2026</strong> — <strong>Budget 2026 voté à l'unanimité</strong><br>
+        4,2 millions d'euros, dont +3,5% en investissement. Priorités : rénovation énergétique école, piste cyclable, Maison de Santé.<br><br>
+        <strong>20 février 2026</strong> — <strong>Inauguration de la piste cyclable vers Morlaix</strong><br>
+        4,2 km de voie sécurisée et éclairée entre Saint-Martin et le centre de Morlaix. Cofinancée par la Région Bretagne et le Département.<br><br>
+        <strong>5 février 2026</strong> — <strong>Subvention DETR obtenue : 120 000€</strong><br>
+        Financement de l'État pour la rénovation énergétique de l'école Les Alouettes (isolation, chauffage, menuiseries). Travaux prévus été 2026.`,
+        source: 'Mairie de Saint-Martin-des-Champs — Communication'
+    }
+];
+
+// ============================================
+// CATEGORY QUESTIONS FOR SUGGESTIONS
+// ============================================
+const categoryQuestions = {
+    'mairie': [
+        "Quels sont les horaires de la mairie ?",
+        "Qui est le maire et les adjoints ?",
+        "Quand est le prochain conseil municipal ?",
+        "Comment prendre rendez-vous ?",
+        "Quelles permanences sont disponibles ?"
+    ],
+    'etat-civil': [
+        "Comment refaire ma carte d'identité ?",
+        "Combien coûte un passeport ?",
+        "Comment obtenir un acte de naissance ?",
+        "Comment se marier ou se pacser ?"
+    ],
+    'urbanisme': [
+        "Mon terrain est-il constructible ?",
+        "Faut-il un permis pour un abri de jardin ?",
+        "Quelle hauteur maximale pour construire ?",
+        "Quelles règles pour les clôtures ?",
+        "Comment déposer un permis de construire ?",
+        "Quels matériaux pour la façade ?"
+    ],
+    'dechets': [
+        "Quel jour passe la poubelle ?",
+        "Où est la déchèterie la plus proche ?",
+        "Comment avoir un composteur ?",
+        "Où déposer le verre ?"
+    ],
+    'ecole': [
+        "Comment inscrire mon enfant à l'école ?",
+        "Combien coûte la cantine ?",
+        "Y a-t-il une crèche ?",
+        "Quel est le collège de secteur ?"
+    ],
+    'culture': [
+        "Quand est le prochain Fest-Noz ?",
+        "C'est quand le marché ?",
+        "Quelles associations sportives ?",
+        "Horaires de la médiathèque ?"
+    ],
+    'transport': [
+        "Comment aller à Morlaix en bus ?",
+        "Horaires du TGV depuis Morlaix ?",
+        "Y a-t-il des bornes de recharge ?",
+        "Où faire du covoiturage ?"
+    ],
+    'sante': [
+        "Où trouver un médecin ?",
+        "Pharmacie de garde ?",
+        "Numéros d'urgence ?",
+        "Où est l'hôpital le plus proche ?"
+    ],
+    'social': [
+        "Quelles aides sociales disponibles ?",
+        "Comment faire une demande de logement social ?",
+        "Aide pour les démarches en ligne ?",
+        "Quels impôts locaux ?"
+    ],
+    'actu': [
+        "Quelles sont les dernières actualités ?",
+        "Où en sont les travaux ?",
+        "Quels sont les prochains événements ?",
+        "Quel est le budget de la commune ?"
+    ]
+};
+
+function showCategoryQuestions(cat) {
+    const categories = document.getElementById('suggestionCategories');
+    const questions = document.getElementById('suggestionQuestions');
+    const list = document.getElementById('questionsList');
+
+    categories.style.display = 'none';
+    questions.style.display = 'flex';
+
+    list.innerHTML = '';
+    (categoryQuestions[cat] || []).forEach(q => {
+        const btn = document.createElement('button');
+        btn.className = 'suggestion-btn';
+        btn.textContent = q;
+        btn.onclick = () => { sendMessage(q); showCategories(); };
+        list.appendChild(btn);
+    });
+}
+
+function showCategories() {
+    document.getElementById('suggestionCategories').style.display = 'flex';
+    document.getElementById('suggestionQuestions').style.display = 'none';
+}
+
+// ============================================
+// CATEGORY STATS FOR DASHBOARD
+// ============================================
+const categories = [
+    { label: 'Déchets / Collecte', pct: 28 },
+    { label: 'État Civil', pct: 22 },
+    { label: 'Urbanisme / PLU', pct: 18 },
+    { label: 'École / Enfance', pct: 14 },
+    { label: 'Fêtes / Culture', pct: 8 },
+    { label: 'Eau / Assainist.', pct: 6 },
+    { label: 'Transport', pct: 4 }
+];
+
+// ============================================
+// CHAT ENGINE
+// ============================================
+const chatMessages = document.getElementById('chatMessages');
+let messageCount = 0;
+
+function addMessage(content, type, source) {
+    const input = document.getElementById('userInput');
+    const div = document.createElement('div');
+    div.className = `msg ${type}`;
+    if (type === 'bot') {
+        // Typewriter effect: reveal text character by character
+        const textSpan = document.createElement('span');
+        textSpan.className = 'bot-text-content';
+        div.appendChild(textSpan);
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Strip HTML tags for typewriter, then add source + rating after
+        const plainText = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        const fullHTML = content + (source ? `<br><span class="source">Source : ${source}</span>` : '');
+
+        let charIndex = 0;
+        const speed = Math.max(8, Math.min(25, 800 / plainText.length)); // Adaptive speed
+        const typeInterval = setInterval(() => {
+            charIndex++;
+            // Show progressively more of the plain text
+            textSpan.textContent = plainText.substring(0, charIndex);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            if (charIndex >= plainText.length) {
+                clearInterval(typeInterval);
+                // Once done, replace with full HTML content + source + rating
+                textSpan.remove();
+                div.innerHTML = fullHTML;
+                const ratingDiv = document.createElement('div');
+                ratingDiv.className = 'rating-widget';
+                ratingDiv.innerHTML = `<span>Cette réponse vous a-t-elle aidé ?</span>
+                    <button class="rating-btn" onclick="submitRating(this, true)">&#128077;</button>
+                    <button class="rating-btn" onclick="submitRating(this, false)">&#128078;</button>`;
+                div.appendChild(ratingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }, speed);
+    } else {
+        div.textContent = content;
+        chatMessages.appendChild(div);
+    }
+
+    if (!div.parentNode) chatMessages.appendChild(div);
+
+    if (document.activeElement !== input) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    messageCount++;
+}
+
+function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeTyping() {
+    const el = document.getElementById('typingIndicator');
+    if (el) el.remove();
+}
+
+// ============================================
+// BACKEND API CONFIG
+// ============================================
+const API_BASE_URL = 'https://api.civik-ia.fr';  // Changer en http://localhost:8000 pour dev
+const COMMUNE_ID = 'demo-saint-martin-29600';
+let useBackend = true;  // Tente le backend, fallback sur local si indisponible
+
+// --- Fallback : keyword matching local (si backend indisponible) ---
+function findAnswerLocal(query) {
+    const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Détection salutation
+    const greetings = ['bonjour', 'bonsoir', 'salut', 'hello', 'coucou', 'hey', 'yo'];
+    if (greetings.some(g => q.includes(g)) && q.length < 30) {
+        return {
+            response: `Bonjour ! Je suis l'assistant de la Mairie de Saint-Martin-des-Champs. Comment puis-je vous aider ? Choisissez une catégorie ci-dessous ou posez directement votre question.`,
+            source: null
+        };
+    }
+
+    // Détection remerciement
+    const thanks = ['merci', 'super', 'parfait', 'genial', 'top', 'excellent', 'au revoir', 'bonne journee'];
+    if (thanks.some(t => q.includes(t)) && q.length < 40) {
+        return {
+            response: `Je vous en prie ! N'hésitez pas si vous avez d'autres questions. La mairie de Saint-Martin-des-Champs est à votre disposition au <strong>02 98 62 14 30</strong> ou par email à <strong>mairie@saint-martin-des-champs.fr</strong>.<br><br>Bonne journée !`,
+            source: null
+        };
+    }
+
+    // Scoring amélioré avec bonus pour les mots longs et matchs multiples
+    let bestMatch = null;
+    let bestScore = 0;
+
+    for (const entry of knowledgeBase) {
+        let score = 0;
+        let matchCount = 0;
+        for (const keyword of entry.keywords) {
+            const kw = keyword.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            if (q.includes(kw)) {
+                score += kw.length;
+                matchCount++;
+            }
+        }
+        // Bonus pour matchs multiples (pertinence croisée)
+        if (matchCount > 1) score *= (1 + matchCount * 0.3);
+
+        if (score > bestScore) {
+            bestScore = score;
+            bestMatch = entry;
+        }
+    }
+
+    if (bestMatch && bestScore >= 3) {
+        return { response: bestMatch.response, source: bestMatch.source };
+    }
+
+    return {
+        response: `Je n'ai pas trouvé d'information précise sur votre question, mais je peux vous orienter :<br><br>
+        <strong>Contactez la mairie</strong> au <strong>02 98 62 14 30</strong><br>
+        <strong>Par email</strong> : mairie@saint-martin-des-champs.fr<br>
+        <strong>En personne</strong> : 12, Place de la République, 29600 Saint-Martin-des-Champs<br><br>
+        <em>Horaires : Lundi-Vendredi 8h30-12h / 13h30-17h30, Samedi 9h-12h</em><br><br>
+        Vous pouvez aussi choisir une catégorie ci-dessous pour explorer nos informations.`,
+        source: null
+    };
+}
+
+// --- Backend API call (avec fallback automatique) ---
+async function findAnswerFromAPI(query) {
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/chat`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ commune_id: COMMUNE_ID, query }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return {
+            response: data.response,
+            source: data.source,
+            method: data.method,
+            confidence: data.confidence,
+        };
+    } catch (err) {
+        console.warn('Backend indisponible, fallback local :', err.message);
+        useBackend = false;  // Désactiver pour les prochaines requêtes cette session
+        return { ...findAnswerLocal(query), method: 'fallback-local' };
+    }
+}
+
+function sendMessage(text) {
+    const input = document.getElementById('userInput');
+    const query = text || input.value.trim();
+    if (!query) return;
+
+    addMessage(query, 'user');
+    input.value = '';
+    input.focus();
+    showTyping();
+
+    // Update dashboard in real-time (mairie view)
+    if (currentView === 'mairie') {
+        addRecentQuestion(query);
+    }
+
+    // Increment KPI counter
+    const kpiEl = document.getElementById('kpiQuestions');
+    if (kpiEl) {
+        const current = parseInt(kpiEl.textContent) || 847;
+        kpiEl.textContent = current + 1;
+    }
+
+    if (useBackend) {
+        // Appel backend async
+        findAnswerFromAPI(query).then(answer => {
+            removeTyping();
+            addMessage(answer.response, 'bot', answer.source);
+            input.focus();
+        });
+    } else {
+        // Fallback local (avec délai simulé)
+        const delay = 600 + Math.random() * 800;
+        setTimeout(() => {
+            removeTyping();
+            const answer = findAnswerLocal(query);
+            addMessage(answer.response, 'bot', answer.source);
+            input.focus();
+        }, delay);
+    }
+}
+
+function submitRating(button, isPositive) {
+    const ratingWidget = button.parentElement;
+    ratingWidget.innerHTML = `<span class="rating-confirmed">Merci pour votre retour !</span>`;
+    // Envoyer le rating au backend si disponible
+    if (useBackend) {
+        fetch(`${API_BASE_URL}/api/rating`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ commune_id: COMMUNE_ID, query: '', rating: isPositive ? 1 : -1 }),
+        }).catch(() => {});  // Silent fail
+    }
+}
+
+function handleSuggestion(text) {
+    sendMessage(text);
+}
+
+// ============================================
+// DASHBOARD REAL-TIME UPDATE
+// ============================================
+function addRecentQuestion(query) {
+    const list = document.getElementById('recentList');
+    if (!list) return;
+    const item = document.createElement('div');
+    item.className = 'recent-item';
+    item.style.animation = 'slideIn 0.3s ease';
+    item.innerHTML = `<span class="q">${query.substring(0, 40)}${query.length > 40 ? '...' : ''}</span>
+        <span class="badge badge-blue">Nouveau</span>
+        <span class="time">à l'instant</span>`;
+    list.insertBefore(item, list.firstChild);
+    // Keep only last 6
+    while (list.children.length > 6) {
+        list.removeChild(list.lastChild);
+    }
+}
+
+// ============================================
+// CAMPAIGN SYSTEM
+// ============================================
+let selectedStars = 0;
+
+function showCampaignView(view) {
+    const tabMairie = document.getElementById('tabMairie');
+    const tabCitoyen = document.getElementById('tabCitoyen');
+    const viewMairie = document.getElementById('viewMairie');
+    const viewCitoyen = document.getElementById('viewCitoyen');
+
+    if (view === 'mairie') {
+        viewMairie.style.display = 'block';
+        viewCitoyen.style.display = 'none';
+        tabMairie.style.background = '#1B2A4A'; tabMairie.style.color = '#fff'; tabMairie.style.borderColor = '#1B2A4A';
+        tabCitoyen.style.background = '#fff'; tabCitoyen.style.color = '#666'; tabCitoyen.style.borderColor = '#ddd';
+    } else {
+        viewMairie.style.display = 'none';
+        viewCitoyen.style.display = 'block';
+        tabCitoyen.style.background = '#1B2A4A'; tabCitoyen.style.color = '#fff'; tabCitoyen.style.borderColor = '#1B2A4A';
+        tabMairie.style.background = '#fff'; tabMairie.style.color = '#666'; tabMairie.style.borderColor = '#ddd';
+    }
+}
+
+function openCampaignCreator() {
+    document.getElementById('campaignCreator').style.display = 'block';
+    document.getElementById('btnCreateCampaign').style.display = 'none';
+}
+
+function closeCampaignCreator() {
+    document.getElementById('campaignCreator').style.display = 'none';
+    document.getElementById('btnCreateCampaign').style.display = 'block';
+}
+
+function launchCampaign() {
+    const title = document.getElementById('campTitle').value.trim();
+    const desc = document.getElementById('campDesc').value.trim() || 'Donnez votre avis en 30 secondes !';
+    const type = document.getElementById('campType').value;
+    const targetSelect = document.getElementById('campTarget');
+    const targetLabel = targetSelect.options[targetSelect.selectedIndex].text;
+    const targetValue = targetSelect.value;
+    if (!title) { document.getElementById('campTitle').style.borderColor = '#FF6B6B'; return; }
+
+    const creator = document.getElementById('campaignCreator');
+    creator.innerHTML = `
+        <div style="text-align:center; padding:10px 0;">
+            <div style="font-size:24px; margin-bottom:8px;">&#x1F680;</div>
+            <div style="font-size:13px; font-weight:700; color:#1B2A4A; margin-bottom:4px;">Campagne lancée !</div>
+            <div style="font-size:11px; color:#666;">"${title}" est maintenant active.</div>
+            <div style="font-size:10px; color:#2EC4B6; margin-top:4px; font-weight:600;">Diffusée : ${targetLabel}</div>
+        </div>
+    `;
+    setTimeout(() => {
+        creator.style.display = 'none';
+        document.getElementById('btnCreateCampaign').style.display = 'block';
+    }, 3000);
+
+    // Show campaign in chat immediately (both views — for demo wow effect)
+    const audienceNote = targetValue !== 'all' ? targetLabel : '';
+    showCampaignBanner(title, desc, type, audienceNote);
+    setTimeout(() => { injectChatSurvey(title, desc, type, audienceNote); }, 2000);
+    campaignShownInChat = true;
+    updateCitizenViewWithNewCampaign(title, desc, type);
+}
+
+function showCampaignBanner(title, desc, type, audienceNote) {
+    const zone = document.getElementById('campaignBannerZone');
+    const audienceHTML = audienceNote ? `<br><span style="color:#2EC4B6; font-weight:600; font-size:10px;">${audienceNote}</span>` : '';
+    zone.innerHTML = `
+        <div class="campaign-banner" onclick="scrollToChatSurvey()">
+            <div class="cb-icon">&#x1F4CB;</div>
+            <div class="cb-text">
+                <strong>${title}</strong>
+                <span>Votre mairie vous demande votre avis — 30 sec${audienceHTML}</span>
+            </div>
+            <button class="cb-cta" onclick="event.stopPropagation(); scrollToChatSurvey()">Répondre</button>
+            <button class="cb-close" onclick="event.stopPropagation(); closeCampaignBanner()">&#x2715;</button>
+        </div>
+    `;
+}
+
+function closeCampaignBanner() {
+    document.getElementById('campaignBannerZone').innerHTML = '';
+}
+
+function scrollToChatSurvey() {
+    const survey = document.getElementById('activeChatSurvey');
+    if (survey) {
+        survey.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        survey.style.boxShadow = '0 0 0 3px rgba(46,196,182,0.4)';
+        setTimeout(() => { survey.style.boxShadow = 'none'; }, 1500);
+    }
+}
+
+function injectChatSurvey(title, desc, type, audienceNote) {
+    const chatMessages = document.getElementById('chatMessages');
+
+    const audienceLine = audienceNote ? `<br><span style="color:#2EC4B6; font-weight:600; font-size:12px;">${audienceNote}</span>` : '';
+    const introDiv = document.createElement('div');
+    introDiv.className = 'msg bot';
+    introDiv.innerHTML = `<strong>Nouvelle campagne de votre mairie !</strong>${audienceLine}<br>
+        "${title}" — Prenez 30 secondes pour donner votre avis. Votre retour compte pour améliorer Saint-Martin-des-Champs.`;
+    chatMessages.appendChild(introDiv);
+
+    const surveyDiv = document.createElement('div');
+    surveyDiv.className = 'chat-survey';
+    surveyDiv.id = 'activeChatSurvey';
+
+    let inputHTML = '';
+    if (type === 'stars') {
+        inputHTML = `
+            <div class="survey-stars">
+                <button onclick="selectChatStar(this, 1)">&#11088;</button>
+                <button onclick="selectChatStar(this, 2)">&#11088;</button>
+                <button onclick="selectChatStar(this, 3)">&#11088;</button>
+                <button onclick="selectChatStar(this, 4)">&#11088;</button>
+                <button onclick="selectChatStar(this, 5)">&#11088;</button>
+            </div>`;
+    } else if (type === 'yesno') {
+        inputHTML = `
+            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                <button onclick="selectChatYesNo(this, true)" style="flex:1; padding:10px; font-size:13px; font-weight:700; background:#e8f8f5; color:#2EC4B6; border:2px solid #2EC4B6; border-radius:10px; cursor:pointer;">Oui</button>
+                <button onclick="selectChatYesNo(this, false)" style="flex:1; padding:10px; font-size:13px; font-weight:700; background:#fff5f5; color:#e65100; border:2px solid #e65100; border-radius:10px; cursor:pointer;">Non</button>
+            </div>`;
+    } else if (type === 'nps') {
+        inputHTML = `
+            <div style="display:flex; gap:3px; margin-bottom:12px; flex-wrap:wrap; justify-content:center;">
+                ${[0,1,2,3,4,5,6,7,8,9,10].map(n => `<button onclick="selectChatNPS(this, ${n})" style="width:28px; height:28px; border-radius:50%; border:1.5px solid #ddd; background:#fff; font-size:11px; font-weight:600; cursor:pointer;">${n}</button>`).join('')}
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:9px; color:#999; margin-bottom:8px;">
+                <span>Pas du tout probable</span><span>Très probable</span>
+            </div>`;
+    } else {
+        inputHTML = `<textarea class="survey-comment" placeholder="Votre réponse..." id="chatSurveyFreeText" oninput="enableChatSurveySubmit()"></textarea>`;
+    }
+
+    surveyDiv.innerHTML = `
+        <h4>${title}</h4>
+        <p>${desc}</p>
+        ${inputHTML}
+        <textarea class="survey-comment" placeholder="Commentaire optionnel..." id="chatSurveyComment" style="${type === 'text' ? 'display:none;' : ''}"></textarea>
+        <button class="survey-submit" id="chatSurveySubmitBtn" onclick="submitChatSurvey(this)">Envoyer mon avis</button>
+    `;
+    chatMessages.appendChild(surveyDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+let chatSurveyScore = 0;
+
+function selectChatStar(btn, n) {
+    chatSurveyScore = n;
+    const stars = btn.parentElement.querySelectorAll('button');
+    stars.forEach((s, i) => { s.classList.toggle('active', i < n); });
+    document.getElementById('chatSurveySubmitBtn').classList.add('enabled');
+}
+
+function selectChatYesNo(btn, isYes) {
+    chatSurveyScore = isYes ? 1 : 0;
+    const btns = btn.parentElement.querySelectorAll('button');
+    btns.forEach(b => { b.style.opacity = '0.4'; b.style.transform = 'scale(0.95)'; });
+    btn.style.opacity = '1'; btn.style.transform = 'scale(1.05)';
+    document.getElementById('chatSurveySubmitBtn').classList.add('enabled');
+}
+
+function selectChatNPS(btn, n) {
+    chatSurveyScore = n;
+    const btns = btn.parentElement.querySelectorAll('button');
+    const colors = ['#e65100','#e65100','#e65100','#e65100','#e65100','#e65100','#e65100','#ffd93d','#ffd93d','#2EC4B6','#2EC4B6'];
+    btns.forEach((b, i) => {
+        if (i <= n) { b.style.background = colors[i]; b.style.color = '#fff'; b.style.borderColor = colors[i]; }
+        else { b.style.background = '#fff'; b.style.color = '#333'; b.style.borderColor = '#ddd'; }
+    });
+    document.getElementById('chatSurveySubmitBtn').classList.add('enabled');
+}
+
+function enableChatSurveySubmit() {
+    const text = document.getElementById('chatSurveyFreeText');
+    if (text && text.value.trim().length > 0) {
+        document.getElementById('chatSurveySubmitBtn').classList.add('enabled');
+    }
+}
+
+function submitChatSurvey(btn) {
+    const survey = document.getElementById('activeChatSurvey');
+    survey.innerHTML = `
+        <div class="survey-thanks">
+            <div style="font-size:32px; margin-bottom:8px;">&#x1F389;</div>
+            <div style="font-size:14px; font-weight:700; color:#1B2A4A; margin-bottom:4px;">Merci pour votre avis !</div>
+            <div style="font-size:12px; color:#666;">Votre retour aide la mairie de Saint-Martin-des-Champs à prendre les bonnes décisions.</div>
+        </div>
+    `;
+    closeCampaignBanner();
+}
+
+function updateCitizenViewWithNewCampaign(title, desc, type) {
+    const citizenSurvey = document.getElementById('citizenSurvey');
+    if (citizenSurvey) {
+        citizenSurvey.querySelector('div[style*="font-size:14px"]').innerHTML = title;
+        citizenSurvey.querySelector('div[style*="font-size:11px"]').textContent = 'Campagne lancée par la Mairie de Saint-Martin-des-Champs';
+        citizenSurvey.querySelector('strong').textContent = desc || 'Donnez votre avis !';
+    }
+}
+
+function showCampaignResults() {
+    document.getElementById('campaignResults').style.display = 'block';
+}
+
+function closeCampaignResults() {
+    document.getElementById('campaignResults').style.display = 'none';
+}
+
+function sendCampaignReminder() {
+    const btn = event.target;
+    btn.textContent = 'Relance envoyée !';
+    btn.style.background = '#2EC4B6'; btn.style.color = '#fff'; btn.style.borderColor = '#2EC4B6';
+    setTimeout(() => {
+        btn.textContent = 'Relancer';
+        btn.style.background = '#fff'; btn.style.color = '#1B2A4A'; btn.style.borderColor = '#1B2A4A';
+    }, 2000);
+}
+
+function selectStar(n) {
+    selectedStars = n;
+    const stars = document.querySelectorAll('.star-btn');
+    const labels = ['', 'Très insatisfait', 'Insatisfait', 'Neutre', 'Satisfait', 'Très satisfait'];
+    stars.forEach((star, i) => {
+        if (i < n) { star.style.filter = 'none'; star.style.transform = 'scale(1.15)'; }
+        else { star.style.filter = 'grayscale(1) opacity(0.4)'; star.style.transform = 'scale(1)'; }
+    });
+    document.getElementById('starLabel').textContent = labels[n];
+    const btn = document.getElementById('btnSubmitSurvey');
+    btn.style.opacity = '1'; btn.style.pointerEvents = 'auto';
+}
+
+function submitCitizenSurvey() {
+    document.getElementById('citizenSurvey').style.display = 'none';
+    document.getElementById('citizenThanks').style.display = 'block';
+}
+
+// ============================================
+// ACTIVITY CHART — 7 derniers jours (SVG pur)
+// ============================================
+function renderActivityChart() {
+    const wrapper = document.getElementById('activityChartWrapper');
+    const svg    = document.getElementById('activityChartSvg');
+    const tooltip = document.getElementById('activityTooltip');
+    if (!wrapper || !svg) return;
+
+    // Labels dynamiques : 7 jours se terminant aujourd'hui
+    const today = new Date();
+    const dayNames = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+    const labels = [];
+    for (let i = 6; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - i);
+        labels.push(i === 0 ? 'Auj.' : dayNames[d.getDay()]);
+    }
+
+    // Valeurs réalistes : plus élevé en semaine, creux le week-end
+    const values = [43, 28, 89, 134, 98, 156, 127];
+
+    const W = wrapper.offsetWidth || 280;
+    const H = 110;
+    const padL = 8, padR = 8, padTop = 16, padBottom = 26;
+    const chartW = W - padL - padR;
+    const chartH = H - padTop - padBottom;
+    const maxVal = Math.max(...values) * 1.2;
+
+    const toX = i => padL + (i / (values.length - 1)) * chartW;
+    const toY = v => padTop + chartH - (v / maxVal) * chartH;
+
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('height', H);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.innerHTML = '';
+
+    // -- DEFS : dégradé de remplissage --
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    const grad = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+    grad.id = 'actGrad';
+    grad.setAttribute('x1','0'); grad.setAttribute('y1','0');
+    grad.setAttribute('x2','0'); grad.setAttribute('y2','1');
+    const s1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    s1.setAttribute('offset','0%'); s1.setAttribute('stop-color','#000091'); s1.setAttribute('stop-opacity','0.16');
+    const s2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    s2.setAttribute('offset','100%'); s2.setAttribute('stop-color','#000091'); s2.setAttribute('stop-opacity','0.01');
+    grad.appendChild(s1); grad.appendChild(s2); defs.appendChild(grad);
+    svg.appendChild(defs);
+
+    // -- LIGNES DE GRILLE horizontales --
+    [0, 0.33, 0.67, 1].forEach(t => {
+        const y = padTop + t * chartH;
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        g.setAttribute('x1', padL); g.setAttribute('x2', W - padR);
+        g.setAttribute('y1', y);   g.setAttribute('y2', y);
+        g.setAttribute('stroke', '#e8ecf0'); g.setAttribute('stroke-width', '1');
+        g.setAttribute('stroke-dasharray', '3,4');
+        svg.appendChild(g);
+    });
+
+    // -- CHEMIN SVG (courbe de Bézier lissée) --
+    let linePath = `M ${toX(0)},${toY(values[0])}`;
+    for (let i = 1; i < values.length; i++) {
+        const x0 = toX(i-1), y0 = toY(values[i-1]);
+        const x1 = toX(i),   y1 = toY(values[i]);
+        const cx = (x0 + x1) / 2;
+        linePath += ` C ${cx},${y0} ${cx},${y1} ${x1},${y1}`;
+    }
+    const areaPath = linePath
+        + ` L ${toX(values.length-1)},${padTop + chartH}`
+        + ` L ${padL},${padTop + chartH} Z`;
+
+    // Zone de remplissage
+    const area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    area.setAttribute('d', areaPath);
+    area.setAttribute('fill', 'url(#actGrad)');
+    svg.appendChild(area);
+
+    // Ligne de courbe
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    line.setAttribute('d', linePath);
+    line.setAttribute('fill', 'none');
+    line.setAttribute('stroke', '#000091');
+    line.setAttribute('stroke-width', '2.5');
+    line.setAttribute('stroke-linecap', 'round');
+    line.setAttribute('stroke-linejoin', 'round');
+    svg.appendChild(line);
+
+    // Animation de tracé (stroke-dashoffset)
+    try {
+        const len = line.getTotalLength();
+        line.style.strokeDasharray  = len;
+        line.style.strokeDashoffset = len;
+        line.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    } catch(e) { /* SVG pas encore dans le DOM, pas de panique */ }
+
+    // -- LIGNE VERTICALE de survol (masquée par défaut) --
+    const vLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    vLine.setAttribute('y1', padTop); vLine.setAttribute('y2', padTop + chartH);
+    vLine.setAttribute('stroke', '#000091'); vLine.setAttribute('stroke-width', '1');
+    vLine.setAttribute('stroke-dasharray', '3,3'); vLine.setAttribute('opacity', '0');
+    svg.appendChild(vLine);
+
+    // -- POINTS sur chaque valeur --
+    const dots = values.map((v, i) => {
+        const isToday = (i === values.length - 1);
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', toX(i));
+        dot.setAttribute('cy', toY(v));
+        dot.setAttribute('r',  isToday ? 5 : 3.5);
+        dot.setAttribute('fill',         isToday ? '#2EC4B6' : '#000091');
+        dot.setAttribute('stroke',       'white');
+        dot.setAttribute('stroke-width', '2');
+        dot.style.opacity    = '0';
+        dot.style.transition = `opacity 0.3s ease ${0.85 + i * 0.08}s`;
+        svg.appendChild(dot);
+        return dot;
+    });
+
+    // -- ÉTIQUETTE de valeur max --
+    const maxIdx   = values.indexOf(Math.max(...values));
+    const peakLbl  = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    peakLbl.setAttribute('x',           toX(maxIdx));
+    peakLbl.setAttribute('y',           toY(values[maxIdx]) - 7);
+    peakLbl.setAttribute('text-anchor', 'middle');
+    peakLbl.setAttribute('font-size',   '9.5');
+    peakLbl.setAttribute('fill',        '#000091');
+    peakLbl.setAttribute('font-weight', '700');
+    peakLbl.setAttribute('font-family', 'Inter, sans-serif');
+    peakLbl.textContent     = values[maxIdx];
+    peakLbl.style.opacity   = '0';
+    peakLbl.style.transition = 'opacity 0.4s ease 1.5s';
+    svg.appendChild(peakLbl);
+
+    // -- LABELS des jours sur l'axe X --
+    labels.forEach((label, i) => {
+        const isToday = (i === values.length - 1);
+        const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        t.setAttribute('x',           toX(i));
+        t.setAttribute('y',           H - 8);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('font-size',   '9');
+        t.setAttribute('fill',        isToday ? '#000091' : '#aaa');
+        t.setAttribute('font-weight', isToday ? '700' : '400');
+        t.setAttribute('font-family', 'Inter, sans-serif');
+        t.textContent = label;
+        svg.appendChild(t);
+    });
+
+    // -- DÉCLENCHEMENT des animations après insertion dans le DOM --
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            try { line.style.strokeDashoffset = '0'; } catch(e) {}
+            dots.forEach(d => { d.style.opacity = '1'; });
+            peakLbl.style.opacity = '1';
+        }, 80);
+    });
+
+    // -- INTERACTIVITÉ : tooltip au survol --
+    wrapper.addEventListener('mousemove', function(e) {
+        const svgRect = svg.getBoundingClientRect();
+        const scaleX  = W / svgRect.width;
+        const mouseX  = (e.clientX - svgRect.left) * scaleX;
+
+        let nearest = 0, minDist = Infinity;
+        values.forEach((_, i) => {
+            const d = Math.abs(mouseX - toX(i));
+            if (d < minDist) { minDist = d; nearest = i; }
+        });
+
+        const threshold = chartW / (values.length - 1) * 0.65;
+        if (minDist < threshold) {
+            // Ligne verticale
+            vLine.setAttribute('x1', toX(nearest));
+            vLine.setAttribute('x2', toX(nearest));
+            vLine.setAttribute('opacity', '0.35');
+
+            // Tooltip
+            if (tooltip) {
+                const scaleY    = svgRect.height / H;
+                const tipX      = toX(nearest) / scaleX;
+                const tipY      = toY(values[nearest]) * scaleY - 34;
+                const label     = labels[nearest] === 'Auj.' ? 'Aujourd\'hui' : labels[nearest];
+                tooltip.textContent  = `${label} : ${values[nearest]} questions`;
+                tooltip.style.left   = tipX + 'px';
+                tooltip.style.top    = tipY + 'px';
+                tooltip.style.display = 'block';
+            }
+        } else {
+            vLine.setAttribute('opacity', '0');
+            if (tooltip) tooltip.style.display = 'none';
+        }
+    });
+
+    wrapper.addEventListener('mouseleave', function() {
+        vLine.setAttribute('opacity', '0');
+        if (tooltip) tooltip.style.display = 'none';
+    });
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+function init() {
+    addMessage(
+        `Bonjour ! Je suis l'assistant de la <strong>commune de Saint-Martin-des-Champs</strong>, propulsé par la <strong>Plateforme d'Intelligence Citoyenne</strong> Civik-ia.<br><br>
+        Je peux vous renseigner sur :<br>
+        <strong>Mairie</strong> — horaires, élus, rendez-vous<br>
+        <strong>État civil</strong> — CNI, passeport, actes, mariage<br>
+        <strong>Urbanisme</strong> — PLU, permis, règles de construction<br>
+        <strong>Vie quotidienne</strong> — déchets, école, cantine, eau, transport<br>
+        <strong>Vie locale</strong> — événements, associations, médiathèque<br>
+        <strong>Santé & social</strong> — médecins, aides, démarches en ligne<br>
+        <strong>Actualités</strong> — travaux, décisions, budget<br><br>
+        <em style="color:#999; font-size:12px;">Ceci est une démonstration avec des données fictives.</em><br><br>
+        <strong>Choisissez une catégorie ci-dessous ou posez votre question !</strong>`,
+        'bot',
+        null
+    );
+
+    const barsContainer = document.getElementById('categoryBars');
+    categories.forEach(cat => {
+        const bar = document.createElement('div');
+        bar.className = 'cat-bar';
+        bar.innerHTML = `
+            <span class="label">${cat.label}</span>
+            <div class="bar-bg"><div class="bar-fill" style="width: 0%"></div></div>
+            <span class="pct">${cat.pct}%</span>
+        `;
+        barsContainer.appendChild(bar);
+    });
+
+    setTimeout(() => {
+        document.querySelectorAll('.cat-bar .bar-fill').forEach((fill, i) => {
+            fill.style.width = categories[i].pct + '%';
+        });
+    }, 500);
+
+    // Graphique d'activité 7 jours
+    renderActivityChart();
+
+    // Campaign banner + survey only shown in citoyen view
+    // In mairie view, campaigns are managed from the dashboard panel
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

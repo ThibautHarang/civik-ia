@@ -1,0 +1,6 @@
+# Civik-ia — robots.txt
+User-agent: *
+Allow: /
+Disallow: /icons/
+
+Sitemap: https://civik-ia.fr/sitemap.xml

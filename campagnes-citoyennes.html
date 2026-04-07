@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-55JF49WB');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campagnes Citoyennes — Civik-ia | Consultez vos habitants en temps réel</title>
+    <meta name="description" content="Lancez des consultations citoyennes directement depuis votre dashboard. Budget participatif, aménagement urbain, nouveau service — récoltez l'avis de vos habitants en temps réel via le chatbot Civik-ia.">
+
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000091">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Civik-ia">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gov: #000091;
+            --primary-light: #1a1a6e;
+            --secondary-innov: #007bff;
+            --accent-teal: #2EC4B6;
+            --accent-gold: #F4A261;
+            --text-main: #1E1E1E;
+            --text-light: #666666;
+            --bg-warm: #f9fafb;
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-bg-hover: rgba(255, 255, 255, 0.6);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+            --glass-blur: blur(16px);
+            --glass-saturate: saturate(180%);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 70, 0.1);
+            --glass-shadow-hover: 0 25px 60px rgba(0, 0, 70, 0.16);
+            --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --text-main: #e0e0e8;
+            --text-light: #a0a0b4;
+            --bg-warm: #0d0d1a;
+            --glass-bg: rgba(20, 20, 50, 0.55);
+            --glass-bg-hover: rgba(30, 30, 70, 0.7);
+            --glass-border: 1px solid rgba(100, 100, 255, 0.12);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 20, 0.3);
+            --glass-shadow-hover: 0 25px 60px rgba(0, 0, 30, 0.4);
+        }
+
+        [data-theme="dark"] body {
+            background: #08081a;
+            color: var(--text-main);
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(0, 0, 200, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 90% 85%, rgba(0, 123, 255, 0.06) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.04) 0%, transparent 40%);
+        }
+
+        [data-theme="dark"] .topbar { background: rgba(10, 10, 30, 0.65); border-bottom-color: rgba(100, 100, 255, 0.1); }
+        [data-theme="dark"] .hero-lp { background: linear-gradient(135deg, #06063a 0%, #0a0a50 100%); }
+        [data-theme="dark"] .glass-card { color: var(--text-main); }
+        [data-theme="dark"] .cas-section { background: rgba(13,13,26,0.8); }
+        [data-theme="dark"] .cta-section { background: linear-gradient(135deg, #06063a 0%, #0a0a50 100%); }
+        [data-theme="dark"] .theme-toggle { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+        .theme-icon-dark { display: none; }
+        .theme-icon-light { display: inline; }
+        [data-theme="dark"] .theme-icon-dark { display: inline; }
+        [data-theme="dark"] .theme-icon-light { display: none; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #ffffff;
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(0, 0, 145, 0.04) 0%, transparent 30%),
+                radial-gradient(circle at 90% 85%, rgba(0, 123, 255, 0.04) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.02) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            position: fixed; top: 0; left: 0; right: 0; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px 0 0;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            z-index: 1000;
+        }
+
+        .topbar-logo img { height: 70px; width: auto; display: block; }
+        .topbar-right { display: flex; align-items: center; gap: 16px; }
+        .topbar-right a { color: var(--primary-gov); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
+        .topbar-right a:hover { color: var(--secondary-innov); }
+        [data-theme="dark"] .topbar-right a { color: #b0b0d0; }
+
+        .theme-toggle {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(0,0,145,0.1); background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px); cursor: pointer; display: flex;
+            align-items: center; justify-content: center; font-size: 16px;
+            transition: var(--transition-premium);
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.1); }
+
+        /* HERO */
+        .hero-lp {
+            padding: 160px 40px 100px;
+            background: linear-gradient(135deg, var(--primary-gov) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-lp h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px; font-weight: 900; letter-spacing: -2px;
+            margin-bottom: 20px; line-height: 1.1;
+        }
+
+        .hero-lp h1 span {
+            background: linear-gradient(135deg, var(--accent-teal), var(--secondary-innov));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero-lp p { font-size: 18px; max-width: 650px; margin: 0 auto 40px; opacity: 0.9; line-height: 1.8; }
+
+        .hero-stats {
+            display: flex; gap: 40px; justify-content: center; margin-top: 50px;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 20px 28px; text-align: center;
+        }
+
+        .hero-stat-number { font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 900; }
+        .hero-stat-label { font-size: 13px; opacity: 0.8; font-weight: 600; margin-top: 4px; }
+
+        /* GLASS CARD */
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            border-radius: 20px; padding: 32px; border: var(--glass-border);
+            box-shadow: var(--glass-shadow); transition: var(--transition-premium);
+        }
+        .glass-card:hover { box-shadow: var(--glass-shadow-hover); background: var(--glass-bg-hover); transform: translateY(-4px); }
+
+        /* SECTIONS */
+        .section-title {
+            font-family: 'Poppins', sans-serif; font-size: 44px; font-weight: 900;
+            text-align: center; color: var(--primary-gov); letter-spacing: -1px; margin-bottom: 20px;
+        }
+        .section-title span { background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        [data-theme="dark"] .section-title { color: #a0a0ff; }
+
+        .section-sub { text-align: center; max-width: 700px; margin: 0 auto 60px; font-size: 16px; color: var(--text-light); line-height: 1.8; }
+
+        /* COMMENT ÇA MARCHE */
+        .steps-section { padding: 100px 40px; }
+
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+            max-width: 1100px; margin: 0 auto;
+        }
+
+        .step-card { text-align: center; }
+        .step-number {
+            width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 900; color: white;
+        }
+        .step-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; color: var(--primary-gov); margin-bottom: 12px; }
+        [data-theme="dark"] .step-card h3 { color: #a0a0ff; }
+        .step-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+        /* CAS CONCRETS */
+        .cas-section { padding: 100px 40px; background: rgba(249,250,251,0.7); }
+
+        .cas-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+            max-width: 1000px; margin: 0 auto;
+        }
+
+        .cas-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; color: var(--primary-gov); margin-bottom: 8px; }
+        [data-theme="dark"] .cas-card h3 { color: #a0a0ff; }
+        .cas-card .cas-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-bottom: 14px; }
+        .cas-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+        .cas-result { display: flex; gap: 20px; }
+        .cas-result-item { text-align: center; }
+        .cas-result-num { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 900; }
+        .cas-result-label { font-size: 11px; color: var(--text-light); font-weight: 600; }
+
+        /* MOCKUP LIVE */
+        .mockup-section { padding: 100px 40px; }
+
+        .mockup-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
+            max-width: 1100px; margin: 0 auto;
+        }
+
+        .mockup-text h3 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; color: var(--primary-gov); margin-bottom: 16px; }
+        [data-theme="dark"] .mockup-text h3 { color: #a0a0ff; }
+        .mockup-text p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+
+        .feature-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .feature-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-main); font-weight: 500; }
+        .feature-check { width: 24px; height: 24px; border-radius: 6px; background: rgba(46,196,182,0.12); color: var(--accent-teal); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 40px; text-align: center;
+            background: linear-gradient(135deg, var(--primary-gov) 0%, var(--primary-light) 100%); color: white;
+        }
+        .cta-section h2 { font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 900; margin-bottom: 16px; }
+        .cta-section p { font-size: 17px; opacity: 0.9; max-width: 600px; margin: 0 auto 40px; line-height: 1.8; }
+
+        .btn-cta {
+            display: inline-block; padding: 18px 48px;
+            background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));
+            color: white; border: none; border-radius: 50px; font-weight: 700; font-size: 16px;
+            cursor: pointer; text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,123,255,0.3);
+            transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .btn-cta:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,123,255,0.45); }
+
+        /* FOOTER */
+        footer {
+            padding: 40px; text-align: center;
+            background: linear-gradient(135deg, #00005c 0%, #000040 100%);
+            color: rgba(255,255,255,0.6); font-size: 13px;
+        }
+        footer a { color: var(--accent-teal); text-decoration: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-lp h1 { font-size: 36px; }
+            .hero-stats { flex-direction: column; gap: 16px; align-items: center; }
+            .steps-grid, .cas-grid, .mockup-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 32px; }
+            .topbar { padding: 0 16px 0 0; }
+            .topbar-logo img { height: 56px; }
+        }
+
+        /* ANIMATION */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: all 0.6s cubic-bezier(0.4,0,0.2,1); }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Progress bar animation */
+        .progress-bar { height: 8px; border-radius: 4px; overflow: hidden; background: rgba(0,0,145,0.06); }
+        .progress-fill { height: 100%; border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55JF49WB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <a href="site-civic-ia.html" class="topbar-logo"><img src="Logo/SVG/logo%20Civik-ia%20complet.svg" alt="Civik-ia"></a>
+        <div class="topbar-right">
+            <a href="site-civic-ia.html">Retour au site</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mode sombre">
+                <span class="theme-icon-light">☀️</span>
+                <span class="theme-icon-dark">🌙</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-lp">
+        <h1>Les <span>Campagnes Citoyennes</span></h1>
+        <p>Consultez vos habitants directement depuis votre dashboard. Récoltez des avis en temps réel, sans outil tiers, sans complexité. Un outil de démocratie participative intégré à la Plateforme d'Intelligence Citoyenne.</p>
+        <a href="site-civic-ia.html#contact" class="btn-cta">Lancer ma première campagne</a>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number" style="color: var(--accent-teal);">2 clics</div>
+                <div class="hero-stat-label">Pour créer une campagne</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number" style="color: var(--accent-gold);">Temps réel</div>
+                <div class="hero-stat-label">Résultats instantanés</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number" style="color: var(--secondary-innov);">0€</div>
+                <div class="hero-stat-label">Coût additionnel</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section class="steps-section">
+        <h2 class="section-title">Comment ça <span>marche ?</span></h2>
+        <p class="section-sub">De la création à l'analyse, tout se passe dans votre dashboard. Zéro outil externe, zéro complexité.</p>
+
+        <div class="steps-grid">
+            <div class="step-card glass-card fade-up">
+                <div class="step-number" style="background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));">1</div>
+                <h3>Créez votre campagne</h3>
+                <p>Depuis le Dashboard Intelligence Citoyenne, définissez le sujet, la question, et la durée. Ajoutez des options de réponse (oui/non, note, choix multiple, commentaire libre).</p>
+            </div>
+            <div class="step-card glass-card fade-up">
+                <div class="step-number" style="background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));">2</div>
+                <h3>Les citoyens participent</h3>
+                <p>Un bandeau interactif apparaît automatiquement dans le chatbot citoyen. Les habitants donnent leur avis en un clic — directement dans la conversation, zéro friction.</p>
+            </div>
+            <div class="step-card glass-card fade-up">
+                <div class="step-number" style="background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold));">3</div>
+                <h3>Analysez en temps réel</h3>
+                <p>Scores, tendances, commentaires qualifiés — tout remonte en direct. Exportez les résultats, partagez-les en conseil municipal. Des données concrètes pour des décisions éclairées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAS CONCRETS -->
+    <section class="cas-section">
+        <h2 class="section-title">Cas <span>concrets</span></h2>
+        <p class="section-sub">Voici comment les collectivités utilisent les Campagnes Citoyennes au quotidien.</p>
+
+        <div class="cas-grid">
+            <div class="cas-card glass-card fade-up">
+                <div class="cas-tag" style="background: rgba(0,123,255,0.1); color: var(--secondary-innov);">Aménagement urbain</div>
+                <h3>Rénovation Rue de la République</h3>
+                <p>La mairie hésite entre 3 options d'aménagement. Plutôt qu'une réunion publique à 15 participants, elle lance une campagne. En 72h, 342 avis collectés avec commentaires qualifiés.</p>
+                <div class="cas-result">
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--secondary-innov);">342</div><div class="cas-result-label">Avis collectés</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-teal);">72h</div><div class="cas-result-label">Durée campagne</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-gold);">67%</div><div class="cas-result-label">Option piste cyclable</div></div>
+                </div>
+            </div>
+
+            <div class="cas-card glass-card fade-up">
+                <div class="cas-tag" style="background: rgba(46,196,182,0.1); color: var(--accent-teal);">Budget participatif</div>
+                <h3>Choix d'investissement communal</h3>
+                <p>5 projets soumis au vote citoyen : réfection du terrain de sport, aire de jeux, piste cyclable, jardin partagé, bornes Wi-Fi. Les citoyens classent leurs priorités directement via le chatbot.</p>
+                <div class="cas-result">
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--secondary-innov);">518</div><div class="cas-result-label">Participants</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-teal);">5</div><div class="cas-result-label">Projets soumis</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-gold);">89%</div><div class="cas-result-label">Satisfaction</div></div>
+                </div>
+            </div>
+
+            <div class="cas-card glass-card fade-up">
+                <div class="cas-tag" style="background: rgba(244,162,97,0.1); color: var(--accent-gold);">Nouveau service</div>
+                <h3>Horaires de la médiathèque</h3>
+                <p>Faut-il ouvrir le dimanche matin ? La mairie consulte les citoyens avant de prendre la décision. Résultat net : 73% favorables, avec les tranches horaires préférées identifiées.</p>
+                <div class="cas-result">
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--secondary-innov);">189</div><div class="cas-result-label">Réponses</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-teal);">73%</div><div class="cas-result-label">Favorables</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-gold);">9h-12h</div><div class="cas-result-label">Créneau plébiscité</div></div>
+                </div>
+            </div>
+
+            <div class="cas-card glass-card fade-up">
+                <div class="cas-tag" style="background: rgba(0,0,145,0.08); color: var(--primary-gov);">Urbanisme</div>
+                <h3>Consultation PLU simplifié</h3>
+                <p>Modification du PLU en zone UB : la mairie consulte les riverains directement. Les avis sont structurés, horodatés, et prêts pour le dossier d'enquête publique.</p>
+                <div class="cas-result">
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--secondary-innov);">156</div><div class="cas-result-label">Avis citoyens</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-teal);">100%</div><div class="cas-result-label">Traçabilité</div></div>
+                    <div class="cas-result-item"><div class="cas-result-num" style="color: var(--accent-gold);">RGPD</div><div class="cas-result-label">Conforme</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOCKUP + FEATURES -->
+    <section class="mockup-section">
+        <div class="mockup-grid">
+            <div class="mockup-text fade-up">
+                <h3>Intégré à votre Plateforme d'Intelligence Citoyenne</h3>
+                <p>Les Campagnes Citoyennes ne sont pas un outil séparé. Elles vivent dans le chatbot que vos citoyens utilisent déjà. Pas de nouvelle app à installer, pas de lien à partager, pas de compte à créer.</p>
+                <p>Le bandeau de campagne apparaît naturellement dans la conversation. Le citoyen vote en un clic, puis continue sa discussion normalement.</p>
+
+                <div class="feature-list">
+                    <div class="feature-item"><div class="feature-check">✓</div> Création en 2 clics depuis le dashboard</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> Bandeau interactif dans le chatbot citoyen</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> Notes, choix multiples, commentaires libres</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> Résultats temps réel avec graphiques</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> Export PDF pour le conseil municipal</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> Historique et comparaison inter-campagnes</div>
+                    <div class="feature-item"><div class="feature-check">✓</div> 100% RGPD, données hébergées en Europe (OVH)</div>
+                </div>
+            </div>
+
+            <!-- Mockup interactif -->
+            <div class="fade-up">
+                <div class="glass-card" style="padding: 0; overflow: hidden;">
+                    <!-- Header mockup chatbot -->
+                    <div style="background: linear-gradient(135deg, var(--primary-gov), var(--primary-light)); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 10px;">
+                        <img src="Logo/SVG/Logo%20Civik-ia.svg" alt="Civik-ia" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
+                        <div><div style="font-weight: 700; font-size: 14px;">Civik-ia — Assistant</div><div style="font-size: 11px; opacity: 0.7;">En ligne</div></div>
+                    </div>
+                    <!-- Messages -->
+                    <div style="padding: 16px; display: flex; flex-direction: column; gap: 10px; background: rgba(250,250,255,0.5); min-height: 200px;">
+                        <div style="background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 10px 14px; border-radius: 12px 12px 12px 4px; max-width: 85%; font-size: 13px; color: #333; line-height: 1.5;">
+                            Bonjour ! Avant de commencer, votre mairie aimerait votre avis sur un projet important.
+                        </div>
+                        <!-- Bandeau campagne -->
+                        <div style="background: linear-gradient(135deg, rgba(0,123,255,0.08), rgba(46,196,182,0.08)); border: 1px solid rgba(0,123,255,0.15); border-radius: 14px; padding: 16px; margin: 4px 0;">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-teal);"></div>
+                                <span style="font-weight: 700; font-size: 12px; color: var(--primary-gov);">Campagne en cours</span>
+                            </div>
+                            <div style="font-weight: 700; font-size: 14px; color: var(--primary-gov); margin-bottom: 6px;">Piétonisation du centre-ville le dimanche ?</div>
+                            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 12px;" id="voteButtons">
+                                <button onclick="vote(this, 0)" style="padding: 10px 14px; border: 1.5px solid rgba(0,123,255,0.2); background: rgba(255,255,255,0.6); border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--primary-gov); text-align: left; transition: all 0.2s;">👍 Oui, bonne idée !</button>
+                                <button onclick="vote(this, 1)" style="padding: 10px 14px; border: 1.5px solid rgba(0,123,255,0.2); background: rgba(255,255,255,0.6); border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--primary-gov); text-align: left; transition: all 0.2s;">🤔 Pourquoi pas, sous conditions</button>
+                                <button onclick="vote(this, 2)" style="padding: 10px 14px; border: 1.5px solid rgba(0,123,255,0.2); background: rgba(255,255,255,0.6); border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--primary-gov); text-align: left; transition: all 0.2s;">👎 Non, contre cette idée</button>
+                            </div>
+                            <div id="voteResult" style="display: none; margin-top: 12px;">
+                                <div style="font-size: 13px; font-weight: 600; color: var(--accent-teal); margin-bottom: 8px;">Merci pour votre vote ! Voici les résultats en direct :</div>
+                                <div style="margin-bottom: 8px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;"><span>Oui</span><span style="color: var(--accent-teal);">62%</span></div>
+                                    <div class="progress-bar"><div class="progress-fill" style="background: linear-gradient(90deg, var(--secondary-innov), var(--accent-teal));" data-width="62%"></div></div>
+                                </div>
+                                <div style="margin-bottom: 8px;">
+                                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;"><span>Sous conditions</span><span style="color: var(--secondary-innov);">24%</span></div>
+                                    <div class="progress-bar"><div class="progress-fill" style="background: var(--secondary-innov);" data-width="24%"></div></div>
+                                </div>
+                                <div>
+                                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px;"><span>Contre</span><span style="color: var(--accent-gold);">14%</span></div>
+                                    <div class="progress-bar"><div class="progress-fill" style="background: var(--accent-gold);" data-width="14%"></div></div>
+                                </div>
+                                <div style="font-size: 11px; color: var(--text-light); margin-top: 8px;">247 votes — Campagne active encore 36h</div>
+                            </div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--secondary-innov), #339dff); color: white; padding: 10px 14px; border-radius: 12px 12px 4px 12px; max-width: 75%; align-self: flex-end; font-size: 13px;">
+                            Quelle est la hauteur max en zone UB ?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <h2>Prêt à donner la parole<br>à vos citoyens ?</h2>
+        <p>Les Campagnes Citoyennes sont incluses dans toutes les offres Communes Moyennes et supérieures. Pas de surcoût, pas d'outil tiers.</p>
+        <a href="demo.html" class="btn-cta" style="margin-right:16px;">Tester la démo en direct</a>
+        <a href="site-civic-ia.html#contact" class="btn-cta" style="background:transparent;border:2px solid rgba(255,255,255,0.3);backdrop-filter:none;">Demander une démo personnalisée</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Civik-ia — Plateforme d'Intelligence Citoyenne | <a href="site-civic-ia.html">Site principal</a> · <a href="demo.html">Tester la démo</a></p>
+        <!-- Réseaux sociaux -->
+        <div style="display: flex; justify-content: center; gap: 12px; margin: 20px 0;">
+            <a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur LinkedIn" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://x.com/Civik_ia" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur X" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/civik.ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Instagram" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Facebook" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+        </div>
+        <p style="margin-top: 8px; font-size: 11px; opacity: 0.6;">100% souverain. RGPD natif. Cloud européen OVH.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('civik-theme', isDark ? 'light' : 'dark');
+        }
+
+        // Apply saved theme
+        (function() {
+            const saved = localStorage.getItem('civik-theme');
+            if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        })();
+
+        // Vote interaction
+        function vote(btn, idx) {
+            const buttons = document.getElementById('voteButtons');
+            const result = document.getElementById('voteResult');
+            buttons.querySelectorAll('button').forEach(b => {
+                b.style.opacity = '0.4';
+                b.style.pointerEvents = 'none';
+            });
+            btn.style.opacity = '1';
+            btn.style.background = 'rgba(46,196,182,0.15)';
+            btn.style.borderColor = 'var(--accent-teal)';
+
+            setTimeout(() => {
+                result.style.display = 'block';
+                // Animate progress bars
+                setTimeout(() => {
+                    result.querySelectorAll('.progress-fill').forEach(bar => {
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }, 100);
+            }, 500);
+        }
+
+        // Scroll observer for fade-up
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Service Worker PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('[PWA] Service Worker enregistré:', reg.scope))
+                    .catch(err => console.warn('[PWA] Échec enregistrement SW:', err));
+            });
+        }
+    </script>
+</body>
+</html>

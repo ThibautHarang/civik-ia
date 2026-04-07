@@ -7,7 +7,7 @@
 const CACHE_NAME = 'civik-ia-v2';
 const STATIC_ASSETS = [
   '/',
-  '/site-civic-ia.html',
+  '/site-civik-ia.html',
   '/campagnes-citoyennes.html',
   '/demo.html',
   '/logo-civik-ia.svg',
@@ -149,7 +149,7 @@ self.addEventListener('push', (event) => {
     vibrate: [200, 100, 200],
     tag: data.tag || 'civik-ia-notification',
     data: {
-      url: data.url || '/site-civic-ia.html'
+      url: data.url || '/site-civik-ia.html'
     },
     actions: data.actions || [
       { action: 'open', title: 'Voir' },
@@ -171,7 +171,7 @@ self.addEventListener('notificationclick', (event) => {
 
   if (event.action === 'dismiss') return;
 
-  const targetUrl = event.notification.data?.url || '/site-civic-ia.html';
+  const targetUrl = event.notification.data?.url || '/site-civik-ia.html';
 
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true })

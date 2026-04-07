@@ -2,7 +2,7 @@
   "name": "Civik-ia — Plateforme d'Intelligence Citoyenne",
   "short_name": "Civik-ia",
   "description": "Votre mairie connect\u00e9e 24h/24 gr\u00e2ce \u00e0 une IA souveraine form\u00e9e sur les donn\u00e9es de votre commune.",
-  "start_url": "/site-civic-ia.html",
+  "start_url": "/site-civik-ia.html",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -47,7 +47,7 @@
     {
       "name": "Contacter la mairie",
       "short_name": "Contact",
-      "url": "/site-civic-ia.html#contact",
+      "url": "/site-civik-ia.html#contact",
       "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
     },
     {

@@ -9,7 +9,7 @@
     })(window,document,'script','dataLayer','GTM-55JF49WB');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Civik-ia — Démo Interactive | Plateforme d'Intelligence Citoyenne</title>
     <meta name="description" content="Testez la Plateforme d'Intelligence Citoyenne Civik-ia. Posez des questions comme un citoyen et découvrez le dashboard élu en temps réel.">
     <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
@@ -147,6 +147,23 @@
             background: white; flex-shrink: 0;
             overflow-x: auto; -webkit-overflow-scrolling: touch;
             align-items: center;
+            /* Scrollbar toujours visible */
+            scrollbar-width: thin;
+            scrollbar-color: #000091 #e8e8e8;
+            padding-bottom: 8px;
+        }
+        /* Scrollbar visible desktop & Android */
+        .suggestion-categories::-webkit-scrollbar,
+        .suggestion-questions::-webkit-scrollbar {
+            height: 4px;
+        }
+        .suggestion-categories::-webkit-scrollbar-track,
+        .suggestion-questions::-webkit-scrollbar-track {
+            background: #e8e8e8; border-radius: 4px;
+        }
+        .suggestion-categories::-webkit-scrollbar-thumb,
+        .suggestion-questions::-webkit-scrollbar-thumb {
+            background: #000091; border-radius: 4px;
         }
         .cat-pill {
             padding: 8px 16px; border-radius: 20px; border: 1.5px solid #000091;
@@ -388,11 +405,19 @@
             .chat-header-info p { font-size: 10px; }
             .chat-avatar { width: 36px; height: 36px; }
             .suggestions { padding: 0; position: relative; }
-            /* Dégradé fade pour indiquer le scroll horizontal */
             .suggestion-categories, .suggestion-questions {
-                padding: 10px 12px; gap: 6px;
-                -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-                mask-image: linear-gradient(to right, black 85%, transparent 100%);
+                padding: 10px 12px 6px; gap: 6px;
+            }
+            /* Barre de scroll visible sous les catégories */
+            .scroll-indicator {
+                display: block !important;
+                height: 3px; margin: 0 12px 6px; background: #e8e8e8; border-radius: 3px;
+                position: relative; overflow: hidden;
+            }
+            .scroll-indicator .scroll-thumb {
+                height: 100%; background: #000091; border-radius: 3px;
+                position: absolute; left: 0; top: 0;
+                transition: left 0.15s ease, width 0.15s ease;
             }
             .suggestion-btn { font-size: 11px; padding: 6px 12px; }
             .cat-pill { font-size: 11px; padding: 6px 12px; }
@@ -483,6 +508,9 @@
                     <button class="cat-pill" onclick="showCategoryQuestions('sante')">Santé</button>
                     <button class="cat-pill" onclick="showCategoryQuestions('social')">Aides</button>
                     <button class="cat-pill" onclick="showCategoryQuestions('actu')">Actualités</button>
+                </div>
+                <div class="scroll-indicator" id="scrollIndicator" style="display:none;">
+                    <div class="scroll-thumb" id="scrollThumb"></div>
                 </div>
                 <div class="suggestion-questions" id="suggestionQuestions" style="display:none;">
                     <button class="back-btn" onclick="showCategories()">← Catégories</button>
@@ -2400,6 +2428,45 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+// ============================================
+// SCROLL INDICATOR — Barre visible sous les catégories
+// ============================================
+(function() {
+    const cats = document.getElementById('suggestionCategories');
+    const indicator = document.getElementById('scrollIndicator');
+    const thumb = document.getElementById('scrollThumb');
+    if (!cats || !indicator || !thumb) return;
+
+    function updateScroll() {
+        const sw = cats.scrollWidth;
+        const cw = cats.clientWidth;
+        if (sw <= cw) { indicator.style.display = 'none'; return; }
+        indicator.style.display = 'block';
+        const ratio = cw / sw;
+        const thumbW = Math.max(ratio * 100, 20);
+        const scrollRatio = cats.scrollLeft / (sw - cw);
+        const thumbLeft = scrollRatio * (100 - thumbW);
+        thumb.style.width = thumbW + '%';
+        thumb.style.left = thumbLeft + '%';
+    }
+    cats.addEventListener('scroll', updateScroll);
+    window.addEventListener('resize', updateScroll);
+    setTimeout(updateScroll, 200);
+})();
+
+// ============================================
+// FIX iOS ZOOM — Reset zoom quand on quitte un input
+// ============================================
+if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    document.addEventListener('focusout', function() {
+        // Force reset du zoom iOS après fermeture du clavier
+        setTimeout(function() {
+            window.scrollTo(0, window.scrollY);
+            document.body.style.zoom = 1;
+        }, 100);
+    });
+}
 </script>
 </body>
 </html>

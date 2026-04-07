@@ -377,19 +377,32 @@
             .container { flex-direction: column; }
             .chat-panel { flex: 1; flex-basis: auto; min-height: 0; }
             .dashboard-panel { display: none; }
-            .banner { font-size: 11px; }
-            .banner-title strong { font-size: 12px; }
+            .banner { font-size: 11px; padding: 6px 12px; gap: 8px; flex-wrap: wrap; }
+            .banner-title strong { font-size: 11px; }
             .banner-title span { display: none; }
+            .banner-tabs { display: none; }
+            .banner-badge { display: none; }
             .banner-right { display: none; }
-            .chat-header { padding: 12px 16px; }
-            .chat-header-info h2 { font-size: 14px; }
+            .chat-header { padding: 10px 14px; }
+            .chat-header-info h2 { font-size: 13px; }
+            .chat-header-info p { font-size: 10px; }
+            .chat-avatar { width: 36px; height: 36px; }
             .suggestions { padding: 0; }
             .suggestion-categories, .suggestion-questions { padding: 10px 12px; gap: 6px; }
             .suggestion-btn { font-size: 11px; padding: 6px 12px; }
             .cat-pill { font-size: 11px; padding: 6px 12px; }
-            .chat-input { padding: 8px 12px; }
-            .chat-input input { padding: 10px 12px; font-size: 13px; }
+            .chat-input { padding: 8px 10px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+            .chat-input input { padding: 10px 12px; font-size: 14px; }
             .chat-input button { padding: 10px 16px; font-size: 13px; }
+            /* Espace pour le bandeau CTA fixe en bas */
+            .app-wrapper { padding-bottom: 110px; }
+        }
+        @media (max-width: 480px) {
+            .banner-title strong { font-size: 10px; }
+            .chat-header-info h2 { font-size: 12px; }
+            .msg { font-size: 13px; padding: 10px 14px; max-width: 90%; }
+            .chat-input input { font-size: 14px; padding: 10px; }
+            .chat-input button { padding: 10px 14px; font-size: 12px; }
         }
     </style>
 </head>
@@ -758,11 +771,19 @@
     </div><!-- /app-wrapper -->
 
 <!-- CTA CONVERSION BANNER -->
-<div style="position:fixed; bottom:0; left:0; right:0; background:linear-gradient(135deg, #000091 0%, #1a1a6e 100%); color:white; padding:12px 24px; display:flex; align-items:center; justify-content:center; gap:16px; z-index:1000; box-shadow:0 -4px 20px rgba(0,0,0,0.15);">
-    <span style="font-size:14px; font-weight:500;">Cette démo utilise des données fictives. <strong>Votre commune aussi peut en bénéficier.</strong></span>
-    <a href="site-civic-ia.html#contact" style="padding:10px 28px; background:#2EC4B6; color:white; text-decoration:none; border-radius:9999px; font-weight:700; font-size:14px; white-space:nowrap; transition:all 0.2s;">Demander ma démo personnalisée</a>
-    <button onclick="this.parentElement.style.display='none'" style="background:none; border:none; color:rgba(255,255,255,0.5); font-size:18px; cursor:pointer; padding:4px 8px;">✕</button>
+<div id="ctaBanner" style="position:fixed; bottom:0; left:0; right:0; background:linear-gradient(135deg, #000091 0%, #1a1a6e 100%); color:white; padding:10px 20px; display:flex; align-items:center; justify-content:center; gap:12px; z-index:1000; box-shadow:0 -4px 20px rgba(0,0,0,0.15); flex-wrap:wrap;">
+    <span class="cta-text" style="font-size:13px; font-weight:500; text-align:center;">Cette démo utilise des données fictives. <strong>Votre commune aussi peut en bénéficier.</strong></span>
+    <a href="site-civic-ia.html#contact" style="padding:10px 24px; background:#2EC4B6; color:white; text-decoration:none; border-radius:9999px; font-weight:700; font-size:13px; white-space:nowrap; transition:all 0.2s; flex-shrink:0;">Demander ma démo personnalisée</a>
+    <button onclick="this.parentElement.style.display='none'; document.querySelector('.app-wrapper').style.paddingBottom='0';" style="background:none; border:none; color:rgba(255,255,255,0.5); font-size:18px; cursor:pointer; padding:4px 8px; position:absolute; top:4px; right:8px;">✕</button>
 </div>
+<style>
+    @media (max-width: 900px) {
+        #ctaBanner { flex-direction: column; gap: 8px; padding: 10px 16px 14px; padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+        #ctaBanner .cta-text { font-size: 12px; line-height: 1.4; }
+        #ctaBanner a { padding: 10px 20px; font-size: 13px; width: 100%; text-align: center; }
+        #ctaBanner button { top: 2px; right: 4px; }
+    }
+</style>
 
 <script>
 // ============================================

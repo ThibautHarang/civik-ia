@@ -1715,30 +1715,40 @@ function addMessage(content, type, source) {
     const div = document.createElement('div');
     div.className = `msg ${type}`;
     if (type === 'bot') {
-        // Typewriter effect: reveal text character by character
+        // Typewriter effect: reveal HTML progressively (conserve la mise en forme)
         const textSpan = document.createElement('span');
         textSpan.className = 'bot-text-content';
         div.appendChild(textSpan);
         chatMessages.appendChild(div);
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // Strip HTML tags for typewriter, then add source + rating after
-        const plainText = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
         const fullHTML = content + (source ? `<br><span class="source">Source : ${source}</span>` : '');
+        // Compter les caractères texte (sans les tags HTML)
+        const temp = document.createElement('div');
+        temp.innerHTML = content;
+        const totalChars = temp.textContent.length;
 
-        let charIndex = 0;
-        const speed = Math.max(8, Math.min(25, 800 / plainText.length)); // Adaptive speed
+        let revealed = 0;
+        const speed = Math.max(8, Math.min(25, 800 / totalChars));
         const typeInterval = setInterval(() => {
-            charIndex++;
-            // Show progressively more of the plain text
-            textSpan.textContent = plainText.substring(0, charIndex);
+            revealed++;
+            // Mapper le nb de caractères texte révélés vers la position dans le HTML
+            let textCount = 0, inTag = false, htmlPos = content.length;
+            for (let i = 0; i < content.length; i++) {
+                if (content[i] === '<') { inTag = true; }
+                if (!inTag) {
+                    textCount++;
+                    if (textCount >= revealed) { htmlPos = i + 1; break; }
+                }
+                if (content[i] === '>') { inTag = false; }
+            }
+            // Le navigateur ferme automatiquement les tags ouverts
+            textSpan.innerHTML = content.substring(0, htmlPos);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            if (charIndex >= plainText.length) {
+            if (revealed >= totalChars) {
                 clearInterval(typeInterval);
-                // Once done, replace with full HTML content + source + rating
-                textSpan.remove();
-                div.innerHTML = fullHTML;
+                textSpan.innerHTML = fullHTML;
                 const ratingDiv = document.createElement('div');
                 ratingDiv.className = 'rating-widget';
                 ratingDiv.innerHTML = `<span>Cette réponse vous a-t-elle aidé ?</span>
@@ -1865,6 +1875,8 @@ async function findAnswerFromAPI(query) {
     }
 }
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 function sendMessage(text) {
     const input = document.getElementById('userInput');
     const query = text || input.value.trim();
@@ -1872,7 +1884,8 @@ function sendMessage(text) {
 
     addMessage(query, 'user');
     input.value = '';
-    input.focus();
+    // Ne pas focus l'input sur mobile (évite l'ouverture du clavier)
+    if (!isMobile) input.focus();
     showTyping();
 
     // Update dashboard in real-time (mairie view)
@@ -1892,7 +1905,7 @@ function sendMessage(text) {
         findAnswerFromAPI(query).then(answer => {
             removeTyping();
             addMessage(answer.response, 'bot', answer.source);
-            input.focus();
+            if (!isMobile) input.focus();
         });
     } else {
         // Fallback local (avec délai simulé)
@@ -1901,7 +1914,7 @@ function sendMessage(text) {
             removeTyping();
             const answer = findAnswerLocal(query);
             addMessage(answer.response, 'bot', answer.source);
-            input.focus();
+            if (!isMobile) input.focus();
         }, delay);
     }
 }

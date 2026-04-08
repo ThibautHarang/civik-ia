@@ -2322,12 +2322,38 @@
         }
 
 
-        /* Performance: reduced glass on mobile */
+        /* Performance: disable ALL glass effects on mobile (GPU-intensive) */
+        @media (max-width: 768px) {
+            *, *::before, *::after {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+        }
+
+        /* Performance: reduce heavy box-shadows on mobile */
         @media (max-width: 768px) {
             .stat-card, .persona-card, .pricing-card, .why-card, .testimonial-card,
-            .chatbot-container, .chatbot-fab, .glass-card {
-                backdrop-filter: blur(6px) saturate(130%) !important;
-                -webkit-backdrop-filter: blur(6px) saturate(130%) !important;
+            .chatbot-fab, .glass-card, .chatbot-window, .chat-mockup, .dashboard-mockup {
+                box-shadow: 0 4px 16px rgba(0, 0, 70, 0.08) !important;
+            }
+            .stat-card:hover, .persona-card:hover, .pricing-card:hover,
+            .why-card:hover, .testimonial-card:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 70, 0.12) !important;
+            }
+            /* Solid backgrounds to compensate for removed glass effect */
+            .stat-card, .persona-card, .pricing-card, .why-card, .testimonial-card {
+                background: rgba(247, 244, 237, 0.92) !important;
+            }
+            [data-theme="dark"] .stat-card, [data-theme="dark"] .persona-card,
+            [data-theme="dark"] .pricing-card, [data-theme="dark"] .why-card,
+            [data-theme="dark"] .testimonial-card {
+                background: rgba(20, 20, 50, 0.92) !important;
+            }
+            nav {
+                background: rgba(247, 244, 237, 0.97) !important;
+            }
+            [data-theme="dark"] nav {
+                background: rgba(10, 10, 30, 0.97) !important;
             }
         }
 

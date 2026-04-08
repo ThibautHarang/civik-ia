@@ -376,7 +376,6 @@
 
         [data-theme="dark"] .logo img {
             filter: invert(1) hue-rotate(180deg) brightness(1.5);
-            mix-blend-mode: screen;
         }
 
         [data-theme="dark"] .nav-links a {
@@ -653,7 +652,6 @@
             width: auto;
             display: block;
             object-fit: contain;
-            mix-blend-mode: multiply;
         }
 
         .logo:hover {
@@ -1537,23 +1535,49 @@
             box-shadow: 0 12px 32px rgba(0,0,145,0.35);
         }
 
+        /* Grilles desktop — colonnes en CSS pur (pas en inline) pour Safari iOS */
+        .livre-blanc-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .campagnes-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .alertes-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .parrainage-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .strates-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Overflow protection */
+        #campagnes, #parrainage, #livre-blanc {
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
             #livre-blanc {
                 padding: 80px 20px;
             }
 
-            #livre-blanc .livre-blanc-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+            .livre-blanc-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            #livre-blanc .livre-blanc-cover {
+            .livre-blanc-cover {
                 transform: none !important;
                 padding: 32px 24px !important;
                 border-radius: 16px !important;
             }
 
-            #livre-blanc .livre-blanc-cover h3 {
+            .livre-blanc-cover h3 {
                 font-size: 22px !important;
             }
 
@@ -1568,23 +1592,23 @@
             }
 
             .strates-grid {
-                grid-template-columns: 1fr !important;
-                gap: 20px !important;
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .campagnes-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .alertes-grid {
-                grid-template-columns: 1fr !important;
-                gap: 16px !important;
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .parrainage-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             #campagnes {
@@ -1596,25 +1620,18 @@
             }
         }
 
-        /* Sections Campagnes & Parrainage — overflow protection */
-        #campagnes, #parrainage {
-            overflow: hidden;
-        }
-
         @media (max-width: 900px) {
-            .campagnes-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+            .campagnes-grid,
+            .parrainage-grid,
+            .livre-blanc-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .alertes-grid {
-                grid-template-columns: 1fr !important;
-                gap: 16px !important;
-            }
-
-            .parrainage-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
+            .alertes-grid,
+            .strates-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
         }
 
@@ -2817,7 +2834,7 @@
     <!-- NAVIGATION -->
     <nav aria-label="Navigation principale" role="navigation">
         <div class="logo" onclick="scrollToSection('hero')">
-            <img src="logo-civik-ia.svg" alt="Civik-ia — Chatbot IA pour mairies et collectivités" width="140" height="40">
+            <img src="logo-civik-ia.png" alt="Civik-ia — Chatbot IA pour mairies et collectivités" width="140" height="40">
         </div>
         <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -3069,7 +3086,7 @@
     <section id="livre-blanc">
         <h2 class="section-title">Notre Livre Blanc : <span class="section-title-accent">IA et Collectivités en 2026</span></h2>
 
-        <div class="livre-blanc-grid" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div class="livre-blanc-grid" style="max-width: 1000px; margin: 0 auto; display: grid; gap: 50px; align-items: center;">
             <!-- Couverture visuelle -->
             <div style="position: relative;">
                 <div class="livre-blanc-cover" style="background: linear-gradient(135deg, #000091 0%, #1B2A4A 100%); border-radius: 20px; padding: 50px 40px; color: white; box-shadow: 0 20px 50px rgba(0,0,70,0.2); transform: perspective(800px) rotateY(-3deg); transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.5s ease;">
@@ -3307,7 +3324,7 @@
     <section id="strates" style="padding: 80px 40px; background: var(--bg-warm);">
         <h2 class="section-title">Nos solutions par <span class="section-title-accent">strate de population</span></h2>
         <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-size: 15px; color: #666; line-height: 1.6;">Chaque collectivité a ses spécificités. La Plateforme d'Intelligence Citoyenne s'adapte à votre taille, vos besoins et votre budget.</p>
-        <div class="strates-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; align-items: stretch;">
+        <div class="strates-grid" style="display: grid; gap: 24px; max-width: 1000px; margin: 0 auto; align-items: stretch;">
             <div class="fade-in" style="background: rgba(255,255,255,0.88); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-gold); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease; display: flex; flex-direction: column;">
                 <div style="font-size: 32px; margin-bottom: 10px;">🏡</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Village & Commune rurale</h3>
@@ -3339,7 +3356,7 @@
             Donnez la parole à vos citoyens. Lancez des consultations directement depuis votre dashboard et récoltez des avis en temps réel — sans outil tiers, sans complexité.
         </p>
 
-        <div class="campagnes-grid" style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div class="campagnes-grid" style="max-width: 1100px; margin: 0 auto; display: grid; gap: 50px; align-items: center;">
             <!-- Colonne gauche : explication -->
             <div>
                 <div style="display: flex; flex-direction: column; gap: 28px;">
@@ -3413,7 +3430,7 @@
             <p style="text-align: center; max-width: 650px; margin: 0 auto 36px; font-size: 15px; color: var(--text-light); line-height: 1.8;">
                 Pas besoin d'application native. Dès qu'une campagne est lancée, trois canaux se déclenchent automatiquement pour maximiser la participation.
             </p>
-            <div class="alertes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div class="alertes-grid" style="display: grid; gap: 20px;">
                 <div class="fade-in" style="background: rgba(255,255,255,0.9); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
                     <div style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 24px;">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -3497,7 +3514,7 @@
             Vous utilisez la Plateforme et vous en êtes satisfait ? Recommandez Civik-ia à une commune voisine et bénéficiez d'avantages exclusifs.
         </p>
 
-        <div class="parrainage-grid" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+        <div class="parrainage-grid" style="max-width: 1000px; margin: 0 auto; display: grid; gap: 50px; align-items: start;">
             <!-- Avantages parrain -->
             <div>
                 <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-gov); margin-bottom: 24px;">Vos avantages parrain</h3>

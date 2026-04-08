@@ -180,6 +180,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- Prevent dark mode flash: apply saved theme before CSS renders -->
     <script>
@@ -207,12 +208,12 @@
             --glass-bg-hover: rgba(250, 248, 242, 0.72);
             --glass-border: 1px solid rgba(200, 190, 170, 0.25);
             --glass-border-color: rgba(140, 120, 80, 0.08);
-            --glass-blur: blur(16px);
-            --glass-saturate: saturate(180%);
+            --glass-blur: blur(10px);
+            --glass-saturate: saturate(150%);
             --glass-shadow: 0 15px 35px rgba(40, 30, 10, 0.08);
-            --glass-shadow-hover: 0 25px 60px rgba(40, 30, 10, 0.14);
+            --glass-shadow-hover: 0 20px 45px rgba(40, 30, 10, 0.12);
             /* Transition Premium */
-            --transition-premium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-premium: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, box-shadow 0.4s ease;
         }
 
         /* ============================================
@@ -632,8 +633,8 @@
             justify-content: space-between;
             padding: 0 30px 0 0;
             background: rgba(247, 244, 237, 0.6);
-            backdrop-filter: blur(40px) saturate(200%);
-            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
             border-bottom: 1px solid rgba(200, 190, 170, 0.2);
             z-index: 1000;
             box-shadow: 0 4px 30px rgba(40, 30, 10, 0.04),
@@ -716,7 +717,7 @@
             font-weight: 700;
             font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 16px rgba(0, 0, 145, 0.25);
             white-space: nowrap;
         }
@@ -735,7 +736,7 @@
             font-weight: 600;
             font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
             white-space: nowrap;
         }
 
@@ -826,7 +827,7 @@
             font-weight: 700;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 8px 24px rgba(0, 0, 145, 0.25);
             letter-spacing: -0.3px;
         }
@@ -845,7 +846,7 @@
             font-weight: 700;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
             letter-spacing: -0.3px;
         }
 
@@ -919,7 +920,7 @@
             height: 2.5px;
             background: var(--primary-gov);
             border-radius: 2px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
         }
         [data-theme="dark"] .hamburger span {
             background: #b0b0d0;
@@ -978,8 +979,8 @@
                 right: 0;
                 flex-direction: column;
                 background: rgba(247, 244, 237, 0.95);
-                backdrop-filter: blur(24px) saturate(200%);
-                -webkit-backdrop-filter: blur(24px) saturate(200%);
+                backdrop-filter: blur(12px) saturate(150%);
+                -webkit-backdrop-filter: blur(12px) saturate(150%);
                 padding: 20px 30px;
                 gap: 0;
                 box-shadow: 0 8px 30px rgba(40, 30, 10, 0.08);
@@ -1364,7 +1365,7 @@
             font-weight: 700;
             font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-white:hover {
@@ -1380,7 +1381,7 @@
 
         .chat-mockup {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1514,7 +1515,7 @@
 
         .dashboard-mockup {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1648,7 +1649,7 @@
             font-weight: 600;
             font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1735,7 +1736,7 @@
             background: radial-gradient(circle, rgba(0, 0, 91, 0.04) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
-            transition: all 0.6s ease;
+            transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.5s ease;
         }
 
         .pricing-card:hover::after {
@@ -1848,7 +1849,7 @@
             font-weight: 700;
             font-size: 15px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
             width: 100%;
         }
 
@@ -1935,7 +1936,7 @@
             padding: 48px 40px;
             text-align: center;
             border: 2px solid transparent;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
             opacity: 0;
             transform: translateY(30px);
             position: relative;
@@ -2207,7 +2208,7 @@
             font-weight: 700;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
         }
 
@@ -2220,7 +2221,7 @@
             color: var(--accent-teal);
             text-decoration: none;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
         }
 
         .download-link:hover {
@@ -2299,14 +2300,31 @@
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
+            will-change: opacity, transform;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
-            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
         }
 
+
+        /* Performance: reduced glass on mobile */
+        @media (max-width: 768px) {
+            .stat-card, .persona-card, .pricing-card, .why-card, .testimonial-card,
+            .chatbot-container, .chatbot-fab, .glass-card {
+                backdrop-filter: blur(6px) saturate(130%) !important;
+                -webkit-backdrop-filter: blur(6px) saturate(130%) !important;
+            }
+        }
+
+        /* Performance: contain layout for independent sections */
+        section, .hero, [id="solution"], [id="pricing"], [id="pourquoi"], 
+        [id="strates"], [id="campagnes"], [id="testimonials"], [id="parrainage"],
+        [id="contact"], [id="avant-apres"] {
+            contain: layout style;
+        }
         .accent-gradient {
             background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
             -webkit-background-clip: text;
@@ -2363,6 +2381,7 @@
             background: rgba(0, 0, 145, 0.6);
             backdrop-filter: blur(8px) saturate(160%);
             -webkit-backdrop-filter: blur(8px) saturate(160%);
+            will-change: transform, box-shadow;
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
@@ -2389,7 +2408,7 @@
         .chatbot-fab.visible {
             opacity: 1;
             transform: scale(1) translateY(0);
-            animation: pulseGlass 2s infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 145, 0.25);
         }
 
         @keyframes pulseGlass {
@@ -2432,7 +2451,7 @@
             z-index: 9998;
             opacity: 0;
             transform: translateY(10px) scale(0.9);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
             max-width: 260px;
             line-height: 1.5;
             border: 1px solid var(--glass-border);
@@ -2480,8 +2499,8 @@
             width: 380px;
             max-height: 520px;
             background: rgba(247, 244, 237, 0.82);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
             border-radius: 24px;
             box-shadow: 0 25px 80px rgba(40, 30, 10, 0.14), 0 0 0 1px rgba(200, 190, 170, 0.2);
             border: 1px solid rgba(200, 190, 170, 0.25);
@@ -2492,7 +2511,7 @@
             opacity: 0;
             transform: translateY(20px) scale(0.95);
             pointer-events: none;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
         }
 
         .chatbot-window.open {
@@ -2508,8 +2527,8 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            backdrop-filter: blur(12px) saturate(160%);
-            -webkit-backdrop-filter: blur(12px) saturate(160%);
+            backdrop-filter: blur(8px) saturate(140%);
+            -webkit-backdrop-filter: blur(8px) saturate(140%);
         }
 
         .chatbot-win-header .cb-avatar {
@@ -2602,7 +2621,7 @@
             border-radius: 12px;
             cursor: pointer;
             font-size: 16px;
-            transition: all 0.2s;
+            transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
             flex: 1;
             text-align: center;
         }
@@ -2698,7 +2717,7 @@
             font-weight: 700;
             cursor: pointer;
             font-size: 13px;
-            transition: all 0.2s;
+            transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
         }
 
         .chatbot-win-input button:hover {
@@ -2886,7 +2905,7 @@
                     <span style="display: inline-block; padding: 8px 24px; background: rgba(220,53,69,0.08); color: #dc3545; font-weight: 800; font-size: 14px; border-radius: 9999px; letter-spacing: 1px;">AVANT</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0;">
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: 16px 16px 4px 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545; position: relative;">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); border-radius: 16px 16px 4px 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545; position: relative;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(220,53,69,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">🔍</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Lundi 9h — Recherche</span>
@@ -2894,7 +2913,7 @@
                         <p style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0;">Le citoyen cherche l'info sur le site de la mairie. 15 PDFs, 3 onglets, aucune réponse claire.</p>
                     </div>
                     <div style="width: 2px; height: 20px; background: rgba(220,53,69,0.15); margin-left: 40px;"></div>
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); border-radius: 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(220,53,69,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">📞</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Lundi 10h — Appel</span>
@@ -2902,7 +2921,7 @@
                         <p style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0;">Il appelle la mairie. Ligne occupée. Il rappelle 3 fois. L'agent décroche, note la question, "on vous rappelle".</p>
                     </div>
                     <div style="width: 2px; height: 20px; background: rgba(220,53,69,0.15); margin-left: 40px;"></div>
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); border-radius: 4px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(220,53,69,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">⏳</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Mardi — Attente</span>
@@ -2910,7 +2929,7 @@
                         <p style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0;">Pas de rappel. Le citoyen renvoie un email. L'agent doit chercher dans le PLU (200 pages).</p>
                     </div>
                     <div style="width: 2px; height: 20px; background: rgba(220,53,69,0.15); margin-left: 40px;"></div>
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: 4px 4px 16px 16px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); border-radius: 4px 4px 16px 16px; padding: 20px 24px; border: 1px solid rgba(220,53,69,0.1); border-left: 4px solid #dc3545;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(220,53,69,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">😤</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Mercredi — Réponse</span>
@@ -2937,7 +2956,7 @@
                     <span style="display: inline-block; padding: 8px 24px; background: rgba(46,196,182,0.1); color: var(--accent-teal); font-weight: 800; font-size: 14px; border-radius: 9999px; letter-spacing: 1px;">APRÈS</span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0;">
-                    <div style="background: rgba(255,255,255,0.55); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px 16px 4px 4px; padding: 20px 24px; border: 1px solid rgba(46,196,182,0.15); border-left: 4px solid var(--accent-teal); position: relative;">
+                    <div style="background: rgba(255,255,255,0.55); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px 16px 4px 4px; padding: 20px 24px; border: 1px solid rgba(46,196,182,0.15); border-left: 4px solid var(--accent-teal); position: relative;">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(46,196,182,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">💬</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Dimanche 22h — Question</span>
@@ -2945,7 +2964,7 @@
                         <p style="font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0;">Le citoyen ouvre le chatbot sur le site de la mairie. Il tape sa question en langage naturel.</p>
                     </div>
                     <div style="width: 2px; height: 20px; background: rgba(46,196,182,0.2); margin-left: 40px;"></div>
-                    <div style="background: rgba(255,255,255,0.55); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 4px 4px 16px 16px; padding: 20px 24px; border: 1px solid rgba(46,196,182,0.15); border-left: 4px solid var(--accent-teal);">
+                    <div style="background: rgba(255,255,255,0.55); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 4px 4px 16px 16px; padding: 20px 24px; border: 1px solid rgba(46,196,182,0.15); border-left: 4px solid var(--accent-teal);">
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                             <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(46,196,182,0.1); display: flex; align-items: center; justify-content: center; font-size: 14px;">✅</div>
                             <span style="font-weight: 700; font-size: 13px; color: var(--primary-gov);">Dimanche 22h — Réponse</span>
@@ -2959,7 +2978,7 @@
                 </div>
 
                 <!-- Bonus : bénéfices agents -->
-                <div style="margin-top: 20px; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.18);">
+                <div style="margin-top: 20px; background: rgba(255,255,255,0.45); backdrop-filter: blur(8px) saturate(140%); -webkit-backdrop-filter: blur(8px) saturate(140%); border-radius: 14px; padding: 18px; border: 1px solid rgba(255,255,255,0.18);">
                     <div style="font-weight: 700; font-size: 13px; color: var(--primary-gov); margin-bottom: 10px;">Pendant ce temps, l'agent de mairie...</div>
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="font-size: 12px; color: var(--text-light); display: flex; align-items: center; gap: 8px;"><span style="color: var(--accent-teal); font-weight: 800;">+</span> Accompagne une personne âgée au guichet</div>
@@ -3009,7 +3028,7 @@
         <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
             <!-- Couverture visuelle -->
             <div style="position: relative;">
-                <div style="background: linear-gradient(135deg, #000091 0%, #1B2A4A 100%); border-radius: 20px; padding: 50px 40px; color: white; box-shadow: 0 30px 80px rgba(0,0,70,0.25); transform: perspective(800px) rotateY(-3deg); transition: all 0.5s ease;">
+                <div style="background: linear-gradient(135deg, #000091 0%, #1B2A4A 100%); border-radius: 20px; padding: 50px 40px; color: white; box-shadow: 0 20px 50px rgba(0,0,70,0.2); transform: perspective(800px) rotateY(-3deg); transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.5s ease;">
                     <div style="font-size: 11px; opacity: 0.6; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">Livre Blanc — 2026</div>
                     <div style="width: 50px; height: 3px; background: linear-gradient(90deg, #2EC4B6, #007BFF); border-radius: 2px; margin-bottom: 24px;"></div>
                     <h3 style="font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 16px;">IA et Collectivités Territoriales</h3>
@@ -3053,7 +3072,7 @@
                         <div><strong style="color: var(--primary-gov);">Projection réaliste</strong> — <span style="color: var(--text-light); font-size: 14px;">Commune de 50 000 habitants : objectif -40% d'appels, satisfaction &gt; 90%</span></div>
                     </div>
                 </div>
-                <a href="../04-Documentation/Livre-Blanc-Civik-IA-2026.pdf" download class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); color: white; box-shadow: 0 8px 24px rgba(0,0,145,0.25); transition: all 0.3s ease;">
+                <a href="../04-Documentation/Livre-Blanc-Civik-IA-2026.pdf" download class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); color: white; box-shadow: 0 8px 24px rgba(0,0,145,0.25); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Télécharger le Livre Blanc (PDF)
                 </a>
@@ -3245,21 +3264,21 @@
         <h2 class="section-title">Nos solutions par <span class="section-title-accent">strate de population</span></h2>
         <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-size: 15px; color: #666; line-height: 1.6;">Chaque collectivité a ses spécificités. La Plateforme d'Intelligence Citoyenne s'adapte à votre taille, vos besoins et votre budget.</p>
         <div class="strates-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; align-items: stretch;">
-            <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-gold); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column;">
+            <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-gold); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease; display: flex; flex-direction: column;">
                 <div style="font-size: 32px; margin-bottom: 10px;">🏡</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Village & Commune rurale</h3>
                 <div style="font-size: 12px; color: var(--accent-gold); font-weight: 700; margin-bottom: 12px;">Moins de 5 000 habitants</div>
                 <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">Mairie ouverte 3 demi-journées ? La Plateforme répond aux citoyens quand vous êtes fermés. Base de connaissances locale + open data. Idéal pour libérer du temps avec un effectif réduit.</p>
                 <div style="margin-top: 18px; font-size: 14px; font-weight: 800; color: var(--primary-gov); padding-top: 14px; border-top: 1px solid rgba(0,0,145,0.08);">À partir de 99€/mois</div>
             </div>
-            <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--secondary-innov); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column;">
+            <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--secondary-innov); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease; display: flex; flex-direction: column;">
                 <div style="font-size: 32px; margin-bottom: 10px;">🏛️</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Ville moyenne</h3>
                 <div style="font-size: 12px; color: var(--secondary-innov); font-weight: 700; margin-bottom: 12px;">5 000 — 20 000 habitants</div>
                 <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">PLU complexe, services multiples, événements réguliers. La Plateforme maîtrise vos données et libère vos agents de 30-40h par semaine de questions répétitives. Dashboard complet + Campagnes Citoyennes.</p>
                 <div style="margin-top: 18px; font-size: 14px; font-weight: 800; color: var(--primary-gov); padding-top: 14px; border-top: 1px solid rgba(0,0,145,0.08);">À partir de 199€/mois</div>
             </div>
-            <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-teal); transition: all 0.4s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column;">
+            <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-teal); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease; display: flex; flex-direction: column;">
                 <div style="font-size: 32px; margin-bottom: 10px;">🗺️</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Grande commune & Intercommunalité</h3>
                 <div style="font-size: 12px; color: var(--accent-teal); font-weight: 700; margin-bottom: 12px;">20 000+ habitants</div>
@@ -3280,21 +3299,21 @@
             <!-- Colonne gauche : explication -->
             <div>
                 <div style="display: flex; flex-direction: column; gap: 28px;">
-                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: all 0.4s cubic-bezier(0.4,0,0.2,1);">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease;">
                         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
                             <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 800;">1</div>
                             <h3 style="font-size: 17px; color: var(--primary-gov); font-weight: 800;">Le Maire crée la campagne</h3>
                         </div>
                         <p style="font-size: 14px; color: var(--text-light); line-height: 1.7;">Depuis son dashboard, l'élu définit le sujet : rénovation d'une rue, budget participatif, nouveau service, horaires de déchetterie... En 2 clics, la campagne est active.</p>
                     </div>
-                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: all 0.4s cubic-bezier(0.4,0,0.2,1);">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease;">
                         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
                             <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 800;">2</div>
                             <h3 style="font-size: 17px; color: var(--primary-gov); font-weight: 800;">Les citoyens sont alertés et votent</h3>
                         </div>
                         <p style="font-size: 14px; color: var(--text-light); line-height: 1.7;">Notification push, email et SMS : vos citoyens sont alertés en moins de 5 minutes. Un bandeau interactif apparaît dans le chatbot. Ils donnent leur avis en un clic — note, commentaire, suggestion. Zéro friction.</p>
                     </div>
-                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: all 0.4s cubic-bezier(0.4,0,0.2,1);">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.45); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease;">
                         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
                             <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold)); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 800;">3</div>
                             <h3 style="font-size: 17px; color: var(--primary-gov); font-weight: 800;">Résultats en temps réel</h3>
@@ -3305,7 +3324,7 @@
             </div>
 
             <!-- Colonne droite : mockup campagne -->
-            <div class="fade-in" style="background: rgba(255,255,255,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 24px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,70,0.12); border: 1px solid rgba(255,255,255,0.25);">
+            <div class="fade-in" style="background: rgba(255,255,255,0.55); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 24px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,70,0.12); border: 1px solid rgba(255,255,255,0.25);">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,0,145,0.08);">
                     <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--accent-teal); animation: pulse 2s infinite;"></div>
                     <span style="font-weight: 700; font-size: 14px; color: var(--primary-gov);">Campagne en cours</span>
@@ -3351,7 +3370,7 @@
                 Pas besoin d'application native. Dès qu'une campagne est lancée, trois canaux se déclenchent automatiquement pour maximiser la participation.
             </p>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
+                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
                     <div style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 24px;">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                     </div>
@@ -3359,7 +3378,7 @@
                     <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Alerte instantanée sur le téléphone des citoyens via l'application web (PWA). Aucun téléchargement requis.</p>
                     <div style="margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--accent-teal);">INCLUS • INSTANTANÉ</div>
                 </div>
-                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
+                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
                     <div style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 24px;">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     </div>
@@ -3367,7 +3386,7 @@
                     <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Chaque citoyen inscrit reçoit un email avec le détail de la campagne et un lien direct pour participer.</p>
                     <div style="margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--accent-teal);">INCLUS • < 5 MIN</div>
                 </div>
-                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
+                <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.06); text-align: center;">
                     <div style="width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-teal), var(--accent-gold)); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 24px;">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
@@ -3382,7 +3401,7 @@
             <p style="font-size: 15px; color: var(--text-light); max-width: 600px; margin: 0 auto 24px; line-height: 1.8;">
                 Budget participatif, aménagement urbain, nouveau service public... Chaque campagne renforce le lien entre élus et citoyens.
             </p>
-            <a href="campagnes-citoyennes.html" aria-label="Découvrir les Campagnes Citoyennes — démocratie participative intégrée" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); color: white; border: none; border-radius: 9999px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,123,255,0.3); transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); text-decoration: none;">Découvrir les Campagnes Citoyennes</a>
+            <a href="campagnes-citoyennes.html" aria-label="Découvrir les Campagnes Citoyennes — démocratie participative intégrée" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); color: white; border: none; border-radius: 9999px; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,123,255,0.3); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease, box-shadow 0.3s ease; text-decoration: none;">Découvrir les Campagnes Citoyennes</a>
         </div>
     </section>
 
@@ -3439,28 +3458,28 @@
             <div>
                 <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-gov); margin-bottom: 24px;">Vos avantages parrain</h3>
                 <div style="display: flex; flex-direction: column; gap: 16px;">
-                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-teal), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">1</div>
                         <div>
                             <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">1er parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">1 mois d'abonnement offert</div>
                         </div>
                     </div>
-                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--secondary-innov), var(--primary-gov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">2</div>
                         <div>
                             <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">2e parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">2 mois d'abonnement offerts</div>
                         </div>
                     </div>
-                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
+                    <div class="fade-in" style="background: rgba(255,255,255,0.5); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--primary-gov), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">3</div>
                         <div>
                             <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">3e parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">3 mois d'abonnement offerts</div>
                         </div>
                     </div>
-                    <div class="fade-in" style="background: linear-gradient(135deg, rgba(0,0,145,0.06), rgba(0,123,255,0.08)); backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); border-radius: 16px; padding: 20px 24px; border: 2px solid rgba(0,123,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.12); display: flex; align-items: center; gap: 16px;">
+                    <div class="fade-in" style="background: linear-gradient(135deg, rgba(0,0,145,0.06), rgba(0,123,255,0.08)); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 16px; padding: 20px 24px; border: 2px solid rgba(0,123,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.12); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-gold), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">4+</div>
                         <div>
                             <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">4e parrainage et plus</div>
@@ -3482,33 +3501,33 @@
                     <input type="hidden" name="_subject" value="Nouveau parrainage — Civik-ia">
                     <input type="text" name="_gotcha" style="display:none">
 
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
                         <div style="font-size: 12px; font-weight: 700; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Votre commune (parrain)</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <label for="parrain_commune" class="sr-only">Nom de votre commune</label>
-                            <input type="text" id="parrain_commune" name="parrain_commune" placeholder="Nom de votre commune" required aria-label="Nom de votre commune" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="text" id="parrain_commune" name="parrain_commune" placeholder="Nom de votre commune" required aria-label="Nom de votre commune" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                             <label for="parrain_nom" class="sr-only">Votre nom et fonction</label>
-                            <input type="text" id="parrain_nom" name="parrain_nom" placeholder="Votre nom et fonction" required aria-label="Votre nom et fonction" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="text" id="parrain_nom" name="parrain_nom" placeholder="Votre nom et fonction" required aria-label="Votre nom et fonction" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                             <label for="parrain_email" class="sr-only">Votre email</label>
-                            <input type="email" id="parrain_email" name="parrain_email" placeholder="Votre email" required aria-label="Votre email" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="email" id="parrain_email" name="parrain_email" placeholder="Votre email" required aria-label="Votre email" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                         </div>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(12px); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
+                    <div style="background: rgba(255,255,255,0.5); backdrop-filter: blur(8px); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
                         <div style="font-size: 12px; font-weight: 700; color: var(--secondary-innov); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Commune recommandée (filleul)</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <label for="filleul_commune" class="sr-only">Nom de la commune recommandée</label>
-                            <input type="text" id="filleul_commune" name="filleul_commune" placeholder="Nom de la commune recommandée" required aria-label="Nom de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="text" id="filleul_commune" name="filleul_commune" placeholder="Nom de la commune recommandée" required aria-label="Nom de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                             <label for="filleul_contact" class="sr-only">Nom du contact</label>
-                            <input type="text" id="filleul_contact" name="filleul_contact" placeholder="Nom du contact (si connu)" aria-label="Nom du contact de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="text" id="filleul_contact" name="filleul_contact" placeholder="Nom du contact (si connu)" aria-label="Nom du contact de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                             <label for="filleul_email" class="sr-only">Email du contact</label>
-                            <input type="email" id="filleul_email" name="filleul_email" placeholder="Email du contact (si connu)" aria-label="Email du contact de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none;">
+                            <input type="email" id="filleul_email" name="filleul_email" placeholder="Email du contact (si connu)" aria-label="Email du contact de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
                             <label for="filleul_message" class="sr-only">Message pour la commune recommandée</label>
-                            <textarea id="filleul_message" name="filleul_message" placeholder="Un mot pour la commune recommandée ? (optionnel)" rows="3" aria-label="Message pour la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: all 0.3s ease; outline: none; resize: vertical;"></textarea>
+                            <textarea id="filleul_message" name="filleul_message" placeholder="Un mot pour la commune recommandée ? (optionnel)" rows="3" aria-label="Message pour la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none; resize: vertical;"></textarea>
                         </div>
                     </div>
 
-                    <button type="submit" style="width: 100%; padding: 16px; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); color: white; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,145,0.25);">
+                    <button type="submit" style="width: 100%; padding: 16px; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); color: white; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 8px 24px rgba(0,0,145,0.25);">
                         Envoyer ma recommandation
                     </button>
                     <div id="parrainageSuccess" style="display:none; padding: 16px; background: rgba(46,196,182,0.12); border: 2px solid var(--accent-teal); border-radius: 12px; text-align: center;">
@@ -3573,7 +3592,7 @@
         <p style="max-width: 700px; margin: 0 auto 50px; font-size: 16px; line-height: 1.8; color: var(--text-light);">
             En un coup d'oeil, le Maire et le DGS visualisent les préoccupations citoyennes, les tendances par quartier, les résultats des campagnes et pilotent les notifications multi-canal.
         </p>
-        <div style="max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-radius: 24px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,70,0.12); border: 1px solid rgba(255,255,255,0.25);">
+        <div style="max-width: 900px; margin: 0 auto; background: rgba(255,255,255,0.55); backdrop-filter: blur(10px) saturate(150%); -webkit-backdrop-filter: blur(10px) saturate(150%); border-radius: 24px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,70,0.12); border: 1px solid rgba(255,255,255,0.25);">
             <!-- Mockup Dashboard -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #eee;">
                 <div style="display: flex; align-items: center; gap: 12px;">
@@ -3677,16 +3696,16 @@
         <p style="max-width: 600px; margin: 0 auto 16px; font-size: 12px; opacity: 0.7; line-height: 1.6;">Chatbot IA souverain pour collectivités territoriales. Communes rurales, villes moyennes, intercommunalités et régions. Cloud souverain européen OVH. Conforme RGPD et RGAA.</p>
         <!-- Réseaux sociaux -->
         <div style="display: flex; justify-content: center; gap: 12px; margin: 20px 0;">
-            <a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur LinkedIn" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+            <a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur LinkedIn" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="https://x.com/Civik_ia" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur X" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+            <a href="https://x.com/Civik_ia" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur X" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://www.instagram.com/civik.ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Instagram" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+            <a href="https://www.instagram.com/civik.ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Instagram" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Facebook" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
+            <a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Facebook" style="width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; color: rgba(255,255,255,0.7);" onmouseover="this.style.background='rgba(46,196,182,0.2)';this.style.borderColor='rgba(46,196,182,0.4)';this.style.color='#2EC4B6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.7)';this.style.transform='translateY(0)'">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
         </div>
@@ -4122,16 +4141,21 @@
                 { element: document.querySelectorAll('.stat-number')[2], end: 4.5, suffix: 'h' }
             ];
 
-            targets.forEach((target, index) => {
-                if (!target.element) return;
-
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting && !target.animated) {
-                        target.animated = true;
-                        animateValue(target.element, 0, target.end, 2000, index === 2, target.suffix);
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = targets.findIndex(t => t.element === entry.target);
+                        if (idx !== -1 && !targets[idx].animated) {
+                            targets[idx].animated = true;
+                            animateValue(targets[idx].element, 0, targets[idx].end, 2000, idx === 2, targets[idx].suffix);
+                        }
+                        counterObserver.unobserve(entry.target);
                     }
                 });
-                observer.observe(target.element);
+            }, { threshold: 0.3 });
+
+            targets.forEach(target => {
+                if (target.element) counterObserver.observe(target.element);
             });
         }
 
@@ -4158,6 +4182,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -4364,12 +4389,21 @@
         function typeText(element, text, speed = 18) {
             return new Promise(resolve => {
                 let i = 0;
+                let lastTime = 0;
                 element.textContent = '';
-                const interval = setInterval(() => {
-                    element.textContent += text[i];
-                    i++;
-                    if (i >= text.length) { clearInterval(interval); resolve(); }
-                }, speed);
+                function tick(timestamp) {
+                    if (timestamp - lastTime >= speed) {
+                        i++;
+                        element.textContent = text.slice(0, i);
+                        lastTime = timestamp;
+                    }
+                    if (i < text.length) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        resolve();
+                    }
+                }
+                requestAnimationFrame(tick);
             });
         }
 
@@ -4382,27 +4416,34 @@
             return dots;
         }
 
+        let solutionChatCycles = 0;
+        let solutionChatRunning = false;
+        let solutionChatAbort = false;
+
         async function animateSolutionChat() {
             const solutionChat = document.getElementById('solutionChat');
-            if (!solutionChat) return;
+            if (!solutionChat || solutionChatRunning) return;
+            solutionChatRunning = true;
+            solutionChatAbort = false;
             solutionChat.innerHTML = '';
 
             for (const msg of solutionConversations) {
-                // User message (appears instantly with slide)
+                if (solutionChatAbort) break;
                 await new Promise(r => setTimeout(r, 800));
+                if (solutionChatAbort) break;
                 const userDiv = document.createElement('div');
                 userDiv.className = 'demo-message user';
                 userDiv.textContent = msg.user;
                 solutionChat.appendChild(userDiv);
                 solutionChat.scrollTop = solutionChat.scrollHeight;
 
-                // Typing indicator
                 await new Promise(r => setTimeout(r, 400));
+                if (solutionChatAbort) break;
                 const dots = showTypingIndicator(solutionChat);
 
-                // Wait then replace with typed response
                 await new Promise(r => setTimeout(r, 800));
                 dots.remove();
+                if (solutionChatAbort) break;
                 const botDiv = document.createElement('div');
                 botDiv.className = 'demo-message bot';
                 solutionChat.appendChild(botDiv);
@@ -4412,13 +4453,30 @@
                 await new Promise(r => setTimeout(r, 600));
             }
 
-            // Loop after a pause
-            setTimeout(() => animateSolutionChat(), 4000);
+            solutionChatRunning = false;
+            solutionChatCycles++;
+            // Max 2 cycles then stop
+            if (solutionChatCycles < 2 && !solutionChatAbort) {
+                setTimeout(() => animateSolutionChat(), 4000);
+            }
         }
 
         function initializeDemo() {
-            // Start animated solution chat with typewriter effect
-            animateSolutionChat();
+            // Start animated solution chat only when section is visible
+            const solutionSection = document.getElementById('solution');
+            if (solutionSection) {
+                const solutionObs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && solutionChatCycles < 2) {
+                            animateSolutionChat();
+                        } else if (!entry.isIntersecting) {
+                            solutionChatAbort = true;
+                            solutionChatRunning = false;
+                        }
+                    });
+                }, { threshold: 0.2 });
+                solutionObs.observe(solutionSection);
+            }
 
             // Populate demo section with initial conversation
             const demoChat = document.getElementById('demoChat');
@@ -4475,6 +4533,11 @@
             initializeDemo();
             animateCounters();
 
+
+            // Performance: stagger fade-in animations to avoid mass repaints
+            document.querySelectorAll('.pricing-card, .why-card, .testimonial-card, .stat-card, .persona-card').forEach((el, i) => {
+                el.style.transitionDelay = (i % 4) * 80 + 'ms';
+            });
             // Observer les éléments statiques du HTML (pas générés par JS)
             observeElements('.stat-card');
             observeElements('.persona-card');
@@ -4483,6 +4546,13 @@
             observeElements('#campagnes .fade-in');
             observeElements('#parrainage .fade-in');
 
+
+            // Performance: remove will-change after fade-in completes to free GPU
+            document.addEventListener('transitionend', (e) => {
+                if (e.target.classList.contains('fade-in') && e.target.classList.contains('visible')) {
+                    e.target.style.willChange = 'auto';
+                }
+            }, { passive: true });
             // Show chatbot FAB after 3 seconds, welcome bubble after 4s
             setTimeout(() => {
                 document.getElementById('chatbotFab').classList.add('visible');

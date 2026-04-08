@@ -1554,16 +1554,32 @@
 
         @media (max-width: 768px) {
             #livre-blanc {
-                padding: 100px 30px;
+                padding: 80px 20px;
             }
 
-            #livre-blanc > .section-title + div {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            #livre-blanc .livre-blanc-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
             }
 
-            #livre-blanc > .section-title + div > div:first-child > div {
-                padding: 32px 24px;
+            #livre-blanc .livre-blanc-cover {
+                transform: none !important;
+                padding: 32px 24px !important;
+                border-radius: 16px !important;
+            }
+
+            #livre-blanc .livre-blanc-cover h3 {
+                font-size: 22px !important;
+            }
+
+            #livre-blanc .livre-blanc-stats {
+                justify-content: center;
+            }
+
+            #livre-blanc .btn-primary {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
             }
 
             .strates-grid {
@@ -3025,15 +3041,15 @@
     <section id="livre-blanc">
         <h2 class="section-title">Notre Livre Blanc : <span class="section-title-accent">IA et Collectivités en 2026</span></h2>
 
-        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+        <div class="livre-blanc-grid" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
             <!-- Couverture visuelle -->
             <div style="position: relative;">
-                <div style="background: linear-gradient(135deg, #000091 0%, #1B2A4A 100%); border-radius: 20px; padding: 50px 40px; color: white; box-shadow: 0 20px 50px rgba(0,0,70,0.2); transform: perspective(800px) rotateY(-3deg); transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.5s ease;">
+                <div class="livre-blanc-cover" style="background: linear-gradient(135deg, #000091 0%, #1B2A4A 100%); border-radius: 20px; padding: 50px 40px; color: white; box-shadow: 0 20px 50px rgba(0,0,70,0.2); transform: perspective(800px) rotateY(-3deg); transition: transform 0.5s ease, opacity 0.4s ease, box-shadow 0.5s ease;">
                     <div style="font-size: 11px; opacity: 0.6; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;">Livre Blanc — 2026</div>
                     <div style="width: 50px; height: 3px; background: linear-gradient(90deg, #2EC4B6, #007BFF); border-radius: 2px; margin-bottom: 24px;"></div>
                     <h3 style="font-size: 26px; font-weight: 800; line-height: 1.3; margin-bottom: 16px;">IA et Collectivités Territoriales</h3>
                     <p style="font-size: 16px; opacity: 0.8; line-height: 1.5; margin-bottom: 30px;">Comment ne pas rater le virage de 2026</p>
-                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div class="livre-blanc-stats" style="display: flex; gap: 20px; flex-wrap: wrap;">
                         <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 16px; text-align: center;">
                             <div style="font-size: 20px; font-weight: 800; color: #2EC4B6;">8</div>
                             <div style="font-size: 10px; opacity: 0.7;">pages</div>

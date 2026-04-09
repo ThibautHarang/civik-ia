@@ -92,7 +92,7 @@
         }
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-        .app-wrapper { display: flex; flex-direction: column; height: 100%; }
+        .app-wrapper { display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
 
         /* ============================================ */
         /* MAIN CONTAINER                               */
@@ -446,8 +446,8 @@
             /* font-size 16px = empêche le zoom automatique iOS sur les inputs */
             .chat-input input { padding: 10px 12px; font-size: 16px; }
             .chat-input button { padding: 10px 16px; font-size: 14px; }
-            /* Espace pour le bandeau CTA fixe en bas */
-            .app-wrapper { padding-bottom: 110px; }
+            /* Espace pour le bandeau CTA fixe en bas — dvh = Safari iOS compatible */
+            .app-wrapper { height: 100dvh; padding-bottom: 110px; }
         }
         @media (max-width: 480px) {
             .banner-title strong { font-size: 10px; }

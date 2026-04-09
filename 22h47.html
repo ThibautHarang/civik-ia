@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>22h47 — Votre mairie est fermée | Civik-ia</title>
+<meta name="description" content="22h47. Un citoyen a une question. Votre mairie est fermée. Découvrez la Plateforme d'Intelligence Citoyenne Civik-ia.">
+<meta property="og:title" content="22h47 — Votre mairie est fermée">
+<meta property="og:description" content="Découvrez comment une IA souveraine répond à vos citoyens 24h/24.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://civik-ia.fr/22h47.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000091'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='white'>C</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --noir:#000;--creme:#f7f4ed;--bleu:#000091;--teal:#2EC4B6;
+  --navy-text:#1B2A4A;--gris:#666;--blanc:#fff;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  color:var(--blanc);background:var(--noir);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+
+/* ═══ SECTION 1 : OUVERTURE NOIRE ═══ */
+.s-noir{
+  min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:40px 24px;
+  position:relative;overflow:hidden;
+}
+.s-noir::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(46,196,182,.06),transparent 70%);
+  pointer-events:none;
+}
+.time{
+  font-size:clamp(72px,18vw,120px);font-weight:800;letter-spacing:-4px;
+  line-height:1;color:var(--blanc);
+  opacity:0;animation:fadeUp .8s .3s forwards;
+}
+.s-noir .sub{
+  font-size:clamp(16px,4vw,21px);font-weight:400;
+  color:rgba(255,255,255,.65);margin-top:20px;line-height:1.5;
+  max-width:400px;
+  opacity:0;animation:fadeUp .8s .8s forwards;
+}
+.s-noir .sub strong{color:rgba(255,255,255,.9);font-weight:600}
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  opacity:0;animation:fadeUp .6s 1.6s forwards;
+}
+.scroll-hint span{
+  display:block;width:24px;height:38px;border:2px solid rgba(255,255,255,.25);
+  border-radius:12px;position:relative;margin:0 auto 8px;
+}
+.scroll-hint span::after{
+  content:'';width:4px;height:8px;background:rgba(255,255,255,.5);
+  border-radius:2px;position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  animation:scrollDot 1.8s infinite;
+}
+.scroll-hint p{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase}
+
+/* ═══ SECTION 2 : TRANSITION ═══ */
+.s-transition{
+  min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:80px 24px;
+  background:linear-gradient(to bottom,var(--noir) 0%,#0a0a2e 30%,var(--creme) 100%);
+  position:relative;
+}
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.s-transition .hook{
+  font-size:clamp(28px,7vw,48px);font-weight:700;letter-spacing:-1.5px;
+  line-height:1.1;color:var(--blanc);
+  transition:color 1s;
+}
+.s-transition .hook.dark{color:var(--bleu)}
+.s-transition .sub2{
+  font-size:clamp(15px,3.5vw,18px);margin-top:16px;
+  color:rgba(255,255,255,.6);font-weight:400;
+  transition:color 1s;
+}
+.s-transition .sub2.dark{color:var(--gris)}
+
+/* ═══ SECTION 3 : CHATBOT MOCKUP ═══ */
+.s-demo{
+  background:var(--creme);padding:60px 20px 80px;
+  color:var(--navy-text);
+}
+.demo-intro{text-align:center;max-width:520px;margin:0 auto 40px}
+.demo-intro h2{
+  font-size:clamp(22px,5vw,32px);font-weight:700;letter-spacing:-1px;
+  color:var(--bleu);line-height:1.15;
+}
+.demo-intro p{font-size:15px;color:var(--gris);margin-top:10px;line-height:1.5}
+
+.chat-window{
+  max-width:420px;margin:0 auto;
+  background:var(--blanc);border-radius:20px;
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.chat-header{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 18px;
+  background:var(--bleu);color:var(--blanc);
+}
+.chat-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),#007bff);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;flex-shrink:0;
+}
+.chat-header-text .name{font-size:13px;font-weight:600}
+.chat-header-text .status{font-size:10px;color:var(--teal);display:flex;align-items:center;gap:4px}
+.chat-header-text .status::before{
+  content:'';width:6px;height:6px;background:var(--teal);border-radius:50%;
+}
+.chat-body{padding:16px;min-height:300px;display:flex;flex-direction:column;gap:10px}
+
+.msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:13px;line-height:1.5;opacity:0;transform:translateY(8px)}
+.msg.bot{
+  background:#f0f4f8;color:var(--navy-text);border-bottom-left-radius:4px;
+  align-self:flex-start;
+}
+.msg.user{
+  background:var(--bleu);color:var(--blanc);border-bottom-right-radius:4px;
+  align-self:flex-end;
+}
+.msg.visible{opacity:1;transform:translateY(0);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.msg .src{font-size:10px;color:var(--gris);margin-top:6px;font-style:italic}
+
+.suggestions{
+  display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 16px;
+}
+.suggestions button{
+  background:var(--blanc);border:1.5px solid rgba(0,0,145,.12);
+  border-radius:9999px;padding:7px 14px;font-size:12px;font-weight:500;
+  color:var(--bleu);cursor:pointer;transition:all .2s;
+}
+.suggestions button:hover{background:rgba(0,0,145,.05);border-color:var(--teal);color:var(--teal)}
+
+/* ═══ SECTION 4 : CTA FINAL ═══ */
+.s-cta{
+  background:var(--bleu);padding:60px 24px;text-align:center;
+  color:var(--blanc);
+}
+.s-cta h2{
+  font-size:clamp(22px,5.5vw,36px);font-weight:700;letter-spacing:-1px;
+  line-height:1.15;max-width:500px;margin:0 auto;
+}
+.s-cta p{font-size:15px;color:rgba(255,255,255,.65);margin:14px auto 0;max-width:400px;line-height:1.5}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+.btn-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:16px 36px;border-radius:9999px;font-size:15px;font-weight:600;
+  text-decoration:none;transition:all .25s;border:none;cursor:pointer;
+}
+.btn-primary{background:var(--teal);color:var(--blanc)}
+.btn-primary:hover{background:#25a99d;transform:translateY(-1px);box-shadow:0 4px 16px rgba(46,196,182,.3)}
+.btn-secondary{background:transparent;color:var(--blanc);border:1.5px solid rgba(255,255,255,.25)}
+.btn-secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+
+/* ═══ FOOTER MINIMAL ═══ */
+.s-footer{
+  background:var(--noir);padding:24px;text-align:center;
+  font-size:12px;color:rgba(255,255,255,.35);
+}
+.s-footer a{color:var(--teal);text-decoration:none}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollDot{0%,100%{opacity:.5;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(10px)}}
+
+/* ═══ DESKTOP ═══ */
+@media(min-width:768px){
+  .chat-window{max-width:460px}
+  .s-demo{padding:80px 40px 100px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ SECTION 1 : OUVERTURE NOIRE ═══ -->
+<section class="s-noir">
+  <div class="time">22:47</div>
+  <p class="sub">Un citoyen a une question.<br><strong>Votre mairie est ferm&eacute;e.</strong></p>
+  <div class="scroll-hint"><span></span><p>D&eacute;couvrir</p></div>
+</section>
+
+<!-- ═══ SECTION 2 : TRANSITION ═══ -->
+<section class="s-transition" id="transition">
+  <h2 class="hook reveal">Maintenant, elle ne ferme plus.</h2>
+  <p class="sub2 reveal">D&eacute;couvrez ce que vos citoyens verront.</p>
+</section>
+
+<!-- ═══ SECTION 3 : CHATBOT MOCKUP ═══ -->
+<section class="s-demo" id="demo">
+  <div class="demo-intro reveal">
+    <h2>Votre mairie, accessible 24h/24</h2>
+    <p>Un assistant IA qui conna&icirc;t votre commune. Horaires, d&eacute;chets, urbanisme, &eacute;tat civil&hellip; il r&eacute;pond instantan&eacute;ment.</p>
+  </div>
+
+  <div class="chat-window reveal">
+    <div class="chat-header">
+      <div class="chat-avatar">C</div>
+      <div class="chat-header-text">
+        <div class="name">Civik-ia &mdash; Assistant de votre mairie</div>
+        <div class="status">En ligne 24h/24</div>
+      </div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Bonjour ! Je suis l'assistant de votre mairie. Comment puis-je vous aider ?</div>
+    </div>
+    <div class="suggestions" id="suggestions">
+      <button onclick="ask(0)">Horaires de la mairie</button>
+      <button onclick="ask(1)">Jour des poubelles</button>
+      <button onclick="ask(2)">Inscription scolaire</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4 : CTA FINAL ═══ -->
+<section class="s-cta reveal">
+  <h2>Pr&ecirc;t &agrave; ouvrir votre mairie 24h/24 ?</h2>
+  <p>D&eacute;ploiement en 4 semaines. D&egrave;s 99&euro;/mois. Cloud souverain UE.</p>
+  <div class="cta-buttons">
+    <a href="demo.html" class="btn-pill btn-primary">Tester la d&eacute;mo compl&egrave;te</a>
+    <a href="site-civik-ia.html#contact" class="btn-pill btn-secondary">Demander une d&eacute;mo personnalis&eacute;e</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="s-footer">
+  <a href="https://civik-ia.fr">civik-ia.fr</a> &mdash; Plateforme d'Intelligence Citoyenne
+</footer>
+
+<script>
+/* ── IntersectionObserver : reveal on scroll ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){
+    e.target.classList.add('visible');
+    /* Transition section : dark text when on cream bg */
+    if(e.target.classList.contains('hook')||e.target.classList.contains('sub2')){
+      const r=e.intersectionRatio;
+      if(r>.5){e.target.classList.add('dark')}
+    }
+  }})
+},{threshold:[0,.3,.6,1],rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── Chat mockup (pre-scripted) ── */
+const QA=[
+  {q:"Quels sont les horaires de la mairie ?",
+   a:"La mairie est ouverte :<br><strong>Mardi, mercredi, vendredi</strong> : 9h-12h / 14h-17h<br><strong>Samedi</strong> : 9h-12h (sur rendez-vous)<br><br>Pour les urgences en dehors de ces horaires, vous pouvez contacter le 04 68 XX XX XX.",
+   s:"Source : site officiel de la mairie"},
+  {q:"Quel est le jour de collecte des ordures ?",
+   a:"La collecte des ordures m\u00e9nag\u00e8res a lieu le <strong>mardi matin</strong>. Sortez vos bacs la veille au soir.<br><br>Le tri s\u00e9lectif (bac jaune) est collect\u00e9 le <strong>jeudi matin</strong>.",
+   s:"Source : communaut\u00e9 de communes"},
+  {q:"Comment inscrire mon enfant \u00e0 l'\u00e9cole ?",
+   a:"Pour inscrire votre enfant, d\u00e9posez un dossier en mairie avec :<br>\u2022 Livret de famille<br>\u2022 Justificatif de domicile<br>\u2022 Carnet de vaccination<br><br>Les inscriptions sont ouvertes de <strong>mars \u00e0 juin</strong> pour la rentr\u00e9e suivante.",
+   s:"Source : service scolaire"}
+];
+let chatLock=false;
+function ask(i){
+  if(chatLock)return;chatLock=true;
+  const body=document.getElementById('chatBody');
+  const sug=document.getElementById('suggestions');
+  const qa=QA[i];
+  /* User message */
+  const u=document.createElement('div');u.className='msg user visible';u.textContent=qa.q;body.appendChild(u);
+  sug.style.display='none';
+  body.scrollTop=body.scrollHeight;
+  /* Bot typing then answer */
+  setTimeout(()=>{
+    const b=document.createElement('div');b.className='msg bot';
+    b.innerHTML=qa.a+'<div class="src">'+qa.s+'</div>';
+    body.appendChild(b);
+    requestAnimationFrame(()=>{b.classList.add('visible');body.scrollTop=body.scrollHeight});
+    /* Show next suggestions */
+    setTimeout(()=>{
+      sug.innerHTML='';
+      QA.forEach((item,j)=>{
+        if(j!==i){const btn=document.createElement('button');btn.textContent=item.q.replace(/\?$/,'').substring(0,30)+'...';btn.onclick=()=>ask(j);sug.appendChild(btn)}
+      });
+      sug.style.display='flex';chatLock=false;
+    },600);
+  },800);
+}
+
+/* ── UTM tracking ── */
+const p=new URLSearchParams(location.search);
+if(p.get('utm_source'))try{sessionStorage.setItem('civik_utm',JSON.stringify(Object.fromEntries(p)))}catch(e){}
+
+/* ── Auto-trigger first bot message animation ── */
+document.querySelector('.msg.bot').classList.add('visible');
+</script>
+</body>
+</html>

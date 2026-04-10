@@ -1122,7 +1122,7 @@ const knowledgeBase = [
     },
     {
         category: 'mairie',
-        keywords: ['permanence', 'permanences', 'france services', 'service social', 'assistante sociale', 'spécialisé'],
+        keywords: ['permanence', 'permanences', 'france services', 'service social', 'assistante sociale', 'spécialisé', 'horaire'],
         response: `<strong>Permanences spécialisées en mairie</strong><br><br>
         <strong>Urbanisme :</strong> Jeudi <strong>14h00 — 17h00</strong> (avec un instructeur de Morlaix Communauté, sur RDV)<br>
         <strong>Service social (CCAS) :</strong> Mardi et jeudi <strong>9h00 — 12h00</strong> (sans RDV, avec l'assistante sociale du département)<br>
@@ -1211,7 +1211,7 @@ const knowledgeBase = [
     // === DÉCHETS & ENVIRONNEMENT (3 entrées) ===
     {
         category: 'dechets',
-        keywords: ['déchet', 'poubelle', 'ordure', 'collecte', 'ramassage', 'tri', 'recyclage', 'bac', 'jaune', 'gris', 'verre', 'quel jour'],
+        keywords: ['déchet', 'poubelle', 'ordure', 'collecte', 'ramassage', 'tri', 'recyclage', 'bac', 'jaune', 'gris', 'verre', 'quel jour', 'horaire'],
         response: `<strong>Collecte des déchets — Morlaix Communauté</strong><br><br>
         <strong>Ordures ménagères (bac gris) :</strong> <strong>Mardi matin</strong> — sortir le bac la veille au soir avant 20h<br>
         <strong>Tri sélectif (bac jaune) :</strong> <strong>Jeudi matin</strong> — plastiques, cartons, papiers, conserves, briques alimentaires<br><br>
@@ -1227,7 +1227,7 @@ const knowledgeBase = [
     },
     {
         category: 'dechets',
-        keywords: ['déchèterie', 'déchetterie', 'encombrant', 'gros déchet', 'meuble', 'électroménager', 'badge'],
+        keywords: ['déchèterie', 'déchetterie', 'encombrant', 'gros déchet', 'meuble', 'électroménager', 'badge', 'horaire'],
         response: `<strong>Déchèteries proches de Saint-Martin-des-Champs</strong><br><br>
         <strong>1. Déchèterie de Saint-Martin-des-Champs</strong><br>
         Zone Artisanale de Keriven — <strong>2 km</strong> du centre-bourg<br>
@@ -1261,7 +1261,7 @@ const knowledgeBase = [
     // === ÉCOLE & ENFANCE (3 entrées) ===
     {
         category: 'ecole',
-        keywords: ['école', 'ecole', 'primaire', 'maternelle', 'inscription', 'scolaire', 'rentrée', 'élève', 'collège', 'lycée'],
+        keywords: ['école', 'ecole', 'primaire', 'maternelle', 'inscription', 'scolaire', 'rentrée', 'élève', 'collège', 'lycée', 'horaire'],
         response: `<strong>Établissements scolaires — Saint-Martin-des-Champs</strong><br><br>
         <strong>École publique Les Alouettes</strong><br>
         12, Rue des Écoles — <strong>142 élèves</strong> répartis en 6 classes (PS au CM2)<br>
@@ -1278,7 +1278,7 @@ const knowledgeBase = [
     },
     {
         category: 'ecole',
-        keywords: ['cantine', 'repas', 'restaurant scolaire', 'périscolaire', 'garderie', 'après école', 'tarif cantine', 'centre de loisirs'],
+        keywords: ['cantine', 'repas', 'restaurant scolaire', 'périscolaire', 'garderie', 'après école', 'tarif cantine', 'centre de loisirs', 'horaire', 'inscription'],
         response: `<strong>Cantine, périscolaire & centre de loisirs</strong><br><br>
         <strong>Cantine scolaire (école Les Alouettes) :</strong><br>
         Repas préparés sur place chaque jour (cuisine centrale municipale), menu bio 40%.<br>
@@ -1298,7 +1298,7 @@ const knowledgeBase = [
     },
     {
         category: 'ecole',
-        keywords: ['crèche', 'petite enfance', 'bébé', 'assistante maternelle', 'nounou', 'garde enfant', 'relais', 'ram', 'rpe'],
+        keywords: ['crèche', 'petite enfance', 'bébé', 'assistante maternelle', 'nounou', 'garde enfant', 'relais', 'ram', 'rpe', 'horaire', 'inscription'],
         response: `<strong>Petite enfance à Saint-Martin-des-Champs</strong><br><br>
         <strong>Crèche municipale "Les P'tits Korrigans"</strong><br>
         5, Rue des Lavandières — <strong>25 places</strong> (3 mois à 3 ans)<br>
@@ -1403,7 +1403,7 @@ const knowledgeBase = [
     },
     {
         category: 'culture',
-        keywords: ['médiathèque', 'bibliothèque', 'livre', 'lecture', 'prêt', 'numérique', 'heure du conte'],
+        keywords: ['médiathèque', 'bibliothèque', 'livre', 'lecture', 'prêt', 'numérique', 'heure du conte', 'horaire'],
         response: `<strong>Médiathèque municipale — Saint-Martin-des-Champs</strong><br><br>
         <strong>Adresse :</strong> 3, Rue des Lavandières (à côté de la crèche)<br><br>
         <strong>Horaires :</strong><br>
@@ -1549,10 +1549,35 @@ const knowledgeBase = [
         source: 'Morlaix Communauté'
     },
 
+    // === PISCINE INTERCOMMUNALE (1 entrée) ===
+    {
+        category: 'loisirs',
+        keywords: ['piscine', 'nager', 'natation', 'bassin', 'aquatique', 'baignade', 'nage', 'brasse', 'crawl', 'bébé nageur', 'leçon natation', 'horaire', 'morlaix', 'tarif'],
+        response: `<strong>Piscine intercommunale — Morlaix Communauté</strong><br><br>
+        <strong>Piscine Aquarive</strong> — Rue de Callac, 29600 Morlaix (5 km de Saint-Martin)<br><br>
+        <strong>Horaires d'ouverture :</strong><br>
+        Lundi : <strong>12h00 — 19h30</strong><br>
+        Mardi : <strong>10h00 — 19h30</strong><br>
+        Mercredi : <strong>10h00 — 19h30</strong><br>
+        Jeudi : <strong>12h00 — 19h30</strong><br>
+        Vendredi : <strong>12h00 — 20h30</strong><br>
+        Samedi : <strong>10h00 — 18h00</strong><br>
+        Dimanche : <strong>9h00 — 13h00</strong><br><br>
+        <strong>Équipements :</strong> bassin sportif 25m (6 couloirs), bassin ludique avec toboggan, pataugeoire enfants, espace bien-être (sauna, hammam)<br><br>
+        <strong>Tarifs :</strong><br>
+        Adulte : <strong>4,50€</strong> l'entrée | Enfant (3-16 ans) : <strong>3,20€</strong><br>
+        Carte 10 séances : <strong>36€</strong> (adulte) / <strong>26€</strong> (enfant)<br>
+        Leçon de natation (10 séances) : <strong>60€</strong><br>
+        Bébés nageurs (samedi matin) : <strong>5€</strong> la séance<br><br>
+        <strong>Contact :</strong> 02 98 62 30 50 — accueil@aquarive-morlaix.fr<br><br>
+        <em>Gérée par Morlaix Communauté. Accès bus ligne 34 (arrêt Callac).</em>`,
+        source: 'Morlaix Communauté — Piscine Aquarive'
+    },
+
     // === ÉLECTIONS (1 entrée enrichie) ===
     {
         category: 'elections',
-        keywords: ['élection', 'vote', 'scrutin', 'bureau de vote', 'résultat', 'municipales', 'inscription', 'liste électorale', 'procuration', 'carte électeur'],
+        keywords: ['élection', 'vote', 'scrutin', 'bureau de vote', 'résultat', 'municipales', 'inscription', 'liste électorale', 'procuration', 'carte électeur', 'électorale', 'voter'],
         response: `<strong>Élections à Saint-Martin-des-Champs</strong><br><br>
         <strong>Maire en exercice :</strong> <strong>Marie DUPONT</strong> (élue en 2020)<br>
         <strong>Conseil municipal :</strong> 23 élus (majorité : "Saint-Martin Ensemble")<br><br>
@@ -1572,7 +1597,7 @@ const knowledgeBase = [
     // === TRANSPORTS (1 entrée enrichie) ===
     {
         category: 'transport',
-        keywords: ['transport', 'bus', 'train', 'gare', 'accès', 'route', 'voiture', 'covoiturage', 'breizhgo', 'vélo', 'piste cyclable', 'borne', 'recharge', 'électrique', 'tgv'],
+        keywords: ['transport', 'bus', 'train', 'gare', 'accès', 'route', 'voiture', 'covoiturage', 'breizhgo', 'vélo', 'piste cyclable', 'borne', 'recharge', 'électrique', 'tgv', 'morlaix', 'horaire', 'saint-martin'],
         response: `<strong>Transports & Mobilités — Saint-Martin-des-Champs</strong><br><br>
         <strong>Train (Gare de Morlaix — 5 km) :</strong><br>
         Ligne TGV Paris-Brest : Paris en <strong>3h15</strong> (tarif SNCF dès ~29€ en Ouigo)<br>
@@ -1596,7 +1621,7 @@ const knowledgeBase = [
     // === URGENCES & SANTÉ (1 entrée enrichie) ===
     {
         category: 'urgence',
-        keywords: ['urgence', 'pompier', 'police', 'gendarmerie', 'samu', 'médecin', 'pharmacie', 'docteur', 'santé', 'hôpital', 'infirmier', 'kiné', 'dentiste', 'garde'],
+        keywords: ['urgence', 'pompier', 'police', 'gendarmerie', 'samu', 'médecin', 'pharmacie', 'docteur', 'santé', 'hôpital', 'infirmier', 'kiné', 'dentiste', 'garde', 'contact', 'horaire', 'rendez-vous médecin', 'maison de santé'],
         response: `<strong>Santé & Urgences — Saint-Martin-des-Champs</strong><br><br>
         <strong>Numéros d'urgence :</strong><br>
         SAMU : <strong>15</strong> &nbsp;|&nbsp; Pompiers : <strong>18</strong> &nbsp;|&nbsp; Gendarmerie : <strong>17</strong> &nbsp;|&nbsp; Européen : <strong>112</strong><br>

@@ -34,6 +34,14 @@
     <meta name="twitter:image" content="https://civik-ia.fr/og-image.png">
 
     <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000091">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Civik-ia">
+    <meta name="msapplication-TileColor" content="#000091">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -456,6 +464,54 @@
             .chat-input input { font-size: 16px; padding: 10px; }
             .chat-input button { padding: 10px 14px; font-size: 13px; }
         }
+
+        /* ============================================ */
+        /* SAVE/INSTALL PROMPT IN CHAT                  */
+        /* ============================================ */
+        .msg.bot.save-prompt {
+            border-left: 3px solid #2EC4B6;
+            background: linear-gradient(135deg, #f0faf9, #f8f9ff);
+            animation: savePromptSlide 0.4s ease-out;
+        }
+        @keyframes savePromptSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .save-prompt .save-prompt-main {
+            font-size: 13px; color: #333; line-height: 1.6;
+        }
+        .save-prompt .save-prompt-main strong { color: #1B2A4A; }
+        .save-prompt .save-action-link {
+            color: #2EC4B6; font-weight: 600; cursor: pointer;
+            text-decoration: none; border-bottom: 1px dashed #2EC4B6;
+            transition: all 0.2s;
+        }
+        .save-prompt .save-action-link:hover { border-bottom-style: solid; }
+        .save-details {
+            display: none; margin-top: 10px; padding-top: 10px;
+            border-top: 1px solid rgba(46,196,182,0.2);
+            font-size: 12px; color: #555; line-height: 1.6;
+        }
+        .save-details.visible { display: block; animation: savePromptSlide 0.3s ease-out; }
+        .save-details ol { margin: 6px 0 6px 18px; padding: 0; }
+        .save-details li { margin-bottom: 4px; }
+        .save-details kbd {
+            display: inline-block; padding: 2px 7px; background: #f0f0f0;
+            border: 1px solid #d0d0d0; border-radius: 4px;
+            font-family: inherit; font-size: 11px; font-weight: 600;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+        }
+        .install-pwa-btn {
+            display: inline-block; margin-top: 8px; padding: 10px 24px;
+            background: linear-gradient(135deg, #2EC4B6, #1B9E92);
+            color: white; border: none; border-radius: 20px;
+            font-size: 13px; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .install-pwa-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(46,196,182,0.35);
+        }
     </style>
 </head>
 <body>
@@ -840,6 +896,119 @@
 let currentView = 'mairie';
 
 let campaignShownInChat = false;
+
+// ============================================
+// PWA INSTALL / BOOKMARK PROMPT
+// ============================================
+let deferredInstallPrompt = null;
+let savePromptShown = false;
+
+// Capture beforeinstallprompt (Chrome/Android/Edge)
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    console.log('[PWA] beforeinstallprompt captured');
+});
+
+function detectPlatform() {
+    const ua = navigator.userAgent;
+    const isIOS = /iPhone|iPad|iPod/.test(ua) && !window.MSStream;
+    const isAndroid = /Android/.test(ua);
+    const isMac = /Macintosh|Mac OS X/.test(ua);
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+        || navigator.standalone === true;
+
+    if (isStandalone) return 'standalone';
+    if (isIOS) return 'ios';
+    if (deferredInstallPrompt) return 'installable';
+    if (isAndroid) return 'android-fallback';
+    if (isMac) return 'mac';
+    return 'desktop';
+}
+
+function shouldShowSavePrompt() {
+    if (savePromptShown) return false;
+    if (detectPlatform() === 'standalone') return false;
+    try {
+        const lastShown = localStorage.getItem('civik_save_prompt_ts');
+        if (lastShown) {
+            const daysSince = (Date.now() - parseInt(lastShown, 10)) / (1000 * 60 * 60 * 24);
+            if (daysSince < 30) return false;
+        }
+    } catch (e) { /* localStorage indisponible (navigation privée) → on affiche */ }
+    return true;
+}
+
+function showSavePrompt() {
+    if (!shouldShowSavePrompt()) return;
+    savePromptShown = true;
+    try { localStorage.setItem('civik_save_prompt_ts', Date.now().toString()); } catch (e) {}
+
+    const platform = detectPlatform();
+    let mainLine = '';
+    let detailsHTML = '';
+
+    if (platform === 'ios') {
+        mainLine = `💡 <strong>Je suis disponible 24h/24 !</strong> Pour me retrouver en un tap, <span class="save-action-link" onclick="this.closest('.save-prompt').querySelector('.save-details').classList.add('visible');this.style.display='none'">ajoutez-moi à votre écran d'accueil →</span>`;
+        detailsHTML = `
+            <ol>
+                <li>Appuyez sur <strong>Partager</strong> <span style="font-size:15px;">&#x1F4E4;</span> en bas de Safari</li>
+                <li>Choisissez <strong>"Sur l'écran d'accueil"</strong></li>
+                <li>Appuyez <strong>Ajouter</strong> — c'est fait !</li>
+            </ol>
+            <span style="color:#999;">Comme une app, sans rien télécharger.</span>`;
+    } else if (platform === 'installable') {
+        mainLine = `💡 <strong>Je suis disponible 24h/24 !</strong> Installez-moi sur votre appareil pour y revenir en un tap.`;
+        detailsHTML = `<button class="install-pwa-btn" onclick="installPWA()">📲 Installer l'assistant</button>`;
+    } else if (platform === 'android-fallback') {
+        mainLine = `💡 <strong>Je suis disponible 24h/24 !</strong> Pour me retrouver en un tap, <span class="save-action-link" onclick="this.closest('.save-prompt').querySelector('.save-details').classList.add('visible');this.style.display='none'">ajoutez-moi à votre écran →</span>`;
+        detailsHTML = `
+            <ol>
+                <li>Appuyez sur le menu <strong>⋮</strong> de votre navigateur</li>
+                <li>Choisissez <strong>"Ajouter à l'écran d'accueil"</strong></li>
+            </ol>`;
+    } else {
+        const key = (platform === 'mac') ? '⌘' : 'Ctrl';
+        mainLine = `💡 <strong>Je suis disponible 24h/24 !</strong> Ajoutez-moi en favori avec <kbd>${key}</kbd> + <kbd>D</kbd> pour me retrouver facilement.`;
+        detailsHTML = '';
+    }
+
+    const chatMessages = document.getElementById('chatMessages');
+    const div = document.createElement('div');
+    div.className = 'msg bot save-prompt';
+    div.innerHTML = `
+        <div class="save-prompt-main">${mainLine}</div>
+        ${detailsHTML ? `<div class="save-details">${detailsHTML}</div>` : ''}
+    `;
+
+    if (platform === 'installable') {
+        div.querySelector('.save-details').classList.add('visible');
+    }
+
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function installPWA() {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    const { outcome } = await deferredInstallPrompt.userChoice;
+    console.log('[PWA] Install outcome:', outcome);
+    deferredInstallPrompt = null;
+    if (outcome === 'accepted') {
+        const el = document.querySelector('.msg.save-prompt');
+        if (el) {
+            el.innerHTML = '<div class="save-prompt-main" style="text-align:center;color:#2EC4B6;font-weight:600;">✅ C\'est installé ! Retrouvez-moi sur votre écran d\'accueil.</div>';
+            setTimeout(() => el.remove(), 4000);
+        }
+    }
+}
+
+function isUsefulAnswer(source) {
+    if (!source) return false;
+    if (source === 'greeting') return false;
+    return true;
+}
 
 function switchGlobalView(view) {
     currentView = view;
@@ -1920,6 +2089,10 @@ function sendMessage(text) {
             removeTyping();
             addMessage(answer.response, 'bot', answer.source);
             if (!isMobile) input.focus();
+            // Prompt save/install après la 1ère réponse utile
+            if (isUsefulAnswer(answer.source)) {
+                setTimeout(() => showSavePrompt(), 1500);
+            }
         });
     } else {
         // Fallback local (avec délai simulé)
@@ -1929,6 +2102,10 @@ function sendMessage(text) {
             const answer = findAnswerLocal(query);
             addMessage(answer.response, 'bot', answer.source);
             if (!isMobile) input.focus();
+            // Prompt save/install après la 1ère réponse utile
+            if (isUsefulAnswer(answer.source)) {
+                setTimeout(() => showSavePrompt(), 1500);
+            }
         }, delay);
     }
 }
@@ -2495,5 +2672,16 @@ if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
     });
 }
 </script>
+
+    <!-- Service Worker PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('[PWA] Service Worker enregistré:', reg.scope))
+                    .catch(err => console.warn('[PWA] Échec enregistrement SW:', err));
+            });
+        }
+    </script>
 </body>
 </html>

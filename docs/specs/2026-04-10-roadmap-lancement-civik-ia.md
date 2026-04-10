@@ -56,7 +56,125 @@ Le teasing "22h47" tourne sur 4 réseaux sociaux dès le 14 avril.
 
 ---
 
-## Sprint 1 — "Widget JS + Page dédiée" (17-23 avril)
+## Sprint 1 — "Dashboard MVP" (17-23 avril)
+
+### Objectif
+Permettre au maire/DGS de se connecter et voir les statistiques de son chatbot. Plus impressionnant en démo qu'un widget, et indispensable pour justifier l'abonnement.
+
+### A. Auth backend
+
+#### Endpoints
+```
+POST /api/auth/login            → { email, password } → { token, must_change_password }
+POST /api/auth/change-password  → [Auth] { old_password, new_password } → { status: "ok" }
+POST /api/auth/forgot-password  → { email } → { status: "sent" }
+```
+
+#### Spec technique
+- **Hash** : `bcrypt` (via `passlib`)
+- **Token** : JWT (via `python-jose`), valide 7 jours, renouvelable
+- **Middleware** : dépendance FastAPI `get_current_client` qui vérifie le JWT
+- **Flag** : `must_change_password` → force le changement au 1er login
+- **Forgot password** : génère un token temporaire (1h), envoie un email via SMTP Zimbra (compte contact@civik-ia.fr déjà en place, 1,99€/mois). Migration vers Brevo en Phase 2 si volume > 300 emails/jour.
+
+#### Tables SQLite (nouvelles)
+```sql
+CREATE TABLE clients (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    slug TEXT UNIQUE NOT NULL,         -- ex: "rigny-le-ferron-10250"
+    name TEXT NOT NULL,                -- ex: "Rigny-le-Ferron"
+    email TEXT UNIQUE NOT NULL,        -- email officiel mairie
+    password_hash TEXT NOT NULL,       -- bcrypt
+    must_change_password BOOLEAN DEFAULT 1,
+    plan_tier TEXT DEFAULT 'rural',    -- rural/moyen/grand/custom
+    campaign_quota INTEGER DEFAULT 2,
+    campaigns_used INTEGER DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE sessions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client_id INTEGER REFERENCES clients(id),
+    jwt_token TEXT NOT NULL,
+    expires_at TIMESTAMP NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### Dépendances Python (nouvelles)
+```
+passlib[bcrypt]==1.7.*
+python-jose[cryptography]==3.3.*
+```
+
+### B. Dashboard API
+
+#### Endpoints (tous protégés par JWT)
+```
+GET  /api/dashboard/{commune}           → DashboardData (KPIs, graphique, questions récentes)
+GET  /api/dashboard/{commune}/questions → Liste paginée des questions avec rating
+GET  /api/dashboard/{commune}/export    → Export CSV (Phase 2, pas Sprint 1)
+```
+
+#### DashboardData (schéma réponse)
+```json
+{
+    "commune": "Rigny-le-Ferron",
+    "period": "last_30_days",
+    "kpis": {
+        "total_questions": 142,
+        "avg_response_time_ms": 340,
+        "satisfaction_rate": 0.87,
+        "availability": 1.0,
+        "top_category": "mairie",
+        "unique_sessions_estimate": 89
+    },
+    "chart_7_days": [
+        { "date": "2026-04-24", "count": 18 },
+        { "date": "2026-04-25", "count": 23 }
+    ],
+    "recent_questions": [
+        { "query": "horaires mairie", "category": "mairie", "rating": 1, "created_at": "..." }
+    ],
+    "categories_breakdown": [
+        { "category": "mairie", "count": 42, "percentage": 0.30 }
+    ]
+}
+```
+
+### C. Dashboard frontend
+
+- **Fichier** : `dashboard.civik-ia.fr/{commune}` (servi par Nginx, template HTML)
+- **Design** : reprend le design du dashboard existant dans `demo.html` (partie droite, KPIs, graphique Chart.js)
+- **Pages** : Login → (Change password si 1er login) → Dashboard principal
+- **Auth** : stocke le JWT dans `localStorage`, l'envoie dans `Authorization: Bearer {token}`
+
+### Thibaut (30 min)
+- [ ] Tester le login avec un compte de test
+- [ ] Vérifier que les KPIs s'affichent correctement
+- [ ] Valider le design (cohérence avec la démo)
+
+### Claude (autonome)
+- [ ] Coder les 3 endpoints auth + middleware JWT
+- [ ] Créer les tables `clients` + `sessions` dans la migration SQLite
+- [ ] Coder les 2 endpoints dashboard
+- [ ] Coder le template dashboard frontend (login + dashboard)
+- [ ] Configurer la route Nginx `dashboard.civik-ia.fr`
+- [ ] Mettre à jour `requirements.txt` + redéployer sur le VPS
+- [ ] Créer un compte de test pour la démo Saint-Martin
+
+### Livrable
+- Page login fonctionnelle sur `dashboard.civik-ia.fr/demo-saint-martin-29600`
+- Dashboard avec KPIs réels (basés sur les conversations en BDD)
+
+### Critère de succès
+- Login → change password → dashboard fonctionne de bout en bout
+- Les données affichées correspondent aux vraies conversations du backend
+- Le JWT expire correctement après 7 jours
+
+---
+
+## Sprint 2 — "Widget JS + Page dédiée" (24-30 avril)
 
 ### Objectif
 Construire les 2 modes de déploiement client qui débloquent le pitch commercial.
@@ -134,124 +252,6 @@ Construire les 2 modes de déploiement client qui débloquent le pitch commercia
 - Le widget s'affiche correctement sur un site tiers (pas de conflit CSS)
 - La page dédiée charge et le chatbot répond via le backend
 - Responsive mobile validé
-
----
-
-## Sprint 2 — "Dashboard MVP" (24-30 avril)
-
-### Objectif
-Permettre au maire/DGS de se connecter et voir les statistiques de son chatbot.
-
-### A. Auth backend
-
-#### Endpoints
-```
-POST /api/auth/login            → { email, password } → { token, must_change_password }
-POST /api/auth/change-password  → [Auth] { old_password, new_password } → { status: "ok" }
-POST /api/auth/forgot-password  → { email } → { status: "sent" }
-```
-
-#### Spec technique
-- **Hash** : `bcrypt` (via `passlib`)
-- **Token** : JWT (via `python-jose`), valide 7 jours, renouvelable
-- **Middleware** : dépendance FastAPI `get_current_client` qui vérifie le JWT
-- **Flag** : `must_change_password` → force le changement au 1er login
-- **Forgot password** : génère un token temporaire (1h), envoie un email via SMTP Zimbra (compte contact@civik-ia.fr déjà en place, 1,99€/mois). Migration vers Brevo en Phase 2 si volume > 300 emails/jour.
-
-#### Tables SQLite (nouvelles)
-```sql
-CREATE TABLE clients (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    slug TEXT UNIQUE NOT NULL,         -- ex: "rigny-le-ferron-10250"
-    name TEXT NOT NULL,                -- ex: "Rigny-le-Ferron"
-    email TEXT UNIQUE NOT NULL,        -- email officiel mairie
-    password_hash TEXT NOT NULL,       -- bcrypt
-    must_change_password BOOLEAN DEFAULT 1,
-    plan_tier TEXT DEFAULT 'rural',    -- rural/moyen/grand/custom
-    campaign_quota INTEGER DEFAULT 2,
-    campaigns_used INTEGER DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE sessions (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    client_id INTEGER REFERENCES clients(id),
-    jwt_token TEXT NOT NULL,
-    expires_at TIMESTAMP NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-#### Dépendances Python (nouvelles)
-```
-passlib[bcrypt]==1.7.*
-python-jose[cryptography]==3.3.*
-```
-
-### B. Dashboard API
-
-#### Endpoints (tous protégés par JWT)
-```
-GET  /api/dashboard/{commune}           → DashboardData (KPIs, graphique, questions récentes)
-GET  /api/dashboard/{commune}/questions → Liste paginée des questions avec rating
-GET  /api/dashboard/{commune}/export    → Export CSV (Phase 2, pas Sprint 2)
-```
-
-#### DashboardData (schéma réponse)
-```json
-{
-    "commune": "Rigny-le-Ferron",
-    "period": "last_30_days",
-    "kpis": {
-        "total_questions": 142,
-        "avg_response_time_ms": 340,
-        "satisfaction_rate": 0.87,
-        "availability": 1.0,
-        "top_category": "mairie",
-        "unique_sessions_estimate": 89
-    },
-    "chart_7_days": [
-        { "date": "2026-04-24", "count": 18 },
-        { "date": "2026-04-25", "count": 23 }
-    ],
-    "recent_questions": [
-        { "query": "horaires mairie", "category": "mairie", "rating": 1, "created_at": "..." }
-    ],
-    "categories_breakdown": [
-        { "category": "mairie", "count": 42, "percentage": 0.30 }
-    ]
-}
-```
-
-### C. Dashboard frontend
-
-- **Fichier** : `dashboard.civik-ia.fr/{commune}` (servi par Nginx, template HTML)
-- **Design** : reprend le design du dashboard existant dans `demo.html` (partie droite, KPIs, graphique Chart.js)
-- **Pages** : Login → (Change password si 1er login) → Dashboard principal
-- **Auth** : stocke le JWT dans `localStorage`, l'envoie dans `Authorization: Bearer {token}`
-
-### Thibaut (30 min)
-- [ ] Tester le login avec un compte de test
-- [ ] Vérifier que les KPIs s'affichent correctement
-- [ ] Valider le design (cohérence avec la démo)
-
-### Claude (autonome)
-- [ ] Coder les 3 endpoints auth + middleware JWT
-- [ ] Créer les tables `clients` + `sessions` dans la migration SQLite
-- [ ] Coder les 2 endpoints dashboard
-- [ ] Coder le template dashboard frontend (login + dashboard)
-- [ ] Configurer la route Nginx `dashboard.civik-ia.fr`
-- [ ] Mettre à jour `requirements.txt` + redéployer sur le VPS
-- [ ] Créer un compte de test pour la démo Saint-Martin
-
-### Livrable
-- Page login fonctionnelle sur `dashboard.civik-ia.fr/demo-saint-martin-29600`
-- Dashboard avec KPIs réels (basés sur les conversations en BDD)
-
-### Critère de succès
-- Login → change password → dashboard fonctionne de bout en bout
-- Les données affichées correspondent aux vraies conversations du backend
-- Le JWT expire correctement après 7 jours
 
 ---
 
@@ -524,14 +524,12 @@ SEMAINE 4 (1-7 mai) : OFFRE
 
 ### 2. Premier client — Stratégie de closing
 
-**Cible prioritaire : Rigny-le-Ferron**
-- Démo personnalisée livrée, données vérifiées (SKILL: VÉRIFICATION)
-- Prochaine étape : email de relance + proposition de créneau
-- Angle : "Votre outil est prêt et personnalisé. Vous êtes parmi les 10 premiers partenaires fondateurs, setup offert."
-
-**Cible secondaire : Lunay**
-- Démo en attente, contact établi
-- Relance si Rigny ne répond pas sous 7 jours
+**Cibles prioritaires (égales) : Rigny-le-Ferron + Lunay**
+- **Rigny-le-Ferron** : démo personnalisée livrée, données cross-vérifiées (SKILL: VÉRIFICATION). Prêt à signer.
+- **Lunay** : démo en attente, contact établi. KB backend déjà chargée.
+- Relancer les deux en parallèle (email + appel J+3 si pas de réponse)
+- Angle identique : "Votre outil est prêt et personnalisé. Vous êtes parmi les 10 premiers partenaires fondateurs, setup offert."
+- Le premier qui répond positivement devient le 1er client.
 
 **Prospection froide (en parallèle)**
 - Souscrire Lemlist (~30€/mois) dès que SASU immatriculée
@@ -544,8 +542,8 @@ SEMAINE 4 (1-7 mai) : OFFRE
 |-------|-----------|----------|
 | Marketing lancé | 14 avril | 4 posts/sem sur 4 plateformes |
 | SASU immatriculée | ~25 avril | SIRET reçu |
-| Widget JS + page dédiée live | 23 avril | Testable sur site tiers |
-| Dashboard fonctionnel | 30 avril | Login → KPIs visible |
+| Dashboard fonctionnel | 23 avril | Login → KPIs visible |
+| Widget JS + page dédiée live | 30 avril | Testable sur site tiers |
 | **1er client signé** | **7 mai** | **99€ MRR** |
 | Push notifications live | 14 mai | Citoyens abonnables |
 | Campagnes citoyennes live | 22 mai | Différenciateur activé |
@@ -580,8 +578,8 @@ SEMAINE 4 (1-7 mai) : OFFRE
 | Sprint | Backend (VPS) | Frontend (GitHub Pages) | Infra |
 |--------|---------------|------------------------|-------|
 | **S0** | — | — | Buffer, annonce légale |
-| **S1** | endpoint `/widget/civik-ia.js` + `/api/communes/{id}/categories` | `civik-ia.js` (widget) | Route Nginx `chat.civik-ia.fr` |
-| **S2** | Auth (login, change-pwd, forgot) + Dashboard API | Template dashboard | Route Nginx `dashboard.civik-ia.fr`, passlib+jose |
+| **S1** | Auth (login, change-pwd, forgot) + Dashboard API | Template dashboard | Route Nginx `dashboard.civik-ia.fr`, passlib+jose |
+| **S2** | endpoint `/widget/civik-ia.js` + `/api/communes/{id}/categories` | `civik-ia.js` (widget) | Route Nginx `chat.civik-ia.fr` |
 | **S3** | `onboard_client.py` | Kit livraison personnalisé | Pennylane, Yousign |
 | **S4** | VAPID + subscribe/send endpoints | Permission push dans chatbot | pywebpush, clés VAPID |
 | **S5** | CRUD campagnes + quotas + réponses | Vote dans chatbot + section dashboard | Push auto à l'activation |
@@ -591,7 +589,7 @@ SEMAINE 4 (1-7 mai) : OFFRE
 ## Dépendances Python ajoutées (cumulatif)
 
 ```
-# Sprint 2
+# Sprint 1
 passlib[bcrypt]==1.7.*
 python-jose[cryptography]==3.3.*
 

@@ -64,6 +64,8 @@ function observeElements(selector) {
 function scrollToSection(id) {
     const element = document.getElementById(id);
     if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const navHeight = document.querySelector('nav')?.offsetHeight || 80;
+        const y = element.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+        window.scrollTo({ top: y, behavior: 'smooth' });
     }
 }

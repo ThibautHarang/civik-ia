@@ -26,3 +26,13 @@ function closeMobileMenu() {
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
 }
+
+// Fermer le menu mobile avec Escape
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks && navLinks.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
+});

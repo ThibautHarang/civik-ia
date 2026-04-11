@@ -35,19 +35,15 @@ function showTypingIndicator(container) {
 
 let solutionChatCycles = 0;
 let solutionChatRunning = false;
-let solutionChatAbort = false;
 
 async function animateSolutionChat() {
     const solutionChat = document.getElementById('solutionChat');
     if (!solutionChat || solutionChatRunning) return;
     solutionChatRunning = true;
-    solutionChatAbort = false;
     solutionChat.innerHTML = '';
 
     for (const msg of solutionConversations) {
-        if (solutionChatAbort) break;
         await new Promise(r => setTimeout(r, 800));
-        if (solutionChatAbort) break;
         const userDiv = document.createElement('div');
         userDiv.className = 'demo-message user';
         userDiv.textContent = msg.user;
@@ -55,12 +51,10 @@ async function animateSolutionChat() {
         solutionChat.scrollTop = solutionChat.scrollHeight;
 
         await new Promise(r => setTimeout(r, 400));
-        if (solutionChatAbort) break;
         const dots = showTypingIndicator(solutionChat);
 
         await new Promise(r => setTimeout(r, 800));
         dots.remove();
-        if (solutionChatAbort) break;
         const botDiv = document.createElement('div');
         botDiv.className = 'demo-message bot';
         solutionChat.appendChild(botDiv);
@@ -73,7 +67,7 @@ async function animateSolutionChat() {
     solutionChatRunning = false;
     solutionChatCycles++;
     // Max 2 cycles then stop
-    if (solutionChatCycles < 2 && !solutionChatAbort) {
+    if (solutionChatCycles < 2) {
         setTimeout(() => animateSolutionChat(), 4000);
     }
 }
@@ -86,12 +80,10 @@ function initializeDemo() {
             entries.forEach(entry => {
                 if (entry.isIntersecting && solutionChatCycles < 2) {
                     animateSolutionChat();
-                } else if (!entry.isIntersecting) {
-                    solutionChatAbort = true;
-                    solutionChatRunning = false;
                 }
+                // Don't abort on leave — let current animation complete
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
         solutionObs.observe(solutionSection);
     }
 

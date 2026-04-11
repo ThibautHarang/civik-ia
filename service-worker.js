@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v4';
+const CACHE_NAME = 'civik-ia-v5';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

@@ -2156,6 +2156,9 @@ function sendMessage(text) {
             removeTyping();
             addMessage(localAnswer.response, 'bot', localAnswer.source);
             if (!isMobile) input.focus();
+            if (isUsefulAnswer(localAnswer.source)) {
+                setTimeout(() => showSavePrompt(), 1500);
+            }
         }, delay);
     }
 }

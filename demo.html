@@ -2019,7 +2019,7 @@ function findAnswerLocal(query) {
     if (greetings.some(g => q.includes(g)) && q.length < 30) {
         return {
             response: `Bonjour ! Je suis l'assistant de la Mairie de Saint-Martin-des-Champs. Comment puis-je vous aider ? Choisissez une catégorie ci-dessous ou posez directement votre question.`,
-            source: null
+            source: null, matched: true
         };
     }
 
@@ -2028,7 +2028,7 @@ function findAnswerLocal(query) {
     if (thanks.some(t => q.includes(t)) && q.length < 40) {
         return {
             response: `Je vous en prie ! N'hésitez pas si vous avez d'autres questions. La mairie de Saint-Martin-des-Champs est à votre disposition au <strong>02 98 62 14 30</strong> ou par email à <strong>mairie@saint-martin-des-champs.fr</strong>.<br><br>Bonne journée !`,
-            source: null
+            source: null, matched: true
         };
     }
 
@@ -2118,29 +2118,38 @@ function sendMessage(text) {
         kpiEl.textContent = current + 1;
     }
 
-    if (useBackend) {
-        // Appel backend async
+    // Priorité LOCAL (réponses HTML structurées) > API (texte brut, fallback)
+    const localAnswer = findAnswerLocal(query);
+    const hasLocalMatch = localAnswer.source !== null || localAnswer.matched;
+
+    if (hasLocalMatch) {
+        // Réponse locale trouvée : afficher avec délai simulé (réaliste)
+        const delay = 600 + Math.random() * 800;
+        setTimeout(() => {
+            removeTyping();
+            addMessage(localAnswer.response, 'bot', localAnswer.source);
+            if (!isMobile) input.focus();
+            if (isUsefulAnswer(localAnswer.source)) {
+                setTimeout(() => showSavePrompt(), 1500);
+            }
+        }, delay);
+    } else if (useBackend) {
+        // Pas de match local → appel API backend (LLM/RAG)
         findAnswerFromAPI(query).then(answer => {
             removeTyping();
             addMessage(answer.response, 'bot', answer.source);
             if (!isMobile) input.focus();
-            // Prompt save/install après la 1ère réponse utile
             if (isUsefulAnswer(answer.source)) {
                 setTimeout(() => showSavePrompt(), 1500);
             }
         });
     } else {
-        // Fallback local (avec délai simulé)
+        // Ni local ni backend → réponse par défaut
         const delay = 600 + Math.random() * 800;
         setTimeout(() => {
             removeTyping();
-            const answer = findAnswerLocal(query);
-            addMessage(answer.response, 'bot', answer.source);
+            addMessage(localAnswer.response, 'bot', localAnswer.source);
             if (!isMobile) input.focus();
-            // Prompt save/install après la 1ère réponse utile
-            if (isUsefulAnswer(answer.source)) {
-                setTimeout(() => showSavePrompt(), 1500);
-            }
         }, delay);
     }
 }

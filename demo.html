@@ -1930,6 +1930,11 @@ let messageCount = 0;
 
 function addMessage(content, type, source) {
     const input = document.getElementById('userInput');
+    // CHAT GUARD — Protection texte brut : si réponse bot longue sans HTML, wrapper auto
+    if (type === 'bot' && content.length > 100 && !content.includes('<')) {
+        console.warn('⚠️ CHAT GUARD — Réponse brute détectée (pas de HTML), wrapping automatique');
+        content = content.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+    }
     const div = document.createElement('div');
     div.className = `msg ${type}`;
     if (type === 'bot') {
@@ -2153,6 +2158,65 @@ function sendMessage(text) {
         }, delay);
     }
 }
+
+// ============================================
+// CHAT INTEGRITY GUARD — contrôle automatisé
+// Vérifie que le chat respecte : local-first, HTML format, matched flag
+// ============================================
+(function __chatGuard() {
+    const CHECKS = [];
+
+    // 1. sendMessage doit appeler findAnswerLocal AVANT findAnswerFromAPI
+    const src = sendMessage.toString();
+    CHECKS.push({
+        name: 'LOCAL_FIRST',
+        pass: src.includes('findAnswerLocal') &&
+              src.indexOf('findAnswerLocal') < src.indexOf('findAnswerFromAPI'),
+        msg: 'sendMessage() doit appeler findAnswerLocal AVANT findAnswerFromAPI'
+    });
+
+    // 2. sendMessage doit vérifier hasLocalMatch AVANT useBackend
+    CHECKS.push({
+        name: 'LOCAL_PRIORITY',
+        pass: src.includes('hasLocalMatch') &&
+              src.indexOf('hasLocalMatch') < src.indexOf('useBackend'),
+        msg: 'sendMessage() doit vérifier hasLocalMatch AVANT useBackend'
+    });
+
+    // 3. Les réponses KB doivent contenir du HTML (<strong> ou <br>)
+    const htmlResponses = knowledgeBase.filter(e =>
+        e.response.includes('<strong>') || e.response.includes('<br>')
+    );
+    CHECKS.push({
+        name: 'KB_HTML_FORMAT',
+        pass: htmlResponses.length === knowledgeBase.length,
+        msg: `${knowledgeBase.length - htmlResponses.length} entrée(s) KB sans formatage HTML`
+    });
+
+    // 4. findAnswerLocal doit avoir le flag matched sur salutations/remerciements
+    const localSrc = findAnswerLocal.toString();
+    CHECKS.push({
+        name: 'MATCHED_FLAG',
+        pass: localSrc.includes('matched'),
+        msg: 'findAnswerLocal() doit avoir le flag matched:true sur salutations/remerciements'
+    });
+
+    // Résultat
+    const failures = CHECKS.filter(c => !c.pass);
+    if (failures.length > 0) {
+        console.error('🚨 CHAT GUARD — Violations détectées :');
+        failures.forEach(f => console.error(`  ❌ [${f.name}] ${f.msg}`));
+        // Bandeau visible en dev uniquement (pas en prod)
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+            const banner = document.createElement('div');
+            banner.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#dc3545;color:#fff;padding:8px 16px;z-index:99999;font:14px/1.4 monospace;';
+            banner.textContent = `⚠️ CHAT GUARD: ${failures.length} violation(s) — ${failures.map(f=>f.name).join(', ')}`;
+            document.body.prepend(banner);
+        }
+    } else {
+        console.log('✅ CHAT GUARD — Tous les contrôles OK (local-first, HTML format, matched flag)');
+    }
+})();
 
 function submitRating(button, isPositive) {
     const ratingWidget = button.parentElement;

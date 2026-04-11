@@ -1,0 +1,57 @@
+/* ============================================
+   BASE — Reset, Foundation & Accessibility
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Fond Abstrait Liquide Chaud Subtil */
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(0, 0, 91, 0.03) 0%, transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(0, 0, 145, 0.025) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.015) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* ============================================
+   Accessibility — Focus visible (WCAG 2.4.7)
+   ============================================ */
+:focus-visible {
+    outline: 3px solid var(--accent-teal);
+    outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Skip to content link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 8px 16px;
+    background: var(--primary-gov);
+    color: white;
+    z-index: 10000;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+    left: 0;
+}

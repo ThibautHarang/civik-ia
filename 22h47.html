@@ -12,6 +12,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000091'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='white'>C</text></svg>">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Accessibilité — prefers-reduced-motion (WCAG 2.3.3) */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
 :root{
   --noir:#000;--creme:#f7f4ed;--bleu:#000091;--teal:#2EC4B6;
   --navy-text:#1B2A4A;--gris:#666;--blanc:#fff;

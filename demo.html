@@ -100,6 +100,16 @@
         }
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
+        /* Accessibilité — prefers-reduced-motion (WCAG 2.3.3) */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         .app-wrapper { display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
 
         /* ============================================ */

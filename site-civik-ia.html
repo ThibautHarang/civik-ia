@@ -234,7 +234,7 @@
         }
 
         .theme-toggle:hover {
-            transform: rotate(20deg) scale(1.1);
+            transform: scale(1.1);
             box-shadow: 0 4px 16px rgba(0, 0, 70, 0.12);
         }
 
@@ -1194,7 +1194,7 @@
         }
 
         .persona-card:hover .persona-icon {
-            transform: scale(1.15) rotate(-10deg);
+            transform: scale(1.15);
         }
 
         .persona-title {
@@ -2036,7 +2036,7 @@
         }
 
         .why-card:hover .why-icon {
-            transform: scale(1.2) rotate(-10deg);
+            transform: scale(1.2);
         }
 
         .why-title {
@@ -2330,6 +2330,20 @@
         }
 
         /* ============================================
+           ACCESSIBILITÉ — prefers-reduced-motion
+           Désactive toutes les animations et transitions
+           pour les utilisateurs qui le demandent (WCAG 2.3.3)
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ============================================
            UTILITY & MISC
            ============================================ */
         /* Dashboard KPI responsive */
@@ -2497,7 +2511,7 @@
         }
 
         .chatbot-fab:hover {
-            transform: scale(1.1) rotate(5deg) translateY(-4px);
+            transform: scale(1.1) translateY(-4px);
             background: rgba(0, 0, 145, 0.8);
             box-shadow: 0 15px 40px rgba(0, 0, 145, 0.35);
             animation: none;

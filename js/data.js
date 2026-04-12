@@ -35,7 +35,7 @@ const pricingTiers = [
     },
     {
         target: 'Grandes Communes',
-        size: '20 000 — 50 000 habitants',
+        size: '20 000+ habitants',
         price: '299',
         features: [
             'Intelligence Citoyenne complète',

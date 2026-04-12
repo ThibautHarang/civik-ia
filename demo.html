@@ -65,7 +65,8 @@
         }
         .banner-logo svg { width: 28px; height: 28px; }
         .banner-title {
-            flex: 1; min-width: 0;
+            position: absolute; left: 0; right: 0; text-align: center;
+            pointer-events: none;
         }
         .banner-title strong {
             font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
@@ -73,7 +74,6 @@
         }
         .banner-title span {
             font-size: 10px; opacity: 0.5; font-weight: 400; display: block; margin-top: 1px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
         .banner-tabs {
             display: flex; gap: 4px; flex-shrink: 0;
@@ -567,7 +567,7 @@
     <!-- PREMIUM BANNER WITH TABS                     -->
     <!-- ============================================ -->
     <div class="banner">
-        <div class="banner-title" style="flex:1; text-align:center;">
+        <div class="banner-title">
             <strong>Plateforme d'Intelligence Citoyenne</strong>
             <span>Commune de Saint-Martin-des-Champs (29600) — Données fictives de démonstration</span>
         </div>

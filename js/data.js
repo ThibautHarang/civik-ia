@@ -112,7 +112,7 @@ const testimonials = [
     {
         name: 'Ville moyenne',
         title: '15 000 habitants — Occitanie',
-        quote: 'Notre PLU est complexe. La Plateforme connaît chaque zone, chaque règle. Les citoyens obtiennent une réponse en 3 secondes au lieu de 48h par email. Le Dircab suit les tendances en temps réel sur le dashboard.',
+        quote: 'Notre PLU est complexe. La Plateforme connaît chaque zone, chaque règle. Les citoyens obtiennent une réponse en 3 secondes au lieu de 48h par email. L'équipe de la mairie suit les tendances en temps réel sur le dashboard.',
         initials: '\u{1F3DB}\uFE0F',
         class: 'initials-2'
     },

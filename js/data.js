@@ -82,7 +82,7 @@ const whyReasons = [
     {
         icon: '\u{1F4CA}',
         title: 'ROI Clair & Mesurable',
-        text: 'Économies d\'agent: 30-40h par semaine. Satisfaction citoyens +35%. Tendances politiques en temps réel.'
+        text: 'Économies d\'agent : jusqu\'à 30-40h par semaine selon profil. Objectif satisfaction citoyens +35%. Tendances en temps réel.'
     },
     {
         icon: '\u{1F510}',
@@ -105,7 +105,7 @@ const testimonials = [
     {
         name: 'Commune rurale',
         title: '1 200 habitants — Loir-et-Cher',
-        quote: 'Avec 2 agents à mi-temps, impossible de répondre à tout. La Plateforme traite les questions courantes 24h/24 et nos agents se concentrent sur l\'accueil social. Les appels ont baissé de 35% dès le premier mois.',
+        quote: 'Avec 2 agents à mi-temps, impossible de répondre à tout. La Plateforme traite les questions courantes 24h/24 et nos agents se concentrent sur l\'accueil social. Objectif : réduire les appels répétitifs de 35% dès le premier mois.',
         initials: '\u{1F3E1}',
         class: 'initials-1'
     },

@@ -66,7 +66,7 @@ function handleParrainageSubmit(e) {
         email: formData.get('parrain_email'),
         city: formData.get('filleul_commune'),
         population: '',
-        message: 'PARRAINAGE — Parrain: ' + formData.get('parrain_nom') + ' / Filleul contact: ' + formData.get('filleul_contact'),
+        message: 'PARRAINAGE — Recommandant: ' + formData.get('parrain_nom') + ' / Contact commune recommandée: ' + formData.get('filleul_contact'),
         source: 'parrainage'
     });
 

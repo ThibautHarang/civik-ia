@@ -57,7 +57,7 @@ const cbKnowledge = [
     },
     {
         keywords: ['parrain', 'parrainage', 'recommander', 'recommandation', 'r\u00e9duction', 'ambassadeur'],
-        response: 'Notre <strong>programme Parrainage</strong> r\u00e9compense les communes qui recommandent Civik-ia ! 1er parrainage = 1 mois offert, 2e = 2 mois, 3e = 3 mois, 4e et + = 4 mois offerts + statut Ambassadeur. La commune parrain\u00e9e b\u00e9n\u00e9ficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs). <a href="#parrainage" onclick="scrollToSection(\'parrainage\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">D\u00e9couvrir le programme</a> !'
+        response: 'Notre <strong>programme Parrainage</strong> r\u00e9compense les communes qui recommandent Civik-ia ! 1re recommandation = 1 mois offert, 2e = 2 mois, 3e = 3 mois, 4e et + = 4 mois offerts + statut Ambassadeur. La commune recommand\u00e9e b\u00e9n\u00e9ficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs). <a href="#parrainage" onclick="scrollToSection(\'parrainage\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">D\u00e9couvrir le programme</a> !'
     }
 ];
 

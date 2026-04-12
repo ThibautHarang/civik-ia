@@ -15,13 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.pricing-card, .why-card, .testimonial-card, .stat-card, .persona-card').forEach((el, i) => {
         el.style.transitionDelay = (i % 4) * 80 + 'ms';
     });
-    // Observer les éléments statiques du HTML (pas générés par JS)
-    observeElements('.stat-card');
-    observeElements('.persona-card');
-    observeElements('#strates .fade-in');
-    observeElements('#avant-apres .fade-in');
-    observeElements('#campagnes .fade-in');
-    observeElements('#parrainage .fade-in');
+    // Observer TOUS les éléments fade-in (statiques + générés dynamiquement par populate.js)
+    observeElements('.fade-in');
 
 
     // Performance: remove will-change after fade-in completes to free GPU

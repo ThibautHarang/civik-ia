@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot IA pour Mairies | Assistant Virtuel Collectivités 24h/24 — Civik-ia</title>
-    <meta name="description" content="Civik-ia : la Plateforme d'Intelligence Citoyenne pour mairies et collectivités. Répondez aux citoyens 24h/24 sur le PLU, les déchets, l'état civil. Hébergement souverain européen OVH. RGPD natif. Jusqu'à -40% d'appels. Dès 99€/mois.">
+    <meta name="description" content="Civik-ia : la Plateforme d'Intelligence Citoyenne pour mairies et collectivités. Répondez aux citoyens 24h/24 sur le PLU, les déchets, l'état civil. Hébergement souverain européen OVH. RGPD natif. -40% d'appels. Dès 99€/mois.">
     <meta name="keywords" content="chatbot mairie, IA mairie, intelligence artificielle collectivités, assistant virtuel mairie, chatbot collectivité territoriale, IA service public, plateforme citoyenne IA, smart city France, digitalisation mairie, accueil numérique mairie, chatbot PLU urbanisme, IA souveraine France, RGPD mairie, chatbot commune rurale, IA commune, directeur cabinet mairie IA, DGS collectivité IA, élu numérique, mairie 24h24, bot municipal, assistant mairie en ligne, service public numérique, modernisation mairie, chatbot territorial, IA intercommunalité, hébergement souverain collectivités">
     <meta name="author" content="Civik-ia">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -19,7 +19,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Civik-ia — La Plateforme d'Intelligence Citoyenne | Votre mairie disponible 24h/24">
-    <meta property="og:description" content="Civik-ia : la Plateforme d'Intelligence Citoyenne qui répond aux citoyens sur le PLU, les déchets, l'état civil. Jusqu'à -40% d'appels. Cloud souverain européen OVH. RGPD natif. Dès 99€/mois pour les communes rurales.">
+    <meta property="og:description" content="Civik-ia : la Plateforme d'Intelligence Citoyenne qui répond aux citoyens sur le PLU, les déchets, l'état civil. -40% d'appels. Cloud souverain européen OVH. RGPD natif. Dès 99€/mois pour les communes rurales.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://civik-ia.fr">
     <meta property="og:locale" content="fr_FR">
@@ -32,7 +32,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Civik-ia — La Plateforme d'Intelligence Citoyenne">
-    <meta name="twitter:description" content="Répondez aux citoyens 24h/24 avec une IA souveraine formée sur votre PLU. Jusqu'à -40% d'appels, 0 donnée hors d'Europe. Dès 99€/mois.">
+    <meta name="twitter:description" content="Répondez aux citoyens 24h/24 avec une IA souveraine formée sur votre PLU. -40% d'appels, 0 donnée hors d'Europe. Dès 99€/mois.">
     <meta name="twitter:image" content="https://civik-ia.fr/og-image.png">
     <meta name="twitter:image:alt" content="Civik-ia — La Plateforme d'Intelligence Citoyenne">
 
@@ -171,7 +171,6 @@
     <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000091">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000091">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -181,22 +180,2662 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <!-- Prevent dark mode flash: apply saved theme before CSS renders -->
     <script>
         (function(){var t=localStorage.getItem('civik-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
     </script>
-    <!-- CSS Architecture — fichiers séparés -->
-    <link rel="stylesheet" href="css/tokens.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/dark.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/sections.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/chatbot.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <!-- FIN CSS — Ancien style inline supprimé (2650 lignes → 9 fichiers) -->
+    <style>
+        /* ============================================
+           DESIGN SYSTEM — LUXE INSTITUTIONNEL
+           ============================================ */
+        :root {
+            /* Palette Souveraine — Luxe Institutionnel Chaud */
+            --primary-gov: #000091;
+            --primary-light: #1a1a6e;
+            --secondary-innov: #007bff;
+            --accent-teal: #2EC4B6;
+            --accent-gold: #F4A261;
+            --text-main: #1E1E1E;
+            --text-light: #5a5a5a;
+            --text-heading: #000091;
+            --bg-warm: #f5f2eb;
+            --bg-section: #efeae1;
+            --bg-cream: #f7f4ed;
+            /* Glassmorphism Chaud (Givré Crème) */
+            --glass-bg: rgba(247, 244, 237, 0.55);
+            --glass-bg-hover: rgba(250, 248, 242, 0.72);
+            --glass-border: 1px solid rgba(200, 190, 170, 0.25);
+            --glass-border-color: rgba(140, 120, 80, 0.08);
+            --glass-blur: blur(10px);
+            --glass-saturate: saturate(150%);
+            --glass-shadow: 0 15px 35px rgba(40, 30, 10, 0.08);
+            --glass-shadow-hover: 0 20px 45px rgba(40, 30, 10, 0.12);
+            /* Transition Premium */
+            --transition-premium: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, box-shadow 0.4s ease;
+        }
+
+        /* ============================================
+           DARK MODE
+           ============================================ */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(140, 120, 80, 0.12);
+            background: rgba(247, 244, 237, 0.88);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: var(--transition-premium);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 70, 0.12);
+        }
+
+        .theme-icon-dark { display: none; }
+        .theme-icon-light { display: inline; }
+
+        [data-theme="dark"] .theme-icon-dark { display: inline; }
+        [data-theme="dark"] .theme-icon-light { display: none; }
+
+        [data-theme="dark"] .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --text-main: #e0e0e8;
+            --text-light: #a0a0b4;
+            --text-heading: #8080ff;
+            --bg-warm: #0d0d1a;
+            --bg-section: #111122;
+            --bg-cream: #0a0a1e;
+            --glass-bg: rgba(20, 20, 50, 0.55);
+            --glass-bg-hover: rgba(30, 30, 70, 0.7);
+            --glass-border: 1px solid rgba(100, 100, 255, 0.12);
+            --glass-border-color: rgba(100, 100, 255, 0.08);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 20, 0.3);
+            --glass-shadow-hover: 0 25px 60px rgba(0, 0, 30, 0.4);
+        }
+
+        [data-theme="dark"] body {
+            background: #08081a;
+            color: var(--text-main);
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(0, 0, 200, 0.08) 0%, transparent 30%),
+                radial-gradient(circle at 90% 85%, rgba(0, 0, 91, 0.04) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.04) 0%, transparent 40%);
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(10, 10, 30, 0.92);
+            border-bottom-color: rgba(100, 100, 255, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        [data-theme="dark"] .section-title { color: #a0a0ff; }
+        [data-theme="dark"] #contact .section-title { color: white; }
+
+        [data-theme="dark"] #le-constat {
+            background: rgba(13, 13, 26, 0.8);
+        }
+
+        [data-theme="dark"] #solution {
+            background: linear-gradient(135deg, #0a0a2e 0%, #0d0d40 100%);
+        }
+
+        [data-theme="dark"] #livre-blanc {
+            background: linear-gradient(135deg, rgba(13,13,26,0.9) 0%, rgba(17,17,34,0.9) 100%);
+        }
+
+        [data-theme="dark"] #testimonials {
+            background: linear-gradient(135deg, rgba(13,13,26,0.9) 0%, rgba(17,17,34,0.9) 100%);
+        }
+
+        [data-theme="dark"] #contact {
+            background: linear-gradient(135deg, #06063a 0%, #0a0a50 100%);
+        }
+
+        [data-theme="dark"] footer {
+            background: linear-gradient(135deg, #040420 0%, #060630 100%);
+        }
+
+        [data-theme="dark"] .stat-number,
+        [data-theme="dark"] .wp-number {
+            background: linear-gradient(135deg, #6060ff, var(--secondary-innov));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        [data-theme="dark"] .stat-label,
+        [data-theme="dark"] .wp-title {
+            color: #c0c0e0;
+        }
+
+        [data-theme="dark"] .btn-login {
+            color: #c0c0e0;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        [data-theme="dark"] .persona-card,
+        [data-theme="dark"] .testimonial-card {
+            color: var(--text-main);
+        }
+
+        [data-theme="dark"] .pricing-card {
+            color: var(--text-main);
+        }
+
+        [data-theme="dark"] .pricing-card.featured {
+            background: rgba(0, 0, 200, 0.2);
+        }
+
+        [data-theme="dark"] .cb-msg.bot {
+            background: rgba(20, 20, 50, 0.9);
+            border-color: rgba(100, 100, 255, 0.1);
+            color: var(--text-main);
+        }
+
+        [data-theme="dark"] .chatbot-window {
+            background: rgba(15, 15, 35, 0.95);
+            border-color: rgba(100, 100, 255, 0.12);
+        }
+
+        [data-theme="dark"] .chatbot-win-messages {
+            background: rgba(10, 10, 25, 0.6);
+        }
+
+        [data-theme="dark"] .cb-suggestions {
+            background: rgba(15, 15, 35, 0.92);
+            border-top-color: rgba(100, 100, 255, 0.1);
+        }
+
+        [data-theme="dark"] .chatbot-win-input {
+            background: rgba(15, 15, 35, 0.92);
+            border-top-color: rgba(100, 100, 255, 0.1);
+        }
+
+        [data-theme="dark"] .chatbot-win-input input {
+            background: rgba(20, 20, 50, 0.9);
+            color: var(--text-main);
+            border-color: rgba(100, 100, 255, 0.15);
+        }
+
+        [data-theme="dark"] .cb-sug-btn {
+            background: rgba(20, 20, 50, 0.88);
+            border-color: rgba(46, 196, 182, 0.3);
+            color: var(--accent-teal);
+        }
+
+        [data-theme="dark"] .logo img {
+            filter: invert(1) hue-rotate(180deg) brightness(1.5);
+        }
+
+        [data-theme="dark"] .nav-links a {
+            color: #b0b0d0;
+        }
+
+        [data-theme="dark"] .hero-content h1 {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .badge-souverain {
+            background: rgba(20, 20, 50, 0.88);
+            color: #a0a0ff;
+        }
+
+        /* --- Dark mode: textes lisibles --- */
+        [data-theme="dark"] .hero-content p,
+        [data-theme="dark"] .hero-content .hero-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        [data-theme="dark"] .hero-metrics .metric-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="dark"] .hero-metrics .metric-number {
+            color: #80b0ff;
+        }
+
+        [data-theme="dark"] .hero-metrics .metric-label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        [data-theme="dark"] .stat-card {
+            color: var(--text-main);
+        }
+
+        [data-theme="dark"] .stat-label {
+            color: #b0b0cc;
+        }
+
+        [data-theme="dark"] .stat-desc {
+            color: #9090aa;
+        }
+
+        [data-theme="dark"] .persona-title {
+            color: #b0b0ff;
+        }
+
+        [data-theme="dark"] .persona-quote {
+            color: #70b0ff;
+        }
+
+        [data-theme="dark"] .persona-text {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] .persona-before {
+            background: rgba(220, 53, 69, 0.15);
+            color: #ff7080;
+        }
+
+        [data-theme="dark"] .persona-after {
+            background: rgba(0, 123, 255, 0.15);
+            color: #70b0ff;
+        }
+
+        [data-theme="dark"] .personas-section {
+            background: linear-gradient(135deg, rgba(15, 15, 40, 0.95) 0%, rgba(20, 20, 50, 0.95) 100%);
+            border-color: rgba(100, 100, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 20, 0.2);
+        }
+
+        [data-theme="dark"] .personas-section h3 {
+            color: #d0d0e8;
+        }
+
+        [data-theme="dark"] .personas-intro {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] .wp-content {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] .wp-stat {
+            background: rgba(255, 255, 255, 0.04);
+            color: #b0b0cc;
+        }
+
+        [data-theme="dark"] .wp-stat strong {
+            color: #80b0ff;
+        }
+
+        [data-theme="dark"] .solution-text h2 {
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .solution-text h3 {
+            color: #70b0ff;
+        }
+
+        [data-theme="dark"] .solution-text p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .solution-ctas .btn-white {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        [data-theme="dark"] .demo-intro p {
+            color: #b0b0cc;
+        }
+
+        [data-theme="dark"] .demo-btn {
+            background: rgba(20, 20, 50, 0.88);
+            color: #b0b0e0;
+            border-color: rgba(100, 100, 255, 0.15);
+        }
+
+        [data-theme="dark"] .demo-btn.active,
+        [data-theme="dark"] .demo-btn:hover {
+            background: rgba(0, 123, 255, 0.2);
+            color: #80b0ff;
+        }
+
+        [data-theme="dark"] .pricing-card .pricing-name {
+            color: #b0b0ff;
+        }
+
+        [data-theme="dark"] .pricing-card .pricing-price {
+            color: #e0e0f0;
+        }
+
+        [data-theme="dark"] .pricing-card .pricing-features li {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] .pricing-card .pricing-desc {
+            color: #9090aa;
+        }
+
+        [data-theme="dark"] .testimonial-card .testi-quote {
+            color: #b0b0cc;
+        }
+
+        [data-theme="dark"] .testimonial-card .testi-name {
+            color: #d0d0e8;
+        }
+
+        [data-theme="dark"] .testimonial-card .testi-role {
+            color: #9090aa;
+        }
+
+        [data-theme="dark"] #pourquoi h3,
+        [data-theme="dark"] .why-card h3 {
+            color: #b0b0ff;
+        }
+
+        [data-theme="dark"] .why-card p {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] .why-card {
+            background: rgba(20, 20, 50, 0.88);
+            border-color: rgba(100, 100, 200, 0.15);
+        }
+
+        [data-theme="dark"] #avant-apres span[style*="color: var(--primary-gov)"] {
+            color: #b0b0e0 !important;
+        }
+
+        [data-theme="dark"] #avant-apres p {
+            color: #a0a0b8;
+        }
+
+        [data-theme="dark"] #strates h3 {
+            color: #b0b0ff !important;
+        }
+
+        [data-theme="dark"] #strates p {
+            color: #a0a0b8 !important;
+        }
+
+        [data-theme="dark"] #campagnes h3 {
+            color: #b0b0ff !important;
+        }
+
+        [data-theme="dark"] #campagnes p {
+            color: #a0a0b8 !important;
+        }
+
+        [data-theme="dark"] #dashboard-elu {
+            background: linear-gradient(135deg, rgba(13,13,40,0.8) 0%, rgba(15,15,50,0.8) 100%) !important;
+        }
+
+        [data-theme="dark"] #dashboard-elu div[style*="color: var(--primary-gov)"] {
+            color: #b0b0ff !important;
+        }
+
+        [data-theme="dark"] #dashboard-elu div[style*="color: var(--text-light)"] {
+            color: #9090aa !important;
+        }
+
+        [data-theme="dark"] .btn-demo {
+            color: white;
+        }
+
+        /* ============================================
+           RESET & FOUNDATION
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Fond Abstrait Liquide Chaud Subtil */
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(0, 0, 91, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 90% 85%, rgba(0, 0, 145, 0.025) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.015) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px 0 0;
+            background: rgba(247, 244, 237, 0.92);
+            border-bottom: 1px solid rgba(200, 190, 170, 0.2);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(40, 30, 10, 0.04),
+                        inset 0 1px 0 rgba(255, 252, 245, 0.5);
+        }
+
+        .logo {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 0 0 24px;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 54px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .logo:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-gov);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        nav a:hover {
+            color: var(--accent-teal);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .btn-demo {
+            padding: 9px 22px;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 145, 0.25);
+            white-space: nowrap;
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 145, 0.35);
+        }
+
+        .btn-login {
+            padding: 9px 20px;
+            background: transparent;
+            color: var(--primary-gov);
+            border: 1.5px solid var(--primary-gov);
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-login:hover {
+            background: var(--accent-teal);
+            color: white;
+            border-color: var(--accent-teal);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        #hero {
+            padding: 180px 60px 140px;
+            background: linear-gradient(160deg, var(--bg-cream) 0%, #f2efe6 40%, var(--bg-warm) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Motif dot-grid premium */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 91, 0.035) 1px, transparent 0);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 0, 145, 0.05) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            color: var(--primary-gov);
+            letter-spacing: -2.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.45;
+            font-weight: 400;
+            letter-spacing: 0.1px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .btn-primary {
+            padding: 18px 52px;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 145, 0.25);
+            letter-spacing: -0.3px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 145, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 18px 52px;
+            background: transparent;
+            color: var(--primary-gov);
+            border: 2px solid var(--primary-gov);
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: -0.3px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-teal);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 680px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        .metric {
+            text-align: center;
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 28px 16px;
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition-premium);
+        }
+
+        .metric:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--glass-shadow-hover);
+            background: var(--glass-bg-hover);
+        }
+
+        .metric-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           HAMBURGER MENU (Mobile)
+           ============================================ */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1002;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--primary-gov);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+        [data-theme="dark"] .hamburger span {
+            background: #b0b0d0;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-overlay.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding: 140px 30px 100px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+                letter-spacing: -1.5px;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            nav {
+                padding: 0 16px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(247, 244, 237, 0.95);
+                padding: 20px 30px;
+                gap: 0;
+                box-shadow: 0 8px 30px rgba(40, 30, 10, 0.08);
+                border-bottom: 1px solid rgba(0, 0, 145, 0.08);
+                z-index: 1001;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 14px 0;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(0, 0, 145, 0.06);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            [data-theme="dark"] .nav-links {
+                background: rgba(15, 15, 35, 0.95);
+            }
+
+            .nav-cta {
+                gap: 6px;
+            }
+
+            .btn-login {
+                display: none;
+            }
+
+            .btn-demo {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+
+            .mobile-overlay {
+                display: block;
+                pointer-events: none;
+            }
+            .mobile-overlay.active {
+                pointer-events: auto;
+            }
+        }
+
+        /* ============================================
+           LE CONSTAT SECTION
+           ============================================ */
+        #le-constat {
+            padding: 140px 60px;
+            background: rgba(245, 242, 235, 0.95);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.08;
+            margin-bottom: 80px;
+            text-align: center;
+            color: var(--primary-gov);
+            letter-spacing: -1.8px;
+        }
+
+        .section-title-accent {
+            background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            border: var(--glass-border);
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gov), var(--secondary-innov));
+        }
+
+        .stat-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--glass-shadow-hover);
+            background: var(--glass-bg-hover);
+            border-color: rgba(46, 196, 182, 0.35);
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .personas-section {
+            background: linear-gradient(135deg, rgba(247, 244, 237, 0.95) 0%, rgba(239, 234, 225, 0.95) 100%);
+            border-radius: 28px;
+            padding: 80px 60px;
+            margin-top: 60px;
+            border: 1px solid rgba(200, 190, 170, 0.25);
+            box-shadow: 0 20px 50px rgba(40, 30, 10, 0.05);
+        }
+
+        .personas-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary-gov);
+        }
+
+        .personas-intro {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            font-weight: 400;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .persona-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            border-radius: 24px;
+            padding: 44px;
+            border: var(--glass-border);
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gov), var(--secondary-innov));
+        }
+
+        .persona-card:nth-child(2)::before {
+            background: linear-gradient(90deg, var(--secondary-innov), var(--accent-teal));
+        }
+
+        .persona-card:nth-child(3)::before {
+            background: linear-gradient(90deg, var(--accent-teal), var(--primary-gov));
+        }
+
+        .persona-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .persona-card:hover {
+            border-color: rgba(46, 196, 182, 0.4);
+            box-shadow: var(--glass-shadow-hover);
+            transform: translateY(-10px);
+            background: var(--glass-bg-hover);
+        }
+
+        .persona-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .persona-card:hover .persona-icon {
+            transform: scale(1.15);
+        }
+
+        .persona-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--primary-gov);
+        }
+
+        .persona-quote {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--secondary-innov);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(0, 123, 255, 0.3);
+        }
+
+        .persona-before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            margin-top: auto;
+        }
+
+        .persona-before {
+            padding: 12px;
+            background: rgba(220, 53, 69, 0.08);
+            border-left: 3px solid #dc3545;
+            border-radius: 8px;
+            color: #dc3545;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            min-height: 56px;
+        }
+
+        .persona-after {
+            padding: 12px;
+            background: rgba(0, 123, 255, 0.08);
+            border-left: 3px solid var(--secondary-innov);
+            border-radius: 8px;
+            color: var(--secondary-innov);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            min-height: 56px;
+        }
+
+        .persona-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-light);
+            flex: 1;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            #le-constat {
+                padding: 100px 30px;
+            }
+
+            .section-title {
+                font-size: 36px;
+                letter-spacing: -1.2px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personas-section {
+                padding: 80px 30px;
+            }
+        }
+
+        /* ============================================
+           LA SOLUTION SECTION
+           ============================================ */
+        #solution {
+            padding: 140px 60px;
+            background: linear-gradient(135deg, var(--primary-gov) 0%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #solution::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .solution-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 32px;
+            line-height: 1.15;
+            letter-spacing: -1px;
+        }
+
+        .solution-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--accent-teal);
+        }
+
+        .solution-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .solution-ctas {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .btn-white {
+            padding: 16px 44px;
+            background: white;
+            color: var(--primary-gov);
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .solution-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-mockup {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 20px;
+        }
+
+        .chat-info h4 {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .chat-info p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+
+        .demo-message {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+            word-wrap: break-word;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .demo-message.user {
+            background: linear-gradient(135deg, var(--secondary-innov), #339dff);
+            color: white;
+            align-self: flex-end;
+            max-width: 85%;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .demo-message.bot {
+            background: rgba(46, 196, 182, 0.15);
+            color: rgba(255, 255, 255, 0.95);
+            border-left: 3px solid var(--accent-teal);
+            align-self: flex-start;
+            max-width: 85%;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 14px 20px;
+            align-items: center;
+        }
+
+        .typing-indicator .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            opacity: 0.4;
+            animation: typingBounce 1.2s ease-in-out infinite;
+        }
+
+        .typing-indicator .dot:nth-child(2) { animation-delay: 0.15s; }
+        .typing-indicator .dot:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+
+        .dashboard-mockup {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 100%;
+            max-width: 450px;
+            min-height: 500px;
+        }
+
+        @media (max-width: 900px) {
+            #solution {
+                padding: 100px 30px;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .solution-text h2 {
+                font-size: 40px;
+            }
+        }
+
+        /* ============================================
+           LIVRE BLANC SECTION
+           ============================================ */
+        #livre-blanc {
+            padding: 140px 60px;
+            background: linear-gradient(135deg, rgba(245,242,235,0.75) 0%, rgba(239,234,225,0.75) 100%);
+        }
+
+        #livre-blanc .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,145,0.35);
+        }
+
+        /* Grilles desktop — colonnes en CSS pur (pas en inline) pour Safari iOS */
+        .livre-blanc-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .campagnes-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .alertes-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .parrainage-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .strates-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* Overflow protection */
+        #campagnes, #parrainage, #livre-blanc {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            #livre-blanc {
+                padding: 80px 20px;
+            }
+
+            .livre-blanc-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .livre-blanc-cover {
+                transform: none !important;
+                padding: 32px 24px !important;
+                border-radius: 16px !important;
+            }
+
+            .livre-blanc-cover h3 {
+                font-size: 22px !important;
+            }
+
+            #livre-blanc .livre-blanc-stats {
+                justify-content: center;
+            }
+
+            #livre-blanc .btn-primary {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .strates-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .campagnes-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .alertes-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .parrainage-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            #campagnes {
+                padding: 80px 20px !important;
+            }
+
+            #parrainage {
+                padding: 80px 20px !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .campagnes-grid,
+            .parrainage-grid,
+            .livre-blanc-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .alertes-grid,
+            .strates-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        /* ============================================
+           DEMO SECTION
+           ============================================ */
+        #demo {
+            padding: 140px 60px;
+            background: var(--bg-cream);
+            text-align: center;
+        }
+
+        .demo-intro {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .demo-intro p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            align-items: center;
+        }
+
+        #demoChat {
+            background: linear-gradient(180deg, var(--primary-gov) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            padding: 28px;
+            min-height: 500px;
+            max-height: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow-y: auto;
+            color: white;
+            font-size: 14px;
+            line-height: 1.6;
+            box-shadow: 0 20px 60px rgba(0, 0, 145, 0.25);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            position: relative;
+        }
+
+        #demoChat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.5), transparent);
+        }
+
+        .demo-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-demo-action {
+            padding: 14px 26px;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            border: 2px solid transparent;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 145, 0.15);
+        }
+
+        .btn-demo-action:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 145, 0.3);
+            background: linear-gradient(135deg, var(--secondary-innov), var(--primary-gov));
+        }
+
+        .btn-demo-action:active {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            #demo {
+                padding: 100px 30px;
+            }
+
+            #demoChat {
+                min-height: 400px;
+            }
+        }
+
+        /* ============================================
+           PRICING SECTION
+           ============================================ */
+        #tarifs {
+            padding: 140px 60px;
+            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-section) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #tarifs::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 0, 91, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #pricingGrid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            border-radius: 24px;
+            padding: 44px 34px;
+            border: var(--glass-border);
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 0, 91, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.5s ease;
+        }
+
+        .pricing-card:hover::after {
+            top: -30%;
+            right: -30%;
+        }
+
+        .pricing-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--glass-shadow-hover);
+            background: var(--glass-bg-hover);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid rgba(0, 0, 145, 0.3);
+            background: rgba(250, 248, 242, 0.7);
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 20px 50px rgba(0, 0, 91, 0.12);
+            margin-top: 8px;
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-12px);
+            box-shadow: 0 30px 70px rgba(0, 0, 91, 0.18);
+            background: rgba(252, 250, 245, 0.8);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .pricing-target {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin-bottom: 8px;
+            margin-top: 16px;
+        }
+
+        .pricing-size {
+            font-size: 13px;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .pricing-amount {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .pricing-features li:before {
+            content: '✓ ';
+            color: var(--accent-teal);
+            font-weight: 800;
+            margin-right: 8px;
+        }
+
+        .btn-pricing {
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .pricing-card.featured .btn-pricing {
+            background: linear-gradient(135deg, var(--secondary-innov), var(--primary-gov));
+        }
+
+        .btn-pricing:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 145, 0.25);
+        }
+
+        @media (max-width: 1200px) {
+            #pricingGrid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #tarifs {
+                padding: 100px 30px;
+            }
+
+            #pricingGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ============================================
+           WHY SECTION
+           ============================================ */
+        #pourquoi {
+            padding: 140px 60px;
+            background: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pourquoi::before {
+            content: '';
+            position: absolute;
+            top: -400px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 0, 91, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #pourquoi::after {
+            content: '';
+            position: absolute;
+            bottom: -300px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 0, 145, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #whyGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-warm) 100%);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .why-card:hover::before {
+            left: 100%;
+        }
+
+        .why-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .why-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 60px rgba(46, 196, 182, 0.12);
+            border-color: var(--accent-teal);
+        }
+
+        .why-icon {
+            font-size: 56px;
+            display: block;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .why-card:hover .why-icon {
+            transform: scale(1.2);
+        }
+
+        .why-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin-bottom: 16px;
+        }
+
+        .why-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            #pourquoi {
+                padding: 100px 30px;
+            }
+
+            #whyGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+        #testimonials {
+            padding: 140px 60px;
+            background: linear-gradient(135deg, rgba(245,242,235,0.75) 0%, rgba(239,234,225,0.75) 100%);
+        }
+
+        #testimonialsGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
+            border-radius: 24px;
+            padding: 48px 40px;
+            border: var(--glass-border);
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: translateY(30px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--glass-shadow-hover);
+            background: var(--glass-bg-hover);
+        }
+
+        .testimonial-visual {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            text-align: center;
+            font-size: 18px;
+            color: #F4A261;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .author-avatar.initials-1 {
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+        }
+
+        .author-avatar.initials-2 {
+            background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));
+        }
+
+        .author-avatar.initials-3 {
+            background: linear-gradient(135deg, var(--accent-teal), var(--primary-gov));
+        }
+
+        .author-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            color: #999;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            #testimonials {
+                padding: 100px 30px;
+            }
+
+            #testimonialsGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        #contact {
+            padding: 140px 60px;
+            background: linear-gradient(135deg, var(--primary-gov) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #contact .section-title {
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .contact-intro {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: white;
+            transition: var(--transition-premium);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn-submit {
+            padding: 16px 48px;
+            background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal));
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 123, 255, 0.45);
+        }
+
+        .download-link {
+            color: var(--accent-teal);
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-link:hover {
+            color: var(--accent-teal);
+        }
+
+        @media (max-width: 768px) {
+            #contact {
+                padding: 100px 30px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 60px;
+            background: linear-gradient(135deg, #00005c 0%, #000040 100%);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        footer a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ============================================
+           ACCESSIBILITÉ — prefers-reduced-motion
+           Désactive toutes les animations et transitions
+           pour les utilisateurs qui le demandent (WCAG 2.3.3)
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ============================================
+           UTILITY & MISC
+           ============================================ */
+        /* Dashboard KPI responsive */
+        @media (max-width: 768px) {
+            .dashboard-kpi-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Screen reader only — accessible labels */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+        }
+
+
+        /* Performance: disable ALL glass effects on mobile (GPU-intensive) */
+        @media (max-width: 768px) {
+            *, *::before, *::after {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+        }
+
+        /* Performance: reduce heavy box-shadows on mobile */
+        @media (max-width: 768px) {
+            .stat-card, .persona-card, .pricing-card, .why-card, .testimonial-card,
+            .chatbot-fab, .glass-card, .chatbot-window, .chat-mockup, .dashboard-mockup {
+                box-shadow: 0 4px 16px rgba(0, 0, 70, 0.08) !important;
+            }
+            .stat-card:hover, .persona-card:hover, .pricing-card:hover,
+            .why-card:hover, .testimonial-card:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 70, 0.12) !important;
+            }
+            /* Solid backgrounds to compensate for removed glass effect */
+            .stat-card, .persona-card, .pricing-card, .why-card, .testimonial-card {
+                background: rgba(247, 244, 237, 0.92) !important;
+            }
+            [data-theme="dark"] .stat-card, [data-theme="dark"] .persona-card,
+            [data-theme="dark"] .pricing-card, [data-theme="dark"] .why-card,
+            [data-theme="dark"] .testimonial-card {
+                background: rgba(20, 20, 50, 0.92) !important;
+            }
+            nav {
+                background: rgba(247, 244, 237, 0.97) !important;
+            }
+            [data-theme="dark"] nav {
+                background: rgba(10, 10, 30, 0.97) !important;
+            }
+        }
+
+        /* Performance: contain layout for independent sections */
+        section, .hero, [id="solution"], [id="pricing"], [id="pourquoi"], 
+        [id="strates"], [id="campagnes"], [id="testimonials"], [id="parrainage"],
+        [id="contact"], [id="avant-apres"] {
+            contain: layout style;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           FLOATING CHATBOT WIDGET
+           ============================================ */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 38px;
+            right: 110px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+            z-index: 9999;
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: scale(0);
+            text-decoration: none;
+        }
+
+        .whatsapp-fab.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-fab .fab-icon {
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+        }
+
+        .chatbot-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            background: rgba(0, 0, 145, 0.85);
+            will-change: transform, box-shadow;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 145, 0.2);
+            z-index: 9999;
+            transition: var(--transition-premium);
+            opacity: 0;
+            transform: scale(0) translateY(20px);
+        }
+
+        .chatbot-fab .fab-icon {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .chatbot-fab:hover .fab-icon {
+            transform: scale(1.1);
+        }
+
+        .chatbot-fab.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            box-shadow: 0 10px 30px rgba(0, 0, 145, 0.25);
+        }
+
+        @keyframes pulseGlass {
+            0% { box-shadow: 0 0 0 0 rgba(0, 0, 145, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 0, 145, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 0, 145, 0); }
+        }
+
+        .chatbot-fab:hover {
+            transform: scale(1.1) translateY(-4px);
+            background: rgba(0, 0, 145, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 145, 0.35);
+            animation: none;
+        }
+
+        .chatbot-fab .badge-notif {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s infinite;
+        }
+
+        /* Bulle de bienvenue chatbot */
+        .chatbot-welcome-bubble {
+            position: fixed;
+            bottom: 102px;
+            right: 30px;
+            background: white;
+            color: var(--primary-gov);
+            padding: 12px 18px;
+            border-radius: 16px 16px 4px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(0, 0, 145, 0.15);
+            z-index: 9998;
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
+            max-width: 260px;
+            line-height: 1.5;
+            border: 1px solid var(--glass-border);
+            pointer-events: none;
+        }
+
+        .chatbot-welcome-bubble.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .chatbot-welcome-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 24px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid white;
+        }
+
+        /* Badge souverain */
+        .badge-souverain {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: rgba(0, 0, 145, 0.06);
+            border: 1px solid rgba(0, 0, 145, 0.18);
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-gov);
+            letter-spacing: 0.3px;
+        }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 380px;
+            max-height: 520px;
+            background: rgba(247, 244, 237, 0.82);
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(40, 30, 10, 0.14), 0 0 0 1px rgba(200, 190, 170, 0.2);
+            border: 1px solid rgba(200, 190, 170, 0.25);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.4s ease;
+        }
+
+        .chatbot-window.open {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .chatbot-win-header {
+            background: linear-gradient(135deg, var(--primary-gov), var(--primary-light));
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chatbot-win-header .cb-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .chatbot-win-header .cb-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .chatbot-win-header .cb-info p {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+        .chatbot-win-header .cb-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .chatbot-win-header .cb-close:hover {
+            opacity: 1;
+        }
+
+        .chatbot-win-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(245, 242, 235, 0.5);
+            max-height: 320px;
+        }
+
+        .cb-msg {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.6;
+            animation: slideIn 0.3s ease;
+            max-width: 90%;
+        }
+
+        .cb-msg.bot {
+            background: rgba(250, 248, 242, 0.75);
+            border: 1px solid rgba(200, 190, 170, 0.25);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            color: #333;
+            box-shadow: 0 4px 16px rgba(40, 30, 10, 0.05);
+        }
+
+        .cb-satisfaction-rating {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        .cb-rating-btn {
+            padding: 4px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .cb-rating-btn:hover {
+            background: var(--bg-section);
+            border-color: var(--accent-teal);
+        }
+
+        .cb-rating-btn.clicked {
+            background: var(--accent-teal);
+            color: white;
+            border-color: var(--accent-teal);
+        }
+
+        .cb-msg.bot-with-rating {
+            padding: 0;
+        }
+
+        .cb-msg.bot-with-rating > div {
+            padding: 10px 14px;
+        }
+
+        .cb-msg.user {
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .cb-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 12px 16px;
+            border-top: 1px solid rgba(200, 190, 170, 0.2);
+            background: rgba(247, 244, 237, 0.55);
+        }
+
+        .cb-sug-btn {
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: 1.5px solid rgba(46, 196, 182, 0.25);
+            background: rgba(250, 248, 242, 0.65);
+            color: var(--accent-teal);
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-premium);
+        }
+
+        .cb-sug-btn:hover {
+            background: var(--accent-teal);
+            color: white;
+        }
+
+        .chatbot-win-input {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            border-top: 1px solid rgba(200, 190, 170, 0.2);
+            background: rgba(247, 244, 237, 0.55);
+        }
+
+        .chatbot-win-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1.5px solid rgba(0, 0, 91, 0.1);
+            border-radius: 20px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            background: rgba(250, 248, 242, 0.75);
+            transition: var(--transition-premium);
+        }
+
+        .chatbot-win-input input:focus {
+            border-color: var(--accent-teal);
+        }
+
+        .chatbot-win-input button {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 13px;
+            transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .chatbot-win-input button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 145, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .chatbot-window {
+                width: calc(100% - 24px);
+                right: 12px;
+                bottom: 100px;
+                max-height: 70vh;
+            }
+
+            .whatsapp-fab {
+                bottom: 28px;
+                right: 90px;
+                width: 42px;
+                height: 42px;
+            }
+
+            .chatbot-fab {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            #campagnes > div > div {
+                grid-template-columns: 1fr !important;
+            }
+            #avant-apres > div {
+                grid-template-columns: 1fr !important;
+            }
+            #avant-apres > div > div:nth-child(2) {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -204,11 +2843,11 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- SKIP LINK (accessibilité RGAA) -->
-    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+    <a href="#contenu-principal" style="position:absolute;left:-9999px;top:0;padding:8px;background:var(--primary-gov);color:white;z-index:9999;font-size:14px;" onfocus="this.style.left='0';" onblur="this.style.left='-9999px';">Aller au contenu principal</a>
 
     <!-- NAVIGATION -->
-    <nav aria-label="Navigation principale">
-        <div class="logo" onclick="scrollToSection('hero')" role="link" tabindex="0" aria-label="Civik-ia — Retour à l'accueil">
+    <nav aria-label="Navigation principale" role="navigation">
+        <div class="logo" onclick="scrollToSection('hero')">
             <img src="logo-civik-ia.png" alt="Civik-ia — Chatbot IA pour mairies et collectivités" width="140" height="40">
         </div>
         <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -217,24 +2856,25 @@
         <div class="nav-links" id="navLinks">
             <a href="#le-constat" onclick="closeMobileMenu()">Le Constat</a>
             <a href="#solution" onclick="closeMobileMenu()">La Solution</a>
-            <a href="#tarifs" onclick="closeMobileMenu()">Tarifs</a>
-            <a href="#campagnes" onclick="closeMobileMenu()">Campagnes</a>
-            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
             <a href="#dashboard-elu" onclick="closeMobileMenu()">Dashboard</a>
+            <a href="#campagnes" onclick="closeMobileMenu()">Campagnes</a>
+            <a href="#tarifs" onclick="closeMobileMenu()">Tarifs</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            <a href="demo.html" onclick="closeMobileMenu()" style="color:var(--accent-teal);font-weight:700;">Tester la démo</a>
         </div>
         <div class="nav-cta">
             <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer mode sombre" title="Mode sombre / clair">
                 <span class="theme-icon-light">☀️</span>
                 <span class="theme-icon-dark">🌙</span>
             </button>
-            <button class="btn-login" onclick="scrollToSection('parrainage')" aria-label="Recommander Civik-ia à une commune">Recommandez une commune</button>
+            <button class="btn-login" onclick="scrollToSection('parrainage')" aria-label="Accéder au programme de parrainage entre communes">Parrainez une mairie</button>
             <button class="btn-demo" onclick="window.location.href='demo.html'" aria-label="Tester la démo interactive du chatbot mairie">Tester la démo</button>
         </div>
     </nav>
     <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
 
     <!-- CONTENU PRINCIPAL -->
-    <main id="contenu-principal">
+    <main id="contenu-principal" role="main">
 
     <!-- HERO SECTION -->
     <section id="hero">
@@ -253,7 +2893,7 @@
             <div class="hero-metrics">
                 <div class="metric">
                     <div class="metric-number">-40%</div>
-                    <div class="metric-label">d'appels en mairie*</div>
+                    <div class="metric-label">d'appels en mairie</div>
                 </div>
                 <div class="metric">
                     <div class="metric-number">100%</div>
@@ -264,7 +2904,6 @@
                     <div class="metric-label">donnée hors d'Europe</div>
                 </div>
             </div>
-            <p style="font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 16px;">*Projection sur commune type — résultats variables selon profil d'activité</p>
         </div>
     </section>
 
@@ -493,7 +3132,7 @@
                 <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;">
                     <div class="fade-in" style="display: flex; align-items: flex-start; gap: 12px;">
                         <div style="min-width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 800;">1</div>
-                        <div><strong style="color: var(--primary-gov);">Le contexte</strong> — <span style="color: var(--text-light); font-size: 14px;">77% des collectivités utilisent déjà l'IA <em style="opacity:0.6;">(Observatoire Data Publica, 2025)</em>. Et vous ?</span></div>
+                        <div><strong style="color: var(--primary-gov);">Le contexte</strong> — <span style="color: var(--text-light); font-size: 14px;">77% des collectivités planifient un projet IA. Pourquoi maintenant ?</span></div>
                     </div>
                     <div class="fade-in" style="display: flex; align-items: flex-start; gap: 12px;">
                         <div style="min-width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 800;">2</div>
@@ -505,7 +3144,7 @@
                     </div>
                     <div class="fade-in" style="display: flex; align-items: flex-start; gap: 12px;">
                         <div style="min-width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-teal), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: 800;">+</div>
-                        <div><strong style="color: var(--primary-gov);">Projection réaliste</strong> — <span style="color: var(--text-light); font-size: 14px;">Commune de 50 000 habitants : objectif jusqu'à -40% d'appels, satisfaction &gt; 90%</span></div>
+                        <div><strong style="color: var(--primary-gov);">Projection réaliste</strong> — <span style="color: var(--text-light); font-size: 14px;">Commune de 50 000 habitants : objectif -40% d'appels, satisfaction &gt; 90%</span></div>
                     </div>
                 </div>
                 <a href="Livre-Blanc-Civik-IA-2026.pdf" download class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; font-size: 15px; font-weight: 700; text-decoration: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov)); color: white; box-shadow: 0 8px 24px rgba(0,0,145,0.25); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;">
@@ -521,7 +3160,8 @@
     <section id="demo">
         <div class="demo-intro">
             <h2 class="section-title" style="margin-bottom: 20px;">Testez notre chatbot mairie <span class="section-title-accent">comme si vous étiez un citoyen</span></h2>
-            <p>Cliquez sur un thème ci-dessous. L'IA répond instantanément avec les données réelles de la commune. Exactement ce que vos citoyens verront.</p>
+            <p style="margin-bottom: 8px;">Cliquez sur un thème ci-dessous. L'IA répond instantanément avec les données réelles de la commune. Exactement ce que vos citoyens verront.</p>
+            <p style="font-size: 13px; color: var(--secondary-innov); font-weight: 600;">Essayez une question sur l'urbanisme — c'est l'argument qui convainc les Dircabs.</p>
         </div>
 
         <div class="demo-grid">
@@ -575,7 +3215,7 @@
                     <li>Assistant IA avancé + multi-services</li>
                     <li>Conversations illimitées</li>
                     <li>Dashboard complet + alertes + carte de chaleur</li>
-                    <li>Notifications push + email campagnes · <em style="opacity:0.6;font-size:12px;">SMS bientôt disponible</em></li>
+                    <li>Notifications push + email + SMS campagnes</li>
                     <li>Support prioritaire</li>
                     <li>Mises à jour documentaires mensuelles</li>
                     <li>Formation agents (2h)</li>
@@ -592,7 +3232,7 @@
                     <li>Intelligence Citoyenne complète</li>
                     <li>Conversations illimitées</li>
                     <li>Dashboard exécutif + rapports PDF auto</li>
-                    <li>Notifications push + email illimités · <em style="opacity:0.6;font-size:12px;">SMS bientôt disponible</em></li>
+                    <li>Notifications push + email + SMS illimités</li>
                     <li>API d'intégration SI existant</li>
                     <li>Account manager dédié</li>
                     <li>Support 24/7 + SLA garanti</li>
@@ -648,7 +3288,7 @@
             <div class="why-card fade-in">
                 <span class="why-icon">📊</span>
                 <div class="why-title">ROI Clair &amp; Mesurable</div>
-                <div class="why-text">Économies d'agent : jusqu'à 30-40h par semaine selon profil. Objectif satisfaction citoyens +35%. Tendances en temps réel.</div>
+                <div class="why-text">Économies d'agent : 30-40h par semaine. Satisfaction citoyens +35%. Tendances politiques en temps réel.</div>
             </div>
             <div class="why-card fade-in">
                 <span class="why-icon">🔐</span>
@@ -710,14 +3350,14 @@
                 <div style="font-size: 32px; margin-bottom: 10px;">🏛️</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Ville moyenne</h3>
                 <div style="font-size: 12px; color: var(--secondary-innov); font-weight: 700; margin-bottom: 12px;">5 000 — 20 000 habitants</div>
-                <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">PLU complexe, services multiples, événements réguliers. La Plateforme maîtrise vos données et libère vos agents de jusqu'à 30-40h par semaine de questions répétitives. Dashboard complet + Campagnes Citoyennes.</p>
+                <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">PLU complexe, services multiples, événements réguliers. La Plateforme maîtrise vos données et libère vos agents de 30-40h par semaine de questions répétitives. Dashboard complet + Campagnes Citoyennes.</p>
                 <div style="margin-top: 18px; font-size: 14px; font-weight: 800; color: var(--primary-gov); padding-top: 14px; border-top: 1px solid rgba(0,0,145,0.08);">À partir de 199€/mois</div>
             </div>
             <div class="fade-in" style="background: rgba(255,255,255,0.88); border-radius: 20px; padding: 28px; box-shadow: 0 15px 35px rgba(0,0,70,0.1); border: 1px solid rgba(255,255,255,0.18); border-top: 4px solid var(--accent-teal); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease; display: flex; flex-direction: column;">
                 <div style="font-size: 32px; margin-bottom: 10px;">🗺️</div>
                 <h3 style="font-size: 17px; color: var(--primary-gov); margin-bottom: 8px;">Grande commune & Intercommunalité</h3>
                 <div style="font-size: 12px; color: var(--accent-teal); font-weight: 700; margin-bottom: 12px;">20 000+ habitants</div>
-                <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">Déploiement multi-sites, benchmarks inter-territoires, analyse prospective. L'IA s'appuie sur Légifrance, vos arrêtés locaux et vos données internes. Le DGS et les élus pilotent en temps réel.</p>
+                <p style="font-size: 13px; color: var(--text-light); line-height: 1.7; flex: 1;">Déploiement multi-sites, benchmarks inter-territoires, analyse prospective. L'IA s'appuie sur Légifrance, vos arrêtés locaux et vos données internes. Le DGS et le Dircab pilotent en temps réel.</p>
                 <div style="margin-top: 18px; font-size: 14px; font-weight: 800; color: var(--primary-gov); padding-top: 14px; border-top: 1px solid rgba(0,0,145,0.08);">À partir de 299€/mois</div>
             </div>
         </div>
@@ -746,7 +3386,7 @@
                             <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--secondary-innov), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 800;">2</div>
                             <h3 style="font-size: 17px; color: var(--primary-gov); font-weight: 800;">Les citoyens sont alertés et votent</h3>
                         </div>
-                        <p style="font-size: 14px; color: var(--text-light); line-height: 1.7;">Notification push et email : vos citoyens sont alertés en moins de 5 minutes. SMS bientôt disponible. Un bandeau interactif apparaît dans le chatbot. Ils donnent leur avis en un clic — note, commentaire, suggestion. Zéro friction.</p>
+                        <p style="font-size: 14px; color: var(--text-light); line-height: 1.7;">Notification push, email et SMS : vos citoyens sont alertés en moins de 5 minutes. Un bandeau interactif apparaît dans le chatbot. Ils donnent leur avis en un clic — note, commentaire, suggestion. Zéro friction.</p>
                     </div>
                     <div class="fade-in" style="background: rgba(255,255,255,0.88); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 10px 30px rgba(0,0,70,0.08); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, box-shadow 0.4s ease;">
                         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
@@ -826,8 +3466,8 @@
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
                     <h4 style="font-size: 15px; color: var(--primary-gov); font-weight: 800; margin-bottom: 6px;">SMS prioritaire</h4>
-                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Pour les campagnes importantes, un SMS sera envoyé aux citoyens volontaires. Taux d'ouverture supérieur à 95%.</p>
-                    <div style="margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--accent-gold);">BIENTÔT DISPONIBLE</div>
+                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Pour les campagnes importantes, un SMS est envoyé aux citoyens volontaires. Taux d'ouverture supérieur à 95%.</p>
+                    <div style="margin-top: 10px; font-size: 11px; font-weight: 700; color: var(--accent-gold);">OPTION • INSTANTANÉ</div>
                 </div>
             </div>
         </div>
@@ -858,7 +3498,7 @@
             </div>
             <div class="testimonial-card fade-in">
                 <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"Notre PLU est complexe. La Plateforme connaît chaque zone, chaque règle. Les citoyens obtiennent une réponse en 3 secondes au lieu de 48h par email. L'équipe de la mairie suit les tendances en temps réel sur le dashboard."</div>
+                <div class="testimonial-text">"Notre PLU est complexe. La Plateforme connaît chaque zone, chaque règle. Les citoyens obtiennent une réponse en 3 secondes au lieu de 48h par email. Le Dircab suit les tendances en temps réel sur le dashboard."</div>
                 <div class="testimonial-author">
                     <div class="author-avatar initials-2">🏛️</div>
                     <div class="author-info">
@@ -891,40 +3531,40 @@
         <div class="parrainage-grid" style="max-width: 1000px; margin: 0 auto; display: grid; gap: 50px; align-items: start;">
             <!-- Avantages parrain -->
             <div>
-                <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-gov); margin-bottom: 24px;">Vos avantages</h3>
+                <h3 style="font-size: 20px; font-weight: 800; color: var(--primary-gov); margin-bottom: 24px;">Vos avantages parrain</h3>
                 <div style="display: flex; flex-direction: column; gap: 16px;">
                     <div class="fade-in" style="background: rgba(255,255,255,0.9); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-teal), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">1</div>
                         <div>
-                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">1re recommandation</div>
+                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">1er parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">1 mois d'abonnement offert</div>
                         </div>
                     </div>
                     <div class="fade-in" style="background: rgba(255,255,255,0.9); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--secondary-innov), var(--primary-gov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">2</div>
                         <div>
-                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">2e recommandation</div>
+                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">2e parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">2 mois d'abonnement offerts</div>
                         </div>
                     </div>
                     <div class="fade-in" style="background: rgba(255,255,255,0.9); border-radius: 16px; padding: 20px 24px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 8px 24px rgba(0,0,70,0.08); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--primary-gov), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">3</div>
                         <div>
-                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">3e recommandation</div>
+                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">3e parrainage</div>
                             <div style="font-size: 13px; color: var(--text-light);">3 mois d'abonnement offerts</div>
                         </div>
                     </div>
                     <div class="fade-in" style="background: linear-gradient(135deg, rgba(0,0,145,0.06), rgba(0,123,255,0.08)); border-radius: 16px; padding: 20px 24px; border: 2px solid rgba(0,123,255,0.2); box-shadow: 0 8px 24px rgba(0,0,70,0.12); display: flex; align-items: center; gap: 16px;">
                         <div style="min-width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, var(--accent-gold), var(--secondary-innov)); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 900;">4+</div>
                         <div>
-                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">4e recommandation et plus</div>
+                            <div style="font-weight: 700; color: var(--primary-gov); font-size: 15px;">4e parrainage et plus</div>
                             <div style="font-size: 13px; color: var(--text-light);">4 mois offerts (plafond) + statut Ambassadeur Civik-ia</div>
                         </div>
                     </div>
                 </div>
                 <div class="fade-in" style="margin-top: 20px; padding: 16px 20px; background: rgba(244,162,97,0.08); border-radius: 12px; border-left: 4px solid var(--accent-gold);">
                     <div style="font-size: 13px; color: var(--text-light); line-height: 1.7;">
-                        <strong style="color: var(--primary-gov);">Avantage pour la commune recommandée :</strong> elle bénéficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs — 10 places).
+                        <strong style="color: var(--primary-gov);">Avantage filleul :</strong> la commune parrainée bénéficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs — 10 places).
                     </div>
                 </div>
             </div>
@@ -937,7 +3577,7 @@
                     <input type="text" name="_gotcha" style="display:none">
 
                     <div style="background: rgba(255,255,255,0.9); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
-                        <div style="font-size: 12px; font-weight: 700; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Votre commune</div>
+                        <div style="font-size: 12px; font-weight: 700; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Votre commune (parrain)</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <label for="parrain_commune" class="sr-only">Nom de votre commune</label>
                             <input type="text" id="parrain_commune" name="parrain_commune" placeholder="Nom de votre commune" required aria-label="Nom de votre commune" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
@@ -949,7 +3589,7 @@
                     </div>
 
                     <div style="background: rgba(255,255,255,0.9); border-radius: 14px; padding: 20px; border: 1px solid rgba(255,255,255,0.18);">
-                        <div style="font-size: 12px; font-weight: 700; color: var(--secondary-innov); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Commune recommandée</div>
+                        <div style="font-size: 12px; font-weight: 700; color: var(--secondary-innov); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Commune recommandée (filleul)</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <label for="filleul_commune" class="sr-only">Nom de la commune recommandée</label>
                             <input type="text" id="filleul_commune" name="filleul_commune" placeholder="Nom de la commune recommandée" required aria-label="Nom de la commune recommandée" style="width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid rgba(0,0,145,0.12); font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.6); transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; outline: none;">
@@ -1020,6 +3660,7 @@
         </div>
     </section>
 
+    <!-- FLOATING CHATBOT WIDGET -->
     <!-- SECTION: DASHBOARD ÉLU -->
     <section id="dashboard-elu" style="padding: 80px 40px; background: linear-gradient(135deg, var(--bg-section) 0%, var(--bg-warm) 100%); text-align: center;">
         <h2 class="section-title">Le Dashboard <span class="section-title-accent">que vos élus attendaient</span></h2>
@@ -1149,16 +3790,867 @@
         <p style="margin-top: 12px; font-size: 11px; opacity: 0.5;">Chatbot mairie · IA collectivités · Assistant virtuel commune · Digitalisation service public · Smart city France</p>
     </footer>
 
-    <!-- JavaScript — fichiers séparés (ordre de chargement important) -->
-    <script src="js/theme.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/forms.js"></script>
-    <script src="js/populate.js"></script>
-    <script src="js/demo.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/sw-register.js"></script>
+    <script>
+        // ============================================
+        // FLOATING CHATBOT WIDGET
+        // ============================================
+        const cbKnowledge = [
+            {
+                keywords: ['aide', 'aider', 'quoi', 'faire', 'bonjour', 'hello', 'salut'],
+                response: 'Bonjour ! 👋 Je suis l\'assistant du site Civik-ia. Je peux vous renseigner sur la <strong>Plateforme d\'Intelligence Citoyenne</strong>, vous orienter vers une démo, ou répondre à vos questions sur nos offres.'
+            },
+            {
+                keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester', 'voir'],
+                response: 'Vous pouvez <a href="demo.html" style="color:var(--secondary-innov);font-weight:700;">tester la démo interactive maintenant</a> ! Posez des questions comme un citoyen et voyez la réponse en temps réel. Pour une démo personnalisée avec les données de votre commune, remplissez le <a href="#contact" onclick="scrollToSection(\'contact\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">formulaire de contact</a>.'
+            },
+            {
+                keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'],
+                response: 'Vous pouvez nous contacter via le <a href="#contact" onclick="scrollToSection(\'contact\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">formulaire en bas de page</a>, ou directement par email à <strong>contact@civik-ia.fr</strong>. Nous répondons sous 24h !'
+            },
+            {
+                keywords: ['prix', 'tarif', 'coût', 'cout', 'combien', 'budget', 'gratuit'],
+                response: 'Nos offres démarrent à <strong>99€/mois</strong> pour les communes rurales (2 Campagnes Citoyennes/an incluses). 199€/mois pour les communes moyennes (4 campagnes/an), 299€/mois pour les grandes communes (6 campagnes/an). Intercommunalités, départements et régions : sur devis. 🚀 <strong>Programme Partenaires Fondateurs</strong> : la mise en service (valeur 999€) est <strong>offerte</strong> pour les 10 premières communes ! Consultez nos <a href="#tarifs" onclick="scrollToSection(\'tarifs\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">tarifs détaillés</a> !'
+            },
+            {
+                keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'c\'est quoi', 'koi', 'qu\'est'],
+                response: 'La <strong>Plateforme d\'Intelligence Citoyenne</strong> est un assistant IA disponible 24h/24 pour les mairies. Elle répond aux questions des citoyens (horaires, urbanisme, déchets...), libère du temps aux agents, et fournit un dashboard de données aux élus.'
+            },
+            {
+                keywords: ['pourquoi', 'créé', 'crée', 'origine', 'mission', 'raison'],
+                response: 'Civik-ia est née d\'un constat simple : <strong>70% des questions en mairie sont répétitives</strong>. Les agents perdent un temps précieux, les citoyens attendent des heures. Notre mission : reconnecter les mairies et leurs habitants, 24h/24, grâce à une IA souveraine et française.'
+            },
+            {
+                keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français'],
+                response: 'Civik-ia est <strong>100% souveraine</strong> : hébergement OVH en Europe (cloud souverain), IA Mistral AI (entreprise française), conformité RGPD native, chiffrement end-to-end. Zéro donnée envoyée hors UE.'
+            },
+            {
+                keywords: ['déploiement', 'deploiement', 'installation', 'combien de temps', 'durée', 'duree', 'mise en place'],
+                response: 'Le déploiement de la Plateforme prend <strong>moins de 4 semaines</strong> : étude de votre commune, configuration personnalisée, formation des agents, puis mise en service. Aucune migration complexe nécessaire !'
+            },
+            {
+                keywords: ['formation', 'former', 'agent', 'webinaire', 'apprendre'],
+                response: 'Nous proposons des <strong>formations pour les agents de mairie</strong> : prise en main du dashboard, suivi des conversations, gestion des alertes. Webinaires inclus dans les offres Communes Moyennes et supérieures !'
+            },
+            {
+                keywords: ['satisfaction', 'campagne', 'sondage', 'avis', 'opinion', 'enquête', 'consultation'],
+                response: 'Les <strong>Campagnes Citoyennes</strong> permettent aux mairies de consulter leurs citoyens en temps réel. Le maire crée une campagne depuis son dashboard, et en moins de 5 minutes, les citoyens sont alertés par <strong>notification push, email et SMS</strong>. Un bandeau interactif apparaît dans le chatbot pour recueillir les avis. Résultats en temps réel avec scores et statistiques. Incluses dans chaque offre : 2/an (rural), 4/an (moyen), 6/an (grande commune), illimitées (interco/régions). Packs supplémentaires à 49€ ou 99€ HT. <a href="#campagnes" onclick="scrollToSection(\'campagnes\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">En savoir plus</a>'
+            },
+            {
+                keywords: ['notification', 'push', 'sms', 'alerte', 'alerter', 'prévenir', 'informer', 'notifier', 'application', 'app'],
+                response: 'Pas besoin d\'application native ! Dès qu\'une campagne est lancée, <strong>3 canaux se déclenchent automatiquement</strong> : notification push via l\'application web (PWA), email avec lien direct vers la campagne, et SMS pour les consultations prioritaires. Le tout en moins de 5 minutes. Les notifications push et email sont <strong>incluses dans toutes les offres</strong>, le SMS est disponible dès l\'offre Communes Moyennes. <a href="#campagnes" onclick="scrollToSection(\'campagnes\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">Découvrir les Campagnes</a>'
+            },
+            {
+                keywords: ['agent', 'emploi', 'poste', 'remplacer', 'syndicat', 'personnel', 'supprime'],
+                response: 'La Plateforme <strong>ne remplace aucun agent</strong>. Elle prend en charge les questions répétitives (horaires, déchets, urbanisme) pour que vos agents se concentrent sur l\'accueil social, l\'accompagnement des personnes fragiles et le lien humain. Résultat : +30h/semaine libérées, zéro poste supprimé.'
+            },
+            {
+                keywords: ['souverain', 'hébergement', 'serveur', 'ovh', 'donnée', 'usa', 'américain'],
+                response: 'Infrastructure 100% souveraine : serveurs <strong>OVHcloud en Europe</strong>, IA <strong>Mistral AI</strong> (entreprise française). Aucune donnée ne quitte l\'UE. Aucune dépendance à un éditeur américain (pas de Cloud Act). L\'IA est entraînée sur vos sources souveraines (Légifrance, arrêtés locaux, PLU). Conforme RGPD et RGAA.'
+            },
+            {
+                keywords: ['parrain', 'parrainage', 'recommander', 'recommandation', 'réduction', 'ambassadeur'],
+                response: 'Notre <strong>programme Parrainage</strong> récompense les communes qui recommandent Civik-ia ! 1er parrainage = 1 mois offert, 2e = 2 mois, 3e = 3 mois, 4e et + = 4 mois offerts + statut Ambassadeur. La commune parrainée bénéficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs). <a href="#parrainage" onclick="scrollToSection(\'parrainage\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">Découvrir le programme</a> !'
+            }
+        ];
+
+        const cbSuggestionsList = [
+            'C\'est quoi la Plateforme ?',
+            'Tester la démo',
+            'Les tarifs ?',
+            'Comment alerter mes citoyens ?',
+            'Contacter l\'équipe'
+        ];
+
+        // ============================================
+        // DARK MODE TOGGLE
+        // ============================================
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('civik-theme', isDark ? 'light' : 'dark');
+        }
+
+        // Apply saved theme on load (also in <head> to prevent flash)
+        (function() {
+            const saved = localStorage.getItem('civik-theme');
+            if (saved === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+
+        // ============================================
+        // MOBILE HAMBURGER MENU
+        // ============================================
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('mobileOverlay');
+            const isOpen = navLinks.classList.contains('active');
+
+            hamburger.classList.toggle('active', !isOpen);
+            navLinks.classList.toggle('active', !isOpen);
+            overlay.classList.toggle('active', !isOpen);
+            hamburger.setAttribute('aria-expanded', !isOpen);
+            document.body.style.overflow = !isOpen ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const overlay = document.getElementById('mobileOverlay');
+
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+
+        let chatbotOpen = false;
+        let cbInitialized = false;
+
+        function toggleChatbot() {
+            chatbotOpen = !chatbotOpen;
+            document.getElementById('chatbotWindow').classList.toggle('open', chatbotOpen);
+            document.getElementById('chatbotFab').querySelector('.badge-notif').style.display = chatbotOpen ? 'none' : '';
+            // Fermer la bulle de bienvenue
+            const bubble = document.getElementById('chatbotWelcome');
+            if (bubble) bubble.classList.remove('visible');
+
+            if (!cbInitialized) {
+                cbInitialized = true;
+                initChatbot();
+            }
+        }
+
+        function initChatbot() {
+            const msgContainer = document.getElementById('cbMessages');
+            const sugContainer = document.getElementById('cbSuggestions');
+
+            // Welcome message
+            addCbMessage('Bonjour ! 👋 Je suis l\'assistant Civik-ia. Comment puis-je vous aider ?', 'bot');
+
+            // Suggestion buttons
+            cbSuggestionsList.forEach(s => {
+                const btn = document.createElement('button');
+                btn.className = 'cb-sug-btn';
+                btn.textContent = s;
+                btn.onclick = () => sendCbMessage(s);
+                sugContainer.appendChild(btn);
+            });
+        }
+
+        function addCbMessage(content, type) {
+            const container = document.getElementById('cbMessages');
+            const div = document.createElement('div');
+            div.className = `cb-msg ${type}`;
+            if (type === 'bot') {
+                const contentDiv = document.createElement('div');
+                contentDiv.innerHTML = content;
+                div.appendChild(contentDiv);
+
+                // Add satisfaction rating
+                const ratingDiv = document.createElement('div');
+                ratingDiv.className = 'cb-satisfaction-rating';
+                const thumbsUpBtn = document.createElement('button');
+                thumbsUpBtn.className = 'cb-rating-btn';
+                thumbsUpBtn.innerHTML = '👍';
+                thumbsUpBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    ratingDiv.innerHTML = '<div style="text-align: center; font-size: 12px; color: #666;">Merci !</div>';
+                };
+                const thumbsDownBtn = document.createElement('button');
+                thumbsDownBtn.className = 'cb-rating-btn';
+                thumbsDownBtn.innerHTML = '👎';
+                thumbsDownBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    ratingDiv.innerHTML = '<div style="text-align: center; font-size: 12px; color: #666;">Merci !</div>';
+                };
+                ratingDiv.appendChild(thumbsUpBtn);
+                ratingDiv.appendChild(thumbsDownBtn);
+                div.appendChild(ratingDiv);
+            } else {
+                div.textContent = content;
+            }
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function findCbAnswer(query) {
+            const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            let bestMatch = null;
+            let bestScore = 0;
+
+            for (const entry of cbKnowledge) {
+                let score = 0;
+                for (const keyword of entry.keywords) {
+                    const kw = keyword.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    if (q.includes(kw)) score += kw.length;
+                }
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = entry;
+                }
+            }
+
+            if (bestMatch && bestScore >= 3) return bestMatch.response;
+
+            return 'Je n\'ai pas la réponse exacte, mais notre équipe peut vous aider ! <a href="#contact" onclick="scrollToSection(\'contact\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">Contactez-nous</a> ou appelez-nous — nous répondons sous 24h.';
+        }
+
+        function sendCbMessage(text) {
+            const input = document.getElementById('cbInput');
+            const query = text || input.value.trim();
+            if (!query) return;
+
+            addCbMessage(query, 'user');
+            if (input) input.value = '';
+
+            setTimeout(() => {
+                addCbMessage(findCbAnswer(query), 'bot');
+            }, 400 + Math.random() * 400);
+        }
+
+        // ============================================
+        // DATA DEFINITIONS
+        // ============================================
+
+        const pricingTiers = [
+            {
+                target: 'Communes Rurales',
+                size: '< 5 000 habitants',
+                price: '99',
+                features: [
+                    'Assistant IA sur mesure',
+                    'Jusqu\'à 1 000 conversations/mois',
+                    'Dashboard basique',
+                    'Notifications push + email campagnes',
+                    'Support par email',
+                    'Mises à jour documentaires trimestrielles',
+                    '2 Campagnes Citoyennes / an'
+                ]
+            },
+            {
+                target: 'Communes Moyennes',
+                size: '5 000 — 20 000 habitants',
+                price: '199',
+                featured: true,
+                features: [
+                    'Assistant IA avancé + multi-services',
+                    'Conversations illimitées',
+                    'Dashboard complet + alertes + carte de chaleur',
+                    'Notifications push + email + SMS campagnes',
+                    'Support prioritaire',
+                    'Mises à jour documentaires mensuelles',
+                    'Formation agents (2h)',
+                    '4 Campagnes Citoyennes / an'
+                ]
+            },
+            {
+                target: 'Grandes Communes',
+                size: '20 000 — 50 000 habitants',
+                price: '299',
+                features: [
+                    'Intelligence Citoyenne complète',
+                    'Conversations illimitées',
+                    'Dashboard exécutif + rapports PDF auto',
+                    'Notifications push + email + SMS illimités',
+                    'API d\'intégration SI existant',
+                    'Account manager dédié',
+                    'Support 24/7 + SLA garanti',
+                    '6 Campagnes Citoyennes / an'
+                ]
+            },
+            {
+                target: 'Intercommunalités, Départements & Régions',
+                size: 'Échelle territoriale',
+                price: 'Sur devis',
+                premium: true,
+                features: [
+                    'Étude préalable de vos besoins',
+                    'Création d\'un outil sur mesure',
+                    'Solution multi-collectivités',
+                    'Benchmarks inter-territoires',
+                    'Analyse démographique & prospective',
+                    'Projets de territoire & data viz',
+                    'Équipe dédiée + infrastructure isolée',
+                    'Notifications multi-canal illimitées (push, email, SMS)',
+                    'Accompagnement stratégique sur mesure',
+                    'Campagnes Citoyennes illimitées'
+                ]
+            }
+        ];
+
+        const whyReasons = [
+            {
+                icon: '🇫🇷',
+                title: 'Cloud souverain européen — Serveurs OVHcloud UE',
+                text: 'Infrastructure OVHcloud en Europe, IA souveraine Mistral AI (entreprise française). Aucune donnée ne quitte l\'Union Européenne. Aucune dépendance à un éditeur américain (pas de Cloud Act). L\'IA est entraînée sur vos sources souveraines : Légifrance, arrêtés municipaux, PLU.'
+            },
+            {
+                icon: '⚙️',
+                title: 'Déploiement Ultra-Rapide',
+                text: 'Opérationnel en moins de 4 semaines. Aucune migration complexe. Aucune disruption des services existants.'
+            },
+            {
+                icon: '📊',
+                title: 'ROI Clair & Mesurable',
+                text: 'Économies d\'agent: 30-40h par semaine. Satisfaction citoyens +35%. Tendances politiques en temps réel.'
+            },
+            {
+                icon: '🔐',
+                title: 'RGPD natif, conforme RGAA',
+                text: 'Conformité RGPD dès la conception. Chiffrement end-to-end. Widget accessible conforme aux normes RGAA/WCAG. Aucun transfert de données hors UE. Votre opposition ne pourra rien vous reprocher.'
+            },
+            {
+                icon: '🎯',
+                title: 'Paramétrage Sur Mesure',
+                text: 'Votre PLU, vos règles, vos services. L\'IA apprend de votre contexte, pas du contexte des autres communes.'
+            },
+            {
+                icon: '🤝',
+                title: 'Partenaire Longue Durée',
+                text: 'Onboarding gratuit. Support continu. Optimisations régulières. Succès garanti.'
+            }
+        ];
+
+        const testimonials = [
+            {
+                name: 'Commune rurale',
+                title: '1 200 habitants — Loir-et-Cher',
+                quote: 'Avec 2 agents à mi-temps, impossible de répondre à tout. La Plateforme traite les questions courantes 24h/24 et nos agents se concentrent sur l\'accueil social. Les appels ont baissé de 35% dès le premier mois.',
+                initials: '🏡',
+                class: 'initials-1'
+            },
+            {
+                name: 'Ville moyenne',
+                title: '15 000 habitants — Occitanie',
+                quote: 'Notre PLU est complexe. La Plateforme connaît chaque zone, chaque règle. Les citoyens obtiennent une réponse en 3 secondes au lieu de 48h par email. Le Dircab suit les tendances en temps réel sur le dashboard.',
+                initials: '🏛️',
+                class: 'initials-2'
+            },
+            {
+                name: 'Intercommunalité',
+                title: '45 000 habitants — 28 communes',
+                quote: 'Un seul déploiement pour 28 communes. L\'IA est entraînée sur les sources souveraines (Légifrance, arrêtés locaux, PLU). Le DGS a enfin une vision consolidée des demandes citoyennes sur tout le territoire.',
+                initials: '🗺️',
+                class: 'initials-3'
+            }
+        ];
+
+        const solutionConversations = [
+            { user: 'Bonjour, je suis nouveau à Narbonne', bot: 'Bienvenue ! 👋 Je suis l\'assistant IA de la mairie. Je suis ici pour répondre à vos questions 24h/24.' },
+            { user: 'Peut-on installer des volets PVC en Zone UA?', bot: 'Non, c\'est interdit en Zone UA. Seuls bois, acier ou aluminium laqué sont autorisés selon notre PLU.' },
+            { user: 'Où puis-je trouver les horaires de la piscine?', bot: 'Lun-ven: 10h-19h | Sam: 9h-18h | Dim: 9h-12h. Tarif: 4€ adulte. Parc des Sports.' },
+            { user: 'Comment m\'inscrire au rugby?', bot: 'Racing Club Narbonnais, au Parc des Sports. Inscriptions jeudis 18h-19h. 3 essais gratuits!' },
+            { user: 'Horaires de la déchèterie?', bot: 'Route de Lunes. Lun-sam: 9h-12h & 13h30-17h30 | Dim: 9h-12h. Carte d\'habitant requise.' },
+            { user: 'Quand est le prochain marché bio?', bot: 'Chaque samedi, Cours Mirabeau, 8h-13h. Plus de 50 producteurs. Bienvenue! 🥬' }
+        ];
+
+        const demoConversations = [
+            {
+                title: 'PLU & Urbanisme',
+                icon: '🏗️',
+                questions: [
+                    { user: 'Puis-je installer des volets PVC en Zone UA ?', bot: 'Non, interdit en Zone UA. Seuls bois, acier ou alu laqué autorisés.' },
+                    { user: 'Quel est le COS maximum en zone 1AUc ?', bot: 'Le COS en zone 1AUc est de 0,8. Vous ne pouvez construire que 80 m² de surface de plancher par 100 m² de terrain.' },
+                    { user: 'Faut-il un permis de construire pour une terrasse ?', bot: 'Oui, si la surface > 20 m². Au-dessous, une déclaration de travaux suffit.' }
+                ]
+            },
+            {
+                title: 'Sports & Loisirs',
+                icon: '⚽',
+                questions: [
+                    { user: 'Où inscrire mon fils au rugby ?', bot: 'Racing Club Narbonnais, Parc des Sports. Inscriptions tous les jeudis de 18h à 19h. 3 séances d\'essai gratuites.' },
+                    { user: 'Quels sont les horaires de la piscine municipale ?', bot: 'Lundi-vendredi: 10h-19h | Samedi: 9h-18h | Dimanche: 9h-12h. Tarifs: 4€ adulte, 2€ enfants.' },
+                    { user: 'Comment m\'inscrire aux cours de tennis ?', bot: 'Consulter le site mairie-narbonne.fr, rubrique "Sports". Inscription en ligne ou à l\'accueil (30€/mois).' }
+                ]
+            },
+            {
+                title: 'Services Pratiques',
+                icon: '🏛️',
+                questions: [
+                    { user: 'Horaires de la déchèterie ?', bot: 'Route de Lunes: 9h-12h et 13h30-17h30 du lundi au samedi. Dimanche: 9h-12h. Carte d\'habitant obligatoire.' },
+                    { user: 'Comment obtenir une attestation de résidence ?', bot: 'Sur rendez-vous à l\'accueil (mairie.narbonne.fr) ou par courrier avec copie pièce d\'identité et justificatif domicile. Délai: 24h.' },
+                    { user: 'Que dois-je faire pour une demande de subvention culturelle ?', bot: 'Dossier disponible en ligne. Deadline: 30 septembre de chaque année. Budget annuel: 50 000€. Taux de financement: 30-50%.' }
+                ]
+            },
+            {
+                title: 'Événements & Animations',
+                icon: '🎉',
+                questions: [
+                    { user: 'Quand est le prochain marché bio ?', bot: 'Chaque samedi et mercredi, Cours Mirabeau, 8h-13h (samedi) et 17h-19h30 (mercredi). Plus de 50 producteurs locaux.' },
+                    { user: 'Y a-t-il des événements ce mois-ci ?', bot: 'Oui ! Festival des Métiers Anciens (15-16 nov), Marché de Noël (décembre), Fête de la Musique (21 juin). Consulter l\'agenda complet sur mairie-narbonne.fr.' },
+                    { user: 'Comment louer la salle des fêtes pour un événement ?', bot: 'Tarif: 200€/jour (collectivités), 400€/jour (entreprises), 150€/jour (habitants). Disponibilité: mairie.narbonne.fr. Caution: 300€.' }
+                ]
+            },
+            {
+                title: 'Demandes Administratives',
+                icon: '📋',
+                questions: [
+                    { user: 'Comment faire une demande de permis de conduire ?', bot: 'Cela relève de la DREAL régionale. Notre mairie peut vous recevoir pour des dossiers ANTS. RDV en ligne: mairie-narbonne.fr.' },
+                    { user: 'Où puis-je obtenir mon extrait de naissance ?', bot: 'Directement en mairie (30 min) ou par courrier. Coût: gratuit. Délai: 1-3 jours. À l\'accueil, ouvert lun-ven 9h-17h.' },
+                    { user: 'Je dois enregistrer un PACS. Comment faire ?', bot: 'Dossier sur rendez-vous. Coût enregistrement: 254,40€ (part commune). Tous documents fournis en ligne. Délai enregistrement: 2-3 semaines.' }
+                ]
+            },
+            {
+                title: 'Logement & Fiscalité',
+                icon: '🏠',
+                questions: [
+                    { user: 'Quelle est la taxe foncière moyenne ?', bot: 'Taxe foncière moyenne: 4,8€ par m² dans la commune. Taxe d\'habitation (IFI): variable selon revenu. Simulateur sur impots.gouv.fr.' },
+                    { user: 'Comment aider un jeune à accéder au logement ?', bot: 'Aides: APL, ALF, ALS (CAF). Accès jeune propriétaire (PTZ+): jusqu\'à 262 000€. Info complète à l\'accueil ou www.mesdroitssociaux.gouv.fr.' },
+                    { user: 'Peut-on louer sa cave ou son garage ?', bot: 'Oui, mais déclaration obligatoire aux impôts. Revenus fonciers imposables. Conseil: rendez-vous avec votre centre des finances publiques (gratuit).' }
+                ]
+            }
+        ];
+
+        // ============================================
+        // ANIMATION & SCROLL FUNCTIONS
+        // ============================================
+
+        function animateCounters() {
+            const targets = [
+                { element: document.querySelectorAll('.stat-number')[0], end: 77, suffix: '%' },
+                { element: document.querySelectorAll('.stat-number')[1], end: 70, suffix: '%' },
+                { element: document.querySelectorAll('.stat-number')[2], end: 4.5, suffix: 'h' }
+            ];
+
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = targets.findIndex(t => t.element === entry.target);
+                        if (idx !== -1 && !targets[idx].animated) {
+                            targets[idx].animated = true;
+                            animateValue(targets[idx].element, 0, targets[idx].end, 2000, idx === 2, targets[idx].suffix);
+                        }
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            targets.forEach(target => {
+                if (target.element) counterObserver.observe(target.element);
+            });
+        }
+
+        function animateValue(element, start, end, duration, isDecimal = false, suffix = '') {
+            const startTime = Date.now();
+            const animate = () => {
+                const now = Date.now();
+                const progress = Math.min((now - startTime) / duration, 1);
+                const current = start + (end - start) * progress;
+                const value = isDecimal ? current.toFixed(1) : Math.floor(current);
+                element.textContent = value + suffix;
+                if (progress < 1) requestAnimationFrame(animate);
+            };
+            animate();
+        }
+
+        // Scroll intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        function observeElements(selector) {
+            document.querySelectorAll(selector).forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Google Sheets endpoint pour centraliser les leads
+        const GSHEET_URL = 'https://script.google.com/macros/s/AKfycbx9fgSpvQiDS6wrkR35l1ZkUIclB7KLrzsIM-BTycCM8h3sGK51JagtBe4zo6-ogkg3/exec';
+
+        function sendToGoogleSheet(data) {
+            fetch(GSHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).catch(() => {}); // Silent fail — Formspree reste la source principale
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('.btn-submit');
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            // Envoi parallèle au Google Sheet
+            sendToGoogleSheet({
+                name: formData.get('name'),
+                email: formData.get('email'),
+                city: formData.get('city'),
+                population: formData.get('population'),
+                message: formData.get('message'),
+                source: 'contact'
+            });
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                } else {
+                    submitBtn.textContent = 'Envoyer';
+                    submitBtn.disabled = false;
+                    alert('Une erreur est survenue. Envoyez-nous un email à contact@civik-ia.fr');
+                }
+            }).catch(() => {
+                submitBtn.textContent = 'Envoyer';
+                submitBtn.disabled = false;
+                alert('Erreur de connexion. Envoyez-nous un email à contact@civik-ia.fr');
+            });
+        }
+
+        function handleParrainageSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+
+            // Envoi parallèle au Google Sheet
+            sendToGoogleSheet({
+                name: formData.get('parrain_commune') + ' → ' + formData.get('filleul_commune'),
+                email: formData.get('parrain_email'),
+                city: formData.get('filleul_commune'),
+                population: '',
+                message: 'PARRAINAGE — Parrain: ' + formData.get('parrain_nom') + ' / Filleul contact: ' + formData.get('filleul_contact'),
+                source: 'parrainage'
+            });
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('parrainageSuccess').style.display = 'block';
+                } else {
+                    submitBtn.textContent = 'Envoyer ma recommandation';
+                    submitBtn.disabled = false;
+                    alert('Une erreur est survenue. Envoyez-nous un email à contact@civik-ia.fr');
+                }
+            }).catch(() => {
+                submitBtn.textContent = 'Envoyer ma recommandation';
+                submitBtn.disabled = false;
+                alert('Erreur de connexion. Envoyez-nous un email à contact@civik-ia.fr');
+            });
+        }
+
+        // ============================================
+        // POPULATE SECTIONS
+        // ============================================
+
+        function populatePricing() {
+            const grid = document.getElementById('pricingGrid');
+            // HTML statique déjà présent pour le SEO — on le vide pour recréer avec animations JS
+            grid.innerHTML = '';
+
+            // Setup fee banner
+            const setupBanner = document.createElement('div');
+            setupBanner.style.cssText = 'grid-column: 1 / -1; text-align: center; margin-bottom: 20px; padding: 32px; background: linear-gradient(135deg, rgba(0,0,145,0.04), rgba(0,123,255,0.06)); border-radius: 16px; border: 1px solid rgba(0,0,145,0.12);';
+            setupBanner.innerHTML = `
+                <div style="font-size: 0.75em; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-teal); margin-bottom: 10px;">🚀 Programme Partenaires Fondateurs — 10 places</div>
+                <div style="font-size: 1.3em; font-weight: 800; color: var(--primary-gov); margin-bottom: 8px;">Mise en Service : <span style="text-decoration: line-through; opacity: 0.4; font-weight: 400;">999€ HT</span> <span style="background: linear-gradient(135deg, var(--accent-teal), var(--secondary-innov)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.1em;">OFFERTE</span></div>
+                <div style="font-size: 0.95em; color: var(--text-light); max-width: 700px; margin: 0 auto;">Étude de votre commune, création personnalisée du bot, formation des agents, livraison et mise en service. <strong>Rejoignez les premières communes pionnières.</strong></div>
+                <div style="font-size: 0.8em; color: var(--text-light); margin-top: 8px; opacity: 0.6;">En échange : votre témoignage comme commune pionnière. Offre limitée aux 10 premières communes.</div>
+            `;
+            grid.appendChild(setupBanner);
+
+            pricingTiers.forEach((tier, index) => {
+                const card = document.createElement('div');
+                const isPremium = tier.premium;
+                card.className = `pricing-card fade-in ${tier.featured ? 'featured' : ''}`;
+                if (isPremium) card.style.cssText += 'border: 2px solid var(--accent-gold); background: linear-gradient(180deg, #fffaf5 0%, #fff 100%);';
+                card.innerHTML = `
+                    ${tier.featured ? '<div class="featured-badge">⭐ Plus Populaire</div>' : ''}
+                    ${isPremium ? '<div class="featured-badge" style="background: linear-gradient(135deg, var(--accent-gold), var(--secondary-innov));">🏛️ Sur Devis</div>' : ''}
+                    <div class="pricing-target">${tier.target}</div>
+                    <div class="pricing-size">${tier.size}</div>
+                    <div class="pricing-amount">${isPremium ? tier.price : tier.price + '€'}</div>
+                    <div class="pricing-period">${isPremium ? 'Étude préalable incluse' : '/mois HT — engagement 12 mois'}</div>
+                    <ul class="pricing-features">
+                        ${tier.features.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    <button class="btn-pricing" onclick="scrollToSection('contact')">${isPremium ? 'Nous contacter' : 'Démarrer'}</button>
+                `;
+                grid.appendChild(card);
+            });
+            observeElements('.pricing-card');
+
+            // Campaign packs banner
+            const packsBanner = document.createElement('div');
+            packsBanner.className = 'fade-in';
+            packsBanner.style.cssText = 'grid-column: 1 / -1; text-align: center; margin-top: 24px; padding: 24px 32px; background: rgba(46,196,182,0.06); border-radius: 16px; border: 1px solid rgba(46,196,182,0.2);';
+            packsBanner.innerHTML = `
+                <div style="font-size: 1.1em; font-weight: 700; color: var(--accent-teal); margin-bottom: 8px;">📊 Besoin de campagnes supplémentaires ?</div>
+                <div style="font-size: 0.9em; color: var(--text-light); display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                    <span><strong style="color: var(--primary-gov);">Pack +2 campagnes</strong> — 49€ HT</span>
+                    <span><strong style="color: var(--primary-gov);">Pack +5 campagnes</strong> — 99€ HT</span>
+                </div>
+                <div style="font-size: 0.8em; color: var(--text-light); margin-top: 8px; opacity: 0.7;">Utilisables sur l'année civile en cours. Cumulables avec votre forfait.</div>
+            `;
+            grid.appendChild(packsBanner);
+        }
+
+        function populateWhy() {
+            const grid = document.getElementById('whyGrid');
+            grid.innerHTML = '';
+            whyReasons.forEach((reason) => {
+                const card = document.createElement('div');
+                card.className = 'why-card fade-in';
+                card.innerHTML = `
+                    <span class="why-icon">${reason.icon}</span>
+                    <div class="why-title">${reason.title}</div>
+                    <div class="why-text">${reason.text}</div>
+                `;
+                grid.appendChild(card);
+            });
+            observeElements('.why-card');
+        }
+
+        function populateTestimonials() {
+            const grid = document.getElementById('testimonialsGrid');
+            grid.innerHTML = '';
+            testimonials.forEach((testimonial) => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card fade-in';
+                card.innerHTML = `
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">"${testimonial.quote}"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar ${testimonial.class}">${testimonial.initials}</div>
+                        <div class="author-info">
+                            <h4>${testimonial.name}</h4>
+                            <p>${testimonial.title}</p>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            observeElements('.testimonial-card');
+        }
+
+        // ============================================
+        // DEMO CHAT ANIMATION
+        // ============================================
+
+        function typeText(element, text, speed = 18) {
+            return new Promise(resolve => {
+                let i = 0;
+                let lastTime = 0;
+                element.textContent = '';
+                function tick(timestamp) {
+                    if (timestamp - lastTime >= speed) {
+                        i++;
+                        element.textContent = text.slice(0, i);
+                        lastTime = timestamp;
+                    }
+                    if (i < text.length) {
+                        requestAnimationFrame(tick);
+                    } else {
+                        resolve();
+                    }
+                }
+                requestAnimationFrame(tick);
+            });
+        }
+
+        function showTypingIndicator(container) {
+            const dots = document.createElement('div');
+            dots.className = 'demo-message bot typing-indicator';
+            dots.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+            container.appendChild(dots);
+            container.scrollTop = container.scrollHeight;
+            return dots;
+        }
+
+        let solutionChatCycles = 0;
+        let solutionChatRunning = false;
+        let solutionChatAbort = false;
+
+        async function animateSolutionChat() {
+            const solutionChat = document.getElementById('solutionChat');
+            if (!solutionChat || solutionChatRunning) return;
+            solutionChatRunning = true;
+            solutionChatAbort = false;
+            solutionChat.innerHTML = '';
+
+            for (const msg of solutionConversations) {
+                if (solutionChatAbort) break;
+                await new Promise(r => setTimeout(r, 800));
+                if (solutionChatAbort) break;
+                const userDiv = document.createElement('div');
+                userDiv.className = 'demo-message user';
+                userDiv.textContent = msg.user;
+                solutionChat.appendChild(userDiv);
+                solutionChat.scrollTop = solutionChat.scrollHeight;
+
+                await new Promise(r => setTimeout(r, 400));
+                if (solutionChatAbort) break;
+                const dots = showTypingIndicator(solutionChat);
+
+                await new Promise(r => setTimeout(r, 800));
+                dots.remove();
+                if (solutionChatAbort) break;
+                const botDiv = document.createElement('div');
+                botDiv.className = 'demo-message bot';
+                solutionChat.appendChild(botDiv);
+                await typeText(botDiv, msg.bot, 16);
+                solutionChat.scrollTop = solutionChat.scrollHeight;
+
+                await new Promise(r => setTimeout(r, 600));
+            }
+
+            solutionChatRunning = false;
+            solutionChatCycles++;
+            // Max 2 cycles then stop
+            if (solutionChatCycles < 2 && !solutionChatAbort) {
+                setTimeout(() => animateSolutionChat(), 4000);
+            }
+        }
+
+        function initializeDemo() {
+            // Start animated solution chat only when section is visible
+            const solutionSection = document.getElementById('solution');
+            if (solutionSection) {
+                const solutionObs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && solutionChatCycles < 2) {
+                            animateSolutionChat();
+                        } else if (!entry.isIntersecting) {
+                            solutionChatAbort = true;
+                            solutionChatRunning = false;
+                        }
+                    });
+                }, { threshold: 0.2 });
+                solutionObs.observe(solutionSection);
+            }
+
+            // Populate demo section with initial conversation
+            const demoChat = document.getElementById('demoChat');
+            if (demoChat) {
+                function displayMessages(messages) {
+                    demoChat.innerHTML = '';
+                    messages.forEach((msg, idx) => {
+                        setTimeout(() => {
+                            const div = document.createElement('div');
+                            div.className = `demo-message ${msg.user ? 'user' : 'bot'}`;
+                            div.textContent = msg.user || msg.bot;
+                            demoChat.appendChild(div);
+                            demoChat.scrollTop = demoChat.scrollHeight;
+                        }, idx * 500);
+                    });
+                }
+
+                // Initial demo - first scenario
+                displayMessages(demoConversations[0].questions);
+            }
+        }
+
+        function showDemoMessage(index) {
+            const chatContainer = document.getElementById('demoChat');
+            const messages = demoConversations[index].questions;
+
+            chatContainer.innerHTML = '';
+            messages.forEach((msg, idx) => {
+                setTimeout(() => {
+                    const userDiv = document.createElement('div');
+                    userDiv.className = 'demo-message user';
+                    userDiv.textContent = msg.user;
+                    chatContainer.appendChild(userDiv);
+
+                    setTimeout(() => {
+                        const botDiv = document.createElement('div');
+                        botDiv.className = 'demo-message bot';
+                        botDiv.textContent = msg.bot;
+                        chatContainer.appendChild(botDiv);
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                    }, 600);
+                }, idx * 1300);
+            });
+        }
+
+        // ============================================
+        // INITIALIZATION ON PAGE LOAD
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populatePricing();
+            populateWhy();
+            populateTestimonials();
+            initializeDemo();
+            animateCounters();
+
+
+            // Performance: stagger fade-in animations to avoid mass repaints
+            document.querySelectorAll('.pricing-card, .why-card, .testimonial-card, .stat-card, .persona-card').forEach((el, i) => {
+                el.style.transitionDelay = (i % 4) * 80 + 'ms';
+            });
+            // Observer TOUS les éléments fade-in (statiques + générés dynamiquement par populate.js)
+            observeElements('.fade-in');
+
+
+            // Performance: remove will-change after fade-in completes to free GPU
+            document.addEventListener('transitionend', (e) => {
+                if (e.target.classList.contains('fade-in') && e.target.classList.contains('visible')) {
+                    e.target.style.willChange = 'auto';
+                }
+            }, { passive: true });
+            // Show chatbot FAB after 3 seconds, welcome bubble after 4s
+            setTimeout(() => {
+                document.getElementById('chatbotFab').classList.add('visible');
+                document.getElementById('whatsappFab').classList.add('visible');
+            }, 3000);
+
+            setTimeout(() => {
+                const bubble = document.getElementById('chatbotWelcome');
+                if (bubble && !chatbotOpen) bubble.classList.add('visible');
+            }, 5000);
+
+            // Hide welcome bubble after 10s or on chatbot open
+            setTimeout(() => {
+                const bubble = document.getElementById('chatbotWelcome');
+                if (bubble) bubble.classList.remove('visible');
+            }, 12000);
+        });
+    </script>
+
+    <!-- Service Worker PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('[PWA] Service Worker enregistré:', reg.scope))
+                    .catch(err => console.warn('[PWA] Échec enregistrement SW:', err));
+            });
+        }
+    </script>
 </body>
 </html>

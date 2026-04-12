@@ -4,31 +4,12 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v5';
+const CACHE_NAME = 'civik-ia-v10';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',
   '/campagnes-citoyennes.html',
   '/demo.html',
-  '/css/tokens.css',
-  '/css/base.css',
-  '/css/dark.css',
-  '/css/nav.css',
-  '/css/hero.css',
-  '/css/sections.css',
-  '/css/components.css',
-  '/css/chatbot.css',
-  '/css/utilities.css',
-  '/js/theme.js',
-  '/js/nav.js',
-  '/js/data.js',
-  '/js/animations.js',
-  '/js/chatbot.js',
-  '/js/forms.js',
-  '/js/populate.js',
-  '/js/demo.js',
-  '/js/app.js',
-  '/js/sw-register.js',
   '/logo-civik-ia.svg',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png',

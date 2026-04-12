@@ -373,7 +373,7 @@
         .cat-bar .bar-fill {
             height: 100%; border-radius: 10px;
             background: linear-gradient(90deg, #000091, #007bff);
-            transition: width 1s ease;
+            transition: width 0.8s ease, background 0.5s ease;
         }
         .cat-bar .pct { font-size: 11px; color: #000091; font-weight: 700; width: 35px; text-align: right; }
 
@@ -381,15 +381,38 @@
             width: 100px; height: 100px; border-radius: 50%; margin: 0 auto;
             background: conic-gradient(#2EC4B6 0% 92%, #eee 92% 100%);
             display: flex; align-items: center; justify-content: center;
-            position: relative;
+            position: relative; transition: background 0.8s ease;
         }
-        .satisfaction-circle::after {
-            content: '92%'; position: absolute; font-family: 'Poppins', sans-serif;
+        .satisfaction-value {
+            position: absolute; font-family: 'Poppins', sans-serif;
             font-size: 22px; font-weight: 800; color: #2EC4B6;
             background: white; width: 76px; height: 76px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
+            transition: all 0.5s ease;
         }
         .satisfaction-label { text-align: center; font-size: 11px; color: #888; margin-top: 8px; }
+
+        /* PWA Homescreen Prompt */
+        .pwa-prompt {
+            display: none; background: linear-gradient(135deg, #f0f4ff, #e8eeff);
+            border: 1px solid rgba(0,0,145,0.15); border-radius: 10px;
+            padding: 10px 14px; margin: 8px 12px 0; font-size: 12px;
+            color: #333; line-height: 1.5; position: relative;
+            animation: slideInPrompt 0.5s ease;
+        }
+        .pwa-prompt.visible { display: flex; align-items: flex-start; gap: 10px; }
+        .pwa-prompt-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+        .pwa-prompt-text { flex: 1; }
+        .pwa-prompt-text strong { color: var(--primary-gov, #000091); }
+        .pwa-prompt-close {
+            position: absolute; top: 6px; right: 8px; background: none; border: none;
+            font-size: 14px; color: #999; cursor: pointer; padding: 2px 6px;
+        }
+        .pwa-prompt-close:hover { color: #333; }
+        @keyframes slideInPrompt {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* Activity Chart */
         .chart-wrapper {
@@ -437,9 +460,17 @@
             .banner { font-size: 11px; padding: 6px 12px; gap: 8px; flex-wrap: wrap; }
             .banner-title strong { font-size: 11px; }
             .banner-title span { display: none; }
-            .banner-tabs { display: none; }
             .banner-badge { display: none; }
             .banner-right { display: none; }
+            /* PWA prompt */
+            .pwa-prompt { margin: 6px 8px 0; padding: 12px; font-size: 13px; }
+            /* Mobile Vue Mairie : dashboard plein écran, chat caché */
+            .app-wrapper.mobile-dashboard .chat-panel { display: none; }
+            .app-wrapper.mobile-dashboard .dashboard-panel {
+                display: flex !important; flex: 1; overflow-y: auto;
+            }
+            /* Mobile Vue Citoyen : chat plein écran, dashboard caché */
+            .app-wrapper:not(.mobile-dashboard) .dashboard-panel { display: none; }
             .chat-header { padding: 10px 14px; }
             .chat-header-info h2 { font-size: 13px; }
             .chat-header-info p { font-size: 10px; }
@@ -536,18 +567,8 @@
     <!-- PREMIUM BANNER WITH TABS                     -->
     <!-- ============================================ -->
     <div class="banner">
-        <div class="banner-logo">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 2L4 8v10c0 9.55 5.97 18.48 14 22 8.03-3.52 14-12.45 14-22V8L18 2z" fill="url(#shG)" fill-opacity="0.25" stroke="url(#shS)" stroke-width="1.5"/>
-                <path d="M18 9l-6 3v4h2v6h2v-6h4v6h2v-6h2v-4l-6-3z" fill="white" fill-opacity="0.9"/>
-                <defs>
-                    <linearGradient id="shG" x1="4" y1="2" x2="32" y2="32"><stop stop-color="#2EC4B6"/><stop offset="1" stop-color="#007bff"/></linearGradient>
-                    <linearGradient id="shS" x1="4" y1="2" x2="32" y2="32"><stop stop-color="#2EC4B6"/><stop offset="1" stop-color="#007bff"/></linearGradient>
-                </defs>
-            </svg>
-        </div>
-        <div class="banner-title">
-            <strong>Plateforme d'Intelligence Citoyenne — Démo</strong>
+        <div class="banner-title" style="flex:1; text-align:center;">
+            <strong>Plateforme d'Intelligence Citoyenne</strong>
             <span>Commune de Saint-Martin-des-Champs (29600) — Données fictives de démonstration</span>
         </div>
         <div class="banner-tabs">
@@ -588,6 +609,16 @@
 
             <!-- Campaign banner container (populated dynamically) -->
             <div id="campaignBannerZone"></div>
+
+            <!-- PWA Homescreen Prompt -->
+            <div class="pwa-prompt" id="pwaPrompt">
+                <span class="pwa-prompt-icon">📱</span>
+                <div class="pwa-prompt-text">
+                    <strong>Accès rapide :</strong> Ajoutez cet assistant à votre <strong>écran d'accueil</strong> pour y accéder en un clic, comme une application.
+                    <br><span style="opacity:0.7;font-size:11px;">Sur iPhone : Safari → Partager → « Sur l'écran d'accueil ». Sur Android : ⋮ → « Ajouter à l'écran d'accueil ».</span>
+                </div>
+                <button class="pwa-prompt-close" onclick="closePwaPrompt()" title="Fermer">✕</button>
+            </div>
 
             <div class="chat-messages" id="chatMessages"></div>
 
@@ -646,9 +677,9 @@
                     <h3>Indicateurs clés</h3>
                     <div class="kpi-grid">
                         <div class="kpi"><div class="kpi-value" id="kpiQuestions">847</div><div class="kpi-label">Questions ce mois</div></div>
-                        <div class="kpi"><div class="kpi-value">2.1s</div><div class="kpi-label">Temps de réponse</div></div>
-                        <div class="kpi"><div class="kpi-value">24/7</div><div class="kpi-label">Disponibilité</div></div>
-                        <div class="kpi"><div class="kpi-value">-62%</div><div class="kpi-label">Appels mairie</div></div>
+                        <div class="kpi"><div class="kpi-value" id="kpiTempReponse">2.1s</div><div class="kpi-label">Temps de réponse</div></div>
+                        <div class="kpi"><div class="kpi-value" style="font-size:18px;">24h/24</div><div class="kpi-label">Disponibilité</div></div>
+                        <div class="kpi"><div class="kpi-value" style="font-size:18px;">94%</div><div class="kpi-label">Résolution IA</div></div>
                     </div>
                 </div>
 
@@ -685,17 +716,31 @@
                 <div class="dash-card" style="display:flex; gap:20px; align-items:center;">
                     <div style="flex:1;">
                         <h3>Satisfaction citoyens</h3>
-                        <div class="satisfaction-circle"></div>
+                        <div class="satisfaction-circle" id="satisfactionCircle"><span class="satisfaction-value" id="satisfactionValue">92%</span></div>
                         <div class="satisfaction-label">Score moyen sur 30 jours</div>
                     </div>
-                    <div style="flex:1;">
+                    <div style="flex:1;" id="peakActivity">
                         <h3>Pic d'activité</h3>
-                        <div style="font-size:12px; color:#555; line-height:1.8;">
+                        <div id="peakContent" style="font-size:12px; color:#555; line-height:1.8;">
                             <div>Lundi 14h-16h <strong style="color:#2EC4B6">+45%</strong></div>
                             <div>Mercredi matin <strong style="color:#2EC4B6">+38%</strong></div>
                             <div>Vendredi 10h <strong style="color:#e65100">+27%</strong></div>
                             <div style="margin-top:8px; font-size:10px; color:#aaa;">= Heures creuses de la mairie</div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Alertes Tendance -->
+                <div class="dash-card" id="alerteTendance" style="background: linear-gradient(135deg, #1B2A4A, #2C3E50); color: white; border:none;">
+                    <h3 style="color: rgba(255,255,255,0.7);">Alertes Tendance</h3>
+                    <div id="alerteContent">
+                        <p style="font-size: 13px; line-height: 1.7; font-style: italic; opacity: 0.85;">
+                            <strong style="color: #F4A261;">+340%</strong> de questions sur les <strong>déchets et collecte</strong> cette semaine.
+                            <br><span style="opacity: 0.7; font-size: 12px;">Suggestion : communiquer sur le calendrier de collecte.</span>
+                        </p>
+                        <p style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 8px; font-style: italic;">
+                            Exemple de notification automatique
+                        </p>
                     </div>
                 </div>
 
@@ -909,6 +954,70 @@ let currentView = 'mairie';
 let campaignShownInChat = false;
 
 // ============================================
+// LIVE DASHBOARD STATE
+// ============================================
+const liveState = {
+    sessionCategoryCounts: {},
+    sessionQuestionCount: 0,
+    chartTodayIncrement: 0,
+    ratings: { up: 0, down: 0 },
+    baseSatisfaction: 92
+};
+
+const categoryMapping = {
+    'dechets':           'Déchets / Collecte',
+    'etat-civil':        'État Civil',
+    'urbanisme':         'Urbanisme / PLU',
+    'ecole':             'École / Enfance',
+    'culture':           'Fêtes / Culture',
+    'eau':               'Eau / Assainist.',
+    'transport':         'Transport',
+    'mairie':            'État Civil',
+    'patrimoine':        'Fêtes / Culture',
+    'intercommunalite':  'Transport',
+    'elections':         'État Civil',
+    'urgence':           null,
+    'loisirs':           'Fêtes / Culture',
+    'social':            null,
+    'demarches':         'État Civil',
+    'fiscalite':         null,
+    'travaux':           'Urbanisme / PLU',
+    'nature':            null,
+    'animaux':           null,
+    'nuisances':         null,
+    'cimetiere':         null,
+    'actualites':        null
+};
+
+const chartBaseValues = [43, 28, 89, 134, 98, 156, 127];
+let chartFirstRender = true;
+
+// ============================================
+// MOBILE DETECTION + PWA PROMPT
+// ============================================
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+let pwaPromptShown = false;
+
+function showPwaPrompt() {
+    if (pwaPromptShown) return;
+    const el = document.getElementById('pwaPrompt');
+    if (el) {
+        el.classList.add('visible');
+        pwaPromptShown = true;
+        if (isMobile) {
+            const chatMessages = document.getElementById('chatMessages');
+            if (chatMessages) chatMessages.scrollTop = 0;
+        }
+        setTimeout(() => { if (el.classList.contains('visible')) el.classList.remove('visible'); }, 30000);
+    }
+}
+
+function closePwaPrompt() {
+    const el = document.getElementById('pwaPrompt');
+    if (el) el.classList.remove('visible');
+}
+
+// ============================================
 // PWA INSTALL / BOOKMARK PROMPT
 // ============================================
 let deferredInstallPrompt = null;
@@ -1029,6 +1138,7 @@ function switchGlobalView(view) {
     const tabCitoyenGlobal = document.getElementById('tabGlobalCitoyen');
     const chatTitle = document.getElementById('chatTitle');
     const chatSubtitle = document.getElementById('chatSubtitle');
+    const appWrapper = document.querySelector('.app-wrapper');
 
     if (view === 'mairie') {
         chatPanel.classList.remove('fullwidth');
@@ -1037,6 +1147,8 @@ function switchGlobalView(view) {
         tabCitoyenGlobal.classList.remove('active');
         chatTitle.textContent = 'Civik-ia — Assistant Saint-Martin-des-Champs';
         chatSubtitle.textContent = 'Votre mairie disponible 24h/24 — 3 500 habitants';
+        // Mobile : afficher dashboard plein écran
+        if (isMobile && appWrapper) appWrapper.classList.add('mobile-dashboard');
         // Hide campaign banner in mairie view
         closeCampaignBanner();
     } else {
@@ -1046,6 +1158,8 @@ function switchGlobalView(view) {
         tabMairieGlobal.classList.remove('active');
         chatTitle.textContent = 'Mairie de Saint-Martin-des-Champs — Assistant en ligne';
         chatSubtitle.textContent = 'Posez vos questions, 24h/24, 7j/7 — réponse immédiate';
+        // Mobile : afficher chat plein écran
+        if (isMobile && appWrapper) appWrapper.classList.remove('mobile-dashboard');
         // Show campaign in citoyen view (only once)
         if (!campaignShownInChat) {
             campaignShownInChat = true;
@@ -2025,7 +2139,7 @@ function findAnswerLocal(query) {
     if (greetings.some(g => q.includes(g)) && q.length < 30) {
         return {
             response: `Bonjour ! Je suis l'assistant de la Mairie de Saint-Martin-des-Champs. Comment puis-je vous aider ? Choisissez une catégorie ci-dessous ou posez directement votre question.`,
-            source: null, matched: true
+            source: null, matched: true, category: null
         };
     }
 
@@ -2034,7 +2148,7 @@ function findAnswerLocal(query) {
     if (thanks.some(t => q.includes(t)) && q.length < 40) {
         return {
             response: `Je vous en prie ! N'hésitez pas si vous avez d'autres questions. La mairie de Saint-Martin-des-Champs est à votre disposition au <strong>02 98 62 14 30</strong> ou par email à <strong>mairie@saint-martin-des-champs.fr</strong>.<br><br>Bonne journée !`,
-            source: null, matched: true
+            source: null, matched: true, category: null
         };
     }
 
@@ -2062,7 +2176,7 @@ function findAnswerLocal(query) {
     }
 
     if (bestMatch && bestScore >= 3) {
-        return { response: bestMatch.response, source: bestMatch.source };
+        return { response: bestMatch.response, source: bestMatch.source, category: bestMatch.category || null };
     }
 
     return {
@@ -2072,7 +2186,7 @@ function findAnswerLocal(query) {
         <strong>En personne</strong> : 12, Place de la République, 29600 Saint-Martin-des-Champs<br><br>
         <em>Horaires : Lundi-Vendredi 8h30-12h / 13h30-17h30, Samedi 9h-12h</em><br><br>
         Vous pouvez aussi choisir une catégorie ci-dessous pour explorer nos informations.`,
-        source: null
+        source: null, category: null
     };
 }
 
@@ -2099,12 +2213,12 @@ async function findAnswerFromAPI(query) {
     }
 }
 
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
 function sendMessage(text) {
     const input = document.getElementById('userInput');
     const query = text || input.value.trim();
     if (!query) return;
+
+    const t0 = performance.now(); // Chrono pour temps de réponse live
 
     addMessage(query, 'user');
     input.value = '';
@@ -2117,7 +2231,7 @@ function sendMessage(text) {
         addRecentQuestion(query);
     }
 
-    // Increment KPI counter
+    // Increment KPI counter with flash
     const kpiEl = document.getElementById('kpiQuestions');
     if (kpiEl) {
         const current = parseInt(kpiEl.textContent) || 847;
@@ -2127,6 +2241,14 @@ function sendMessage(text) {
     // Priorité LOCAL (réponses HTML structurées) > API (texte brut, fallback)
     const localAnswer = findAnswerLocal(query);
     const hasLocalMatch = localAnswer.source !== null || localAnswer.matched;
+    const matchedCategory = localAnswer.category || null;
+
+    // === LIVE DASHBOARD UPDATES ===
+    if (currentView === 'mairie') {
+        updateChart();
+        if (matchedCategory) updateCategoryBars(matchedCategory);
+        updatePeakActivity();
+    }
 
     if (hasLocalMatch) {
         // Réponse locale trouvée : afficher avec délai simulé (réaliste)
@@ -2134,6 +2256,11 @@ function sendMessage(text) {
         setTimeout(() => {
             removeTyping();
             addMessage(localAnswer.response, 'bot', localAnswer.source);
+            // Mise à jour temps de réponse live
+            const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
+            const kpiTime = document.getElementById('kpiTempReponse');
+            if (kpiTime) kpiTime.textContent = elapsed + 's';
+            showPwaPrompt();
             if (!isMobile) input.focus();
             if (isUsefulAnswer(localAnswer.source)) {
                 setTimeout(() => showSavePrompt(), 1500);
@@ -2144,6 +2271,11 @@ function sendMessage(text) {
         findAnswerFromAPI(query).then(answer => {
             removeTyping();
             addMessage(answer.response, 'bot', answer.source);
+            // Mise à jour temps de réponse live
+            const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
+            const kpiTime = document.getElementById('kpiTempReponse');
+            if (kpiTime) kpiTime.textContent = elapsed + 's';
+            showPwaPrompt();
             if (!isMobile) input.focus();
             if (isUsefulAnswer(answer.source)) {
                 setTimeout(() => showSavePrompt(), 1500);
@@ -2155,6 +2287,11 @@ function sendMessage(text) {
         setTimeout(() => {
             removeTyping();
             addMessage(localAnswer.response, 'bot', localAnswer.source);
+            // Mise à jour temps de réponse live
+            const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
+            const kpiTime = document.getElementById('kpiTempReponse');
+            if (kpiTime) kpiTime.textContent = elapsed + 's';
+            showPwaPrompt();
             if (!isMobile) input.focus();
             if (isUsefulAnswer(localAnswer.source)) {
                 setTimeout(() => showSavePrompt(), 1500);
@@ -2225,6 +2362,8 @@ function sendMessage(text) {
 function submitRating(button, isPositive) {
     const ratingWidget = button.parentElement;
     ratingWidget.innerHTML = `<span class="rating-confirmed">Merci pour votre retour !</span>`;
+    // Mise à jour satisfaction live
+    updateSatisfaction(isPositive);
     // Envoyer le rating au backend si disponible
     if (useBackend) {
         fetch(`${API_BASE_URL}/api/rating`, {
@@ -2255,6 +2394,142 @@ function addRecentQuestion(query) {
     // Keep only last 6
     while (list.children.length > 6) {
         list.removeChild(list.lastChild);
+    }
+}
+
+// ============================================
+// LIVE DASHBOARD — updateChart
+// ============================================
+function updateChart() {
+    liveState.chartTodayIncrement++;
+    renderActivityChart();
+    // Mise à jour delta semaine
+    const totalBase = chartBaseValues.reduce((a, b) => a + b, 0);
+    const baseDelta = 23; // delta affiché initialement
+    const liveDelta = baseDelta + Math.round((liveState.chartTodayIncrement / totalBase) * 100);
+    const deltaEl = document.getElementById('chartWeekDelta');
+    if (deltaEl) deltaEl.textContent = `↑ +${liveDelta}% cette semaine`;
+}
+
+// ============================================
+// LIVE DASHBOARD — updateCategoryBars
+// ============================================
+function updateCategoryBars(kbCategory) {
+    if (!kbCategory) return;
+    const dashLabel = categoryMapping[kbCategory];
+    if (!dashLabel) return;
+
+    // Incrémenter le compteur session
+    liveState.sessionCategoryCounts[dashLabel] = (liveState.sessionCategoryCounts[dashLabel] || 0) + 1;
+    liveState.sessionQuestionCount++;
+
+    // Blend : base historique (poids 50) + counts session
+    const historicalWeight = 50;
+    const blended = categories.map(cat => {
+        const historical = cat.pct * historicalWeight / 100;
+        const session = liveState.sessionCategoryCounts[cat.label] || 0;
+        return { label: cat.label, count: historical + session };
+    });
+
+    const totalBlended = blended.reduce((sum, c) => sum + c.count, 0);
+
+    // Mettre à jour le DOM
+    const bars = document.querySelectorAll('#categoryBars .cat-bar');
+    blended.forEach((cat, i) => {
+        if (bars[i]) {
+            const newPct = Math.round((cat.count / totalBlended) * 100);
+            const fill = bars[i].querySelector('.bar-fill');
+            const pctLabel = bars[i].querySelector('.pct');
+            if (fill) fill.style.width = newPct + '%';
+            if (pctLabel) pctLabel.textContent = newPct + '%';
+
+            // Flash la barre qui vient de changer (teal accent)
+            if (cat.label === dashLabel && fill) {
+                fill.style.background = 'linear-gradient(90deg, #2EC4B6, #26a69a)';
+                setTimeout(() => {
+                    fill.style.background = 'linear-gradient(90deg, #000091, #007bff)';
+                }, 800);
+            }
+        }
+    });
+
+    // Mettre à jour l'alerte tendance
+    updateAlerteTendance();
+}
+
+// ============================================
+// LIVE DASHBOARD — updateSatisfaction
+// ============================================
+function updateSatisfaction(isPositive) {
+    if (isPositive) {
+        liveState.ratings.up++;
+    } else {
+        liveState.ratings.down++;
+    }
+
+    const historicalWeight = 50;
+    const historicalPositive = Math.round(liveState.baseSatisfaction * historicalWeight / 100);
+    const totalPositive = historicalPositive + liveState.ratings.up;
+    const totalVotes = historicalWeight + liveState.ratings.up + liveState.ratings.down;
+    const newPct = Math.round((totalPositive / totalVotes) * 100);
+
+    const circle = document.getElementById('satisfactionCircle');
+    const valueEl = document.getElementById('satisfactionValue');
+    if (circle) {
+        circle.style.background = `conic-gradient(#2EC4B6 0% ${newPct}%, #eee ${newPct}% 100%)`;
+    }
+    if (valueEl) {
+        valueEl.textContent = newPct + '%';
+        // Flash subtil
+        valueEl.style.transform = 'scale(1.1)';
+        setTimeout(() => { valueEl.style.transform = 'scale(1)'; }, 400);
+    }
+}
+
+// ============================================
+// LIVE DASHBOARD — updateAlerteTendance
+// ============================================
+function updateAlerteTendance() {
+    // Trouver la catégorie la plus demandée en session
+    let maxLabel = null, maxCount = 0;
+    for (const [label, count] of Object.entries(liveState.sessionCategoryCounts)) {
+        if (count > maxCount) { maxCount = count; maxLabel = label; }
+    }
+
+    if (maxCount >= 2 && maxLabel) {
+        const el = document.getElementById('alerteContent');
+        if (el) {
+            el.innerHTML = `
+                <p style="font-size: 13px; line-height: 1.7;">
+                    <strong style="color: #F4A261;">${maxCount} questions</strong> sur <strong>${maxLabel}</strong> pendant cette session.
+                    <br><span style="opacity: 0.7; font-size: 12px;">Le système détecte automatiquement les tendances émergentes.</span>
+                </p>
+                <p style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 8px; font-style: italic;">
+                    Alerte générée en temps réel
+                </p>`;
+        }
+    }
+}
+
+// ============================================
+// LIVE DASHBOARD — updatePeakActivity
+// ============================================
+function updatePeakActivity() {
+    if (liveState.sessionQuestionCount >= 3) {
+        const peakContent = document.getElementById('peakContent');
+        if (peakContent) {
+            // Ajouter la ligne "session en cours" si pas déjà présente
+            if (!document.getElementById('liveSessionPeak')) {
+                const liveDiv = document.createElement('div');
+                liveDiv.id = 'liveSessionPeak';
+                liveDiv.style.cssText = 'margin-top:6px; padding-top:6px; border-top:1px solid #eee;';
+                liveDiv.innerHTML = `Session en cours <strong style="color:#2EC4B6">+${liveState.sessionQuestionCount} questions</strong>`;
+                peakContent.appendChild(liveDiv);
+            } else {
+                document.getElementById('liveSessionPeak').innerHTML =
+                    `Session en cours <strong style="color:#2EC4B6">+${liveState.sessionQuestionCount} questions</strong>`;
+            }
+        }
     }
 }
 
@@ -2516,8 +2791,9 @@ function renderActivityChart() {
         labels.push(i === 0 ? 'Auj.' : dayNames[d.getDay()]);
     }
 
-    // Valeurs réalistes : plus élevé en semaine, creux le week-end
-    const values = [43, 28, 89, 134, 98, 156, 127];
+    // Valeurs : base historique + incrément live sur "Auj."
+    const values = [...chartBaseValues];
+    values[6] = chartBaseValues[6] + liveState.chartTodayIncrement;
 
     const W = wrapper.offsetWidth || 280;
     const H = 110;
@@ -2586,12 +2862,14 @@ function renderActivityChart() {
     line.setAttribute('stroke-linejoin', 'round');
     svg.appendChild(line);
 
-    // Animation de tracé (stroke-dashoffset)
+    // Animation de tracé (stroke-dashoffset) — rapide si re-render live
     try {
         const len = line.getTotalLength();
         line.style.strokeDasharray  = len;
-        line.style.strokeDashoffset = len;
-        line.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        line.style.strokeDashoffset = chartFirstRender ? len : '0';
+        line.style.transition = chartFirstRender
+            ? 'stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)'
+            : 'stroke-dashoffset 0.3s ease';
     } catch(e) { /* SVG pas encore dans le DOM, pas de panique */ }
 
     // -- LIGNE VERTICALE de survol (masquée par défaut) --
@@ -2611,8 +2889,8 @@ function renderActivityChart() {
         dot.setAttribute('fill',         isToday ? '#2EC4B6' : '#000091');
         dot.setAttribute('stroke',       'white');
         dot.setAttribute('stroke-width', '2');
-        dot.style.opacity    = '0';
-        dot.style.transition = `opacity 0.3s ease ${0.85 + i * 0.08}s`;
+        dot.style.opacity    = chartFirstRender ? '0' : '1';
+        dot.style.transition = chartFirstRender ? `opacity 0.3s ease ${0.85 + i * 0.08}s` : 'none';
         svg.appendChild(dot);
         return dot;
     });
@@ -2628,8 +2906,8 @@ function renderActivityChart() {
     peakLbl.setAttribute('font-weight', '700');
     peakLbl.setAttribute('font-family', 'Inter, sans-serif');
     peakLbl.textContent     = values[maxIdx];
-    peakLbl.style.opacity   = '0';
-    peakLbl.style.transition = 'opacity 0.4s ease 1.5s';
+    peakLbl.style.opacity   = chartFirstRender ? '0' : '1';
+    peakLbl.style.transition = chartFirstRender ? 'opacity 0.4s ease 1.5s' : 'none';
     svg.appendChild(peakLbl);
 
     // -- LABELS des jours sur l'axe X --
@@ -2653,8 +2931,11 @@ function renderActivityChart() {
             try { line.style.strokeDashoffset = '0'; } catch(e) {}
             dots.forEach(d => { d.style.opacity = '1'; });
             peakLbl.style.opacity = '1';
-        }, 80);
+        }, chartFirstRender ? 80 : 10);
     });
+
+    // Marquer le premier rendu comme terminé
+    chartFirstRender = false;
 
     // -- INTERACTIVITÉ : tooltip au survol --
     wrapper.addEventListener('mousemove', function(e) {

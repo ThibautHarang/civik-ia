@@ -385,6 +385,9 @@
         [data-theme="dark"] .hero-content h1 {
             color: #ffffff;
         }
+        [data-theme="dark"] .tricolore-bleu { color: #8FAEFF; }
+        [data-theme="dark"] .tricolore-sep  { color: rgba(255,255,255,0.5); }
+        [data-theme="dark"] .tricolore-rouge { color: #FF4D4D; }
 
         [data-theme="dark"] .badge-souverain {
             background: rgba(20, 20, 50, 0.88);
@@ -791,6 +794,11 @@
             color: var(--primary-gov);
             letter-spacing: -2.5px;
         }
+
+        /* Tricolore 24h/24 — couleurs de l'État français (DSFR) */
+        .tricolore-bleu { color: var(--primary-gov); }
+        .tricolore-sep  { color: var(--primary-gov); opacity: 0.5; }
+        .tricolore-rouge { color: #E1000F; }
 
         .hero-subtitle {
             font-size: 21px;
@@ -1440,9 +1448,9 @@
             border-radius: 12px;
             font-size: 14px;
             line-height: 1.5;
-            animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            opacity: 0;
             word-wrap: break-word;
+            /* Transition gérée en JS (évite les bugs Safari avec animation fill-mode) */
+            transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes slideIn {
@@ -2341,6 +2349,8 @@
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
+            /* Messages chat : transitions gérées en JS, durée réduite à ~0 par la règle
+               générique ci-dessus → apparition instantanée. Pas besoin de surcharge. */
         }
 
         /* ============================================
@@ -2860,7 +2870,6 @@
             <a href="#campagnes" onclick="closeMobileMenu()">Campagnes</a>
             <a href="#tarifs" onclick="closeMobileMenu()">Tarifs</a>
             <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-            <a href="demo.html" onclick="closeMobileMenu()" style="color:var(--accent-teal);font-weight:700;">Tester la démo</a>
         </div>
         <div class="nav-cta">
             <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer mode sombre" title="Mode sombre / clair">
@@ -2882,7 +2891,7 @@
             <div class="badge-souverain" style="margin-bottom: 24px;">
                 IA Souveraine & Cloud Européen OVH
             </div>
-            <h1 class="hero-title">Votre mairie, disponible 24h/24</h1>
+            <h1 class="hero-title">Votre mairie, disponible <span class="tricolore-bleu">24h</span><span class="tricolore-sep">/</span><span class="tricolore-rouge">24</span></h1>
             <p class="hero-subtitle">Grâce à la <strong style="color:var(--secondary-innov);font-weight:700;">Plateforme d'Intelligence Citoyenne</strong>, une IA souveraine formée sur les données de votre commune répond à chaque question, jour et nuit.</p>
 
             <div class="hero-ctas">
@@ -4502,6 +4511,17 @@
             solutionChatAbort = false;
             solutionChat.innerHTML = '';
 
+            // Slide-in via JS transitions (plus fiable que CSS animation fill-mode sur Safari)
+            function slideIn(el) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(12px) scale(0.95)';
+                void el.offsetHeight; // force reflow avant transition
+                requestAnimationFrame(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0) scale(1)';
+                });
+            }
+
             for (const msg of solutionConversations) {
                 if (solutionChatAbort) break;
                 await new Promise(r => setTimeout(r, 800));
@@ -4510,6 +4530,7 @@
                 userDiv.className = 'demo-message user';
                 userDiv.textContent = msg.user;
                 solutionChat.appendChild(userDiv);
+                slideIn(userDiv);
                 solutionChat.scrollTop = solutionChat.scrollHeight;
 
                 await new Promise(r => setTimeout(r, 400));
@@ -4522,6 +4543,7 @@
                 const botDiv = document.createElement('div');
                 botDiv.className = 'demo-message bot';
                 solutionChat.appendChild(botDiv);
+                slideIn(botDiv);
                 await typeText(botDiv, msg.bot, 16);
                 solutionChat.scrollTop = solutionChat.scrollHeight;
 
@@ -4529,7 +4551,10 @@
             }
 
             solutionChatRunning = false;
-            solutionChatCycles++;
+            // Ne compter le cycle que si l'animation s'est terminée normalement
+            if (!solutionChatAbort) {
+                solutionChatCycles++;
+            }
             // Max 2 cycles then stop
             if (solutionChatCycles < 2 && !solutionChatAbort) {
                 setTimeout(() => animateSolutionChat(), 4000);

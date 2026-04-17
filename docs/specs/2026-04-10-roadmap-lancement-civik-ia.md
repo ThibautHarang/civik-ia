@@ -21,7 +21,7 @@
 
 ### Bloquants identifiés (par ordre de priorité)
 1. **Marketing non lancé** — Tous les assets sont prêts mais Buffer/RS pas configurés
-2. **SASU non immatriculée** — Impossible de facturer sans SIRET
+2. ~~**SASU non immatriculée**~~ ✅ **RÉSOLU** — Immatriculée 13/04/2026 (SIREN 103 568 416, RCS Narbonne). Reste à récupérer SIRET complet via avis INSEE.
 3. **Widget JS inexistant** — Le mode de déploiement principal (pitch "5 min") n'est pas codé
 4. **Dashboard sans backend** — Aucun endpoint auth ni API dashboard
 5. **Push notifications absentes** — Phase 2 mais différenciateur fort
@@ -541,7 +541,7 @@ SEMAINE 4 (1-7 mai) : OFFRE
 | Jalon | Date cible | Métrique |
 |-------|-----------|----------|
 | Marketing lancé | 14 avril | 4 posts/sem sur 4 plateformes |
-| SASU immatriculée | ~25 avril | SIRET reçu |
+| ~~SASU immatriculée~~ ✅ | **13 avril** (fait) | SIREN 103 568 416, RCS Narbonne |
 | Dashboard fonctionnel | 23 avril | Login → KPIs visible |
 | Widget JS + page dédiée live | 30 avril | Testable sur site tiers |
 | **1er client signé** | **7 mai** | **99€ MRR** |
@@ -565,7 +565,7 @@ SEMAINE 4 (1-7 mai) : OFFRE
 
 | Risque | Probabilité | Impact | Mitigation |
 |--------|------------|--------|------------|
-| SASU retardée (>3 sem) | Moyenne | Bloquant facturation | Continuer prospection, closer "signature dès SIRET reçu" |
+| ~~SASU retardée~~ ✅ Levé | — | — | Immatriculée le 13/04/2026 |
 | Rigny + Lunay ne signent pas | Moyenne | Pas de 1er client en mai | Prospection froide Lemlist (50+ communes) |
 | Widget JS conflits CSS | Faible | Widget cassé chez client | Shadow DOM = isolation totale |
 | VPS down | Faible | Chatbot indisponible | UptimeRobot (gratuit) → alerte email |

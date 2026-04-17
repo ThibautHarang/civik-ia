@@ -2280,7 +2280,57 @@ async function findAnswerFromAPI(query) {
     }
 }
 
-function sendMessage(text) {
+// ============================================
+// PLACES — Enrichissement via Google Places API (backend)
+// ============================================
+function placesCacheGet(query) {
+    try {
+        const item = JSON.parse(localStorage.getItem('places:' + COMMUNE_ID + ':' + query));
+        if (!item || Date.now() - item.at > 24 * 3600 * 1000) return null;
+        return item.results;
+    } catch { return null; }
+}
+function placesCachePut(query, results) {
+    try { localStorage.setItem('places:' + COMMUNE_ID + ':' + query, JSON.stringify({ at: Date.now(), results })); } catch {}
+}
+function escapeHtmlPlaces(s) {
+    return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function renderPlacesCards(query, commune, results) {
+    const cards = results.slice(0, 5).map(r => {
+        const phone = r.phone ? `<br>📞 <a href="tel:${escapeHtmlPlaces(r.phone)}" style="color:#000091">${escapeHtmlPlaces(r.phone)}</a>` : '';
+        const rating = (r.rating != null) ? `<br>⭐ ${r.rating} <span style="color:#666;font-size:12px">(${r.ratingCount || 0} avis)</span>` : '';
+        const hours = (r.hours && r.hours.length) ? `<br>🕐 <span style="color:#666;font-size:13px">${escapeHtmlPlaces(r.hours[0])}</span>` : '';
+        const link = r.googleMapsUri ? `<br><a href="${escapeHtmlPlaces(r.googleMapsUri)}" target="_blank" rel="noopener" style="color:#2EC4B6;font-weight:600;font-size:13px">Voir sur Google Maps →</a>` : '';
+        return `<div style="background:#f8f9fa;border-left:3px solid #2EC4B6;padding:10px 14px;margin:8px 0;border-radius:6px"><strong>${escapeHtmlPlaces(r.name)}</strong><br>📍 ${escapeHtmlPlaces(r.address)}${phone}${rating}${hours}${link}</div>`;
+    }).join('');
+    const globalSearch = `https://www.google.com/maps/search/${encodeURIComponent(query + ' ' + commune)}`;
+    return `Voici les résultats pour <strong>"${escapeHtmlPlaces(query)}"</strong> à ${escapeHtmlPlaces(commune)} :<br>${cards}<br><a href="${escapeHtmlPlaces(globalSearch)}" target="_blank" rel="noopener" style="color:#2EC4B6;font-weight:600">Voir toute la liste sur Google Maps →</a><br><br><em style="font-size:12px;color:#666">Données Google Places · Je reste votre assistant pour toute question municipale.</em>`;
+}
+async function tryEnrichWithPlaces(query, commune) {
+    const q = query.toLowerCase().trim();
+    const cached = placesCacheGet(q);
+    if (cached && cached.length > 0) return renderPlacesCards(q, commune, cached);
+    try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 4000);
+        const url = `${API_BASE_URL}/api/search-commerce?commune_id=${encodeURIComponent(COMMUNE_ID)}&query=${encodeURIComponent(q)}`;
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeout);
+        if (!res.ok) return null;
+        const data = await res.json();
+        if ((data.status === 'ok' || data.status === 'cache') && data.results && data.results.length > 0) {
+            placesCachePut(q, data.results);
+            return renderPlacesCards(q, commune, data.results);
+        }
+        return null;
+    } catch (err) {
+        console.warn('[places] fallback statique:', err.message);
+        return null;
+    }
+}
+
+async function sendMessage(text) {
     const input = document.getElementById('userInput');
     const query = text || input.value.trim();
     if (!query) return;
@@ -2315,6 +2365,24 @@ function sendMessage(text) {
         updateChart();
         if (matchedCategory) updateCategoryBars(matchedCategory);
         updatePeakActivity();
+    }
+
+    // === ENRICHISSEMENT PLACES (hors-périmètre → recherche web réelle) ===
+    if (matchedCategory === 'hors-perimetre') {
+        const enriched = await tryEnrichWithPlaces(query, 'Saint-Martin-des-Champs');
+        if (enriched) {
+            const delay = 600 + Math.random() * 400;
+            setTimeout(() => {
+                removeTyping();
+                addMessage(enriched, 'bot', 'Google Places');
+                const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
+                const kpiTime = document.getElementById('kpiTempReponse');
+                if (kpiTime) kpiTime.textContent = elapsed + 's';
+                showPwaPrompt();
+                if (!isMobile) input.focus();
+            }, delay);
+            return;
+        }
     }
 
     if (hasLocalMatch) {

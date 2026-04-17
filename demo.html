@@ -2172,9 +2172,10 @@ function findAnswerLocal(query) {
         };
     }
 
-    // Détection remerciement
+    // Détection remerciement — mot entier uniquement (évite "super" dans "supermarché", etc.)
     const thanks = ['merci', 'super', 'parfait', 'genial', 'top', 'excellent', 'au revoir', 'bonne journee'];
-    if (thanks.some(t => q.includes(t)) && q.length < 40) {
+    const thanksRegex = new RegExp(`\\b(${thanks.join('|')})\\b`, 'i');
+    if (thanksRegex.test(q) && q.length < 40) {
         return {
             response: `Je vous en prie ! N'hésitez pas si vous avez d'autres questions. La mairie de Saint-Martin-des-Champs est à votre disposition au <strong>02 98 62 14 30</strong> ou par email à <strong>mairie@saint-martin-des-champs.fr</strong>.<br><br>Bonne journée !`,
             source: null, matched: true, category: null
@@ -2195,7 +2196,7 @@ function findAnswerLocal(query) {
         'coiffeur', 'coiffure', 'esthetique', 'manucure', 'barbier', 'toiletteur',
         'plombier', 'electricien', 'macon', 'couvreur', 'menuisier', 'carreleur',
         'peintre', 'chauffagiste', 'jardinier', 'paysagiste',
-        'garagiste', 'mecano', 'mecanicien', 'carrosserie',
+        'garage', 'garagiste', 'mecano', 'mecanicien', 'carrosserie',
         'notaire', 'avocat', 'expert comptable', 'assureur', 'banquier', 'banque',
         'agence immobiliere', 'agent immobilier', 'immobilier',
         'taxi', 'vtc', 'livraison', 'fleuriste', 'tabac', 'presse', 'librairie',

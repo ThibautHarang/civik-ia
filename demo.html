@@ -2159,6 +2159,151 @@ const API_BASE_URL = 'https://api.civik-ia.fr';  // Changer en http://localhost:
 const COMMUNE_ID = 'demo-saint-martin-29600';
 let useBackend = true;  // Tente le backend, fallback sur local si indisponible
 
+// ============================================
+// DEMO COMMERCES — RÉPONSES FICTIVES (démo publique)
+// ============================================
+// Pourquoi : la démo Saint-Martin-des-Champs est pédagogique (KB fictive).
+// Si on appelait Google Places ici, on mélangerait données fictives (mairie, horaires)
+// et données réelles (commerces), ce qui brouillerait la lecture du prospect.
+// On affiche donc des résultats factices clairement étiquetés "Exemple".
+const DEMO_COMMERCES_CATEGORIES = {
+    coiffeur:    { label: 'coiffeurs',    emoji: '💇' },
+    coiffure:    { label: 'coiffeurs',    emoji: '💇' },
+    barbier:     { label: 'coiffeurs',    emoji: '💇' },
+    boulanger:   { label: 'boulangeries', emoji: '🥖' },
+    boulangerie: { label: 'boulangeries', emoji: '🥖' },
+    patissier:   { label: 'pâtisseries',  emoji: '🍰' },
+    patisserie:  { label: 'pâtisseries',  emoji: '🍰' },
+    boucher:     { label: 'boucheries',   emoji: '🥩' },
+    boucherie:   { label: 'boucheries',   emoji: '🥩' },
+    restaurant:  { label: 'restaurants',  emoji: '🍽️' },
+    pizzeria:    { label: 'restaurants',  emoji: '🍽️' },
+    creperie:    { label: 'restaurants',  emoji: '🍽️' },
+    brasserie:   { label: 'restaurants',  emoji: '🍽️' },
+    bar:         { label: 'cafés & bars', emoji: '☕' },
+    cafe:        { label: 'cafés & bars', emoji: '☕' },
+    medecin:     { label: 'médecins',     emoji: '🩺' },
+    generaliste: { label: 'médecins',     emoji: '🩺' },
+    docteur:     { label: 'médecins',     emoji: '🩺' },
+    dentiste:    { label: 'dentistes',    emoji: '🦷' },
+    pharmacie:   { label: 'pharmacies',   emoji: '💊' },
+    pharmacien:  { label: 'pharmacies',   emoji: '💊' },
+    kine:        { label: 'kinésithérapeutes', emoji: '🩹' },
+    veterinaire: { label: 'vétérinaires', emoji: '🐾' },
+    supermarche: { label: 'supermarchés', emoji: '🛒' },
+    hypermarche: { label: 'supermarchés', emoji: '🛒' },
+    epicerie:    { label: 'épiceries',    emoji: '🛒' },
+    magasin:     { label: 'commerces',    emoji: '🛍️' },
+    commerce:    { label: 'commerces',    emoji: '🛍️' },
+    plombier:    { label: 'plombiers',    emoji: '🔧' },
+    electricien: { label: 'électriciens', emoji: '⚡' },
+    garage:      { label: 'garages',      emoji: '🚗' },
+    garagiste:   { label: 'garages',      emoji: '🚗' },
+    notaire:     { label: 'notaires',     emoji: '⚖️' },
+    banque:      { label: 'banques',      emoji: '🏦' },
+    fleuriste:   { label: 'fleuristes',   emoji: '💐' },
+    tabac:       { label: 'tabac & presse', emoji: '📰' },
+};
+
+// 2-3 commerces fictifs par catégorie, crédibles pour St-Martin-des-Champs (29600, Finistère)
+const DEMO_COMMERCES_DATA = {
+    coiffeurs: [
+        { name: "Salon Marie Coiffure", addr: "3 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 88 14 52", rating: 4.8, rc: 34, hours: "mardi-samedi : 09:00 – 19:00" },
+        { name: "L'Atelier de Sophie", addr: "12 rue des Chênes, 29600 Saint-Martin-des-Champs", phone: "02 98 62 41 07", rating: 4.6, rc: 21, hours: "lundi-vendredi : 09:30 – 18:30" },
+    ],
+    boulangeries: [
+        { name: "Au Bon Pain de Saint-Martin", addr: "1 rue de la République, 29600 Saint-Martin-des-Champs", phone: "02 98 88 22 18", rating: 4.7, rc: 87, hours: "mardi-dimanche : 07:00 – 13:00 / 15:30 – 19:30" },
+        { name: "La Mie Dorée", addr: "8 route de Morlaix, 29600 Saint-Martin-des-Champs", phone: "02 98 62 55 41", rating: 4.5, rc: 52, hours: "lundi-samedi : 06:30 – 19:00" },
+    ],
+    "pâtisseries": [
+        { name: "Pâtisserie des Abers", addr: "15 rue de la République, 29600 Saint-Martin-des-Champs", phone: "02 98 62 17 33", rating: 4.9, rc: 42, hours: "mardi-dimanche : 09:00 – 19:00" },
+    ],
+    boucheries: [
+        { name: "Boucherie-Charcuterie Le Gall", addr: "6 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 88 05 19", rating: 4.7, rc: 38, hours: "mardi-samedi : 08:30 – 12:30 / 15:30 – 19:00" },
+    ],
+    restaurants: [
+        { name: "Le Bistrot du Finistère", addr: "4 rue des Goélands, 29600 Saint-Martin-des-Champs", phone: "02 98 62 73 14", rating: 4.6, rc: 128, hours: "mardi-samedi : 12:00 – 14:30 / 19:00 – 22:00" },
+        { name: "La Crêperie des Dunes", addr: "10 route de Morlaix, 29600 Saint-Martin-des-Champs", phone: "02 98 88 41 55", rating: 4.8, rc: 213, hours: "mercredi-dimanche : 12:00 – 14:30 / 18:30 – 22:00" },
+    ],
+    "cafés & bars": [
+        { name: "Le Café du Port", addr: "2 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 88 33 21", rating: 4.3, rc: 67, hours: "lundi-samedi : 07:00 – 20:00" },
+    ],
+    médecins: [
+        { name: "Dr Durand (médecin généraliste)", addr: "5 rue des Écoles, 29600 Saint-Martin-des-Champs", phone: "02 98 62 18 44", rating: 4.5, rc: 18, hours: "lundi-vendredi : 09:00 – 12:00 / 14:00 – 18:30 — Samedi matin sur RDV" },
+        { name: "Cabinet médical des Hortensias", addr: "14 rue des Hortensias, 29600 Saint-Martin-des-Champs", phone: "02 98 88 62 09", rating: 4.4, rc: 23, hours: "lundi-vendredi : 08:30 – 19:00" },
+    ],
+    dentistes: [
+        { name: "Dr Le Roux (chirurgien-dentiste)", addr: "9 rue des Écoles, 29600 Saint-Martin-des-Champs", phone: "02 98 62 29 15", rating: 4.7, rc: 14, hours: "lundi-vendredi : 09:00 – 19:00" },
+    ],
+    pharmacies: [
+        { name: "Pharmacie du Centre", addr: "7 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 88 07 42", rating: 4.6, rc: 49, hours: "lundi-samedi : 09:00 – 12:30 / 14:00 – 19:30" },
+    ],
+    "kinésithérapeutes": [
+        { name: "Cabinet de Kinésithérapie des Dunes", addr: "11 rue des Ajoncs, 29600 Saint-Martin-des-Champs", phone: "02 98 62 34 88", rating: 4.7, rc: 12, hours: "lundi-vendredi : 08:00 – 19:00" },
+    ],
+    "vétérinaires": [
+        { name: "Clinique Vétérinaire Saint-Martin", addr: "Route de Plougourvest, 29600 Saint-Martin-des-Champs", phone: "02 98 88 51 22", rating: 4.8, rc: 31, hours: "lundi-vendredi : 08:30 – 19:00 — Samedi : 09:00 – 12:30" },
+    ],
+    "supermarchés": [
+        { name: "Intermarché Saint-Martin", addr: "Zone du Launay, 29600 Saint-Martin-des-Champs", phone: "02 98 62 47 00", rating: 4.2, rc: 186, hours: "lundi-samedi : 08:30 – 19:30 — Dimanche : 09:00 – 12:30" },
+        { name: "Carrefour Contact", addr: "4 route de Morlaix, 29600 Saint-Martin-des-Champs", phone: "02 98 88 19 64", rating: 4.0, rc: 92, hours: "lundi-samedi : 08:00 – 20:00" },
+    ],
+    "épiceries": [
+        { name: "Épicerie du Bourg", addr: "13 rue de la République, 29600 Saint-Martin-des-Champs", phone: "02 98 62 08 17", rating: 4.5, rc: 26, hours: "mardi-dimanche : 07:30 – 13:00 / 16:00 – 19:30" },
+    ],
+    commerces: [
+        { name: "Aux Mille Trouvailles", addr: "8 rue de la République, 29600 Saint-Martin-des-Champs", phone: "02 98 88 11 02", rating: 4.4, rc: 19, hours: "mardi-samedi : 10:00 – 12:30 / 14:30 – 19:00" },
+    ],
+    plombiers: [
+        { name: "Kerbriant Plomberie", addr: "Zone artisanale du Launay, 29600 Saint-Martin-des-Champs", phone: "02 98 62 55 33", rating: 4.9, rc: 27, hours: "lundi-vendredi : 08:00 – 18:00 — Urgences 24/7" },
+    ],
+    "électriciens": [
+        { name: "ELEC29 — Tudal Électricité", addr: "Route de Plougourvest, 29600 Saint-Martin-des-Champs", phone: "02 98 88 70 41", rating: 4.7, rc: 18, hours: "lundi-vendredi : 08:00 – 18:00" },
+    ],
+    garages: [
+        { name: "Garage du Finistère — Peugeot", addr: "12 route de Morlaix, 29600 Saint-Martin-des-Champs", phone: "02 98 62 88 10", rating: 4.5, rc: 44, hours: "lundi-vendredi : 08:00 – 19:00 — Samedi : 08:00 – 12:00" },
+    ],
+    notaires: [
+        { name: "Maître Le Gall — Étude notariale", addr: "5 place de la Mairie, 29600 Saint-Martin-des-Champs", phone: "02 98 88 14 77", rating: 4.6, rc: 9, hours: "lundi-vendredi : 09:00 – 12:00 / 14:00 – 18:00" },
+    ],
+    banques: [
+        { name: "Crédit Mutuel de Bretagne", addr: "3 place de la Mairie, 29600 Saint-Martin-des-Champs", phone: "02 98 62 31 55", rating: 4.1, rc: 16, hours: "mardi-vendredi : 09:00 – 12:30 / 13:45 – 18:00 — Samedi : 09:00 – 12:15" },
+    ],
+    fleuristes: [
+        { name: "Au Jardin de Marie", addr: "10 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 88 24 60", rating: 4.8, rc: 38, hours: "mardi-dimanche : 09:00 – 12:30 / 14:30 – 19:00" },
+    ],
+    "tabac & presse": [
+        { name: "Tabac-Presse du Centre", addr: "1 place du Marché, 29600 Saint-Martin-des-Champs", phone: "02 98 62 14 08", rating: 4.3, rc: 22, hours: "lundi-samedi : 07:00 – 19:30 — Dimanche : 08:00 – 12:30" },
+    ],
+};
+
+function demoCommerceResults(matchedTerm) {
+    const cat = DEMO_COMMERCES_CATEGORIES[matchedTerm];
+    const label = cat ? cat.label : 'commerces et services';
+    const emoji = cat ? cat.emoji : '🛍️';
+    const list = DEMO_COMMERCES_DATA[label] || [];
+
+    const banner = `<div style="background:linear-gradient(135deg,rgba(244,162,97,0.15),rgba(244,162,97,0.05));border-left:3px solid #F4A261;padding:10px 14px;margin:0 0 12px 0;border-radius:6px;font-size:13px;color:#7a4a1f"><strong>Exemple de démonstration</strong> — Dans votre vraie commune, de vrais résultats <strong>Google Places</strong> (commerces, téléphones, horaires, avis) apparaîtront automatiquement ici, mis à jour en temps réel.</div>`;
+
+    if (list.length === 0) {
+        return banner + `Je n'ai pas d'exemple précis pour <strong>"${matchedTerm}"</strong> dans cette démo, mais la Plateforme d'Intelligence Citoyenne appelle automatiquement Google Places pour trouver les ${matchedTerm}s de votre commune.<br><br><em>Essayez : "coiffeur", "boulangerie", "médecin", "restaurant", "supermarché", "pharmacie"…</em>`;
+    }
+
+    const cards = list.map(r => `<div style="background:#f8f9fa;border-left:3px solid #2EC4B6;padding:10px 14px;margin:8px 0;border-radius:6px">
+        <strong>${r.name}</strong><br>
+        📍 ${r.addr}<br>
+        📞 <a href="tel:${r.phone.replace(/\s/g,'')}" style="color:#000091">${r.phone}</a><br>
+        ⭐ ${r.rating} <span style="color:#666;font-size:12px">(${r.rc} avis)</span><br>
+        🕐 <span style="color:#666;font-size:13px">${r.hours}</span>
+    </div>`).join('');
+
+    const intro = list.length > 1
+        ? `${emoji} Voici les ${list.length} ${label} à Saint-Martin-des-Champs :`
+        : `${emoji} Voici le ${label.replace(/s$/, '')} à Saint-Martin-des-Champs :`;
+
+    return banner + `${intro}${cards}<br><em style="font-size:12px;color:#666">Je reste votre assistant pour toute question municipale.</em>`;
+}
+
 // --- Fallback : keyword matching local (si backend indisponible) ---
 function findAnswerLocal(query) {
     const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -2205,14 +2350,15 @@ function findAnswerLocal(query) {
     ];
     const matchedOOS = outOfScope.find(t => q.includes(t));
     if (matchedOOS) {
+        // DEMO MODE : on NE fait PAS d'appel Google Places (la démo publique est fictive).
+        // On simule à la place des résultats "Places-like" pour que le prospect visualise
+        // le rendu attendu. Un bandeau avertit clairement qu'il s'agit d'un exemple.
+        const demo = demoCommerceResults(matchedOOS);
         return {
-            response: `Je n'ai pas d'information sur les <strong>commerces et services privés</strong> à Saint-Martin-des-Champs dans ma base de connaissances municipale.<br><br>
-            <strong>Pour trouver cette information :</strong><br>
-            Annuaire des commerces sur <a href="https://www.pagesjaunes.fr/annuaire/saint-martin-des-champs-29" target="_blank" rel="noopener">pagesjaunes.fr</a> (recherche "${matchedOOS}" à Saint-Martin-des-Champs)<br>
-            Recherche sur <strong>Google Maps</strong> : "${matchedOOS} Saint-Martin-des-Champs"<br>
-            La <strong>mairie</strong> peut vous orienter au 02 98 62 14 30<br><br>
-            <em>Je suis l'assistant officiel de la Mairie de Saint-Martin-des-Champs — je réponds sur les démarches administratives, les services municipaux, l'urbanisme, l'école, les déchets, le patrimoine, etc.</em>`,
-            source: null, matched: true, category: 'hors-perimetre'
+            response: demo,
+            source: 'Exemple de démonstration',
+            matched: true,
+            category: 'demo-commerce'
         };
     }
 

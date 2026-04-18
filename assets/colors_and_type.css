@@ -1,0 +1,286 @@
+/* ============================================================
+   Civik-ia — Colors & Type
+   Extracted from the production site (01-Site-Web/css/tokens.css)
+   System name (internal): "Luxe Institutionnel Chaud"
+   ============================================================ */
+
+/* ------- Web fonts (Google Fonts) -------
+   Inter 400/500/600/700 — body, UI
+   Poppins 600/700/800/900 — display (hero, section titles)
+   Self-hosted copies live in /fonts (when available).
+------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
+
+:root {
+  /* ============================
+     BRAND — Palette Souveraine
+     ============================ */
+  --ci-blue-marianne:  #000091;  /* primary / institutional */
+  --ci-blue-marianne-light: #1a1a6e;
+  --ci-blue-electric:  #007bff;  /* secondary — gradients, links */
+  --ci-teal:           #2EC4B6;  /* THE ONLY interactive accent — hover, CTA, links */
+  --ci-gold:           #F4A261;  /* decorative only — stars, badges */
+
+  /* ============================
+     NEUTRALS — Warm cream, not cold white
+     ============================ */
+  --ci-ink:            #1E1E1E;  /* primary text */
+  --ci-ink-soft:       #5a5a5a;  /* secondary text */
+  --ci-line:           rgba(200, 190, 170, 0.25);
+  --ci-line-soft:      rgba(140, 120, 80, 0.08);
+  --ci-cream:          #f7f4ed;  /* default canvas — replaces white */
+  --ci-cream-warm:     #f5f2eb;
+  --ci-cream-deep:     #efeae1;  /* alt section background */
+
+  /* ============================
+     SEMANTIC — role-based
+     ============================ */
+  --ci-bg:             var(--ci-cream);
+  --ci-bg-alt:         var(--ci-cream-warm);
+  --ci-bg-section:     var(--ci-cream-deep);
+  --ci-bg-invert:      var(--ci-blue-marianne);   /* dark cinematic sections */
+
+  --ci-fg:             var(--ci-ink);
+  --ci-fg-soft:        var(--ci-ink-soft);
+  --ci-fg-heading:     var(--ci-blue-marianne);
+  --ci-fg-accent:      var(--ci-teal);
+  --ci-fg-on-invert:   #ffffff;
+
+  --ci-border:         var(--ci-line);
+  --ci-border-soft:    var(--ci-line-soft);
+  --ci-focus:          var(--ci-teal);
+
+  --ci-danger:         #dc3545;
+  --ci-success:        #2EC4B6;
+
+  /* ============================
+     GLASSMORPHISM — "Givré Crème"
+     Signature surface treatment
+     ============================ */
+  --ci-glass-bg:       rgba(247, 244, 237, 0.55);
+  --ci-glass-bg-hover: rgba(250, 248, 242, 0.72);
+  --ci-glass-border:   1px solid rgba(200, 190, 170, 0.25);
+  --ci-glass-blur:     blur(10px);
+  --ci-glass-saturate: saturate(150%);
+  --ci-glass-shadow:       0 15px 35px rgba(40, 30, 10, 0.08);
+  --ci-glass-shadow-hover: 0 20px 45px rgba(40, 30, 10, 0.12);
+
+  /* Elevation */
+  --ci-shadow-sm:  0 4px 12px rgba(40, 30, 10, 0.04);
+  --ci-shadow-md:  0 8px 24px rgba(0, 0, 145, 0.15);
+  --ci-shadow-lg:  0 15px 35px rgba(40, 30, 10, 0.08);
+  --ci-shadow-xl:  0 25px 80px rgba(40, 30, 10, 0.14);
+  --ci-shadow-cta: 0 8px 24px rgba(0, 0, 145, 0.25);
+
+  /* ============================
+     RADII — round-heavy, CTA = pill
+     ============================ */
+  --ci-r-xs:  6px;
+  --ci-r-sm:  12px;
+  --ci-r-md:  16px;
+  --ci-r-lg:  20px;
+  --ci-r-xl:  24px;
+  --ci-r-pill: 9999px;
+
+  /* ============================
+     SPACING — 4px base, generous
+     ============================ */
+  --ci-space-1:  4px;
+  --ci-space-2:  8px;
+  --ci-space-3:  12px;
+  --ci-space-4:  16px;
+  --ci-space-5:  24px;
+  --ci-space-6:  32px;
+  --ci-space-7:  48px;
+  --ci-space-8:  60px;
+  --ci-space-9:  80px;
+  --ci-space-10: 140px; /* section vertical rhythm */
+
+  /* ============================
+     MOTION — premium, cinematic
+     ============================ */
+  --ci-ease-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --ci-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ci-dur-fast: 200ms;
+  --ci-dur-base: 300ms;
+  --ci-dur-slow: 400ms;
+  --ci-transition-premium:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease,
+    box-shadow 0.4s ease;
+
+  /* ============================
+     GRADIENTS — brand-authored only
+     ============================ */
+  --ci-grad-primary:   linear-gradient(135deg, #000091, #007bff);
+  --ci-grad-accent:    linear-gradient(135deg, #007bff, #2EC4B6);
+  --ci-grad-invert:    linear-gradient(135deg, #000091 0%, #1a1a6e 100%);
+  --ci-grad-canvas:    linear-gradient(160deg, #f7f4ed 0%, #f2efe6 40%, #f5f2eb 100%);
+
+  /* ============================
+     TYPE — font stacks
+     ============================ */
+  --ci-font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ci-font-display: 'Poppins', 'Inter', sans-serif;
+
+  /* ============================
+     TYPE SCALE (rem, desktop-first)
+     ============================ */
+  --ci-text-hero:    72px; /* hero headline, Poppins 900 */
+  --ci-text-h1:      56px; /* section big, Poppins 900 */
+  --ci-text-h2:      52px; /* section title, Poppins 900 */
+  --ci-text-h3:      32px; /* sub-section, Poppins 800 */
+  --ci-text-h4:      24px; /* card title, Poppins 800 */
+  --ci-text-lead:    21px; /* hero subtitle */
+  --ci-text-body:    16px; /* default body, Inter 400 */
+  --ci-text-small:   14px;
+  --ci-text-meta:    13px;
+  --ci-text-caption: 12px; /* badges, labels */
+}
+
+/* ============================================================
+   DARK MODE — mirrors the site's .dark theme
+   ============================================================ */
+[data-theme="dark"] {
+  --ci-fg:             #e0e0e8;
+  --ci-fg-soft:        #a0a0b4;
+  --ci-fg-heading:     #8080ff;
+  --ci-bg:             #0a0a1e;
+  --ci-bg-alt:         #0d0d1a;
+  --ci-bg-section:     #111122;
+  --ci-glass-bg:       rgba(20, 20, 50, 0.55);
+  --ci-glass-bg-hover: rgba(30, 30, 70, 0.70);
+  --ci-glass-border:   1px solid rgba(100, 100, 255, 0.12);
+  --ci-border:         rgba(100, 100, 255, 0.12);
+  --ci-glass-shadow:       0 15px 35px rgba(0, 0, 20, 0.30);
+  --ci-glass-shadow-hover: 0 25px 60px rgba(0, 0, 30, 0.40);
+}
+
+/* ============================================================
+   SEMANTIC TYPOGRAPHY
+   Applies to raw tags inside a .civik-type scope — drop it in
+   anywhere without affecting surrounding app styles.
+   ============================================================ */
+.civik-type,
+.civik-type * {
+  font-family: var(--ci-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--ci-fg);
+}
+
+.civik-type {
+  line-height: 1.7;
+  font-size: var(--ci-text-body);
+  text-wrap: pretty;
+}
+
+.civik-type h1,
+.civik-type .h1 {
+  font-family: var(--ci-font-display);
+  font-weight: 900;
+  font-size: var(--ci-text-hero);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  color: var(--ci-fg-heading);
+  margin: 0 0 24px;
+}
+
+.civik-type h2,
+.civik-type .h2 {
+  font-family: var(--ci-font-display);
+  font-weight: 900;
+  font-size: var(--ci-text-h2);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+  color: var(--ci-fg-heading);
+  margin: 0 0 32px;
+}
+
+.civik-type h3,
+.civik-type .h3 {
+  font-family: var(--ci-font-display);
+  font-weight: 800;
+  font-size: var(--ci-text-h3);
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: var(--ci-fg-heading);
+  margin: 0 0 20px;
+}
+
+.civik-type h4,
+.civik-type .h4 {
+  font-family: var(--ci-font-display);
+  font-weight: 800;
+  font-size: var(--ci-text-h4);
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+  color: var(--ci-fg-heading);
+  margin: 0 0 12px;
+}
+
+.civik-type .lead,
+.civik-type p.lead {
+  font-size: var(--ci-text-lead);
+  line-height: 1.45;
+  color: var(--ci-fg-soft);
+  font-weight: 400;
+}
+
+.civik-type p {
+  font-size: var(--ci-text-body);
+  line-height: 1.7;
+  color: var(--ci-fg-soft);
+  margin: 0 0 16px;
+}
+
+.civik-type small,
+.civik-type .meta {
+  font-size: var(--ci-text-meta);
+  color: var(--ci-fg-soft);
+}
+
+.civik-type .caption,
+.civik-type .eyebrow {
+  font-size: var(--ci-text-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ci-fg-accent);
+}
+
+.civik-type a {
+  color: var(--ci-fg-accent);
+  text-decoration: none;
+  transition: opacity var(--ci-dur-fast) ease;
+}
+.civik-type a:hover { opacity: 0.75; }
+
+.civik-type code,
+.civik-type .mono {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 13px;
+  background: var(--ci-bg-section);
+  padding: 2px 6px;
+  border-radius: var(--ci-r-xs);
+  color: var(--ci-fg-heading);
+}
+
+/* Gradient text treatment (reserved — big headlines, numbers) */
+.civik-type .grad,
+.civik-gradient-text {
+  background: var(--ci-grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Mobile scaling — matches the site's breakpoints */
+@media (max-width: 768px) {
+  .civik-type h1, .civik-type .h1 { font-size: 44px; letter-spacing: -1.5px; }
+  .civik-type h2, .civik-type .h2 { font-size: 36px; letter-spacing: -1.2px; }
+  .civik-type h3, .civik-type .h3 { font-size: 26px; }
+  .civik-type h4, .civik-type .h4 { font-size: 20px; }
+  .civik-type .lead { font-size: 18px; }
+}

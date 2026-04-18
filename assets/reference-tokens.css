@@ -1,0 +1,29 @@
+/* ============================================
+   TOKENS — Design System Variables
+   Civik-ia — Luxe Institutionnel Chaud
+   ============================================ */
+:root {
+    /* Palette Souveraine — Luxe Institutionnel Chaud */
+    --primary-gov: #000091;
+    --primary-light: #1a1a6e;
+    --secondary-innov: #007bff;
+    --accent-teal: #2EC4B6;
+    --accent-gold: #F4A261;
+    --text-main: #1E1E1E;
+    --text-light: #5a5a5a;
+    --text-heading: #000091;
+    --bg-warm: #f5f2eb;
+    --bg-section: #efeae1;
+    --bg-cream: #f7f4ed;
+    /* Glassmorphism Chaud (Givre Creme) */
+    --glass-bg: rgba(247, 244, 237, 0.55);
+    --glass-bg-hover: rgba(250, 248, 242, 0.72);
+    --glass-border: 1px solid rgba(200, 190, 170, 0.25);
+    --glass-border-color: rgba(140, 120, 80, 0.08);
+    --glass-blur: blur(10px);
+    --glass-saturate: saturate(150%);
+    --glass-shadow: 0 15px 35px rgba(40, 30, 10, 0.08);
+    --glass-shadow-hover: 0 20px 45px rgba(40, 30, 10, 0.12);
+    /* Transition Premium */
+    --transition-premium: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, box-shadow 0.4s ease;
+}

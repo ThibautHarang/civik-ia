@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon de Commande — Civik-ia — Plateforme d'Intelligence Citoyenne</title>
+    <link rel="icon" type="image/svg+xml" href="Logo/SVG/Logo%20Civik-ia%20seul.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gov: #000091;
+            --secondary-innov: #007BFF;
+            --accent-teal: #2EC4B6;
+            --text-main: #1B2A4A;
+            --text-light: #4A5568;
+            --bg-warm: #F9FAFB;
+            --border-light: #E2E8F0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            background: var(--bg-warm);
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        /* ── Screen-only navigation ── */
+        .screen-nav {
+            background: white;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .screen-nav a {
+            color: var(--primary-gov);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .screen-nav a:hover { color: var(--secondary-innov); }
+        .print-hint {
+            background: rgba(46,196,182,0.08);
+            border: 1px dashed var(--accent-teal);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 860px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .print-hint strong { color: var(--accent-teal); }
+
+        /* ── Form container ── */
+        .order-form {
+            max-width: 860px;
+            margin: 20px auto 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        /* ── Header ── */
+        .form-header {
+            background: linear-gradient(135deg, var(--primary-gov) 0%, #1B2A4A 100%);
+            color: white;
+            padding: 36px 48px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .form-header-left h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .form-header-left p {
+            font-size: 13px;
+            opacity: 0.75;
+            margin-top: 4px;
+        }
+        .form-header-right {
+            text-align: right;
+            font-size: 12px;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+        .form-header-right strong {
+            font-size: 14px;
+            opacity: 1;
+            display: block;
+        }
+
+        /* ── Body ── */
+        .form-body {
+            padding: 36px 48px 40px;
+        }
+
+        /* ── Section titles ── */
+        .section-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin: 32px 0 16px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(0,0,145,0.08);
+        }
+        .section-title:first-child { margin-top: 0; }
+
+        /* ── Two-column info grid ── */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+            margin-bottom: 8px;
+        }
+        .info-field {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-field.full-width {
+            grid-column: 1 / -1;
+        }
+        .info-field label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .info-field .field-line {
+            border-bottom: 1.5px solid var(--border-light);
+            min-height: 28px;
+            font-size: 13px;
+            padding: 4px 0;
+            color: var(--text-main);
+        }
+
+        /* ── Offer checkboxes ── */
+        .offer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 0;
+        }
+        .offer-table th {
+            background: var(--primary-gov);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .offer-table th:last-child { text-align: right; }
+        .offer-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: middle;
+        }
+        .offer-table td:last-child { text-align: right; font-weight: 600; }
+        .offer-table tr:last-child td { border-bottom: none; }
+        .offer-table .check-cell {
+            width: 36px;
+            text-align: center;
+        }
+        .offer-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--primary-gov);
+            border-radius: 3px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+        .offer-label { font-weight: 700; color: var(--text-main); }
+        .offer-detail { font-size: 12px; color: var(--text-light); }
+        .offer-highlight {
+            background: rgba(0,0,145,0.03);
+        }
+
+        /* ── Setup & parrainage ── */
+        .setup-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 14px;
+            background: rgba(46,196,182,0.04);
+            border: 1px solid rgba(46,196,182,0.15);
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        .setup-line .label { font-weight: 700; }
+        .setup-line .amount { font-weight: 800; font-size: 15px; color: var(--primary-gov); }
+
+        .parrainage-box {
+            margin-top: 16px;
+            padding: 14px 18px;
+            border: 1.5px dashed var(--accent-teal);
+            border-radius: 8px;
+            background: rgba(46,196,182,0.03);
+        }
+        .parrainage-box .parrainage-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .parrainage-box .parrainage-detail {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        .parrainage-sponsor {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .parrainage-sponsor label {
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .parrainage-sponsor .field-line {
+            flex: 1;
+            border-bottom: 1.5px solid var(--border-light);
+            min-height: 24px;
+        }
+
+        /* ── Recap ── */
+        .recap-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+        .recap-table td {
+            padding: 8px 14px;
+            font-size: 13px;
+        }
+        .recap-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            width: 160px;
+        }
+        .recap-table .recap-row-label { color: var(--text-light); }
+        .recap-table .recap-total {
+            border-top: 2px solid var(--primary-gov);
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary-gov);
+        }
+        .recap-note {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ── Seuil mention ── */
+        .seuil-box {
+            margin-top: 20px;
+            padding: 12px 16px;
+            background: rgba(0,0,145,0.03);
+            border-left: 4px solid var(--primary-gov);
+            border-radius: 0 8px 8px 0;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        .seuil-box strong { color: var(--text-main); }
+
+        /* ── CGV acceptance ── */
+        .acceptance-box {
+            margin-top: 28px;
+            padding: 16px 18px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            background: rgba(244,162,97,0.04);
+        }
+        .acceptance-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .acceptance-check .offer-checkbox { margin-top: 2px; flex-shrink: 0; }
+        .acceptance-text {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        .acceptance-text a { color: var(--secondary-innov); }
+
+        /* ── Signatures ── */
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 36px;
+        }
+        .signature-block {
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .signature-block h4 {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin-bottom: 14px;
+        }
+        .sig-field {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .sig-field label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        .sig-field .field-line {
+            flex: 1;
+            border-bottom: 1.5px solid var(--border-light);
+            min-height: 22px;
+        }
+        .sig-zone {
+            margin-top: 16px;
+            border: 1.5px dashed var(--border-light);
+            border-radius: 6px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            font-size: 11px;
+            font-style: italic;
+        }
+
+        /* ── Footer ── */
+        .form-footer {
+            background: #1B2A4A;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 18px 48px;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+        .form-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+        /* ── Ref number ── */
+        .ref-number {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 24px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ══════════════════════════════════════
+           PRINT STYLES
+           ══════════════════════════════════════ */
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm 14mm;
+            }
+            body {
+                background: white;
+                font-size: 11px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .screen-nav,
+            .print-hint {
+                display: none !important;
+            }
+            .order-form {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .form-header {
+                padding: 24px 32px 20px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .form-header h1 { font-size: 20px; }
+            .form-body { padding: 24px 32px 28px; }
+            .section-title { margin: 20px 0 10px; font-size: 13px; }
+            .offer-table th { padding: 8px 10px; }
+            .offer-table td { padding: 8px 10px; }
+            .signatures { gap: 24px; margin-top: 24px; }
+            .signature-block { padding: 14px; }
+            .sig-zone { height: 70px; }
+            .form-footer {
+                padding: 12px 32px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Avoid page breaks inside key elements */
+            .signature-block { break-inside: avoid; }
+            .acceptance-box { break-inside: avoid; }
+            .offer-table { break-inside: avoid; }
+            .recap-table { break-inside: avoid; }
+        }
+
+        @media (max-width: 768px) {
+            .form-header { flex-direction: column; text-align: center; padding: 28px 24px 24px; }
+            .form-header-right { text-align: center; margin-top: 12px; }
+            .form-body { padding: 24px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .signatures { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Screen-only navigation -->
+    <nav class="screen-nav">
+        <a href="../01-Site-Web/site-civic-ia.html">&larr; Retour au site Civik-ia</a>
+        <span style="font-size: 12px; color: #999;">Bon de commande</span>
+    </nav>
+    <div class="print-hint">
+        <strong>Imprimer ce bon de commande :</strong> Ctrl+P (ou Cmd+P sur Mac) &rarr; choisir "Enregistrer au format PDF" pour obtenir un fichier PDF propre.
+    </div>
+
+    <div class="order-form">
+
+        <!-- ── HEADER ── -->
+        <div class="form-header">
+            <div class="form-header-left">
+                <h1>Bon de Commande</h1>
+                <p>Plateforme d'Intelligence Citoyenne</p>
+            </div>
+            <div class="form-header-right">
+                <strong>Civik-ia</strong>
+                SASU au capital de 1 000 &euro;<br>
+                28 rue des Cistes, 11100 Narbonne<br>
+                SIREN 103 568 416 &mdash; RCS Narbonne<br>
+                contact@civik-ia.fr
+            </div>
+        </div>
+
+        <div class="form-body">
+
+            <!-- ── CLIENT INFO ── -->
+            <h3 class="section-title">Informations du Client</h3>
+            <div class="info-grid">
+                <div class="info-field full-width">
+                    <label>Nom de la collectivité</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field full-width">
+                    <label>Adresse</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Code postal &amp; Ville</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>SIRET de la collectivité</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Nom du signataire</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Fonction</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Email</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Téléphone</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Population de la commune</label>
+                    <div class="field-line"></div>
+                </div>
+                <div class="info-field">
+                    <label>Nombre d'agents (indicatif)</label>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+
+            <!-- ── OFFRE CHOISIE ── -->
+            <h3 class="section-title">Offre souscrite</h3>
+            <table class="offer-table">
+                <thead>
+                    <tr>
+                        <th class="check-cell"></th>
+                        <th>Palier</th>
+                        <th>Population</th>
+                        <th>Campagnes/an</th>
+                        <th style="text-align: right;">Abonnement mensuel HT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="check-cell"><span class="offer-checkbox"></span></td>
+                        <td><span class="offer-label">Communes rurales</span></td>
+                        <td>&lt; 5 000 hab.</td>
+                        <td>2</td>
+                        <td>99 &euro;/mois</td>
+                    </tr>
+                    <tr class="offer-highlight">
+                        <td class="check-cell"><span class="offer-checkbox"></span></td>
+                        <td><span class="offer-label">Communes moyennes</span><br><span class="offer-detail">Le plus populaire</span></td>
+                        <td>5 000 &ndash; 20 000 hab.</td>
+                        <td>4</td>
+                        <td>199 &euro;/mois</td>
+                    </tr>
+                    <tr>
+                        <td class="check-cell"><span class="offer-checkbox"></span></td>
+                        <td><span class="offer-label">Grandes communes</span></td>
+                        <td>20 000 &ndash; 50 000 hab.</td>
+                        <td>6</td>
+                        <td>299 &euro;/mois</td>
+                    </tr>
+                    <tr>
+                        <td class="check-cell"><span class="offer-checkbox"></span></td>
+                        <td><span class="offer-label">Intercommunalités / Départements / Régions</span></td>
+                        <td>&mdash;</td>
+                        <td>Illimitées</td>
+                        <td>Sur devis</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ── SETUP ── -->
+            <div class="setup-line">
+                <span class="label">Mise en service (personnalisation, formation, configuration)</span>
+                <span class="amount">999 &euro; HT</span>
+            </div>
+
+            <!-- ── PARRAINAGE ── -->
+            <div class="parrainage-box">
+                <div class="parrainage-check">
+                    <span class="offer-checkbox"></span>
+                    <div>
+                        <span class="offer-label">Programme Parrainage</span><br>
+                        <span class="parrainage-detail">Mise en service réduite à <strong style="color: var(--accent-teal);">799 &euro; HT</strong> au lieu de 999 &euro; HT (économie de 200 &euro;)</span>
+                    </div>
+                </div>
+                <div class="parrainage-sponsor">
+                    <label>Collectivité parrain :</label>
+                    <div class="field-line"></div>
+                </div>
+            </div>
+
+            <!-- ── RECAPITULATIF ── -->
+            <h3 class="section-title">Récapitulatif de l'engagement</h3>
+            <table class="recap-table">
+                <tr>
+                    <td class="recap-row-label">Mise en service</td>
+                    <td>__________ &euro; HT</td>
+                </tr>
+                <tr>
+                    <td class="recap-row-label">Abonnement mensuel &times; 12 mois</td>
+                    <td>__________ &euro; HT</td>
+                </tr>
+                <tr>
+                    <td class="recap-total">Total engagement 1re année (HT)</td>
+                    <td class="recap-total">__________ &euro; HT</td>
+                </tr>
+                <tr>
+                    <td class="recap-row-label">TVA (20 %)</td>
+                    <td>__________ &euro;</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 700;">Total engagement 1re année (TTC)</td>
+                    <td style="font-weight: 700;">__________ &euro; TTC</td>
+                </tr>
+            </table>
+            <p class="recap-note">Engagement initial de 12 mois. Renouvellement tacite par périodes de 12 mois (résiliation avec préavis de 3 mois). Tarifs hors packs de campagnes supplémentaires éventuels.</p>
+
+            <!-- ── SEUIL ── -->
+            <div class="seuil-box">
+                <strong>Marchés publics :</strong> le montant total de l'engagement annuel est inférieur au seuil de 40 000 &euro; HT prévu par l'article L2122-1 et l'article R2122-8 du Code de la commande publique, permettant une conclusion sans publicité ni mise en concurrence préalable.
+            </div>
+
+            <!-- ── ACCEPTATION CGV ── -->
+            <div class="acceptance-box">
+                <div class="acceptance-check">
+                    <span class="offer-checkbox"></span>
+                    <div class="acceptance-text">
+                        Le signataire déclare avoir pris connaissance et accepter sans réserve les <a href="conditions-generales-vente.html">Conditions Générales de Vente</a>, les <a href="conditions-utilisation.html">Conditions Générales d'Utilisation</a> et la <a href="politique-confidentialite.html">Politique de Confidentialité</a> de Civik-ia, consultables sur le site <strong>civik-ia.fr</strong>. Il certifie être habilité à engager la collectivité ci-dessus désignée.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SIGNATURES ── -->
+            <div class="signatures">
+                <div class="signature-block">
+                    <h4>Pour le Client</h4>
+                    <div class="sig-field">
+                        <label>Nom et fonction :</label>
+                        <div class="field-line"></div>
+                    </div>
+                    <div class="sig-field">
+                        <label>Fait à :</label>
+                        <div class="field-line"></div>
+                    </div>
+                    <div class="sig-field">
+                        <label>Le :</label>
+                        <div class="field-line"></div>
+                    </div>
+                    <div class="sig-zone">Signature et cachet de la collectivité</div>
+                </div>
+                <div class="signature-block">
+                    <h4>Pour Civik-ia</h4>
+                    <div class="sig-field">
+                        <label>Nom et fonction :</label>
+                        <div class="field-line">Thibaut Harang, Président</div>
+                    </div>
+                    <div class="sig-field">
+                        <label>Fait à :</label>
+                        <div class="field-line">Narbonne</div>
+                    </div>
+                    <div class="sig-field">
+                        <label>Le :</label>
+                        <div class="field-line"></div>
+                    </div>
+                    <div class="sig-zone">Signature</div>
+                </div>
+            </div>
+
+            <!-- ── REF ── -->
+            <div class="ref-number">
+                Référence commande : BC-__________ &nbsp;&nbsp;|&nbsp;&nbsp; Document établi en deux exemplaires originaux.
+            </div>
+
+        </div>
+
+        <!-- ── FOOTER ── -->
+        <div class="form-footer">
+            Civik-ia &mdash; SASU au capital de 1 000 &euro; &mdash; 28 rue des Cistes, 11100 Narbonne &mdash; SIREN 103 568 416 &mdash; RCS Narbonne<br>
+            <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a> &mdash; civik-ia.fr
+        </div>
+
+    </div>
+
+</body>
+</html>

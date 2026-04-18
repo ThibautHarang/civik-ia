@@ -1419,7 +1419,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- NAV -->
 <nav class="nav">
@@ -2006,8 +2006,8 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   <h2 class="display" style="margin-top:16px">Votre mairie,<br>disponible <span class="grad-text">dès lundi.</span></h2>
   <p>Démo personnalisée en 20 minutes. On vous montre Civik-ia sur une vraie commune — la vôtre, si vous voulez.</p>
   <div class="final__ctas">
-    <a href="mailto:contact@civik-ia.fr" class="btn btn-primary">Demander une démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="#" class="btn btn-ghost">Télécharger le livre blanc →</a>
+    <a href="#contact" class="btn btn-primary">Demander une démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <a href="assets/Livre-Blanc-Civik-IA-2026.pdf" download class="btn btn-ghost">Télécharger le livre blanc →</a>
   </div>
 </section>
 
@@ -2216,7 +2216,7 @@ sections.forEach(s=>spy.observe(s));
     // 1 — Urbanisme
     [
       {role:'user', html:"Bonjour, jusqu'à quand peut-on déposer le permis de construire&nbsp;?"},
-      {role:'bot',  html:"La demande doit être déposée <strong>avant le 30 mai</strong>. Vous pouvez la faire en ligne sur service-public.fr ou la déposer en mairie aux horaires d'ouverture.<span class='src'>Source · PLU Lunay · Art. 4</span>", typing: 1400},
+      {role:'bot',  html:"La demande doit être déposée <strong>avant le 30 mai</strong>. Vous pouvez la faire en ligne sur service-public.fr ou la déposer en mairie aux horaires d'ouverture.<span class='src'>Source · PLU Saint-Martin-des-Champs · Art. 4</span>", typing: 1400},
       {role:'user', html:"Et si je veux juste refaire ma toiture&nbsp;?"},
       {role:'bot',  html:"Pour une simple réfection à l'identique, une <strong>déclaration préalable</strong> suffit (formulaire Cerfa 13703). Comptez environ 1 mois d'instruction.<span class='src'>Source · Code de l'urbanisme · R421-17</span>", typing: 1300},
     ],
@@ -2239,9 +2239,9 @@ sections.forEach(s=>spy.observe(s));
     // 4 — CCAS / social
     [
       {role:'user', html:"Je suis en difficulté pour payer ma facture d'énergie, qui contacter&nbsp;?"},
-      {role:'bot',  html:"Vous pouvez solliciter le <strong>CCAS de Lunay</strong> (permanence le mardi 9h-12h). Ils instruisent les aides FSL et peuvent orienter vers le chèque énergie.<span class='src'>Source · CCAS · délib. 2024-18</span>", typing: 1500},
+      {role:'bot',  html:"Vous pouvez solliciter le <strong>CCAS communal</strong> (permanence le mardi 9h-12h). Ils instruisent les aides FSL et peuvent orienter vers le chèque énergie.<span class='src'>Source · CCAS · délib. 2024-18</span>", typing: 1500},
       {role:'user', html:"Il faut prendre RDV&nbsp;?"},
-      {role:'bot',  html:"Oui, au 02 54 xx xx xx ou par mail à ccas@lunay.fr. Premier contact <strong>confidentiel</strong>, sans engagement.<span class='src'>Source · CCAS Lunay</span>", typing: 1100},
+      {role:'bot',  html:"Oui, au 02 98 xx xx xx ou par mail à ccas@saint-martin-des-champs.fr. Premier contact <strong>confidentiel</strong>, sans engagement.<span class='src'>Source · CCAS Saint-Martin-des-Champs</span>", typing: 1100},
     ],
     // 5 — Signalement
     [

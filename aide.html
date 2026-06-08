@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Centre d'aide & FAQ — Civik-ia</title>
+  <meta name="description" content="Centre d'aide Civik-ia : FAQ par profil (citoyen, agent, élu, admin), guides pas-à-pas, vidéos tutos et contact support.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#000091">
+  <link rel="canonical" href="https://civik-ia.fr/aide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Centre d'aide & FAQ — Civik-ia">
+  <meta property="og:description" content="Toutes les réponses sur Civik-ia : compte non requis, Marianne, confidentialité RGPD, signalements, démarches, espace agent et élu.">
+  <meta property="og:url" content="https://civik-ia.fr/aide.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Civik-ia — Intelligence Citoyenne">
+  <meta property="og:image" content="https://civik-ia.fr/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Centre d'aide & FAQ — Civik-ia">
+  <meta name="twitter:description" content="Toutes les réponses sur Civik-ia : compte non requis, Marianne, confidentialité RGPD, signalements et démarches.">
+  <meta name="twitter:image" content="https://civik-ia.fr/og-image.png">
+
+  <!-- Structured Data — FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Dois-je créer un compte pour utiliser Civik-ia ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Non, jamais. Civik-ia est conçu en RGPD natif : vous pouvez poser des questions à Marianne, signaler un problème ou suivre une démarche sans aucune création de compte, sans mot de passe, sans email obligatoire. Si vous voulez recevoir un retour de la mairie, vous pouvez optionnellement laisser votre email." }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne Marianne, l'assistante IA ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Marianne est une intelligence artificielle française (Mistral AI, hébergée en Europe) qui répond à vos questions 24h/24 sur votre commune : horaires, démarches, urbanisme, école, déchets. Elle s'appuie sur les documents officiels de votre mairie pour donner des réponses précises et citer ses sources. Si elle ne sait pas, elle oriente vers le bon contact municipal." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mes données sont-elles confidentielles ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Oui. Civik-ia respecte le RGPD nativement : aucun compte citoyen requis, aucune publicité ni tracking commercial, hébergement OVH Cloud en Europe (souverain), pas de revente de données à des tiers. Les visiteurs uniques sont comptés via un identifiant anonyme stocké dans le navigateur, jamais relié à votre identité." }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment signaler un problème dans ma commune ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Rendez-vous sur civik-ia.fr/signaler/votre-commune. Un parcours guidé en 4 étapes vous accompagne : choisir la catégorie (voirie, propreté, éclairage, déchets), décrire et ajouter une photo avec votre position GPS, laisser votre email si vous voulez un retour (optionnel), puis confirmation avec un lien de suivi personnel. Vous recevez immédiatement un accusé de réception." }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce qu'une signature électronique eIDAS ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "eIDAS est un règlement européen (n°910/2014) qui définit la valeur juridique des signatures électroniques. Civik-ia utilise le niveau simple (article 25.1) : votre nom, l'horodatage et votre adresse IP sont enregistrés, une empreinte numérique SHA-256 garantit que le document n'a pas été modifié, et vous recevez le PDF signé. Valeur juridique suffisante pour les démarches municipales." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --p: #000091; --p-dark: #00006e; --p-soft: rgba(0,0,145,0.08);
+      --teal: #2EC4B6; --teal-soft: rgba(46,196,182,0.12);
+      --gold: #F4A261; --gold-soft: rgba(244,162,97,0.15);
+      --ink: #1E1E1E; --ink-soft: #4a4a4a; --ink-light: #5b6470; /* WCAG AA ≈5.5:1 sur cream */
+      --cream: #f7f4ed; --line: #e8e2d4; --white: #fff;
+      --shadow: 0 4px 24px rgba(0,0,145,0.08);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+    .sr-only:focus { position:static;width:auto;height:auto;margin:0;clip:auto;white-space:normal;display:inline-block;padding:8px 14px;background:var(--p);color:#fff;border-radius:0 0 8px 0; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    .header { text-align: center; margin-bottom: 32px; }
+    .logo-pill { display: inline-block; padding: 6px 14px; background: var(--p-soft); color: var(--p); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 9999px; margin-bottom: 14px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.15; }
+    .subtitle { font-size: 16px; color: var(--ink-soft); margin: 0; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    /* Recherche */
+    .search-box {
+      max-width: 560px; margin: 32px auto 24px; position: relative;
+    }
+    .search-box input {
+      width: 100%; font-family: inherit; font-size: 16px;
+      padding: 16px 50px 16px 22px; border: 2px solid var(--line); border-radius: 9999px;
+      background: var(--white); color: var(--ink); transition: all 0.15s;
+      box-shadow: var(--shadow);
+    }
+    .search-box input:focus { outline: none; border-color: var(--p); box-shadow: 0 0 0 4px var(--p-soft); }
+    .search-box::after {
+      content: '🔍'; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+      font-size: 18px; pointer-events: none;
+    }
+
+    /* Profile tabs */
+    .profile-tabs {
+      display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+      margin: 24px 0 32px;
+    }
+    .profile-tab {
+      background: var(--white); border: 2px solid var(--line); border-radius: 9999px;
+      padding: 10px 20px; font-family: inherit; font-size: 14px; font-weight: 600;
+      color: var(--ink); cursor: pointer; transition: all 0.15s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .profile-tab:hover { border-color: var(--p); background: var(--p-soft); }
+    .profile-tab.active { background: var(--p); color: var(--white); border-color: var(--p); }
+
+    /* Section title */
+    .section-title {
+      font-size: 12px; font-weight: 700; color: var(--p); letter-spacing: 0.12em;
+      text-transform: uppercase; margin: 32px 0 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 2px; background: var(--p-soft); border-radius: 2px; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item {
+      background: var(--white); border-radius: 12px; box-shadow: var(--shadow);
+      overflow: hidden; transition: box-shadow 0.15s;
+    }
+    .faq-item:hover { box-shadow: 0 8px 32px rgba(0,0,145,0.12); }
+    .faq-item.hidden { display: none; }
+    .faq-q {
+      padding: 18px 22px; cursor: pointer; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; user-select: none;
+    }
+    .faq-q-text { font-size: 15px; font-weight: 700; color: var(--ink); flex: 1; }
+    .faq-toggle {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--p-soft);
+      display: flex; align-items: center; justify-content: center; color: var(--p);
+      font-size: 18px; font-weight: 700; flex-shrink: 0; transition: transform 0.2s;
+    }
+    .faq-item[open] .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      padding: 0 22px 18px; font-size: 14px; color: var(--ink-soft); line-height: 1.7;
+    }
+    .faq-a code {
+      font-family: 'SF Mono','Menlo','Courier New',monospace; font-size: 12px;
+      background: var(--cream); padding: 2px 6px; border-radius: 4px; color: var(--p);
+    }
+    .faq-a ul { padding-left: 22px; margin: 8px 0; }
+    .faq-a li { margin: 4px 0; }
+    .faq-a a { color: var(--p); text-decoration: none; font-weight: 600; }
+    .faq-a a:hover { text-decoration: underline; }
+    .faq-a strong { color: var(--ink); }
+
+    /* Quick links */
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .quick-link {
+      background: var(--white); border-radius: 12px; padding: 22px;
+      box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
+      transition: all 0.15s; display: flex; flex-direction: column; gap: 6px;
+    }
+    .quick-link:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,145,0.15); }
+    .quick-link-icon { font-size: 32px; margin-bottom: 4px; }
+    .quick-link-title { font-size: 14px; font-weight: 700; color: var(--p); }
+    .quick-link-desc { font-size: 12px; color: var(--ink-soft); margin: 0; }
+
+    /* Contact card */
+    .contact-card {
+      background: linear-gradient(135deg, var(--p) 0%, var(--p-dark) 100%);
+      color: var(--white); border-radius: 16px; padding: 32px;
+      text-align: center; margin-top: 40px;
+    }
+    .contact-card h2 { margin: 0 0 12px; font-size: 22px; font-weight: 800; }
+    .contact-card p { margin: 0 0 18px; opacity: 0.9; font-size: 15px; }
+    .contact-btn {
+      display: inline-block; padding: 14px 28px; background: var(--teal); color: var(--white);
+      text-decoration: none; border-radius: 9999px; font-weight: 700; font-size: 15px;
+      margin: 0 6px;
+    }
+    .contact-btn:hover { background: #25a89c; }
+    .contact-btn.secondary { background: rgba(255,255,255,0.15); }
+    .contact-btn.secondary:hover { background: rgba(255,255,255,0.25); }
+
+    .no-results {
+      text-align: center; padding: 40px 20px; color: var(--ink-light);
+      background: var(--white); border-radius: 12px; box-shadow: var(--shadow);
+    }
+
+    .footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-light); font-size: 13px; line-height: 1.6; }
+    .footer a { color: var(--p); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 520px) {
+      .profile-tabs { gap: 6px; }
+      .profile-tab { padding: 8px 14px; font-size: 13px; }
+      .faq-q { padding: 14px 16px; }
+      .faq-a { padding: 0 16px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only">Aller au contenu</a>
+  <div class="wrap" id="main">
+
+    <div class="header">
+      <span class="logo-pill">Civik-ia · Centre d'aide</span>
+      <h1>Comment pouvons-nous vous aider ?</h1>
+      <p class="subtitle">Trouvez des réponses claires à vos questions, organisées par profil. Si vous ne trouvez pas, l'équipe répond en moins de 48 h.</p>
+    </div>
+
+    <div class="search-box">
+      <label for="search" class="sr-only">Rechercher dans l'aide</label>
+      <input type="text" id="search" placeholder="Rechercher (ex: signaler, signature, mot de passe, photo…)" autocomplete="off" aria-describedby="search-count">
+      <span id="search-count" class="sr-only" role="status" aria-live="polite"></span>
+    </div>
+
+    <div class="profile-tabs" role="tablist" aria-label="Filtrer l'aide par profil">
+      <button class="profile-tab active" data-tab="tous" role="tab" id="tab-tous" aria-selected="true" aria-controls="faq-list" tabindex="0">📚 Tous</button>
+      <button class="profile-tab" data-tab="citoyen" role="tab" id="tab-citoyen" aria-selected="false" aria-controls="faq-list" tabindex="-1">👤 Citoyen</button>
+      <button class="profile-tab" data-tab="agent" role="tab" id="tab-agent" aria-selected="false" aria-controls="faq-list" tabindex="-1">🧑‍💼 Agent municipal</button>
+      <button class="profile-tab" data-tab="elu" role="tab" id="tab-elu" aria-selected="false" aria-controls="faq-list" tabindex="-1">🏛️ Élu / Maire</button>
+      <button class="profile-tab" data-tab="admin" role="tab" id="tab-admin" aria-selected="false" aria-controls="faq-list" tabindex="-1">⚙️ Admin / DGS</button>
+    </div>
+
+    <!-- Quick links -->
+    <div class="section-title">Liens rapides</div>
+    <div class="quick-links">
+      <a href="/signaler/thore-la-rochette-41100" class="quick-link">
+        <span class="quick-link-icon">📸</span>
+        <span class="quick-link-title">Signaler un problème</span>
+        <p class="quick-link-desc">Voirie, propreté, éclairage — photo + géoloc</p>
+      </a>
+      <a href="/demo" class="quick-link">
+        <span class="quick-link-icon">🤖</span>
+        <span class="quick-link-title">Tester Marianne (démo)</span>
+        <p class="quick-link-desc">Découvrez le chatbot citoyen 24/7</p>
+      </a>
+      <a href="/statut" class="quick-link">
+        <span class="quick-link-icon">📊</span>
+        <span class="quick-link-title">Statut des services</span>
+        <p class="quick-link-desc">Disponibilité temps réel de la plateforme</p>
+      </a>
+      <a href="mailto:support@civik-ia.fr" class="quick-link">
+        <span class="quick-link-icon">✉️</span>
+        <span class="quick-link-title">Contacter le support</span>
+        <p class="quick-link-desc">Réponse sous 48 h ouvrées</p>
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-title">Foire aux questions</div>
+    <div class="faq-list" id="faq-list" role="tabpanel" aria-live="polite" aria-label="Résultats de la foire aux questions">
+      <!-- Injecté en JS depuis FAQ_DATA -->
+    </div>
+
+    <div class="no-results" id="no-results" style="display: none;">
+      <p style="margin: 0 0 8px; font-size: 16px; font-weight: 700;">Aucune réponse trouvée</p>
+      <p style="margin: 0; font-size: 14px;">Essayez d'autres mots-clés ou contactez directement notre équipe ↓</p>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-card">
+      <h2>Vous n'avez pas trouvé votre réponse ?</h2>
+      <p>L'équipe Civik-ia répond personnellement à chaque demande sous 48 heures ouvrées (lundi-vendredi).</p>
+      <a href="mailto:support@civik-ia.fr" class="contact-btn">✉️ support@civik-ia.fr</a>
+      <a href="https://wa.me/" class="contact-btn secondary">💬 WhatsApp Business</a>
+    </div>
+
+    <div class="footer">
+      <strong>Civik-ia</strong> — Plateforme d'Intelligence Citoyenne · <a href="https://civik-ia.fr">civik-ia.fr</a><br>
+      Dernière mise à jour du centre d'aide : 23 mai 2026
+    </div>
+  </div>
+
+<script>
+(function () {
+  // ============================================
+  // FAQ Data — par profil
+  // ============================================
+  var FAQ_DATA = [
+
+    // ============== CITOYEN ==============
+    {
+      profile: 'citoyen',
+      q: 'Dois-je créer un compte pour utiliser Civik-ia ?',
+      a: '<strong>Non, jamais.</strong> Civik-ia est conçu en RGPD natif : vous pouvez poser des questions à Marianne, signaler un problème ou suivre une démarche sans aucune création de compte, sans mot de passe, sans email obligatoire. Si vous voulez recevoir un retour de la mairie, vous pouvez optionnellement laisser votre email — c\'est votre choix à chaque fois.'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Comment fonctionne Marianne, l\'assistante IA ?',
+      a: 'Marianne est une intelligence artificielle française (<strong>Mistral AI</strong>, hébergée en Europe) qui répond à vos questions 24h/24 sur votre commune : horaires, démarches, urbanisme, école, déchets, etc. Elle s\'appuie sur les <strong>documents officiels de votre mairie</strong> (sa base de connaissances locale) pour donner des réponses précises et citer ses sources. Si elle ne sait pas, elle vous oriente vers le bon contact municipal.'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Mes données sont-elles confidentielles ?',
+      a: 'Oui. Civik-ia respecte le RGPD nativement :<ul><li>Aucun compte citoyen requis</li><li>Aucune publicité, aucun tracking commercial</li><li>Hébergement OVH Cloud en Europe (souverain)</li><li>Pas de revente de données à des tiers</li><li>Visiteurs uniques comptés via un identifiant anonyme stocké dans le navigateur (jamais relié à votre identité)</li></ul>Vous gardez le contrôle complet de vos données.'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Comment signaler un problème dans ma commune ?',
+      a: 'Allez sur <code>civik-ia.fr/signaler/votre-commune</code> (ex: <code>/signaler/thore-la-rochette-41100</code>). Un parcours guidé en 4 étapes vous accompagne :<ul><li>Étape 1 : choisir la catégorie (voirie, propreté, éclairage, déchets…)</li><li>Étape 2 : décrire + ajouter une photo (max 5 Mo) + votre position GPS</li><li>Étape 3 : laisser votre email si vous voulez un retour (optionnel)</li><li>Étape 4 : confirmation + lien de suivi personnel</li></ul>Vous recevez immédiatement un email d\'accusé de réception avec un lien personnel pour suivre l\'avancement de votre signalement.'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Comment suivre l\'avancement de mon signalement ou de ma démarche ?',
+      a: 'Quand vous déposez un signalement ou signez une démarche, vous recevez un <strong>lien magique personnel</strong> par email (<code>civik-ia.fr/suivi/{token}</code> ou <code>/suivi-demarche/{token}</code>). Pas besoin de compte : ce lien est unique et confidentiel. À chaque mise à jour de votre dossier par la mairie, un nouvel email automatique vous tient informé(e).'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Qu\'est-ce qu\'une signature électronique eIDAS ?',
+      a: '<strong>eIDAS</strong> est un règlement européen (n°910/2014) qui définit la valeur juridique des signatures électroniques. Civik-ia utilise le niveau "<strong>simple</strong>" (article 25.1) : <ul><li>Votre nom + l\'horodatage + votre adresse IP sont enregistrés</li><li>Une empreinte numérique infalsifiable du document (technologie SHA-256) garantit qu\'il n\'a pas été modifié</li><li>Vous recevez le PDF signé en pièce jointe</li></ul>Valeur juridique équivalente à un mail signé, suffisante pour les démarches municipales (réservation salle, inscription école, attestation domicile, etc.).'
+    },
+    {
+      profile: 'citoyen',
+      q: 'Que devient ma photo de signalement ?',
+      a: 'Elle est stockée de manière sécurisée sur le serveur OVH Cloud UE de votre mairie. Seul l\'agent municipal en charge peut la consulter (via authentification). Le lien public de votre PDF de suivi requiert un token cryptographique : personne ne peut y accéder sans ce token. La photo n\'est jamais utilisée à d\'autres fins (publicité, IA, vente).'
+    },
+
+    // ============== AGENT MUNICIPAL ==============
+    {
+      profile: 'agent',
+      q: 'Comment me connecter à mon espace agent ?',
+      a: '<strong>Connexion par code à usage unique — sans mot de passe !</strong> Allez sur <code>civik-ia.fr/app/agent/?commune={votre-commune}</code> puis entrez votre email professionnel. Vous recevez un code à 6 chiffres par email (valide 15 min). Saisissez-le → vous êtes connecté(e) pour 30 jours. Plus simple et plus sûr qu\'un mot de passe (rien à retenir, rien à voler).'
+    },
+    {
+      profile: 'agent',
+      q: 'Comment traiter un signalement citoyen ?',
+      a: '1. Connectez-vous à votre Inbox Agent. <br>2. Filtrez par type "Signalements" ou par catégorie (voirie, propreté…). <br>3. Cliquez sur le ticket pour voir détails + photo + géoloc. <br>4. Changez le statut : "🟡 En cours" puis "🟢 Traité" (ou "🔴 Refusé" avec motivation). <br>5. Ajoutez un message à destination du citoyen — il recevra une notification email automatique.'
+    },
+    {
+      profile: 'agent',
+      q: 'Comment répondre à une démarche signée ?',
+      a: 'Quand un citoyen signe une démarche, vous recevez automatiquement un email avec le PDF en pièce jointe (signé eIDAS). Vous pouvez :<ul><li>Consulter le ticket dans votre Inbox (filtre "Démarches")</li><li>Télécharger le PDF signé pour archive</li><li>Changer le statut : reçue → en cours → demande de pièces complémentaires → acceptée / refusée</li><li>Ajouter un message qui sera envoyé au citoyen</li></ul>Le citoyen reçoit à chaque mise à jour un email automatique avec le nouveau statut.'
+    },
+    {
+      profile: 'agent',
+      q: 'Comment publier une alerte intelligente ?',
+      a: 'Depuis votre Inbox Agent → onglet "Alertes" → bouton "Publier une alerte". 3 champs : <strong>titre</strong>, <strong>message</strong>, <strong>dates début/fin</strong>. Choisissez la priorité (🔴 Urgente / 🟡 Importante / 🔵 Info). Une fois publiée, l\'alerte est <strong>automatiquement intégrée dans les réponses de Marianne</strong> — si un citoyen demande "Y a-t-il des travaux ?" elle répondra avec votre alerte. Max 4 alertes simultanées, auto-expiration à la date de fin.'
+    },
+    {
+      profile: 'agent',
+      q: 'Quelle est la différence entre les rôles agent/admin/lecteur/maire ?',
+      a: '<ul><li><strong>agent</strong> : lecture + réponse Inbox uniquement</li><li><strong>admin</strong> : Inbox + diffusion (alertes, campagnes, événements) + gestion des comptes</li><li><strong>lecteur</strong> : Cockpit uniquement (consultation)</li><li><strong>maire</strong> : Cockpit + Inbox lecture seule (transparence)</li></ul>Le DGS ou le secrétaire de mairie est généralement <strong>admin</strong>. Les autres agents en accueil sont <strong>agent</strong>.'
+    },
+    {
+      profile: 'agent',
+      q: 'Comment exporter les signalements pour mon rapport mensuel ?',
+      a: 'Depuis votre Inbox Agent → bouton "Export CSV mensuel". Le fichier contient tous les tickets traités sur la période (signalements + démarches), avec horodatages, statuts, et messages échangés. Format conforme RGPD pour preuve de traitement.'
+    },
+
+    // ============== ÉLU / MAIRE ==============
+    {
+      profile: 'elu',
+      q: 'Que m\'apporte concrètement le Cockpit Élu ?',
+      a: 'Un tableau de bord en temps réel pour piloter la relation citoyens :<ul><li><strong>Top questions</strong> de la semaine (savez-vous ce qui préoccupe vos citoyens ?)</li><li><strong>Visiteurs uniques</strong> et évolution mensuelle</li><li><strong>Plages horaires</strong> d\'usage — typiquement pic 19h-22h après le travail (preuve du besoin 24/7)</li><li><strong>Satisfaction citoyens</strong> (👍/👎 sur les réponses Marianne)</li><li><strong>Headline narratif</strong> IA : un résumé automatique généré chaque semaine ("Cette semaine, vos citoyens se sont surtout préoccupés de…")</li><li><strong>3 recommandations</strong> actionnables IA</li><li><strong>Export PDF mensuel</strong> à la demande</li></ul>'
+    },
+    {
+      profile: 'elu',
+      q: 'Puis-je voir l\'Inbox des agents en tant que maire ?',
+      a: 'Oui, en <strong>lecture seule</strong> (rôle maire). C\'est un choix de transparence : vous voyez ce que vos agents traitent, sans pouvoir modifier les statuts ou répondre à votre place. Cela vous permet de garder une vue d\'ensemble sans interférer dans le travail des équipes.'
+    },
+    {
+      profile: 'elu',
+      q: 'Comment obtenir un rapport pour mon conseil municipal ?',
+      a: 'Dans le Cockpit Élu → bouton "Export PDF". Vous obtenez un document propre avec : KPIs du mois, top topics, satisfaction, alertes publiées, signalements traités, recommandations IA. Prêt à imprimer ou à projeter pendant le conseil. Période ajustable (28 jours / 90 jours / etc.).'
+    },
+    {
+      profile: 'elu',
+      q: 'Civik-ia remplace-t-il mes agents d\'accueil ?',
+      a: '<strong>Non, c\'est un outil de soutien.</strong> Marianne absorbe 70-80 % des questions répétitives (horaires, démarches, déchets, école…) que vos agents recevaient par téléphone ou au guichet. Cela libère vos agents pour :<ul><li>Les dossiers complexes nécessitant un humain</li><li>L\'accueil social et l\'accompagnement</li><li>Les médiations sensibles</li></ul>Aucun poste supprimé. Plus de temps pour ce qui compte vraiment.'
+    },
+
+    // ============== ADMIN / DGS ==============
+    {
+      profile: 'admin',
+      q: 'Comment créer un nouveau compte agent ?',
+      a: 'Espace Admin → Onglet "Comptes" → "Créer un nouvel agent". Vous saisissez :<ul><li>Email professionnel de l\'agent</li><li>Nom complet</li><li>Rôle (agent / admin / lecteur / maire)</li></ul>L\'agent reçoit un email avec un lien de bienvenue. À sa première connexion, il/elle saisit son email + le code OTP reçu — c\'est tout. Pas de mot de passe à gérer, pas de "mot de passe oublié" à traiter.'
+    },
+    {
+      profile: 'admin',
+      q: 'Comment co-designer les 5 démarches Cerfa avec mon équipe ?',
+      a: 'Civik-ia vous envoie un <strong>lien de co-design unique</strong> par email. Sur cette page web sécurisée, vous personnalisez en 30 min les 5 démarches (réservation salle, déclaration travaux, inscription électorale, attestation domicile, débit boisson temporaire) :<ul><li>Tarifs locaux</li><li>Contact référent (qui reçoit les demandes)</li><li>Horaires de dépôt</li><li>Règles spécifiques (zone protégée, etc.)</li></ul>Aucun compte ni mot de passe. Vos personnalisations sont prises en compte instantanément dans les réponses de Marianne, sans aucune manipulation technique de votre part.'
+    },
+    {
+      profile: 'admin',
+      q: 'Quelle est la conformité RGPD de Civik-ia ?',
+      a: 'Civik-ia est conçu RGPD natif :<ul><li>Hébergement OVH Cloud UE (souverain, pas de Cloud Act)</li><li>Aucun compte citoyen requis (zéro friction, zéro fichier nominatif)</li><li>Visiteurs uniques comptés via un identifiant anonyme dans le navigateur (jamais relié à une identité)</li><li>Standards d\'authentification email configurés (vos emails arrivent bien, jamais en spam)</li><li>Signature électronique eIDAS niveau simple (Règlement UE 910/2014)</li><li>Archivage des conversations 1 an puis anonymisation</li><li>Export CSV des traitements à la demande (preuve)</li></ul>Documentation RGPD complète disponible sur demande.'
+    },
+    {
+      profile: 'admin',
+      q: 'Quels sont les coûts cachés ?',
+      a: '<strong>Aucun.</strong> Le tarif annoncé (à partir de 99 €/mois HT pour les communes &lt; 5 000 hab.) inclut :<ul><li>Hébergement OVH Cloud UE</li><li>Moteur IA Mistral (jusqu\'à votre quota mensuel)</li><li>Email transactionnel Brevo</li><li>Mises à jour produit (semestrielles)</li><li>Support email/WhatsApp 48 h ouvrées</li><li>Migration de votre KB (assistée)</li></ul>Seul setup payant : 999 € HT pour la configuration initiale (offert dans le programme Partenaires Fondateurs).'
+    },
+    {
+      profile: 'admin',
+      q: 'Comment intégrer Civik-ia à mon site existant ?',
+      a: '3 options selon votre infrastructure :<ul><li><strong>Widget JS</strong> (1 ligne de code à coller dans votre site WordPress/Joomla/HTML) — déploiement en 5 minutes</li><li><strong>Page dédiée</strong> (<code>chat.civik-ia.fr/votre-commune</code>) — aucun changement sur votre site, vous mettez juste un lien</li><li><strong>PWA installable</strong> — vos citoyens "épinglent" Civik-ia sur leur écran d\'accueil (mobile + desktop)</li></ul>Compatible avec tous les CMS et tous les hébergeurs.'
+    },
+    {
+      profile: 'admin',
+      q: 'Que se passe-t-il si je veux résilier ?',
+      a: 'Résiliation sans frais à tout moment avec préavis de 3 mois (CGV art. 8). À la résiliation :<ul><li>Export complet de toutes vos données (signalements, démarches, conversations, KPIs) au format CSV/JSON</li><li>Vous conservez les PDFs signés eIDAS de vos démarches</li><li>Suppression de l\'ensemble de vos données chez Civik-ia sous 30 jours</li></ul>Aucune dépendance verrouillée.'
+    }
+  ];
+
+  // ============================================
+  // Rendering
+  // ============================================
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function renderFaq(items) {
+    var list = document.getElementById('faq-list');
+    var noResults = document.getElementById('no-results');
+    if (items.length === 0) {
+      list.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+    noResults.style.display = 'none';
+    list.innerHTML = items.map(function (item, idx) {
+      var qId = 'faq-q-' + idx;
+      var aId = 'faq-a-' + idx;
+      var html = '<details class="faq-item">';
+      html += '<summary class="faq-q" id="' + qId + '" aria-expanded="false" aria-controls="' + aId + '"><span class="faq-q-text">' + escapeHtml(item.q) + '</span><span class="faq-toggle" aria-hidden="true">+</span></summary>';
+      html += '<div class="faq-a" id="' + aId + '" role="region" aria-labelledby="' + qId + '">' + item.a + '</div>';
+      html += '</details>';
+      return html;
+    }).join('');
+    // Synchroniser aria-expanded avec l'état open du <details>
+    list.querySelectorAll('details.faq-item').forEach(function (det) {
+      det.addEventListener('toggle', function () {
+        var sum = det.querySelector('summary');
+        if (sum) sum.setAttribute('aria-expanded', det.open ? 'true' : 'false');
+      });
+    });
+  }
+
+  var currentTab = 'tous';
+  var currentSearch = '';
+
+  function filterAndRender() {
+    var filtered = FAQ_DATA.filter(function (item) {
+      if (currentTab !== 'tous' && item.profile !== currentTab) return false;
+      if (currentSearch) {
+        var hay = (item.q + ' ' + item.a).toLowerCase();
+        return hay.indexOf(currentSearch) !== -1;
+      }
+      return true;
+    });
+    renderFaq(filtered);
+    // Annonce du nombre de résultats aux lecteurs d'écran
+    var counter = document.getElementById('search-count');
+    if (counter) {
+      var n = filtered.length;
+      counter.textContent = n === 0 ? 'Aucun résultat' : (n + (n > 1 ? ' résultats' : ' résultat'));
+    }
+  }
+
+  // Tabs
+  var tabBtns = Array.prototype.slice.call(document.querySelectorAll('.profile-tab'));
+  function activateTab(btn) {
+    tabBtns.forEach(function (b) {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    btn.setAttribute('tabindex', '0');
+    currentTab = btn.getAttribute('data-tab');
+    filterAndRender();
+  }
+  tabBtns.forEach(function (btn, i) {
+    btn.addEventListener('click', function () { activateTab(btn); });
+    // Navigation clavier flèches gauche/droite entre onglets
+    btn.addEventListener('keydown', function (e) {
+      var idx = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') idx = (i + 1) % tabBtns.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') idx = (i - 1 + tabBtns.length) % tabBtns.length;
+      else if (e.key === 'Home') idx = 0;
+      else if (e.key === 'End') idx = tabBtns.length - 1;
+      if (idx !== null) {
+        e.preventDefault();
+        activateTab(tabBtns[idx]);
+        tabBtns[idx].focus();
+      }
+    });
+  });
+
+  // Search
+  var searchInput = document.getElementById('search');
+  var searchTimer;
+  searchInput.addEventListener('input', function (e) {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      currentSearch = e.target.value.toLowerCase().trim();
+      filterAndRender();
+    }, 150);
+  });
+
+  // Initial render
+  filterAndRender();
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v76-geo-promo-cleanup-2026-06-08';
+const CACHE_NAME = 'civik-ia-v77-geo-titles-desc-aide-faq-2026-06-08';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

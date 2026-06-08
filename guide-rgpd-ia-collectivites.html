@@ -71,6 +71,9 @@ footer a{color:#fff;text-decoration:underline}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://civik-ia.fr/"},{"@type":"ListItem","position":2,"name":"Guide RGPD IA collectivités","item":"https://civik-ia.fr/guide-rgpd-ia-collectivites.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Un chatbot IA en mairie est-il conforme au RGPD ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de respecter cinq exigences : héberger les données dans l'Union européenne, signer un contrat de sous-traitance avec l'éditeur (article 28 RGPD), informer les citoyens (article 13), limiter la collecte au strict nécessaire (minimisation) et permettre un usage sans création de compte. Un chatbot conçu privacy by design, sans collecte nominative par défaut, est conforme dès l'origine."}},{"@type":"Question","name":"Une AIPD est-elle obligatoire pour un chatbot de mairie ?","acceptedAnswer":{"@type":"Answer","text":"Pour un chatbot mairie standard (horaires, démarches, information citoyenne), l'analyse d'impact (AIPD, article 35 RGPD) n'est généralement pas obligatoire, car aucune décision automatique impactante n'est prise et aucune donnée sensible n'est traitée. Elle devient obligatoire si le chatbot traite des données de santé, croise plusieurs fichiers (électoral, cadastre, état civil) ou réalise un profilage individuel."}},{"@type":"Question","name":"Quelle base légale pour un chatbot municipal ?","acceptedAnswer":{"@type":"Answer","text":"La mission d'intérêt public (article 6.1.e du RGPD) est la base la plus appropriée pour une mairie : elle couvre les démarches administratives et l'information citoyenne. Le consentement (article 6.1.a) s'applique aux fonctionnalités optionnelles comme les notifications email, et l'obligation légale (article 6.1.c) aux démarches obligatoires telles que le recensement ou l'inscription électorale."}},{"@type":"Question","name":"Peut-on utiliser ChatGPT pour le chatbot d'une mairie ?","acceptedAnswer":{"@type":"Answer","text":"C'est déconseillé. Les IA grand public comme ChatGPT (OpenAI) ou Gemini (Google) sont hébergées hors UE et soumises au Cloud Act et au FISA américains : leur usage direct sur des données citoyennes expose la commune à une procédure CNIL. Il faut privilégier une IA souveraine européenne hébergée dans l'Union, comme Mistral AI."}},{"@type":"Question","name":"Combien de temps conserver les données d'un chatbot mairie ?","acceptedAnswer":{"@type":"Answer","text":"La durée de conservation doit être définie dans le registre des traitements et limitée à ce qui est nécessaire. À titre d'exemple, Civik-ia applique des durées légales avec soft-delete : 5 ans pour les signalements, 3 ans pour les démarches et 1 an pour les conversations, anonymisées au-delà."}}]}
+</script>
 </head>
 <body>
 <header class="nav">
@@ -251,6 +254,23 @@ footer a{color:#fff;text-decoration:underline}
     <div class="callout">
       <strong>À retenir</strong> — Le RGPD n'est pas un frein à l'IA en collectivité, c'est un cadre qui structure la confiance. Un chatbot mairie conforme dès la conception (privacy by design) protège à la fois les administrés et la responsabilité juridique de la commune.
     </div>
+
+    <h2>Questions fréquentes</h2>
+
+    <h3>Un chatbot IA en mairie est-il conforme au RGPD ?</h3>
+    <p>Oui, à condition de respecter cinq exigences : héberger les données dans l'Union européenne, signer un contrat de sous-traitance avec l'éditeur (article 28 RGPD), informer les citoyens (article 13), limiter la collecte au strict nécessaire (minimisation) et permettre un usage sans création de compte. Un chatbot conçu « privacy by design », sans collecte nominative par défaut, est conforme dès l'origine.</p>
+
+    <h3>Une AIPD est-elle obligatoire pour un chatbot de mairie ?</h3>
+    <p>Pour un chatbot mairie standard (horaires, démarches, information citoyenne), l'analyse d'impact (AIPD, article 35 RGPD) n'est généralement pas obligatoire, car aucune décision automatique impactante n'est prise et aucune donnée sensible n'est traitée. Elle devient obligatoire si le chatbot traite des données de santé, croise plusieurs fichiers (électoral, cadastre, état civil) ou réalise un profilage individuel.</p>
+
+    <h3>Quelle base légale pour un chatbot municipal ?</h3>
+    <p>La mission d'intérêt public (article 6.1.e du RGPD) est la base la plus appropriée pour une mairie : elle couvre les démarches administratives et l'information citoyenne. Le consentement (article 6.1.a) s'applique aux fonctionnalités optionnelles comme les notifications email, et l'obligation légale (article 6.1.c) aux démarches obligatoires telles que le recensement ou l'inscription électorale.</p>
+
+    <h3>Peut-on utiliser ChatGPT pour le chatbot d'une mairie ?</h3>
+    <p>C'est déconseillé. Les IA grand public comme ChatGPT (OpenAI) ou Gemini (Google) sont hébergées hors UE et soumises au Cloud Act et au FISA américains : leur usage direct sur des données citoyennes expose la commune à une procédure CNIL. Il faut privilégier une IA souveraine européenne hébergée dans l'Union, comme Mistral AI.</p>
+
+    <h3>Combien de temps conserver les données d'un chatbot mairie ?</h3>
+    <p>La durée de conservation doit être définie dans le registre des traitements et limitée à ce qui est nécessaire. À titre d'exemple, Civik-ia applique des durées légales avec soft-delete : 5 ans pour les signalements, 3 ans pour les démarches et 1 an pour les conversations, anonymisées au-delà.</p>
 
     <h2>Pour aller plus loin</h2>
     <ul>

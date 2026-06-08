@@ -24,6 +24,7 @@
 - [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, checklist DPO.
 - [Réduire les appels en mairie avec un chatbot IA](https://civik-ia.fr/reduire-appels-mairie-chatbot-ia.html) : impact sur la charge du secrétariat.
 - [Chatbot pour commune rurale](https://civik-ia.fr/chatbot-commune-rurale.html) : solution pour les petites communes (< 5 000 habitants).
+- [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur le chatbot, le RGPD, le déploiement, les tarifs et la souveraineté.
 - [Site officiel Civik-ia](https://civik-ia.fr/) : présentation complète de la plateforme.
 
 ## Contact

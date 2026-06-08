@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGPD et IA pour collectivités : guide complet 2026 — Civik-ia</title>
+<meta name="description" content="Guide RGPD pour l'usage d'une IA en mairie en 2026 : registre des traitements, base légale, droits des citoyens, hébergement, AIPD. Avec checklist conformité.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://civik-ia.fr/guide-rgpd-ia-collectivites.html">
+<link rel="icon" href="/logo-civik-ia.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RGPD et IA pour collectivités : guide complet 2026">
+<meta property="og:description" content="Comment équiper sa mairie d'un chatbot IA en respectant le RGPD. Bases légales, AIPD, droits des citoyens.">
+<meta property="og:url" content="https://civik-ia.fr/guide-rgpd-ia-collectivites.html">
+<meta property="og:image" content="https://civik-ia.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;line-height:1.65;overflow-x:hidden;max-width:100vw}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+:root{--p:#000091;--teal:#2EC4B6;--gold:#F4A261;--cream:#f7f4ed;--bg-section:#fdfbf5;--tx:#1E1E1E;--tx-soft:#4a4a4a;--tx-light:#888;--border:rgba(0,0,145,0.08);--green:#10b981;--amber:#F4A261;--red:#c0392b;--shadow-sm:0 2px 8px rgba(0,0,145,0.04);--shadow-md:0 8px 32px rgba(0,0,145,0.08);--r-md:16px;--r-lg:24px}
+header.nav{position:sticky;top:0;z-index:100;background:rgba(247,244,237,0.95);backdrop-filter:blur(12px) saturate(160%);-webkit-backdrop-filter:blur(12px) saturate(160%);border-bottom:1px solid var(--border);padding:14px 24px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--p);text-decoration:none}
+.brand-logo{width:34px;height:34px;background:var(--p);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Georgia,serif;font-weight:900;font-size:18px}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{font-weight:800;font-size:15px;letter-spacing:-0.01em}
+.brand-sub{font-size:10px;color:var(--tx-light);text-transform:uppercase;letter-spacing:0.08em}
+.nav-cta{background:var(--p);color:#fff;padding:10px 20px;border-radius:9999px;text-decoration:none;font-weight:600;font-size:14px}
+main{max-width:840px;margin:0 auto;padding:48px 24px 80px}
+nav.breadcrumb{font-size:13px;color:var(--tx-light);margin-bottom:24px}
+nav.breadcrumb a{color:var(--p);text-decoration:none}
+.kicker{display:inline-block;padding:5px 14px;background:rgba(46,196,182,0.14);color:#0a8b82;font-weight:700;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;border-radius:999px;margin-bottom:20px}
+h1{font-size:clamp(32px,5vw,48px);font-weight:800;color:var(--p);letter-spacing:-0.025em;line-height:1.1;margin-bottom:18px}
+.lede{font-size:19px;color:var(--tx-soft);line-height:1.55;margin-bottom:36px}
+.meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--tx-light);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.meta strong{color:var(--p);font-weight:600}
+article h2{font-size:28px;font-weight:800;color:var(--p);letter-spacing:-0.015em;margin:48px 0 16px;line-height:1.2}
+article h3{font-size:22px;font-weight:700;color:var(--p);margin:32px 0 12px;line-height:1.3}
+article p{font-size:17px;color:var(--tx);margin-bottom:18px;line-height:1.7}
+article ul,article ol{margin:8px 0 22px 24px}
+article li{margin-bottom:8px;font-size:17px;color:var(--tx);line-height:1.65}
+article a{color:var(--p);text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:3px;font-weight:500}
+article strong{color:var(--p);font-weight:700}
+.callout{background:#fff;border-left:4px solid var(--teal);padding:20px 24px;border-radius:6px;margin:24px 0;box-shadow:var(--shadow-sm)}
+.callout-warn{background:#fff;border-left:4px solid var(--red);padding:20px 24px;border-radius:6px;margin:24px 0}
+.callout-warn strong{color:var(--red)}
+.cta-block{margin:48px 0;padding:36px;background:linear-gradient(135deg,var(--p),#1a2a7a);color:#fff;border-radius:var(--r-lg);text-align:center}
+.cta-block h2{color:#fff;margin-top:0;margin-bottom:12px}
+.cta-block p{color:rgba(255,255,255,0.9);margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--teal);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-weight:700;font-size:16px}
+.checklist{background:var(--bg-section);border:1px solid var(--border);border-radius:var(--r-md);padding:24px 28px;margin:24px 0}
+.checklist h3{margin-top:0}
+.checklist li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px}
+.checklist li::before{content:"☐";position:absolute;left:0;color:var(--p);font-weight:700;font-size:20px}
+footer{background:var(--p);color:#fff;padding:40px 24px;margin-top:80px;text-align:center;font-size:13px}
+footer a{color:#fff;text-decoration:underline}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-links{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:16px}
+.footer-links a{opacity:0.85}
+@media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:28px}article h2{font-size:24px}article p,article li{font-size:16px}.cta-block{padding:24px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"RGPD et IA pour collectivités : guide complet 2026","description":"Comment équiper sa mairie d'un chatbot IA en respectant le RGPD. Bases légales, AIPD, droits des citoyens.","datePublished":"2026-05-16","dateModified":"2026-06-08","author":{"@type":"Organization","name":"Civik-ia","url":"https://civik-ia.fr"},"publisher":{"@type":"Organization","name":"Civik-ia","logo":{"@type":"ImageObject","url":"https://civik-ia.fr/logo-civik-ia.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://civik-ia.fr/guide-rgpd-ia-collectivites.html"},"image":"https://civik-ia.fr/og-image.png"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://civik-ia.fr/"},{"@type":"ListItem","position":2,"name":"Guide RGPD IA collectivités","item":"https://civik-ia.fr/guide-rgpd-ia-collectivites.html"}]}
+</script>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><div class="brand-logo">C</div><div class="brand-text"><span class="brand-name">Civik-ia</span><span class="brand-sub">Plateforme d'Intelligence Citoyenne</span></div></a>
+    <a class="nav-cta" href="/demo">Voir la démo</a>
+  </div>
+</header>
+
+<main>
+  <nav class="breadcrumb"><a href="/">Accueil</a> &nbsp;›&nbsp; Guide RGPD IA collectivités</nav>
+  <span class="kicker">Conformité · 8 juin 2026</span>
+  <h1>RGPD et IA pour collectivités : guide complet 2026</h1>
+  <p class="lede">Vous voulez équiper votre mairie d'un chatbot ou d'un assistant IA en 2026 ? Voici ce que vous devez savoir pour rester conforme au RGPD, au Code de la sécurité intérieure et aux recommandations CNIL. Avec checklist actionnable pour votre DPO.</p>
+
+  <div class="meta">
+    <span><strong>Auteur</strong> : Civik-ia, éditeur SaaS souverain</span>
+    <span><strong>Lecture</strong> : 11 minutes</span>
+    <span><strong>Mis à jour</strong> : 08/06/2026</span>
+  </div>
+
+  <aside class="geo-answer" aria-label="En bref" style="background:#f7f4ed;border:1px solid #e6e0d2;border-left:4px solid #2EC4B6;border-radius:12px;padding:18px 22px;margin:4px 0 30px;">
+    <strong style="display:block;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:#000091;margin-bottom:7px;">En bref</strong>
+    <p style="margin:0;font-size:1.04rem;line-height:1.55;color:#1E1E1E;">Pour déployer une IA conforme au RGPD en mairie : héberger les données dans l'Union européenne, choisir un sous-traitant avec contrat (art. 28), informer les citoyens, ne collecter aucune donnée inutile (minimisation) et permettre un usage sans création de compte. Une IA souveraine française simplifie cette conformité en évitant les transferts hors UE.</p>
+  </aside>
+
+  <article>
+    <h2>Le cadre juridique applicable en 2026</h2>
+    <p>L'usage de l'intelligence artificielle dans une collectivité territoriale française est encadré par <strong>trois textes principaux</strong> qui s'appliquent en cascade :</p>
+    <ul>
+      <li>Le <strong>RGPD</strong> (Règlement européen 2016/679) — protection des données à caractère personnel des administrés.</li>
+      <li>La <strong>Loi Informatique et Libertés modifiée 2018</strong> — transposition française du RGPD, avec les pouvoirs de contrôle de la CNIL.</li>
+      <li>L'<strong>AI Act européen</strong> (Règlement 2024/1689) — applicable progressivement depuis février 2025, avec les obligations pour les IA à « haut risque » entrant en vigueur en août 2026.</li>
+    </ul>
+    <p>À cela s'ajoutent les <strong>recommandations CNIL</strong> spécifiques aux collectivités (mises à jour en novembre 2025) et le <strong>référentiel d'archivage</strong> des associations de DPO de collectivités.</p>
+
+    <h2>Les 7 obligations RGPD à respecter pour un chatbot mairie</h2>
+
+    <h3>1. Déterminer la base légale du traitement</h3>
+    <p>Avant tout déploiement, votre DPO doit identifier sous quelle base légale (article 6 RGPD) votre chatbot collecte et traite les données :</p>
+    <ul>
+      <li><strong>Mission d'intérêt public</strong> (art. 6.1.e) — la plus appropriée pour une mairie. Couvre les démarches administratives, l'information citoyenne, le service public local.</li>
+      <li><strong>Consentement</strong> (art. 6.1.a) — utile pour les fonctionnalités optionnelles (notifications email, campagnes citoyennes).</li>
+      <li><strong>Obligation légale</strong> (art. 6.1.c) — pour les démarches obligatoires (recensement militaire, inscription électorale).</li>
+    </ul>
+    <p>La base légale détermine ensuite les droits des personnes concernées : un traitement fondé sur le consentement permet le retrait à tout moment, contrairement à la mission d'intérêt public.</p>
+
+    <h3>2. Inscrire le traitement au registre</h3>
+    <p>Toute mairie doit tenir un <strong>registre des activités de traitement</strong> (art. 30 RGPD) — y compris si elle est exemptée du DPO mutualisé. Pour un chatbot IA, le registre doit préciser :</p>
+    <ul>
+      <li>La finalité (ex : « répondre aux questions courantes des administrés 24h/24 »)</li>
+      <li>Les catégories de données collectées (ex : « questions textuelles, horodatage, adresse IP anonymisée »)</li>
+      <li>La durée de conservation (ex : « 12 mois, anonymisation au-delà »)</li>
+      <li>Les destinataires (ex : « éditeur Civik-ia, hébergeur OVH UE »)</li>
+      <li>Les transferts hors UE (à éviter, ou justifier si nécessaire)</li>
+    </ul>
+
+    <h3>3. Réaliser une AIPD si nécessaire</h3>
+    <p>L'<strong>Analyse d'Impact relative à la Protection des Données</strong> (AIPD) est obligatoire dès lors que le traitement présente un « risque élevé » pour les droits et libertés des personnes (art. 35 RGPD). Pour un chatbot mairie classique (questions sur horaires, démarches), l'AIPD <strong>n'est généralement pas obligatoire</strong>, car aucune décision automatique impactante n'est prise et aucune donnée sensible n'est traitée systématiquement.</p>
+    <p>Elle <strong>devient obligatoire</strong> si le chatbot :</p>
+    <ul>
+      <li>Traite des données de santé (ex : signalements liés à des handicaps)</li>
+      <li>Croise des données issues de plusieurs sources (ex : fichier électoral + cadastre + état civil)</li>
+      <li>Fait du profilage individuel (ex : recommandations personnalisées par administré)</li>
+    </ul>
+
+    <h3>4. Informer les citoyens (transparence)</h3>
+    <p>L'article 13 RGPD impose une information claire et accessible aux personnes concernées. Concrètement, votre chatbot doit afficher (au minimum dans un lien type « Mentions RGPD ») :</p>
+    <ul>
+      <li>L'identité du responsable de traitement (la mairie, pas l'éditeur)</li>
+      <li>Les coordonnées du DPO</li>
+      <li>Les finalités et la base légale</li>
+      <li>La durée de conservation</li>
+      <li>Les droits des personnes (accès, rectification, effacement, opposition, portabilité)</li>
+      <li>Le droit de réclamation auprès de la CNIL</li>
+    </ul>
+
+    <h3>5. Garantir les droits des personnes</h3>
+    <p>Tout administré peut, à tout moment :</p>
+    <ul>
+      <li>Demander la copie des questions qu'il a posées au chatbot (droit d'accès)</li>
+      <li>Demander leur suppression (droit à l'effacement)</li>
+      <li>S'opposer au traitement (sauf si mission d'intérêt public le justifie)</li>
+    </ul>
+    <p>Pour faciliter ces demandes, prévoyez un point de contact unique (email DPO) et un délai de réponse maximum d'un mois (art. 12 RGPD).</p>
+
+    <h3>6. Sécuriser les données (art. 32)</h3>
+    <p>Mesures techniques et organisationnelles attendues :</p>
+    <ul>
+      <li>Hébergement dans l'Union européenne (idéalement France ou Allemagne)</li>
+      <li>Chiffrement HTTPS obligatoire (TLS 1.3)</li>
+      <li>Authentification forte des agents municipaux (mot de passe complexe + idéalement 2FA)</li>
+      <li>Journaux d'accès traçables (qui a fait quoi, quand)</li>
+      <li>Sauvegardes chiffrées</li>
+      <li>Procédure de notification de violation sous 72h (art. 33)</li>
+    </ul>
+
+    <h3>7. Limiter la collecte au strict nécessaire (minimisation)</h3>
+    <p>Un chatbot mairie ne doit <strong>jamais</strong> collecter :</p>
+    <ul>
+      <li>Le nom, prénom, adresse exacte de l'administré (sauf si la démarche le requiert objectivement)</li>
+      <li>Le numéro de téléphone, sauf opt-in explicite pour rappel</li>
+      <li>Des données sensibles (religion, opinion politique, orientation sexuelle, santé)</li>
+      <li>Des informations sur des tiers (enfants, voisins, conjoint)</li>
+    </ul>
+    <p>Le principe de zéro-friction citoyenne (pas de création de compte) protège mécaniquement la mairie : pas de données = pas de risque.</p>
+
+    <h2>Les pièges spécifiques de l'IA générative</h2>
+
+    <div class="callout-warn">
+      <strong>Attention</strong> — La plupart des chatbots IA grand public (ChatGPT, Claude, Gemini) <strong>ne sont pas conformes au RGPD pour un usage en collectivité française</strong> par défaut. Hébergement hors UE, finalités opaques, transferts internationaux non encadrés. L'utilisation directe d'OpenAI ou de Google sur les données citoyennes expose la mairie à une procédure CNIL.
+    </div>
+
+    <h3>Souveraineté technologique : le choix structurant</h3>
+    <p>Trois familles d'IA générative coexistent en 2026 :</p>
+    <ul>
+      <li><strong>IA américaines</strong> (OpenAI GPT, Anthropic Claude, Google Gemini) — performantes mais soumises au Cloud Act et au FISA américain. À éviter pour les collectivités françaises.</li>
+      <li><strong>IA chinoises</strong> (Qwen, DeepSeek) — hors-jeu pour le secteur public français.</li>
+      <li><strong>IA souveraines européennes</strong> (Mistral AI principalement) — hébergées en France ou en UE, sous droit européen, sans transfert hors UE. C'est l'option à privilégier.</li>
+    </ul>
+    <p>Civik-ia utilise <strong>Mistral AI</strong> via un proxy hébergé chez OVH, garantissant l'absence de transfert vers les États-Unis.</p>
+
+    <h3>Le piège de la « réponse hallucinée »</h3>
+    <p>Une IA générative peut inventer des informations fausses (numéros de Cerfa, articles de loi, montants) avec une apparente assurance. Pour une mairie, c'est un risque juridique majeur : un administré pourrait engager la responsabilité de la commune si une réponse fausse lui cause un préjudice.</p>
+    <p><strong>Garde-fous obligatoires</strong> :</p>
+    <ul>
+      <li>Toute réponse doit citer sa source (article de loi, numéro de Cerfa, document municipal)</li>
+      <li>Un disclaimer doit accompagner chaque réponse à caractère juridique (ex : « Information indicative — l'agent municipal valide votre dossier »)</li>
+      <li>Le chatbot doit pouvoir dire « je ne sais pas » plutôt que d'inventer</li>
+      <li>Un système de RAG (Retrieval Augmented Generation) doit ancrer les réponses dans la base documentaire de la commune</li>
+    </ul>
+
+    <h2>Checklist RGPD pour votre DPO</h2>
+
+    <div class="checklist">
+      <h3>Avant le déploiement</h3>
+      <ul>
+        <li>Identifier la base légale du traitement (mission d'intérêt public en général)</li>
+        <li>Inscrire le traitement au registre des activités</li>
+        <li>Évaluer si une AIPD est nécessaire (rare pour un chatbot mairie standard)</li>
+        <li>Rédiger les mentions RGPD à afficher (mentions légales du chatbot)</li>
+        <li>Vérifier le contrat de sous-traitance avec l'éditeur (clauses art. 28 RGPD)</li>
+        <li>Vérifier le pays d'hébergement (UE obligatoire)</li>
+        <li>Vérifier la conformité de l'IA générative utilisée (souveraineté)</li>
+      </ul>
+
+      <h3>Pendant l'exploitation</h3>
+      <ul>
+        <li>Mettre à disposition un point de contact unique pour les droits des personnes</li>
+        <li>Répondre aux demandes d'accès / effacement sous 30 jours maximum</li>
+        <li>Tenir à jour le journal des incidents</li>
+        <li>Réaliser un audit annuel de conformité</li>
+      </ul>
+
+      <h3>Documents à conserver</h3>
+      <ul>
+        <li>Fiche du registre des activités de traitement</li>
+        <li>AIPD si réalisée</li>
+        <li>Mentions RGPD publiées</li>
+        <li>Contrat de sous-traitance signé avec l'éditeur</li>
+        <li>Certificats d'hébergement (ex : attestation OVH SecNumCloud si applicable)</li>
+        <li>Journal des demandes d'exercice de droits</li>
+      </ul>
+    </div>
+
+    <h2>Comment Civik-ia répond à ces obligations</h2>
+    <p>Civik-ia a conçu sa plateforme avec le RGPD comme contrainte de design dès l'origine :</p>
+    <ul>
+      <li><strong>Zéro friction citoyenne</strong> — aucun compte ni inscription requis pour utiliser Marianne. Aucune donnée nominative collectée par défaut.</li>
+      <li><strong>Ciblage par auto-sélection</strong> — pour les campagnes citoyennes, le citoyen se reconnaît dans un libellé (« À l'attention du quartier X ») sans fichier nominatif.</li>
+      <li><strong>Hébergement OVH UE</strong> — tous les traitements ont lieu sur des serveurs européens, sous droit français.</li>
+      <li><strong>IA souveraine Mistral AI</strong> — modèle français hébergé via proxy OVH, zéro transfert vers les États-Unis ou la Chine.</li>
+      <li><strong>Soft-delete avec durées légales</strong> — 5 ans pour les signalements, 3 ans pour les démarches, 1 an pour les chats anonymisés.</li>
+      <li><strong>Export CSV mensuel</strong> — la mairie reçoit la preuve de traitement pour son archivage RGPD.</li>
+      <li><strong>Disclaimer juridique automatique</strong> — chaque réponse sur une démarche se termine par « Information indicative — l'agent municipal valide votre dossier ».</li>
+    </ul>
+
+    <div class="callout">
+      <strong>À retenir</strong> — Le RGPD n'est pas un frein à l'IA en collectivité, c'est un cadre qui structure la confiance. Un chatbot mairie conforme dès la conception (privacy by design) protège à la fois les administrés et la responsabilité juridique de la commune.
+    </div>
+
+    <h2>Pour aller plus loin</h2>
+    <ul>
+      <li><a href="https://www.cnil.fr/fr/intelligence-artificielle" rel="nofollow">Recommandations CNIL sur l'intelligence artificielle</a></li>
+      <li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif chatbot mairie 2026</a> — quelle solution choisir</li>
+      <li><a href="/chatbot-mairie.html">Guide complet du chatbot mairie</a> — fonctionnement et ROI</li>
+      <li><a href="/legal/rgpd.html">Politique RGPD de Civik-ia</a> — notre approche détaillée</li>
+    </ul>
+
+    <div class="cta-block">
+      <h2>Une solution RGPD-native, conçue pour les mairies françaises</h2>
+      <p>Marianne, l'assistante Civik-ia, fonctionne sans inscription citoyenne, sans transfert hors UE, sans collecte nominative. Conforme dès la conception.</p>
+      <a class="cta-btn" href="/demo">Tester la démo →</a>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Accueil</a>
+      <a href="/chatbot-mairie.html">Chatbot mairie</a>
+      <a href="/comparatif-chatbot-mairie-2026.html">Comparatif</a>
+      <a href="/demo">Démo</a>
+      <a href="/legal/mentions-legales.html">Mentions légales</a>
+      <a href="/legal/rgpd.html">RGPD</a>
+    </div>
+    <p>© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr</p>
+  </div>
+</footer>
+</body>
+</html>

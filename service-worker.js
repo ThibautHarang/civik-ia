@@ -4,17 +4,23 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v11';
+const CACHE_NAME = 'civik-ia-v74-geo-aeo-answer-boxes-2026-06-08';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',
   '/campagnes-citoyennes.html',
-  '/demo.html',
+  // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
+  // doit toujours passer par le réseau pour servir la dernière version (mosaïque + ROI + FAQ).
   '/logo-civik-ia.svg',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png',
   '/manifest.json'
 ];
+
+// Paths à NE PAS intercepter par le SW — l'app multi-persona doit toujours passer
+// par le réseau (sinon le browser sert l'ancienne version cachée).
+const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/'];
+const SW_BYPASS_EXACT = ['/demo.html', '/demo'];
 
 // Installation — pr\u00e9-cache des assets statiques
 self.addEventListener('install', (event) => {
@@ -44,6 +50,16 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
+
+  // BYPASS COMPLET — l'app multi-persona (/preview/, /app/, /portrait/, /demo.html)
+  // doit toujours passer par le réseau. Le SW ne doit JAMAIS intercepter.
+  // Sinon le browser servirait l'ancienne version cachée (mobile cassé).
+  if (SW_BYPASS_PREFIXES.some(p => url.pathname.startsWith(p))) {
+    return; // laisse le réseau gérer normalement
+  }
+  if (SW_BYPASS_EXACT.includes(url.pathname)) {
+    return; // /demo.html → redirect 302 nginx, ne pas cacher
+  }
 
   // API calls (chat, stats) → network-first, fallback cache
   if (url.pathname.startsWith('/api/')) {

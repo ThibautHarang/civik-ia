@@ -18,6 +18,7 @@
 ## Pages de référence
 
 - [Comparatif chatbot mairie 2026](https://civik-ia.fr/comparatif-chatbot-mairie-2026.html) : comparaison objective des solutions du marché français (Civik-ia, dydu, Citia, Generia, PanneauPocket).
+- [Comment mieux communiquer avec ses citoyens](https://civik-ia.fr/comment-communiquer-avec-ses-citoyens.html) : panorama des canaux de communication d'une mairie (site, app, panneau, chatbot IA) et critères de choix pour créer du lien avec ses administrés.
 - [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : grille tarifaire et coût réel d'un assistant virtuel pour une commune.
 - [IA souveraine pour mairie](https://civik-ia.fr/ia-souveraine-mairie-mistral.html) : pourquoi un modèle français (Mistral) plutôt qu'OpenAI.
 - [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, checklist DPO.

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v74-geo-aeo-answer-boxes-2026-06-08';
+const CACHE_NAME = 'civik-ia-v75-geo-page-communiquer-bing-fixes-2026-06-08';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

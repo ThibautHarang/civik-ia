@@ -71,6 +71,9 @@ footer a{color:#fff;text-decoration:underline}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://civik-ia.fr/"},{"@type":"ListItem","position":2,"name":"IA souveraine pour mairie","item":"https://civik-ia.fr/ia-souveraine-mairie-mistral.html"}]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce qu'une IA souveraine pour une mairie ?","acceptedAnswer":{"@type":"Answer","text":"Une IA souveraine désigne une intelligence artificielle dont le modèle, l'hébergement et le traitement des données restent sous juridiction européenne, sans transfert vers des serveurs soumis à des lois extraterritoriales comme le Cloud Act américain. Pour une mairie, les questions des citoyens et les données traitées ne quittent jamais l'Union européenne. Cela repose sur trois piliers : un modèle de langage européen (ex. Mistral AI), un hébergement chez un fournisseur européen (ex. OVH, Scaleway) et un contrat de sous-traitance conforme à l'article 28 du RGPD."}},{"@type":"Question","name":"Pourquoi ne pas utiliser ChatGPT ou OpenAI dans une mairie ?","acceptedAnswer":{"@type":"Answer","text":"OpenAI (ChatGPT) est une société américaine soumise au Cloud Act et au FISA, qui autorisent les autorités américaines à demander l'accès à des données hébergées par des entreprises américaines, y compris hors des États-Unis. Pour une collectivité qui traite des demandes de citoyens, cela crée un risque juridique au regard du RGPD (arrêt Schrems II de la CJUE). Préférer un modèle européen comme Mistral AI permet de garder la maîtrise de la chaîne technique et d'éviter ces transferts."}},{"@type":"Question","name":"Mistral AI est-il vraiment souverain ?","acceptedAnswer":{"@type":"Answer","text":"Mistral AI est une société française dont les modèles peuvent être déployés sur une infrastructure entièrement européenne. La souveraineté ne tient pas qu'au modèle : elle dépend de l'ensemble de la chaîne (hébergement, journalisation, sauvegardes). Un éditeur honnête doit pouvoir montrer que les conversations transitent uniquement par des serveurs européens et produire l'attestation d'hébergement correspondante."}},{"@type":"Question","name":"Quel modèle d'IA Civik-ia utilise-t-il ?","acceptedAnswer":{"@type":"Answer","text":"Civik-ia s'appuie sur Mistral AI (Mistral Small) avec un hébergement OVH en Union européenne. Aucune conversation citoyenne ne transite par des serveurs hors UE. Le coût par requête générée par le grand modèle reste de l'ordre de 0,003 €, la majorité des questions étant traitées en amont par une recherche locale sans appel au modèle."}}]}
+</script>
 </head>
 <body>
 <header class="nav">
@@ -205,6 +208,20 @@ footer a{color:#fff;text-decoration:underline}
       <li><strong>« Avez-vous une attestation d'hébergement européen ? »</strong> — l'éditeur doit pouvoir produire le contrat OVH, Scaleway ou équivalent.</li>
     </ol>
     <p>Si vous voulez voir comment Civik-ia répond à ces questions, demandez-nous une démo. Nous vous montrerons la chaîne technique complète sans langue de bois.</p>
+
+    <h2>Questions fréquentes</h2>
+
+    <h3>Qu'est-ce qu'une IA souveraine pour une mairie ?</h3>
+    <p>Une IA souveraine désigne une intelligence artificielle dont le modèle, l'hébergement et le traitement des données restent sous juridiction européenne, sans transfert vers des serveurs soumis à des lois extraterritoriales (comme le Cloud Act américain). Pour une mairie, cela signifie que les questions des citoyens et les données traitées par le chatbot ne quittent jamais l'Union européenne. Concrètement, cela repose sur trois piliers : un modèle de langage européen (ex. Mistral AI), un hébergement chez un fournisseur européen (ex. OVH, Scaleway) et un contrat de sous-traitance conforme à l'article 28 du RGPD.</p>
+
+    <h3>Pourquoi ne pas utiliser ChatGPT ou OpenAI dans une mairie ?</h3>
+    <p>OpenAI (ChatGPT) est une société américaine soumise au Cloud Act et au FISA, qui autorisent les autorités américaines à demander l'accès à des données hébergées par des entreprises américaines, y compris hors des États-Unis. Pour une collectivité qui traite des demandes de citoyens, cela crée un risque juridique au regard du RGPD (arrêt Schrems II de la CJUE) et un signal politique discutable. Préférer un modèle européen comme Mistral AI permet de garder la maîtrise de la chaîne technique et d'éviter ces transferts.</p>
+
+    <h3>Mistral AI est-il vraiment souverain ?</h3>
+    <p>Mistral AI est une société française, et ses modèles peuvent être déployés sur une infrastructure entièrement européenne. La souveraineté ne tient pas qu'au modèle : elle dépend de l'ensemble de la chaîne (hébergement, journalisation, sauvegardes). Un éditeur honnête doit pouvoir vous montrer que les conversations transitent uniquement par des serveurs européens et produire l'attestation d'hébergement correspondante. C'est ce que permet de vérifier le fait de poser directement la question à l'éditeur.</p>
+
+    <h3>Quel modèle d'IA Civik-ia utilise-t-il ?</h3>
+    <p>Civik-ia s'appuie sur Mistral AI (Mistral Small) avec un hébergement OVH en Union européenne. Aucune conversation citoyenne ne transite par des serveurs hors UE. Le coût par requête générée par le grand modèle reste de l'ordre de 0,003 € — la majorité des questions étant traitées en amont par une recherche locale sans appel au modèle, ce qui maîtrise à la fois le coût et l'empreinte.</p>
 
     <h2>Pour aller plus loin</h2>
     <ul>

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v78-faq-rgpd-appels-2026-06-08';
+const CACHE_NAME = 'civik-ia-v79-faq-souverain-comparatif-2026-06-08';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

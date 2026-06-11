@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marianne sur WhatsApp — Civik-ia | Connectez votre mairie</title>
+<meta name="description" content="Branchez l'IA citoyenne Civik-ia au WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, signalements avec photo et géolocalisation, bascule vers vos agents. Souverain, RGPD natif, dès 99 €/mois HT.">
+<link rel="canonical" href="https://civik-ia.fr/marianne-whatsapp.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Votre mairie est sur WhatsApp ? Connectez-la à Civik-ia">
+<meta property="og:description" content="Marianne répond à vos citoyens sur WhatsApp, 24 h/24, avec vos informations vérifiées, et passe la main à vos agents quand il le faut.">
+<meta property="og:url" content="https://civik-ia.fr/marianne-whatsapp.html">
+<meta property="og:image" content="https://civik-ia.fr/assets/wa-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  @keyframes ciFloat{0%,100%{transform:translateY(-9px);}50%{transform:translateY(9px);}}
+  @keyframes ciPulse{0%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.8);}100%{opacity:1;transform:scale(1);}}
+  @keyframes ciTyping{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
+  @keyframes ciMsgIn{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+  @keyframes ciBadgePulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,145,0.42),0 0 0 0 rgba(0,123,255,0.4);}50%{box-shadow:0 16px 38px rgba(0,0,145,0.5),0 0 0 12px rgba(0,123,255,0);}}
+  @keyframes ciBadgeFloat{0%,100%{transform:rotate(-4deg) translateY(0);}50%{transform:rotate(-4deg) translateY(-3px);}}
+  a{text-decoration:none;}
+  .lnk{transition:color .2s;}
+  .lnk:hover{color:#2EC4B6;}
+  .btn-pri{transition:transform .2s, box-shadow .2s;}
+  .btn-pri:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,0,145,0.38);}
+  .btn-out{transition:all .2s;}
+  .btn-out:hover{background:#2EC4B6;border-color:#2EC4B6;color:#fff;transform:translateY(-3px);}
+  .navcta{transition:transform .2s, box-shadow .2s;}
+  .navcta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,145,0.36);}
+  .replay{transition:color .2s;}
+  .replay:hover{color:#000091;}
+  .sc-btn{transition:all .3s cubic-bezier(0.34,1.56,0.64,1);}
+  @media (max-width:920px){
+    .hero-grid,.demo-grid{grid-template-columns:1fr !important;}
+    .steps-grid,.caps-grid{grid-template-columns:1fr !important;}
+    .offer-grid{grid-template-columns:1fr !important;}
+    .hero-phone-wrap{margin:0 auto;}
+  }
+  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+</style>
+</head>
+<body>
+<div style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;background-image:radial-gradient(circle at 2px 2px, rgba(0,0,91,0.04) 1px, transparent 0);background-size:42px 42px;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;">
+
+  <!-- ============ NAV ============ -->
+  <nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;background:rgba(247,244,237,0.86);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);border-bottom:1px solid rgba(200,190,170,0.28);">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="/" style="display:flex;"><img src="assets/wa-logo.png" alt="Civik-ia" style="height:40px;width:auto;display:block;mix-blend-mode:multiply;"></a>
+        <span style="width:1px;height:26px;background:rgba(0,0,91,0.16);display:block;"></span>
+        <span style="display:inline-flex;align-items:center;gap:7px;font:600 14px 'Inter';color:#075E54;">
+          <svg viewBox="0 0 32 32" width="20" height="20"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M16 6.4c-5.3 0-9.6 4.3-9.6 9.5 0 1.7.5 3.3 1.3 4.8l-1.4 5 5.1-1.3c1.4.8 2.9 1.2 4.6 1.2 5.3 0 9.6-4.3 9.6-9.5S21.3 6.4 16 6.4z"/><path fill="#25D366" d="M12.2 11.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.1s1 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.3.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.7-.3-1.5-.6-2.1-1.4-.5-.6-.9-1.3-1-1.5-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.3-.1-.4l-.7-1.9z"/></svg>
+          WhatsApp
+        </span>
+      </div>
+      <div style="display:flex;align-items:center;gap:34px;font:500 15px 'Inter';color:#1E1E1E;">
+        <a class="lnk" href="#demo" style="color:inherit;">Démo en direct</a>
+        <a class="lnk" href="#tarifs" style="color:inherit;">Tarifs</a>
+        <a class="lnk" href="#capacites" style="color:inherit;">Fonctionnalités</a>
+      </div>
+      <a class="navcta" href="#demo" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 14px 'Inter';white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,145,0.28);">Demander une démo</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section style="position:relative;padding:188px 0 110px;overflow:hidden;">
+    <div style="position:absolute;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle, rgba(0,123,255,0.12) 0%, rgba(247,244,237,0) 70%);top:-220px;right:-260px;z-index:0;"></div>
+    <img src="assets/wa-logo-seul.png" alt="" style="position:absolute;left:-120px;bottom:-80px;width:420px;opacity:0.05;mix-blend-mode:multiply;z-index:0;pointer-events:none;">
+    <div class="hero-grid" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.06fr 0.94fr;gap:56px;align-items:center;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:rgba(37,211,102,0.10);border:1px solid rgba(37,211,102,0.28);border-radius:9999px;font:600 13px 'Inter';color:#075E54;margin-bottom:26px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#25D366;animation:ciPulse 1.6s infinite;display:block;"></span>
+          Nouveau canal
+          <span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;background:#fff;border-radius:9999px;color:#1E1E1E;">
+            <img src="assets/wa-logo-seul.png" style="height:14px;mix-blend-mode:multiply;" alt="">
+            <span style="color:#000091;">→</span>
+            <svg viewBox="0 0 32 32" width="15" height="15"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M16 6.4c-5.3 0-9.6 4.3-9.6 9.5 0 1.7.5 3.3 1.3 4.8l-1.4 5 5.1-1.3c1.4.8 2.9 1.2 4.6 1.2 5.3 0 9.6-4.3 9.6-9.5S21.3 6.4 16 6.4z"/></svg>
+          </span>
+        </div>
+        <h1 style="font-family:'Poppins';font-weight:900;font-size:62px;letter-spacing:-2.4px;line-height:1.04;color:#000091;margin:0 0 22px;">
+          Votre mairie est sur WhatsApp&#8239;?<br><span style="background:linear-gradient(120deg,#007bff,#2EC4B6);-webkit-background-clip:text;background-clip:text;color:transparent;">Connectez-la à Civik-ia</span>
+        </h1>
+        <p style="font-size:20px;color:#5a5a5a;max-width:560px;margin:0 0 34px;text-wrap:pretty;">
+          Connectez l'IA souveraine de Civik-ia au WhatsApp de votre commune. Réponses fiables, sourcées sur vos arrêtés et votre PLU, flux de signalement interactif, et basculement intelligent vers vos agents
+        </p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;">
+          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Testez Civik-ia en direct →</a>
+          <a class="btn-out" href="#fonctionnement" style="display:inline-flex;align-items:center;padding:16px 30px;border-radius:9999px;border:1.5px solid #000091;color:#000091;background:transparent;font:600 16px 'Inter';">Comment ça marche</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:22px;font:500 14px 'Inter';color:#5a5a5a;flex-wrap:wrap;">
+          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> Aucune app à installer</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> RGPD natif · OVH</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> Dès 99 €/mois HT</span>
+        </div>
+      </div>
+      <div class="hero-phone-wrap" style="position:relative;display:flex;justify-content:center;">
+        <div style="width:316px;animation:ciFloat 6s ease-in-out infinite;position:relative;">
+          <div style="position:absolute;top:-20px;right:-22px;z-index:30;transform:rotate(-4deg);animation:ciBadgeFloat 4s ease-in-out infinite;">
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:linear-gradient(135deg,#000091,#0a5bff 58%,#2EC4B6);border-radius:9999px;font:800 13px 'Inter';letter-spacing:0.9px;text-transform:uppercase;color:#faf6eb;animation:ciBadgePulse 2.6s ease-in-out infinite;">
+              <span style="font-size:14px;line-height:1;">✦</span>Nouveauté
+            </div>
+          </div>
+          <div style="border:13px solid #0b141a;border-radius:46px;background:#efeae2;overflow:hidden;box-shadow:0 50px 100px -22px rgba(10,10,30,0.32),0 30px 60px -30px rgba(0,0,0,0.4);aspect-ratio:9/19.2;position:relative;">
+            <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:26px;background:#0b141a;border-bottom-left-radius:16px;border-bottom-right-radius:16px;z-index:10;"></div>
+            <div style="background:#075E54;padding:34px 14px 11px;display:flex;align-items:center;gap:9px;color:#fff;">
+              <span style="font-size:22px;font-weight:300;line-height:1;opacity:.9;">‹</span>
+              <div style="width:38px;height:38px;border-radius:50%;background:#faf6eb;display:grid;place-items:center;overflow:hidden;flex:0 0 auto;">
+                <img src="assets/wa-logo-seul.png" style="width:26px;height:26px;mix-blend-mode:multiply;" alt="">
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font:600 15px 'Inter';line-height:1.2;">Mairie de Saint‑Rémy</div>
+                <div style="font:400 11px 'Inter';opacity:.82;">Compte professionnel</div>
+              </div>
+              <span style="opacity:.8;font-size:15px;">⋮</span>
+            </div>
+            <div style="padding:14px 12px;display:flex;flex-direction:column;gap:7px;background:#efeae2;height:calc(100% - 64px);">
+              <div style="align-self:center;background:#fdf6c9;color:#54656f;font:500 10px 'Inter';padding:4px 11px;border-radius:8px;margin:2px 0 6px;text-align:center;box-shadow:0 1px .5px rgba(0,0,0,.08);">Compte professionnel · réponses automatisées de la mairie</div>
+              <div style="align-self:flex-end;max-width:80%;background:#d9fdd3;border-radius:12px 12px 4px 12px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Bonjour, la déchèterie est ouverte demain ?<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:47 <span style="color:#53bdeb;">✓✓</span></div></div>
+              <div style="align-self:flex-start;max-width:84%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Bonsoir 👋 Oui, la déchèterie de Saint‑Rémy est ouverte demain (samedi) de 9 h à 12 h et de 14 h à 17 h.<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:47</div></div>
+              <div style="align-self:flex-start;max-width:84%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Souhaitez‑vous la liste des déchets acceptés ? ♻️<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:47</div></div>
+              <div style="align-self:flex-end;max-width:80%;background:#d9fdd3;border-radius:12px 12px 4px 12px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Oui volontiers 🙏<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:48 <span style="color:#53bdeb;">✓✓</span></div></div>
+              <div style="align-self:flex-start;max-width:84%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Acceptés : gravats, déchets verts, encombrants, ferraille, cartons et déchets électroniques.<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:48</div></div>
+              <div style="align-self:flex-start;max-width:84%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">⚠️ Pensez à votre badge d'accès. Besoin de l'adresse exacte ou d'un itinéraire ?<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:48</div></div>
+              <div style="align-self:flex-end;max-width:80%;background:#d9fdd3;border-radius:12px 12px 4px 12px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Parfait, merci beaucoup !<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:49 <span style="color:#53bdeb;">✓✓</span></div></div>
+              <div style="align-self:flex-start;max-width:84%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;font:400 13.5px 'Inter';color:#111b21;box-shadow:0 1px .5px rgba(0,0,0,.13);">Avec plaisir, belle soirée 🌙<div style="font:400 10px 'Inter';color:#667781;text-align:right;margin-top:1px;">22:49</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 12px 'Inter';color:#5a5a5a;background:rgba(247,244,237,0.9);padding:5px 14px;border-radius:9999px;border:1px solid rgba(200,190,170,0.4);">Conversation propulsée par <span style="color:#000091;font-weight:700;">Civik-ia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEMO ============ -->
+  <section id="demo" style="position:relative;padding:108px 0;background:#f5f2eb;background-image:radial-gradient(circle at 2px 2px, rgba(0,0,91,0.04) 1px, transparent 0);background-size:42px 42px;border-top:1px solid rgba(200,190,170,0.3);">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;">
+      <div style="text-align:center;max-width:680px;margin:0 auto 56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(46,196,182,0.12);color:#2EC4B6;border-radius:9999px;font:600 13px 'Inter';margin-bottom:18px;"><span style="width:7px;height:7px;border-radius:50%;background:#2EC4B6;animation:ciPulse 1.5s infinite;display:block;"></span>Démo interactive</div>
+        <h2 style="font-family:'Poppins';font-weight:900;font-size:44px;letter-spacing:-1.6px;line-height:1.1;color:#000091;margin:0 0 16px;">Posez une question,<br>et laissez Marianne répondre</h2>
+        <p style="font-size:19px;color:#5a5a5a;margin:0;text-wrap:pretty;">Quatre situations réelles d'une mairie. Une seule interface : le WhatsApp que vos citoyens ont déjà dans la poche</p>
+      </div>
+      <div class="demo-grid" style="display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center;">
+        <div>
+          <div style="font:600 13px 'Inter';letter-spacing:1.5px;text-transform:uppercase;color:#5a5a5a;margin-bottom:16px;">Scénarios</div>
+          <div id="sc-list" style="display:flex;flex-direction:column;gap:12px;margin-bottom:34px;"></div>
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:rgba(247,244,237,0.6);backdrop-filter:blur(10px) saturate(150%);-webkit-backdrop-filter:blur(10px) saturate(150%);border:1px solid rgba(200,190,170,0.3);border-radius:18px;box-shadow:0 12px 30px rgba(40,30,10,0.06);">
+            <span style="width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;background:linear-gradient(135deg,#000091,#007bff);">
+              <img src="assets/wa-logo-seul.png" style="width:24px;filter:brightness(0) invert(1);" alt="">
+            </span>
+            <div>
+              <div id="note-title" style="font:700 15px 'Poppins';color:#000091;margin-bottom:3px;"></div>
+              <div id="note-text" style="font:400 14.5px 'Inter';color:#5a5a5a;line-height:1.55;"></div>
+            </div>
+          </div>
+          <button id="replay" class="replay" style="all:unset;cursor:pointer;margin-top:18px;display:inline-flex;align-items:center;gap:8px;font:600 14px 'Inter';color:#2EC4B6;">↻ Rejouer la conversation</button>
+        </div>
+        <div style="position:relative;display:flex;justify-content:center;">
+          <div style="width:340px;">
+            <div style="border:13px solid #0b141a;border-radius:48px;background:#efeae2;overflow:hidden;box-shadow:0 40px 80px -18px rgba(10,10,30,0.4);height:700px;position:relative;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:132px;height:27px;background:#0b141a;border-bottom-left-radius:17px;border-bottom-right-radius:17px;z-index:10;"></div>
+              <div style="position:absolute;top:9px;left:30px;right:30px;display:flex;justify-content:space-between;font:600 12px 'Inter';color:#fff;z-index:15;"><span>22:47</span><span style="letter-spacing:2px;">● ▲ ▮</span></div>
+              <div style="background:#075E54;padding:36px 14px 11px;display:flex;align-items:center;gap:9px;color:#fff;">
+                <span style="font-size:23px;font-weight:300;line-height:1;opacity:.9;">‹</span>
+                <div style="width:40px;height:40px;border-radius:50%;background:#faf6eb;display:grid;place-items:center;overflow:hidden;flex:0 0 auto;">
+                  <img src="assets/wa-logo-seul.png" style="width:27px;height:27px;mix-blend-mode:multiply;" alt="">
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="font:600 15px 'Inter';line-height:1.2;">Mairie de Saint‑Rémy</div>
+                  <div id="hdr-status" style="font:400 11px 'Inter';opacity:.82;">Compte professionnel</div>
+                </div>
+                <span style="opacity:.8;font-size:16px;letter-spacing:3px;">📞 ⋮</span>
+              </div>
+              <div id="wa-chat" style="padding:14px 11px;display:flex;flex-direction:column;gap:7px;background:#efeae2;height:calc(100% - 66px - 54px);overflow-y:auto;"></div>
+              <div style="position:absolute;bottom:0;left:0;right:0;height:54px;background:#efeae2;display:flex;align-items:center;gap:8px;padding:8px 12px;">
+                <div style="flex:1;height:38px;background:#fff;border-radius:9999px;display:flex;align-items:center;padding:0 14px;font:400 13px 'Inter';color:#9aa3a8;box-shadow:0 1px .5px rgba(0,0,0,.1);">Écrivez à votre mairie…</div>
+                <div style="width:38px;height:38px;border-radius:50%;background:#075E54;display:grid;place-items:center;color:#fff;font-size:16px;">➤</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMENT CA MARCHE ============ -->
+  <section id="fonctionnement" style="padding:112px 0;">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;">
+      <div style="text-align:center;max-width:660px;margin:0 auto 60px;">
+        <h2 style="font-family:'Poppins';font-weight:900;font-size:44px;letter-spacing:-1.6px;line-height:1.1;color:#000091;margin:0 0 16px;">Connecté à votre WhatsApp.<br>Sans service informatique</h2>
+        <p style="font-size:19px;color:#5a5a5a;margin:0;text-wrap:pretty;">Civik-ia se connecte à votre numéro WhatsApp Business existant. Vous gardez votre numéro, votre nom de mairie, vos horaires</p>
+      </div>
+      <div class="steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
+        <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE 01</div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Nous connectons votre numéro</h3>
+          <p style="font-size:15.5px;color:#5a5a5a;margin:0;">On relie votre WhatsApp Business à la Plateforme d'Intelligence Citoyenne. Mise en service accompagnée, zéro ligne de code de votre côté.</p>
+        </div>
+        <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE 02</div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Marianne apprend votre commune</h3>
+          <p style="font-size:15.5px;color:#5a5a5a;margin:0;">PLU, arrêtés municipaux, horaires, démarches d'état civil, élus. Tout est ingéré et vérifié, source par source.</p>
+        </div>
+        <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE 03</div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Vos citoyens écrivent</h3>
+          <p style="font-size:15.5px;color:#5a5a5a;margin:0;">Ils envoient un message comme à un proche. Marianne répond en français, à toute heure, et passe la main à un agent si besoin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPACITES ============ -->
+  <section id="capacites" style="padding:112px 0;background:#f5f2eb;border-top:1px solid rgba(200,190,170,0.3);">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 56px;">
+        <h2 style="font-family:'Poppins';font-weight:900;font-size:44px;letter-spacing:-1.6px;line-height:1.1;color:#000091;margin:0 0 16px;">Plus qu'un chatbot.<br>Un agent d'accueil numérique</h2>
+      </div>
+      <div class="caps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,0,145,0.07);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#000091" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.6 9a1 1 0 0 1-.8 0C6.5 19.5 3 17 3 12V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1 1 0 0 1 1.6 0C13.5 3.8 16 5 18 5a1 1 0 0 1 1 1z"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Réponses sourcées</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Chaque réponse est sourcée sur vos documents officiels. Pas d'invention, pas d'à-peu-près juridique.</p>
+        </div>
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(37,211,102,0.1);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#1b7a5a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Flux de signalement</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Photo, géolocalisation, numéro de suivi. Le signalement arrive structuré dans vos services techniques.</p>
+        </div>
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(46,196,182,0.12);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2EC4B6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Basculement vers vos agents</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Sujet sensible ou hors périmètre ? Marianne transmet la conversation au bon service, sans perte de contexte.</p>
+        </div>
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,0,145,0.07);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#000091" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Aucune app à installer</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Vos citoyens utilisent le WhatsApp qu'ils ont déjà. Zéro friction, y compris pour les moins connectés.</p>
+        </div>
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(244,162,97,0.14);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#cf7d35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Tableau de bord élu</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Toutes les conversations remontent. Vous voyez ce qui préoccupe vos citoyens, en temps réel.</p>
+        </div>
+        <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
+          <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,0,145,0.07);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#000091" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Disponible 24 h/24</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Le soir, le week-end, les jours fériés. Votre mairie est fermée, mais votre citoyen, lui, ne l'est pas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFRE DE LANCEMENT ============ -->
+  <section id="tarifs" style="padding:96px 0 24px;">
+    <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
+      <div class="offer-grid" style="position:relative;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;padding:46px 48px;background:#efeae1;border:1px solid rgba(244,162,97,0.4);border-radius:28px;box-shadow:0 24px 60px rgba(40,30,10,0.1);overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#F4A261,#f7c08a,#F4A261);"></div>
+        <div style="position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(244,162,97,0.16) 0%,rgba(239,234,225,0) 70%);top:-120px;right:-80px;pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(244,162,97,0.16);color:#cf7d35;border-radius:9999px;font:700 13px 'Inter';margin-bottom:18px;">★ Offre de lancement · Premières communes</div>
+          <h2 style="font-family:'Poppins';font-weight:900;font-size:34px;letter-spacing:-1.1px;line-height:1.12;color:#000091;margin:0 0 12px;">Soyez parmi les premières mairies connectées</h2>
+          <p style="font-size:16.5px;color:#5a5a5a;margin:0 0 22px;text-wrap:pretty;">Les premières communes qui rejoignent Civik-ia bénéficient d'un tarif partenaire pendant 3 mois, le temps de prendre vos marques, sans engagement de budget</p>
+          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Réserver l'offre de lancement →</a>
+        </div>
+        <div style="position:relative;z-index:1;text-align:center;background:#faf6eb;border:1px solid rgba(200,190,170,0.4);border-radius:22px;padding:30px 26px;box-shadow:0 12px 30px rgba(40,30,10,0.06);">
+          <div style="font:500 14px 'Inter';color:#9aa3a8;text-decoration:line-through;margin-bottom:2px;">99 €/mois HT</div>
+          <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;">
+            <span style="font-family:'Poppins';font-weight:900;font-size:58px;letter-spacing:-2.5px;line-height:1;background:linear-gradient(120deg,#000091,#2EC4B6);-webkit-background-clip:text;background-clip:text;color:transparent;">9,99&#8239;€</span>
+          </div>
+          <div style="font:600 14px 'Inter';color:#1E1E1E;margin-top:6px;">/mois HT · pendant 3 mois</div>
+          <div style="height:1px;background:rgba(200,190,170,0.4);margin:18px 0;"></div>
+          <div style="font:500 13.5px 'Inter';color:#5a5a5a;line-height:1.55;">Puis 99&#8239;€/mois HT, sans engagement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section style="padding:120px 0;text-align:center;">
+    <div style="max-width:760px;margin:0 auto;padding:0 40px;">
+      <div style="display:inline-flex;align-items:center;gap:12px;margin-bottom:30px;">
+        <img src="assets/wa-logo-seul.png" style="height:46px;mix-blend-mode:multiply;" alt="">
+        <span style="font-size:30px;color:#000091;font-weight:300;">+</span>
+        <svg viewBox="0 0 32 32" width="46" height="46"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M16 6.4c-5.3 0-9.6 4.3-9.6 9.5 0 1.7.5 3.3 1.3 4.8l-1.4 5 5.1-1.3c1.4.8 2.9 1.2 4.6 1.2 5.3 0 9.6-4.3 9.6-9.5S21.3 6.4 16 6.4z"/><path fill="#25D366" d="M12.2 11.1c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.1s1 2.4 1.1 2.6c.1.2 1.9 2.9 4.6 4 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.3.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.6.8c-.1.2-.3.2-.5.1-.7-.3-1.5-.6-2.1-1.4-.5-.6-.9-1.3-1-1.5-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5s0-.3-.1-.4l-.7-1.9z"/></svg>
+      </div>
+      <h2 style="font-family:'Poppins';font-weight:900;font-size:44px;letter-spacing:-1.8px;line-height:1.08;color:#000091;margin:0 0 20px;text-wrap:balance;">Rapprochez la mairie de ses citoyens<br>grâce à Civik-ia sur WhatsApp</h2>
+      <p style="font-size:20px;color:#5a5a5a;margin:0 0 38px;text-wrap:pretty;">Une démo sur votre propre commune, rapidement</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:17px 36px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 17px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Demander une démo →</a>
+        <a class="btn-out" href="livre-blanc.html" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:9999px;border:1.5px solid #000091;color:#000091;background:transparent;font:600 17px 'Inter';">Télécharger le livre blanc</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="padding:48px 0 40px;border-top:1px solid rgba(200,190,170,0.35);background:#efeae1;">
+    <div style="max-width:1240px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <a href="/" style="display:flex;"><img src="assets/wa-logo.png" alt="Civik-ia" style="height:34px;mix-blend-mode:multiply;"></a>
+      <div style="font:500 13px 'Inter';color:#5a5a5a;">Plateforme d'Intelligence Citoyenne · Hébergement souverain OVH · RGPD natif</div>
+      <div style="font:500 13px 'Inter';color:#5a5a5a;">Dès 99 €/mois HT · 🇫🇷 Conçu en France</div>
+    </div>
+    <div style="max-width:1240px;margin:18px auto 0;padding:0 40px;font:400 11.5px 'Inter';color:#9a9182;line-height:1.5;">
+      Conversations illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) ; WhatsApp est un canal de transport choisi par la mairie.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  var SCENARIOS = [
+    { id:'urba', label:'Urbanisme', sub:'Permis, clôtures, PLU', glyph:'🏛️', accent:'#000091',
+      note:"Marianne s'appuie sur votre PLU et le Code de l'urbanisme pour qualifier la démarche exacte, et propose le bon Cerfa.",
+      script:[
+        {sender:'user',text:"Bonjour, ai-je besoin d'un permis pour une clôture de 1,80 m ?",time:'22:47'},
+        {sender:'bot',text:"Bonjour 👋 Pour une clôture, une simple déclaration préalable suffit dans notre commune (art. R.421‑12 du PLU).",time:'22:47'},
+        {sender:'bot',text:"Je peux vous transmettre le formulaire Cerfa n° 13703. Souhaitez‑vous le recevoir ici ? 📄",time:'22:47'}
+      ]},
+    { id:'etat', label:'État civil', sub:'Actes, démarches', glyph:'📋', accent:'#007bff',
+      note:"Les démarches d'état civil sont guidées étape par étape, avec les délais réels et les pièces à fournir.",
+      script:[
+        {sender:'user',text:"Comment obtenir un acte de naissance ?",time:'22:48'},
+        {sender:'bot',text:"La demande est gratuite. Pour un acte né à Saint‑Rémy, indiquez‑moi votre nom de naissance et votre date de naissance.",time:'22:48'},
+        {sender:'bot',text:"Délai habituel : 3 à 5 jours ouvrés, par voie postale. 📬",time:'22:48'}
+      ]},
+    { id:'signal', label:'Signalement', sub:'Photo + géoloc + suivi', glyph:'📍', accent:'#2EC4B6',
+      note:"Le citoyen envoie une photo et une localisation. Marianne crée un ticket structuré avec numéro de suivi pour vos services techniques.",
+      script:[
+        {sender:'user',text:"Il y a un lampadaire cassé rue des Lilas",time:'22:50'},
+        {sender:'bot',text:"Merci pour ce signalement. Pouvez‑vous m'envoyer une photo et préciser le numéro le plus proche ?",time:'22:50'},
+        {sender:'user',text:"Au niveau du 14",time:'22:51',photo:'Rue des Lilas'},
+        {sender:'bot',text:"C'est noté ✅ Signalement n° SR‑2048 transmis aux services techniques. Vous serez notifié dès résolution.",time:'22:51'}
+      ]},
+    { id:'agent', label:'Parler à un agent', sub:'Basculement intelligent', glyph:'🧑‍💼', accent:'#cf7d35',
+      note:"Quand une demande nécessite un humain, Marianne ne bricole pas : elle transmet la conversation au bon service, avec tout le contexte.",
+      script:[
+        {sender:'user',text:"Bonjour, je voudrais réserver la salle des fêtes pour un anniversaire",time:'09:12'},
+        {sender:'bot',text:"Avec plaisir ! La réservation se fait avec un agent, qui vérifiera les disponibilités et le contrat de location. Je vous mets en relation.",time:'09:12'},
+        {sender:'system',text:'🔄 Vous êtes mis en relation avec un agent'},
+        {sender:'agent',agentName:'Claire · Accueil mairie',text:"Bonjour, je prends le relais 🙂 Pour quelle date et combien de personnes environ ?",time:'09:13'}
+      ]}
+  ];
+
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var state = { activeId:'urba', messages:[], typing:false };
+  var timers = [];
+  function clearTimers(){timers.forEach(function(t){clearTimeout(t);});timers=[];}
+  function $(id){return document.getElementById(id);}
+  function active(){return SCENARIOS.filter(function(s){return s.id===state.activeId;})[0];}
+
+  function renderScenarios(){
+    var html = SCENARIOS.map(function(s){
+      var on = s.id===state.activeId;
+      return '<button class="sc-btn" data-id="'+s.id+'" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:18px;border:1px solid '+(on?s.accent:'rgba(200,190,170,0.4)')+';background:'+(on?'#ffffff':'rgba(255,255,255,0.5)')+';box-shadow:'+(on?'0 16px 38px rgba(0,0,145,0.12)':'0 6px 16px rgba(40,30,10,0.04)')+';">'+
+        '<span style="width:38px;height:38px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;background:'+(on?s.accent:'rgba(0,0,91,0.06)')+';color:'+(on?'#ffffff':'#1E1E1E')+';font-size:18px;">'+s.glyph+'</span>'+
+        '<span style="flex:1;"><span style="display:block;font:700 16px \'Poppins\';color:'+(on?'#000091':'#1E1E1E')+';letter-spacing:-0.3px;">'+esc(s.label)+'</span>'+
+        '<span style="display:block;font:400 13px \'Inter\';color:'+(on?'#5a5a5a':'#8a8377')+';margin-top:1px;">'+esc(s.sub)+'</span></span>'+
+        '<span style="font-size:18px;color:'+(on?s.accent:'rgba(0,0,91,0.2)')+';">→</span></button>';
+    }).join('');
+    $('sc-list').innerHTML = html;
+    Array.prototype.forEach.call($('sc-list').querySelectorAll('.sc-btn'),function(b){
+      b.addEventListener('click',function(){ play(b.getAttribute('data-id')); });
+    });
+  }
+
+  function bubbleUser(m){
+    var photo = m.photo ? '<div style="height:120px;border-radius:8px;margin-bottom:5px;background:linear-gradient(160deg,#1a2b33,#36505c 55%,#0b141a);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:8px;">'+
+      '<span style="position:absolute;top:34px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:#ffd24a;box-shadow:0 0 18px 7px rgba(255,210,74,0.55);"></span>'+
+      '<span style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:3px;height:42px;background:#5d6b72;"></span>'+
+      '<span style="font:600 10px \'Inter\';color:#fff;background:rgba(0,0,0,0.4);padding:3px 7px;border-radius:6px;">📍 '+esc(m.photo)+'</span></div>' : '';
+    return '<div style="align-self:flex-end;max-width:80%;background:#d9fdd3;border-radius:12px 12px 4px 12px;padding:7px 9px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ciMsgIn .35s ease both;">'+
+      photo+'<div style="font:400 13.5px \'Inter\';color:#111b21;">'+esc(m.text)+'</div>'+
+      '<div style="font:400 10px \'Inter\';color:#667781;text-align:right;margin-top:1px;">'+esc(m.time||'')+' <span style="color:#53bdeb;">✓✓</span></div></div>';
+  }
+  function bubbleBot(m){
+    return '<div style="align-self:flex-start;max-width:85%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ciMsgIn .35s ease both;">'+
+      '<div style="font:400 13.5px \'Inter\';color:#111b21;">'+esc(m.text)+'</div>'+
+      '<div style="font:400 10px \'Inter\';color:#667781;text-align:right;margin-top:1px;">'+esc(m.time||'')+'</div></div>';
+  }
+  function bubbleAgent(m){
+    return '<div style="align-self:flex-start;max-width:85%;background:#fff;border-radius:12px 12px 12px 4px;padding:7px 10px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ciMsgIn .35s ease both;">'+
+      '<div style="font:700 11px \'Inter\';color:#2EC4B6;margin-bottom:2px;">'+esc(m.agentName||'')+'</div>'+
+      '<div style="font:400 13.5px \'Inter\';color:#111b21;">'+esc(m.text)+'</div>'+
+      '<div style="font:400 10px \'Inter\';color:#667781;text-align:right;margin-top:1px;">'+esc(m.time||'')+'</div></div>';
+  }
+  function bubbleSystem(m){
+    return '<div style="align-self:center;background:#e2f3eb;color:#1b7a5a;font:600 10.5px \'Inter\';padding:5px 12px;border-radius:8px;margin:5px 0;text-align:center;box-shadow:0 1px .5px rgba(0,0,0,.06);animation:ciMsgIn .35s ease both;">'+esc(m.text)+'</div>';
+  }
+  function typingBubble(){
+    return '<div style="align-self:flex-start;display:flex;gap:4px;padding:11px 13px;background:#fff;border-radius:12px 12px 12px 4px;box-shadow:0 1px .5px rgba(0,0,0,.13);">'+
+      '<span style="width:7px;height:7px;border-radius:50%;background:#2EC4B6;animation:ciTyping 1.2s infinite;display:block;"></span>'+
+      '<span style="width:7px;height:7px;border-radius:50%;background:#2EC4B6;animation:ciTyping 1.2s infinite .15s;display:block;"></span>'+
+      '<span style="width:7px;height:7px;border-radius:50%;background:#2EC4B6;animation:ciTyping 1.2s infinite .3s;display:block;"></span></div>';
+  }
+
+  function renderChat(){
+    var html = '<div style="align-self:center;background:#fdf6c9;color:#54656f;font:500 10px \'Inter\';padding:4px 11px;border-radius:8px;margin:2px 0 4px;text-align:center;box-shadow:0 1px .5px rgba(0,0,0,.08);">Compte professionnel · réponses automatisées</div>';
+    state.messages.forEach(function(m){
+      if(m.sender==='system') html+=bubbleSystem(m);
+      else if(m.sender==='user') html+=bubbleUser(m);
+      else if(m.sender==='agent') html+=bubbleAgent(m);
+      else html+=bubbleBot(m);
+    });
+    if(state.typing) html+=typingBubble();
+    var chat=$('wa-chat'); chat.innerHTML=html; chat.scrollTop=chat.scrollHeight;
+    $('hdr-status').textContent = state.typing ? 'Marianne écrit…' : 'Compte professionnel';
+  }
+  function renderNote(){ var s=active(); $('note-title').textContent=s.label; $('note-text').textContent=s.note; }
+
+  function play(id){
+    clearTimers();
+    state.activeId=id; state.messages=[]; state.typing=false;
+    renderScenarios(); renderNote(); renderChat();
+    var sc=active(); var delay=350;
+    sc.script.forEach(function(m){
+      if(m.sender==='user'||m.sender==='system'){
+        timers.push(setTimeout(function(){ state.messages.push(m); state.typing=false; renderChat(); }, delay));
+        delay += m.photo?950:750;
+      }else{
+        timers.push(setTimeout(function(){ state.typing=true; renderChat(); }, delay));
+        delay += 1300;
+        timers.push(setTimeout(function(){ state.messages.push(m); state.typing=false; renderChat(); }, delay));
+        delay += 550;
+      }
+    });
+  }
+
+  $('replay').addEventListener('click',function(){ play(state.activeId); });
+  renderScenarios();
+  play('urba');
+})();
+</script>
+</body>
+</html>

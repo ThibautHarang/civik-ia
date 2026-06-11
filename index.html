@@ -285,9 +285,14 @@ body{
   background:var(--ci-cream);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
+  overflow-x:clip;
+  max-width:100%;
 }
-img{display:block;max-width:100%}
+/* Anti-scroll horizontal mobile : clipper AUSSI la racine (iOS Safari scrolle sur <html>,
+   pas sur <body> — overflow-x sur body seul ne suffit pas). 'clip' ne casse pas position:sticky. */
+html{overflow-x:clip;max-width:100%;}
+img,svg,video,iframe,table{max-width:100%}
+img{display:block}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 a{color:inherit;text-decoration:none}
 
@@ -1502,6 +1507,32 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 </style>
 </head>
 <body id="top">
+
+<!-- BANDEAU NOUVEAUTÉ — Civik-ia sur WhatsApp (dismissible, SEO : lien interne vers la landing) -->
+<a id="ci-news" href="marianne-whatsapp.html" style="display:none;position:fixed;top:0;left:0;right:0;z-index:1300;height:44px;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#000091,#007bff 68%,#2EC4B6);color:#faf6eb;font:600 13.5px 'Inter',sans-serif;text-decoration:none;padding:0 42px;text-align:center;line-height:1.2;">
+  <span style="font-weight:800;letter-spacing:.4px;">✦ NOUVEAU</span>
+  <span style="opacity:.45;">·</span>
+  <span>Civik-ia débarque sur <b>WhatsApp</b></span>
+  <span style="display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);flex:0 0 auto;">→</span>
+</a>
+<button id="ci-news-x" type="button" aria-label="Fermer l'annonce" style="display:none;position:fixed;top:0;right:6px;z-index:1301;height:44px;width:34px;background:transparent;border:none;color:rgba(255,255,255,.85);font-size:20px;cursor:pointer;">×</button>
+<script>
+(function(){
+  try{ if(localStorage.getItem('ci-news-wa')==='1') return; }catch(e){}
+  function activate(){
+    var b=document.getElementById('ci-news'), x=document.getElementById('ci-news-x');
+    if(!b) return;
+    b.style.display='flex'; x.style.display='block';
+    document.body.style.paddingTop='44px';
+    var nav=document.querySelector('.nav'); if(nav) nav.style.top='60px';
+    x.addEventListener('click',function(ev){ ev.preventDefault(); ev.stopPropagation();
+      b.style.display='none'; x.style.display='none'; document.body.style.paddingTop='';
+      if(nav) nav.style.top=''; try{localStorage.setItem('ci-news-wa','1');}catch(e){}
+    });
+  }
+  if(document.readyState!=='loading') activate(); else document.addEventListener('DOMContentLoaded',activate);
+})();
+</script>
 
 <!-- NAV -->
 <nav class="nav">

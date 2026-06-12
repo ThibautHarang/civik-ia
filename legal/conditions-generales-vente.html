@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conditions Générales de Vente — Civik-ia</title>
-    <meta name="description" content="Conditions générales de vente de la Plateforme d'Intelligence Citoyenne Civik-ia. Tarifs, engagements, responsabilités et modalités contractuelles.">
-    <link rel="icon" type="image/svg+xml" href="Logo/SVG/Logo%20Civik-ia%20seul.svg">
+    <title>Conditions Générales de Vente — Civik-ia | Plateforme d'Intelligence Citoyenne</title>
+    <meta name="description" content="Conditions Générales de Vente de Civik-ia, la Plateforme d'Intelligence Citoyenne pour les collectivités : objet, commande, tarifs, durée et résiliation, RGPD, responsabilité et juridiction.">
+    <link rel="canonical" href="https://civik-ia.fr/legal/conditions-generales-vente.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Conditions Générales de Vente — Civik-ia">
+    <meta property="og:description" content="Le cadre contractuel de la Plateforme d'Intelligence Citoyenne Civik-ia pour les communes, intercommunalités et collectivités.">
+    <meta property="og:url" content="https://civik-ia.fr/legal/conditions-generales-vente.html">
+    <link rel="icon" type="image/svg+xml" href="/assets/logo-civik-ia-seul.svg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,12 +23,14 @@
             --bg-warm: #F9FAFB;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: clip; max-width: 100%; }
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-main);
             background: var(--bg-warm);
             line-height: 1.8;
         }
+        img, svg, table { max-width: 100%; }
         .legal-header {
             background: linear-gradient(135deg, var(--primary-gov) 0%, #1B2A4A 100%);
             color: white;
@@ -57,15 +65,15 @@
         }
         .legal-nav a:hover { color: var(--secondary-innov); }
         .legal-content {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 60px 40px 80px;
+            padding: 56px 40px 80px;
         }
         .legal-content h2 {
             font-size: 22px;
             font-weight: 800;
             color: var(--primary-gov);
-            margin: 40px 0 16px;
+            margin: 42px 0 16px;
             padding-bottom: 8px;
             border-bottom: 2px solid rgba(0,0,145,0.08);
         }
@@ -77,23 +85,29 @@
             margin: 24px 0 10px;
         }
         .legal-content p {
-            font-size: 14px;
+            font-size: 14.5px;
             color: var(--text-light);
             margin-bottom: 14px;
         }
-        .legal-content ul {
+        .legal-content ul, .legal-content ol {
             margin: 10px 0 14px 24px;
-            font-size: 14px;
+            font-size: 14.5px;
             color: var(--text-light);
         }
-        .legal-content ul li { margin-bottom: 6px; }
-        .legal-content ol {
-            margin: 10px 0 14px 24px;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        .legal-content ol li { margin-bottom: 6px; }
+        .legal-content li { margin-bottom: 6px; }
         .legal-content strong { color: var(--text-main); }
+        .legal-content a { color: var(--secondary-innov); }
+        .toc {
+            background: white;
+            border: 1px solid rgba(0,0,145,0.08);
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin: 8px 0 36px;
+        }
+        .toc h2 { font-size: 15px; margin: 0 0 12px; border: none; padding: 0; letter-spacing: 0.4px; text-transform: uppercase; }
+        .toc ol { columns: 2; column-gap: 32px; margin: 0 0 0 18px; font-size: 13.5px; }
+        .toc a { color: var(--text-light); text-decoration: none; }
+        .toc a:hover { color: var(--secondary-innov); }
         .info-box {
             background: rgba(46,196,182,0.06);
             border-left: 4px solid var(--accent-teal);
@@ -117,28 +131,6 @@
             margin-top: -8px;
             margin-bottom: 14px;
         }
-        .tarif-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0 20px;
-            font-size: 14px;
-        }
-        .tarif-table th {
-            background: var(--primary-gov);
-            color: white;
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-        }
-        .tarif-table td {
-            padding: 10px 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            color: var(--text-light);
-        }
-        .tarif-table tr:nth-child(even) td {
-            background: rgba(0,0,145,0.02);
-        }
         .legal-footer {
             background: #1B2A4A;
             color: rgba(255,255,255,0.6);
@@ -148,261 +140,262 @@
         }
         .legal-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
         @media (max-width: 768px) {
+            .legal-nav { padding: 14px 18px; }
             .legal-header { padding: 40px 20px 30px; }
-            .legal-header h1 { font-size: 24px; }
-            .legal-content { padding: 30px 20px 60px; }
-            .tarif-table { font-size: 12px; }
-            .tarif-table th, .tarif-table td { padding: 8px 10px; }
+            .legal-header h1 { font-size: 23px; }
+            .legal-content { padding: 30px 18px 60px; }
+            .legal-content h2 { font-size: 19px; }
+            .toc ol { columns: 1; }
         }
     </style>
 </head>
 <body>
     <nav class="legal-nav">
-        <a href="../01-Site-Web/site-civic-ia.html">&larr; Retour au site Civik-ia</a>
+        <a href="/">&larr; Retour au site Civik-ia</a>
         <span style="font-size: 12px; color: #999;">Conditions Générales de Vente</span>
     </nav>
     <header class="legal-header">
         <h1>Conditions Générales de Vente</h1>
-        <p>Dernière mise à jour : 17 avril 2026</p>
+        <p>Version en vigueur — dernière mise à jour : 12 juin 2026</p>
     </header>
     <main class="legal-content">
 
 <div class="info-box">
-    Les présentes Conditions Générales de Vente (CGV) s'appliquent à toute commande de la Plateforme d'Intelligence Citoyenne éditée par Civik-ia. Elles complètent les <a href="conditions-utilisation.html" style="color: var(--secondary-innov);">Conditions Générales d'Utilisation</a> et la <a href="conformite-rgpd.html" style="color: var(--secondary-innov);">documentation RGPD</a>.
+    Les présentes Conditions Générales de Vente (« CGV ») encadrent toute commande de la <strong>Plateforme d'Intelligence Citoyenne</strong> éditée par la société <strong>Civik-ia</strong>. Elles forment, avec le bon de commande et leurs annexes, le contrat liant les parties. Elles se complètent des <a href="conditions-utilisation.html">Conditions Générales d'Utilisation</a>, de la <a href="politique-confidentialite.html">Politique de confidentialité</a> et de la documentation <a href="conformite-rgpd.html">Conformité RGPD</a>.
 </div>
 
-<h2>Article 1 — Objet</h2>
-<p>Les présentes Conditions Générales de Vente (ci-après « CGV ») ont pour objet de définir les conditions dans lesquelles la société Civik-ia (ci-après « le Prestataire ») fournit au client (ci-après « le Client ») l'accès à la Plateforme d'Intelligence Citoyenne (ci-après « la Plateforme »), solution logicielle de chatbot IA et de pilotage citoyen destinée aux collectivités territoriales françaises.</p>
-<p>Les CGV s'appliquent à toute commande passée par le Client, qu'il s'agisse d'une commune, d'une intercommunalité, d'un département, d'une région ou de tout autre établissement public de coopération intercommunale.</p>
-<p>Le fait de passer commande implique l'adhésion entière et sans réserve du Client aux présentes CGV, à l'exclusion de tout autre document.</p>
+<nav class="toc" aria-label="Sommaire">
+    <h2>Sommaire</h2>
+    <ol>
+        <li><a href="#a1">Objet</a></li>
+        <li><a href="#a2">Définitions</a></li>
+        <li><a href="#a3">Documents contractuels</a></li>
+        <li><a href="#a4">Description des services</a></li>
+        <li><a href="#a5">Commande et formation du contrat</a></li>
+        <li><a href="#a6">Conditions financières</a></li>
+        <li><a href="#a7">Facturation et paiement</a></li>
+        <li><a href="#a8">Durée, reconduction et résiliation</a></li>
+        <li><a href="#a9">Mise en service</a></li>
+        <li><a href="#a10">Obligations du Prestataire</a></li>
+        <li><a href="#a11">Obligations du Client</a></li>
+        <li><a href="#a12">Données à caractère personnel</a></li>
+        <li><a href="#a13">Propriété intellectuelle</a></li>
+        <li><a href="#a14">Réversibilité et restitution</a></li>
+        <li><a href="#a15">Responsabilité</a></li>
+        <li><a href="#a16">Assurance</a></li>
+        <li><a href="#a17">Confidentialité</a></li>
+        <li><a href="#a18">Force majeure</a></li>
+        <li><a href="#a19">Cession et sous-traitance</a></li>
+        <li><a href="#a20">Qualité des parties</a></li>
+        <li><a href="#a21">Règlement amiable des différends</a></li>
+        <li><a href="#a22">Droit applicable et juridiction</a></li>
+        <li><a href="#a23">Dispositions diverses</a></li>
+    </ol>
+</nav>
 
-<h2>Article 2 — Services fournis</h2>
-<p>La Plateforme d'Intelligence Citoyenne comprend les services suivants, selon le palier souscrit :</p>
+<h2 id="a1">Article 1 — Objet</h2>
+<p>Les présentes CGV ont pour objet de définir les conditions dans lesquelles la société <strong>Civik-ia</strong> (ci-après « le Prestataire ») met à disposition d'une collectivité ou d'un établissement public (ci-après « le Client ») l'accès à la Plateforme d'Intelligence Citoyenne (ci-après « la Plateforme »), solution logicielle en mode hébergé (SaaS) comprenant un assistant conversationnel d'intelligence artificielle à destination des citoyens, ainsi que des outils de traitement et de pilotage à destination des agents et des élus.</p>
+<p>Elles s'appliquent à toute commande passée par une commune, une intercommunalité (EPCI), un syndicat, un département, une région ou tout autre organisme public ou parapublic.</p>
+<p>Toute commande emporte adhésion entière et sans réserve du Client aux présentes CGV, à l'exclusion de tout document contraire émanant du Client, sauf acceptation écrite expresse du Prestataire.</p>
+
+<h2 id="a2">Article 2 — Définitions</h2>
+<p>Dans les présentes, les termes ci-dessous ont la signification suivante :</p>
 <ul>
-    <li><strong>Chatbot IA citoyen :</strong> assistant virtuel disponible 24h/24, 7j/7, alimenté par la base documentaire de la collectivité (délibérations, arrêtés, informations pratiques, horaires, démarches). Les réponses sont générées par une intelligence artificielle hébergée dans l'Union Européenne (Mistral AI, entreprise française).</li>
-    <li><strong>Dashboard Intelligence Citoyenne :</strong> tableau de bord à destination des élus et agents, comprenant les indicateurs clés d'activité (nombre de questions, thématiques, satisfaction, alertes tendance, sujets émergents).</li>
-    <li><strong>Campagnes Citoyennes :</strong> module de consultation et de participation citoyenne permettant de créer des sondages, votes et questionnaires diffusés aux administrés via notifications push, email et SMS. Le nombre de campagnes incluses dépend du palier souscrit.</li>
-    <li><strong>Formation initiale :</strong> formation des agents référents à l'utilisation de la Plateforme et à l'alimentation de la base documentaire, dispensée lors de la mise en service.</li>
-    <li><strong>Support technique :</strong> assistance par email (contact@civik-ia.fr) et visioconférence, du lundi au vendredi, 9h-18h (hors jours fériés).</li>
-    <li><strong>Maintenance et mises à jour :</strong> corrections de bogues, améliorations fonctionnelles et mises à jour de sécurité, incluses dans l'abonnement.</li>
+    <li><strong>Plateforme</strong> : l'ensemble logiciel édité par le Prestataire, accessible en ligne, comprenant l'application citoyenne, l'espace agent et l'espace élu.</li>
+    <li><strong>Marianne</strong> : nom d'usage de l'assistant conversationnel d'intelligence artificielle de la Plateforme, exposé aux citoyens.</li>
+    <li><strong>Citoyen</strong> : toute personne qui interagit avec l'application citoyenne, sans création de compte requise.</li>
+    <li><strong>Base de connaissances</strong> : l'ensemble des informations et documents communiqués par le Client (horaires, démarches, délibérations, arrêtés, règlements d'urbanisme, événements…) servant de socle aux réponses de Marianne.</li>
+    <li><strong>Bon de commande</strong> : le document signé par les parties précisant le palier souscrit, les options, les montants et la date de mise en service.</li>
+    <li><strong>Mise en service</strong> : la date à laquelle la Plateforme est rendue accessible aux citoyens du Client.</li>
+    <li><strong>Partie</strong> : le Prestataire ou le Client ; « les Parties » désigne les deux.</li>
 </ul>
 
-<h2>Article 3 — Commande et acceptation</h2>
-<h3>3.1. Processus de commande</h3>
-<p>La commande est formalisée par la signature d'un bon de commande établi par le Prestataire et reprenant les éléments essentiels du contrat : palier tarifaire, durée d'engagement, montant de la mise en service et de l'abonnement mensuel.</p>
-<p>La commande est réputée acceptée à la date de signature du bon de commande par les deux parties. Le bon de commande prévaut sur tout autre document échangé antérieurement (devis, correspondances, présentations).</p>
-
-<h3>3.2. Marchés publics</h3>
-<p>Les tarifs de la Plateforme ont été conçus pour rester sous le seuil de dispense de procédure de mise en concurrence prévu par le Code de la commande publique.</p>
-<div class="info-box">
-    <strong>Seuil applicable :</strong> conformément à l'article L2122-1 et à l'article R2122-8 du Code de la commande publique, les marchés de fournitures et de services dont la valeur estimée est inférieure à 40 000 euros HT peuvent être conclus sans publicité ni mise en concurrence préalable. Le montant total de l'engagement annuel (mise en service + 12 mois d'abonnement) de chaque palier est inférieur à ce seuil.
-</div>
-<p>Le Client reste néanmoins responsable du respect de ses propres règles internes de validation budgétaire et de passation des marchés.</p>
-
-<h2>Article 4 — Tarification</h2>
-<h3>4.1. Mise en service</h3>
-<p>Les frais de mise en service s'élèvent à <strong>999 euros HT</strong> (mille cent quatre-vingt-dix-huit euros et quatre-vingts centimes TTC au taux de TVA en vigueur). Ils couvrent l'étude de la commune, la personnalisation de la base documentaire, la configuration de la Plateforme, la formation initiale et la validation.</p>
-<p>En cas de parrainage par une collectivité déjà cliente, les frais de mise en service sont réduits à <strong>799 euros HT</strong>.</p>
-
-<h3>4.2. Abonnement mensuel</h3>
-<table class="tarif-table">
-    <thead>
-        <tr>
-            <th>Palier</th>
-            <th>Population</th>
-            <th>Abonnement mensuel HT</th>
-            <th>Campagnes incluses/an</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Communes rurales</strong></td>
-            <td>&lt; 5 000 habitants</td>
-            <td>99 &euro;/mois</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td><strong>Communes moyennes</strong></td>
-            <td>5 000 &ndash; 20 000 habitants</td>
-            <td>199 &euro;/mois</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td><strong>Grandes communes</strong></td>
-            <td>20 000 &ndash; 50 000 habitants</td>
-            <td>299 &euro;/mois</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td><strong>Intercommunalités, Départements &amp; Régions</strong></td>
-            <td>&mdash;</td>
-            <td>Sur devis</td>
-            <td>Illimitées</td>
-        </tr>
-    </tbody>
-</table>
-<p>Les montants s'entendent hors taxes. La TVA applicable est celle en vigueur au jour de la facturation.</p>
-
-<h3>4.3. Packs de campagnes supplémentaires</h3>
-<p>Au-delà du quota de campagnes inclus dans le palier souscrit, le Client peut acquérir des packs de campagnes supplémentaires :</p>
-<ul>
-    <li><strong>Pack +2 campagnes :</strong> 49 euros HT (ponctuel)</li>
-    <li><strong>Pack +5 campagnes :</strong> 99 euros HT (ponctuel)</li>
-</ul>
-<p>Les campagnes supplémentaires sont utilisables sur l'année civile en cours et sont cumulables avec le quota du forfait. Elles ne sont pas reportables d'une année sur l'autre.</p>
-
-<h3>4.4. Révision des tarifs</h3>
-<p>Le Prestataire se réserve le droit de réviser ses tarifs une fois par an, au 1er janvier, avec un préavis de trois (3) mois notifié par écrit au Client. En cas de hausse supérieure à 5 %, le Client pourra résilier le contrat sans pénalité dans un délai de trente (30) jours suivant la notification.</p>
-
-<h2>Article 5 — Facturation et paiement</h2>
-<h3>5.1. Facturation</h3>
-<p>Les frais de mise en service font l'objet d'une facture unique émise à la signature du bon de commande. L'abonnement mensuel est facturé à terme à échoir, le premier jour de chaque mois civil. Les packs de campagnes supplémentaires sont facturés à la commande.</p>
-
-<h3>5.2. Modalités de paiement</h3>
-<p>Le paiement s'effectue par virement bancaire ou par prélèvement SEPA, selon le choix du Client. Les coordonnées bancaires du Prestataire figurent sur chaque facture.</p>
-
-<h3>5.3. Délai de paiement</h3>
-<p>Conformément aux dispositions de l'article L441-10 du Code de commerce, le délai de paiement est fixé à <strong>trente (30) jours</strong> à compter de la date d'émission de la facture.</p>
-<p>Pour les collectivités territoriales soumises au délai de paiement réglementaire, le délai applicable est celui prévu par le décret n° 2013-269 du 29 mars 2013, soit trente (30) jours à compter de la réception de la facture.</p>
-
-<h3>5.4. Pénalités de retard</h3>
-<p>En cas de retard de paiement, des pénalités de retard sont exigibles de plein droit, sans qu'un rappel soit nécessaire, au taux d'intérêt appliqué par la Banque Centrale Européenne à son opération de refinancement la plus récente, majoré de dix (10) points de pourcentage.</p>
-<p>Une indemnité forfaitaire de <strong>40 euros</strong> pour frais de recouvrement est également due de plein droit, conformément à l'article D441-5 du Code de commerce.</p>
-
-<h2>Article 6 — Durée et renouvellement</h2>
-<h3>6.1. Durée initiale</h3>
-<p>Le contrat est conclu pour une durée initiale de <strong>douze (12) mois</strong> à compter de la date de mise en service effective de la Plateforme.</p>
-
-<h3>6.2. Renouvellement</h3>
-<p>À l'issue de la période initiale, le contrat est renouvelé tacitement par périodes successives de <strong>douze (12) mois</strong>, sauf dénonciation par l'une des parties dans les conditions prévues à l'article 6.3.</p>
-
-<h3>6.3. Résiliation à l'échéance</h3>
-<p>Chacune des parties peut s'opposer au renouvellement du contrat en notifiant sa décision à l'autre partie par lettre recommandée avec accusé de réception, avec un préavis de <strong>trois (3) mois</strong> avant la date d'échéance en cours.</p>
-
-<h3>6.4. Quotas de campagnes</h3>
-<p>Le quota annuel de campagnes citoyennes est calculé par année civile (du 1er janvier au 31 décembre). En cas de souscription en cours d'année, le quota est appliqué en totalité pour l'année civile de souscription, sans proratisation.</p>
-
-<h2>Article 7 — Mise en service</h2>
-<h3>7.1. Délai</h3>
-<p>La mise en service de la Plateforme intervient dans un délai indicatif de <strong>quatre (4) semaines</strong> à compter de la réception du bon de commande signé et du règlement des frais de mise en service.</p>
-
-<h3>7.2. Étapes de mise en service</h3>
-<p>La mise en service comprend les étapes suivantes :</p>
+<h2 id="a3">Article 3 — Documents contractuels et hiérarchie</h2>
+<p>Le contrat est constitué, par ordre de priorité décroissant, des documents suivants :</p>
 <ol>
-    <li><strong>Étude de la commune :</strong> recueil des documents et informations nécessaires (délibérations, arrêtés, horaires, démarches, contacts, événements), identification des besoins spécifiques.</li>
-    <li><strong>Personnalisation :</strong> configuration de la base documentaire, adaptation du chatbot au contexte local, personnalisation visuelle (logo, couleurs de la commune).</li>
-    <li><strong>Formation :</strong> session de formation (en visioconférence ou sur site selon le palier) à destination des agents référents et, le cas échéant, des élus.</li>
-    <li><strong>Validation :</strong> phase de test en conditions réelles, validation conjointe du bon fonctionnement de la Plateforme par le Prestataire et le Client.</li>
+    <li>le bon de commande signé et ses éventuelles annexes particulières ;</li>
+    <li>l'Accord sur le traitement des données à caractère personnel (DPA) ;</li>
+    <li>les présentes Conditions Générales de Vente ;</li>
+    <li>les Conditions Générales d'Utilisation ;</li>
+    <li>le devis et la documentation commerciale en vigueur.</li>
 </ol>
+<p>En cas de contradiction, le document de rang supérieur prévaut pour la seule disposition concernée.</p>
 
-<h3>7.3. Collaboration du Client</h3>
-<p>Le respect du délai de mise en service est conditionné à la collaboration active du Client, notamment la transmission dans les délais raisonnables des documents et informations nécessaires. Tout retard imputable au Client entraîne un report équivalent du délai de mise en service.</p>
-
-<h2>Article 8 — Obligations du Prestataire</h2>
-<h3>8.1. Disponibilité</h3>
-<p>Le Prestataire s'engage à assurer une disponibilité de la Plateforme de <strong>99,5 %</strong> sur une base mensuelle, hors périodes de maintenance programmée. Les maintenances programmées sont notifiées au Client avec un préavis de quarante-huit (48) heures et sont réalisées de préférence en dehors des heures ouvrées.</p>
-
-<h3>8.2. Support technique</h3>
-<p>Le support technique est accessible par email et visioconférence, du lundi au vendredi de 9h à 18h (heure de Paris), hors jours fériés. Le Prestataire s'engage à accuser réception de toute demande dans un délai de quatre (4) heures ouvrées et à apporter une réponse ou un diagnostic dans un délai de vingt-quatre (24) heures ouvrées.</p>
-
-<h3>8.3. Maintenance et mises à jour</h3>
-<p>Le Prestataire assure la maintenance corrective (correction des anomalies) et évolutive (nouvelles fonctionnalités, améliorations) de la Plateforme. Les mises à jour sont déployées automatiquement et sont incluses dans l'abonnement.</p>
-
-<h3>8.4. Hébergement et souveraineté</h3>
-<p>La Plateforme est hébergée sur une infrastructure OVH SAS (entreprise française), datacenters situés dans l'Union Européenne. Les données du Client et de ses administrés ne quittent pas l'Union Européenne.</p>
-
-<h2>Article 9 — Obligations du Client</h2>
-<h3>9.1. Fourniture des données documentaires</h3>
-<p>Le Client s'engage à fournir au Prestataire l'ensemble des documents et informations nécessaires à l'alimentation de la base documentaire du chatbot (délibérations, arrêtés, informations pratiques, horaires, contacts, événements). Le Client garantit qu'il dispose des droits nécessaires à la communication de ces documents.</p>
-
-<h3>9.2. Désignation d'un référent</h3>
-<p>Le Client désigne un interlocuteur unique (ci-après « le Référent ») chargé de la coordination avec le Prestataire, de la mise à jour des informations et de la remontée des incidents éventuels.</p>
-
-<h3>9.3. Respect des CGU</h3>
-<p>Le Client s'engage à respecter et à faire respecter par ses agents les <a href="conditions-utilisation.html" style="color: var(--secondary-innov);">Conditions Générales d'Utilisation</a> de la Plateforme.</p>
-
-<h3>9.4. Mise à jour des informations</h3>
-<p>Le Client est responsable de la mise à jour régulière des informations communiquées au Prestataire. Le Prestataire ne saurait être tenu responsable de l'inexactitude des réponses du chatbot résultant d'informations obsolètes ou erronées fournies par le Client.</p>
-
-<h2>Article 10 — Données personnelles</h2>
-<h3>10.1. Rôles respectifs</h3>
-<p>Dans le cadre de l'exécution des présentes, le Client agit en qualité de <strong>responsable de traitement</strong> au sens du Règlement (UE) 2016/679 (RGPD) pour les données personnelles des administrés traitées via la Plateforme. Le Prestataire agit en qualité de <strong>sous-traitant</strong> au sens de l'article 28 du RGPD.</p>
-
-<h3>10.2. Accord sur le traitement des données</h3>
-<p>Les conditions de traitement des données personnelles sont détaillées dans l'Accord sur le Traitement des Données (DPA) annexé au contrat et dans la page <a href="conformite-rgpd.html" style="color: var(--secondary-innov);">Conformité RGPD</a>.</p>
-
-<h3>10.3. Engagements du Prestataire</h3>
-<p>Le Prestataire s'engage notamment à :</p>
+<h2 id="a4">Article 4 — Description des services</h2>
+<p>La Plateforme est proposée selon plusieurs paliers fonctionnels. Le détail des fonctionnalités incluses dans le palier souscrit figure au bon de commande. À titre indicatif :</p>
 <ul>
-    <li>Traiter les données personnelles uniquement sur instruction documentée du Client ;</li>
-    <li>Garantir la confidentialité des données traitées ;</li>
-    <li>Mettre en oeuvre les mesures techniques et organisationnelles appropriées pour assurer la sécurité des données ;</li>
-    <li>Ne pas transférer les données hors de l'Union européenne ;</li>
-    <li>Assister le Client dans le respect de ses obligations au titre du RGPD (droits des personnes, analyse d'impact, notification de violations) ;</li>
-    <li>Restituer ou supprimer les données à l'issue du contrat, au choix du Client.</li>
+    <li><strong>Essentiel</strong> : assistant conversationnel Marianne (réponses sourcées sur la Base de connaissances, disponibles en continu), accueil hyperlocal, transparence des sources, alertes intelligentes et tableau de bord de base.</li>
+    <li><strong>Engagement</strong> : tout le palier Essentiel, complété par le module de signalements (photo, géolocalisation, suivi) et un tableau de bord enrichi.</li>
+    <li><strong>Pilotage</strong> : tout le palier Engagement, complété par le cockpit élu narratif, l'espace agent (traitement des demandes), les démarches guidées et, en option, le raccordement à FranceConnect sous réserve d'éligibilité et d'habilitation.</li>
+    <li><strong>Souverain</strong> : offre sur devis pour les intercommunalités, départements et regroupements de communes (multi-collectivités, pilotage agrégé, accompagnement dédié).</li>
 </ul>
-
-<h2>Article 11 — Propriété intellectuelle</h2>
-<h3>11.1. Droits du Prestataire</h3>
-<p>Le Prestataire est et demeure titulaire de l'ensemble des droits de propriété intellectuelle portant sur la Plateforme, son code source, ses algorithmes, son architecture, sa marque, son logo et l'ensemble de ses éléments constitutifs. Aucune disposition des présentes CGV ne saurait être interprétée comme conférant au Client un droit de propriété sur tout ou partie de ces éléments.</p>
-
-<h3>11.2. Licence d'utilisation</h3>
-<p>Le Prestataire concède au Client, pour la durée du contrat, une licence d'utilisation non exclusive, non transférable et non cessible de la Plateforme, limitée aux besoins propres de la collectivité et de ses administrés.</p>
-
-<h3>11.3. Données du Client</h3>
-<p>Le Client reste propriétaire de l'ensemble des données et documents qu'il communique au Prestataire dans le cadre de l'alimentation de la base documentaire. Le Prestataire ne les utilise que dans le strict cadre de l'exécution du contrat.</p>
-
-<h2>Article 12 — Responsabilité et limitation</h2>
-<h3>12.1. Nature des réponses du chatbot</h3>
-<p>Les réponses générées par le chatbot IA sont fournies <strong>à titre purement informatif</strong>. Elles sont basées sur la base documentaire constituée à partir des informations communiquées par le Client et ne constituent en aucun cas un avis juridique, administratif ou réglementaire officiel.</p>
+<p>La Plateforme inclut la <strong>maintenance</strong> (corrective et évolutive), les <strong>mises à jour</strong> de sécurité et fonctionnelles, ainsi qu'une <strong>formation initiale</strong> des agents référents lors de la mise en service.</p>
+<div class="info-box">
+    <strong>Canaux de notification.</strong> Les notifications par message poussé (push) et par courrier électronique sont incluses. L'envoi de <strong>SMS</strong> constitue une option facturée séparément. Le raccordement à la messagerie <strong>WhatsApp</strong> de la collectivité est proposé en option, sous réserve de faisabilité technique et de la validation préalable du compte professionnel auprès du fournisseur de ce service ; ce canal relève d'un éditeur tiers (Meta Platforms, Inc.) auquel le Prestataire n'est pas affilié.
+</div>
 <div class="warning-box">
-    <strong>Important :</strong> le chatbot ne se substitue pas aux agents de la collectivité. Il oriente les citoyens et facilite l'accès à l'information. En cas de doute, les administrés sont invités à se rapprocher directement de leur mairie.
+    <strong>Nature des démarches guidées.</strong> Les démarches guidées orientent le citoyen et facilitent l'accès aux téléservices officiels (notamment ANTS et service-public.fr) ; elles ne se substituent pas à ces téléservices et n'emportent ni signature administrative ni dépôt officiel par le Prestataire.
 </div>
 
-<h3>12.2. Limitation de responsabilité</h3>
-<p>La responsabilité du Prestataire au titre du contrat est limitée aux dommages directs et prévisibles. En toute hypothèse, la responsabilité totale du Prestataire, toutes causes confondues, ne pourra excéder le <strong>montant total des sommes effectivement perçues du Client au cours des douze (12) mois</strong> précédant le fait générateur de la responsabilité.</p>
+<h2 id="a5">Article 5 — Commande et formation du contrat</h2>
+<h3>5.1. Processus</h3>
+<p>La commande est précédée d'un devis. Elle est formalisée par la signature d'un bon de commande par une personne dûment habilitée à engager le Client. La signature peut intervenir par voie électronique, au moyen d'un procédé de signature conforme au règlement (UE) n° 910/2014 (eIDAS). Le contrat est formé à la date de signature du bon de commande par les deux Parties.</p>
+<h3>5.2. Commande publique</h3>
+<p>Les montants de la Plateforme sont conçus pour permettre, le cas échéant, une passation sans publicité ni mise en concurrence préalables.</p>
+<p class="legal-ref">Article R2122-8 du Code de la commande publique : possibilité, pour les marchés de fournitures et de services dont la valeur estimée est inférieure à 40 000 € HT, de contracter sans publicité ni mise en concurrence préalables.</p>
+<p>Le Client demeure seul responsable du respect de ses propres règles internes de validation budgétaire et de passation des marchés.</p>
 
-<h3>12.3. Exclusions</h3>
-<p>Le Prestataire ne saurait être tenu responsable :</p>
+<h2 id="a6">Article 6 — Conditions financières</h2>
+<h3>6.1. Structure tarifaire</h3>
+<p>La rémunération du Prestataire se compose, selon le bon de commande :</p>
 <ul>
-    <li>Des dommages indirects, notamment le manque à gagner, la perte de données, le préjudice d'image ou la perte de chance ;</li>
-    <li>Des inexactitudes dans les réponses du chatbot résultant d'informations erronées, incomplètes ou obsolètes fournies par le Client ;</li>
-    <li>Des décisions prises par les administrés sur la seule base des réponses du chatbot ;</li>
-    <li>Des interruptions de service dues à un cas de force majeure (article 13) ou à un fait imputable au Client ou à un tiers.</li>
+    <li>de <strong>frais de mise en service</strong> uniques, couvrant l'étude de la collectivité, la constitution de la Base de connaissances, la configuration, la personnalisation et la formation initiale ;</li>
+    <li>d'un <strong>abonnement mensuel</strong> correspondant au palier souscrit ;</li>
+    <li>le cas échéant, de <strong>packs de campagnes citoyennes supplémentaires</strong> et de toute <strong>option</strong> souscrite (par exemple l'envoi de SMS).</li>
+</ul>
+<p>Les <strong>montants applicables</strong>, hors taxes, sont ceux figurant au devis et au bon de commande en vigueur, qui font foi entre les Parties. La TVA au taux légal en vigueur s'ajoute aux montants hors taxes.</p>
+<h3>6.2. Programme « Partenaires Fondateurs »</h3>
+<p>Le Prestataire peut proposer, dans la limite d'un nombre de places restreint, un programme « Partenaires Fondateurs » comportant un tarif de lancement préférentiel pendant les <strong>trois (3) premiers mois</strong>, puis l'application du tarif normal du palier souscrit. Le bénéfice du tarif de lancement suppose le maintien de l'abonnement pendant cette période de trois mois (voir article 8.4). Les conditions précises figurent au bon de commande.</p>
+<h3>6.3. Révision des tarifs</h3>
+<p>Le Prestataire peut réviser ses tarifs une fois par an, avec un préavis écrit de <strong>trois (3) mois</strong>. En cas de hausse supérieure à 5 %, le Client peut résilier le contrat sans pénalité dans les trente (30) jours suivant la notification, par écrit.</p>
+
+<h2 id="a7">Article 7 — Facturation et paiement</h2>
+<h3>7.1. Facturation</h3>
+<p>Les frais de mise en service sont facturés à la signature du bon de commande. L'abonnement est facturé mensuellement. Les packs de campagnes et options sont facturés à la commande. Les factures sont émises par voie électronique.</p>
+<h3>7.2. Paiement</h3>
+<p>Le règlement s'effectue par virement bancaire. Les coordonnées bancaires du Prestataire figurent sur chaque facture.</p>
+<h3>7.3. Délai</h3>
+<p>Le délai de paiement est de <strong>trente (30) jours</strong> à compter de la réception de la facture.</p>
+<p class="legal-ref">Décret n° 2013-269 du 29 mars 2013 relatif à la lutte contre les retards de paiement dans les contrats de la commande publique ; article L441-10 du Code de commerce.</p>
+<h3>7.4. Retard de paiement</h3>
+<p>En cas de retard, des pénalités sont exigibles de plein droit, sans rappel préalable, au taux d'intérêt appliqué par la Banque centrale européenne à son opération de refinancement la plus récente, majoré de dix (10) points de pourcentage. Une indemnité forfaitaire de <strong>40 €</strong> pour frais de recouvrement est également due de plein droit.</p>
+<p class="legal-ref">Articles L441-10 et D441-5 du Code de commerce.</p>
+
+<h2 id="a8">Article 8 — Durée, reconduction et résiliation</h2>
+<h3>8.1. Prise d'effet et durée</h3>
+<p>Le contrat prend effet à la mise en service. Il est conclu <strong>sans engagement de durée</strong> : l'abonnement est mensuel et se reconduit tacitement de mois en mois.</p>
+<h3>8.2. Résiliation par le Client</h3>
+<p>Le Client peut résilier à tout moment, par écrit (courrier électronique à <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a> ou lettre recommandée), moyennant un préavis de <strong>un (1) mois</strong>. La résiliation prend effet à la fin du mois civil suivant la réception de la demande. Aucune indemnité n'est due, sous réserve de l'article 8.4.</p>
+<h3>8.3. Résiliation par le Prestataire</h3>
+<p>Le Prestataire peut résilier moyennant un préavis de <strong>deux (2) mois</strong>, par écrit.</p>
+<h3>8.4. Cas particulier du tarif de lancement</h3>
+<p>Lorsque le Client bénéficie du tarif de lancement « Partenaires Fondateurs » (article 6.2), la résiliation avant l'issue des trois (3) premiers mois entraîne la perte de l'avantage tarifaire : les mois déjà consommés peuvent être régularisés au tarif normal du palier souscrit.</p>
+<h3>8.5. Résiliation pour manquement</h3>
+<p>En cas de manquement grave d'une Partie à une obligation essentielle, non réparé dans les <strong>trente (30) jours</strong> suivant une mise en demeure restée infructueuse, l'autre Partie peut résilier de plein droit, sans préjudice de dommages et intérêts.</p>
+<h3>8.6. Effets</h3>
+<p>La résiliation, quelle qu'en soit la cause, ouvre droit à la réversibilité des données dans les conditions de l'article 14. Les sommes dues au titre des services exécutés jusqu'à la date d'effet restent exigibles.</p>
+
+<h2 id="a9">Article 9 — Mise en service</h2>
+<h3>9.1. Délai</h3>
+<p>La mise en service intervient dans un délai indicatif raisonnable à compter de la réception du bon de commande signé et des éléments nécessaires. Ce délai est précisé au bon de commande.</p>
+<h3>9.2. Étapes</h3>
+<ol>
+    <li><strong>Étude</strong> : recueil et vérification des informations de la collectivité.</li>
+    <li><strong>Personnalisation</strong> : constitution de la Base de connaissances, configuration et habillage aux couleurs de la collectivité.</li>
+    <li><strong>Formation</strong> : session à distance (visioconférence) destinée aux agents référents et, le cas échéant, aux élus.</li>
+    <li><strong>Validation</strong> : le Client valide l'exactitude des données et le bon fonctionnement avant l'ouverture au public.</li>
+</ol>
+<h3>9.3. Collaboration du Client</h3>
+<p>Le respect du délai est conditionné à la collaboration du Client, notamment la transmission et la validation des informations. Tout retard imputable au Client entraîne un report équivalent.</p>
+
+<h2 id="a10">Article 10 — Obligations du Prestataire</h2>
+<h3>10.1. Nature de l'engagement</h3>
+<p>Le Prestataire est tenu d'une <strong>obligation de moyens</strong>. Il met en œuvre les diligences raisonnables pour assurer le bon fonctionnement et la continuité de la Plateforme.</p>
+<h3>10.2. Disponibilité et maintenance</h3>
+<p>Le Prestataire s'efforce d'assurer une disponibilité élevée de la Plateforme. Les opérations de maintenance programmée sont, dans la mesure du possible, réalisées en dehors des heures ouvrées et annoncées à l'avance. Des interruptions ponctuelles peuvent survenir, notamment pour maintenance, mise à jour ou cause extérieure.</p>
+<h3>10.3. Support</h3>
+<p>Le support est accessible par courrier électronique (<a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>) et par messagerie professionnelle. Le Prestataire s'engage à prendre en charge toute demande dans un délai de <strong>quarante-huit (48) heures ouvrées</strong>. Les incidents critiques sont traités en priorité, dans la limite des moyens du Prestataire, le Client étant tenu informé.</p>
+<h3>10.4. Hébergement et souveraineté</h3>
+<p>La Plateforme est hébergée sur une infrastructure souveraine fournie par OVH (société française), au sein de centres de données situés dans l'<strong>Union européenne</strong>. Le moteur d'intelligence artificielle est opéré au sein de l'Union européenne. Les données du Client et des citoyens ne sont pas transférées hors de l'Union européenne.</p>
+
+<h2 id="a11">Article 11 — Obligations du Client</h2>
+<h3>11.1. Fourniture et exactitude des informations</h3>
+<p>Le Client fournit les informations et documents nécessaires à la Base de connaissances et en garantit l'exactitude ainsi que le droit de les communiquer. Le Client <strong>valide</strong> ces informations avant la mise en ligne ; il est responsable de leur mise à jour.</p>
+<h3>11.2. Référent</h3>
+<p>Le Client désigne un interlocuteur unique chargé de la coordination, de la transmission des mises à jour et de la remontée des incidents.</p>
+<h3>11.3. Exactitude des réponses</h3>
+<p>Le Prestataire ne saurait être tenu responsable d'une réponse inexacte de Marianne résultant d'informations erronées, incomplètes ou obsolètes communiquées ou non mises à jour par le Client.</p>
+<h3>11.4. Respect des CGU</h3>
+<p>Le Client respecte et fait respecter par ses agents les <a href="conditions-utilisation.html">Conditions Générales d'Utilisation</a>.</p>
+
+<h2 id="a12">Article 12 — Données à caractère personnel</h2>
+<h3>12.1. Rôles</h3>
+<p>Pour les données à caractère personnel traitées via la Plateforme, le Client agit en qualité de <strong>responsable de traitement</strong> et le Prestataire en qualité de <strong>sous-traitant</strong>, au sens du règlement (UE) 2016/679 (« RGPD »).</p>
+<h3>12.2. Encadrement</h3>
+<p>Le traitement est encadré par un Accord sur le traitement des données (DPA) conforme à l'article 28 du RGPD, annexé au contrat, et détaillé sur la page <a href="conformite-rgpd.html">Conformité RGPD</a>.</p>
+<h3>12.3. Engagements du Prestataire</h3>
+<ul>
+    <li>traiter les données uniquement sur instruction documentée du Client ;</li>
+    <li>garantir la confidentialité et la sécurité des données par des mesures techniques et organisationnelles appropriées ;</li>
+    <li>ne pas transférer les données hors de l'Union européenne ;</li>
+    <li>n'avoir recours qu'à des sous-traitants ultérieurs présentant des garanties suffisantes, avec information préalable du Client ;</li>
+    <li>assister le Client au titre des droits des personnes, des analyses d'impact et de la notification des violations ;</li>
+    <li>restituer ou supprimer les données en fin de contrat, au choix du Client (article 14).</li>
+</ul>
+<p>L'application citoyenne est conçue pour fonctionner <strong>sans création de compte ni collecte d'identité</strong> du citoyen.</p>
+
+<h2 id="a13">Article 13 — Propriété intellectuelle</h2>
+<h3>13.1. Droits du Prestataire</h3>
+<p>Le Prestataire demeure titulaire de l'ensemble des droits de propriété intellectuelle sur la Plateforme, son code, son architecture, ses interfaces, ses signes distinctifs et ses éléments constitutifs. Les présentes n'opèrent aucun transfert de propriété au profit du Client.</p>
+<h3>13.2. Licence</h3>
+<p>Le Prestataire concède au Client, pour la durée du contrat, une licence d'utilisation <strong>non exclusive, personnelle, non cessible et non transférable</strong>, limitée aux besoins de la collectivité et de ses citoyens.</p>
+<h3>13.3. Données du Client</h3>
+<p>Le Client demeure propriétaire des données et documents qu'il communique. Le Prestataire ne les utilise que pour l'exécution du contrat.</p>
+
+<h2 id="a14">Article 14 — Réversibilité et restitution des données</h2>
+<p>En fin de contrat, quelle qu'en soit la cause, le Prestataire restitue au Client, sur demande, ses données et sa Base de connaissances dans un format standard et exploitable (par exemple CSV, JSON ou PDF), dans un délai de <strong>trente (30) jours</strong> suivant la date d'effet de la résiliation.</p>
+<p>Sauf obligation légale de conservation, le Prestataire supprime ensuite les données du Client de ses systèmes dans un délai de <strong>soixante (60) jours</strong> suivant la restitution, et en atteste sur demande.</p>
+
+<h2 id="a15">Article 15 — Responsabilité</h2>
+<h3>15.1. Nature des réponses</h3>
+<p>Les réponses de Marianne sont fournies <strong>à titre informatif</strong>. Elles reposent sur la Base de connaissances constituée à partir des informations du Client et ne constituent pas un avis juridique, administratif ou réglementaire officiel.</p>
+<div class="warning-box">
+    <strong>Important.</strong> La Plateforme ne se substitue pas aux agents de la collectivité : elle oriente les citoyens et facilite l'accès à l'information. En cas de doute, le citoyen est invité à se rapprocher de sa mairie.
+</div>
+<h3>15.2. Limitation</h3>
+<p>La responsabilité du Prestataire est limitée aux dommages directs et prévisibles. En toute hypothèse, sa responsabilité totale, toutes causes confondues, ne pourra excéder le <strong>montant des sommes effectivement perçues du Client au cours des douze (12) mois</strong> précédant le fait générateur.</p>
+<h3>15.3. Exclusions</h3>
+<ul>
+    <li>dommages indirects (perte d'exploitation, manque à gagner, perte de données, préjudice d'image, perte de chance) ;</li>
+    <li>inexactitudes résultant d'informations erronées, incomplètes ou obsolètes fournies par le Client ;</li>
+    <li>décisions prises par un citoyen sur la seule base d'une réponse de Marianne ;</li>
+    <li>interruptions imputables à un cas de force majeure, au Client ou à un tiers (réseaux, fournisseurs, services publics tiers).</li>
 </ul>
 
-<h2>Article 13 — Force majeure</h2>
-<p>Aucune des parties ne pourra être tenue responsable de l'inexécution ou du retard dans l'exécution de ses obligations contractuelles si cette inexécution ou ce retard résulte d'un cas de force majeure au sens de l'article 1218 du Code civil.</p>
-<p>Sont notamment considérés comme des cas de force majeure : les catastrophes naturelles, les guerres, les attentats, les grèves générales, les épidémies ou pandémies, les décisions gouvernementales ou réglementaires restreignant l'activité, les pannes généralisées des réseaux de télécommunications ou d'énergie, les cyberattaques d'ampleur exceptionnelle.</p>
-<p>La partie affectée devra notifier l'autre partie dans les plus brefs délais, par tout moyen. Si la situation de force majeure perdure au-delà de <strong>trois (3) mois</strong>, chacune des parties pourra résilier le contrat de plein droit, sans indemnité, par lettre recommandée avec accusé de réception.</p>
+<h2 id="a16">Article 16 — Assurance</h2>
+<p>Le Prestataire s'engage à souscrire et à maintenir, au plus tard à la mise en service du premier contrat client, une assurance responsabilité civile professionnelle couvrant son activité. Une attestation peut être communiquée sur demande.</p>
 
-<h2>Article 14 — Résiliation pour manquement</h2>
-<h3>14.1. Mise en demeure</h3>
-<p>En cas de manquement grave par l'une des parties à l'une de ses obligations essentielles au titre des présentes, l'autre partie pourra lui adresser une mise en demeure de régulariser par lettre recommandée avec accusé de réception, précisant la nature du manquement constaté.</p>
+<h2 id="a17">Article 17 — Confidentialité</h2>
+<p>Chaque Partie s'engage à conserver confidentielles les informations non publiques échangées dans le cadre du contrat, et à ne les utiliser que pour son exécution, pendant toute la durée du contrat et deux (2) ans après son terme. Sont exclues les informations publiques, déjà connues ou dont la divulgation est exigée par la loi ou une autorité compétente.</p>
 
-<h3>14.2. Résiliation</h3>
-<p>Si le manquement n'est pas régularisé dans un délai de <strong>trente (30) jours</strong> à compter de la réception de la mise en demeure, le contrat pourra être résilié de plein droit par la partie lésée, sans préjudice de tout dommage et intérêt.</p>
+<h2 id="a18">Article 18 — Force majeure</h2>
+<p>Aucune Partie n'est responsable d'un manquement résultant d'un cas de force majeure au sens de l'article 1218 du Code civil. Sont notamment visés : catastrophes naturelles, conflits, attentats, épidémies, décisions des autorités, pannes généralisées des réseaux de télécommunications ou d'énergie, cyberattaques d'ampleur exceptionnelle, défaillances d'un fournisseur essentiel. La Partie affectée en informe l'autre dans les meilleurs délais. Si la situation perdure au-delà de <strong>trois (3) mois</strong>, chaque Partie peut résilier de plein droit, sans indemnité, par écrit.</p>
 
-<h3>14.3. Conséquences de la résiliation</h3>
-<p>En cas de résiliation, quelle qu'en soit la cause :</p>
-<ul>
-    <li>Le Prestataire restitue au Client l'ensemble de ses données documentaires dans un format standard et exploitable (PDF, CSV, JSON), dans un délai de trente (30) jours suivant la date d'effet de la résiliation.</li>
-    <li>Le Prestataire supprime les données du Client de ses serveurs dans un délai de soixante (60) jours suivant la restitution, sauf obligation légale de conservation.</li>
-    <li>Les sommes dues au titre des services rendus jusqu'à la date d'effet de la résiliation restent exigibles.</li>
-    <li>En cas de résiliation anticipée par le Client hors les cas prévus aux présentes, les mensualités restant dues jusqu'au terme de la période d'engagement en cours sont exigibles à titre d'indemnité de résiliation anticipée.</li>
-</ul>
+<h2 id="a19">Article 19 — Cession et sous-traitance</h2>
+<p>Le contrat ne peut être cédé par le Client sans accord écrit préalable du Prestataire. Le Prestataire peut recourir à des sous-traitants pour l'exécution de tout ou partie des prestations ; il demeure responsable de leur exécution à l'égard du Client. Le recours à des sous-traitants ultérieurs de données est encadré par l'article 12 et le DPA.</p>
 
-<h2>Article 15 — Droit applicable et juridiction</h2>
-<p>Les présentes Conditions Générales de Vente sont régies par le <strong>droit français</strong>.</p>
-<p>En cas de litige relatif à l'interprétation, l'exécution ou la résiliation des présentes, les parties s'engagent à rechercher une solution amiable dans un délai de trente (30) jours à compter de la notification du différend par l'une des parties.</p>
-<p>À défaut de résolution amiable, le litige sera soumis à la compétence exclusive des <strong>tribunaux compétents du ressort du Tribunal judiciaire de Narbonne</strong>.</p>
+<h2 id="a20">Article 20 — Qualité des parties</h2>
+<p>Le Client contracte en qualité de personne morale de droit public ou de professionnel, pour les besoins de son activité. En conséquence, les dispositions du Code de la consommation relatives aux contrats conclus avec des consommateurs, et notamment le droit de rétractation, ne s'appliquent pas.</p>
+
+<h2 id="a21">Article 21 — Règlement amiable des différends</h2>
+<p>En cas de différend relatif à l'interprétation, l'exécution ou la résiliation du contrat, les Parties s'efforcent de trouver une solution amiable dans un délai de <strong>trente (30) jours</strong> à compter de la notification écrite du différend par l'une d'elles.</p>
+
+<h2 id="a22">Article 22 — Droit applicable et juridiction</h2>
+<p>Les présentes CGV sont régies par le <strong>droit français</strong>.</p>
+<p>À défaut de résolution amiable, le litige est porté devant la juridiction compétente du ressort du siège du Prestataire, soit le <strong>Tribunal judiciaire de Narbonne</strong>, sauf disposition d'ordre public attribuant compétence à une autre juridiction en raison de la qualité de personne publique du Client.</p>
+
+<h2 id="a23">Article 23 — Dispositions diverses</h2>
+<p><strong>Intégralité.</strong> Le contrat exprime l'intégralité de l'accord des Parties sur son objet et remplace tout échange antérieur.</p>
+<p><strong>Nullité partielle.</strong> Si une stipulation est jugée nulle ou inapplicable, les autres demeurent en vigueur.</p>
+<p><strong>Non-renonciation.</strong> Le fait pour une Partie de ne pas se prévaloir d'un manquement ne vaut pas renonciation à s'en prévaloir ultérieurement.</p>
+<p><strong>Évolution des CGV.</strong> Le Prestataire peut faire évoluer les présentes CGV. Les CGV applicables sont celles en vigueur à la date de la commande ; toute modification substantielle en cours de contrat est notifiée au Client avec un préavis raisonnable.</p>
 
 <div class="info-box" style="margin-top: 40px;">
-    <strong>Civik-ia</strong><br>
-    SASU au capital de 1 000 &euro; &mdash; SIREN 103 568 416 &mdash; RCS Narbonne<br>
-    28 rue des Cistes, 11100 Narbonne, France<br>
-    Email : <a href="mailto:contact@civik-ia.fr" style="color: var(--secondary-innov);">contact@civik-ia.fr</a><br>
-    Président : Thibaut Harang
+    <strong>Civik-ia</strong> — Société par actions simplifiée unipersonnelle (SASU)<br>
+    Capital social : 1 000 € — SIREN 103 568 416 — RCS Narbonne 103 568 416<br>
+    SIRET : [SIRET — à compléter] — N° TVA intracommunautaire : [TVA intracommunautaire — à compléter]<br>
+    Siège social : 28 rue des Cistes, 11100 Narbonne, France<br>
+    Président : Thibaut Harang — Contact : <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>
 </div>
 
     </main>
@@ -410,7 +403,7 @@
         <p>&copy; 2026 Civik-ia — Plateforme d'Intelligence Citoyenne</p>
         <p style="margin-top: 8px;">
             <a href="politique-confidentialite.html">Confidentialité</a> ·
-            <a href="conditions-utilisation.html">Mentions légales & CGU</a> ·
+            <a href="conditions-utilisation.html">Mentions légales &amp; CGU</a> ·
             <a href="conditions-generales-vente.html">CGV</a> ·
             <a href="conformite-rgpd.html">RGPD</a> ·
             <a href="accessibilite-rgaa.html">Accessibilité</a> ·

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v82-whatsapp-landing-responsive-mobile-2026-06-12';
+const CACHE_NAME = 'civik-ia-v83-cgv-refonte-2026-06-12';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

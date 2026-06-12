@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v80-whatsapp-landing-bandeau-overflowfix-2026-06-10';
+const CACHE_NAME = 'civik-ia-v81-fix-liens-legal-404-2026-06-12';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

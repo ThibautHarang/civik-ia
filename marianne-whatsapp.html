@@ -42,6 +42,29 @@
     .offer-grid{grid-template-columns:1fr !important;}
     .hero-phone-wrap{margin:0 auto;}
   }
+  @media (max-width:600px){
+    /* paddings horizontaux des conteneurs */
+    [style*="padding:0 40px"]{padding-left:20px !important;padding-right:20px !important;}
+    /* titres : éviter le débordement coupé */
+    h1[style*="font-size:62px"]{font-size:32px !important;letter-spacing:-1px !important;}
+    h2[style*="font-size:44px"]{font-size:27px !important;letter-spacing:-0.8px !important;}
+    h2[style*="font-size:34px"]{font-size:24px !important;letter-spacing:-0.6px !important;}
+    /* nav : masquer liens + badge WhatsApp, compacter le CTA */
+    nav [style*="gap:34px"]{display:none !important;}
+    nav [style*="color:#075E54"]{display:none !important;}
+    nav [style*="height:26px"]{display:none !important;}
+    .navcta{padding:9px 15px !important;font-size:13px !important;}
+    /* sections : paddings verticaux resserrés */
+    [style*="188px 0 110px"]{padding:118px 0 64px !important;}
+    [style*="108px 0"]{padding:68px 0 !important;}
+    [style*="112px 0"]{padding:68px 0 !important;}
+    [style*="120px 0"]{padding:76px 0 !important;}
+    [style*="96px 0 24px"]{padding:60px 0 16px !important;}
+    /* mockup démo : tenir dans l'écran */
+    [style*="width:340px"]{width:296px !important;}
+    /* carte offre : padding interne réduit */
+    [style*="46px 48px"]{padding:32px 22px !important;}
+  }
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 </style>
 </head>

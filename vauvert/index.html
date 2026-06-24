@@ -39,12 +39,10 @@
   }
   .card{max-width:420px;width:100%}
   .mark{
-    width:64px;height:64px;border-radius:18px;margin:0 auto 22px;
-    background:linear-gradient(135deg,var(--blue),#007bff);
-    display:flex;align-items:center;justify-content:center;
+    width:64px;height:64px;border-radius:18px;margin:0 auto 22px;display:block;
+    object-fit:cover;
     box-shadow:0 12px 30px rgba(0,0,145,.22);
   }
-  .mark span{color:#fff;font-weight:800;font-size:30px;font-family:Georgia,"Times New Roman",serif;line-height:1}
   h1{font-size:21px;margin:0 0 6px;letter-spacing:-.4px;color:var(--blue)}
   .sub{font-size:15px;color:#5b5b5b;margin:0 0 26px}
   .sub strong{color:var(--ink)}
@@ -58,7 +56,7 @@
 </head>
 <body>
   <main class="card">
-    <div class="mark" aria-hidden="true"><span>M</span></div>
+    <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
     <div class="spinner" role="status" aria-label="Chargement"></div>
     <h1>Civik-ia</h1>
     <p class="sub">Ouverture de la démonstration<br><strong>Vauvert</strong>…</p>

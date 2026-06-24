@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v86-splash-vauvert-2026-06-23';
+const CACHE_NAME = 'civik-ia-v87-logo-marianne-vauvert-2026-06-24';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

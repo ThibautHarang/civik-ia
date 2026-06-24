@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v85-tableaux-mobile-scroll-2026-06-13';
+const CACHE_NAME = 'civik-ia-v86-splash-vauvert-2026-06-23';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

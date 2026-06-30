@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v89-vauvert-vrai-produit-preview-2026-06-25';
+const CACHE_NAME = 'civik-ia-v90-thore-la-rochette-vrai-produit-preview-2026-06-30';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

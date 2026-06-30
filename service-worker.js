@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v90-thore-la-rochette-vrai-produit-preview-2026-06-30';
+const CACHE_NAME = 'civik-ia-v91-splash-marianne-brand-2026-06-30';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

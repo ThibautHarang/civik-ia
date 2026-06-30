@@ -25,6 +25,11 @@
 <meta name="twitter:description" content="L'assistante citoyenne de votre mairie, 24h/24. Civik-ia.">
 <meta name="twitter:image" content="https://civik-ia.fr/thore-la-rochette/thore-og.jpg">
 
+<!-- Typographies de marque (Inter corps, Poppins titre) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
 <!-- Redirection vers le vrai produit /preview/thore-la-rochette/ (JS uniquement : les
      robots d'aperçu de lien — WhatsApp, iMessage… — ne suivent PAS la redirection JS
      et lisent donc les balises Open Graph de CETTE page. Jamais de meta-refresh. -->
@@ -34,7 +39,7 @@
   html,body{margin:0;height:100%}
   body{
     background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     display:flex;align-items:center;justify-content:center;min-height:100dvh;padding:24px;text-align:center;
   }
   .card{max-width:420px;width:100%}
@@ -43,7 +48,8 @@
     object-fit:cover;
     box-shadow:0 12px 30px rgba(0,0,145,.22);
   }
-  h1{font-size:21px;margin:0 0 6px;letter-spacing:-.4px;color:var(--blue)}
+  h1{font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;font-size:24px;margin:0 0 4px;letter-spacing:-.4px;color:var(--blue)}
+  .pb{font-size:12px;color:#8a8579;margin:0 0 18px;letter-spacing:.2px}
   .sub{font-size:15px;color:#5b5b5b;margin:0 0 26px}
   .sub strong{color:var(--ink)}
   .spinner{width:34px;height:34px;border-radius:50%;border:3px solid rgba(0,0,145,.15);border-top-color:var(--teal);margin:0 auto 20px;animation:spin .8s linear infinite}
@@ -52,13 +58,19 @@
   a.cta{display:inline-block;margin-top:4px;color:var(--teal);text-decoration:none;font-weight:600;font-size:14px}
   a.cta:hover{text-decoration:underline}
   .foot{margin-top:30px;font-size:12px;color:#9a958c}
+  @media (max-width:600px){
+    .card{max-width:340px}
+    h1{font-size:22px}
+    .sub{font-size:14px}
+  }
 </style>
 </head>
 <body>
   <main class="card">
     <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
     <div class="spinner" role="status" aria-label="Chargement"></div>
-    <h1>Civik-ia</h1>
+    <h1>Marianne</h1>
+    <p class="pb">Propulsé par Civik-ia</p>
     <p class="sub">Ouverture de l'assistante de<br><strong>Thoré-la-Rochette</strong>…</p>
     <a class="cta" href="/preview/thore-la-rochette/">Accéder à l'assistante &rarr;</a>
     <p class="foot">Plateforme d'Intelligence Citoyenne<br>

@@ -1,6 +1,6 @@
 # Civik-ia
 
-> Civik-ia est une plateforme française d'intelligence citoyenne pour les mairies et collectivités territoriales. Elle propose un chatbot IA souverain (modèle français Mistral AI, hébergement en Union européenne) qui répond aux administrés 24h/24, sans inscription et conforme au RGPD. Conçue en priorité pour les communes rurales de moins de 5 000 habitants, à partir de 99 €/mois (sous le seuil des marchés publics).
+> Civik-ia est une plateforme française d'intelligence citoyenne pour les mairies et collectivités territoriales. Elle propose un chatbot IA souverain (modèle français Mistral AI, hébergement en Union européenne) qui répond aux administrés 24h/24, sans inscription et conforme au RGPD. Conçue en priorité pour les communes rurales de moins de 5 000 habitants, à partir de 49 €/mois (sous le seuil des marchés publics).
 
 ## Ce que fait Civik-ia
 

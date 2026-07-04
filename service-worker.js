@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v100-no-adresse-2026-07-04';
+const CACHE_NAME = 'civik-ia-v101-mallemort-2026-07-04';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

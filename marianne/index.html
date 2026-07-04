@@ -289,7 +289,8 @@ body{
   max-width:100%;
 }
 /* Anti-scroll horizontal mobile : clipper AUSSI la racine (iOS Safari scrolle sur <html>,
-   pas sur <body> — overflow-x sur body seul ne suffit pas). 'clip' ne casse pas position:sticky. */
+   pas sur <body>
+<div class="page-dawn" aria-hidden="true"><i></i><i></i><i></i></div> — overflow-x sur body seul ne suffit pas). 'clip' ne casse pas position:sticky. */
 html{overflow-x:clip;max-width:100%;}
 img,svg,video,iframe,table{max-width:100%}
 img{display:block}
@@ -1510,6 +1511,16 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 @media (max-width:520px){
   .cb-window{right:10px;bottom:140px;width:calc(100vw - 20px);height:calc(100vh - 170px)}
 }
+
+/* lever de page : voile + trois points tricolores */
+.page-dawn{position:fixed;inset:0;z-index:600;background:#f7f4ed;display:flex;align-items:center;justify-content:center;gap:13px;pointer-events:none;animation:dawnOut .5s ease .4s forwards}
+.page-dawn i{width:9px;height:9px;border-radius:50%;opacity:0;animation:dawnDot .4s cubic-bezier(.4,0,.2,1) forwards}
+.page-dawn i:nth-child(1){background:#002395;animation-delay:.03s}
+.page-dawn i:nth-child(2){background:#FFFFFF;box-shadow:inset 0 0 0 1.5px rgba(0,35,149,.4);animation-delay:.13s}
+.page-dawn i:nth-child(3){background:#ED2939;animation-delay:.23s}
+@keyframes dawnDot{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes dawnOut{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.page-dawn{display:none}}
 </style>
 </head>
 <body id="top">
@@ -1544,7 +1555,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 <nav class="nav">
   <a href="/" class="nav__logo" title="Civik-ia, la maison">
     <span class="nav__logo__mark" aria-hidden="true"><img src="/assets/logo-civik-ia-nav.png" alt="Logo Civik-ia" width="38" height="38"></span>
-    <span class="nav__logo__wm"><span class="nm">Marianne</span><span class="tag" style="text-transform:none;letter-spacing:.06em">par Civik-ia</span></span>
+    <span class="nav__logo__wm"><span class="nm">Mar<span style="color:#2b6fd6">ia</span>nne</span><span class="tag" style="text-transform:none;letter-spacing:.06em">par Civik-ia</span></span>
   </a>
   <div class="nav__links">
     <a href="#how">Fonctionnement</a>

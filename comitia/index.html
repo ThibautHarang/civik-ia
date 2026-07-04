@@ -74,6 +74,15 @@ img{max-width:100%}
 section{padding:96px 0}
 .eyebrow{display:inline-block;color:var(--ink-soft);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .kicker{font-family:var(--font-title);font-style:italic;font-weight:500;color:var(--com-green);font-size:22px}
+.ia{color:#2b6fd6}
+/* lever de page : voile + trois points tricolores */
+.page-dawn{position:fixed;inset:0;z-index:600;background:var(--com-cream);display:flex;align-items:center;justify-content:center;gap:13px;pointer-events:none;animation:dawnOut .5s ease .4s forwards}
+.page-dawn i{width:9px;height:9px;border-radius:50%;opacity:0;animation:dawnDot .4s var(--ease) forwards}
+.page-dawn i:nth-child(1){background:#002395;animation-delay:.03s}
+.page-dawn i:nth-child(2){background:#FFFFFF;box-shadow:inset 0 0 0 1.5px rgba(0,35,149,.4);animation-delay:.13s}
+.page-dawn i:nth-child(3){background:#ED2939;animation-delay:.23s}
+@keyframes dawnDot{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@keyframes dawnOut{to{opacity:0;visibility:hidden}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
@@ -196,17 +205,20 @@ footer{background:var(--com-cream-warm);border-top:1px solid var(--line);padding
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
+  .page-dawn{display:none}
 }
 </style>
 </head>
 <body>
+
+<div class="page-dawn" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-in">
     <a class="nav-logo" href="/comitia/">
       <img src="/assets/brand/comitia-glyph.png" alt="Glyphe Comitia" width="34" height="34">
-      <span><span class="nm">Comitia</span><span class="sub">par Civik-ia</span></span>
+      <span><span class="nm">Comit<span class="ia">ia</span></span><span class="sub">par Civik-ia</span></span>
     </a>
     <div class="nav-links">
       <a href="#esprit">L'esprit</a>
@@ -332,7 +344,7 @@ footer{background:var(--com-cream-warm);border-top:1px solid var(--line);padding
       <div class="foot-brand">
         <img src="/assets/brand/comitia-glyph.png" alt="Glyphe Comitia">
         <div>
-          <span class="nm">Comitia</span>
+          <span class="nm">Comit<span class="ia">ia</span></span>
           <span class="pw">Une marque de la maison <a href="/">Civik-ia</a> · propulsé par Civik-ia</span>
         </div>
       </div>

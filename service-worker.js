@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v97-hero-gravure-triptyque-2026-07-04';
+const CACHE_NAME = 'civik-ia-v98-dawn-ia-bleu-2026-07-04';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

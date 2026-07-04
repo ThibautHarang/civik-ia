@@ -58,7 +58,7 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Combien coûte Civik-ia pour ma commune ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 99 € HT/mois pour le tier Essentiel (commune < 5 000 habitants), 199 € Engagement, 299 € Pilotage. Pour les 10 communes du Programme Partenaires Fondateurs, un pilote symbolique à 9,99 € HT/mois pendant 3 mois (acte d'engagement administratif) est proposé, puis le tarif tier passe au prix normal et reste garanti 3 ans. Setup offert (sinon 999 €) dans le programme Fondateurs."}},
+        {"@type": "Question", "name": "Combien coûte Civik-ia pour ma commune ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 49 € HT/mois pour le tier Essentiel (commune < 5 000 habitants), 99 € Engagement, 199 € Pilotage. Pour les 10 communes du Programme Partenaires Fondateurs, un pilote symbolique à 9,99 € HT/mois pendant 3 mois (acte d'engagement administratif) est proposé, puis le tarif tier passe au prix normal et reste garanti 3 ans. Setup offert (sinon 999 €) dans le programme Fondateurs."}},
         {"@type": "Question", "name": "Faut-il que les citoyens créent un compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Marianne, l'assistante IA citoyenne, est accessible sans inscription, sans compte, sans email. C'est un choix RGPD natif : zéro fichier nominatif côté citoyen."}},
         {"@type": "Question", "name": "Mes données sont-elles hébergées en France ?", "acceptedAnswer": {"@type": "Answer", "text": "Vos données sont hébergées chez OVH dans des datacenters européens, conformes RGPD. Stack 100 % souveraine : Mistral AI (Paris) + OVH (UE) + Open-Meteo (Allemagne) + Base Adresse Nationale (gouvernement français)."}},
         {"@type": "Question", "name": "Combien de temps pour déployer chez moi ?", "acceptedAnswer": {"@type": "Answer", "text": "Une mairie est en production en 2 à 5 jours après signature : nous collectons vos infos pratiques (horaires, démarches, contacts), construisons votre base de connaissances, déployons votre chatbot et vos comptes agents/élus."}},
@@ -562,7 +562,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="item"><div class="key">Questions citoyennes attendues / mois</div><div class="val"><span id="r-questions">100</span></div></div>
         <div class="item"><div class="key">Heures agent libérées / mois</div><div class="val">+ <span id="r-hours">6,7</span> h</div></div>
         <div class="item"><div class="key">Économie mensuelle estimée</div><div class="val"><span id="r-savings">167</span> € HT</div></div>
-        <div class="item"><div class="key">Tarif Civik-ia recommandé</div><div class="val"><span id="r-tier">Essentiel · 99 € HT/mois</span></div></div>
+        <div class="item"><div class="key">Tarif Civik-ia recommandé</div><div class="val"><span id="r-tier">Essentiel · 49 € HT/mois</span></div></div>
       </div>
     </div>
     <p class="roi-disclaimer">
@@ -580,7 +580,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="faq">
     <details>
       <summary>Combien coûte Civik-ia pour ma commune ?</summary>
-      <p>À partir de <strong>99 € HT/mois</strong> pour le tier Essentiel (commune &lt; 5 000 habitants), 199 € Engagement, 299 € Pilotage. Pour les 10 communes du <strong>Programme Partenaires Fondateurs</strong> : <strong>pilote symbolique 9,99 € HT/mois pendant 3 mois</strong> (acte d'engagement administratif), puis tarif tier garanti 3 ans, <strong>setup offert</strong> (sinon 999 €), droit de regard produit et statut Ambassadeur Civik-ia.</p>
+      <p>À partir de <strong>49 € HT/mois</strong> pour le tier Essentiel (commune &lt; 5 000 habitants), 99 € Engagement, 199 € Pilotage. Pour les 10 communes du <strong>Programme Partenaires Fondateurs</strong> : <strong>pilote symbolique 9,99 € HT/mois pendant 3 mois</strong> (acte d'engagement administratif), puis tarif tier garanti 3 ans, <strong>setup offert</strong> (sinon 999 €), droit de regard produit et statut Ambassadeur Civik-ia.</p>
     </details>
     <details>
       <summary>Faut-il que les citoyens créent un compte ?</summary>
@@ -623,7 +623,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="footer-inner">
     <div>
       <h4>Civik-ia</h4>
-      <p style="line-height:1.6;">Plateforme d'Intelligence Citoyenne pour mairies françaises. Souveraine, RGPD native, à partir de 99 € HT/mois.</p>
+      <p style="line-height:1.6;">Plateforme d'Intelligence Citoyenne pour mairies françaises. Souveraine, RGPD native, à partir de 49 € HT/mois.</p>
     </div>
     <div>
       <h4>Produit</h4>
@@ -1117,9 +1117,9 @@ function recompute() {
   const minutesSaved = autoAnswered * 8;
   const hoursSaved = minutesSaved / 60;
   const monthlySavings = Math.round(hoursSaved * cost);
-  let tier = 'Essentiel · 99 € HT/mois';
-  if (pop >= 5000 && pop < 20000) tier = 'Engagement · 199 € HT/mois';
-  if (pop >= 20000) tier = 'Pilotage · 299 € HT/mois';
+  let tier = 'Essentiel · 49 € HT/mois';
+  if (pop >= 5000 && pop < 20000) tier = 'Engagement · 99 € HT/mois';
+  if (pop >= 20000) tier = 'Pilotage · 199 € HT/mois';
   $popD.textContent = fmt(pop);
   $costD.textContent = fmt(cost);
   $rQ.textContent = fmt(questionsByMonth);

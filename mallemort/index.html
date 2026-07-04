@@ -31,13 +31,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
 <!-- ===========================================================================
-     KILL-SWITCH (désactivation de la démonstration Mallemort)
-     La démo est servie ici (splash) + sur /preview/mallemort/ (vrai produit,
-     aucun mail ne part). Pour la désactiver proprement à tout moment sans lien
-     mort : passer DEMO_ACTIVE à false ci-dessous (redéployer le site). Le
-     visiteur voit alors un message courtois au lieu d'être redirigé.
-     Pour une expiration automatique, renseigner DEMO_EXPIRE (date ISO) : au-delà,
-     le message d'échéance s'affiche tout seul.
+     KILL-SWITCH (activation / suspension de l'accès Mallemort)
+     Marianne est servie ici (splash) + sur /preview/mallemort/ (produit réel,
+     aucun mail ne part vers la mairie). Pour suspendre proprement l'accès à tout
+     moment, sans lien mort : passer ACCESS_ACTIVE à false ci-dessous (redéployer
+     le site). Le visiteur voit alors un message courtois au lieu d'être redirigé.
+     Pour une suspension automatique à une date, renseigner ACCESS_EXPIRE (date ISO).
      =========================================================================== -->
 <style>
   :root{ --bg:#f7f4ed; --blue:#000091; --teal:#2EC4B6; --ink:#1E1E1E; }
@@ -86,21 +85,21 @@
     </p>
   </main>
 
-  <!-- Écran d'échéance (affiché seulement si la démo est désactivée / expirée) -->
+  <!-- Écran affiché seulement si l'accès Mallemort est suspendu -->
   <main class="card expired" id="expired" style="display:none">
     <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
     <h1>Marianne · Mallemort</h1>
     <p class="pb">Propulsé par Civik-ia</p>
-    <p class="sub">Cette démonstration est arrivée à échéance.</p>
-    <p class="sub">Pour la réactiver pour votre commune, écrivez-nous à<br><strong>harang.thibaut@gmail.com</strong>.</p>
+    <p class="sub">L'accès à Marianne pour Mallemort est momentanément suspendu.</p>
+    <p class="sub">Vous êtes élu ou agent de la commune ? Pour l'activer durablement pour Mallemort, écrivez-nous à<br><strong>harang.thibaut@gmail.com</strong>.</p>
     <p class="foot">Plateforme d'Intelligence Citoyenne souveraine</p>
   </main>
 
   <script>
-    // — Kill-switch —
-    var DEMO_ACTIVE = true;          // passer à false pour couper la démo proprement
-    var DEMO_EXPIRE = null;          // ex. "2026-07-31T23:59:59" pour une expiration auto ; null = pas d'expiration
-    var expired = !DEMO_ACTIVE || (DEMO_EXPIRE && new Date() > new Date(DEMO_EXPIRE));
+    // — Kill-switch (accès Mallemort) —
+    var ACCESS_ACTIVE = true;        // passer à false pour suspendre l'accès proprement
+    var ACCESS_EXPIRE = null;        // ex. "2026-07-31T23:59:59" pour une suspension auto ; null = pas de date
+    var expired = !ACCESS_ACTIVE || (ACCESS_EXPIRE && new Date() > new Date(ACCESS_EXPIRE));
     if (expired) {
       document.getElementById('loading').style.display = 'none';
       document.getElementById('expired').style.display = 'block';

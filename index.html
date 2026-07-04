@@ -148,10 +148,13 @@ section{padding:104px 0}
 .hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--ci-gold);display:inline-block}
 
 /* ---------- la scène : gravure pleine page + téléphones ---------- */
-.hero-etching{position:absolute;inset:0;pointer-events:none;filter:blur(3px);opacity:.85;
-  -webkit-mask-image:linear-gradient(to top,#000 52%,rgba(0,0,0,.4) 76%,transparent 95%);
-  mask-image:linear-gradient(to top,#000 52%,rgba(0,0,0,.4) 76%,transparent 95%)}
-.hero-etching svg{width:100%;height:100%;display:block}
+.hero-etching{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hero-etching img{position:absolute;left:50%;bottom:-3%;transform:translateX(-50%);
+  width:1680px;max-width:none;height:auto;
+  filter:blur(2.2px) contrast(1.02);opacity:.62;mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(to top,transparent 1%,#000 22%,#000 58%,transparent 94%);
+  mask-image:linear-gradient(to top,transparent 1%,#000 22%,#000 58%,transparent 94%)}
+.hero>.wrap{position:relative;z-index:1}
 .stage{position:relative;height:620px;z-index:1}
 
 /* téléphones */
@@ -332,9 +335,10 @@ body.diving-out .nav{opacity:0;transition:opacity .4s ease}
 
 /* ---------- footer ---------- */
 footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);padding:64px 0 30px;position:relative;overflow:hidden}
-.foot-etch{position:absolute;bottom:0;left:0;right:0;height:150px;opacity:.5;pointer-events:none;
-  -webkit-mask-image:linear-gradient(to top,#000 30%,transparent);mask-image:linear-gradient(to top,#000 30%,transparent)}
-.foot-etch svg{width:100%;height:100%}
+.foot-etch{position:absolute;bottom:0;left:0;right:0;height:190px;opacity:.32;pointer-events:none;overflow:hidden}
+.foot-etch img{position:absolute;bottom:-10%;left:50%;transform:translateX(-50%);width:1600px;max-width:none;height:auto;
+  filter:blur(1.6px) brightness(1.04);mix-blend-mode:multiply;
+  -webkit-mask-image:linear-gradient(to top,#000 12%,transparent 92%);mask-image:linear-gradient(to top,#000 12%,transparent 92%)}
 .foot-grid{position:relative;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;z-index:1}
 .foot-brand img{height:44px;width:auto;margin-bottom:14px}
 .foot-brand .sig{font-family:var(--font-serif);font-style:italic;font-weight:500;color:var(--ci-blue-marianne);font-size:19px}
@@ -426,77 +430,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-etching" aria-hidden="true">
-    <svg viewBox="0 0 1600 640" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
-      <g stroke="#1a1a6e" stroke-width="1.7" opacity=".26" stroke-linecap="round" fill="none">
-        <!-- collines lointaines -->
-        <path d="M0 470 Q 210 380 430 440 T 900 430 T 1360 410 T 1600 436"/>
-        <path d="M0 512 Q 260 430 540 478 T 1100 466 T 1600 476"/>
-        <g opacity=".65" stroke-width="1.2">
-          <path d="M110 452 l44 -15"/><path d="M150 466 l44 -15"/><path d="M190 479 l44 -15"/>
-          <path d="M1060 448 l44 -13"/><path d="M1108 460 l44 -13"/><path d="M1156 471 l44 -13"/>
-        </g>
-        <!-- mairie au fronton, drapeau -->
-        <g stroke-width="1.9">
-          <path d="M560 545 L560 385 L800 385 L800 545"/>
-          <path d="M546 385 L680 300 L814 385 Z"/>
-          <path d="M680 300 L680 254"/>
-          <path d="M680 254 L726 265 L680 279 Z" fill="#1a1a6e" fill-opacity=".4"/>
-          <circle cx="680" cy="349" r="17"/>
-          <path d="M680 339 L680 349 L689 354"/>
-          <path d="M588 545 L588 420 M626 545 L626 420 M734 545 L734 420 M772 545 L772 420"/>
-          <path d="M578 414 L782 414"/>
-          <path d="M660 545 L660 462 L700 462 L700 545"/>
-        </g>
-        <g opacity=".55" stroke-width="1.2">
-          <path d="M596 378 l28 -17"/><path d="M622 378 l28 -17"/><path d="M648 378 l28 -17"/>
-          <path d="M690 378 l28 -17"/><path d="M716 378 l28 -17"/><path d="M742 378 l28 -17"/>
-        </g>
-        <!-- église et nef -->
-        <g stroke-width="1.8">
-          <path d="M1080 545 L1080 350 L1156 350 L1156 545"/>
-          <path d="M1070 350 L1118 282 L1166 350"/>
-          <path d="M1118 282 L1118 248 M1104 262 L1132 262"/>
-          <path d="M1097 412 a21 24 0 0 1 42 0 l0 34 l-42 0 Z"/>
-          <path d="M1156 460 L1268 460 L1268 545 M1156 502 L1268 502"/>
-        </g>
-        <!-- maisons du bourg -->
-        <g stroke-width="1.6">
-          <path d="M300 545 L300 458 L378 458 L378 545 M290 458 L339 420 L388 458"/>
-          <path d="M360 434 L360 406 L374 406 L374 444"/>
-          <path d="M420 545 L420 476 L506 476 L506 545 M410 476 L463 440 L516 476"/>
-          <path d="M880 545 L880 468 L962 468 L962 545 M870 468 L921 430 L972 468"/>
-          <path d="M942 448 L942 420 L956 420 L956 458"/>
-          <path d="M1330 545 L1330 472 L1418 472 L1418 545 M1320 472 L1374 436 L1428 472"/>
-          <path d="M1470 545 L1470 490 L1540 490 L1540 545 M1462 490 L1505 458 L1548 490"/>
-        </g>
-        <g opacity=".7" stroke-width="1.3">
-          <path d="M320 482 h22 v22 h-22 Z M444 498 h18 v18 h-18 Z M470 498 h18 v18 h-18 Z"/>
-          <path d="M900 490 h18 v22 h-18 Z M928 490 h18 v22 h-18 Z M1352 496 h18 v22 h-18 Z"/>
-        </g>
-        <!-- fontaine de la place -->
-        <g stroke-width="1.6">
-          <ellipse cx="200" cy="534" rx="46" ry="12"/>
-          <path d="M186 530 L186 502 L214 502 L214 530 M200 502 L200 480"/>
-          <path d="M189 487 Q200 469 211 487"/>
-        </g>
-        <!-- arbres -->
-        <g stroke-width="1.5">
-          <path d="M96 545 L96 502 M72 506 a27 24 0 1 1 48 0 a24 20 0 1 1 -48 0"/>
-          <path d="M1560 545 L1560 496 M1532 500 a31 27 0 1 1 56 0 a27 22 0 1 1 -56 0"/>
-          <path d="M1230 545 L1230 512"/><circle cx="1230" cy="494" r="21"/>
-          <path d="M840 545 L840 516"/><circle cx="840" cy="500" r="17"/>
-        </g>
-        <!-- sol et pavés -->
-        <path d="M0 545 L1600 545" stroke-width="2"/>
-        <g opacity=".5" stroke-width="1.3">
-          <path d="M520 562 l52 0 M610 574 l70 0 M980 562 l58 0 M310 574 l46 0 M1150 574 l52 0 M760 588 l64 0 M1420 562 l48 0"/>
-        </g>
-        <!-- oiseaux -->
-        <path d="M920 220 q12 -12 24 0 q12 -12 24 0 M1000 248 q10 -10 20 0 q10 -10 20 0 M370 240 q10 -10 20 0 q10 -10 20 0" opacity=".6" stroke-width="1.4"/>
-      </g>
-    </svg>
-  </div>
+  <div class="hero-etching" aria-hidden="true"><img src="/assets/brand/village-grave.jpg" alt="" width="2000" height="1075" fetchpriority="high"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
@@ -722,22 +656,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-etch" aria-hidden="true">
-    <svg viewBox="0 0 1400 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
-      <g stroke="#1a1a6e" stroke-width="1" opacity=".12" stroke-linecap="round">
-        <path d="M0 128 Q 200 96 400 118 T 800 112 T 1400 118"/>
-        <path d="M180 150 L180 112 L230 112 L230 150 M172 112 L205 88 L238 112"/>
-        <path d="M560 150 L560 96 L640 96 L640 150 M552 96 L600 66 L648 96 M600 66 L600 50"/>
-        <path d="M600 50 L618 55 L600 61 Z" fill="#1a1a6e" fill-opacity=".4"/>
-        <path d="M576 150 L576 116 M624 150 L624 116 M570 112 L630 112"/>
-        <path d="M960 150 L960 104 L998 104 L998 150 M954 104 L979 72 L1004 104 M979 72 L979 58 M973 64 L985 64"/>
-        <path d="M1180 150 L1180 118 L1226 118 L1226 150 M1173 118 L1203 98 L1233 118"/>
-        <path d="M80 150 L80 128 M66 130 a14 12 0 1 1 26 0 a12 10 0 1 1 -26 0"/>
-        <path d="M1330 150 L1330 124 M1315 126 a16 13 0 1 1 30 0 a14 11 0 1 1 -30 0"/>
-        <path d="M0 150 L1400 150" stroke-width="1.1"/>
-      </g>
-    </svg>
-  </div>
+  <div class="foot-etch" aria-hidden="true"><img src="/assets/brand/village-grave-strip.jpg" alt="" loading="lazy" width="2000" height="624"></div>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">

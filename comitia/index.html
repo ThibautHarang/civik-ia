@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
+<script src="/cookie-consent.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comitia, l'application au service des associations · Civik-ia</title>
+<meta name="description" content="Comitia, le forum de votre association : réunir ses membres, partager l'information, voter, organiser, agir d'une seule voix. Une marque de la maison Civik-ia. Premier club en cours : le golf de Pont-Audemer.">
+<link rel="canonical" href="https://civik-ia.fr/comitia/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://civik-ia.fr/comitia/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Civik-ia">
+<meta property="og:title" content="Comitia, le forum de votre association">
+<meta property="og:description" content="Réunir ses membres, partager l'information, voter, organiser, agir d'une seule voix. Une marque de la maison Civik-ia.">
+<meta property="og:image" content="https://civik-ia.fr/assets/brand/comitia-golf-aerien.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/comitia-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/comitia-apple-touch.png">
+<meta name="theme-color" content="#164027">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Civik-ia", "item": "https://civik-ia.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Comitia, l'application des associations", "item": "https://civik-ia.fr/comitia/" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Comitia, page de marque. Ossature maison Civik-ia, visage Comitia :
+   vert fairway #164027 + crème #f6f3ea, Fraunces + Mulish.
+   ========================================================================== */
+:root{
+  --com-green:#164027;
+  --com-green-deep:#0e2c1a;
+  --com-green-soft:rgba(22,64,39,.08);
+  --com-cream:#f6f3ea;
+  --com-cream-warm:#f2eee2;
+  --com-cream-deep:#ebe6d6;
+  --ci-blue-marianne:#000091;
+  --ci-teal:#2EC4B6;
+  --ci-gold:#F4A261;
+  --ink:#22301f;
+  --ink-soft:#5c665a;
+  --line:rgba(22,64,39,.16);
+  --sh-card:0 8px 24px rgba(14,44,26,.09),0 0 0 1px rgba(22,64,39,.05);
+  --sh-hover:0 16px 40px rgba(14,44,26,.14),0 0 0 1px rgba(22,64,39,.07);
+  --sh-deep:0 32px 80px rgba(14,44,26,.2);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --font-body:'Mulish',system-ui,sans-serif;
+  --font-title:'Fraunces',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--com-cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip;animation:pageIn .5s ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+h1,h2,h3{font-family:var(--font-title);font-weight:600;color:var(--com-green);letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+section{padding:96px 0}
+.eyebrow{display:inline-block;color:var(--ink-soft);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.kicker{font-family:var(--font-title);font-style:italic;font-weight:500;color:var(--com-green);font-size:22px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:80;background:rgba(246,243,234,.82);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:24px;height:72px;max-width:1180px;margin:0 auto;padding:0 40px}
+.nav-logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.nav-logo img{height:34px;width:auto;display:block}
+.nav-logo .nm{font-family:var(--font-title);font-weight:600;font-size:20px;color:var(--com-green)}
+.nav-logo .sub{display:block;font-size:9.5px;font-weight:700;color:var(--ink-soft);letter-spacing:.05em;margin-top:1px;font-family:var(--font-body)}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:var(--ink-soft);margin-left:auto}
+.nav-links a{transition:color .25s ease}
+.nav-links a:hover{color:var(--com-green)}
+.nav-cta{background:var(--com-green);color:var(--com-cream);padding:11px 24px;border-radius:9999px;font-weight:700;font-size:14px;transition:background .35s var(--ease)}
+.nav-cta:hover{background:var(--com-green-deep)}
+@media (max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+/* hero */
+.hero{position:relative;padding:84px 0 96px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-200px;right:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(22,64,39,.07),transparent 68%);border-radius:50%}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero .kicker{display:block;margin:18px 0 12px}
+.hero h1{font-size:clamp(38px,4.4vw,58px);line-height:1.06;letter-spacing:-.018em}
+.hero p.lead{font-size:18px;color:var(--ink-soft);max-width:54ch;margin-top:20px}
+.badge{display:inline-block;margin-top:24px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:9999px;color:var(--com-green);background:var(--com-green-soft);border:1px solid var(--line)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn-primary{display:inline-block;background:var(--com-green);color:var(--com-cream);padding:16px 34px;border-radius:9999px;font-weight:700;font-size:15.5px;transition:background .35s var(--ease),transform .35s var(--ease);box-shadow:var(--sh-card)}
+.btn-primary:hover{background:var(--com-green-deep);transform:translateY(-2px)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--com-green);border:1.5px solid var(--com-green);padding:14.5px 30px;border-radius:9999px;font-weight:700;font-size:15.5px;transition:all .35s var(--ease)}
+.btn-ghost:hover{background:var(--com-green);color:var(--com-cream)}
+.hero-visual{position:relative}
+.hero-photo{border-radius:22px;overflow:hidden;box-shadow:var(--sh-deep);position:relative}
+.hero-photo img{display:block;width:100%;height:420px;object-fit:cover}
+.hero-photo .cap{position:absolute;left:16px;bottom:16px;background:rgba(246,243,234,.92);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:12.5px;font-weight:700;color:var(--com-green)}
+.hero-seal{position:absolute;top:-26px;right:-18px;width:92px;height:92px;border-radius:50%;background:var(--com-cream);border:2px solid var(--ci-gold);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-card)}
+.hero-seal img{width:58%;height:58%;object-fit:contain}
+
+/* récit sombre */
+.recit{background:linear-gradient(150deg,var(--com-green) 0%,var(--com-green-deep) 100%);color:var(--com-cream)}
+.recit-in{max-width:840px;margin:0 auto;text-align:center}
+.recit .eyebrow{color:rgba(246,243,234,.6)}
+.recit h2{color:var(--com-cream);font-size:clamp(28px,3.4vw,42px);margin-top:18px;line-height:1.15}
+.recit p{font-size:17.5px;color:rgba(246,243,234,.85);margin-top:22px;text-align:left}
+.recit p.latin{font-family:var(--font-title);font-style:italic;text-align:center;font-size:20px;color:var(--ci-gold);margin-top:30px}
+
+/* fonctions */
+.fonctions{background:var(--com-cream-warm)}
+.head{max-width:680px;margin-bottom:52px}
+.head h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;margin-top:16px}
+.head p{font-size:17.5px;color:var(--ink-soft);margin-top:14px}
+.fn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.fn-card{background:#fdfbf4;border:1px solid var(--line);border-radius:18px;padding:32px 30px;box-shadow:var(--sh-card);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.fn-card:hover{transform:translateY(-4px);box-shadow:var(--sh-hover)}
+.fn-card .n{font-family:var(--font-title);font-style:italic;font-size:15px;color:var(--ci-gold);display:block;margin-bottom:12px}
+.fn-card h3{font-size:21px;margin-bottom:8px}
+.fn-card p{font-size:15px;color:var(--ink-soft)}
+
+/* premier club */
+.club{background:var(--com-cream)}
+.club-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.club-photo{border-radius:22px;overflow:hidden;box-shadow:var(--sh-deep)}
+.club-photo img{display:block;width:100%;height:380px;object-fit:cover}
+.club h2{font-size:clamp(28px,3.4vw,42px);line-height:1.12;margin-top:16px}
+.club p{font-size:16.5px;color:var(--ink-soft);margin-top:16px}
+.club .facts{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.club .fact{display:flex;align-items:baseline;gap:12px;font-size:15px}
+.club .fact b{font-family:var(--font-title);font-weight:600;color:var(--com-green);font-size:17px;white-space:nowrap}
+.club .link{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-weight:700;color:var(--com-green);font-size:15.5px;transition:gap .3s var(--ease)}
+.club .link:hover{gap:12px}
+
+/* contact */
+.contact{background:var(--com-cream-deep)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.contact h2{font-size:clamp(28px,3.4vw,42px);margin-top:16px;line-height:1.12}
+.contact p.sub{color:var(--ink-soft);font-size:16.5px;margin-top:14px;max-width:44ch}
+.contact-direct{margin-top:24px;display:flex;flex-direction:column;gap:10px;font-size:15.5px}
+.contact-direct a{color:var(--com-green);font-weight:700;transition:opacity .25s ease}
+.contact-direct a:hover{opacity:.75}
+.cform{background:#fdfbf4;border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--sh-card);display:flex;flex-direction:column;gap:15px}
+.cform label{font-size:13px;font-weight:700;color:var(--com-green);display:block;margin-bottom:6px}
+.cform input,.cform textarea{width:100%;background:var(--com-cream);border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-family:var(--font-body);font-size:15px;color:var(--ink);transition:border-color .25s ease,box-shadow .25s ease}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--com-green);box-shadow:0 0 0 3px rgba(22,64,39,.12)}
+.cform textarea{min-height:110px;resize:vertical}
+.cform button{align-self:flex-start;background:var(--com-green);color:var(--com-cream);border:0;cursor:pointer;padding:15px 34px;border-radius:9999px;font-weight:700;font-size:15.5px;font-family:var(--font-body);transition:background .35s var(--ease),transform .35s var(--ease)}
+.cform button:hover{background:var(--com-green-deep);transform:translateY(-2px)}
+
+/* footer */
+footer{background:var(--com-cream-warm);border-top:1px solid var(--line);padding:48px 0 28px}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:26px}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand img{height:38px;width:auto}
+.foot-brand .nm{font-family:var(--font-title);font-weight:600;font-size:19px;color:var(--com-green)}
+.foot-brand .pw{display:block;font-size:12px;color:var(--ink-soft);margin-top:2px}
+.foot-brand .pw a{font-weight:700;color:var(--com-green)}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap;font-size:14px;font-weight:600;color:var(--ink-soft)}
+.foot-links a:hover{color:var(--com-green)}
+.foot-bar{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-soft)}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .fn-grid{grid-template-columns:1fr}
+  .club-grid{grid-template-columns:1fr;gap:30px}
+  .contact-grid{grid-template-columns:1fr;gap:30px}
+  .hero-photo img{height:320px}
+  .club-photo img{height:300px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 22px}
+  .nav-in{padding:0 22px;height:64px}
+  section{padding:62px 0}
+  .hero{padding:48px 0 62px}
+  .cta-row{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  .hero-seal{width:72px;height:72px;top:-18px;right:-6px}
+  .hero-photo img{height:250px}
+  .foot{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="/comitia/">
+      <img src="/assets/brand/comitia-glyph.png" alt="Glyphe Comitia" width="34" height="34">
+      <span><span class="nm">Comitia</span><span class="sub">par Civik-ia</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#esprit">L'esprit</a>
+      <a href="#fonctions">Ce que fait Comitia</a>
+      <a href="#club">Le premier club</a>
+      <a href="/">La maison Civik-ia</a>
+      <a class="nav-cta" href="#contact">Équiper mon association</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Comitia · Associations et clubs</span>
+      <span class="kicker">Una voce, d'une seule voix.</span>
+      <h1>Le forum de votre association.</h1>
+      <p class="lead">Réunir ses membres, partager l'information, voter, organiser, agir. Comitia donne à chaque association, de la plus modeste amicale au plus grand club, un lieu numérique à son image, simple et souverain.</p>
+      <span class="badge">En construction · Premier club en cours</span>
+      <div class="cta-row">
+        <a class="btn-primary" href="#contact">Équiper mon association</a>
+        <a class="btn-ghost" href="#club">Voir le premier club</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-photo">
+        <img src="/assets/brand/comitia-golf-aerien.jpg" alt="Vue aérienne du domaine du golf de Pont-Audemer" width="1246" height="546">
+        <span class="cap">Golf de Pont-Audemer, premier club Comitia</span>
+      </div>
+      <span class="hero-seal"><img src="/assets/brand/comitia-glyph.png" alt="" width="52" height="52"></span>
+    </div>
+  </div>
+</header>
+
+<!-- RÉCIT -->
+<section class="recit" id="esprit">
+  <div class="wrap recit-in">
+    <span class="eyebrow reveal">L'esprit Comitia</span>
+    <h2 class="reveal d1">L'assemblée des citoyens, rendue à vos associations.</h2>
+    <p class="reveal d2">Sur le Forum de Rome, lorsque les citoyens devaient décider du sort de la cité, ils se rassemblaient : c'étaient les comitia, l'assemblée des égaux. Chacun y portait sa voix ; ensemble, ils faisaient la République.</p>
+    <p class="reveal d2">Vingt siècles ont passé, l'esprit demeure intact. Une association, n'est-ce pas déjà cela ? Des femmes et des hommes qui se réunissent, échangent, décident, et font avancer ce qui leur tient à cœur. Comitia rend à chaque association la force de ce geste antique : là où l'on se réunit, là où l'on décide, là où le nous prend forme.</p>
+    <p class="latin reveal d2">Comitia · una voce</p>
+  </div>
+</section>
+
+<!-- FONCTIONS -->
+<section class="fonctions" id="fonctions">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Ce que fait Comitia</span>
+      <h2>Tout ce qu'une association fait déjà, en mieux organisé.</h2>
+      <p>Comitia se construit avec un vrai club, sur de vrais besoins. Voici ce que le premier cas couvre, et ce que chaque association retrouvera.</p>
+    </div>
+    <div class="fn-grid">
+      <div class="fn-card reveal"><span class="n">i.</span><h3>Réunir</h3><p>Le fil du club rassemble annonces, photos et événements au même endroit. Fini les informations éparpillées entre trois messageries et un panneau d'affichage.</p></div>
+      <div class="fn-card reveal d1"><span class="n">ii.</span><h3>Informer</h3><p>Horaires, tarifs, vie du club, actualités : les membres et les visiteurs trouvent une information claire, à jour, aux couleurs de l'association.</p></div>
+      <div class="fn-card reveal"><span class="n">iii.</span><h3>Organiser</h3><p>Tournois, sorties, assemblées : les événements du club sont annoncés, datés, et chacun sait où et quand se retrouver.</p></div>
+      <div class="fn-card reveal d1"><span class="n">iv.</span><h3>Décider ensemble</h3><p>L'assemblée générale reste le cœur de la vie associative. Comitia prépare l'ordre du jour et l'information des adhérents pour que chaque voix compte.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIER CLUB -->
+<section class="club" id="club">
+  <div class="wrap club-grid">
+    <div class="club-photo reveal">
+      <img src="/assets/brand/comitia-golf-aerien.jpg" alt="Le parcours du golf de Pont-Audemer vu du ciel" width="1246" height="546" loading="lazy">
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Le premier club</span>
+      <h2>Le golf de Pont-Audemer ouvre la voie.</h2>
+      <p>Comitia se construit sur le terrain, avec un club centenaire de l'Eure et ses quelque 270 adhérents. Le projet d'application a été présenté aux membres et validé à l'unanimité en assemblée générale, en juin 2026. L'application est aujourd'hui en démonstration.</p>
+      <div class="facts">
+        <div class="fact"><b>Unanimité</b><span>le projet a été voté par l'assemblée générale du club.</span></div>
+        <div class="fact"><b>Sur mesure</b><span>l'application porte les couleurs et l'identité du club, pas les nôtres.</span></div>
+        <div class="fact"><b>Souverain</b><span>même moteur et mêmes exigences que toutes les solutions de la maison.</span></div>
+      </div>
+      <a class="link" href="/golf/" target="_blank" rel="noopener">Découvrir l'application du golf <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Votre association</span>
+      <h2>Et si votre club était le prochain ?</h2>
+      <p class="sub">Club sportif, amicale, fédération rurale : dites-nous qui vous êtes et ce qui vous manque au quotidien. Nous construisons Comitia avec les associations, pas à leur place.</p>
+      <div class="contact-direct">
+        <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>
+        <a href="https://wa.me/33631558796" target="_blank" rel="noopener">WhatsApp professionnel</a>
+      </div>
+    </div>
+    <form class="cform reveal d1" action="https://formspree.io/f/mnjogblz" method="POST">
+      <input type="hidden" name="_subject" value="Contact Comitia (associations)">
+      <div>
+        <label for="cf-nom">Votre nom</label>
+        <input id="cf-nom" type="text" name="nom" required autocomplete="name">
+      </div>
+      <div>
+        <label for="cf-email">Votre email</label>
+        <input id="cf-email" type="email" name="email" required autocomplete="email">
+      </div>
+      <div>
+        <label for="cf-asso">Votre association</label>
+        <input id="cf-asso" type="text" name="association" required placeholder="Nom, activité, commune">
+      </div>
+      <div>
+        <label for="cf-msg">Votre besoin</label>
+        <textarea id="cf-msg" name="message" required placeholder="Ce qui vous prend du temps, ce qui manque à vos adhérents."></textarea>
+      </div>
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img src="/assets/brand/comitia-glyph.png" alt="Glyphe Comitia">
+        <div>
+          <span class="nm">Comitia</span>
+          <span class="pw">Une marque de la maison <a href="/">Civik-ia</a> · propulsé par Civik-ia</span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="/">La maison Civik-ia</a>
+        <a href="/marianne/">Marianne, collectivités</a>
+        <a href="/lauria/">Lauria, familles</a>
+        <a href="/legal/politique-confidentialite.html">Confidentialité</a>
+        <a href="/legal/conditions-utilisation.html">Conditions</a>
+      </div>
+    </div>
+    <div class="foot-bar">© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var toReveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .14 });
+    toReveal.forEach(function(el){ io.observe(el); });
+  } else {
+    toReveal.forEach(function(el){ el.classList.add('in'); });
+  }
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('/service-worker.js').catch(function(){}); });
+  }
+})();
+</script>
+</body>
+</html>

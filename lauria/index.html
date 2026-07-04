@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
+<script src="/cookie-consent.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lauria, votre vie locale, tout près · Civik-ia</title>
+<meta name="description" content="Lauria réunit tout ce qui fait votre quotidien : sorties, agenda, commerces, services, à deux pas de chez vous. L'application de la vie locale pour les familles, par la maison Civik-ia. En construction.">
+<link rel="canonical" href="https://civik-ia.fr/lauria/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://civik-ia.fr/lauria/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Civik-ia">
+<meta property="og:title" content="Lauria, votre vie locale, tout près">
+<meta property="og:description" content="Sorties, agenda, commerces, services : tout ce qui vous entoure, réuni. Une marque de la maison Civik-ia, en construction.">
+<meta property="og:image" content="https://civik-ia.fr/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/lauria-favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/lauria-apple-touch.png">
+<meta name="theme-color" content="#C04A36">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Civik-ia", "item": "https://civik-ia.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Lauria, l'application de la vie locale", "item": "https://civik-ia.fr/lauria/" }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   Lauria, page de marque. Ossature maison Civik-ia, visage Lauria :
+   terracotta #C04A36 + neutres Apple, Outfit + Cormorant Garamond.
+   Le blanc est autorisé sur Lauria (profil DA acté 15/06/2026).
+   ========================================================================== */
+:root{
+  --lau-terra:#C04A36;
+  --lau-terra-deep:#A03E2C;
+  --lau-terra-light:#FBE8E3;
+  --lau-terra-dark:#5A1E14;
+  --n-50:#F5F5F7;
+  --n-100:#EBEBED;
+  --n-200:#D2D2D7;
+  --n-400:#A1A1A6;
+  --n-500:#6E6E73;
+  --n-700:#3A3A3C;
+  --n-900:#1D1D1F;
+  --ci-gold:#F4A261;
+  --line:rgba(29,29,31,.09);
+  --sh-card:0 8px 24px rgba(29,29,31,.07),0 0 0 1px rgba(29,29,31,.03);
+  --sh-hover:0 16px 40px rgba(29,29,31,.11),0 0 0 1px rgba(29,29,31,.04);
+  --sh-deep:0 32px 80px rgba(29,29,31,.16);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --font-body:'Outfit',system-ui,sans-serif;
+  --font-serif:'Cormorant Garamond',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:#fff;color:var(--n-900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;animation:pageIn .5s ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+h1,h2,h3{font-family:var(--font-body);font-weight:700;color:var(--n-900);letter-spacing:-.022em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+section{padding:96px 0}
+.eyebrow{display:inline-block;color:var(--n-500);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.kicker{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--lau-terra);font-size:25px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.82);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:24px;height:72px;max-width:1140px;margin:0 auto;padding:0 40px}
+.nav-logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.nav-logo img{height:34px;width:auto;display:block}
+.nav-logo .nm{font-weight:700;font-size:20px;color:var(--n-900);letter-spacing:-.02em}
+.nav-logo .sub{display:block;font-size:9.5px;font-weight:600;color:var(--n-500);letter-spacing:.05em;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:500;color:var(--n-500);margin-left:auto}
+.nav-links a{transition:color .25s ease}
+.nav-links a:hover{color:var(--lau-terra)}
+.nav-cta{background:var(--lau-terra);color:#fff;padding:11px 24px;border-radius:9999px;font-weight:600;font-size:14px;transition:background .35s var(--ease)}
+.nav-cta:hover{background:var(--lau-terra-deep)}
+@media (max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+/* hero */
+.hero{position:relative;padding:84px 0 96px;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--n-50) 100%)}
+.hero::before{content:"";position:absolute;top:-220px;left:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(192,74,54,.07),transparent 68%);border-radius:50%}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero .kicker{display:block;margin:18px 0 12px}
+.hero h1{font-size:clamp(38px,4.6vw,60px);line-height:1.05;letter-spacing:-.032em}
+.hero h1 em{font-family:var(--font-serif);font-style:italic;font-weight:600;color:var(--lau-terra);letter-spacing:-.01em}
+.hero p.lead{font-size:18px;color:var(--n-500);max-width:52ch;margin-top:20px}
+.badge{display:inline-block;margin-top:24px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:9999px;color:var(--lau-terra);background:var(--lau-terra-light);border:1px solid rgba(192,74,54,.22)}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn-primary{display:inline-block;background:var(--lau-terra);color:#fff;padding:16px 34px;border-radius:9999px;font-weight:600;font-size:15.5px;transition:background .35s var(--ease),transform .35s var(--ease);box-shadow:var(--sh-card)}
+.btn-primary:hover{background:var(--lau-terra-deep);transform:translateY(-2px)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--n-900);border:1.5px solid var(--n-200);padding:14.5px 30px;border-radius:9999px;font-weight:600;font-size:15.5px;transition:all .35s var(--ease)}
+.btn-ghost:hover{border-color:var(--lau-terra);color:var(--lau-terra)}
+
+/* téléphone Lauria */
+.hero-visual{position:relative;display:flex;justify-content:center}
+.phone{position:relative;width:260px;height:536px;border-radius:46px;padding:3px;background:linear-gradient(150deg,#4a4d57 0%,#181a20 30%,#3c3f49 55%,#14161c 100%);box-shadow:var(--sh-deep);animation:floatP 9s ease-in-out infinite}
+@keyframes floatP{0%,100%{transform:translateY(0) rotate(1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+.phone-body{position:relative;border-radius:43px;background:#0b0d12;padding:9px;height:100%}
+.scr{position:relative;border-radius:34px;overflow:hidden;height:100%;display:flex;flex-direction:column;background:#fbfaf8;padding:46px 14px 14px;align-items:center;text-align:center}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:74px;height:20px;border-radius:12px;background:#07080c;z-index:6}
+.glass{position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:34px;background:linear-gradient(118deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 18%,transparent 38%)}
+.seal{width:54px;height:54px;border-radius:50%;background:#fff;border:2px solid rgba(192,74,54,.4);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(29,29,31,.08);margin-bottom:9px}
+.seal img{width:62%;height:62%;object-fit:contain}
+.ph-t{font-weight:700;color:var(--lau-terra);font-size:19px;letter-spacing:-.01em}
+.ph-s{font-size:10.5px;color:var(--n-500);margin-top:2px}
+.ph-rows{width:100%;margin-top:15px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.ph-row{background:#fff;border:1px solid var(--n-100);border-radius:14px;padding:11px 12px;font-size:11px;font-weight:600;color:var(--n-900);box-shadow:0 2px 8px rgba(29,29,31,.04)}
+.ph-row small{display:block;font-weight:500;color:var(--n-500);font-size:9.5px;margin-top:2px}
+.ph-chip{display:inline-block;margin-top:13px;background:var(--lau-terra-light);color:var(--lau-terra);font-size:9.5px;font-weight:700;padding:6px 13px;border-radius:9999px;letter-spacing:.05em;text-transform:uppercase}
+.hero-halo{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:340px;height:60px;background:radial-gradient(ellipse,rgba(192,74,54,.14),transparent 70%);border-radius:50%}
+
+/* récit */
+.recit{background:#fff}
+.recit-in{max-width:800px;margin:0 auto;text-align:center}
+.recit-quote{font-family:var(--font-serif);font-style:italic;font-weight:600;font-size:clamp(27px,3.4vw,42px);line-height:1.25;color:var(--n-900);margin:24px auto 26px}
+.recit-quote em{color:var(--lau-terra);font-style:italic}
+.recit p{font-size:17px;color:var(--n-500);margin-top:18px;text-align:left}
+.recit p b{color:var(--n-900);font-weight:600}
+
+/* promesses */
+.promesses{background:var(--n-50)}
+.head{max-width:660px;margin-bottom:50px}
+.head h2{font-size:clamp(30px,3.6vw,44px);line-height:1.08;margin-top:16px}
+.head p{font-size:17px;color:var(--n-500);margin-top:14px}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pr-card{background:#fff;border:1px solid var(--n-100);border-radius:20px;padding:32px 28px;box-shadow:var(--sh-card);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pr-card:hover{transform:translateY(-4px);box-shadow:var(--sh-hover)}
+.pr-card .n{font-family:var(--font-serif);font-style:italic;font-size:17px;color:var(--lau-terra);display:block;margin-bottom:12px}
+.pr-card h3{font-size:19px;margin-bottom:8px}
+.pr-card p{font-size:14.5px;color:var(--n-500)}
+.pr-note{margin-top:26px;font-size:14px;color:var(--n-500);background:#fff;border:1px dashed var(--n-200);border-radius:14px;padding:18px 24px}
+.pr-note b{color:var(--n-900);font-weight:600}
+
+/* origine */
+.origine{background:linear-gradient(150deg,var(--lau-terra-dark) 0%,var(--lau-terra-deep) 100%);color:#fff}
+.orig-in{max-width:760px;margin:0 auto;text-align:center}
+.origine .eyebrow{color:rgba(255,255,255,.65)}
+.origine h2{color:#fff;font-family:var(--font-serif);font-weight:600;font-style:italic;font-size:clamp(28px,3.4vw,42px);margin-top:18px}
+.origine p{font-size:17px;color:rgba(255,255,255,.88);margin-top:20px}
+
+/* contact */
+.contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.contact h2{font-size:clamp(28px,3.4vw,42px);margin-top:16px;line-height:1.1}
+.contact p.sub{color:var(--n-500);font-size:16.5px;margin-top:14px;max-width:44ch}
+.cform{background:var(--n-50);border:1px solid var(--n-100);border-radius:20px;padding:34px;box-shadow:var(--sh-card);display:flex;flex-direction:column;gap:15px}
+.cform label{font-size:13px;font-weight:600;color:var(--n-900);display:block;margin-bottom:6px}
+.cform input,.cform textarea{width:100%;background:#fff;border:1px solid var(--n-200);border-radius:12px;padding:13px 15px;font-family:var(--font-body);font-size:15px;color:var(--n-900);transition:border-color .25s ease,box-shadow .25s ease}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--lau-terra);box-shadow:0 0 0 3px rgba(192,74,54,.12)}
+.cform textarea{min-height:100px;resize:vertical}
+.cform button{align-self:flex-start;background:var(--lau-terra);color:#fff;border:0;cursor:pointer;padding:15px 34px;border-radius:9999px;font-weight:600;font-size:15.5px;font-family:var(--font-body);transition:background .35s var(--ease),transform .35s var(--ease)}
+.cform button:hover{background:var(--lau-terra-deep);transform:translateY(-2px)}
+
+/* footer */
+footer{background:var(--n-50);border-top:1px solid var(--line);padding:48px 0 28px}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:26px}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand img{height:38px;width:auto}
+.foot-brand .nm{font-weight:700;font-size:19px;color:var(--n-900)}
+.foot-brand .pw{display:block;font-size:12px;color:var(--n-500);margin-top:2px}
+.foot-brand .pw a{font-weight:600;color:var(--lau-terra)}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap;font-size:14px;font-weight:500;color:var(--n-500)}
+.foot-links a:hover{color:var(--lau-terra)}
+.foot-bar{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--n-500)}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-visual{margin-top:8px}
+  .pr-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:30px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 22px}
+  .nav-in{padding:0 22px;height:64px}
+  section{padding:62px 0}
+  .hero{padding:48px 0 62px}
+  .cta-row{flex-direction:column}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+  .phone{width:224px;height:462px}
+  .foot{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="/lauria/">
+      <img src="/assets/brand/lauria-glyph.png" alt="Glyphe Lauria" width="34" height="34">
+      <span><span class="nm">Lauria</span><span class="sub">par Civik-ia</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#recit">Le récit</a>
+      <a href="#promesses">Ce qui arrive</a>
+      <a href="#origine">L'origine du nom</a>
+      <a href="/">La maison Civik-ia</a>
+      <a class="nav-cta" href="#contact">Être prévenu</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Lauria · Familles et habitants</span>
+      <span class="kicker">L'aura de votre vie locale.</span>
+      <h1>Tout ce qui vous entoure, <em>réuni</em>.</h1>
+      <p class="lead">Les sorties, l'agenda, les commerces, les services, les bons plans : Lauria réunira dans le creux de votre main tout ce qui fait votre quotidien, à deux pas de chez vous.</p>
+      <span class="badge">En construction</span>
+      <div class="cta-row">
+        <a class="btn-primary" href="#contact">Être prévenu du lancement</a>
+        <a class="btn-ghost" href="#recit">Découvrir le récit</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="phone" aria-hidden="true">
+        <div class="phone-body">
+          <div class="scr">
+            <span class="island"></span>
+            <span class="glass"></span>
+            <span class="seal"><img src="/assets/brand/lauria-glyph.png" alt="" width="54" height="54"></span>
+            <div class="ph-t">Lauria</div>
+            <div class="ph-s">Votre vie locale, tout près</div>
+            <div class="ph-rows">
+              <div class="ph-row">Marché de plein vent<small>Dimanche matin, place de la Halle</small></div>
+              <div class="ph-row">Fête de l'école<small>Samedi 17 h, gymnase municipal</small></div>
+              <div class="ph-row">Boulangerie du centre<small>Ouverte, à 300 m</small></div>
+              <div class="ph-row">Médiathèque<small>Atelier lecture mercredi 10 h</small></div>
+            </div>
+            <span class="ph-chip">À deux pas de chez vous</span>
+          </div>
+        </div>
+      </div>
+      <span class="hero-halo" aria-hidden="true"></span>
+    </div>
+  </div>
+</header>
+
+<!-- RÉCIT -->
+<section class="recit" id="recit">
+  <div class="wrap recit-in">
+    <span class="eyebrow reveal">Le récit</span>
+    <p class="recit-quote reveal d1">Il existe, autour de chez soi, une <em>lumière discrète</em>.</p>
+    <p class="reveal d2">Celle du marché du dimanche, de l'école au coin de la rue, du club où l'on a ses habitudes, du voisin que l'on salue. On ne la voit pas vraiment, on la ressent.</p>
+    <p class="reveal d2">Cette lumière, nous l'avons appelée <b>Lauria</b> : comme une aura qui réchauffe, comme une aria que l'on fredonne. Pas une application de plus : un foyer numérique, qui rapproche les vôtres de tout ce qui les entoure. Parce que le bonheur, souvent, tient à ce qui est <b>tout près</b>.</p>
+  </div>
+</section>
+
+<!-- PROMESSES -->
+<section class="promesses" id="promesses">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Ce qui arrive</span>
+      <h2>Trois promesses simples, tenues avant d'être annoncées.</h2>
+      <p>Lauria est en construction. Voici ce que nous bâtissons, sans date promise tant que ce n'est pas prêt : c'est la règle de la maison.</p>
+    </div>
+    <div class="pr-grid">
+      <div class="pr-card reveal"><span class="n">i.</span><h3>Les sorties et l'agenda</h3><p>Le marché, la fête de l'école, le concert de l'été : ce qui se passe autour de chez vous, réuni et daté, sans avoir à chercher.</p></div>
+      <div class="pr-card reveal d1"><span class="n">ii.</span><h3>Les commerces et services</h3><p>Qui est ouvert, où et quand : les commerces, les artisans et les services de votre bassin de vie, à jour et à portée de main.</p></div>
+      <div class="pr-card reveal d2"><span class="n">iii.</span><h3>L'essentiel de la commune</h3><p>Là où la mairie a activé Marianne, Lauria s'appuie sur des informations vérifiées par la commune. Ailleurs, chacun peut inviter sa mairie à rejoindre le mouvement.</p></div>
+    </div>
+    <p class="pr-note reveal"><b>Zéro friction, c'est promis.</b> Pas de compte obligatoire, pas de données personnelles exigées pour consulter : on se localise dans sa ville et la vie locale apparaît.</p>
+  </div>
+</section>
+
+<!-- ORIGINE -->
+<section class="origine" id="origine">
+  <div class="wrap orig-in">
+    <span class="eyebrow reveal">L'origine du nom</span>
+    <h2 class="reveal d1">Un prénom, un chemin, un foyer.</h2>
+    <p class="reveal d2">Lauria est né d'un prénom et d'un chemin : Laurie-Anne, et la rue Lalaurie où la famille du fondateur a posé ses valises. De l'intime à l'universel, car chacun a sa Lauria : la chaleur de l'endroit qu'il appelle chez soi.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Lancement</span>
+      <h2>Soyez prévenu, sans spam.</h2>
+      <p class="sub">Laissez-nous votre email et votre commune : vous saurez quand Lauria arrive près de chez vous. Un message au lancement, rien d'autre.</p>
+    </div>
+    <form class="cform reveal d1" action="https://formspree.io/f/mnjogblz" method="POST">
+      <input type="hidden" name="_subject" value="Lauria : être prévenu du lancement">
+      <div>
+        <label for="cf-email">Votre email</label>
+        <input id="cf-email" type="email" name="email" required autocomplete="email">
+      </div>
+      <div>
+        <label for="cf-commune">Votre commune</label>
+        <input id="cf-commune" type="text" name="commune" required placeholder="Ex. : Narbonne">
+      </div>
+      <div>
+        <label for="cf-msg">Un mot, si vous voulez</label>
+        <textarea id="cf-msg" name="message" placeholder="Ce que vous aimeriez trouver dans Lauria."></textarea>
+      </div>
+      <button type="submit">Être prévenu du lancement</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <img src="/assets/brand/lauria-glyph.png" alt="Glyphe Lauria">
+        <div>
+          <span class="nm">Lauria</span>
+          <span class="pw">Une marque de la maison <a href="/">Civik-ia</a> · propulsé par Civik-ia</span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <a href="/">La maison Civik-ia</a>
+        <a href="/marianne/">Marianne, collectivités</a>
+        <a href="/comitia/">Comitia, associations</a>
+        <a href="/legal/politique-confidentialite.html">Confidentialité</a>
+        <a href="/legal/conditions-utilisation.html">Conditions</a>
+      </div>
+    </div>
+    <div class="foot-bar">© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var toReveal = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduced) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .14 });
+    toReveal.forEach(function(el){ io.observe(el); });
+  } else {
+    toReveal.forEach(function(el){ el.classList.add('in'); });
+  }
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('/service-worker.js').catch(function(){}); });
+  }
+})();
+</script>
+</body>
+</html>

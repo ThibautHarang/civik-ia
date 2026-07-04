@@ -147,19 +147,12 @@ section{padding:104px 0}
 .hero-meta span{display:inline-flex;align-items:center;gap:8px}
 .hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--ci-gold);display:inline-block}
 
-/* ---------- la scène : gravure + fil + téléphones ---------- */
+/* ---------- la scène : gravure pleine page + téléphones ---------- */
+.hero-etching{position:absolute;inset:0;pointer-events:none;filter:blur(3px);opacity:.85;
+  -webkit-mask-image:linear-gradient(to top,#000 52%,rgba(0,0,0,.4) 76%,transparent 95%);
+  mask-image:linear-gradient(to top,#000 52%,rgba(0,0,0,.4) 76%,transparent 95%)}
+.hero-etching svg{width:100%;height:100%;display:block}
 .stage{position:relative;height:620px;z-index:1}
-.stage-etching{position:absolute;inset:auto -60px -24px -60px;height:88%;opacity:1;filter:blur(.5px);pointer-events:none;
-  -webkit-mask-image:radial-gradient(120% 100% at 50% 78%,#000 42%,transparent 88%);
-  mask-image:radial-gradient(120% 100% at 50% 78%,#000 42%,transparent 88%)}
-.stage-etching svg{width:100%;height:100%}
-.stage-thread{position:absolute;inset:0;pointer-events:none;z-index:2}
-.stage-thread svg{width:100%;height:100%;overflow:visible}
-.thread-path{stroke:var(--ci-thread);stroke-width:2;fill:none;stroke-linecap:round;
-  stroke-dasharray:1200;stroke-dashoffset:1200;animation:threadDraw 2.4s var(--ease) .5s forwards}
-.thread-glow{stroke:var(--ci-thread);stroke-width:6;fill:none;stroke-linecap:round;opacity:0;filter:blur(4px);animation:threadGlow 1.4s ease 2.2s forwards}
-@keyframes threadDraw{to{stroke-dashoffset:0}}
-@keyframes threadGlow{to{opacity:.3}}
 
 /* téléphones */
 .phones{position:absolute;inset:0;z-index:3}
@@ -239,12 +232,18 @@ section{padding:104px 0}
 .lau-row small{display:block;font-weight:500;color:#6e6e73;font-size:8.8px;margin-top:2px;line-height:1.35}
 .lau-chip{display:inline-block;margin-top:11px;background:rgba(192,74,54,.1);color:var(--lauria-terracotta);font-size:9px;font-weight:700;padding:5px 12px;border-radius:9999px;letter-spacing:.05em;text-transform:uppercase}
 
-/* ---------- voile d'immersion (clic téléphone) ---------- */
-.dive{position:fixed;z-index:200;border-radius:34px;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;
-  transition:transform .68s cubic-bezier(.55,.05,.25,1),border-radius .68s ease,opacity .3s ease}
-.dive img{width:92px;height:92px;object-fit:contain;opacity:0;transition:opacity .4s ease .25s;filter:drop-shadow(0 10px 30px rgba(0,0,60,.25))}
-.dive.go{opacity:1;transform:none!important;border-radius:0}
-.dive.go img{opacity:1}
+/* ---------- immersion : on entre dans le téléphone au clic ---------- */
+.hero.diving{z-index:300;overflow:visible}
+.hero.diving .hero-copy,.hero.diving .hero-etching{opacity:0;transition:opacity .5s ease}
+.hero.diving .phones .phone:not(.dive-zoom){opacity:0;filter:blur(6px);transition:opacity .45s ease,filter .45s ease,transform .45s ease}
+body.diving-out .nav{opacity:0;transition:opacity .4s ease}
+.phone.dive-zoom{z-index:400;animation:none;margin-top:0;
+  transition:transform .95s cubic-bezier(.72,.02,.26,1),box-shadow .95s ease,margin-top .3s ease;
+  box-shadow:0 60px 140px rgba(0,0,80,.35)}
+.phone.dive-zoom .plabel{opacity:0!important}
+.scr-veil{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s ease .38s}
+.dive-zoom .scr-veil{opacity:1}
+.scr-veil img{width:34%;max-width:150px;height:auto}
 
 /* ---------- manifesto ---------- */
 .manifesto{background:var(--ci-cream-deep);position:relative;overflow:hidden}
@@ -393,8 +392,6 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
-  .thread-path{stroke-dashoffset:0}
-  .thread-glow{opacity:.3}
 }
 </style>
 </head>
@@ -429,12 +426,83 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 
 <!-- HERO -->
 <header class="hero" id="top">
+  <div class="hero-etching" aria-hidden="true">
+    <svg viewBox="0 0 1600 640" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+      <g stroke="#1a1a6e" stroke-width="1.7" opacity=".26" stroke-linecap="round" fill="none">
+        <!-- collines lointaines -->
+        <path d="M0 470 Q 210 380 430 440 T 900 430 T 1360 410 T 1600 436"/>
+        <path d="M0 512 Q 260 430 540 478 T 1100 466 T 1600 476"/>
+        <g opacity=".65" stroke-width="1.2">
+          <path d="M110 452 l44 -15"/><path d="M150 466 l44 -15"/><path d="M190 479 l44 -15"/>
+          <path d="M1060 448 l44 -13"/><path d="M1108 460 l44 -13"/><path d="M1156 471 l44 -13"/>
+        </g>
+        <!-- mairie au fronton, drapeau -->
+        <g stroke-width="1.9">
+          <path d="M560 545 L560 385 L800 385 L800 545"/>
+          <path d="M546 385 L680 300 L814 385 Z"/>
+          <path d="M680 300 L680 254"/>
+          <path d="M680 254 L726 265 L680 279 Z" fill="#1a1a6e" fill-opacity=".4"/>
+          <circle cx="680" cy="349" r="17"/>
+          <path d="M680 339 L680 349 L689 354"/>
+          <path d="M588 545 L588 420 M626 545 L626 420 M734 545 L734 420 M772 545 L772 420"/>
+          <path d="M578 414 L782 414"/>
+          <path d="M660 545 L660 462 L700 462 L700 545"/>
+        </g>
+        <g opacity=".55" stroke-width="1.2">
+          <path d="M596 378 l28 -17"/><path d="M622 378 l28 -17"/><path d="M648 378 l28 -17"/>
+          <path d="M690 378 l28 -17"/><path d="M716 378 l28 -17"/><path d="M742 378 l28 -17"/>
+        </g>
+        <!-- église et nef -->
+        <g stroke-width="1.8">
+          <path d="M1080 545 L1080 350 L1156 350 L1156 545"/>
+          <path d="M1070 350 L1118 282 L1166 350"/>
+          <path d="M1118 282 L1118 248 M1104 262 L1132 262"/>
+          <path d="M1097 412 a21 24 0 0 1 42 0 l0 34 l-42 0 Z"/>
+          <path d="M1156 460 L1268 460 L1268 545 M1156 502 L1268 502"/>
+        </g>
+        <!-- maisons du bourg -->
+        <g stroke-width="1.6">
+          <path d="M300 545 L300 458 L378 458 L378 545 M290 458 L339 420 L388 458"/>
+          <path d="M360 434 L360 406 L374 406 L374 444"/>
+          <path d="M420 545 L420 476 L506 476 L506 545 M410 476 L463 440 L516 476"/>
+          <path d="M880 545 L880 468 L962 468 L962 545 M870 468 L921 430 L972 468"/>
+          <path d="M942 448 L942 420 L956 420 L956 458"/>
+          <path d="M1330 545 L1330 472 L1418 472 L1418 545 M1320 472 L1374 436 L1428 472"/>
+          <path d="M1470 545 L1470 490 L1540 490 L1540 545 M1462 490 L1505 458 L1548 490"/>
+        </g>
+        <g opacity=".7" stroke-width="1.3">
+          <path d="M320 482 h22 v22 h-22 Z M444 498 h18 v18 h-18 Z M470 498 h18 v18 h-18 Z"/>
+          <path d="M900 490 h18 v22 h-18 Z M928 490 h18 v22 h-18 Z M1352 496 h18 v22 h-18 Z"/>
+        </g>
+        <!-- fontaine de la place -->
+        <g stroke-width="1.6">
+          <ellipse cx="200" cy="534" rx="46" ry="12"/>
+          <path d="M186 530 L186 502 L214 502 L214 530 M200 502 L200 480"/>
+          <path d="M189 487 Q200 469 211 487"/>
+        </g>
+        <!-- arbres -->
+        <g stroke-width="1.5">
+          <path d="M96 545 L96 502 M72 506 a27 24 0 1 1 48 0 a24 20 0 1 1 -48 0"/>
+          <path d="M1560 545 L1560 496 M1532 500 a31 27 0 1 1 56 0 a27 22 0 1 1 -56 0"/>
+          <path d="M1230 545 L1230 512"/><circle cx="1230" cy="494" r="21"/>
+          <path d="M840 545 L840 516"/><circle cx="840" cy="500" r="17"/>
+        </g>
+        <!-- sol et pavés -->
+        <path d="M0 545 L1600 545" stroke-width="2"/>
+        <g opacity=".5" stroke-width="1.3">
+          <path d="M520 562 l52 0 M610 574 l70 0 M980 562 l58 0 M310 574 l46 0 M1150 574 l52 0 M760 588 l64 0 M1420 562 l48 0"/>
+        </g>
+        <!-- oiseaux -->
+        <path d="M920 220 q12 -12 24 0 q12 -12 24 0 M1000 248 q10 -10 20 0 q10 -10 20 0 M370 240 q10 -10 20 0 q10 -10 20 0" opacity=".6" stroke-width="1.4"/>
+      </g>
+    </svg>
+  </div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Maison de marques · IA souveraine française</span>
-        <span class="kicker">Le trait d'union des territoires.</span>
-        <h1>L'intelligence artificielle au service de la vie locale.</h1>
+        <span class="kicker">Le trait d'union des territoires</span>
+        <h1>L'intelligence artificielle au service de la vie locale</h1>
         <p class="lead">Nous rendons l'IA accessible à celles et ceux qui font vivre la société au quotidien : les communes, les associations, les familles. Un seul moteur souverain, français, et des solutions concrètes qui rapprochent chaque citoyen de ce qui l'entoure.</p>
         <div class="cta-row">
           <a class="btn-primary" href="/marianne/">Découvrir Marianne</a>
@@ -449,84 +517,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 
       <!-- La scène : village gravé, fil bleu, trois téléphones -->
       <div class="stage" aria-label="Nos trois solutions">
-        <div class="stage-etching" aria-hidden="true">
-          <svg viewBox="0 0 900 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#1a1a6e" stroke-width="1" opacity=".22" stroke-linecap="round">
-              <!-- collines -->
-              <path d="M0 400 Q 120 330 260 372 T 520 368 T 780 356 T 900 372"/>
-              <path d="M0 428 Q 160 372 320 404 T 640 396 T 900 402"/>
-              <!-- hachures collines -->
-              <g opacity=".7">
-                <path d="M60 392 l26 -9"/><path d="M84 400 l26 -9"/><path d="M108 407 l26 -9"/>
-                <path d="M620 384 l26 -8"/><path d="M648 391 l26 -8"/><path d="M676 397 l26 -8"/>
-              </g>
-              <!-- mairie : fronton, colonnes, drapeau -->
-              <g stroke-width="1.1">
-                <path d="M330 452 L330 356 L470 356 L470 452"/>
-                <path d="M322 356 L400 308 L478 356 Z"/>
-                <path d="M400 308 L400 282"/>
-                <path d="M400 282 L426 288 L400 296 Z" fill="#1a1a6e" fill-opacity=".5"/>
-                <circle cx="400" cy="336" r="10"/>
-                <path d="M400 330 L400 336 L405 339"/>
-                <path d="M346 452 L346 380 M368 452 L368 380 M432 452 L432 380 M454 452 L454 380"/>
-                <path d="M340 376 L460 376"/>
-                <path d="M388 452 L388 404 L412 404 L412 452"/>
-              </g>
-              <!-- hachures fronton -->
-              <g opacity=".6">
-                <path d="M352 352 l16 -10"/><path d="M366 352 l16 -10"/><path d="M380 352 l16 -10"/>
-                <path d="M404 352 l16 -10"/><path d="M418 352 l16 -10"/><path d="M432 352 l16 -10"/>
-              </g>
-              <!-- église -->
-              <g stroke-width="1.05">
-                <path d="M604 452 L604 336 L648 336 L648 452"/>
-                <path d="M598 336 L626 296 L654 336"/>
-                <path d="M626 296 L626 276 M618 284 L634 284"/>
-                <path d="M614 372 a12 14 0 0 1 24 0 l0 20 l-24 0 Z"/>
-                <path d="M648 400 L710 400 L710 452 M648 424 L710 424"/>
-              </g>
-              <!-- maisons -->
-              <g stroke-width=".95">
-                <path d="M170 452 L170 402 L214 402 L214 452 M164 402 L192 380 L220 402"/>
-                <path d="M204 388 L204 372 L212 372 L212 394"/>
-                <path d="M238 452 L238 412 L286 412 L286 452 M232 412 L262 392 L292 412"/>
-                <path d="M510 452 L510 408 L556 408 L556 452 M504 408 L533 386 L562 408"/>
-                <path d="M545 396 L545 380 L553 380 L553 402"/>
-                <path d="M740 452 L740 410 L790 410 L790 452 M734 410 L765 390 L796 410"/>
-              </g>
-              <!-- fenêtres et portes -->
-              <g opacity=".8" stroke-width=".8">
-                <path d="M182 416 h12 v12 h-12 Z M252 424 h10 v10 h-10 Z M266 424 h10 v10 h-10 Z"/>
-                <path d="M522 420 h10 v12 h-10 Z M538 420 h10 v12 h-10 Z M756 422 h10 v12 h-10 Z"/>
-              </g>
-              <!-- fontaine -->
-              <g stroke-width=".95">
-                <ellipse cx="120" cy="446" rx="26" ry="7"/>
-                <path d="M112 444 L112 428 L128 428 L128 444 M120 428 L120 416"/>
-                <path d="M114 420 Q120 410 126 420"/>
-              </g>
-              <!-- arbres -->
-              <g stroke-width=".9">
-                <path d="M60 452 L60 428 M46 430 a16 14 0 1 1 28 0 a14 12 0 1 1 -28 0"/>
-                <path d="M838 452 L838 424 M822 426 a18 16 0 1 1 32 0 a16 13 0 1 1 -32 0"/>
-                <path d="M700 452 L700 434"/><circle cx="700" cy="424" r="12"/>
-              </g>
-              <!-- sol -->
-              <path d="M0 452 L900 452" stroke-width="1.15"/>
-              <g opacity=".55">
-                <path d="M300 462 l30 0 M350 468 l40 0 M560 462 l34 0 M180 468 l26 0 M660 468 l30 0"/>
-              </g>
-              <!-- oiseaux -->
-              <path d="M520 236 q7 -7 14 0 q7 -7 14 0 M566 252 q6 -6 12 0 q6 -6 12 0" opacity=".7"/>
-            </g>
-          </svg>
-        </div>
-        <div class="stage-thread" aria-hidden="true">
-          <svg viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-            <path class="thread-glow" d="M56 560 C 130 545 165 500 205 452 S 268 330 300 254 C 316 216 330 170 330 128"/>
-            <path class="thread-path" d="M56 560 C 130 545 165 500 205 452 S 268 330 300 254 C 316 216 330 170 330 128 M330 128 l-8 14 M330 128 l10 12"/>
-          </svg>
-        </div>
+
 
         <div class="phones">
           <!-- Comitia (associations) -->
@@ -601,7 +592,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 <section class="manifesto" id="maison">
   <div class="wrap mani-in">
     <span class="eyebrow reveal">Notre conviction</span>
-    <p class="mani-quote reveal d1">La technologie la plus utile n'est pas celle qui impressionne. C'est celle qui <em>rapproche</em>.</p>
+    <p class="mani-quote reveal d1">La technologie la plus utile n'est pas celle qui impressionne. C'est celle qui <em>rapproche</em></p>
     <p class="mani-p reveal d2">Civik-ia est une maison française de produits d'intelligence artificielle, fondée à Narbonne. Nous construisons des outils simples et souverains pour la mairie qui veut répondre à ses citoyens à toute heure, pour l'association qui veut réunir ses membres, pour la famille qui veut vivre pleinement son territoire. Trois solutions, un même moteur, une même exigence.</p>
     <div class="mani-pillars">
       <div class="pillar reveal"><span class="n">i.</span><h3>Accessible</h3><p>Aucune inscription, aucune application à installer côté citoyen. On pose une question, on obtient une réponse claire et sourcée. L'IA disparaît derrière le service rendu.</p></div>
@@ -616,7 +607,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow">Nos solutions</span>
-      <h2>Une maison, trois marques, un même moteur souverain.</h2>
+      <h2>Une maison, trois marques, un même moteur souverain</h2>
       <p>Chaque acteur du territoire a son outil. Ensemble, ils tissent un écosystème local que la commune peut fédérer.</p>
     </div>
 
@@ -667,7 +658,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
   <div class="wrap">
     <div class="head reveal">
       <span class="eyebrow">Le fil conducteur</span>
-      <h2>Souveraine par conception.</h2>
+      <h2>Souveraine par conception</h2>
       <p>Toutes nos solutions partagent le même socle. C'est lui qui fait la différence entre un gadget et un service public numérique digne de confiance.</p>
     </div>
     <div class="souv-grid">
@@ -675,7 +666,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
       <div class="souv-card reveal d1"><span class="ix">ii.</span><h3>Hébergement européen</h3><p>Les données sont hébergées chez OVH, en Union européenne. Aucun transfert hors UE, jamais, pour aucun de nos produits.</p></div>
       <div class="souv-card reveal d2"><span class="ix">iii.</span><h3>RGPD natif</h3><p>Zéro inscription imposée au citoyen, durées de conservation légales, registres tenus. La vie privée par défaut, pas par option.</p></div>
     </div>
-    <p class="souv-sig reveal">Du village à la métropole, le même moteur, la même exigence.</p>
+    <p class="souv-sig reveal">Du village à la métropole, le même moteur, la même exigence</p>
   </div>
 </section>
 
@@ -684,7 +675,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
   <div class="wrap fly">
     <div class="reveal">
       <span class="eyebrow">Le territoire connecté</span>
-      <h2>Chaque outil local nourrit l'intelligence de la commune.</h2>
+      <h2>Chaque outil local nourrit l'intelligence de la commune</h2>
       <p class="big">Une association outillée par Comitia, des habitants qui vivent leur territoire avec Lauria, et c'est toute la commune qui gagne en visibilité. Avec l'accord de chacun, les informations locales remontent vers Marianne, qui oriente à son tour les citoyens vers les bons acteurs. Un cercle vertueux, souverain et respectueux de la vie privée.</p>
     </div>
     <div class="fly-diagram reveal d1">
@@ -702,7 +693,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
   <div class="wrap contact-grid">
     <div class="reveal">
       <span class="eyebrow">Contact</span>
-      <h2>Parlons de votre territoire.</h2>
+      <h2>Parlons de votre territoire</h2>
       <p class="sub">Vous êtes maire, secrétaire de mairie, président d'association ou simplement curieux de ce que nous construisons : écrivez-nous, nous répondons vite et sans jargon.</p>
       <div class="contact-direct">
         <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>
@@ -751,7 +742,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="/assets/logo-civik-ia.png" alt="Civik-ia">
-        <div class="sig">Le trait d'union des territoires.</div>
+        <div class="sig">Le trait d'union des territoires</div>
         <p>Maison française de produits d'intelligence artificielle au service de la vie locale. Souveraine, sobre, utile.</p>
       </div>
       <div>
@@ -821,10 +812,10 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
     toReveal.forEach(function(el){ el.classList.add('in'); });
   }
 
-  /* immersion : au clic sur un téléphone, on entre dans l'écran */
+  /* immersion : au clic, le téléphone grossit et on entre dans son écran */
   var DIVE = {
-    '/marianne/': { bg: '#000091', glyph: '/assets/brand/marianne-glyph.png' },
-    '/comitia/':  { bg: '#164027', glyph: '/assets/brand/comitia-glyph.png' },
+    '/marianne/': { bg: '#f7f4ed', glyph: '/assets/brand/marianne-glyph.png' },
+    '/comitia/':  { bg: '#f6f3ea', glyph: '/assets/brand/comitia-glyph.png' },
     '/lauria/':   { bg: '#fbfaf8', glyph: '/assets/brand/lauria-glyph.png' }
   };
   document.querySelectorAll('.phone').forEach(function(phone){
@@ -832,27 +823,34 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
       var href = phone.getAttribute('href');
       var conf = DIVE[href];
       if (!conf || reduced || e.metaKey || e.ctrlKey || e.shiftKey) return; /* navigation normale */
+      var vw = window.innerWidth || document.documentElement.clientWidth;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if (!vw || !vh) return; /* viewport indisponible : navigation classique */
       e.preventDefault();
+      if (document.body.classList.contains('diving-out')) return;
+      document.body.classList.add('diving-out');
+      var hero = document.querySelector('.hero');
+      var stage = document.querySelector('.stage');
+      hero.classList.add('diving');
+      /* voile crème + glyphe qui se révèle dans l'écran pendant le zoom */
       var scr = phone.querySelector('.scr');
-      var r = scr.getBoundingClientRect();
       var veil = document.createElement('div');
-      veil.className = 'dive';
+      veil.className = 'scr-veil';
       veil.style.background = conf.bg;
-      veil.style.left = '0'; veil.style.top = '0';
-      veil.style.width = window.innerWidth + 'px';
-      veil.style.height = window.innerHeight + 'px';
-      /* FLIP : on part de la taille de l'écran du téléphone, on va vers le plein viewport */
-      var sx = r.width / window.innerWidth;
-      var sy = r.height / window.innerHeight;
-      veil.style.transformOrigin = '0 0';
-      veil.style.transform = 'translate(' + r.left + 'px,' + r.top + 'px) scale(' + sx + ',' + sy + ')';
       var img = document.createElement('img');
       img.src = conf.glyph; img.alt = '';
       veil.appendChild(img);
-      document.body.appendChild(veil);
-      requestAnimationFrame(function(){ requestAnimationFrame(function(){ veil.classList.add('go'); }); });
+      scr.appendChild(veil);
+      /* zoom : le centre du téléphone rejoint le centre de la fenêtre, à l'échelle plein écran */
+      var stageRect = stage.getBoundingClientRect();
+      var cx = stageRect.left + phone.offsetLeft + phone.offsetWidth / 2;
+      var cy = stageRect.top + phone.offsetTop + phone.offsetHeight / 2;
+      var s = Math.max(vw / phone.offsetWidth, vh / phone.offsetHeight) * 1.12;
+      phone.classList.add('dive-zoom');
+      void phone.offsetWidth; /* reflow force : la transition demarre a coup sur */
+      phone.style.transform = 'translate(' + (vw / 2 - cx) + 'px,' + (vh / 2 - cy) + 'px) scale(' + s + ')';
       if (window.dataLayer) { window.dataLayer.push({ event: 'phone_dive', destination: href }); }
-      setTimeout(function(){ window.location.href = href; }, 720);
+      setTimeout(function(){ window.location.href = href; }, 950);
     });
   });
 

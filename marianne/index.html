@@ -1511,6 +1511,25 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   .cb-window{right:10px;bottom:140px;width:calc(100vw - 20px);height:calc(100vh - 170px)}
 }
 
+/* ---- Comparer avant de choisir (familles d'outils) ---- */
+.vs{padding:110px 5vw;background:var(--ci-bg-alt,#f5f2eb)}
+.vs__scroll{max-width:1080px;margin:44px auto 0;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:18px;border:1px solid var(--ci-border,rgba(200,190,170,.25));box-shadow:0 8px 24px rgba(0,0,80,.06)}
+.vs table{width:100%;min-width:640px;border-collapse:collapse;background:var(--ci-glass-bg,rgba(250,248,242,.75));font-size:14.5px}
+.vs th,.vs td{padding:15px 18px;text-align:center;border-bottom:1px solid var(--ci-border,rgba(200,190,170,.22));color:var(--ci-fg-soft,#5a5a5a)}
+.vs th{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ci-fg-soft,#5a5a5a)}
+.vs td:first-child,.vs th:first-child{text-align:left;color:var(--ci-fg,#1E1E1E);font-weight:600;max-width:300px}
+.vs .col-m{background:rgba(0,0,145,.05);color:var(--ci-fg-heading,#000091)!important;font-weight:700}
+.vs th.col-m{font-size:12px}
+.vs tr:last-child td{border-bottom:0}
+.vs .ok{display:inline-block;width:22px;height:22px;line-height:22px;border-radius:50%;background:rgba(46,196,182,.15);color:#0a8b82;font-weight:800;font-size:13px}
+.vs .pm{display:inline-block;width:22px;height:22px;line-height:22px;border-radius:50%;background:rgba(244,162,97,.16);color:#b06a2a;font-weight:800;font-size:13px}
+.vs .no{display:inline-block;width:22px;height:22px;line-height:20px;border-radius:50%;background:rgba(90,90,90,.1);color:var(--ci-fg-soft,#8a8a8a);font-weight:700;font-size:12px}
+.vs__legend{max-width:1080px;margin:16px auto 0;text-align:center;font-size:13px;color:var(--ci-fg-soft,#5a5a5a)}
+.vs__more{max-width:1080px;margin:26px auto 0;text-align:center}
+.vs__more a{display:inline-block;font-weight:600;font-size:14.5px;color:var(--ci-fg-heading,#000091);border:1.5px solid currentColor;border-radius:9999px;padding:12px 26px;transition:all .3s ease}
+.vs__more a:hover{background:var(--ci-blue-marianne);border-color:var(--ci-blue-marianne);color:#f7f4ed}
+@media (max-width:880px){.vs{padding:70px 4vw}}
+
 /* ---- Diffuser n'est pas repondre ---- */
 .camp__vs{max-width:1160px;margin:34px auto 0;background:var(--ci-glass-bg,rgba(247,244,237,.6));border:1px solid var(--ci-border,rgba(200,190,170,.25));border-radius:18px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .camp__vs h3{font-size:19px;color:var(--ci-fg-heading,#000091);margin:0 0 6px;font-family:'Poppins',sans-serif}
@@ -1851,6 +1870,37 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
       </ul>
     </div>
   </div>
+</section>
+
+<!-- COMPARER AVANT DE CHOISIR -->
+<section class="vs" id="comparer">
+  <div class="section__head center">
+    <span class="eyebrow">Comparer avant de choisir</span>
+    <h2 class="display" style="margin-top:16px">Trois familles d'outils,<br><span class="grad-text">une seule fait tout</span></h2>
+    <p class="muted" style="font-size:18px;max-width:600px;margin:18px auto 0;text-align:center">Panneaux de diffusion, chatbots génériques, plateforme citoyenne : voici ce que chaque famille sait faire, pour choisir en connaissance de cause.</p>
+  </div>
+  <div class="vs__scroll" role="region" aria-label="Comparaison par familles d'outils" tabindex="0">
+    <table>
+      <thead>
+        <tr>
+          <th>Ce dont votre commune a besoin</th>
+          <th class="col-m">Marianne</th>
+          <th>Outils de diffusion</th>
+          <th>Chatbots génériques</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Répondre aux questions de chaque citoyen, 24 h/24</td><td class="col-m"><span class="ok">✓</span></td><td><span class="no">✗</span></td><td><span class="ok">✓</span></td></tr>
+        <tr><td>Diffuser alertes et campagnes sur plusieurs canaux</td><td class="col-m"><span class="ok">✓</span></td><td><span class="ok">✓</span></td><td><span class="no">✗</span></td></tr>
+        <tr><td>Réponses sourcées sur vos documents (PLU, arrêtés, délibérations)</td><td class="col-m"><span class="ok">✓</span></td><td><span class="no">✗</span></td><td><span class="pm">±</span></td></tr>
+        <tr><td>IA souveraine affichée : modèle français, hébergement UE</td><td class="col-m"><span class="ok">✓</span></td><td><span class="pm">±</span></td><td><span class="pm">±</span></td></tr>
+        <tr><td>Cockpit de pilotage pour le maire et les élus</td><td class="col-m"><span class="ok">✓</span></td><td><span class="pm">±</span></td><td><span class="pm">±</span></td></tr>
+        <tr><td>Aucun compte ni application imposés au citoyen</td><td class="col-m"><span class="ok">✓</span></td><td><span class="no">✗</span></td><td><span class="pm">±</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="vs__legend">✓ inclus &nbsp;·&nbsp; ± partiel, en option ou selon éditeur &nbsp;·&nbsp; ✗ pas prévu pour cela. Lecture par grandes familles d'outils du marché 2026.</p>
+  <div class="vs__more"><a href="/comparatif-chatbot-mairie-2026.html">Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket, Generia)</a></div>
 </section>
 
 <!-- SOVEREIGN STACK -->

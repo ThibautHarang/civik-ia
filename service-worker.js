@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v103-marianne-premium-2026-07-04';
+const CACHE_NAME = 'civik-ia-v104-prix-nowrap-retrait-preuve-2026-07-05';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

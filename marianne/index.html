@@ -1511,21 +1511,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   .cb-window{right:10px;bottom:140px;width:calc(100vw - 20px);height:calc(100vh - 170px)}
 }
 
-/* ---- Preuve : deja en ligne ---- */
-.live{padding:110px 5vw;background:var(--ci-bg-alt,#f5f2eb)}
-.live__grid{max-width:1160px;margin:44px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.live__card{background:var(--ci-glass-bg,rgba(247,244,237,.6));border:1px solid var(--ci-border,rgba(200,190,170,.25));border-radius:20px;padding:34px 32px;box-shadow:0 8px 24px rgba(0,0,80,.07);display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1)}
-.live__card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,80,.12)}
-.live__badge{align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:9999px}
-.live__badge.on{color:#0a8b82;background:rgba(46,196,182,.13);border:1px solid rgba(46,196,182,.36)}
-.live__badge.demo{color:var(--ci-blue-marianne);background:rgba(0,0,145,.06);border:1px solid rgba(0,0,145,.18)}
-.live__card h3{font-size:23px;margin:14px 0 4px;color:var(--ci-fg-heading,#000091);font-family:'Poppins',sans-serif}
-.live__card .dept{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ci-fg-soft,#5a5a5a)}
-.live__card p{margin:12px 0 0;font-size:15px;line-height:1.6;color:var(--ci-fg-soft,#5a5a5a)}
-.live__card .go{margin-top:auto;padding-top:22px;font-weight:600;font-size:15px;color:var(--ci-fg-heading,#000091);display:inline-flex;align-items:center;gap:8px;transition:gap .3s ease,color .25s ease}
-.live__card:hover .go{gap:12px;color:#2EC4B6}
-.live__note{max-width:1160px;margin:22px auto 0;text-align:center;font-size:14px;color:var(--ci-fg-soft,#5a5a5a)}
-@media (max-width:880px){.live__grid{grid-template-columns:1fr}.live{padding:70px 5vw}}
 /* ---- Diffuser n'est pas repondre ---- */
 .camp__vs{max-width:1160px;margin:34px auto 0;background:var(--ci-glass-bg,rgba(247,244,237,.6));border:1px solid var(--ci-border,rgba(200,190,170,.25));border-radius:18px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .camp__vs h3{font-size:19px;color:var(--ci-fg-heading,#000091);margin:0 0 6px;font-family:'Poppins',sans-serif}
@@ -1581,7 +1566,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   <div class="nav__links">
     <a href="#how">Fonctionnement</a>
     <a href="#demo">Démo</a>
-    <a href="#communes">Communes</a>
     <a href="#campagnes">Campagnes</a>
     <a href="#pricing">Tarifs</a>
     <a href="#parrainage">Parrainage</a>
@@ -1598,7 +1582,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 <div class="nav__mobile" id="navMobile">
   <a href="#how">Fonctionnement</a>
   <a href="#demo">Démo</a>
-  <a href="#communes">Communes</a>
   <a href="#campagnes">Campagnes</a>
   <a href="#pricing">Tarifs</a>
   <a href="#parrainage">Parrainage</a>
@@ -1627,7 +1610,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
         Votre mairie<br><span class="soft">disponible</span> <span class="hero__tricolore">24h/24</span>
       </h1>
       <p class="hero__lead">
-        Marianne répond à vos citoyens à toute heure, en français, au nom de votre mairie. IA souveraine, RGPD native, formée sur votre PLU et vos arrêtés. <strong>Dès 49 €/mois HT.</strong>
+        Marianne répond à vos citoyens à toute heure, en français, au nom de votre mairie. IA souveraine, RGPD native, formée sur votre PLU et vos arrêtés. <strong style="white-space:nowrap;color:var(--ci-fg-heading,#000091);font-weight:800;font-size:1.08em">Dès 49&nbsp;€/mois&nbsp;HT.</strong>
       </p>
       <div class="hero__ctas">
         <a href="/demo.html" class="btn btn-primary">Tester la démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -1833,31 +1816,6 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   </div>
 </section>
 
-<!-- DEJA EN LIGNE (preuve) -->
-<section class="live" id="communes">
-  <div class="section__head center">
-    <span class="eyebrow">La preuve, en ligne</span>
-    <h2 class="display" style="margin-top:16px">Des pages publiques,<br><span class="grad-text">pas des promesses</span></h2>
-    <p class="muted" style="font-size:18px;max-width:560px;margin:18px auto 0;text-align:center">La meilleure démonstration reste le produit lui-même. Ces pages sont réelles, publiques et ouvertes à tous : essayez-les.</p>
-  </div>
-  <div class="live__grid">
-    <a class="live__card" href="/thore-la-rochette/" target="_blank" rel="noopener">
-      <span class="live__badge on">En service</span>
-      <h3>Thoré-la-Rochette</h3>
-      <span class="dept">Loir-et-Cher · 890 habitants</span>
-      <p>La commune a confié son accueil numérique à Marianne. Posez-lui une vraie question, elle vous répondra avec les informations officielles de la mairie.</p>
-      <span class="go">Ouvrir la page de Thoré-la-Rochette <span aria-hidden="true">&rarr;</span></span>
-    </a>
-    <a class="live__card" href="/mallemort/" target="_blank" rel="noopener">
-      <span class="live__badge demo">Démonstration</span>
-      <h3>Mallemort</h3>
-      <span class="dept">Bouches-du-Rhône · 6 300 habitants</span>
-      <p>Une démonstration grandeur nature préparée pour la commune : Marianne y répond avec les informations publiques de Mallemort, vérifiées à la source.</p>
-      <span class="go">Ouvrir la démonstration <span aria-hidden="true">&rarr;</span></span>
-    </a>
-  </div>
-  <p class="live__note">Chaque commune reçoit cette même page à ses couleurs, prête en 7 jours.</p>
-</section>
 
 <!-- PERSONAS -->
 <section class="who">

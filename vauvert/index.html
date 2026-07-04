@@ -25,9 +25,15 @@
 <meta name="twitter:description" content="L'assistante citoyenne de votre mairie, 24h/24. Démonstration Civik-ia.">
 <meta name="twitter:image" content="https://civik-ia.fr/vauvert/vauvert-og.jpg">
 
-<!-- Redirection vers la démo vitrine de l'app (JS uniquement : les robots d'aperçu
-     de lien — WhatsApp, iMessage… — ne suivent PAS la redirection et lisent donc
-     bien les balises Open Graph de CETTE page, pas celles de /app/). -->
+<!-- ===========================================================================
+     KILL-SWITCH (désactivation de la démonstration Vauvert)
+     La démo est servie ici (splash) + sur /preview/vauvert/ (vrai produit).
+     Pour la couper proprement sans lien mort : passer DEMO_ACTIVE à false
+     ci-dessous (redéployer le site). Le visiteur voit alors un écran premium
+     qui l'invite à découvrir ou activer Marianne pour sa commune, via la page
+     /marianne/ du site (pas de redirection vers l'assistante).
+     Pour rouvrir la démo : repasser DEMO_ACTIVE à true.
+     =========================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -56,15 +62,28 @@
   a.cta{display:inline-block;margin-top:4px;color:var(--teal);text-decoration:none;font-weight:600;font-size:14px}
   a.cta:hover{text-decoration:underline}
   .foot{margin-top:30px;font-size:12px;color:#9a958c}
+  /* Écran premium (démo désactivée) */
+  .premium h1{color:var(--blue)}
+  .premium .sub{margin-bottom:22px}
+  .btn{
+    display:inline-block;background:var(--blue);color:#fff;text-decoration:none;
+    font-weight:600;font-size:15px;line-height:1;padding:14px 26px;border-radius:12px;
+    box-shadow:0 10px 24px rgba(0,0,145,.20);transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(0,0,145,.26)}
+  .note{margin:16px 0 0;font-size:13px;color:#8a8579}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
   @media (max-width:600px){
     .card{max-width:340px}
     h1{font-size:22px}
     .sub{font-size:14px}
+    .btn{padding:13px 22px;font-size:14px}
   }
 </style>
 </head>
 <body>
-  <main class="card">
+  <!-- Écran de chargement (affiché seulement si la démo est active) -->
+  <main class="card" id="loading" style="display:none">
     <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
     <div class="spinner" role="status" aria-label="Chargement"></div>
     <h1>Marianne</h1>
@@ -75,9 +94,30 @@
       <span style="font-size:11px;color:#b3aea4">Photo : Vpe — Wikimedia Commons · CC BY-SA 3.0 (recadrée)</span>
     </p>
   </main>
+
+  <!-- Écran premium (affiché quand la démo est désactivée / expirée) -->
+  <main class="card premium" id="premium">
+    <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
+    <h1>Marianne</h1>
+    <p class="pb">Propulsé par Civik-ia</p>
+    <p class="sub">La démonstration pour <strong>Vauvert</strong> n'est plus ouverte au public.<br>
+      Marianne est désormais réservée aux communes abonnées.</p>
+    <a class="btn" href="/marianne/#contact">Découvrir et activer Marianne pour votre commune</a>
+    <p class="note">Une question, une demande d'information ? Nous vous répondons directement.</p>
+    <p class="foot">Plateforme d'Intelligence Citoyenne souveraine</p>
+  </main>
+
   <script>
-    // Redirection immédiate (JS uniquement, pas de meta refresh : les robots d'aperçu lisent les OG ci-dessus)
-    window.location.replace('/preview/vauvert/');
+    // — Kill-switch —
+    var DEMO_ACTIVE = false;         // false = démo coupée : écran premium ; true = redirection vers l'assistante
+    var DEMO_EXPIRE = null;          // ex. "2026-08-31T23:59:59" pour une expiration auto ; null = pas d'expiration
+    var expired = !DEMO_ACTIVE || (DEMO_EXPIRE && new Date() > new Date(DEMO_EXPIRE));
+    if (!expired) {
+      document.getElementById('premium').style.display = 'none';
+      document.getElementById('loading').style.display = 'block';
+      // Redirection immédiate (JS uniquement, pas de meta refresh : les robots d'aperçu lisent les OG ci-dessus)
+      window.location.replace('/preview/vauvert/');
+    }
   </script>
 </body>
 </html>

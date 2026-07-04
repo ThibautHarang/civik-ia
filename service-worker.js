@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v92-maison-de-marques-2026-07-04';
+const CACHE_NAME = 'civik-ia-v93-livre-blanc-tarifs-2026-07-04';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

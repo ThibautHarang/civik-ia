@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v109-seo-sprint-2026-07-05';
+const CACHE_NAME = 'civik-ia-v110-sobriete-secretaire-2026-07-05';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

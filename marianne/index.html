@@ -306,14 +306,14 @@ a{color:inherit;text-decoration:none}
 .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--ci-teal-text,#0E7C72);display:inline-block}
 .display{
   font-family:var(--ci-font-display);
-  font-weight:900;line-height:.98;letter-spacing:-.035em;
+  font-weight:800;line-height:1.04;letter-spacing:-.028em;
   color:var(--ci-blue-marianne);
   margin:0;
   text-wrap:balance;
 }
-h1.display{font-size:clamp(48px,8.2vw,128px)}
-h2.display{font-size:clamp(40px,5.8vw,88px)}
-h3.display{font-size:clamp(28px,3.2vw,44px);line-height:1.05;letter-spacing:-.025em}
+h1.display{font-size:clamp(42px,5.4vw,76px);line-height:1.02}
+h2.display{font-size:clamp(32px,4vw,52px);font-weight:700}
+h3.display{font-size:clamp(24px,2.6vw,36px);font-weight:700;line-height:1.12;letter-spacing:-.02em}
 .muted{color:var(--ci-ink-soft)}
 .grad-text{
   background:linear-gradient(110deg,#000091 0%,#1a1a6e 35%,#2EC4B6 80%);
@@ -808,7 +808,7 @@ section{padding:140px 6vw;position:relative}
 }
 .minute__time{
   font-family:var(--ci-font-serif);font-weight:400;font-style:normal;
-  font-size:clamp(140px,20vw,300px);line-height:.82;
+  font-size:clamp(110px,15vw,210px);line-height:.82;
   letter-spacing:-.04em;
   color:var(--ci-blue-marianne);
   display:flex;align-items:flex-start;
@@ -1547,36 +1547,73 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 @keyframes dawnOut{to{opacity:0;visibility:hidden}}
 @media (prefers-reduced-motion:reduce){.page-dawn{display:none}}
 
-/* ---- Section "Sur le site de votre mairie" (bouton Marianne, 05/07/2026) ---- */
+/* ---- Section "Sur le site de votre mairie" (bouton Marianne, 05/07/2026, refonte premium) ---- */
 .msl{padding:96px 24px}
-.msl__wrap{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:.94fr 1.06fr;gap:56px;align-items:center}
+.msl__wrap{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:.88fr 1.12fr;gap:60px;align-items:center}
 .msl__points{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:13px}
 .msl__points li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.55;color:var(--ci-ink-soft,#4a4a4a)}
 .msl__points li::before{content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;border-radius:50%;background:#F4A261}
 .msl__points li strong{color:#000091}
-/* mockup navigateur */
-.msl__browser{background:#fdfbf6;border:1px solid rgba(200,190,170,.45);border-radius:18px;box-shadow:0 32px 80px rgba(0,0,80,.16),0 0 0 1px rgba(0,0,145,.04);overflow:hidden}
-.msl__bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#f2eee4;border-bottom:1px solid rgba(200,190,170,.4)}
-.msl__dots{display:flex;gap:6px}
-.msl__dots i{width:10px;height:10px;border-radius:50%;background:#dcd6c6;display:block}
-.msl__url{flex:1;background:#fdfbf6;border:1px solid rgba(200,190,170,.4);border-radius:9999px;padding:6px 16px;font-size:12.5px;color:#4a4a4a;font-weight:500}
-.msl__site{position:relative;padding:0 0 26px;min-height:330px}
-.msl__mairie-head{display:flex;align-items:center;gap:12px;background:#000091;color:#f7f4ed;padding:16px 22px}
-.msl__blason{width:34px;height:34px;border-radius:50%;background:#f7f4ed;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.msl__blason span{font:700 15px Georgia,serif;color:#000091}
-.msl__mairie-head b{font-size:15px;font-weight:700;letter-spacing:-.01em}
-.msl__mairie-head small{display:block;font-size:10.5px;opacity:.75;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
-.msl__nav{display:flex;gap:18px;padding:11px 22px;border-bottom:1px solid rgba(200,190,170,.35);font-size:12px;font-weight:600;color:#4a4a4a}
-.msl__content{padding:22px}
-.msl__line{height:11px;border-radius:6px;background:#e9e4d6;margin-bottom:11px}
-.msl__line.w60{width:60%}.msl__line.w85{width:85%}.msl__line.w40{width:40%}.msl__line.title{height:17px;width:52%;background:#ded8c6;margin-bottom:16px}
-/* le bouton Marianne sur le site */
-.msl__cta{position:absolute;right:20px;bottom:20px;display:inline-flex;align-items:center;gap:11px;background:#000091;color:#f7f4ed;padding:11px 20px 11px 12px;border-radius:9999px;font-size:13.5px;font-weight:600;box-shadow:0 14px 34px rgba(0,0,145,.35);white-space:nowrap}
-.msl__cta img{width:30px;height:30px;border-radius:50%;background:#f7f4ed;padding:4px;display:block}
-.msl__reply{position:absolute;right:26px;bottom:82px;max-width:270px;background:#fdfbf6;border:1px solid rgba(200,190,170,.5);border-radius:14px 14px 3px 14px;padding:11px 14px;font-size:12.5px;line-height:1.5;color:#1E1E1E;box-shadow:0 10px 28px rgba(0,0,80,.12)}
-.msl__reply small{display:block;margin-top:5px;font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#000091}
-@media (max-width:900px){.msl__wrap{grid-template-columns:1fr;gap:34px}}
-@media (max-width:600px){.msl{padding:64px 20px}.msl__reply{max-width:210px;bottom:76px}.msl__cta{font-size:12px;right:12px;bottom:14px}.msl__site{min-height:300px}}
+/* fenetre navigateur */
+.msl__browser{background:#fff;border:1px solid rgba(200,190,170,.5);border-radius:14px;box-shadow:0 36px 90px rgba(0,0,80,.18),0 0 0 1px rgba(0,0,145,.03);overflow:hidden;font-family:var(--ci-font-sans)}
+.msl__bar{display:flex;align-items:center;gap:10px;padding:9px 13px;background:#f4f1e8;border-bottom:1px solid rgba(200,190,170,.4)}
+.msl__dots{display:flex;gap:5px}
+.msl__dots i{width:9px;height:9px;border-radius:50%;background:#ddd7c7;display:block}
+.msl__url{display:flex;align-items:center;gap:7px;flex:1;background:#fff;border:1px solid rgba(200,190,170,.45);border-radius:7px;padding:4px 11px;font-size:11px;color:#4a4a4a;font-weight:500}
+.msl__url svg{width:10px;height:10px;flex-shrink:0;opacity:.55}
+/* le site municipal fictif */
+.msl__site{position:relative;background:#fbfaf7}
+.msl__tb{display:flex;justify-content:space-between;gap:12px;background:#2f3a56;color:rgba(255,255,255,.82);padding:5px 16px;font-size:9px;letter-spacing:.02em}
+.msl__head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 16px;background:#fff;border-bottom:1px solid #eceadf}
+.msl__id{display:flex;align-items:center;gap:11px}
+.msl__blason{width:36px;height:40px;background:linear-gradient(160deg,#31406b,#22182e 115%);border-radius:5px 5px 50% 50%/5px 5px 42% 42%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.msl__blason span{font:600 12px Georgia,serif;color:#f2e9c8;letter-spacing:.04em}
+.msl__id b{display:block;font-family:Georgia,serif;font-size:16.5px;font-weight:600;color:#2a2a2a;letter-spacing:-.01em}
+.msl__id small{display:block;font-size:9px;color:#8a8578;letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+.msl__devise{font-family:Georgia,serif;font-style:italic;font-size:9.5px;color:#9a9484;white-space:nowrap}
+.msl__nav{display:flex;align-items:center;gap:2px;padding:0 10px;background:#fff;border-bottom:1px solid #e5e2d5;font-size:10.5px;font-weight:600;color:#4a4a4a}
+.msl__nav span{padding:9px 9px;border-bottom:2px solid transparent}
+.msl__nav span:first-child{border-bottom-color:#2f3a56;color:#2f3a56}
+.msl__nav .msl__tab{margin-left:auto;display:inline-flex;align-items:center;gap:6px;background:#000091;color:#f7f4ed;padding:5px 11px 5px 6px;border-radius:9999px;font-size:10px;font-weight:600;margin-block:5px;box-shadow:0 3px 10px rgba(0,0,145,.25)}
+.msl__tab img{width:17px;height:17px;border-radius:50%;background:#f7f4ed;padding:2.5px;display:block}
+.msl__alert{display:flex;align-items:center;gap:8px;background:#fdf6e2;border-bottom:1px solid #efe3bd;padding:6px 16px;font-size:10px;color:#6b5b22}
+.msl__alert i{width:6px;height:6px;border-radius:50%;background:#d9a514;flex-shrink:0;display:block}
+.msl__body{display:grid;grid-template-columns:1.45fr 1fr;gap:16px;padding:15px 16px 58px}
+.msl__h4{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a8578;margin:0 0 8px}
+.msl__actu{background:#fff;border:1px solid #eceadf;border-radius:9px;padding:10px 12px;margin-bottom:9px}
+.msl__actu time{font-size:8.5px;font-weight:700;letter-spacing:.08em;color:#2f3a56;text-transform:uppercase}
+.msl__actu b{display:block;font-size:11.5px;color:#2a2a2a;line-height:1.35;margin:3px 0 2px;letter-spacing:-.01em}
+.msl__actu p{margin:0;font-size:10px;color:#777162;line-height:1.45}
+.msl__dem{display:flex;flex-direction:column;gap:7px}
+.msl__dem a{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;border:1px solid #eceadf;border-radius:9px;padding:9px 12px;font-size:10.5px;font-weight:600;color:#2f3a56;text-decoration:none}
+.msl__dem a::after{content:"›";font-size:13px;color:#b3ac97}
+/* le widget Marianne, ouvert */
+.msl__chat{position:absolute;right:14px;bottom:60px;width:236px;background:#fdfbf6;border:1px solid rgba(200,190,170,.55);border-radius:13px;box-shadow:0 22px 54px rgba(0,0,60,.22);overflow:hidden}
+.msl__chat-h{display:flex;align-items:center;gap:8px;background:#000091;color:#f7f4ed;padding:8px 11px}
+.msl__chat-h img{width:22px;height:22px;border-radius:50%;background:#f7f4ed;padding:3px;display:block}
+.msl__chat-h b{font-size:10.5px;font-weight:700;display:block;line-height:1.2}
+.msl__chat-h small{display:flex;align-items:center;gap:4px;font-size:8px;opacity:.85}
+.msl__chat-h small i{width:5px;height:5px;border-radius:50%;background:#2EC4B6;display:block}
+.msl__chat-b{padding:9px 10px 11px;display:flex;flex-direction:column;gap:6px}
+.msl__q{align-self:flex-end;max-width:88%;background:#000091;color:#f7f4ed;font-size:10px;line-height:1.45;padding:6px 9px;border-radius:10px 10px 3px 10px}
+.msl__r{align-self:flex-start;max-width:94%;background:#fff;border:1px solid #eceadf;font-size:10px;line-height:1.5;padding:7px 9px;border-radius:10px 10px 10px 3px;color:#2a2a2a}
+.msl__r small{display:block;margin-top:4px;font-size:7.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#000091}
+.msl__fab{position:absolute;right:14px;bottom:12px;width:38px;height:38px;border-radius:50%;background:#000091;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,145,.4)}
+.msl__fab img{width:22px;height:22px;display:block}
+/* legende sous le mockup */
+.msl__legend{display:flex;gap:22px;justify-content:center;margin-top:16px;font-size:12.5px;color:var(--ci-ink-soft,#4a4a4a)}
+.msl__legend span{display:inline-flex;align-items:center;gap:7px}
+.msl__legend i{width:17px;height:17px;border-radius:50%;background:rgba(0,0,145,.08);color:#000091;font-style:normal;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+@media (max-width:900px){.msl__wrap{grid-template-columns:1fr;gap:36px}}
+@media (max-width:600px){
+  .msl{padding:64px 20px}
+  .msl__tb span:last-child{display:none}
+  .msl__devise{display:none}
+  .msl__nav span:nth-child(3),.msl__nav span:nth-child(4){display:none}
+  .msl__body{grid-template-columns:1fr;padding-bottom:150px}
+  .msl__chat{width:200px;right:10px;bottom:56px}
+  .msl__legend{flex-direction:column;gap:8px;align-items:flex-start}
+}
 </style>
 </head>
 <body id="top">
@@ -1763,26 +1800,54 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
         <a href="#contact" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:8px">Relier le site de ma commune</a>
       </div>
     </div>
-    <div class="msl__browser reveal" aria-label="Aperçu : le bouton Marianne sur le site d'une mairie">
-      <div class="msl__bar">
-        <div class="msl__dots"><i></i><i></i><i></i></div>
-        <div class="msl__url">www.mairie-saintmartin.fr</div>
+    <div class="reveal">
+      <div class="msl__browser" aria-label="Aperçu : le site d'une mairie relié à Marianne">
+        <div class="msl__bar">
+          <div class="msl__dots"><i></i><i></i><i></i></div>
+          <div class="msl__url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>www.mairie-saintmartin.fr</div>
+        </div>
+        <div class="msl__site">
+          <div class="msl__tb"><span>Mairie ouverte du lundi au vendredi · 9h-12h / 14h-17h30</span><span>04 68 12 34 56 · accueil@mairie-saintmartin.fr</span></div>
+          <div class="msl__head">
+            <div class="msl__id">
+              <div class="msl__blason"><span>SM</span></div>
+              <div><b>Saint-Martin</b><small>Site officiel de la commune</small></div>
+            </div>
+            <div class="msl__devise">Liberté · Égalité · Fraternité</div>
+          </div>
+          <div class="msl__nav">
+            <span>Accueil</span><span>Vie municipale</span><span>Démarches</span><span>Agenda</span>
+            <span class="msl__tab"><img src="/assets/brand/marianne-glyph.png" alt="" width="17" height="17">Une question ?</span>
+          </div>
+          <div class="msl__alert"><i></i>Travaux : coupure d'eau rue des Écoles jeudi 9 juillet, de 8h à 12h.</div>
+          <div class="msl__body">
+            <div>
+              <p class="msl__h4">Actualités</p>
+              <div class="msl__actu"><time>1 juillet</time><b>Inscriptions cantine et périscolaire 2026-2027</b><p>Le portail famille est ouvert jusqu'au 10 août.</p></div>
+              <div class="msl__actu"><time>19 juillet</time><b>Fête du village, place de la Mairie</b><p>Repas, bal et feu d'artifice à partir de 19 h.</p></div>
+            </div>
+            <div>
+              <p class="msl__h4">Démarches rapides</p>
+              <div class="msl__dem">
+                <a>Acte de naissance</a>
+                <a>Réserver la salle des fêtes</a>
+                <a>Signaler un problème</a>
+              </div>
+            </div>
+          </div>
+          <div class="msl__chat">
+            <div class="msl__chat-h"><img src="/assets/brand/marianne-glyph.png" alt="" width="22" height="22"><div><b>Marianne</b><small><i></i>Mairie de Saint-Martin · en ligne</small></div></div>
+            <div class="msl__chat-b">
+              <div class="msl__q">La mairie est ouverte samedi ?</div>
+              <div class="msl__r">Non, la mairie est ouverte du lundi au vendredi, de 9h à 12h et de 14h à 17h30. Vous pouvez toutefois faire votre demande en ligne dès maintenant.<small>Source : mairie de Saint-Martin</small></div>
+            </div>
+          </div>
+          <div class="msl__fab"><img src="/assets/brand/marianne-glyph.png" alt="" width="22" height="22"></div>
+        </div>
       </div>
-      <div class="msl__site">
-        <div class="msl__mairie-head">
-          <div class="msl__blason"><span>SM</span></div>
-          <div><b>Mairie de Saint-Martin</b><small>Site officiel de la commune</small></div>
-        </div>
-        <div class="msl__nav"><span>Accueil</span><span>Vie municipale</span><span>Démarches</span><span>Agenda</span></div>
-        <div class="msl__content">
-          <div class="msl__line title"></div>
-          <div class="msl__line w85"></div>
-          <div class="msl__line w60"></div>
-          <div class="msl__line w85"></div>
-          <div class="msl__line w40"></div>
-        </div>
-        <div class="msl__reply">La mairie est ouverte demain de 9 h à 17 h 30. Souhaitez-vous prendre rendez-vous pour votre dossier ?<small>Marianne · source : mairie</small></div>
-        <div class="msl__cta"><img src="/assets/brand/marianne-glyph.png" alt="" width="30" height="30">Une question ? Marianne vous répond</div>
+      <div class="msl__legend">
+        <span><i>1</i>Un onglet dans votre menu</span>
+        <span><i>2</i>La bulle Marianne, en bas de chaque page</span>
       </div>
     </div>
   </div>

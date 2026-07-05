@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>try{if(sessionStorage.getItem("ciDawn"))document.documentElement.className+=" no-dawn";else sessionStorage.setItem("ciDawn","1")}catch(e){}</script>
 <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
 <script src="/cookie-consent.js" defer></script>
 
@@ -205,9 +206,9 @@
 </script>
 
 <!-- Favicon & PWA -->
-<link rel="icon" type="image/svg+xml" href="/assets/logo-civik-ia-seul.svg">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/marianne-favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/marianne-favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/marianne-apple-touch.png">
 <meta name="theme-color" content="#000091">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1614,9 +1615,12 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
   .msl__chat{width:200px;right:10px;bottom:56px}
   .msl__legend{flex-direction:column;gap:8px;align-items:flex-start}
 }
+.no-dawn .page-dawn{display:none!important}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#000091;color:#f7f4ed;padding:12px 22px;border-radius:0 0 12px 0;font-weight:600;text-decoration:none}.skip-link:focus{left:0}
 </style>
 </head>
 <body id="top">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
 
 <!-- BANDEAU NOUVEAUTÉ, Civik-ia sur WhatsApp (dismissible, SEO : lien interne vers la landing) -->
 <a id="ci-news" href="/marianne-whatsapp.html" style="display:none;position:fixed;top:0;left:0;right:0;z-index:1300;height:44px;align-items:center;justify-content:center;gap:10px;background:#000091;color:#faf6eb;font:600 13.5px 'Inter',sans-serif;text-decoration:none;padding:0 42px;text-align:center;line-height:1.2;">
@@ -1679,7 +1683,7 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 <main id="contenu">
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="contenu">
   <div class="hero__inner">
     <div>
       <span class="hero__status-wrap" id="heroStatusWrap">

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v117-wording-coherence-2026-07-05';
+const CACHE_NAME = 'civik-ia-v118-premium-pack-2026-07-05';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

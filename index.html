@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>try{if(sessionStorage.getItem("ciDawn"))document.documentElement.className+=" no-dawn";else sessionStorage.setItem("ciDawn","1")}catch(e){}</script>
 <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
 <script src="/cookie-consent.js" defer></script>
 
@@ -434,9 +435,12 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
   .reveal{opacity:1;transform:none}
   .page-dawn{display:none}
 }
+.no-dawn .page-dawn{display:none!important}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#000091;color:#f7f4ed;padding:12px 22px;border-radius:0 0 12px 0;font-weight:600;text-decoration:none}.skip-link:focus{left:0}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Aller au contenu</a>
 
 <div class="page-dawn" aria-hidden="true"><i></i><i></i><i></i></div>
 
@@ -469,7 +473,7 @@ footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);paddi
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-etching" aria-hidden="true"><img src="/assets/brand/village-grave.jpg" alt="" width="2000" height="1075" fetchpriority="high"></div>
+  <div class="hero-etching" aria-hidden="true"><picture><source type="image/webp" srcset="/assets/brand/village-grave-900.webp 900w, /assets/brand/village-grave.webp 2000w" sizes="100vw"><img src="/assets/brand/village-grave.jpg" alt="" width="2000" height="1075" fetchpriority="high"></picture></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">

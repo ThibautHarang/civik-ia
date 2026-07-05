@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-07-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://civik-ia.fr/marianne/</loc><lastmod>2026-07-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://civik-ia.fr/comitia/</loc><lastmod>2026-07-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://civik-ia.fr/lauria/</loc><lastmod>2026-07-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://civik-ia.fr/marianne/</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://civik-ia.fr/comitia/</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://civik-ia.fr/lauria/</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://civik-ia.fr/demo</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://civik-ia.fr/chatbot-mairie.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://civik-ia.fr/chatbot-mairie-prix.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -18,7 +18,7 @@
   <url><loc>https://civik-ia.fr/chatbot-mairie-loir-et-cher.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://civik-ia.fr/chatbot-mairie-herault.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://civik-ia.fr/livre-blanc.html</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/marianne-whatsapp.html</loc><lastmod>2026-06-10</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://civik-ia.fr/marianne-whatsapp.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://civik-ia.fr/campagnes-citoyennes.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://civik-ia.fr/aide.html</loc><lastmod>2026-06-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

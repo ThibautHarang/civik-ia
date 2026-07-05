@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v111-sobriete-landings-2026-07-05';
+const CACHE_NAME = 'civik-ia-v112-section-site-mairie-2026-07-05';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

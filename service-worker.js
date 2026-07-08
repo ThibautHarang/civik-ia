@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v121-signer-token-2026-07-08';
+const CACHE_NAME = 'civik-ia-v122-sgmo-2026-07-08';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

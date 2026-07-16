@@ -1,0 +1,9 @@
+rdg-og-v2.jpg — miniature de partage (Open Graph) de la page rive-de-gier
+Source : Wikimedia Commons, "Pont levis2-TG2012.jpg" (carte postale colorisée du Pont-Levis,
+au fond l'Hôtel de Ville ; image de tête de l'article Wikipédia « Pont du Gier »)
+Auteur (téléversement) : Archives Municipales Rive-de-Gier
+Licence : CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Page : https://commons.wikimedia.org/wiki/File:Pont_levis2-TG2012.jpg
+Modification : recadrage 1200x630 (légende imprimée retirée) + bandeau titre/sceau Marianne
+pour usage og:image (Civik-ia, 2026-07-16). Choix photo : Thibaut, 16/07/2026.
+Attribution requise : « Archives Municipales Rive-de-Gier, CC BY-SA 4.0, via Wikimedia Commons »

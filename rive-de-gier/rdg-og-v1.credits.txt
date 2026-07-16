@@ -1,0 +1,7 @@
+rdg-og-v1.jpg — miniature de partage (Open Graph) de la page rive-de-gier
+Source : Wikimedia Commons, "Rive-de-Gier.JPG"
+Auteur : Verod1
+Licence : CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Page : https://commons.wikimedia.org/wiki/File:Rive-de-Gier.JPG
+Modification : recadrage 1200x630 + bandeau titre/sceau Marianne pour usage og:image (Civik-ia, 2026-07-16)
+Attribution requise : « Verod1, CC BY-SA 4.0, via Wikimedia Commons »

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marianne - Rive-de-Gier</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Marianne, l'assistante citoyenne Civik-ia pour Rive-de-Gier : posez vos questions à la mairie 24h/24 (état civil, horaires, déchets, urbanisme, écoles, vie locale).">
+
+<!-- Open Graph / aperçu de lien (WhatsApp, iMessage, SMS, réseaux) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Civik-ia">
+<meta property="og:url" content="https://civik-ia.fr/rive-de-gier/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Marianne - Rive-de-Gier">
+<meta property="og:description" content="L'assistante citoyenne de votre mairie, disponible 24h/24 : état civil, horaires, déchets, urbanisme, écoles, vie locale.">
+<meta property="og:image" content="https://civik-ia.fr/app/marianne-og.jpg">
+<meta property="og:image:secure_url" content="https://civik-ia.fr/app/marianne-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marianne, l'assistante citoyenne de la mairie de Rive-de-Gier">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marianne - Rive-de-Gier">
+<meta name="twitter:description" content="L'assistante citoyenne de votre mairie, 24h/24. Civik-ia.">
+<meta name="twitter:image" content="https://civik-ia.fr/app/marianne-og.jpg">
+
+<!-- Typographies de marque (Inter corps, Poppins titre) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+<!-- ===========================================================================
+     KILL-SWITCH (activation / suspension de l'accès Rive-de-Gier)
+     Marianne est servie ici (splash) + sur /preview/rive-de-gier/
+     (produit réel, aucun mail ne part vers la mairie). Pour suspendre proprement
+     l'accès à tout moment, sans lien mort : passer ACCESS_ACTIVE à false
+     ci-dessous (redéployer le site). Le visiteur voit alors un message courtois
+     au lieu d'être redirigé. Pour une suspension automatique à une date,
+     renseigner ACCESS_EXPIRE (date ISO).
+     =========================================================================== -->
+<style>
+  :root{ --bg:#f7f4ed; --blue:#000091; --teal:#2EC4B6; --ink:#1E1E1E; }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex;align-items:center;justify-content:center;min-height:100dvh;padding:24px;text-align:center;
+  }
+  .card{max-width:440px;width:100%}
+  .mark{
+    width:64px;height:64px;border-radius:50%;margin:0 auto 22px;display:block;
+    object-fit:cover;
+    box-shadow:0 12px 30px rgba(0,0,145,.22);
+  }
+  h1{font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;font-size:24px;margin:0 0 4px;letter-spacing:-.4px;color:var(--blue)}
+  .pb{font-size:12px;color:#8a8579;margin:0 0 18px;letter-spacing:.2px}
+  .sub{font-size:15px;color:#5b5b5b;margin:0 0 26px}
+  .sub strong{color:var(--ink)}
+  .spinner{width:34px;height:34px;border-radius:50%;border:3px solid rgba(0,0,145,.15);border-top-color:var(--teal);margin:0 auto 20px;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.spinner{animation:none;border-top-color:var(--blue)}}
+  a.cta{display:inline-block;margin-top:4px;color:var(--teal);text-decoration:none;font-weight:600;font-size:14px}
+  a.cta:hover{text-decoration:underline}
+  .foot{margin-top:30px;font-size:12px;color:#9a958c}
+  .expired h1{color:var(--blue)}
+  .expired .sub{margin-bottom:8px}
+  @media (max-width:600px){
+    .card{max-width:340px}
+    h1{font-size:20px}
+    .sub{font-size:14px}
+  }
+</style>
+</head>
+<body>
+  <main class="card" id="loading">
+    <img class="mark" src="/assets/brand/marianne-seal-cream.png" width="64" height="64" alt="Marianne" decoding="async">
+    <div class="spinner" role="status" aria-label="Chargement"></div>
+    <h1>Marianne</h1>
+    <p class="pb">Propulsé par Civik-ia</p>
+    <p class="sub">Ouverture de l'assistante de<br><strong>Rive-de-Gier</strong>…</p>
+    <a class="cta" href="/preview/rive-de-gier/">Accéder à l'assistante &rarr;</a>
+    <p class="foot">Plateforme d'Intelligence Citoyenne<br>
+      <span style="font-size:11px;color:#b3aea4">Loire · Saint-Étienne Métropole</span>
+    </p>
+  </main>
+
+  <!-- Écran affiché seulement si l'accès Rive-de-Gier est suspendu -->
+  <main class="card expired" id="expired" style="display:none">
+    <img class="mark" src="/assets/brand/marianne-seal-cream.png" width="64" height="64" alt="Marianne" decoding="async">
+    <h1>Marianne - Rive-de-Gier</h1>
+    <p class="pb">Propulsé par Civik-ia</p>
+    <p class="sub">L'accès à Marianne pour Rive-de-Gier est momentanément suspendu.</p>
+    <p class="sub">Vous êtes élu ou agent de la commune ? Pour l'activer durablement pour Rive-de-Gier, écrivez-nous à<br><strong>harang.thibaut@gmail.com</strong>.</p>
+    <p class="foot">Plateforme d'Intelligence Citoyenne souveraine</p>
+  </main>
+
+  <script>
+    // — Kill-switch (accès Rive-de-Gier) —
+    var ACCESS_ACTIVE = true;        // passer à false pour suspendre l'accès proprement
+    var ACCESS_EXPIRE = null;        // ex. "2026-08-31T23:59:59" pour une suspension auto ; null = pas de date
+    var expired = !ACCESS_ACTIVE || (ACCESS_EXPIRE && new Date() > new Date(ACCESS_EXPIRE));
+    if (expired) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('expired').style.display = 'block';
+    } else {
+      // Redirection immédiate (JS uniquement, pas de meta refresh : les robots
+      // d'aperçu de lien lisent les balises Open Graph de cette page).
+      window.location.replace('/preview/rive-de-gier/');
+    }
+  </script>
+</body>
+</html>

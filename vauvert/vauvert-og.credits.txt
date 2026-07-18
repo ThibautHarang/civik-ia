@@ -1,0 +1,7 @@
+vauvert-og.jpg — miniature de partage (Open Graph) de la page vauvert
+Source : Wikimedia Commons, "Mairievauvert.JPG"
+Auteur : Vpe
+Licence : CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) (multi-licence GFDL 1.2+ / CC BY-SA 1.0 à 3.0)
+Page : https://commons.wikimedia.org/wiki/File:Mairievauvert.JPG
+Modification : recadrage 1200x630 pour usage og:image (Civik-ia, 2026-06-24)
+Attribution requise : « Vpe, CC BY-SA 3.0, via Wikimedia Commons » (présente en pied de la page splash)

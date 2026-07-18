@@ -1,0 +1,7 @@
+mallemort-og-v4.jpg — miniature de partage (Open Graph) de la page mallemort
+Source : Wikimedia Commons, "Pont suspendu sur la Durance.JPG"
+Auteur : Véronique PAGNIER
+Licence : domaine public (œuvre versée au domaine public par son auteure)
+Page : https://commons.wikimedia.org/wiki/File:Pont_suspendu_sur_la_Durance.JPG
+Modification : recadrage 1200x630 + bandeau titre/sceau Marianne pour usage og:image (Civik-ia, 2026-07-06)
+Attribution : non requise (domaine public) ; mention de courtoisie « Véronique PAGNIER, via Wikimedia Commons »

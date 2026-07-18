@@ -1,0 +1,7 @@
+brive-og.jpg — miniature de partage (Open Graph) de la page brive
+Source : Wikimedia Commons, "Brive-la-Gaillarde - Rue Toulzac - 1.jpg"
+Auteur : Benjamin Smith (utilisateur Benjism89)
+Licence : CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Page : https://commons.wikimedia.org/wiki/File:Brive-la-Gaillarde_-_Rue_Toulzac_-_1.jpg
+Modification : recadrage 1200x630 (sips, cropOffset 300 40) pour usage og:image (Civik-ia, 2026-06-13)
+Attribution requise : « Benjamin Smith, CC BY-SA 4.0, via Wikimedia Commons » (présente en pied de la page splash)

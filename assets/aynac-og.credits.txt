@@ -1,0 +1,7 @@
+aynac-og.jpg — miniature de partage (Open Graph) de la page demo-aynac
+Source : Wikimedia Commons, "Castle of Aynac 01.jpg"
+Auteur : Krzysztof Golik
+Licence : CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+Page : https://commons.wikimedia.org/wiki/File:Castle_of_Aynac_01.jpg
+Modification : recadrage 1200x630 pour usage og:image (Civik-ia, 2026-06-07)
+Attribution requise : « Krzysztof Golik, CC BY-SA 4.0, via Wikimedia Commons »

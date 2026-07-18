@@ -1,0 +1,7 @@
+saint-etienne-og.jpg — miniature de partage (Open Graph) de la page saint-etienne-l-allier
+Source : Wikimedia Commons, "Vue de l'église Saint-Étienne.JPG"
+Auteur : Giogo
+Licence : CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/)
+Page : https://commons.wikimedia.org/wiki/File:Vue_de_l%27%C3%A9glise_Saint-%C3%89tienne.JPG
+Modification : recadrage 1200x630 pour usage og:image (Civik-ia, 2026-06-15)
+Attribution requise : « Giogo, CC BY-SA 3.0, via Wikimedia Commons » (présente en pied de la page splash)

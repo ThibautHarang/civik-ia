@@ -1,0 +1,7 @@
+sgmo-og-v1.jpg — miniature de partage (Open Graph) de la page saint-germain-au-mont-dor
+Source : Wikimedia Commons, "Saint-Germain-au-Mont-d'Or - Église et donjon.jpg"
+Auteur : Romainbehar
+Licence : CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)
+Page : https://commons.wikimedia.org/wiki/File:Saint-Germain-au-Mont-d%27Or_-_%C3%89glise_et_donjon.jpg
+Modification : recadrage 1200x630 + bandeau titre/sceau Marianne (composition PIL) pour usage og:image (Civik-ia, 2026-07-08)
+Attribution : non requise (CC0) ; mention de courtoisie « Romainbehar, via Wikimedia Commons »

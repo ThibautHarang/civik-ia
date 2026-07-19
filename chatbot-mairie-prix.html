@@ -1932,5 +1932,27 @@
             });
         })();
     </script>
+    <script>
+        // Mesure des clics CTA (contact, demo, email) — GA4 via consentement uniquement
+        (function() {
+            function track(label) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'cta_click', { 'event_category': 'lead', 'event_label': label, 'page': 'chatbot-mairie-prix' });
+                }
+                if (window.dataLayer) {
+                    window.dataLayer.push({ event: 'cta_click', cta_label: label, page: 'chatbot-mairie-prix' });
+                }
+            }
+            document.querySelectorAll('a[href="/marianne/#contact"]').forEach(function(a) {
+                a.addEventListener('click', function() { track('contact-marianne'); });
+            });
+            document.querySelectorAll('a[href="demo.html"], a[href="/demo"]').forEach(function(a) {
+                a.addEventListener('click', function() { track('demo'); });
+            });
+            document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+                a.addEventListener('click', function() { track('email'); });
+            });
+        })();
+    </script>
 </body>
 </html>

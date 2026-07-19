@@ -2,5 +2,11 @@
 User-agent: *
 Allow: /
 Disallow: /icons/
+Disallow: /app/
+Disallow: /portrait/
+Disallow: /api/
+
+# /preview/{slug}/ = nouvelle app multi-persona, INDEXABLE pour SEO local par commune
+# (cf. décision 3 mai 2026 — bascule de l'ancien chatbot vers app canonique)
 
 Sitemap: https://civik-ia.fr/sitemap.xml

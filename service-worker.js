@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v126-lieurey-2026-07-18';
+const CACHE_NAME = 'civik-ia-v127-seo-vagues-2026-07-19';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

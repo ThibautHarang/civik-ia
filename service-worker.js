@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v127-seo-vagues-2026-07-19';
+const CACHE_NAME = 'civik-ia-v128-whatsapp-honnete-2026-07-22';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

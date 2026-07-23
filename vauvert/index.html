@@ -26,13 +26,13 @@
 <meta name="twitter:image" content="https://civik-ia.fr/vauvert/vauvert-og.jpg">
 
 <!-- ===========================================================================
-     KILL-SWITCH (désactivation de la démonstration Vauvert)
-     La démo est servie ici (splash) + sur /preview/vauvert/ (vrai produit).
-     Pour la couper proprement sans lien mort : passer DEMO_ACTIVE à false
-     ci-dessous (redéployer le site). Le visiteur voit alors un écran premium
-     qui l'invite à découvrir ou activer Marianne pour sa commune, via la page
-     /marianne/ du site (pas de redirection vers l'assistante).
-     Pour rouvrir la démo : repasser DEMO_ACTIVE à true.
+     KILL-SWITCH (démonstration Vauvert)
+     La démo est servie ici (splash) + sur /preview/vauvert/.
+     23/07/2026 : la démo est arrivée à échéance. Le message de fin vit désormais
+     DANS LE CHAT (backend main.py : DEMO_ENDED_SLUGS) : le splash redirige donc vers
+     l'assistante (DEMO_ACTIVE = true), où Marianne annonce elle-même la fin de la démo
+     et invite à contacter la mairie / Civik-ia. Aucun lien mort.
+     Pour afficher à la place l'écran premium (sans passer par le chat) : DEMO_ACTIVE = false.
      =========================================================================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,7 +109,7 @@
 
   <script>
     // — Kill-switch —
-    var DEMO_ACTIVE = false;         // false = démo coupée : écran premium ; true = redirection vers l'assistante
+    var DEMO_ACTIVE = true;          // true = redirige vers l'assistante (le chat annonce la fin de la démo) ; false = écran premium
     var DEMO_EXPIRE = null;          // ex. "2026-08-31T23:59:59" pour une expiration auto ; null = pas d'expiration
     var expired = !DEMO_ACTIVE || (DEMO_EXPIRE && new Date() > new Date(DEMO_EXPIRE));
     if (!expired) {

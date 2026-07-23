@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v129-demos-fin-2026-07-23';
+const CACHE_NAME = 'civik-ia-v130-serignan-2026-07-23';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

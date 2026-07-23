@@ -1,0 +1,16 @@
+serignan-og-v1.jpg — miniature de partage (Open Graph) de la page serignan
+Source : Wikimedia Commons, "Eglise, Sérignan - btv1b10487070j.jpg"
+Oeuvre : dessin de 1823 « Eglise de Sérignan », par Jean-Marie Amelin (1785-1858)
+Fonds : Bibliothèque nationale de France (Gallica) — cachet Bibliothèque de Montpellier
+Licence : DOMAINE PUBLIC (auteur mort en 1858, oeuvre de 1823) — aucune contrainte
+          d'attribution ni de partage à l'identique.
+Page : https://commons.wikimedia.org/wiki/File:Eglise,_S%C3%A9rignan_-_btv1b10487070j.jpg
+Modification : recadrage 1200x630 (carton de montage, cachet et légende manuscrite
+retirés), léger relèvement de contraste (trait de 1823 très pâle), voiles crème
+haut/bas, accroche + sceau Marianne crème + titre navy + accents fil bleu #2b6fd6
+pour usage og:image (Civik-ia, 2026-07-23).
+Choix : dessin patrimonial plutôt que panorama moderne (goût Thibaut, cf. OG
+Rive-de-Gier v2) ; le trait à l'ancienne fait écho à la DA « Le Trait d'union ».
+Attribution non requise (domaine public) ; mention de courtoisie possible :
+« Jean-Marie Amelin, 1823 — Bibliothèque nationale de France, domaine public ».
+Script de composition : scratchpad/make_og_serignan.py

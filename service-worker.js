@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v131-serignan-og-orb-2026-07-24';
+const CACHE_NAME = 'civik-ia-v132-golf-sw-bypass-2026-07-24';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',
@@ -19,7 +19,10 @@ const STATIC_ASSETS = [
 
 // Paths à NE PAS intercepter par le SW — l'app multi-persona doit toujours passer
 // par le réseau (sinon le browser sert l'ancienne version cachée).
-const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/'];
+// /golf/ : l'app du club (Pont Au Golf) a son PROPRE service worker et sa propre
+// stratégie de cache ; le SW du site ne doit jamais servir une version périmée de
+// son shell (première visite venue du site, avant que le SW du golf prenne la main).
+const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/golf/'];
 const SW_BYPASS_EXACT = ['/demo.html', '/demo'];
 
 // Installation — pr\u00e9-cache des assets statiques

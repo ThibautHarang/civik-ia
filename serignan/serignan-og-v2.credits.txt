@@ -1,0 +1,17 @@
+serignan-og-v2.jpg — miniature de partage (Open Graph) de la page serignan
+Source : www.beziers-mediterranee.com (Office de Tourisme Béziers Méditerranée),
+fichier « fleuve-orb-et-collegiale-de-serignan.webp » (app/uploads/2025/06).
+Sujet : le fleuve Orb et la collégiale Notre-Dame de Grâce, Sérignan.
+Choix photo : Thibaut, 24/07/2026 (remplace la v1, dessin BnF 1823, conservée
+sur le serveur pour les aperçus déjà en cache).
+⚠️ DROITS : photographie de l'office de tourisme intercommunal, auteur non
+crédité sur la page source, PAS de licence libre affichée. Usage ici = vignette
+de partage d'un outil au service de la commune de Sérignan (membre de l'agglo).
+À RÉGULARISER par courtoisie : un mail à l'OT Béziers Méditerranée demandant
+l'autorisation d'usage (ou la référence du photographe à créditer) dès que le
+contact avec la commune se concrétise. En cas de refus : rebasculer sur la v1
+(domaine public) en une ligne (og:image du splash + sub_filter nginx).
+Modification : recadrage 1200x630 ancré bas (l'eau conservée, ciel réduit),
+voile navy dégradé bas + léger haut, accroche blanche, sceau Marianne crème,
+titre « Marianne - Sérignan », fil bleu #2b6fd6 (gabarit maison, cf. RdG v2).
+Script de composition : scratchpad/make_og_serignan_v2.py

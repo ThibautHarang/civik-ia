@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v131-serignan-og-orb-2026-07-24';
+const CACHE_NAME = 'civik-ia-v132-mesure-ga4-pages-aveugles-2026-07-27';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

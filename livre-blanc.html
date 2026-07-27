@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="/cookie-consent.js" defer></script>
 <title>Livre Blanc 2026 — Chatbot IA pour Mairies — Civik-ia</title>
 <meta name="description" content="Téléchargez le Livre Blanc Civik-ia 2026 : guide complet du chatbot IA pour mairies. Conformité RGPD, ROI, comparatifs, retours d'expérience.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -266,16 +267,14 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
         document.body.removeChild(link);
       }, 800);
 
-      // Tracking GA / GTM
-      if (typeof gtag === 'function') {
-        gtag('event', 'lead_capture', {
-          'event_category': 'engagement',
-          'event_label': 'livre-blanc-2026'
-        });
-      }
-      if (window.dataLayer) {
-        window.dataLayer.push({event:'livre_blanc_download', form_id:'lead-form'});
-      }
+      // Tracking GA4 / GTM : meme nom d'evenement que le formulaire de /marianne/,
+      // seul nom effectivement remonte par le conteneur GTM.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        lead_source: 'livre_blanc',
+        lead_asset: 'livre-blanc-2026'
+      });
     } else {
       throw new Error('Erreur réseau');
     }

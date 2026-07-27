@@ -556,6 +556,13 @@
             transform: translateY(-4px);
         }
 
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 18px;
+        }
+
         /* ============================================
            CONTENT SECTIONS
            ============================================ */
@@ -1466,8 +1473,11 @@
                 <span class="current">Prix</span>
             </div>
             <h1>Chatbot mairie : quel prix en 2026 ?</h1>
-            <p class="hero-subtitle">De gratuit a 1 750&#8364;/an &mdash; le vrai cout d'un assistant virtuel pour votre commune. Et comment rester sous le seuil des marches publics.</p>
-            <a href="#tarifs" class="btn-primary" onclick="dataLayer.push({'event':'cta_click','cta_name':'hero_voir_tarifs'})">Voir nos tarifs detailles</a>
+            <p class="hero-subtitle">De gratuit a 1 750&#8364;/an : le vrai cout d'un assistant virtuel pour votre commune. Et comment rester sous le seuil des marches publics.</p>
+            <div class="hero-cta-row">
+                <a href="#tarifs" class="btn-primary" onclick="dataLayer.push({'event':'cta_click','cta_name':'hero_voir_tarifs'})">Voir nos tarifs detailles</a>
+                <a href="/marianne/#contact" class="btn-secondary" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'cta_click','cta_name':'hero_demander_devis'})">Demander un devis</a>
+            </div>
         </div>
     </section>
 
@@ -1833,7 +1843,7 @@
          FOOTER
          ============================================ -->
     <footer>
-        <p style="font-weight: 600; font-size: 15px; margin-bottom: 12px;">Civik-ia &mdash; Plateforme d'Intelligence Citoyenne pour les Mairies Francaises</p>
+        <p style="font-weight: 600; font-size: 15px; margin-bottom: 12px;">Civik-ia, Plateforme d'Intelligence Citoyenne pour les Mairies Francaises</p>
         <p style="max-width: 600px; margin: 0 auto 16px; font-size: 12px; opacity: 0.7; line-height: 1.6;">Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.</p>
 
         <div class="footer-social">

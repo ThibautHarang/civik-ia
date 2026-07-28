@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Signaler un problème — Civik-ia</title>
+  <meta name="description" content="Signalez un problème dans votre commune (voirie, propreté, éclairage, sécurité…) en quelques secondes. Sans création de compte.">
+  <meta name="theme-color" content="#000091">
+  <link rel="icon" href="/assets/logo-civik-ia-seul.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --p: #000091; --p-dark: #00006e; --p-soft: rgba(0,0,145,0.08);
+      --teal: #2EC4B6; --teal-dark: #0a8b82; --teal-soft: rgba(46,196,182,0.12);
+      --gold: #F4A261;
+      --ink: #1E1E1E; --ink-soft: #4a4a4a; --ink-light: #5b6470; /* WCAG AA ≈5.5:1 sur cream */
+      --cream: #f7f4ed; --line: #e8e2d4; --white: #fff;
+      --red: #ef4444; --green: #10b981;
+      --shadow: 0 4px 24px rgba(0,0,145,0.08);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.55;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+    .sr-only:focus { position:static;width:auto;height:auto;margin:0;clip:auto;white-space:normal;display:inline-block;padding:8px 14px;background:var(--p);color:#fff;border-radius:0 0 8px 0; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 24px 18px 80px; }
+
+    .header { text-align: center; margin-bottom: 24px; }
+    .logo-pill {
+      display: inline-block; padding: 6px 14px; background: var(--p-soft);
+      color: var(--p); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; border-radius: 9999px; margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(24px, 5vw, 32px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.2; }
+    .commune-name { color: var(--p); }
+    .sub { font-size: 15px; color: var(--ink-soft); margin: 0; }
+
+    /* Progress bar */
+    .progress {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 480px; margin: 24px auto; position: relative;
+    }
+    .progress::before {
+      content: ''; position: absolute; top: 14px; left: 14px; right: 14px;
+      height: 2px; background: var(--line); z-index: 0;
+    }
+    .progress-step {
+      width: 30px; height: 30px; border-radius: 50%; background: var(--white);
+      border: 2px solid var(--line); display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--ink-light); z-index: 1; transition: all 0.2s;
+    }
+    .progress-step.done { background: var(--green); border-color: var(--green); color: #fff; }
+    .progress-step.current { background: var(--p); border-color: var(--p); color: #fff; box-shadow: 0 0 0 5px var(--p-soft); }
+
+    .card {
+      background: var(--white); border-radius: 16px; padding: 28px;
+      box-shadow: var(--shadow); margin-bottom: 16px;
+    }
+    h2 { font-size: 20px; font-weight: 800; margin: 0 0 8px; }
+    .step-desc { font-size: 14px; color: var(--ink-light); margin: 0 0 20px; }
+
+    /* Catégories */
+    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .cat-btn {
+      background: var(--white); border: 2px solid var(--line); border-radius: 12px;
+      padding: 18px 12px; cursor: pointer; transition: all 0.15s;
+      text-align: left; font-family: inherit; font-size: 14px; color: var(--ink);
+      display: flex; flex-direction: column; gap: 6px; line-height: 1.3;
+    }
+    .cat-btn:hover { border-color: var(--p); background: var(--p-soft); }
+    .cat-btn.selected { border-color: var(--p); background: var(--p-soft); box-shadow: 0 0 0 3px var(--p-soft); }
+    .cat-icon { font-size: 26px; }
+    .cat-label { font-weight: 700; font-size: 14px; }
+
+    /* Form fields */
+    label { display: block; font-size: 14px; font-weight: 600; margin: 14px 0 6px; color: var(--ink); }
+    .field-hint { font-size: 12px; color: var(--ink-light); margin: -2px 0 6px; }
+    input[type=text], input[type=email], input[type=tel], textarea, select {
+      width: 100%; font-family: inherit; font-size: 15px;
+      padding: 12px 14px; border: 2px solid var(--line); border-radius: 10px;
+      background: var(--white); color: var(--ink); transition: border-color 0.15s;
+    }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--p); box-shadow: 0 0 0 3px var(--p-soft); }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .photo-zone {
+      border: 2px dashed var(--line); border-radius: 12px; padding: 24px;
+      text-align: center; cursor: pointer; transition: all 0.15s;
+      background: var(--cream);
+    }
+    .photo-zone:hover { border-color: var(--p); background: var(--p-soft); }
+    .photo-zone input { display: none; }
+    .photo-zone-icon { font-size: 36px; margin-bottom: 8px; }
+    .photo-zone-label { font-size: 14px; font-weight: 600; color: var(--p); }
+    .photo-zone-hint { font-size: 12px; color: var(--ink-light); margin-top: 4px; }
+    .photo-preview { width: 100%; max-width: 280px; border-radius: 10px; margin-top: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .photo-remove { display: inline-block; margin-top: 8px; background: none; border: none; color: var(--red); font-size: 12px; cursor: pointer; padding: 4px 10px; }
+
+    .geo-bar {
+      display: flex; gap: 8px; align-items: center; margin-top: 8px;
+      padding: 10px 14px; background: var(--cream); border-radius: 8px;
+      font-size: 13px; color: var(--ink-soft);
+    }
+    .geo-bar.success { background: var(--teal-soft); color: var(--teal-dark); }
+    .geo-btn {
+      background: var(--p); color: #fff; border: 0; border-radius: 8px;
+      padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit;
+      margin-top: 4px;
+    }
+    .geo-btn:hover { background: var(--p-dark); }
+    .geo-btn:disabled { opacity: 0.5; cursor: wait; }
+
+    /* CTA */
+    .actions { display: flex; gap: 10px; justify-content: space-between; margin-top: 8px; }
+    .btn-primary {
+      flex: 1; background: var(--p); color: #fff; border: 0; border-radius: 12px;
+      padding: 14px 22px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--p-dark); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary {
+      background: var(--white); color: var(--p); border: 2px solid var(--line); border-radius: 12px;
+      padding: 12px 18px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+    }
+    .btn-link { background: none; border: 0; color: var(--ink-light); font-size: 13px; cursor: pointer; padding: 8px; text-decoration: underline; font-family: inherit; }
+
+    /* Confirmation */
+    .success-card {
+      background: linear-gradient(135deg, var(--teal-soft) 0%, var(--p-soft) 100%);
+      border-radius: 16px; padding: 32px 28px; text-align: center;
+    }
+    .success-icon { font-size: 64px; margin-bottom: 12px; }
+    .success-card h2 { font-size: 24px; margin: 0 0 12px; }
+    .ticket-id {
+      display: inline-block; padding: 8px 18px; background: var(--p); color: #fff;
+      font-family: 'SF Mono','Menlo','Courier New',monospace; font-size: 15px; font-weight: 700;
+      border-radius: 8px; margin: 12px 0; letter-spacing: 0.04em;
+    }
+    .suivi-link {
+      display: inline-block; padding: 14px 24px; background: var(--teal); color: #fff;
+      border-radius: 9999px; text-decoration: none; font-weight: 700; font-size: 14px;
+      margin-top: 14px;
+    }
+
+    .error-banner {
+      background: #fee2e2; color: #991b1b; padding: 12px 16px; border-radius: 8px;
+      font-size: 14px; margin: 12px 0; border-left: 4px solid var(--red);
+    }
+
+    .footer { text-align: center; margin-top: 32px; color: var(--ink-light); font-size: 12px; line-height: 1.6; }
+    .footer a { color: var(--p); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 18px 12px 60px; }
+      .card { padding: 20px; }
+      .categories { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+<a href="#main" class="sr-only">Aller au contenu</a>
+<div class="wrap" id="main">
+
+  <div class="header">
+    <span class="logo-pill">Civik-ia · Signalement citoyen</span>
+    <h1>Signaler un problème<span id="commune-suffix"></span></h1>
+    <p class="sub">Sans création de compte. Réponse de votre mairie sous quelques jours.</p>
+  </div>
+
+  <div class="progress" id="progress" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" aria-label="Étape 1 sur 4">
+    <div class="progress-step current" data-step="1" aria-hidden="true">1</div>
+    <div class="progress-step" data-step="2" aria-hidden="true">2</div>
+    <div class="progress-step" data-step="3" aria-hidden="true">3</div>
+    <div class="progress-step" data-step="4" aria-hidden="true">4</div>
+  </div>
+
+  <div id="step-container"><!-- Étapes injectées en JS --></div>
+
+  <div class="footer">
+    Vos données sont traitées dans le respect du RGPD.<br>
+    <a href="https://civik-ia.fr">civik-ia.fr</a> · Plateforme d'Intelligence Citoyenne
+  </div>
+</div>
+
+<script>
+(function () {
+  // ============================================
+  // Détection commune depuis l'URL
+  // ============================================
+  function getCommuneId() {
+    var path = window.location.pathname;
+    var match = path.match(/\/signaler\/([^\/?#]+)/);
+    if (match) return decodeURIComponent(match[1]);
+    var qs = new URLSearchParams(window.location.search);
+    return qs.get('commune') || 'demo-saint-martin-29600';
+  }
+
+  var COMMUNE_ID = getCommuneId();
+  var COMMUNE_NAMES = {
+    'lunay-41360': 'Lunay',
+    'rigny-le-ferron-10160': 'Rigny-le-Ferron',
+    'thore-la-rochette-41100': 'Thoré-la-Rochette',
+    'marseillan-34340': 'Marseillan',
+    'demo-saint-martin-29600': 'Saint-Martin-des-Champs (démo)'
+  };
+  var COMMUNE_NAME = COMMUNE_NAMES[COMMUNE_ID] || COMMUNE_ID;
+  document.getElementById('commune-suffix').textContent = ' à ' + COMMUNE_NAME;
+
+  var API_BASE = 'https://api.civik-ia.fr';
+
+  // ============================================
+  // Icônes catégories
+  // ============================================
+  var CAT_ICONS = {
+    voirie: '🛣️', proprete: '🧹', eclairage: '💡', dechets: '🗑️',
+    espaces_verts: '🌳', securite: '⚠️', autre: '📝'
+  };
+
+  // ============================================
+  // State global
+  // ============================================
+  var state = {
+    step: 1,
+    category: null,
+    description: '',
+    photo: null, // File
+    photoPreview: null,
+    lat: null, lng: null,
+    address_label: null,
+    location: '',
+    contact_email: '',
+    contact_phone: '',
+    priority: 'normale',
+    submitting: false,
+    error: null,
+    result: null
+  };
+
+  // ============================================
+  // Charger les catégories depuis l'API
+  // ============================================
+  var categories = null;
+  fetch(API_BASE + '/api/signalements/meta/categories')
+    .then(function (r) { return r.json(); })
+    .then(function (data) { categories = data.categories; render(); })
+    .catch(function () {
+      // Fallback statique si l'API est indisponible
+      categories = [
+        { key: 'voirie', label: 'Voirie / chaussée' },
+        { key: 'proprete', label: 'Propreté / déchets sauvages' },
+        { key: 'eclairage', label: 'Éclairage public' },
+        { key: 'dechets', label: 'Collecte des déchets' },
+        { key: 'espaces_verts', label: 'Espaces verts / nature' },
+        { key: 'securite', label: 'Sécurité / incivilité' },
+        { key: 'autre', label: 'Autre' }
+      ];
+      render();
+    });
+
+  // ============================================
+  // Helpers
+  // ============================================
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c];
+    });
+  }
+  function setProgress() {
+    var steps = document.querySelectorAll('.progress-step');
+    steps.forEach(function (el) {
+      var n = parseInt(el.getAttribute('data-step'), 10);
+      el.classList.remove('done', 'current');
+      if (n < state.step) el.classList.add('done');
+      else if (n === state.step) el.classList.add('current');
+    });
+    // Synchroniser le role="progressbar" pour les lecteurs d'écran (max 4 ; l'étape 5 = confirmation)
+    var bar = document.getElementById('progress');
+    if (bar) {
+      var cur = Math.min(state.step, 4);
+      bar.setAttribute('aria-valuenow', cur);
+      bar.setAttribute('aria-label', 'Étape ' + cur + ' sur 4');
+    }
+  }
+  function next() { state.step += 1; state.error = null; render(); window.scrollTo(0, 0); }
+  function prev() { state.step -= 1; state.error = null; render(); window.scrollTo(0, 0); }
+
+  // ============================================
+  // GEOLOC
+  // ============================================
+  function requestGeoloc(cb) {
+    if (!navigator.geolocation) {
+      state.location = 'Géolocalisation indisponible sur ce navigateur';
+      render(); return;
+    }
+    state.location = '⏳ Récupération de votre position…';
+    render();
+    navigator.geolocation.getCurrentPosition(
+      function (pos) {
+        state.lat = +pos.coords.latitude.toFixed(6);
+        state.lng = +pos.coords.longitude.toFixed(6);
+        state.location = 'Position GPS captée : ' + state.lat + ', ' + state.lng;
+        // Tenter d'enrichir avec une adresse via BAN reverse (différé V2.1 — pour le moment, juste coordonnées)
+        render();
+        cb && cb();
+      },
+      function (err) {
+        state.lat = null; state.lng = null;
+        state.location = '❌ Position refusée. Vous pouvez taper l\'adresse manuellement.';
+        render();
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  }
+
+  // ============================================
+  // PHOTO HANDLER
+  // ============================================
+  function handlePhoto(file) {
+    if (!file) { state.photo = null; state.photoPreview = null; render(); return; }
+    if (file.size > 5 * 1024 * 1024) {
+      state.error = 'Photo trop volumineuse (max 5 Mo).';
+      render(); return;
+    }
+    if (!/^image\//.test(file.type)) {
+      state.error = 'Format non supporté. Utilisez une photo JPEG, PNG ou WebP.';
+      render(); return;
+    }
+    state.photo = file;
+    var reader = new FileReader();
+    reader.onload = function (e) { state.photoPreview = e.target.result; render(); };
+    reader.readAsDataURL(file);
+  }
+
+  // ============================================
+  // SUBMIT
+  // ============================================
+  function submit() {
+    if (state.submitting) return;
+    state.submitting = true; state.error = null; render();
+
+    var fd = new FormData();
+    fd.append('commune_id', COMMUNE_ID);
+    fd.append('category', state.category);
+    fd.append('description', state.description);
+    fd.append('priority', state.priority);
+    if (state.lat != null) fd.append('lat', state.lat);
+    if (state.lng != null) fd.append('lng', state.lng);
+    if (state.address_label) fd.append('address_label', state.address_label);
+    if (state.location && !state.location.startsWith('⏳') && !state.location.startsWith('❌')) {
+      fd.append('location', state.location);
+    }
+    if (state.contact_email) fd.append('contact_email', state.contact_email);
+    if (state.contact_phone) fd.append('contact_phone', state.contact_phone);
+    if (state.photo) fd.append('photo', state.photo, state.photo.name);
+
+    fetch(API_BASE + '/api/signalements/v2', { method: 'POST', body: fd })
+      .then(function (r) {
+        return r.json().then(function (data) {
+          if (!r.ok) {
+            if (r.status === 413) throw new Error('Photo trop volumineuse.');
+            if (r.status === 422) throw new Error(data.detail || 'Données invalides.');
+            throw new Error(data.detail || 'Erreur lors du signalement.');
+          }
+          return data;
+        });
+      })
+      .then(function (data) {
+        state.result = data;
+        state.step = 5; // étape confirmation
+        state.submitting = false;
+        render(); window.scrollTo(0, 0);
+      })
+      .catch(function (err) {
+        state.error = err.message || 'Une erreur est survenue.';
+        state.submitting = false;
+        render();
+      });
+  }
+
+  // ============================================
+  // RENDER ÉTAPES
+  // ============================================
+  function render() {
+    setProgress();
+    var c = document.getElementById('step-container');
+    var html = '';
+    if (state.error) html += '<div class="error-banner" role="alert">' + escapeHtml(state.error) + '</div>';
+
+    if (state.step === 1) {
+      html += '<div class="card" role="group" aria-labelledby="step1-title">';
+      html += '<h2 id="step1-title">1. Que voulez-vous signaler ?</h2>';
+      html += '<p class="step-desc">Choisissez la catégorie qui correspond le mieux à votre signalement.</p>';
+      html += '<div class="categories" role="radiogroup" aria-label="Catégorie du signalement">';
+      (categories || []).forEach(function (cat) {
+        var isSel = state.category === cat.key;
+        var sel = isSel ? 'selected' : '';
+        html += '<button type="button" class="cat-btn ' + sel + '" data-cat="' + cat.key + '" role="radio" aria-checked="' + (isSel ? 'true' : 'false') + '" aria-label="' + escapeHtml(cat.label) + '">';
+        html += '  <span class="cat-icon" aria-hidden="true">' + (CAT_ICONS[cat.key] || '📝') + '</span>';
+        html += '  <span class="cat-label">' + escapeHtml(cat.label) + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+      html += '<div class="actions" style="margin-top:24px;">';
+      html += '  <button class="btn-primary" id="next1" ' + (state.category ? '' : 'disabled') + '>Continuer →</button>';
+      html += '</div>';
+      html += '</div>';
+    }
+
+    else if (state.step === 2) {
+      html += '<div class="card" role="group" aria-labelledby="step2-title">';
+      html += '<h2 id="step2-title">2. Décrivez le problème</h2>';
+      html += '<p class="step-desc">Plus votre description est précise, plus l\'agent municipal pourra agir vite.</p>';
+
+      html += '<label for="desc">Description <span style="color:var(--red);" aria-hidden="true">*</span></label>';
+      html += '<textarea id="desc" required aria-required="true" placeholder="Ex: Nid de poule profond devant le n°15, environ 30cm de diamètre, dangereux pour les deux-roues.">' + escapeHtml(state.description) + '</textarea>';
+
+      html += '<label for="photo-input">Photo (facultatif, recommandée)</label>';
+      html += '<div class="photo-zone" id="photo-zone" role="button" tabindex="0" aria-label="Prendre ou choisir une photo (facultatif, max 5 Mo, JPEG PNG ou WebP)">';
+      html += '  <input type="file" id="photo-input" accept="image/*" capture="environment" aria-label="Fichier photo du signalement">';
+      if (state.photoPreview) {
+        html += '  <img src="' + state.photoPreview + '" class="photo-preview" alt="Aperçu de la photo du signalement">';
+        html += '  <br><button type="button" class="photo-remove" id="photo-remove" aria-label="Retirer la photo">✕ Retirer la photo</button>';
+      } else {
+        html += '  <div class="photo-zone-icon" aria-hidden="true">📷</div>';
+        html += '  <div class="photo-zone-label">Cliquez pour prendre/choisir une photo</div>';
+        html += '  <div class="photo-zone-hint">Max 5 Mo · JPEG, PNG, WebP</div>';
+      }
+      html += '</div>';
+
+      html += '<label for="loc-input">Localisation</label>';
+      html += '<input type="text" id="loc-input" placeholder="Ex: Rue des Vignes, devant le n°15" value="' + escapeHtml(state.location) + '">';
+      html += '<button type="button" class="geo-btn" id="geo-btn">📍 Utiliser ma position GPS</button>';
+      if (state.lat != null) {
+        html += '<div class="geo-bar success" role="status">✓ Position GPS enregistrée (' + state.lat + ', ' + state.lng + ')</div>';
+      }
+
+      html += '<label for="priority-input">Priorité</label>';
+      html += '<select id="priority-input">';
+      html += '  <option value="normale"' + (state.priority === 'normale' ? ' selected' : '') + '>Normale</option>';
+      html += '  <option value="urgente"' + (state.priority === 'urgente' ? ' selected' : '') + '>🔴 Urgente (danger immédiat)</option>';
+      html += '  <option value="info"' + (state.priority === 'info' ? ' selected' : '') + '>🔵 Simple information</option>';
+      html += '</select>';
+
+      html += '<div class="actions" style="margin-top:24px;">';
+      html += '  <button class="btn-secondary" id="prev2">← Retour</button>';
+      html += '  <button class="btn-primary" id="next2" ' + (state.description.trim().length >= 4 ? '' : 'disabled') + '>Continuer →</button>';
+      html += '</div>';
+      html += '</div>';
+    }
+
+    else if (state.step === 3) {
+      html += '<div class="card" role="group" aria-labelledby="step3-title">';
+      html += '<h2 id="step3-title">3. Souhaitez-vous être recontacté(e) ?</h2>';
+      html += '<p class="step-desc">Facultatif. Si vous laissez votre email, vous recevrez un accusé de réception et serez informé(e) à chaque mise à jour de votre signalement par la mairie.</p>';
+
+      html += '<label for="email-input">Email (recommandé)</label>';
+      html += '<input type="email" id="email-input" placeholder="vous@exemple.fr" value="' + escapeHtml(state.contact_email) + '" autocomplete="email">';
+      html += '<div class="field-hint">Vous recevrez un email avec votre lien de suivi personnel.</div>';
+
+      html += '<label for="phone-input">Téléphone (facultatif)</label>';
+      html += '<input type="tel" id="phone-input" placeholder="06 12 34 56 78" value="' + escapeHtml(state.contact_phone) + '" autocomplete="tel">';
+      html += '<div class="field-hint">L\'agent peut vous rappeler si besoin de précisions.</div>';
+
+      html += '<div class="actions" style="margin-top:24px;">';
+      html += '  <button class="btn-secondary" id="prev3">← Retour</button>';
+      html += '  <button class="btn-primary" id="next3">Continuer →</button>';
+      html += '</div>';
+      html += '<div style="text-align:center;margin-top:10px;"><button class="btn-link" id="skip3">Continuer sans laisser de contact (anonyme)</button></div>';
+      html += '</div>';
+    }
+
+    else if (state.step === 4) {
+      var catLabel = (categories || []).find(function (c) { return c.key === state.category; });
+      catLabel = catLabel ? catLabel.label : state.category;
+      html += '<div class="card" role="group" aria-labelledby="step4-title">';
+      html += '<h2 id="step4-title">4. Vérifiez et envoyez</h2>';
+      html += '<p class="step-desc">Votre signalement va être transmis à la mairie de <strong>' + escapeHtml(COMMUNE_NAME) + '</strong>.</p>';
+
+      html += '<div style="background:var(--cream);border-radius:10px;padding:16px 18px;font-size:14px;line-height:1.7;">';
+      html += '<div><strong>Catégorie :</strong> ' + (CAT_ICONS[state.category] || '') + ' ' + escapeHtml(catLabel) + '</div>';
+      html += '<div><strong>Priorité :</strong> ' + escapeHtml(state.priority) + '</div>';
+      if (state.location) html += '<div><strong>Localisation :</strong> ' + escapeHtml(state.location) + '</div>';
+      if (state.lat) html += '<div style="font-size:12px;color:var(--ink-light);">GPS : ' + state.lat + ', ' + state.lng + '</div>';
+      html += '<div style="margin-top:10px;"><strong>Description :</strong></div>';
+      html += '<div style="padding:8px 0;font-style:italic;">' + escapeHtml(state.description).replace(/\n/g, '<br>') + '</div>';
+      if (state.photo) html += '<div><strong>📷 Photo jointe</strong> (' + Math.round(state.photo.size/1024) + ' Ko)</div>';
+      if (state.contact_email) html += '<div style="margin-top:8px;"><strong>Email :</strong> ' + escapeHtml(state.contact_email) + '</div>';
+      if (state.contact_phone) html += '<div><strong>Téléphone :</strong> ' + escapeHtml(state.contact_phone) + '</div>';
+      if (!state.contact_email && !state.contact_phone) html += '<div style="margin-top:8px;font-style:italic;color:var(--ink-light);">Mode anonyme · pas de retour de la mairie</div>';
+      html += '</div>';
+
+      html += '<div class="actions" style="margin-top:24px;">';
+      html += '  <button class="btn-secondary" id="prev4">← Modifier</button>';
+      html += '  <button class="btn-primary" id="submit-btn" ' + (state.submitting ? 'disabled' : '') + '>';
+      html += (state.submitting ? '⏳ Envoi en cours…' : '✓ Envoyer mon signalement');
+      html += '  </button>';
+      html += '</div>';
+      html += '</div>';
+    }
+
+    else if (state.step === 5 && state.result) {
+      html += '<div class="success-card" role="status" aria-labelledby="success-title">';
+      html += '<div class="success-icon" aria-hidden="true">✅</div>';
+      html += '<h2 id="success-title">Signalement envoyé !</h2>';
+      html += '<p>Merci. La mairie de <strong>' + escapeHtml(COMMUNE_NAME) + '</strong> a bien reçu votre demande.</p>';
+      html += '<div class="ticket-id">' + escapeHtml(state.result.ticket_id) + '</div>';
+      html += '<p style="margin:14px 0 6px;font-size:14px;">Conservez précieusement ce lien — il vous permet de suivre l\'avancement sans création de compte :</p>';
+      html += '<a href="' + escapeHtml(state.result.suivi_url) + '" class="suivi-link">Suivre mon signalement →</a>';
+      if (state.contact_email) {
+        html += '<p style="margin-top:20px;font-size:13px;color:var(--ink-light);">Un email de confirmation vient d\'être envoyé à <strong>' + escapeHtml(state.contact_email) + '</strong>. Vous serez notifié(e) à chaque mise à jour.</p>';
+      }
+      html += '<p style="margin-top:24px;"><a href="?commune=' + encodeURIComponent(COMMUNE_ID) + '" style="color:var(--p);text-decoration:none;font-size:13px;">↻ Signaler un autre problème</a></p>';
+      html += '</div>';
+    }
+
+    c.innerHTML = html;
+
+    // Bind events après render
+    if (state.step === 1) {
+      document.querySelectorAll('[data-cat]').forEach(function (b) {
+        b.addEventListener('click', function () { state.category = b.getAttribute('data-cat'); render(); });
+      });
+      var n1 = document.getElementById('next1');
+      if (n1) n1.addEventListener('click', function () { if (state.category) next(); });
+    }
+    if (state.step === 2) {
+      document.getElementById('desc').addEventListener('input', function (e) { state.description = e.target.value; render(); });
+      document.getElementById('loc-input').addEventListener('input', function (e) { state.location = e.target.value; });
+      document.getElementById('priority-input').addEventListener('change', function (e) { state.priority = e.target.value; });
+      var photoZone = document.getElementById('photo-zone');
+      photoZone.addEventListener('click', function (e) {
+        if (e.target.id === 'photo-remove' || e.target.classList.contains('photo-remove')) return;
+        document.getElementById('photo-input').click();
+      });
+      // Accessibilité clavier : Entrée/Espace déclenchent l'ouverture du sélecteur de fichier
+      photoZone.addEventListener('keydown', function (e) {
+        if (e.target.id === 'photo-remove' || e.target.classList.contains('photo-remove')) return;
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          document.getElementById('photo-input').click();
+        }
+      });
+      document.getElementById('photo-input').addEventListener('change', function (e) {
+        handlePhoto(e.target.files && e.target.files[0]);
+      });
+      var rm = document.getElementById('photo-remove');
+      if (rm) rm.addEventListener('click', function (e) { e.stopPropagation(); state.photo = null; state.photoPreview = null; render(); });
+      document.getElementById('geo-btn').addEventListener('click', function () { requestGeoloc(); });
+      document.getElementById('prev2').addEventListener('click', prev);
+      document.getElementById('next2').addEventListener('click', function () { if (state.description.trim().length >= 4) next(); });
+    }
+    if (state.step === 3) {
+      document.getElementById('email-input').addEventListener('input', function (e) { state.contact_email = e.target.value; });
+      document.getElementById('phone-input').addEventListener('input', function (e) { state.contact_phone = e.target.value; });
+      document.getElementById('prev3').addEventListener('click', prev);
+      document.getElementById('next3').addEventListener('click', next);
+      document.getElementById('skip3').addEventListener('click', function () {
+        state.contact_email = ''; state.contact_phone = ''; next();
+      });
+    }
+    if (state.step === 4) {
+      document.getElementById('prev4').addEventListener('click', prev);
+      document.getElementById('submit-btn').addEventListener('click', submit);
+    }
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v132-mesure-ga4-pages-aveugles-2026-07-27';
+const CACHE_NAME = 'civik-ia-v133-correctifs-indexation-gsc-2026-07-28';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

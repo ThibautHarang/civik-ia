@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Statut des services — Civik-ia</title>
+  <meta name="description" content="Statut en temps réel de la plateforme Civik-ia : backend API, chat IA, signalements, démarches, page citoyen. Transparence sur la disponibilité de notre service.">
+  <meta name="theme-color" content="#000091">
+  <link rel="icon" href="/assets/logo-civik-ia-seul.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --p: #000091; --p-soft: rgba(0,0,145,0.08);
+      --teal: #2EC4B6; --teal-soft: rgba(46,196,182,0.12);
+      --green: #10b981; --green-soft: rgba(16,185,129,0.12);
+      --orange: #f59e0b; --orange-soft: rgba(245,158,11,0.12);
+      --red: #ef4444; --red-soft: rgba(239,68,68,0.10);
+      /* Contrastes WCAG AA garantis sur fond cream : --gray ≈5.9:1, --gray-light 5,46:1 (#5b6470) */
+      --gray: #586070; --gray-light: #5b6470; --gray-bg: #f9fafb;
+      --ink: #1E1E1E; --ink-soft: #4a4a4a;
+      --cream: #f7f4ed; --line: #e8e2d4; --white: #fff;
+      --shadow: 0 4px 24px rgba(0,0,145,0.08);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.55; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+    .sr-only:focus { position:static;width:auto;height:auto;margin:0;clip:auto;white-space:normal;display:inline-block;padding:8px 14px;background:var(--p);color:#fff;border-radius:0 0 8px 0; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    .header { text-align: center; margin-bottom: 32px; }
+    .logo-pill { display: inline-block; padding: 6px 14px; background: var(--p-soft); color: var(--p); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 9999px; margin-bottom: 14px; }
+    h1 { font-size: clamp(28px, 5vw, 38px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.15; }
+    .subtitle { font-size: 16px; color: var(--ink-soft); margin: 0; }
+
+    /* Banner statut global */
+    .global-banner {
+      background: linear-gradient(135deg, var(--green-soft) 0%, var(--teal-soft) 100%);
+      border-radius: 16px; padding: 28px 32px; text-align: center;
+      box-shadow: var(--shadow); margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: center; gap: 18px;
+    }
+    .global-banner.degraded { background: linear-gradient(135deg, var(--orange-soft) 0%, var(--green-soft) 100%); }
+    .global-banner.outage { background: linear-gradient(135deg, var(--red-soft) 0%, var(--orange-soft) 100%); }
+    .global-banner.loading { background: var(--gray-bg); }
+    .pulse-dot {
+      width: 16px; height: 16px; border-radius: 50%; background: var(--green);
+      animation: pulse 2s infinite; flex-shrink: 0;
+    }
+    .pulse-dot.degraded { background: var(--orange); }
+    .pulse-dot.outage { background: var(--red); }
+    .pulse-dot.loading { background: var(--gray-light); animation: none; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
+      70% { box-shadow: 0 0 0 14px rgba(16,185,129,0); }
+      100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+    }
+    .global-status-label { font-size: 22px; font-weight: 800; color: var(--ink); }
+    .global-status-sub { font-size: 13px; color: var(--ink-soft); margin-top: 4px; display: block; }
+
+    /* Section title */
+    .section-title {
+      font-size: 12px; font-weight: 700; color: var(--p); letter-spacing: 0.12em;
+      text-transform: uppercase; margin: 32px 0 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 2px; background: var(--p-soft); border-radius: 2px; }
+
+    /* Services list */
+    .services { display: grid; gap: 10px; }
+    .service {
+      background: var(--white); border-radius: 12px; padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow);
+      transition: transform 0.15s;
+    }
+    .service:hover { transform: translateY(-1px); }
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--p-soft); font-size: 22px;
+    }
+    .service-info { flex: 1; min-width: 0; }
+    .service-name { font-size: 15px; font-weight: 700; margin: 0 0 2px; }
+    .service-desc { font-size: 12px; color: var(--ink-soft); margin: 0; }
+    .service-status {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 9999px;
+      font-size: 13px; font-weight: 700; flex-shrink: 0;
+    }
+    .service-status.ok { background: var(--green-soft); color: var(--green); }
+    .service-status.degraded { background: var(--orange-soft); color: var(--orange); }
+    .service-status.outage { background: var(--red-soft); color: var(--red); }
+    .service-status.loading { background: var(--gray-bg); color: var(--gray); }
+    .service-status .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: currentColor;
+    }
+    .service-latency { font-size: 11px; color: var(--gray); font-variant-numeric: tabular-nums; }
+
+    /* Infrastructure card */
+    .infra-card {
+      background: var(--white); border-radius: 14px; padding: 24px;
+      box-shadow: var(--shadow); margin-bottom: 16px;
+    }
+    .infra-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;
+    }
+    .infra-item {
+      padding: 14px 16px; background: var(--cream); border-radius: 10px;
+    }
+    .infra-label { font-size: 11px; color: var(--gray); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+    .infra-value { font-size: 14px; font-weight: 700; color: var(--p); }
+    .infra-value.muted { font-weight: 500; color: var(--ink-soft); }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+      text-align: center; color: var(--gray); font-size: 13px; line-height: 1.6;
+    }
+    .footer a { color: var(--p); text-decoration: none; font-weight: 600; }
+    .last-update {
+      margin: 20px 0 0; font-size: 12px; color: var(--gray); text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Refresh button */
+    .refresh-btn {
+      background: var(--white); border: 2px solid var(--line); border-radius: 9999px;
+      padding: 8px 18px; font-size: 13px; font-weight: 600; color: var(--p);
+      cursor: pointer; font-family: inherit; transition: all 0.15s;
+      display: inline-flex; align-items: center; gap: 6px; margin: 0 auto;
+    }
+    .refresh-btn:hover { background: var(--p-soft); border-color: var(--p); }
+    .refresh-btn:disabled { opacity: 0.5; cursor: wait; }
+
+    @media (max-width: 520px) {
+      .service { flex-direction: row; padding: 14px 16px; }
+      .service-icon { width: 36px; height: 36px; font-size: 18px; }
+      .service-status { padding: 6px 10px; font-size: 12px; }
+      .global-banner { flex-direction: column; gap: 8px; padding: 22px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only">Aller au contenu</a>
+  <div class="wrap" id="main">
+
+    <div class="header">
+      <span class="logo-pill">Civik-ia · Statut des services</span>
+      <h1>Tout fonctionne ?</h1>
+      <p class="subtitle">Statut en temps réel de la plateforme Civik-ia. Mise à jour automatique toutes les 30 secondes.</p>
+    </div>
+
+    <!-- Banner global -->
+    <div class="global-banner loading" id="global-banner" role="status" aria-live="polite">
+      <span class="pulse-dot loading" aria-hidden="true"></span>
+      <div>
+        <div class="global-status-label" id="global-status-label">Vérification en cours…</div>
+        <span class="global-status-sub" id="global-status-sub">Sondage des services…</span>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="section-title" id="services-title">Services en temps réel</div>
+    <div class="services" id="services" role="list" aria-labelledby="services-title" aria-live="polite">
+      <!-- Injecté en JS -->
+    </div>
+
+    <!-- Infrastructure -->
+    <div class="section-title">Infrastructure</div>
+    <div class="infra-card">
+      <div class="infra-grid">
+        <div class="infra-item">
+          <div class="infra-label">Hébergement</div>
+          <div class="infra-value">OVH Cloud · UE</div>
+        </div>
+        <div class="infra-item">
+          <div class="infra-label">Moteur IA</div>
+          <div class="infra-value">Mistral AI (Paris)</div>
+        </div>
+        <div class="infra-item">
+          <div class="infra-label">Email transactionnel</div>
+          <div class="infra-value">Brevo (DKIM/SPF/DMARC)</div>
+        </div>
+        <div class="infra-item">
+          <div class="infra-label">Disponibilité ciblée</div>
+          <div class="infra-value">99,5 % mois</div>
+        </div>
+        <div class="infra-item">
+          <div class="infra-label">Frontend</div>
+          <div class="infra-value">PWA + Service Worker</div>
+        </div>
+        <div class="infra-item">
+          <div class="infra-label">Backups</div>
+          <div class="infra-value muted">Quotidiens · 30j rétention</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="last-update" id="last-update" role="status" aria-live="polite">Aucune vérification effectuée</div>
+
+    <div style="text-align: center; margin-top: 18px;">
+      <button class="refresh-btn" id="refresh-btn" aria-label="Vérifier maintenant l'état des services">↻ Vérifier maintenant</button>
+    </div>
+
+    <div class="footer">
+      Si un service est en panne, vous serez automatiquement notifié par email à chaque mise à jour.<br>
+      <strong>Support :</strong> <a href="mailto:support@civik-ia.fr">support@civik-ia.fr</a> · <a href="https://civik-ia.fr">civik-ia.fr</a>
+    </div>
+  </div>
+
+<script>
+(function () {
+  // ============================================
+  // Configuration des services à monitorer
+  // ============================================
+  var API_BASE = 'https://api.civik-ia.fr';
+  var SITE_BASE = 'https://civik-ia.fr';
+
+  var SERVICES = [
+    {
+      id: 'backend',
+      name: 'API Backend',
+      desc: 'FastAPI · cerveau central de la plateforme',
+      icon: '⚡',
+      url: API_BASE + '/api/health',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200
+    },
+    {
+      id: 'chat',
+      name: 'Marianne (chatbot IA)',
+      desc: 'Réponses citoyens 24/7 (Mistral AI)',
+      icon: '🤖',
+      url: API_BASE + '/api/chat',
+      method: 'POST',
+      body: { commune_id: 'thore-la-rochette-41100', query: 'ping' },
+      timeout: 15000, // LLM peut être lent
+      expect: 200
+    },
+    {
+      id: 'signalements',
+      name: 'Signalements citoyens',
+      desc: 'Dépôt + suivi + photos',
+      icon: '📸',
+      url: API_BASE + '/api/signalements/meta/categories',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200
+    },
+    {
+      id: 'demarches',
+      name: 'Démarches signées (Cerfa B)',
+      desc: 'Signature eIDAS + transmission auto',
+      icon: '📝',
+      url: API_BASE + '/api/demarches/suivi/ping-token-inexistant',
+      method: 'GET',
+      timeout: 5000,
+      expect: 404 // 404 attendu = endpoint vivant, juste pas de match
+    },
+    {
+      id: 'auth',
+      name: 'Authentification agents',
+      desc: 'Magic link OTP par email',
+      icon: '🔐',
+      url: API_BASE + '/api/auth/agent/request-otp',
+      method: 'POST',
+      body: { email: 'statut-check@civik-ia.fr' },
+      timeout: 8000,
+      expect: 200 // anti-énumération → 200 même pour email inconnu
+    },
+    {
+      id: 'site',
+      name: 'Site marketing',
+      desc: 'civik-ia.fr (HTTPS, certificat valide)',
+      icon: '🌐',
+      url: SITE_BASE + '/',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200
+    },
+    {
+      id: 'page-signaler',
+      name: 'Page wizard signalement',
+      desc: 'civik-ia.fr/signaler/{commune}',
+      icon: '📝',
+      url: SITE_BASE + '/signaler/thore-la-rochette-41100',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200
+    },
+    {
+      id: 'page-suivi',
+      name: 'Pages de suivi citoyen',
+      desc: 'civik-ia.fr/suivi/{token} + suivi-demarche',
+      icon: '🔗',
+      url: SITE_BASE + '/suivi/ping-token-inexistant',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200 // suivi.html servi en SPA fallback
+    }
+  ];
+
+  // ============================================
+  // Helpers
+  // ============================================
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function statusLabel(state) {
+    return { ok: 'Opérationnel', degraded: 'Ralenti', outage: 'En panne', loading: 'Vérification…' }[state];
+  }
+
+  function checkService(svc) {
+    return new Promise(function (resolve) {
+      var startedAt = performance.now();
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () { ctrl.abort(); }, svc.timeout);
+
+      var opts = {
+        method: svc.method,
+        signal: ctrl.signal,
+        mode: 'cors',
+        cache: 'no-cache'
+      };
+      if (svc.method === 'POST') {
+        opts.headers = { 'Content-Type': 'application/json' };
+        opts.body = JSON.stringify(svc.body || {});
+      }
+
+      fetch(svc.url, opts)
+        .then(function (r) {
+          clearTimeout(timer);
+          var elapsed = Math.round(performance.now() - startedAt);
+          var ok = r.status === svc.expect;
+          // Latence > seuil = dégradé
+          var state = ok ? (elapsed > 3000 ? 'degraded' : 'ok') : 'outage';
+          resolve({ id: svc.id, state: state, latency_ms: elapsed, status: r.status });
+        })
+        .catch(function () {
+          clearTimeout(timer);
+          var elapsed = Math.round(performance.now() - startedAt);
+          resolve({ id: svc.id, state: 'outage', latency_ms: elapsed, status: 0 });
+        });
+    });
+  }
+
+  function renderService(svc, result) {
+    var state = (result && result.state) || 'loading';
+    var label = statusLabel(state);
+    var latency = result && result.latency_ms ? result.latency_ms + ' ms' : '';
+    var html = '<div class="service" data-id="' + escapeHtml(svc.id) + '" role="listitem">';
+    html += '  <div class="service-icon" aria-hidden="true">' + escapeHtml(svc.icon) + '</div>';
+    html += '  <div class="service-info">';
+    html += '    <p class="service-name">' + escapeHtml(svc.name) + '</p>';
+    html += '    <p class="service-desc">' + escapeHtml(svc.desc) + '</p>';
+    html += '  </div>';
+    html += '  <div class="service-status ' + state + '" role="img" aria-label="' + escapeHtml(label) + (latency && state !== 'loading' ? ' (' + latency + ')' : '') + '"><span class="dot" aria-hidden="true"></span>';
+    html += '    <div><div aria-hidden="true">' + escapeHtml(label) + '</div>';
+    if (latency && state !== 'loading') html += '    <div class="service-latency" aria-hidden="true">' + escapeHtml(latency) + '</div>';
+    html += '    </div>';
+    html += '  </div>';
+    html += '</div>';
+    return html;
+  }
+
+  function updateGlobalBanner(results) {
+    var banner = document.getElementById('global-banner');
+    var dot = banner.querySelector('.pulse-dot');
+    var label = document.getElementById('global-status-label');
+    var sub = document.getElementById('global-status-sub');
+
+    var anyOutage = results.some(function (r) { return r.state === 'outage'; });
+    var anyDegraded = results.some(function (r) { return r.state === 'degraded'; });
+    banner.className = 'global-banner ' + (anyOutage ? 'outage' : (anyDegraded ? 'degraded' : ''));
+    dot.className = 'pulse-dot ' + (anyOutage ? 'outage' : (anyDegraded ? 'degraded' : ''));
+
+    if (anyOutage) {
+      label.textContent = '⚠️ Service partiellement perturbé';
+      sub.textContent = 'Un ou plusieurs services présentent un dysfonctionnement. Notre équipe technique est notifiée.';
+    } else if (anyDegraded) {
+      label.textContent = '🟡 Service ralenti';
+      sub.textContent = 'Tous les services fonctionnent, mais certains présentent des temps de réponse élevés.';
+    } else {
+      label.textContent = '✓ Tout fonctionne normalement';
+      sub.textContent = results.length + ' services vérifiés · disponibilité ' + Math.round(results.filter(function (r) { return r.state === 'ok'; }).length / results.length * 100) + ' %';
+    }
+  }
+
+  function renderAll(results) {
+    var container = document.getElementById('services');
+    var resByMap = {};
+    (results || []).forEach(function (r) { resByMap[r.id] = r; });
+    container.innerHTML = SERVICES.map(function (svc) {
+      return renderService(svc, resByMap[svc.id]);
+    }).join('');
+  }
+
+  function setLastUpdate() {
+    var now = new Date();
+    var lab = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('last-update').textContent = '🕐 Dernière vérification : ' + lab + ' · prochaine dans 30 s';
+  }
+
+  var checking = false;
+  function refresh() {
+    if (checking) return;
+    checking = true;
+    var btn = document.getElementById('refresh-btn');
+    btn.disabled = true;
+    btn.textContent = '⏳ Vérification…';
+
+    Promise.all(SERVICES.map(checkService)).then(function (results) {
+      renderAll(results);
+      updateGlobalBanner(results);
+      setLastUpdate();
+      btn.disabled = false;
+      btn.textContent = '↻ Vérifier maintenant';
+      checking = false;
+    });
+  }
+
+  // Render initial squelette
+  renderAll();
+  // 1er check
+  refresh();
+  // Auto-refresh
+  setInterval(refresh, 30000);
+  // Bouton manuel
+  document.getElementById('refresh-btn').addEventListener('click', refresh);
+})();
+</script>
+</body>
+</html>

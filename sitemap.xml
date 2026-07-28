@@ -25,8 +25,10 @@
   <url><loc>https://civik-ia.fr/aide.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://civik-ia.fr/legal/conditions-generales-vente.html</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <!-- Communes actives uniquement. Une demo fermee (kill-switch DEMO_ENDED_SLUGS,
+       07-Backend/main.py) ne doit jamais figurer ici : Google explorerait un outil
+       qui repond « la demo a pris fin ». Retirees le 28/07/2026 : rigny-le-ferron
+       et marseillan-34340, fermees le 24/07/2026. -->
   <url><loc>https://civik-ia.fr/preview/lunay/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://civik-ia.fr/preview/thore-la-rochette/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/rigny-le-ferron/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/marseillan-34340/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
 </urlset>

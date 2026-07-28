@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Suivi de votre démarche — Civik-ia</title>
+  <meta name="description" content="Suivez en temps réel l'avancement de votre démarche citoyenne signée auprès de votre mairie.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#000091">
+  <link rel="icon" href="/assets/logo-civik-ia-seul.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --p: #000091; --p-soft: rgba(0,0,145,0.08); --p-dark: #00006b;
+      --teal: #2EC4B6; --teal-soft: rgba(46,196,182,0.12);
+      --ink: #1E1E1E; --ink-soft: #4a4a4a; --ink-light: #5b6470; /* WCAG AA */
+      --cream: #f7f4ed; --line: #e8e2d4; --white: #fff;
+      --shadow: 0 4px 24px rgba(0,0,145,0.08);
+    }
+    *,*::before,*::after { box-sizing: border-box; }
+    html,body { margin:0; padding:0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.55; min-height: 100vh; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+    .sr-only:focus { position:static;width:auto;height:auto;margin:0;clip:auto;white-space:normal;display:inline-block;padding:8px 14px;background:var(--p);color:#fff;border-radius:0 0 8px 0; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+    .header { text-align: center; margin-bottom: 32px; }
+    .logo-pill { display: inline-block; padding: 6px 14px; background: var(--p-soft); color: var(--p); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 9999px; margin-bottom: 14px; }
+    h1 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.2; }
+    .subtitle { font-size: 15px; color: var(--ink-soft); margin: 0; }
+    .card { background: var(--white); border-radius: 16px; box-shadow: var(--shadow); padding: 28px; margin-bottom: 20px; }
+    .ticket-pill { display: inline-block; padding: 6px 14px; background: var(--p); color: #fff; font-family: 'SF Mono','Menlo','Courier New',monospace; font-size: 13px; font-weight: 700; border-radius: 8px; letter-spacing: 0.04em; margin-bottom: 14px; }
+    .row { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: none; }
+    .row .label { font-size: 13px; color: var(--ink-light); width: 160px; flex-shrink: 0; }
+    .row .value { flex: 1; font-size: 15px; color: var(--ink); font-weight: 500; }
+    .status-badge { display: inline-block; padding: 8px 14px; border-radius: 9999px; font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
+    .status-nouveau { background: #f3f4f6; color: #4b5563; }
+    .status-signe { background: var(--p-soft); color: var(--p); }
+    .status-transmis { background: var(--teal-soft); color: #0a8b82; }
+    .status-en_cours { background: #fef3c7; color: #92400e; }
+    .status-complement { background: #fef3c7; color: #92400e; }
+    .status-accepte { background: #d1fae5; color: #065f46; }
+    .status-refuse { background: #fee2e2; color: #991b1b; }
+    .status-archive { background: #f3f4f6; color: #4b5563; }
+
+    .timeline { list-style: none; padding: 0; margin: 20px 0 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .timeline li { position: relative; padding-left: 36px; margin-bottom: 18px; font-size: 14px; }
+    .timeline li::before { content: ''; position: absolute; left: 4px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--white); border: 2px solid var(--line); }
+    .timeline li.done::before { background: var(--teal); border-color: var(--teal); }
+    .timeline li.current::before { background: var(--p); border-color: var(--p); box-shadow: 0 0 0 4px var(--p-soft); }
+    .timeline-label { font-weight: 700; color: var(--ink); display: block; margin-bottom: 2px; }
+    .timeline-date { font-size: 12px; color: var(--ink-light); }
+
+    .resolution { background: linear-gradient(135deg, var(--teal-soft) 0%, #fff 100%); border-left: 4px solid var(--teal); padding: 18px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; }
+    .resolution-label { font-size: 12px; font-weight: 700; color: #0a8b82; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .resolution-text { margin: 0; font-style: italic; color: var(--ink); }
+
+    .pdf-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: var(--p); color: #fff !important; border-radius: 9999px; text-decoration: none; font-weight: 600; font-size: 14px; margin: 12px 0; }
+    .pdf-link:hover { background: var(--p-dark); }
+
+    .payload-detail { background: var(--cream); border-radius: 10px; padding: 14px 16px; margin: 12px 0; font-size: 13px; line-height: 1.7; }
+    .payload-detail strong { color: var(--p); }
+
+    .footer { text-align: center; padding: 32px 0 0; color: var(--ink-light); font-size: 13px; line-height: 1.6; }
+    .footer a { color: var(--p); text-decoration: none; font-weight: 600; }
+    .loader { text-align: center; padding: 60px 20px; color: var(--ink-light); }
+    .loader-spinner { display: inline-block; width: 36px; height: 36px; border: 3px solid var(--line); border-top-color: var(--p); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error { text-align: center; padding: 40px 20px; color: var(--ink-light); }
+    .error-icon { font-size: 48px; margin-bottom: 14px; }
+
+    @media (max-width: 480px) { .row { flex-direction: column; gap: 4px; } .row .label { width: auto; } }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only">Aller au contenu</a>
+  <div class="wrap" id="main">
+    <div class="header">
+      <span class="logo-pill">Civik-ia · Suivi démarche signée</span>
+      <h1>Votre démarche</h1>
+      <p class="subtitle">Suivez l'avancement de l'instruction par la mairie</p>
+    </div>
+
+    <div id="content" aria-live="polite" aria-busy="true">
+      <div class="card"><div class="loader"><div class="loader-spinner" aria-hidden="true"></div><div>Chargement de votre démarche…</div></div></div>
+    </div>
+
+    <div class="footer">
+      Cette page est personnelle et confidentielle. Conservez ce lien pour suivre votre démarche à tout moment.<br>
+      <a href="https://civik-ia.fr">Retour à civik-ia.fr</a>
+    </div>
+  </div>
+
+<script>
+(function () {
+  function getToken() {
+    var path = window.location.pathname;
+    var match = path.match(/\/suivi-demarche\/([^\/?#]+)/);
+    if (match) return decodeURIComponent(match[1]);
+    var qs = new URLSearchParams(window.location.search);
+    return qs.get('token');
+  }
+
+  var API_BASE = 'https://api.civik-ia.fr';
+
+  function fmtDate(epoch) {
+    if (!epoch) return '—';
+    var d = new Date(epoch * 1000);
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) + ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function escapeHtml(s) { if (s == null) return ''; return String(s).replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]; }); }
+
+  function humanizePayload(payload) {
+    if (!payload || Object.keys(payload).length === 0) return '';
+    var html = '<div class="payload-detail">';
+    Object.keys(payload).forEach(function (k) {
+      var label = k.replace(/_/g, ' ');
+      label = label.charAt(0).toUpperCase() + label.slice(1);
+      var v = payload[k];
+      var s = (v === null || v === undefined || v === '') ? '—' :
+              (typeof v === 'boolean') ? (v ? 'Oui' : 'Non') :
+              (Array.isArray(v)) ? v.join(', ') : String(v);
+      html += '<div><strong>' + escapeHtml(label) + ' :</strong> ' + escapeHtml(s) + '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function buildTimeline(d) {
+    var steps;
+    if (d.status === 'refuse') {
+      steps = [
+        { key: 'nouveau',  label: 'Demande déposée',           date: d.created_at },
+        { key: 'signe',    label: 'Signée électroniquement',  date: d.signed_at },
+        { key: 'transmis', label: 'Transmise à la mairie',    date: d.signed_at },
+        { key: 'refuse',   label: 'Refusée (avec motivation)', date: d.updated_at }
+      ];
+    } else {
+      steps = [
+        { key: 'nouveau',  label: 'Demande déposée',            date: d.created_at },
+        { key: 'signe',    label: 'Signée électroniquement',   date: d.signed_at },
+        { key: 'transmis', label: 'Transmise à la mairie',     date: d.signed_at },
+        { key: 'en_cours', label: 'En cours d\'instruction',   date: null },
+        { key: 'accepte',  label: 'Acceptée',                   date: null }
+      ];
+    }
+    var rank = { nouveau: 0, signe: 1, transmis: 2, en_cours: 3, complement: 3, accepte: 4, refuse: 3, archive: 5 };
+    var curRank = rank[d.status] != null ? rank[d.status] : 0;
+    var html = '<ul class="timeline" role="list">';
+    steps.forEach(function (s) {
+      var stepRank = rank[s.key];
+      var cls = stepRank < curRank ? 'done' : (stepRank === curRank ? 'current' : '');
+      var dateStr = (cls === 'current' && d.updated_at) ? fmtDate(d.updated_at) : (s.date ? fmtDate(s.date) : '');
+      var stateText = cls === 'done' ? 'Étape terminée : ' : (cls === 'current' ? 'Étape en cours : ' : 'Étape à venir : ');
+      html += '<li class="' + cls + '" role="listitem"' + (cls === 'current' ? ' aria-current="step"' : '') + '>';
+      html += '<span class="sr-only">' + stateText + '</span>';
+      html += '<span class="timeline-label">' + escapeHtml(s.label) + '</span>';
+      if (dateStr) html += '<span class="timeline-date">' + escapeHtml(dateStr) + '</span>';
+      html += '</li>';
+    });
+    html += '</ul>';
+    return html;
+  }
+
+  function render(d) {
+    var statusClass = 'status-' + (d.status || 'nouveau');
+    var html = '';
+
+    html += '<div class="card">';
+    html += '<div class="ticket-pill">' + escapeHtml(d.ticket_id) + '</div>';
+    html += '<div class="row"><div class="label">Mairie</div><div class="value">' + escapeHtml(d.commune.name) + '</div></div>';
+    html += '<div class="row"><div class="label">Type</div><div class="value">' + escapeHtml(d.type_label) + '</div></div>';
+    html += '<div class="row"><div class="label">Statut</div><div class="value"><span class="status-badge ' + statusClass + '">' + escapeHtml(d.status_label) + '</span></div></div>';
+    html += '<div class="row"><div class="label">Déposée le</div><div class="value">' + fmtDate(d.created_at) + '</div></div>';
+    if (d.signed_at) {
+      html += '<div class="row"><div class="label">Signée le</div><div class="value">' + fmtDate(d.signed_at) + '</div></div>';
+      html += '<div class="row"><div class="label">Signataire</div><div class="value">' + escapeHtml(d.signature_full_name || '—') + '</div></div>';
+    }
+    if (d.updated_at && d.updated_at !== d.created_at && d.updated_at !== d.signed_at) {
+      html += '<div class="row"><div class="label">Dernière maj</div><div class="value">' + fmtDate(d.updated_at) + '</div></div>';
+    }
+    html += '</div>';
+
+    if (d.pdf_url) {
+      html += '<div class="card">';
+      html += '<h2 style="margin:0 0 10px;font-size:17px;font-weight:700;color:var(--p);">📄 Document signé</h2>';
+      html += '<p style="margin:0 0 12px;font-size:14px;color:var(--ink-soft);">Téléchargez votre PDF signé électroniquement. Il contient l\'intégralité des informations et la mention légale eIDAS.</p>';
+      html += '<a href="' + escapeHtml(d.pdf_url) + '" class="pdf-link" target="_blank" rel="noopener" aria-label="Télécharger le PDF signé (nouvelle fenêtre)">📥 Télécharger le PDF signé</a>';
+      html += '</div>';
+    }
+
+    if (Object.keys(d.payload || {}).length > 0) {
+      html += '<div class="card">';
+      html += '<h2 style="margin:0 0 10px;font-size:17px;font-weight:700;color:var(--p);">Informations saisies</h2>';
+      html += humanizePayload(d.payload);
+      html += '</div>';
+    }
+
+    if (d.resolution_text) {
+      html += '<div class="card">';
+      html += '<div class="resolution"><div class="resolution-label">Message de la mairie</div>';
+      html += '<p class="resolution-text">' + escapeHtml(d.resolution_text).replace(/\n/g, '<br>') + '</p>';
+      html += '</div></div>';
+    }
+
+    html += '<div class="card">';
+    html += '<h2 style="margin:0 0 14px;font-size:17px;font-weight:700;color:var(--p);">Avancement</h2>';
+    html += buildTimeline(d);
+    html += '</div>';
+
+    var contentEl = document.getElementById('content');
+    contentEl.setAttribute('aria-busy', 'false');
+    contentEl.innerHTML = html;
+  }
+
+  function renderError(msg) {
+    var contentEl = document.getElementById('content');
+    contentEl.setAttribute('aria-busy', 'false');
+    contentEl.innerHTML =
+      '<div class="card error" role="alert">' +
+      '<div class="error-icon" aria-hidden="true">⚠️</div>' +
+      '<h2 style="margin:0 0 8px;font-size:18px;color:var(--p);">Lien invalide ou expiré</h2>' +
+      '<p style="margin:0;color:var(--ink-light);">' + escapeHtml(msg || 'Impossible de récupérer cette démarche.') + '</p>' +
+      '</div>';
+  }
+
+  var token = getToken();
+  if (!token) { renderError('Aucun token de suivi trouvé.'); return; }
+
+  fetch(API_BASE + '/api/demarches/suivi/' + encodeURIComponent(token))
+    .then(function (r) {
+      if (r.status === 404) throw new Error('Lien de suivi expiré.');
+      if (!r.ok) throw new Error('Erreur réseau (HTTP ' + r.status + ').');
+      return r.json();
+    })
+    .then(render)
+    .catch(function (err) { renderError(err.message); });
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v133-correctifs-indexation-gsc-2026-07-28';
+const CACHE_NAME = 'civik-ia-v134-livraison-tarare-2026-07-30';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

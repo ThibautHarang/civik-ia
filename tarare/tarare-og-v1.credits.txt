@@ -1,0 +1,34 @@
+tarare-og-v1.jpg — miniature de partage (Open Graph) de la page tarare
+
+Source : Wikimedia Commons, « Vue de Tarare depuis Saint-Marcel (2017).jpg »
+Sujet  : panorama de Tarare dans sa vallée, depuis Saint-Marcel-l'Éclairé.
+Auteur : Sebleouf (contributeur Wikimedia Commons)
+Licence : CC BY-SA 4.0 (Creative Commons Attribution - Partage dans les mêmes
+          conditions 4.0 International)
+Page   : https://commons.wikimedia.org/wiki/File:Vue_de_Tarare_depuis_Saint-Marcel_(2017).jpg
+
+OBLIGATIONS DE LA LICENCE, respectées ici :
+  1. ATTRIBUTION — le crédit « Photo : Sebleouf, CC BY-SA 4.0 / Wikimedia Commons »
+     est incrusté en bas à droite de l'image elle-même, donc visible partout où
+     l'aperçu de lien est partagé (WhatsApp, iMessage, réseaux).
+  2. PARTAGE À L'IDENTIQUE — cette image dérivée est elle aussi diffusée sous
+     CC BY-SA 4.0. La contrainte porte sur CE FICHIER uniquement, pas sur le reste
+     du site ni sur le produit.
+Aucune démarche d'autorisation n'est nécessaire : la licence est libre.
+
+Modification : recadrage 1200x630 (panorama 4608x1531 recadré, léger décalage vers
+la ville), saturation +6 % et contraste +4 %, voile navy dégradé en bas et léger en
+haut, sceau Marianne crème, titre « Marianne - Tarare », fil bleu #2b6fd6 (gabarit
+maison, cf. Sérignan v2 et Rive-de-Gier v2), accroche crème.
+Script de composition : scratchpad/make_og_tarare.py (session du 30/07/2026).
+
+REPLI DISPONIBLE si Thibaut préfère zéro contrainte de licence :
+  « Tarare (centre-ville).JPG », Florian Pépellin, DOMAINE PUBLIC, 2048x1536
+  https://commons.wikimedia.org/wiki/File:Tarare_(centre-ville).JPG
+  Écarté ici parce que le cadrage est dominé par des voitures en stationnement,
+  peu flatteur pour un lien partagé par une mairie. Bascule possible en une ligne
+  (og:image du splash + regénération de l'image).
+
+À FAIRE au premier contact avec la commune : proposer à la mairie de fournir sa
+propre photo officielle. Une photo de la commune, cédée par elle, lève toute
+question de licence et vaut mieux qu'une image de contributeur.

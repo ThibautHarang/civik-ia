@@ -21,6 +21,7 @@
 - [Comment mieux communiquer avec ses citoyens](https://civik-ia.fr/comment-communiquer-avec-ses-citoyens.html) : panorama des canaux de communication d'une mairie (site, app, panneau, chatbot IA) et critères de choix pour créer du lien avec ses citoyens.
 - [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : grille tarifaire et coût réel d'un assistant virtuel pour une commune.
 - [IA souveraine pour mairie](https://civik-ia.fr/ia-souveraine-mairie-mistral.html) : pourquoi un modèle français (Mistral) plutôt qu'OpenAI.
+- [Financer l'IA de sa commune](https://civik-ia.fr/financement-ia-collectivite.html) : le guichet de cofinancement Territoires d'IA (Banque des Territoires) couvre 30 à 50 % de l'achat de licences ou abonnements d'IA souveraine, en continu depuis mai 2026 ; les appels à projets France 2030 sur l'IA, eux, sont hors de portée d'une commune (assiette minimale de 600 000 € pour l'AAP démonstrateurs, clos depuis le 01/12/2023). Civik-ia n'est ni labellisée ni partenaire de ces programmes.
 - [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, checklist DPO.
 - [Réduire les appels en mairie avec un chatbot IA](https://civik-ia.fr/reduire-appels-mairie-chatbot-ia.html) : impact sur la charge du secrétariat.
 - [Chatbot pour commune rurale](https://civik-ia.fr/chatbot-commune-rurale.html) : solution pour les petites communes (< 5 000 habitants).

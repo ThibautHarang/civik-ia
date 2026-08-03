@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v137-form-start-mesure-2026-08-03';
+const CACHE_NAME = 'civik-ia-v138-page-financement-ia-2026-08-03';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

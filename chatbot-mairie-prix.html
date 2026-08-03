@@ -1814,7 +1814,7 @@
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Faut-il passer par un marche public pour acheter un chatbot ?</h3>
-                <p class="faq-answer">Non, pas necessairement. En dessous de 40 000&#8364; HT par an (article L2122-8 du Code de la commande publique), une commune peut acheter un logiciel sans procedure formalisee. Un simple bon de commande signe par le maire ou le DGS suffit. L'offre Civik-ia la plus elevee (199&#8364;/mois, soit 2 388&#8364;/an) reste tres largement en dessous de ce seuil, meme en ajoutant d'eventuels packs de Campagnes Citoyennes supplementaires.</p>
+                <p class="faq-answer">Non, pas necessairement. En dessous de 40 000&#8364; HT par an (article L2122-8 du Code de la commande publique), une commune peut acheter un logiciel sans procedure formalisee. Un simple bon de commande signe par le maire ou le DGS suffit. L'offre Civik-ia la plus elevee (199&#8364;/mois, soit 2 388&#8364;/an) reste tres largement en dessous de ce seuil.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Quels sont les couts caches d'un chatbot de mairie ?</h3>
@@ -1943,25 +1943,24 @@
         })();
     </script>
     <script>
-        // Mesure des clics CTA (contact, demo, email) — GA4 via consentement uniquement
+        // Mesure des clics CTA (contact, demo, email), GA4 via consentement uniquement.
+        // Un lien qui porte deja un onclick cta_click est ignore ici, sinon l'evenement
+        // partait en double et gonflait le comptage (corrige le 03/08/2026).
+        // Nom de parametre unique sur tout le site : cta_name.
         (function() {
-            function track(label) {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'cta_click', { 'event_category': 'lead', 'event_label': label, 'page': 'chatbot-mairie-prix' });
-                }
-                if (window.dataLayer) {
-                    window.dataLayer.push({ event: 'cta_click', cta_label: label, page: 'chatbot-mairie-prix' });
-                }
+            function track(name) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ event: 'cta_click', cta_name: name, page: 'chatbot-mairie-prix' });
             }
-            document.querySelectorAll('a[href="/marianne/#contact"]').forEach(function(a) {
-                a.addEventListener('click', function() { track('contact-marianne'); });
-            });
-            document.querySelectorAll('a[href="demo.html"], a[href="/demo"]').forEach(function(a) {
-                a.addEventListener('click', function() { track('demo'); });
-            });
-            document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
-                a.addEventListener('click', function() { track('email'); });
-            });
+            function bind(selector, name) {
+                document.querySelectorAll(selector).forEach(function(a) {
+                    if (a.getAttribute('onclick')) return;
+                    a.addEventListener('click', function() { track(name); });
+                });
+            }
+            bind('a[href="/marianne/#contact"]', 'nav_contact');
+            bind('a[href="demo.html"], a[href="/demo"]', 'nav_demo');
+            bind('a[href^="mailto:"]', 'email');
         })();
     </script>
 </body>

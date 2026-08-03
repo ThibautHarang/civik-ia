@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v135-meta-prix-ctr-2026-08-03';
+const CACHE_NAME = 'civik-ia-v136-correctifs-audit-2026-08-03';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

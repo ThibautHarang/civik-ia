@@ -5,6 +5,8 @@
 **Statut :** Approuvé
 **Horizon :** 6 sprints — 10 avril au 22 mai 2026
 
+> ⚠️ **Instantané daté, non corrigé (canaux-guard:instantane)** — ce document cite `chat.civik-ia.fr` et `dashboard.civik-ia.fr`, deux sous-domaines qui **n'ont jamais existé** et sont abandonnés depuis l'ADR 0036 (24/07/2026). Le schéma d'URL réel est `civik-ia.fr/{slug}/` puis `civik-ia.fr/preview/{slug}/`. Conservé tel quel comme trace de l'intention de l'époque ; ne pas s'en servir comme référence.
+
 ---
 
 ## Contexte & Diagnostic
@@ -451,6 +453,9 @@ GET    /api/campaigns/quota        [Auth]    → { used, total, remaining }
 ```
 
 #### Logique quota
+
+> PÉRIMÉ, ne pas implémenter. Document daté du 10/04/2026, conservé comme archive. Les packs de campagnes supplémentaires sont une **offre abandonnée** (décision Thibaut du 04/07/2026) : ils ne doivent figurer dans aucun livrable ni être codés. Les prix ci-dessous sont ceux de l'ancienne grille ; la grille en vigueur est 49 / 99 / 199 (ADR 0023, 04/07/2026).
+
 - Rural (99€) : 2 campagnes/an
 - Moyen (199€) : 4 campagnes/an
 - Grand (299€) : 6 campagnes/an

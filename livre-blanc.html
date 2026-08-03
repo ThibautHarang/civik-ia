@@ -284,6 +284,22 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
     alert('Désolé, une erreur est survenue. Veuillez réessayer ou nous contacter à contact@civik-ia.fr');
   }
 });
+
+/* form_start : premiere interaction reelle avec le formulaire de capture.
+   Une seule fois par chargement de page. Sans cet evenement, un zero de
+   generate_lead ne dit pas si le visiteur a commence puis abandonne, ou
+   n'a jamais commence. Meme parametre lead_source que generate_lead. */
+(function(){
+  var el = document.getElementById('lead-form');
+  if(!el) return;
+  var fired = false;
+  el.addEventListener('input', function(){
+    if(fired) return;
+    fired = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'form_start', form_id: 'lead-form', lead_source: 'livre_blanc' });
+  }, true);
+})();
 </script>
 
 </body>

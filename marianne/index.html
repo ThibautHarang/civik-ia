@@ -2994,6 +2994,28 @@ function sendCbMessage(){
   input.value = '';
   setTimeout(() => addCbMessage(findCbAnswer(text), 'bot'), 350);
 }
+
+/* form_start : premiere interaction reelle avec un formulaire de conversion.
+   Une seule fois par formulaire et par chargement de page. Sans cet evenement,
+   un zero de generate_lead ne dit pas si le visiteur a commence puis abandonne,
+   ou n'a jamais commence. Meme parametre lead_source que generate_lead. */
+(function(){
+  var forms = [
+    { id: 'contactForm', source: 'contact_form' },
+    { id: 'parrainageForm', source: 'parrainage_form' }
+  ];
+  forms.forEach(function(f){
+    var el = document.getElementById(f.id);
+    if(!el) return;
+    var fired = false;
+    el.addEventListener('input', function(){
+      if(fired) return;
+      fired = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_start', form_id: f.id, lead_source: f.source });
+    }, true);
+  });
+})();
 </script>
 
 </body>

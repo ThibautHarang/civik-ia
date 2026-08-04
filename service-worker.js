@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v138-page-financement-ia-2026-08-03';
+const CACHE_NAME = 'civik-ia-v139-page-messenger-2026-08-04';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

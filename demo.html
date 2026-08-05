@@ -9,7 +9,7 @@
 <!-- ============================================================
      SEO — Métadonnées premium
      ============================================================ -->
-<title>Démo Civik-ia · Plateforme IA pour mairies — sans inscription</title>
+<title>Démo Civik-ia · Plateforme IA pour mairies, sans inscription</title>
 <meta name="description" content="Testez Civik-ia : chatbot citoyen 24h/24, inbox agent, cockpit maire avec recommandations IA. 3 modules en données fictives, sans inscription, en 30 secondes.">
 <meta name="keywords" content="chatbot mairie, IA collectivités, plateforme citoyenne, dashboard maire, alertes intelligentes, démarches en ligne, Marianne IA, civik-ia, intelligence citoyenne, mairie numérique">
 <meta name="author" content="Civik-ia">
@@ -40,7 +40,7 @@
   "@graph": [
     {
       "@type": "SoftwareApplication",
-      "name": "Civik-ia — Plateforme d'Intelligence Citoyenne",
+      "name": "Civik-ia, Plateforme d'Intelligence Citoyenne",
       "operatingSystem": "Web",
       "applicationCategory": "BusinessApplication",
       "description": "Plateforme IA souveraine pour mairies françaises : chatbot citoyen 24h/24, inbox agent municipal, cockpit pilotage maire avec recommandations IA.",
@@ -414,9 +414,9 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="demo-stage-loader-spinner" aria-hidden="true"></div>
           <span class="demo-stage-loader-text">Chargement de l'app citoyen…</span>
         </div>
-        <iframe id="orch-iframe-citizen" class="demo-stage-iframe active" data-persona="citizen" data-src="/preview/demo-saint-martin-29600/chat?demo=1&orchestrate=1&persona=citizen" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Citoyen — Marianne, l'assistante municipale"></iframe>
-        <iframe id="orch-iframe-agent" class="demo-stage-iframe" data-persona="agent" data-src="/preview/demo-saint-martin-29600/agent?demo=1&orchestrate=1&persona=agent" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Agent — Inbox unifiée"></iframe>
-        <iframe id="orch-iframe-elu" class="demo-stage-iframe" data-persona="elu" data-src="/preview/demo-saint-martin-29600/elu?demo=1&orchestrate=1&persona=elu" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Maire — Cockpit pilotage"></iframe>
+        <iframe id="orch-iframe-citizen" class="demo-stage-iframe active" data-persona="citizen" data-src="/preview/demo-saint-martin-29600/chat?demo=1&orchestrate=1&persona=citizen" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Citoyen : Marianne, l'assistante municipale"></iframe>
+        <iframe id="orch-iframe-agent" class="demo-stage-iframe" data-persona="agent" data-src="/preview/demo-saint-martin-29600/agent?demo=1&orchestrate=1&persona=agent" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Agent : Inbox unifiée"></iframe>
+        <iframe id="orch-iframe-elu" class="demo-stage-iframe" data-persona="elu" data-src="/preview/demo-saint-martin-29600/elu?demo=1&orchestrate=1&persona=elu" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="Démo Maire : Cockpit pilotage"></iframe>
         <div class="demo-stage-engage" id="orch-engage-overlay" role="region" aria-label="Démo : cliquez sur le bouton pour interagir, scroll de la page libre par défaut">
           <button type="button" class="demo-stage-engage-pill" id="orch-engage-btn">Cliquez pour interagir avec la démo</button>
           <span class="demo-stage-engage-hint">Scrollez librement la page tant que vous n'avez pas cliqué ↓</span>
@@ -894,7 +894,7 @@ img { max-width: 100%; height: auto; display: block; }
         { at: 24.5, run: () => broadcastToIframe('agent', 'fill-alert', {
           type: 'services',
           priority: 'urgente',
-          title: 'Attention — fuite d\'eau en cours de réparation rue de Naveil',
+          title: 'Attention, fuite d\'eau en cours de réparation rue de Naveil',
           message: 'Une fuite d\'eau a été signalée rue de Naveil. Les services techniques interviennent. Coupure possible de 9 h à 12 h.'
         }) },
         // Submit du modal
@@ -905,14 +905,14 @@ img { max-width: 100%; height: auto; display: block; }
     {
       start: 30, end: 34,
       title: 'Étape 5/6 · Les citoyens informés en temps réel',
-      text: "Les citoyens voient apparaître une alerte urgente en haut de Marianne — fuite d'eau en cours de réparation.",
+      text: "Les citoyens voient apparaître une alerte urgente en haut de Marianne, fuite d'eau en cours de réparation.",
       actions: [
         { at: 30.5, run: () => activatePersona('citizen') },
         { at: 31.0, run: () => broadcastToIframe('citizen', 'navigate', { route: 'chat' }) },
         // Sécurité : si l'alerte modal n'a pas abouti, on la pousse directement
         { at: 32.0, run: () => broadcastToIframe('citizen', 'alert', {
           id: 'scenario-fallback-alert',
-          title: 'Attention — fuite d\'eau en cours de réparation rue de Naveil',
+          title: 'Attention, fuite d\'eau en cours de réparation rue de Naveil',
           message: 'Coupure possible dans le quartier de 9 h à 12 h. Les services techniques interviennent.',
           type: 'services', priority: 'urgent'
         }) },

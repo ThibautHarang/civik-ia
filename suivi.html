@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Suivi de votre signalement — Civik-ia</title>
+  <title>Suivi de votre signalement · Civik-ia</title>
   <meta name="description" content="Suivez en temps réel l'avancement de votre signalement citoyen auprès de votre mairie, sans création de compte.">
   <meta name="robots" content="noindex,nofollow"><!-- Page personnelle citoyen, pas indexée -->
   <meta name="theme-color" content="#000091">
@@ -164,7 +164,7 @@
   var API_BASE = 'https://api.civik-ia.fr';
 
   function fmtDate(epoch) {
-    if (!epoch) return '—';
+    if (!epoch) return '-';
     var d = new Date(epoch * 1000);
     return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) +
            ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });

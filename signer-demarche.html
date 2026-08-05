@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Signer votre démarche — Civik-ia</title>
+  <title>Signer votre démarche : Civik-ia</title>
   <meta name="description" content="Signez électroniquement votre démarche citoyenne. Signature eIDAS conforme, valeur juridique.">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#000091">
@@ -103,7 +103,7 @@
   <div class="header">
     <span class="logo-pill">Civik-ia · Signature eIDAS</span>
     <h1>Signer votre démarche</h1>
-    <p class="sub">Signature électronique conforme — Règlement UE n°910/2014</p>
+    <p class="sub">Signature électronique conforme au Règlement UE n°910/2014</p>
   </div>
 
   <div id="content" aria-live="polite" aria-busy="true">
@@ -136,7 +136,7 @@
   function escapeHtml(s) { if (s == null) return ''; return String(s).replace(/[&<>"']/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' })[c]; }); }
 
   function fmtDate(epoch) {
-    if (!epoch) return '—';
+    if (!epoch) return '-';
     var d = new Date(epoch * 1000);
     return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) + ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
   }
@@ -164,7 +164,7 @@
       var label = k.replace(/_/g, ' ');
       label = label.charAt(0).toUpperCase() + label.slice(1);
       var v = payload[k];
-      var s = (v === null || v === undefined || v === '') ? '—' :
+      var s = (v === null || v === undefined || v === '') ? '-' :
               (typeof v === 'boolean') ? (v ? 'Oui' : 'Non') :
               (Array.isArray(v)) ? v.join(', ') : String(v);
       html += '<div><strong>' + escapeHtml(label) + ' :</strong> ' + escapeHtml(s) + '</div>';
@@ -233,7 +233,7 @@
       html += '<div class="card" role="status" aria-labelledby="already-title">';
       html += '<div class="ticket-pill">' + escapeHtml(d.ticket_id) + '</div>';
       html += '<h2 id="already-title">Démarche déjà signée</h2>';
-      html += '<p style="color:var(--ink-soft);margin:0 0 14px;">Cette démarche a été signée le <strong>' + fmtDate(d.signed_at) + '</strong> par <strong>' + escapeHtml(d.signature_full_name || '—') + '</strong>.</p>';
+      html += '<p style="color:var(--ink-soft);margin:0 0 14px;">Cette démarche a été signée le <strong>' + fmtDate(d.signed_at) + '</strong> par <strong>' + escapeHtml(d.signature_full_name || '-') + '</strong>.</p>';
       if (d.pdf_url) html += '<p><a href="' + escapeHtml(d.pdf_url) + '" target="_blank" rel="noopener" class="suivi-link" aria-label="Télécharger le PDF signé (nouvelle fenêtre)">Télécharger le PDF signé →</a></p>';
       html += '</div>';
       c.innerHTML = html;
@@ -259,7 +259,7 @@
     html += '<h2 id="sign-title">Signature électronique</h2>';
 
     html += '<div class="eidas-banner">';
-    html += '<strong>Signature eIDAS niveau simple</strong> — Cette signature électronique a la valeur juridique d\'une signature manuscrite pour cette démarche administrative (Règlement UE n°910/2014, art. 25.1). Votre nom + horodatage + adresse IP + hash d\'intégrité SHA-256 sont enregistrés.';
+    html += '<strong>Signature eIDAS niveau simple :</strong> cette signature électronique a la valeur juridique d\'une signature manuscrite pour cette démarche administrative (Règlement UE n°910/2014, art. 25.1). Votre nom + horodatage + adresse IP + hash d\'intégrité SHA-256 sont enregistrés.';
     html += '</div>';
 
     html += '<label for="fullname">Nom complet (tel que sur votre pièce d\'identité)</label>';

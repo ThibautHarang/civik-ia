@@ -118,8 +118,8 @@ footer a{color:#fff;text-decoration:underline}
     <p>Concrètement : si vous utilisez ChatGPT (OpenAI), Claude (Anthropic) ou Gemini (Google) pour répondre aux questions de vos administrés, les conversations <strong>peuvent légalement être transmises aux autorités américaines</strong> sans que vous le sachiez. C'est incompatible avec les obligations de confidentialité d'une administration française.</p>
 
     <h3>2. L'inadéquation au RGPD</h3>
-    <p>La Cour de justice de l'Union européenne, dans son arrêt <strong>Schrems II</strong> (juillet 2020), a invalidé le Privacy Shield qui encadrait les transferts de données vers les États-Unis. Depuis, tout transfert nécessite des <strong>clauses contractuelles types</strong> renforcées par des <strong>mesures supplémentaires</strong> — chiffrement, pseudonymisation, audit régulier — qui sont rarement réunies en pratique.</p>
-    <p>La CNIL a confirmé en 2024 que <strong>l'usage par défaut de ChatGPT, Claude ou Gemini par une collectivité expose celle-ci à un risque de sanction</strong>, sauf à mettre en œuvre une architecture spécifique (reverse proxy européen, anonymisation pré-envoi, contractualisation BCR) — ce qui dépasse les capacités techniques de la plupart des mairies.</p>
+    <p>La Cour de justice de l'Union européenne, dans son arrêt <strong>Schrems II</strong> (juillet 2020), a invalidé le Privacy Shield qui encadrait les transferts de données vers les États-Unis. Depuis, tout transfert nécessite des <strong>clauses contractuelles types</strong> renforcées par des <strong>mesures supplémentaires</strong> (chiffrement, pseudonymisation, audit régulier), qui sont rarement réunies en pratique.</p>
+    <p>La CNIL a confirmé en 2024 que <strong>l'usage par défaut de ChatGPT, Claude ou Gemini par une collectivité expose celle-ci à un risque de sanction</strong>, sauf à mettre en œuvre une architecture spécifique (reverse proxy européen, anonymisation pré-envoi, contractualisation BCR), ce qui dépasse les capacités techniques de la plupart des mairies.</p>
 
     <h3>3. La dépendance économique et géopolitique</h3>
     <p>Au-delà du droit, c'est une question de cohérence politique. Une mairie qui équipe son service public avec une IA américaine envoie un signal : <strong>l'État local français ne maîtrise plus les outils qui parlent en son nom à ses propres citoyens</strong>. Pour les administrés sensibles à ces enjeux (et ils sont nombreux), c'est un message contradictoire avec les valeurs républicaines de service public.</p>
@@ -179,34 +179,34 @@ footer a{color:#fff;text-decoration:underline}
 
     <h3>« Souverain », vraiment ?</h3>
     <p>Soyons honnêtes : aucune IA n'est totalement « pure » au regard de la souveraineté. Mistral utilise du matériel NVIDIA (américain) pour entraîner ses modèles, son tour de table inclut des investisseurs internationaux (dont Microsoft à hauteur de 15 millions d'euros), et certaines briques techniques sont open-source d'origine américaine.</p>
-    <p>Mais sur les <strong>critères qui comptent pour une mairie</strong> — droit applicable, gouvernance, hébergement, contractualisation — Mistral AI est <strong>l'option européenne la plus crédible aujourd'hui</strong>. C'est ce que confirment les choix récents de la DINUM (Direction interministérielle du numérique), de Bpifrance, du ministère de l'Économie, qui ont tous structuré leurs déploiements IA autour de Mistral.</p>
+    <p>Mais sur les <strong>critères qui comptent pour une mairie</strong> (droit applicable, gouvernance, hébergement, contractualisation), Mistral AI est <strong>l'option européenne la plus crédible aujourd'hui</strong>. C'est ce que confirment les choix récents de la DINUM (Direction interministérielle du numérique), de Bpifrance, du ministère de l'Économie, qui ont tous structuré leurs déploiements IA autour de Mistral.</p>
 
     <h2>Pourquoi nous l'avons choisi pour Civik-ia</h2>
 
     <p>Notre plateforme Civik-ia utilise <strong>Mistral Small</strong> comme moteur de génération principal, accédé via un proxy hébergé chez OVH (datacenter Allemagne). Ce choix nous donne :</p>
     <ul>
-      <li><strong>Conformité RGPD native</strong> — aucun transfert hors UE, aucune dépendance à une décision d'adéquation.</li>
-      <li><strong>Performance suffisante</strong> — pour un chatbot mairie qui répond à 80 % via la base de connaissances locale et 20 % via le LLM, Mistral Small est largement dimensionné.</li>
-      <li><strong>Coût marginal très bas</strong> — environ 0,003 € par requête fallback. Sur 1 000 questions/mois, le coût IA est de 3 € contre 5-10 € avec OpenAI.</li>
-      <li><strong>Discours commercial cohérent</strong> — nous pouvons regarder un maire en face et lui dire : « cette IA est française, hébergée en Europe, sans dépendance américaine. »</li>
+      <li><strong>Conformité RGPD native</strong> : aucun transfert hors UE, aucune dépendance à une décision d'adéquation.</li>
+      <li><strong>Performance suffisante</strong> : pour un chatbot mairie qui répond à 80 % via la base de connaissances locale et 20 % via le LLM, Mistral Small est largement dimensionné.</li>
+      <li><strong>Coût marginal très bas</strong> : environ 0,003 € par requête fallback. Sur 1 000 questions/mois, le coût IA est de 3 € contre 5-10 € avec OpenAI.</li>
+      <li><strong>Discours commercial cohérent</strong>, nous pouvons regarder un maire en face et lui dire : « cette IA est française, hébergée en Europe, sans dépendance américaine. »</li>
     </ul>
 
     <div class="callout-strong">
-      <p><strong>Notre conviction</strong> — Le service public français doit utiliser des outils qui respectent le service public français. Pas par patriotisme aveugle, mais par cohérence juridique, technique et politique. Mistral AI rend ce choix possible en 2026, sans compromis majeur sur la performance.</p>
+      <p><strong>Notre conviction</strong> : Le service public français doit utiliser des outils qui respectent le service public français. Pas par patriotisme aveugle, mais par cohérence juridique, technique et politique. Mistral AI rend ce choix possible en 2026, sans compromis majeur sur la performance.</p>
     </div>
 
     <h2>Et les autres acteurs européens ?</h2>
     <p><strong>Aleph Alpha</strong> (Allemagne) propose le modèle Luminous, performant mais plus orienté entreprise B2B. Tarification élevée, peu adaptée à des budgets de mairie rurale.</p>
     <p><strong>LightOn</strong> (France) propose Alfred, un modèle plus petit mais spécialisé sur certaines tâches juridiques/administratives. Encore jeune commercialement.</p>
-    <p><strong>Pleias</strong> (France) — startup naissante avec un focus open-source sur les contenus du domaine public. Prometteur mais pas encore en production.</p>
+    <p><strong>Pleias</strong> (France) : startup naissante avec un focus open-source sur les contenus du domaine public. Prometteur mais pas encore en production.</p>
     <p>En 2026, Mistral AI reste donc la <strong>seule option mature</strong> pour un chatbot mairie professionnel en France.</p>
 
     <h2>Comment le vérifier vous-même</h2>
     <p>Si vous évaluez un éditeur de chatbot pour votre mairie, posez ces trois questions :</p>
     <ol>
-      <li><strong>« Quel modèle d'IA utilisez-vous pour générer les réponses ? »</strong> — si la réponse contient « OpenAI », « ChatGPT », « Claude » ou « Gemini » sans précision sur l'architecture, c'est un signal d'alerte.</li>
-      <li><strong>« Les conversations transitent-elles par des serveurs aux États-Unis ? »</strong> — un « non » clair et étayé par un schéma technique est attendu.</li>
-      <li><strong>« Avez-vous une attestation d'hébergement européen ? »</strong> — l'éditeur doit pouvoir produire le contrat OVH, Scaleway ou équivalent.</li>
+      <li><strong>« Quel modèle d'IA utilisez-vous pour générer les réponses ? »</strong> : si la réponse contient « OpenAI », « ChatGPT », « Claude » ou « Gemini » sans précision sur l'architecture, c'est un signal d'alerte.</li>
+      <li><strong>« Les conversations transitent-elles par des serveurs aux États-Unis ? »</strong> : un « non » clair et étayé par un schéma technique est attendu.</li>
+      <li><strong>« Avez-vous une attestation d'hébergement européen ? »</strong> : l'éditeur doit pouvoir produire le contrat OVH, Scaleway ou équivalent.</li>
     </ol>
     <p>Si vous voulez voir comment Civik-ia répond à ces questions, demandez-nous une démo. Nous vous montrerons la chaîne technique complète sans langue de bois.</p>
 
@@ -222,7 +222,7 @@ footer a{color:#fff;text-decoration:underline}
     <p>Mistral AI est une société française, et ses modèles peuvent être déployés sur une infrastructure entièrement européenne. La souveraineté ne tient pas qu'au modèle : elle dépend de l'ensemble de la chaîne (hébergement, journalisation, sauvegardes). Un éditeur honnête doit pouvoir vous montrer que les conversations transitent uniquement par des serveurs européens et produire l'attestation d'hébergement correspondante. C'est ce que permet de vérifier le fait de poser directement la question à l'éditeur.</p>
 
     <h3>Quel modèle d'IA Civik-ia utilise-t-il ?</h3>
-    <p>Civik-ia s'appuie sur Mistral AI (Mistral Small) avec un hébergement OVH en Union européenne. Aucune conversation citoyenne ne transite par des serveurs hors UE. Le coût par requête générée par le grand modèle reste de l'ordre de 0,003 € — la majorité des questions étant traitées en amont par une recherche locale sans appel au modèle, ce qui maîtrise à la fois le coût et l'empreinte.</p>
+    <p>Civik-ia s'appuie sur Mistral AI (Mistral Small) avec un hébergement OVH en Union européenne. Aucune conversation citoyenne ne transite par des serveurs hors UE. Le coût par requête générée par le grand modèle reste de l'ordre de 0,003 €, la majorité des questions étant traitées en amont par une recherche locale sans appel au modèle, ce qui maîtrise à la fois le coût et l'empreinte.</p>
 
     <h2>Pour aller plus loin</h2>
     <ul>

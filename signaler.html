@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Signaler un problème — Civik-ia</title>
+  <title>Signaler un problème · Civik-ia</title>
   <meta name="description" content="Signalez un problème dans votre commune (voirie, propreté, éclairage, sécurité…) en quelques secondes. Sans création de compte.">
   <meta name="theme-color" content="#000091">
   <link rel="icon" href="/assets/logo-civik-ia-seul.svg" type="image/svg+xml">
@@ -513,7 +513,7 @@
       html += '<h2 id="success-title">Signalement envoyé !</h2>';
       html += '<p>Merci. La mairie de <strong>' + escapeHtml(COMMUNE_NAME) + '</strong> a bien reçu votre demande.</p>';
       html += '<div class="ticket-id">' + escapeHtml(state.result.ticket_id) + '</div>';
-      html += '<p style="margin:14px 0 6px;font-size:14px;">Conservez précieusement ce lien — il vous permet de suivre l\'avancement sans création de compte :</p>';
+      html += '<p style="margin:14px 0 6px;font-size:14px;">Conservez précieusement ce lien, il vous permet de suivre l\'avancement sans création de compte :</p>';
       html += '<a href="' + escapeHtml(state.result.suivi_url) + '" class="suivi-link">Suivre mon signalement →</a>';
       if (state.contact_email) {
         html += '<p style="margin-top:20px;font-size:13px;color:var(--ink-light);">Un email de confirmation vient d\'être envoyé à <strong>' + escapeHtml(state.contact_email) + '</strong>. Vous serez notifié(e) à chaque mise à jour.</p>';

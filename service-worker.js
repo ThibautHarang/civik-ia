@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v139-page-messenger-2026-08-04';
+const CACHE_NAME = 'civik-ia-v140-purge-tiret-cadratin-2026-08-05';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

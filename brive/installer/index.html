@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Installer l'appli de la mairie de Brive · Civik-ia</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Installez Marianne, l'assistante de la mairie de Brive-la-Gaillarde, sur votre écran d'accueil, 24h/24, sans passer par un store.">
+<meta name="theme-color" content="#000091">
+<!-- iOS : cette page est la cible « Ajouter à l'écran d'accueil » (icône Marianne) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Marianne">
+<link rel="apple-touch-icon" href="/app/icons/demo-brive-la-gaillarde/apple-touch-180.png">
+<!-- Aperçu de lien -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Installez l'appli de votre mairie · Brive">
+<meta property="og:description" content="Marianne, votre assistante municipale, sur votre écran d'accueil. Démonstration Civik-ia.">
+<meta property="og:image" content="https://civik-ia.fr/brive/brive-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://civik-ia.fr/brive/brive-og.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --blue:#000091; --teal:#2EC4B6; --cream:#f7f4ed; --ink:#1E1E1E; --soft:#6b665d; }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--cream);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    min-height:100dvh;display:flex;flex-direction:column;align-items:center;
+    padding:max(34px,env(safe-area-inset-top)) 22px max(28px,env(safe-area-inset-bottom));text-align:center}
+  .wrap{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center}
+  .eyebrow{color:var(--teal);font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+  .icon{width:108px;height:108px;border-radius:26px;box-shadow:0 16px 40px rgba(0,0,145,.22);margin-bottom:22px;background:var(--blue)}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:900;font-size:30px;line-height:1.1;letter-spacing:-.5px;color:var(--blue);margin:0 0 12px}
+  .sub{font-size:15.5px;line-height:1.5;color:var(--soft);max-width:340px;margin:0 0 28px}
+  .sub strong{color:var(--ink)}
+  .why{width:100%;max-width:330px;text-align:left;margin:0 0 30px;display:flex;flex-direction:column;gap:14px}
+  .why-row{display:flex;align-items:center;gap:13px;font-size:14.5px;color:var(--ink)}
+  .why-ic{width:40px;height:40px;border-radius:11px;background:#fff;box-shadow:0 4px 14px rgba(0,0,145,.10);
+    display:flex;align-items:center;justify-content:center;font-size:19px;flex:0 0 auto}
+  .cta{display:block;width:100%;max-width:330px;background:var(--blue);color:#fff;text-decoration:none;
+    border-radius:9999px;padding:17px;font-weight:600;font-size:16px;box-shadow:0 12px 30px rgba(0,0,145,.28);
+    transition:transform .15s}
+  .cta:active{transform:scale(.98)}
+  .hint{font-size:13px;color:var(--soft);margin-top:14px;max-width:320px;line-height:1.5}
+  .foot{margin-top:34px;font-size:12px;color:#a8a298}
+  .wm{font-family:'Fraunces',Georgia,serif;font-weight:700;color:var(--blue);font-size:14px;letter-spacing:.2px}
+  .badge{display:inline-block;background:rgba(0,0,145,.07);color:var(--blue);font-size:11px;font-weight:600;
+    border-radius:9999px;padding:4px 11px;margin-bottom:18px}
+  @media (max-width:380px){h1{font-size:26px}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Démonstration · Mairie de Brive-la-Gaillarde</span>
+    <div class="eyebrow">Votre mairie, sur votre téléphone</div>
+    <img class="icon" src="/app/icons/demo-brive-la-gaillarde/icon-512.png" alt="Icône Marianne · Brive" width="108" height="108">
+    <h1>Installez l'appli de votre mairie</h1>
+    <p class="sub"><strong>Marianne</strong>, votre assistante municipale, à portée de main, 24h/24, directement sur votre écran d'accueil.</p>
+
+    <div class="why">
+      <div class="why-row"><span class="why-ic">📲</span>Une icône sur votre écran d'accueil, comme une vraie appli</div>
+      <div class="why-row"><span class="why-ic">⚡</span>Accès direct, sans passer par un store</div>
+      <div class="why-row"><span class="why-ic">📶</span>S'ouvre même quand vous avez peu de réseau</div>
+    </div>
+
+    <a class="cta" href="/app/?demo=1&amp;slug=demo-brive-la-gaillarde&amp;pwa=1">Installer l'appli</a>
+    <p class="hint">Sur iPhone, l'appli vous guidera pas à pas (Partager → « Sur l'écran d'accueil »). Sur Android, l'installation se fait en un appui.</p>
+
+    <div class="foot"><span class="wm">civik-ia</span> · Plateforme d'Intelligence Citoyenne</div>
+  </div>
+
+  <script>
+  /* Guide d'installation iOS — 100% AUTONOME (aucun script externe, ES5, anti-iOS-bug). */
+  (function(){
+    var APP = '/app/?demo=1&slug=demo-brive-la-gaillarde';
+    // 1) Lancée DEPUIS l'écran d'accueil (standalone) → ouvrir l'app.
+    var standalone = (window.navigator.standalone === true) ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if (standalone) { location.replace(APP); return; }
+
+    var ua = navigator.userAgent || '';
+    var isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // CSS du guide injecté (concaténation ES5, pas de template literal).
+    var css = ''
+      + '.ig-ov{position:fixed;inset:0;z-index:99999;background:#f7f4ed;display:flex;flex-direction:column;'
+      + 'align-items:center;justify-content:center;padding:24px 22px calc(20px + env(safe-area-inset-bottom));'
+      + 'text-align:center;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;overflow:auto;'
+      + 'animation:igin .35s ease}'
+      + '@keyframes igin{from{opacity:0}to{opacity:1}}'
+      + '.ig-eye{color:#2EC4B6;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}'
+      + '.ig-t{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:24px;line-height:1.12;color:#000091;margin:8px 0 4px;letter-spacing:-.4px}'
+      + '.ig-s{color:#6b665d;font-size:14px;max-width:300px;margin:0 0 18px;line-height:1.45}'
+      + '.ig-phone{position:relative;width:208px;height:286px;background:#fff;border-radius:26px;'
+      + 'box-shadow:0 18px 44px rgba(0,0,80,.18);overflow:hidden;border:1px solid #e7e4dd;flex:0 0 auto}'
+      + '.ig-bar{position:absolute;top:12px;left:14px;right:14px;height:26px;background:#ececef;border-radius:8px;'
+      + 'display:flex;align-items:center;justify-content:center;font-size:11px;color:#3c3c43}'
+      + '.ig-sheet{position:absolute;left:8px;right:8px;bottom:8px;background:#f1f1f4;border-radius:14px;padding:9px}'
+      + '.ig-row{display:flex;align-items:center;gap:10px;background:#fff;border-radius:10px;padding:10px 11px;margin-bottom:6px;font-size:12.5px;color:#1c1c1e}'
+      + '.ig-row .ic{width:24px;height:24px;border-radius:6px;background:#e7e7ea;display:flex;align-items:center;justify-content:center;font-size:14px}'
+      + '.ig-row.hl{position:relative}.ig-row.hl .ic{background:#0a84ff;color:#fff}'
+      + '.ig-row.hl:before{content:"";position:absolute;left:9px;top:50%;width:40px;height:40px;border-radius:50%;'
+      + 'transform:translate(-7px,-50%);border:3px solid #2EC4B6;animation:igpulse 1.4s ease-out infinite;pointer-events:none}'
+      + '@keyframes igpulse{0%{box-shadow:0 0 0 0 rgba(46,196,182,.55)}70%{box-shadow:0 0 0 12px rgba(46,196,182,0)}100%{box-shadow:0 0 0 0 rgba(46,196,182,0)}}'
+      + '.ig-steps{margin:16px 0 4px;max-width:300px;text-align:left}'
+      + '.ig-step{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#1c1c1e;padding:5px 0;line-height:1.35}'
+      + '.ig-step .n{width:22px;height:22px;border-radius:50%;background:#000091;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:0 0 auto}'
+      + '.ig-cta{background:#000091;color:#fff;border:0;border-radius:9999px;padding:14px 42px;font-weight:600;font-size:15px;margin-top:14px}'
+      + '@media(prefers-reduced-motion:reduce){.ig-ov{animation:none}.ig-row.hl:before{animation:none}}';
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+
+    function showGuide(){
+      if (document.querySelector('.ig-ov')) return; // anti-doublon
+      var ov = document.createElement('div');
+      ov.className = 'ig-ov'; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true');
+      ov.innerHTML =
+        '<div class="ig-eye">Installation</div>'
+      + '<h2 class="ig-t">Ajoutez Marianne &agrave; votre &eacute;cran d\'accueil</h2>'
+      + '<p class="ig-s">En 3 &eacute;tapes, depuis Safari. C\'est gratuit et instantan&eacute;.</p>'
+      + '<div class="ig-phone"><div class="ig-bar">&#9650;&nbsp; civik-ia.fr</div><div class="ig-sheet">'
+        + '<div class="ig-row"><span class="ic">&#10697;</span>Copier</div>'
+        + '<div class="ig-row hl"><span class="ic">+</span>Sur l\'&eacute;cran d\'accueil</div>'
+        + '<div class="ig-row"><span class="ic">&#9734;</span>Favoris</div>'
+      + '</div></div>'
+      + '<div class="ig-steps">'
+        + '<div class="ig-step"><span class="n">1</span>Appuyez sur le bouton <strong style="margin:0 3px">Partager</strong> (&#9650;) de Safari</div>'
+        + '<div class="ig-step"><span class="n">2</span>Choisissez &laquo;&nbsp;Sur l\'&eacute;cran d\'accueil&nbsp;&raquo;</div>'
+        + '<div class="ig-step"><span class="n">3</span>Appuyez sur &laquo;&nbsp;Ajouter&nbsp;&raquo;</div>'
+      + '</div>'
+      + '<button class="ig-cta" type="button">J\'ai compris</button>';
+      document.body.appendChild(ov);
+      var cta = ov.querySelector('.ig-cta');
+      cta.addEventListener('click', function(){ if (ov.parentNode) ov.parentNode.removeChild(ov); });
+    }
+
+    window.civikiaShowInstallGuide = showGuide; // hook public (test + réutilisation)
+    var btn = document.querySelector('.cta');
+    if (btn) {
+      btn.addEventListener('click', function (e) {
+        if (isIOS) { e.preventDefault(); showGuide(); }
+        // non-iOS : le href /app/?...&pwa=1 prend le relais (install natif dans l'app).
+      });
+    }
+    // iOS : ouverture automatique (intent explicite) + filet bfcache (page restaur&eacute;e).
+    if (isIOS) {
+      setTimeout(showGuide, 900);
+      window.addEventListener('pageshow', function (ev) { if (ev.persisted) setTimeout(showGuide, 300); });
+    }
+  })();
+  </script>
+</body>
+</html>

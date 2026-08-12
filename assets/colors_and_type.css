@@ -8,8 +8,10 @@
    Inter 400/500/600/700 — body, UI
    Poppins 600/700/800/900 — display (hero, section titles)
    Self-hosted copies live in /fonts (when available).
+   NB perf : les fonts ne sont PLUS chargées via @import ici (render-blocking +
+   requête chaînée -2470ms mobile). Elles sont chargées en non-bloquant dans le
+   <head> du HTML (Inter + Poppins + Instrument Serif fusionnés en 1 requête).
 ------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
 
 :root {
   /* ============================
@@ -19,7 +21,9 @@
   --ci-blue-marianne-light: #1a1a6e;
   --ci-blue-electric:  #007bff;  /* secondary — gradients, links */
   --ci-teal:           #2EC4B6;  /* THE ONLY interactive accent — hover, CTA, links */
+  --ci-teal-text:      #0E7C72;  /* accessible teal for small text on light bg (WCAG AA ≥4.5:1) */
   --ci-gold:           #F4A261;  /* decorative only — stars, badges */
+  --ci-gold-text:      #9A5B1E;  /* accessible amber for small text on light bg (WCAG AA ≥4.5:1) */
 
   /* ============================
      NEUTRALS — Warm cream, not cold white

@@ -24,7 +24,9 @@ function handleFormSubmit(e) {
 
     // Envoi parallèle au Google Sheet
     sendToGoogleSheet({
-        name: formData.get('name'),
+        nom: formData.get('lastname'),
+        prenom: formData.get('firstname'),
+        poste: formData.get('poste'),
         email: formData.get('email'),
         city: formData.get('city'),
         population: formData.get('population'),

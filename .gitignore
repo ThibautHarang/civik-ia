@@ -1,0 +1,17 @@
+# Bruit local macOS et outillage de session
+.DS_Store
+._*
+.claude/
+
+# Sauvegardes manuelles datees : tolerees sur disque, jamais suivies
+# (l'historique git est la sauvegarde). Motifs alignes sur les exclusions
+# de deploy-site.sh pour qu'un fichier ignore ici ne parte pas non plus en prod.
+*.backup-*
+*.bak
+*.bak-*
+*.bak-orig
+*.orig
+*.old
+
+# Espaces de travail internes : jamais dans le depot public ni en prod
+civik-ia-design-system/

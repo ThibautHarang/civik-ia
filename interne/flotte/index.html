@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flotte Marianne</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#000091">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Flotte Marianne">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico">
+<!--
+  Page interne de pilotage de la Flotte Marianne (note #202).
+  Elle LIT snapshot.json, produit chaque nuit par 07-Backend/tools/flotte_snapshot.py.
+  Aucun appel LLM, aucun calcul serveur a la consultation, aucun appel a /api/.
+
+  ATTENTION, PREREQUIS DE MISE EN LIGNE : cette page expose l'usage reel de toutes
+  les communes. Elle ne doit JAMAIS etre servie sans authentification. Le bloc
+  nginx a poser AVANT tout deploiement est dans nginx-interne.conf.a-poser, et
+  `node tools/verify/run.mjs flotte` reste ROUGE tant qu'il n'est pas en place.
+
+  Jamais dashboard.civik-ia.fr : ce sous-domaine n'existe pas (ADR 0036), le gate
+  canaux echouerait.
+-->
+<style>
+  :root{
+    --cream:#f7f4ed; --cream-warm:#f5f2eb; --cream-deep:#efeae1; --card:#faf8f2;
+    --ink:#1e1e1e; --ink-soft:#5a5a5a; --ink-faint:#8a8578;
+    --navy:#000091; --navy-light:#1a1a6e; --electric:#007bff;
+    --teal:#2EC4B6; --vert:#137a6f; --gold:#F4A261; --alerte:#b3352b;
+    --line:rgba(200,190,170,.4); --line-soft:rgba(140,120,80,.12);
+    --shadow:0 8px 24px rgba(0,0,80,.08),0 0 0 1px rgba(0,0,145,.04);
+    --fd:'Poppins','Avenir Next','Trebuchet MS',system-ui,sans-serif;
+    --fb:'Inter',-apple-system,'Segoe UI','Helvetica Neue',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--cream);color:var(--ink);font-family:var(--fb);font-size:15px;line-height:1.55}
+  .num{font-variant-numeric:tabular-nums}
+  a{color:var(--navy)}
+
+  header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:var(--cream);padding:20px 0 22px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .seal{width:34px;height:34px;border-radius:50%;background:var(--cream);flex:none;
+    background-image:url('icon-192.png');background-size:76%;
+    background-position:center;background-repeat:no-repeat}
+  h1{font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-.02em}
+  .sub{font-size:12.5px;opacity:.75}
+  .snapshot{font-size:12.5px;opacity:.85;text-align:right}
+  .snapshot strong{font-weight:600}
+
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .tiles-band{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);padding:0 0 26px}
+  .tile{background:rgba(247,244,237,.08);border:1px solid rgba(247,244,237,.16);border-radius:12px;padding:12px 14px;color:var(--cream)}
+  .tile .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+  .tile .v{font-family:var(--fd);font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+  .tile .d{font-size:12px;opacity:.8}
+  .tile .d .up{color:var(--teal)}
+  .tile .d .down{color:var(--gold)}
+  .tile.warn .v{color:var(--gold)}
+
+  main{padding:24px 0 40px}
+  section{margin-bottom:28px}
+  h2{font-family:var(--fd);font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--navy)}
+  .h2row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .h2note{font-size:12.5px;color:var(--ink-soft)}
+
+  .todo{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .todo-item{display:flex;gap:14px;padding:14px 18px;border-top:1px solid var(--line-soft);align-items:flex-start}
+  .todo-item:first-child{border-top:0}
+  .sev{flex:none;margin-top:5px;width:10px;height:10px;border-radius:50%}
+  .sev.rouge{background:var(--alerte)}
+  .sev.ambre{background:var(--gold)}
+  .todo-item .t{font-weight:600}
+  .todo-item .a{font-size:13px;color:var(--ink-soft);margin-top:2px}
+  .todo-item .act{font-size:13px;color:var(--navy);font-weight:600;margin-top:4px}
+  .todo-item .lever{font-size:12px;color:var(--ink-faint);margin-top:3px}
+  .todo-item .ech{font-size:11.5px;color:var(--ink-faint);margin-top:3px;font-style:italic}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--cream-deep);border-radius:4px;padding:1px 5px}
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .chip{font:inherit;font-size:13px;font-weight:600;color:var(--navy);background:transparent;
+    border:1.5px solid var(--line);border-radius:9999px;padding:6px 14px;cursor:pointer}
+  .chip .n{color:var(--ink-faint);font-weight:500}
+  .chip:hover{border-color:var(--teal)}
+  .chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--cream)}
+  .chip[aria-pressed="true"] .n{color:rgba(247,244,237,.7)}
+  .chip:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+  .fleet{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+  .row{display:grid;grid-template-columns:minmax(170px,1.5fr) 118px 150px 150px 92px 118px 86px;
+    gap:12px;align-items:center;padding:12px 18px;border-top:1px solid var(--line-soft);
+    width:100%;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0;font:inherit;color:inherit}
+  .row.head{border-top:0;background:var(--cream-deep);padding:9px 18px;
+    font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  button.row{cursor:pointer}
+  button.row:hover{background:var(--cream-warm)}
+  button.row:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+  .cName .n1{font-weight:600}
+  .cName .n2{font-size:12px;color:var(--ink-faint)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;border-radius:9999px;padding:3px 10px;white-space:nowrap}
+  .p-en-service{color:var(--vert);background:rgba(46,196,182,.14);border:1px solid rgba(46,196,182,.4)}
+  .p-demo-vitrine{color:#0b5cad;background:rgba(0,123,255,.1);border:1px solid rgba(0,123,255,.3)}
+  .p-arretee{color:var(--ink-soft);background:rgba(90,90,90,.08);border:1px solid rgba(90,90,90,.25)}
+  .p-recette{color:var(--navy);background:rgba(0,0,145,.07);border:1px solid rgba(0,0,145,.22)}
+  .p-hors-perimetre{color:var(--alerte);background:rgba(179,53,43,.09);border:1px solid rgba(179,53,43,.35)}
+  .cVer{font-size:13px}
+  .cVer .routes{font-size:11.5px;color:var(--ink-faint)}
+  .spark svg{display:block;width:100%;height:34px}
+  .cQ7{font-size:15px;font-weight:600}
+  .cQ7 .delta{font-size:12px;font-weight:600;margin-left:4px}
+  .delta.up{color:var(--vert)}
+  .delta.down{color:var(--ink-faint)}
+  .delta.neuf{color:var(--teal)}
+  .cLast{font-size:13px;color:var(--ink-soft)}
+  .cLast.alerte{color:var(--alerte);font-weight:600}
+  .cLiv{font-size:13px;color:var(--ink-soft)}
+  .flag{display:inline-block;font-size:11px;font-weight:700;color:var(--gold);margin-left:6px}
+  .flag.rouge{color:var(--alerte)}
+  .lab-m{display:none}
+
+  .detail{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:20px}
+  .detail-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .detail-head h3{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+  .detail-head .meta{font-size:12.5px;color:var(--ink-soft)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+  .kpi{background:var(--cream-warm);border:1px solid var(--line-soft);border-radius:10px;padding:10px 12px}
+  .kpi .k{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .kpi .v{font-family:var(--fd);font-size:21px;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+  .kpi .d{font-size:11.5px;color:var(--ink-soft)}
+  .detail-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:20px}
+  .chart-block h4,.side h4{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;margin-top:16px}
+  .chart-block h4:first-child,.side h4:first-child{margin-top:0}
+  .chart svg{display:block;width:100%;height:auto}
+  .canaux{display:flex;flex-direction:column;gap:8px}
+  .canal{font-size:13px}
+  .canal .bar{height:6px;border-radius:4px;background:var(--cream-deep);margin-top:3px;overflow:hidden}
+  .canal .fill{height:100%;border-radius:4px;background:var(--navy)}
+  .canal.messenger .fill{background:var(--electric)}
+  .leviers{list-style:none}
+  .leviers li{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:7px 0;border-top:1px solid var(--line-soft)}
+  .leviers li:first-child{border-top:0}
+  .leviers .ok{color:var(--vert);font-weight:600}
+  .leviers .off{color:var(--ink-faint)}
+  .leviers .ko{color:var(--alerte);font-weight:600}
+
+  table.bench{width:100%;border-collapse:collapse;font-size:13px}
+  table.bench th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);padding:8px 10px;background:var(--cream-deep)}
+  table.bench td{padding:9px 10px;border-top:1px solid var(--line-soft)}
+  table.bench td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .bench-wrap{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow-x:auto}
+  .bench-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .jauge{display:inline-block;height:6px;border-radius:3px;background:var(--teal);vertical-align:middle}
+  .jauge.bas{background:var(--alerte)}
+  .jauge.moyen{background:var(--gold)}
+
+  .vide{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:24px;color:var(--ink-soft)}
+  .vide strong{color:var(--ink);display:block;margin-bottom:6px;font-size:16px}
+  footer{border-top:1px solid var(--line);padding:16px 0 30px;font-size:12px;color:var(--ink-faint)}
+
+  @media (max-width:760px){
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .tile:last-child{grid-column:span 2}
+    .snapshot{text-align:left}
+    .row.head{display:none}
+    .row{grid-template-columns:1fr auto;grid-template-areas:
+      "name statut" "spark spark" "q7 last" "ver liv";gap:6px 12px;padding:14px 16px}
+    .cName{grid-area:name}.cStatut{grid-area:statut;justify-self:end}
+    .spark{grid-area:spark;margin:4px 0 2px}
+    .cQ7{grid-area:q7}.cLast{grid-area:last;text-align:right}
+    .cVer{grid-area:ver;color:var(--ink-soft)}.cLiv{grid-area:liv;text-align:right}
+    .lab-m{display:inline;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-right:5px}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .detail-grid,.bench-grid{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap top">
+    <div class="brand">
+      <div class="seal" aria-hidden="true"></div>
+      <div>
+        <h1>Flotte Marianne</h1>
+        <div class="sub">Suivi interne des Mariannes en circulation · Civik-ia</div>
+      </div>
+    </div>
+    <div class="snapshot num" id="entete">Chargement de l'instantané…</div>
+  </div>
+</header>
+<div class="tiles-band"><div class="wrap"><div class="tiles num" id="tuiles"></div></div></div>
+
+<main class="wrap">
+  <div id="app"></div>
+  <footer>
+    Page interne, sans indexation. Elle lit un instantané JSON produit chaque nuit sur le VPS
+    par <code>flotte_snapshot.py</code> : zéro appel LLM, zéro coût de consultation.
+    Les chiffres d'activité excluent les robots et notre propre outillage de test
+    (source unique <code>session_scope.py</code>).
+  </footer>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var app = document.getElementById("app");
+  var STATUTS = {
+    "en-service": "En service", "demo-vitrine": "Démo vitrine", "arretee": "Arrêtée",
+    "recette": "Recette", "hors-perimetre": "Hors périmètre"
+  };
+  var VERSIONS = {
+    "complete": "Complète", "bridee": "Bridée", "kb-embarquee": "KB embarquée",
+    "chat-coupe": "Chat coupé"
+  };
+
+  function esc(t){
+    return String(t === null || t === undefined ? "" : t)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function nb(v, defaut){ return (v === null || v === undefined) ? (defaut || "0") : v; }
+  /* Séparateur de milliers français : « 10 893 », jamais « 10893 ». */
+  function milliers(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f"); }
+  function jours(n){
+    if(n === null || n === undefined) return "jamais";
+    if(n === 0) return "aujourd'hui";
+    if(n === 1) return "hier";
+    return "il y a " + n + " j";
+  }
+
+  /* Sparkline 28 jours. Le point terminal marque le dernier jour mesuré. */
+  function spark(s){
+    if(!s || !s.length) return "";
+    var w = 140, h = 34, n = s.length, max = Math.max.apply(null, s.concat([1]));
+    var pts = s.map(function(v,i){ return [(i/(n-1))*(w-6)+3, h-4-(v/max)*(h-10)]; });
+    var line = pts.map(function(p){ return p[0].toFixed(1)+","+p[1].toFixed(1); }).join(" ");
+    var end = pts[n-1];
+    return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none" role="img" aria-label="activité sur '+n+' jours">'
+      + '<polygon points="'+line+' '+(w-3)+','+(h-2)+' 3,'+(h-2)+'" fill="rgba(0,0,145,.06)"/>'
+      + '<polyline points="'+line+'" fill="none" stroke="#000091" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>'
+      + '<path d="M'+end[0].toFixed(1)+' '+end[1].toFixed(1)+'l.01 0" stroke="#2EC4B6" stroke-width="5.5" stroke-linecap="round" vector-effect="non-scaling-stroke" fill="none"/></svg>';
+  }
+
+  /* Barres. Sert aux séries longues de la vue commune. */
+  function barres(valeurs, etiquettes){
+    var W = 620, H = 150, pad = 24, n = valeurs.length;
+    if(!n) return '<div class="h2note">Aucune donnée sur la période.</div>';
+    var bw = (W-pad*2)/n, max = Math.max.apply(null, valeurs.concat([1]));
+    var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="questions par période">';
+    [0.5, 1].forEach(function(g){
+      var y = H-22-g*(H-46);
+      svg += '<line x1="'+pad+'" y1="'+y+'" x2="'+(W-pad)+'" y2="'+y+'" stroke="rgba(140,120,80,.15)" stroke-width="1"/>'
+           + '<text x="'+(pad-4)+'" y="'+(y+3)+'" text-anchor="end" font-size="9" fill="#8a8578">'+Math.round(g*max)+'</text>';
+    });
+    valeurs.forEach(function(v,i){
+      var x = pad+i*bw+bw*0.22, w2 = bw*0.56, bh = (v/max)*(H-46), y = H-22-bh;
+      var dernier = i === n-1;
+      svg += '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w2.toFixed(1)+'" height="'+bh.toFixed(1)+'" rx="3" fill="'+(dernier?"#2EC4B6":"#000091")+'"/>';
+      if(etiquettes && (i % Math.ceil(n/7) === 0 || dernier)){
+        svg += '<text x="'+(x+w2/2).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9" fill="#8a8578">'+esc(etiquettes[i])+'</text>';
+      }
+    });
+    return svg + '</svg>';
+  }
+
+  /* ---- Rendu ---- */
+
+  function rendreEntete(d){
+    var g = d.genere_le ? d.genere_le.replace("T", ", ").slice(0, 17) : "date inconnue";
+    var manque = (d.sources_absentes || []).length
+      ? '<br><span style="color:#F4A261">Sources non lues : ' + esc(d.sources_absentes.join(", ")) + '</span>'
+      : "";
+    document.getElementById("entete").innerHTML =
+      'Instantané du <strong>' + esc(g) + ' UTC</strong><br>collecte quotidienne, fenêtre '
+      + esc(d.fenetre_jours) + ' jours' + manque;
+
+    var s = d.synthese, t = document.getElementById("tuiles");
+    var enService = s.par_statut["en-service"] || 0;
+    var bridees = (d.communes || []).filter(function(c){ return c.statut === "en-service" && c.version === "bridee"; }).length;
+    var dq = s.questions_7j_precedents
+      ? '<span class="' + (s.questions_7j >= s.questions_7j_precedents ? "up" : "down") + '">'
+        + (s.questions_7j >= s.questions_7j_precedents ? "+" : "")
+        + Math.round(100*(s.questions_7j - s.questions_7j_precedents)/s.questions_7j_precedents)
+        + ' %</span> vs 7 j préc.'
+      : 'pas de base de comparaison';
+    var canaux = Object.keys(s.canaux_7j || {}).map(function(k){ return k + " " + s.canaux_7j[k]; }).join(" · ") || "aucun";
+    t.innerHTML =
+      tuile("En service", enService, "dont " + bridees + " bridée" + (bridees > 1 ? "s" : ""))
+      + tuile("Questions 7 j", s.questions_7j, dq)
+      + tuile("Sessions citoyennes 7 j", s.sessions_7j, canaux)
+      + tuile("Arrêtées", s.par_statut["arretee"] || 0, "chat coupé")
+      + tuile("Alertes ouvertes", s.alertes.total,
+              s.alertes.rouge + " rouge · " + s.alertes.ambre + " ambre", s.alertes.total > 0);
+  }
+  function tuile(k, v, d, warn){
+    return '<div class="tile' + (warn ? " warn" : "") + '"><div class="k">' + esc(k)
+      + '</div><div class="v">' + esc(v) + '</div><div class="d">' + d + '</div></div>';
+  }
+
+  function rendreAlertes(d){
+    if(!d.alertes.length){
+      return '<section><div class="h2row"><h2>À traiter</h2></div>'
+        + '<div class="todo"><div class="todo-item"><span class="sev" style="background:#137a6f"></span>'
+        + '<div><div class="t">Rien à trancher aujourd\'hui</div>'
+        + '<div class="a">Aucune Marianne hors surveillance, aucun kill-switch en défaut, aucune donnée périmée.</div></div></div></div></section>';
+    }
+    var items = d.alertes.map(function(a){
+      var leviers = (a.leviers || []).map(function(l){ return '<div class="lever">' + esc(l) + '</div>'; }).join("");
+      var ech = a.a_trancher_avant ? '<div class="ech">À trancher avant le ' + esc(a.a_trancher_avant) + '</div>' : "";
+      return '<div class="todo-item"><span class="sev ' + esc(a.severite) + '" aria-hidden="true"></span><div>'
+        + '<div class="t">' + esc(a.titre) + '</div>'
+        + '<div class="a">' + esc(a.constat) + '</div>'
+        + (a.action ? '<div class="act">' + esc(a.action) + '</div>' : "")
+        + leviers + ech + '</div></div>';
+    }).join("");
+    return '<section><div class="h2row"><h2>À traiter</h2>'
+      + '<div class="h2note">chaque alerte porte son levier exact</div></div>'
+      + '<div class="todo">' + items + '</div></section>';
+  }
+
+  function rendreFlotte(d){
+    var counts = {};
+    d.communes.forEach(function(c){ counts[c.statut] = (counts[c.statut] || 0) + 1; });
+    var chips = ['<button class="chip" aria-pressed="true" data-f="all">Toutes <span class="n num">'
+      + d.communes.length + '</span></button>'];
+    Object.keys(STATUTS).forEach(function(s){
+      if(!counts[s]) return;
+      chips.push('<button class="chip" aria-pressed="false" data-f="' + s + '">' + STATUTS[s]
+        + ' <span class="n num">' + counts[s] + '</span></button>');
+    });
+
+    var lignes = d.communes.map(function(c){
+      var a = c.activite;
+      var delta = a.delta_7j_pct === null || a.delta_7j_pct === undefined
+        ? (a.questions_7j > 0 ? '<span class="delta neuf">nouveau</span>' : "")
+        : '<span class="delta ' + (a.delta_7j_pct >= 0 ? "up" : "down") + '">'
+          + (a.delta_7j_pct > 0 ? "+" : "") + a.delta_7j_pct + ' %</span>';
+      var dormante = c.statut === "en-service"
+        && (a.jours_depuis_activite === null || a.jours_depuis_activite >= 14);
+      var routes = (c.bridage || []).length
+        ? '<div class="routes">verrouillées : ' + esc(c.bridage.join(", ")) + '</div>' : "";
+      // Format francais jj/mm : « 06-30 » se lit comme un mois-jour a l'anglaise.
+      var jm = function(iso){ return iso ? iso.slice(8, 10) + "/" + iso.slice(5, 7) : null; };
+      var liv = c.statut === "arretee" ? (jm(c.fin) ? "fin " + jm(c.fin) : "arrêtée")
+        : (jm(c.livraison) || "non datée");
+      return '<button class="row" data-st="' + esc(c.statut) + '" data-cid="' + esc(c.commune_id) + '">'
+        + '<span class="cName"><span class="n1">' + esc(c.nom) + '</span><br><span class="n2">' + esc(c.commune_id) + '</span></span>'
+        + '<span class="cStatut"><span class="pill p-' + esc(c.statut) + '">' + esc(STATUTS[c.statut] || c.statut) + '</span></span>'
+        + '<span class="cVer">' + esc(VERSIONS[c.version] || c.version || "") + routes + '</span>'
+        + '<span class="spark">' + spark(a.serie_jours) + '</span>'
+        + '<span class="cQ7"><span class="lab-m">7 j</span>' + a.questions_7j + delta + '</span>'
+        + '<span class="cLast' + (dormante ? " alerte" : "") + '">' + esc(jours(a.jours_depuis_activite)) + '</span>'
+        + '<span class="cLiv"><span class="lab-m">Livraison</span>' + esc(liv) + '</span>'
+        + '</button>';
+    }).join("");
+
+    return '<section><div class="h2row"><h2>La flotte</h2>'
+      + '<div class="h2note num">' + d.communes.length + ' Mariannes · activité sur ' + d.fenetre_jours + ' jours · toucher une ligne pour le détail</div></div>'
+      + '<div class="chips" role="group" aria-label="Filtrer par statut">' + chips.join("") + '</div>'
+      + '<div class="fleet num" id="fleet">'
+      + '<div class="row head" aria-hidden="true"><span>Commune</span><span>Statut</span><span>Version</span>'
+      + '<span>Activité</span><span>Quest. 7 j</span><span>Dernière activité</span><span>Livraison</span></div>'
+      + lignes + '</div></section>';
+  }
+
+  function rendreDetail(c, d){
+    var a = c.activite, q = c.qualite, f = c.fraicheur, l = c.leviers, b = c.benchmark;
+    var total7 = Object.keys(a.canaux_7j || {}).reduce(function(s,k){ return s + a.canaux_7j[k]; }, 0);
+    var canaux = Object.keys(a.canaux_7j || {}).map(function(k){
+      var v = a.canaux_7j[k];
+      return '<div class="canal ' + esc(k) + '">' + esc(k) + ' · ' + v + ' question' + (v > 1 ? "s" : "")
+        + '<div class="bar"><div class="fill" style="width:' + Math.round(100*v/(total7||1)) + '%"></div></div></div>';
+    }).join("") || '<div class="h2note">Aucune question sur 7 jours.</div>';
+
+    function levier(nom, valeur, bon){
+      var cls = valeur === null || valeur === undefined ? "off" : (bon ? "ok" : "ko");
+      var txt = valeur === null || valeur === undefined ? "sans objet" : valeur;
+      return '<li><span>' + esc(nom) + '</span><span class="' + cls + '">' + esc(txt) + '</span></li>';
+    }
+    var attendu = c.statut === "en-service" || c.statut === "recette";
+    var leviers = levier("Chat backend", l.chat_backend, (c.statut === "arretee") === (l.chat_backend === "coupe"))
+      + levier("Splash public", l.splash_access_active === null ? null : (l.splash_access_active ? "actif" : "suspendu"), true)
+      + levier("Routes verrouillées", (l.routes_verrouillees || []).join(", ") || "aucune, version complète", true)
+      + levier("Bloc OG nginx", l.og_nginx === null ? null : (l.og_nginx ? "présent" : "absent"), l.og_nginx || !attendu)
+      + levier("Surveillance", l.surveillance ? "revue, vigie, smoke" : "aucune", l.surveillance || c.statut !== "hors-perimetre");
+
+    var themes = (b.categories || []).slice(0, 8).map(function(t){
+      var cls = t.part_servie_pct >= 90 ? "" : (t.part_servie_pct >= 70 ? "moyen" : "bas");
+      return '<tr><td>' + esc(t.categorie) + '</td><td class="n">' + t.total + '</td>'
+        + '<td class="n">' + (t.part_servie_pct === null ? "n. c." : t.part_servie_pct + " %") + '</td>'
+        + '<td><span class="jauge ' + cls + '" style="width:' + Math.round((t.part_servie_pct || 0)*0.6) + 'px"></span></td></tr>';
+    }).join("") || '<tr><td colspan="4">Aucune question catégorisée sur la période.</td></tr>';
+
+    return '<section><div class="h2row"><h2>Vue commune</h2>'
+      + '<div class="h2note">' + esc(c.notes || "") + '</div></div><div class="detail">'
+      + '<div class="detail-head"><h3>' + esc(c.nom) + '</h3><div class="meta num">'
+      + (c.url ? esc(c.url) + ' · ' : "")
+      + 'KB ' + nb(f.fiches_kb, "?") + ' fiches · '
+      + (f.derniere_verif ? 'données vérifiées le ' + esc(f.derniere_verif) : 'données jamais datées')
+      + (f.population ? ' · ' + milliers(f.population) + ' habitants' : "") + '</div></div>'
+      + '<div class="kpis num">'
+      + kpi("Questions 7 j", a.questions_7j, a.questions_7j_precedents + ' la semaine précédente')
+      + kpi("Sessions citoyennes 7 j", a.sessions_7j, nb(a.visiteurs_7j, "?") + ' visiteur(s) de page')
+      + kpi("Qualité (dernière revue)", q.taux_mecanique_plancher === null || q.taux_mecanique_plancher === undefined ? "n. c." : q.taux_mecanique_plancher + " %",
+            q.source_revue ? esc(q.source_revue) : 'aucune revue enregistrée')
+      + kpi("Réponses servies 28 j", q.methodes_28j.part_servie_pct === null ? "n. c." : q.methodes_28j.part_servie_pct + " %",
+            q.methodes_28j.echecs + ' sans réponse sur ' + (q.methodes_28j.servies + q.methodes_28j.echecs))
+      + '</div><div class="detail-grid"><div class="chart-block">'
+      + '<h4>Questions par jour, ' + a.serie_jours.length + ' jours</h4><div class="chart">' + barres(a.serie_jours) + '</div>'
+      + '<h4>Thèmes demandés et part servie</h4>'
+      + '<div class="bench-wrap"><table class="bench"><thead><tr><th>Thème</th><th>Questions</th><th>Servi</th><th></th></tr></thead>'
+      + '<tbody>' + themes + '</tbody></table></div>'
+      + '</div><div class="side"><h4>Canaux, 7 jours</h4><div class="canaux">' + canaux + '</div>'
+      + '<h4>Adoption</h4><div class="h2note">'
+      + (b.questions_1000_hab_28j === null ? "Population inconnue : pas de comparaison possible."
+         : b.questions_1000_hab_28j + ' question(s) pour 1 000 habitants sur 28 jours.')
+      + (b.questions_par_session ? '<br>' + b.questions_par_session + ' question(s) par session.' : "")
+      + '</div><h4>Leviers</h4><ul class="leviers">' + leviers + '</ul></div></div></div></section>';
+  }
+  function kpi(k, v, d){
+    return '<div class="kpi"><div class="k">' + esc(k) + '</div><div class="v">' + esc(v)
+      + '</div><div class="d">' + esc(d) + '</div></div>';
+  }
+
+  function rendreBenchmark(d){
+    var b = d.benchmark_flotte;
+    var adoption = b.adoption.map(function(r){
+      return '<tr><td>' + esc(r.nom) + '</td><td class="n">' + r.pour_1000_hab + '</td>'
+        + '<td class="n">' + r.questions_28j + '</td><td class="n">' + (r.population ? milliers(r.population) : "?") + '</td>'
+        + '<td class="n">' + nb(r.questions_par_session, "n. c.") + '</td></tr>';
+    }).join("") || '<tr><td colspan="5">Aucune commune en service avec une population connue.</td></tr>';
+
+    var rates = b.themes_les_moins_bien_servis.map(function(t){
+      return '<tr><td>' + esc(t.categorie) + '</td><td class="n">' + t.total + '</td>'
+        + '<td class="n">' + t.part_servie_pct + ' %</td><td class="n">' + t.echecs + '</td></tr>';
+    }).join("") || '<tr><td colspan="4">Pas assez de questions pour comparer les thèmes.</td></tr>';
+
+    var jamais = (b.themes_jamais_servis || []).map(function(t){
+      return '<tr><td>' + esc(t.categorie) + '</td><td class="n">' + t.echecs + '</td></tr>';
+    }).join("");
+
+    var pv = b.par_version;
+    var versions = ["complete", "bridee"].map(function(v){
+      var x = pv[v] || {};
+      return '<tr><td>' + esc(VERSIONS[v] || v) + '</td><td class="n">' + nb(x.communes) + '</td>'
+        + '<td class="n">' + nb(x.questions_28j) + '</td><td class="n">' + nb(x.sessions_28j) + '</td>'
+        + '<td class="n">' + nb(x.pour_1000_hab_median, "n. c.") + '</td></tr>';
+    }).join("");
+
+    return '<section><div class="h2row"><h2>Benchmark</h2>'
+      + '<div class="h2note">ce qui marche, ce qui marche moins</div></div>'
+      + '<div class="h2note" style="margin-bottom:10px">' + esc(b._lecture) + '</div>'
+      + '<div class="bench-wrap" style="margin-bottom:16px"><table class="bench">'
+      + '<thead><tr><th>Adoption par commune</th><th>Pour 1 000 hab.</th><th>Questions 28 j</th><th>Habitants</th><th>Quest. / session</th></tr></thead>'
+      + '<tbody>' + adoption + '</tbody></table></div>'
+      + '<div class="bench-grid">'
+      + '<div class="bench-wrap"><table class="bench">'
+      + '<thead><tr><th>Thèmes les moins bien servis</th><th>Questions</th><th>Servi</th><th>Échecs</th></tr></thead>'
+      + '<tbody>' + rates + '</tbody></table></div>'
+      + '<div class="bench-wrap"><table class="bench">'
+      + '<thead><tr><th>Thèmes jamais servis</th><th>Questions sans réponse</th></tr></thead>'
+      + '<tbody>' + (jamais || '<tr><td colspan="2">Aucun : tout thème demandé a reçu au moins une réponse.</td></tr>') + '</tbody></table></div>'
+      + '</div>'
+      + '<div class="bench-wrap" style="margin-top:16px"><table class="bench">'
+      + '<thead><tr><th>Le bridage change-t-il l\'usage</th><th>Communes</th><th>Questions 28 j</th><th>Sessions 28 j</th><th>Médiane pour 1 000 hab.</th></tr></thead>'
+      + '<tbody>' + versions + '</tbody></table></div></section>';
+  }
+
+  /* ---- Amorçage ---- */
+
+  function erreur(titre, detail){
+    document.getElementById("entete").textContent = "Instantané indisponible";
+    app.innerHTML = '<div class="vide"><strong>' + esc(titre) + '</strong>' + esc(detail) + '</div>';
+  }
+
+  fetch("snapshot.json", { cache: "no-store" })
+    .then(function(r){
+      if(!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function(d){
+      if(!d || !d.communes || !d.communes.length){
+        // Un snapshot vide ne vaut PAS « flotte vide » : il vaut « rien n'a été
+        // mesuré ». Le dire, plutôt qu'afficher une page à zéro rassurante.
+        erreur("Le collecteur n'a rien mesuré",
+          "Le fichier snapshot.json existe mais ne déclare aucune Marianne. "
+          + "Vérifier le manifeste 07-Backend/tools/flotte/flotte.json sur le VPS, "
+          + "puis relancer : sudo systemctl start civik-ia-flotte.service");
+        return;
+      }
+      rendreEntete(d);
+      var choisie = d.communes.filter(function(c){ return c.statut === "en-service"; })
+        .sort(function(x,y){ return y.activite.questions_7j - x.activite.questions_7j; })[0] || d.communes[0];
+
+      function peindre(){
+        app.innerHTML = rendreAlertes(d) + rendreFlotte(d) + rendreDetail(choisie, d) + rendreBenchmark(d);
+        var fleet = document.getElementById("fleet");
+        Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(ch){
+          ch.addEventListener("click", function(){
+            Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(o){
+              o.setAttribute("aria-pressed", "false");
+            });
+            ch.setAttribute("aria-pressed", "true");
+            var f = ch.dataset.f;
+            Array.prototype.forEach.call(fleet.querySelectorAll("button.row"), function(r){
+              r.style.display = (f === "all" || r.dataset.st === f) ? "" : "none";
+            });
+          });
+        });
+        Array.prototype.forEach.call(fleet.querySelectorAll("button.row"), function(r){
+          r.addEventListener("click", function(){
+            var cid = r.dataset.cid;
+            choisie = d.communes.filter(function(c){ return c.commune_id === cid; })[0] || choisie;
+            peindre();
+            var vue = document.querySelectorAll("section")[2];
+            if(vue) vue.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      }
+      peindre();
+    })
+    .catch(function(e){
+      erreur("Instantané introuvable",
+        "snapshot.json n'a pas pu être lu (" + e.message + "). "
+        + "Le collecteur tourne-t-il ? Sur le VPS : systemctl list-timers civik-ia-flotte, "
+        + "puis sudo systemctl start civik-ia-flotte.service");
+    });
+})();
+</script>
+</body>
+</html>

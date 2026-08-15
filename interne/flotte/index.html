@@ -81,6 +81,14 @@
   .todo-item .act{font-size:13px;color:var(--navy);font-weight:600;margin-top:4px}
   .todo-item .lever{font-size:12px;color:var(--ink-faint);margin-top:3px}
   .todo-item .ech{font-size:11.5px;color:var(--ink-faint);margin-top:3px;font-style:italic}
+  .todo-item .carnetRow{margin-top:9px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .btnCarnet{font:600 12px/1 inherit;font-family:inherit;color:var(--navy);background:transparent;
+    border:1px solid var(--navy);border-radius:7px;padding:7px 12px;cursor:pointer}
+  .btnCarnet:hover{background:var(--navy);color:#fff}
+  .btnCarnet:disabled{opacity:.45;cursor:default;background:transparent;color:var(--navy)}
+  .carnetEtat{font-size:12px;color:var(--ink-faint)}
+  .carnetEtat.ok{color:var(--vert);font-weight:600}
+  .carnetEtat.ko{color:var(--alerte);font-weight:600}
   code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--cream-deep);border-radius:4px;padding:1px 5px}
 
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
@@ -312,14 +320,18 @@
         + '<div><div class="t">Rien à trancher aujourd\'hui</div>'
         + '<div class="a">Aucune Marianne hors surveillance, aucun kill-switch en défaut, aucune donnée périmée.</div></div></div></div></section>';
     }
-    var items = d.alertes.map(function(a){
+    var items = d.alertes.map(function(a, i){
       var leviers = (a.leviers || []).map(function(l){ return '<div class="lever">' + esc(l) + '</div>'; }).join("");
       var ech = a.a_trancher_avant ? '<div class="ech">À trancher avant le ' + esc(a.a_trancher_avant) + '</div>' : "";
+      // Pont Kalendia (spec 2026-08-15) : le bouton envoie l'alerte au relais
+      // /interne/api/, même basic auth que cette page, aucun secret ici.
+      var carnet = '<div class="carnetRow"><button class="btnCarnet" data-ai="' + i
+        + '">Envoyer au carnet</button><span class="carnetEtat" role="status"></span></div>';
       return '<div class="todo-item"><span class="sev ' + esc(a.severite) + '" aria-hidden="true"></span><div>'
         + '<div class="t">' + esc(a.titre) + '</div>'
         + '<div class="a">' + esc(a.constat) + '</div>'
         + (a.action ? '<div class="act">' + esc(a.action) + '</div>' : "")
-        + leviers + ech + '</div></div>';
+        + leviers + ech + carnet + '</div></div>';
     }).join("");
     return '<section><div class="h2row"><h2>À traiter</h2>'
       + '<div class="h2note">chaque alerte porte son levier exact</div></div>'
@@ -522,6 +534,50 @@
             peindre();
             var vue = document.querySelectorAll("section")[2];
             if(vue) vue.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+        // Pont Kalendia : une alerte part au carnet en une pression. Le relais
+        // applique l'identité d'épisode, appuyer deux fois ne crée jamais deux
+        // notes (il répond « déjà au carnet »).
+        Array.prototype.forEach.call(document.querySelectorAll(".btnCarnet"), function(b){
+          b.addEventListener("click", function(){
+            var a = d.alertes[Number(b.dataset.ai)];
+            if(!a) return;
+            var etat = b.parentNode.querySelector(".carnetEtat");
+            b.disabled = true;
+            etat.className = "carnetEtat";
+            etat.textContent = "Envoi vers le carnet…";
+            fetch("../api/flotte/note", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                commune_id: a.commune_id,
+                regle: a.regle || null,
+                severite: a.severite || null,
+                titre: a.titre || null,
+                constat: a.constat || null,
+                action: a.action || null,
+                leviers: a.leviers || []
+              })
+            }).then(function(r){
+              return r.json().catch(function(){ return {}; })
+                .then(function(j){ return { ok: r.ok, status: r.status, corps: j }; });
+            }).then(function(res){
+              if(res.ok){
+                etat.className = "carnetEtat ok";
+                etat.textContent = res.corps.deja_au_carnet
+                  ? "Déjà au carnet (note " + res.corps.note_id + ")"
+                  : "Au carnet (note " + res.corps.note_id + "), prête à lancer depuis Kalendia";
+              } else {
+                b.disabled = false;
+                etat.className = "carnetEtat ko";
+                etat.textContent = "Échec : " + (res.corps.detail || ("HTTP " + res.status)) + ". Réessayer.";
+              }
+            }).catch(function(e){
+              b.disabled = false;
+              etat.className = "carnetEtat ko";
+              etat.textContent = "Échec : " + e.message + ". Réessayer.";
+            });
           });
         });
       }

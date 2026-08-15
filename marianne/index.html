@@ -2411,10 +2411,20 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
       </a>
     </div>
     <div style="margin-top:32px; padding-top:24px; border-top:1px solid rgba(0,0,145,0.08); font-size:14px; color:#5f5f5f;">
-      <strong style="color:#000091;">Démos clients en ligne :</strong>
+      <!-- Liste derivee du manifeste de flotte (07-Backend/tools/flotte/flotte.json).
+           Ne lister que des communes au statut « en-service » : le gate
+           « node tools/verify/run.mjs flotte » sort rouge si une commune arretee
+           reapparait ici. Le 15/08/2026 elle citait encore Rigny-le-Ferron (fermee le
+           24/07) et Lunay (arretee le jour meme) : deux liens qui envoyaient un
+           prospect sur « la demo a pris fin ». Ne pas ecrire « clients » : ces communes
+           ne sont pas toutes signees, ce serait une fausse promesse (regle 8). -->
+      <strong style="color:#000091;">Marianne en service :</strong>
       <a href="/preview/thore-la-rochette/" style="color:#000091; margin-left:12px;">Thoré-la-Rochette (41100)</a> ·
-      <a href="/preview/rigny-le-ferron/" style="color:#000091; margin-left:8px;">Rigny-le-Ferron (10160)</a> ·
-      <a href="/preview/lunay/" style="color:#000091; margin-left:8px;">Lunay (41360)</a>
+      <a href="/preview/saint-germain-au-mont-dor/" style="color:#000091; margin-left:8px;">Saint-Germain-au-Mont-d'Or (69650)</a> ·
+      <a href="/preview/lieurey/" style="color:#000091; margin-left:8px;">Lieurey (27560)</a> ·
+      <a href="/preview/rive-de-gier/" style="color:#000091; margin-left:8px;">Rive-de-Gier (42800)</a> ·
+      <a href="/preview/serignan/" style="color:#000091; margin-left:8px;">Sérignan (34410)</a> ·
+      <a href="/preview/tarare/" style="color:#000091; margin-left:8px;">Tarare (69170)</a>
     </div>
   </div>
 </section>

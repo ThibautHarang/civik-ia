@@ -27,10 +27,23 @@
   <url><loc>https://civik-ia.fr/aide.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://civik-ia.fr/legal/conditions-generales-vente.html</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <!-- Communes actives uniquement. Une demo fermee (kill-switch DEMO_ENDED_SLUGS,
-       07-Backend/main.py) ne doit jamais figurer ici : Google explorerait un outil
-       qui repond « la demo a pris fin ». Retirees le 28/07/2026 : rigny-le-ferron
-       et marseillan-34340, fermees le 24/07/2026. -->
-  <url><loc>https://civik-ia.fr/preview/lunay/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/thore-la-rochette/</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <!-- Communes EN SERVICE uniquement, et TOUTES celles en service. Cette liste
+       n'est pas tenue a la main : c'est un derive du manifeste de flotte
+       (07-Backend/tools/flotte/flotte.json), et « node tools/verify/run.mjs flotte »
+       echoue dans les deux sens si elle s'en ecarte.
+       Une commune arretee (kill-switch DEMO_ENDED_SLUGS, 07-Backend/main.py) ne doit
+       jamais figurer ici : Google explorerait un outil qui repond « la demo a pris fin ».
+       Une commune servie ne doit jamais en manquer : robots.txt declare /preview/{slug}/
+       indexable depuis le 03/05/2026 pour le referencement local, donc une absence est
+       une perte seche.
+       Retirees le 28/07/2026 : rigny-le-ferron et marseillan-34340, fermees le 24/07/2026.
+       Retiree le 15/08/2026 : lunay, arretee le jour meme (note #203). Ajoutees le meme
+       jour, apres 5 a 24 jours de service sans etre annoncees nulle part (note #218) :
+       saint-germain-au-mont-dor, lieurey, rive-de-gier, serignan, tarare. -->
+  <url><loc>https://civik-ia.fr/preview/thore-la-rochette/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://civik-ia.fr/preview/saint-germain-au-mont-dor/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://civik-ia.fr/preview/lieurey/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://civik-ia.fr/preview/rive-de-gier/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://civik-ia.fr/preview/serignan/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://civik-ia.fr/preview/tarare/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
 </urlset>

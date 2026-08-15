@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v140-purge-tiret-cadratin-2026-08-05';
+const CACHE_NAME = 'civik-ia-v141-bypass-interne-flotte-2026-08-15';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',
@@ -19,7 +19,12 @@ const STATIC_ASSETS = [
 
 // Paths à NE PAS intercepter par le SW — l'app multi-persona doit toujours passer
 // par le réseau (sinon le browser sert l'ancienne version cachée).
-const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/'];
+// /interne/ (Flotte Marianne) : la page lit un snapshot.json regenere chaque
+// nuit. En cache-first, le SW le servirait indefiniment depuis le cache et le
+// telephone afficherait l'etat d'avant-hier SANS LE DIRE : caches.match ignore
+// le Cache-Control "no-store" pose par nginx. Le contournement est la seule
+// garde qui tienne.
+const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/'];
 const SW_BYPASS_EXACT = ['/demo.html', '/demo'];
 
 // Installation — pr\u00e9-cache des assets statiques

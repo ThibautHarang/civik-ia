@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v142-sitemap-communes-en-service-2026-08-15';
+const CACHE_NAME = 'civik-ia-v143-commune-recette-fictive-2026-08-15';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

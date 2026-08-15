@@ -200,7 +200,7 @@
     var match = path.match(/\/signaler\/([^\/?#]+)/);
     if (match) return decodeURIComponent(match[1]);
     var qs = new URLSearchParams(window.location.search);
-    return qs.get('commune') || 'demo-saint-martin-29600';
+    return qs.get('commune') || 'demo-villeneuve-les-ormes-36999';
   }
 
   var COMMUNE_ID = getCommuneId();
@@ -209,7 +209,7 @@
     'rigny-le-ferron-10160': 'Rigny-le-Ferron',
     'thore-la-rochette-41100': 'Thoré-la-Rochette',
     'marseillan-34340': 'Marseillan',
-    'demo-saint-martin-29600': 'Saint-Martin-des-Champs (démo)'
+    'demo-villeneuve-les-ormes-36999': 'Villeneuve-les-Ormes (démo)'
   };
   var COMMUNE_NAME = COMMUNE_NAMES[COMMUNE_ID] || COMMUNE_ID;
   document.getElementById('commune-suffix').textContent = ' à ' + COMMUNE_NAME;

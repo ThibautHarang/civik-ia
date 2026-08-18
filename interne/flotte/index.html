@@ -286,9 +286,16 @@
     var manque = (d.sources_absentes || []).length
       ? '<br><span style="color:#F4A261">Sources non lues : ' + esc(d.sources_absentes.join(", ")) + '</span>'
       : "";
+    /* Le tri citoyen/outillage a-t-il répondu depuis sa source unique ? Sinon, tous les
+       compteurs de cette page peuvent contenir nos propres campagnes de test, et rien
+       d'autre ne le dirait (note #242). Rouge, pas ambre : ce n'est pas une donnée
+       manquante, c'est un chiffre faux qui a l'air juste. */
+    var degrade = d.tri_degrade
+      ? '<br><span style="color:#C0392B;font-weight:600">⚠ ' + esc(d.tri_degrade) + '</span>'
+      : "";
     document.getElementById("entete").innerHTML =
       'Instantané du <strong>' + esc(g) + ' UTC</strong><br>collecte quotidienne, fenêtre '
-      + esc(d.fenetre_jours) + ' jours' + manque;
+      + esc(d.fenetre_jours) + ' jours' + manque + degrade;
 
     var s = d.synthese, t = document.getElementById("tuiles");
     var enService = s.par_statut["en-service"] || 0;

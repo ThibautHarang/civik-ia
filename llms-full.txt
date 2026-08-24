@@ -7,7 +7,7 @@
 # Registre public : https://annuaire-entreprises.data.gouv.fr/entreprise/103568416
 # Resume court : https://civik-ia.fr/llms.txt
 #
-# 26 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 27 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia, l'intelligence artificielle au service de la vie locale
@@ -1171,6 +1171,71 @@ Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes 
 Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
 Chatbot mairie prix &middot; Chatbot mairie gratuit &middot; Chatbot mairie tarif &middot; Chatbot collectivite cout &middot; Budget chatbot commune
 
+## Chatbot mairie gratuit : ce qui existe en 2026 · Civik-ia
+URL : https://civik-ia.fr/chatbot-mairie-gratuit.html
+Resume : Du gratuit existe pour une commune, mais pas pour le même besoin : Delibia pour les secrétaires de mairie, PanneauPocket sous 100 habitants. Vérifié le 24/08/2026.
+
+Chatbot mairie gratuit : ce qui existe en 2026 · Civik-ia
+C
+Civik-ia Plateforme d'Intelligence Citoyenne
+Voir la démo
+Accueil › Chatbot mairie gratuit
+Comparatif · 24 août 2026
+Existe-t-il un chatbot gratuit pour une mairie ?
+La question revient souvent, et la réponse honnête est nuancée : oui, plusieurs offres gratuites existent, mais aucune ne couvre le même besoin. Le mot « chatbot » désigne au moins trois produits différents selon qu'il s'adresse aux agents, aux habitants, ou à personne en particulier. Voici ce qui est réellement gratuit en août 2026, pour qui, et ce que chaque offre laisse de côté.
+Cible : maire, DGS, secrétaire de mairie
+Lecture : 5 minutes
+Vérifié le : 24/08/2026
+En bref
+Oui, du gratuit existe. Delibia offre une licence à toutes les secrétaires de mairie de France, mais son offre payante est décrite par l'éditeur comme des « licences illimitées pour les agents et élus de votre collectivité » : c'est un outil de travail interne, il ne répond pas aux habitants. PanneauPocket est offert aux communes de 100 habitants ou moins, et diffuse des informations sans répondre aux questions. Les créateurs de chatbot généralistes ont une entrée gratuite, mais le contenu communal est à saisir et à tenir soi-même. Un guichet citoyen qui répond 24h/24 à partir d'une base de connaissances vérifiée reste payant, à partir d'environ 49 euros HT par mois. Constaté sur les sites des éditeurs le 24 août 2026.
+Delibia est-il gratuit ?
+Oui, pour un usage précis. Sur delibia.fr, constaté le 24 août 2026, l'offre « Petites communes » annonce 1 licence offerte à toutes les secrétaires de mairie de France . Elle donne accès au moteur de recherche national de décisions publiques, au chatbot expert Delibia, aux assistants IA personnalisables, aux espaces documentaires et chatbots dédiés, au support par chat et à une prise en main offerte.
+Les deux paliers supérieurs, « Essentiel » et « Personnalisé », ne publient pas de tarif : ils s'obtiennent sur rendez-vous ou par contact commercial. Tous les plans incluent un essai gratuit de 14 jours et aucun frais d'installation.
+À qui cette offre s'adresse est dit par l'éditeur lui-même : le palier « Essentiel » donne des « licences illimitées pour les agents et élus de votre collectivité ». C'est un outil de travail interne, orienté recherche documentaire et rédaction. Il n'est pas conçu pour être posé sur le site de la commune et répondre à un habitant qui cherche les horaires de la mairie un dimanche soir.
+Ce qu'il faut en retenir. Si votre besoin est d'aider le secrétariat à retrouver une délibération ou à préparer un acte, cette licence gratuite est une bonne nouvelle et il faut la prendre. Si votre besoin est de répondre aux administrés, elle ne le couvre pas. Les deux besoins sont réels et ils ne s'excluent pas.
+PanneauPocket, gratuit sous 100 habitants
+Sur panneaupocket.com, constaté le 24 août 2026 : « Vous êtes une commune de 100 habitants ou moins ? Nous vous offrons gratuitement la solution PanneauPocket. » L'application est par ailleurs gratuite pour les habitants, sans publicité.
+C'est une solution de diffusion : la mairie publie une information, les habitants qui ont installé l'application la reçoivent. Elle suppose donc deux choses, que l'habitant ait installé l'application, et que la question qu'il se pose ait déjà fait l'objet d'une publication. Au-delà de 100 habitants, l'offre devient payante.
+Les créateurs de chatbot généralistes
+Des plateformes comme Botnation annoncent une création de chatbot gratuite, constaté sur botnation.ai le 24 août 2026. Techniquement, une commune peut donc mettre un chatbot en ligne sans payer de licence.
+Ce que le prix ne comprend pas, c'est le travail. Un chatbot généraliste ne connaît rien de votre commune : il faut saisir les horaires, les démarches, la collecte des déchets, l'urbanisme, les élus, et surtout les tenir à jour. C'est ce travail, et non la licence, qui pèse sur une mairie sans service informatique. Une information périmée servie sous le nom de la mairie coûte plus cher qu'un abonnement.
+Et ChatGPT ?
+Gratuit dans sa version de base, et il ne connaît pas votre commune. Interrogé sur les horaires de la mairie ou le jour de collecte des encombrants, il répond à partir de ce qu'il a lu sur internet, souvent périmé ou absent pour une commune rurale, et sans aucun moyen de savoir que le service urbanisme a changé d'horaires en juin.
+C'est le point où le gratuit devient risqué : le problème n'est pas l'absence de réponse, c'est la réponse plausible et fausse. Un habitant qui se déplace pour rien parce qu'une IA a inventé un horaire ne fait pas la différence entre les outils, il retient que la mairie l'a mal informé.
+Ce que chaque offre couvre, en un tableau
+Solution Offre gratuite constatée le 24/08/2026 À qui elle s'adresse Répond à un habitant ?
+Delibia 1 licence offerte à toutes les secrétaires de mairie de France Agents et élus Non, outil de travail interne
+PanneauPocket Offert aux communes de 100 habitants ou moins Habitants Non, diffusion d'informations publiées
+Botnation et créateurs généralistes Création de chatbot annoncée gratuite Tout public Oui, mais contenu communal à saisir et à tenir soi-même
+ChatGPT Version de base gratuite Tout public Oui, sans connaître votre commune
+Citia Aucune offre gratuite annoncée sur citia.io Habitants Oui
+Civik-ia Aucune. À partir de 49 euros HT par mois Habitants Oui, à partir d'une base de connaissances vérifiée par la commune
+Pourquoi un guichet citoyen n'est pas gratuit
+La licence logicielle n'est pas ce qui coûte. Ce qui coûte, c'est de constituer puis de tenir à jour une base de connaissances propre à la commune, vérifiée à la source, et de faire en sorte que l'assistant refuse de répondre plutôt que d'inventer quand l'information n'y est pas. C'est un travail continu, pas une installation.
+Chez Civik-ia, l'offre destinée aux communes de moins de 5 000 habitants démarre à 49 euros HT par mois, soit 588 euros HT par an, très largement sous le seuil des marchés publics. Le détail des trois paliers figure sur la page des tarifs , et la comparaison avec les autres solutions du marché sur le comparatif 2026 .
+Questions fréquentes
+Delibia est-il gratuit ?
+Oui, pour un usage précis. Sur delibia.fr, constaté le 24 août 2026, l'offre « Petites communes » annonce 1 licence offerte à toutes les secrétaires de mairie de France, donnant accès au moteur de recherche national de décisions publiques, au chatbot expert, aux assistants IA personnalisables et aux espaces documentaires. Les paliers supérieurs, « Essentiel » et « Personnalisé », ne publient pas de tarif. L'éditeur décrit lui-même le palier « Essentiel » comme des licences illimitées pour les agents et élus de la collectivité : c'est un outil de travail interne, il ne répond pas aux habitants sur le site de la commune.
+Existe-t-il un chatbot citoyen totalement gratuit pour une mairie ?
+Pas à notre connaissance en août 2026, si l'on entend par là un assistant posé sur le site de la commune, qui répond aux habitants à partir d'informations communales vérifiées. Les offres gratuites existantes couvrent d'autres besoins : outil interne pour les agents chez Delibia, diffusion d'informations chez PanneauPocket sous 100 habitants, ou création d'un chatbot générique dont le contenu communal reste entièrement à saisir et à tenir à jour.
+PanneauPocket est-il gratuit pour ma commune ?
+Sur panneaupocket.com, constaté le 24 août 2026, la solution est offerte aux communes de 100 habitants ou moins, et l'application est gratuite pour les habitants. Au-delà de 100 habitants, l'offre est payante. PanneauPocket diffuse des informations publiées par la mairie ; elle ne répond pas à une question posée librement par un habitant.
+Peut-on utiliser ChatGPT comme chatbot de mairie ?
+Techniquement oui, et c'est gratuit dans sa version de base, mais le modèle ne connaît pas votre commune. Interrogé sur les horaires de la mairie ou le jour de collecte des encombrants, il répond à partir de ce qu'il a lu sur internet, souvent périmé ou absent pour une commune rurale, sans moyen de savoir qu'un service a changé d'horaires. Le risque n'est pas l'absence de réponse, c'est la réponse plausible et fausse servie sous le nom de la mairie.
+Combien coûte un chatbot citoyen pour une commune rurale ?
+Pour une commune de moins de 5 000 habitants, l'offre Civik-ia démarre à 49 euros HT par mois, soit 588 euros HT par an, très largement sous le seuil des marchés publics. Le détail des trois paliers et ce qu'ils incluent figure sur la page des tarifs.
+Sources et fraîcheur. Les offres décrites sur cette page ont été relevées directement sur les sites des éditeurs le 24 août 2026 : delibia.fr, panneaupocket.com, citia.io et botnation.ai. Les tarifs et les conditions d'une offre commerciale changent : si vous constatez un écart avec ce qui est écrit ici, écrivez-nous à contact@civik-ia.fr et nous corrigerons la page.
+Jugez sur une vraie question
+Testez Marianne depuis votre téléphone, sans inscription : posez la question qu'un habitant poserait un dimanche soir, et regardez la réponse.
+Tester la démo →
+Accueil
+Marianne
+Chatbot mairie
+Tarifs
+RGPD
+Démo
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+
 ## Chatbot IA pour commune rurale : dès 49€/mois · Civik-ia
 URL : https://civik-ia.fr/chatbot-commune-rurale.html
 Resume : Commune rurale : accueil numérique 24h/24 et consultations citoyennes pour vos habitants. Chatbot IA souverain UE, RGPD natif, sans inscription. Dès 49€/mois HT.
@@ -1442,6 +1507,7 @@ Mais : ce n'est pas un chatbot . Le citoyen ne pose pas de question, il reçoit 
 Notre recommandation honnête : PanneauPocket et un chatbot IA sont complémentaires , pas concurrents. La mairie diffuse avec PanneauPocket, elle répond avec Civik-ia (ou dydu, ou Citia). C'est ce que font déjà nos premiers clients pilotes.
 Delibia : gratuit pour les secrétaires de mairie, mais pas un guichet citoyen
 Delibia revient souvent dans les recherches des secrétaires de mairie, il faut donc le situer correctement : c'est une IA de productivité interne , créée par d'anciens agents territoriaux, destinée aux agents et aux élus. Elle sert à chercher dans les données publiques, analyser des documents, rédiger et préparer des décisions, avec une bibliothèque d'assistants prêts à l'emploi (analyse, rédaction, veille, jurisprudence).
+Le détail de son offre gratuite, relevé à date, et sa comparaison avec les autres offres gratuites du marché figurent sur notre page existe-t-il un chatbot gratuit pour une mairie ?
 Côté prix, Delibia offre une licence gratuite aux secrétaires de mairie (moteur de recherche national, chatbot expert et assistants IA, constaté sur delibia.fr en juillet 2026) et un essai gratuit de 14 jours ; les tarifs des formules supérieures ne sont pas publiés, ils sont communiqués sur demande.
 La différence fondamentale : Delibia travaille pour l'agent, à l'intérieur de la mairie . Il ne répond pas aux citoyens sur le site de la commune. Civik-ia fait l'inverse : Marianne répond aux citoyens 24h/24, sans inscription, sur les horaires, les démarches, l'urbanisme. Une commune peut utiliser les deux sans doublon : Delibia pour outiller le secrétariat, Civik-ia pour ouvrir un guichet citoyen permanent (dès 49 € HT/mois).
 Comment choisir ? La grille de décision en 3 questions
@@ -1484,6 +1550,7 @@ Campagnes citoyennes intégrées au chatbot : démocratie participative légère
 Guide RGPD : IA et collectivités territoriales : conformité, risques, bonnes pratiques
 Outils IA pour secrétaire de mairie : le panorama 2026 des trois familles d'outils
 Financer l'IA de sa collectivité : subventions, guichets et cofinancements 2026
+Existe-t-il un chatbot gratuit pour une mairie ? : ce qui est réellement gratuit en 2026, pour qui, et ce que chaque offre laisse de côté
 Voir Civik-ia en action sur une vraie commune
 Marianne, notre assistante IA, répond aux questions de la vie courante d'un administré : horaires, démarches, urbanisme, déchets. Testez le chat depuis votre téléphone, comme un habitant.
 Tester la démo →

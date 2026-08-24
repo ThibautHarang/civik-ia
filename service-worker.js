@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v145-flotte-statut-personnelle-2026-08-19';
+const CACHE_NAME = 'civik-ia-v146-tarifs-packs-corriges-2026-08-24';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

@@ -41,7 +41,7 @@ const cbKnowledge = [
     },
     {
         keywords: ['satisfaction', 'campagne', 'sondage', 'avis', 'opinion', 'enqu\u00eate', 'consultation'],
-        response: 'Les <strong>Campagnes Citoyennes</strong> permettent aux mairies de consulter leurs citoyens en temps r\u00e9el. Le maire cr\u00e9e une campagne depuis son dashboard, et en moins de 5 minutes, les citoyens sont alert\u00e9s par <strong>notification push, email et SMS</strong>. Un bandeau interactif appara\u00eet dans le chatbot pour recueillir les avis. R\u00e9sultats en temps r\u00e9el avec scores et statistiques. Incluses dans chaque offre : 2/an (rural), 4/an (moyen), 6/an (grande commune), illimit\u00e9es (interco/r\u00e9gions). Packs suppl\u00e9mentaires \u00e0 49\u20ac ou 99\u20ac HT. <a href="#campagnes" onclick="scrollToSection(\'campagnes\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">En savoir plus</a>'
+        response: 'Les <strong>Campagnes Citoyennes</strong> permettent aux mairies de consulter leurs citoyens en temps r\u00e9el. Le maire cr\u00e9e une campagne depuis son dashboard, et en moins de 5 minutes, les citoyens sont alert\u00e9s par <strong>notification push, email et SMS</strong>. Un bandeau interactif appara\u00eet dans le chatbot pour recueillir les avis. R\u00e9sultats en temps r\u00e9el avec scores et statistiques. Incluses dans chaque offre : 2/an (rural), 4/an (moyen), 6/an (grande commune), illimit\u00e9es (interco/r\u00e9gions). <a href="#campagnes" onclick="scrollToSection(\'campagnes\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">En savoir plus</a>'
     },
     {
         keywords: ['notification', 'push', 'sms', 'alerte', 'alerter', 'pr\u00e9venir', 'informer', 'notifier', 'application', 'app'],

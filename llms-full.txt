@@ -134,6 +134,7 @@ Livre blanc 2026
 Chatbot mairie, le guide 2026
 Comparatif chatbot mairie
 Prix et tarif d'un chatbot mairie
+Financer l'IA de sa collectivité
 Callbot mairie ou chatbot
 Centre d'aide et questions fréquentes
 Légal
@@ -969,11 +970,11 @@ Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes 
 Confidentialite · Mentions legales & CGU · RGPD · Accessibilite · contact@civik-ia.fr
 Chatbot mairie · IA collectivites · Assistant virtuel commune · Digitalisation service public
 
-## Prix d'un chatbot de mairie : tarifs 2026 · Civik-ia
+## Prix d'un chatbot de mairie 2026 : dès 49 € HT/mois · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie-prix.html
-Resume : 49 € HT par mois pour une commune rurale, hébergement souverain en UE, sous le seuil des marchés publics. Le comparatif 2026 des prix d'un chatbot de mairie.
+Resume : Chatbot de mairie dès 49 € HT/mois : le détail des trois paliers 2026, ce que chaque formule inclut, les coûts cachés à vérifier et le comparatif face à dydu, Citia et Delibia.
 
-Prix d'un chatbot de mairie : tarifs 2026 · Civik-ia
+Prix d'un chatbot de mairie 2026 : dès 49 € HT/mois · Civik-ia
 Guide Chatbot
 La Solution
 Nos Tarifs
@@ -1291,11 +1292,11 @@ Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes 
 Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
 Chatbot commune rurale &middot; Chatbot petite commune &middot; Consultation citoyenne numerique &middot; Digitalisation mairie 2026 &middot; Democratie participative
 
-## Comparatif chatbot mairie 2026 : Civik-ia, dydu, Citia, Delibia
+## Comparatif chatbot mairie 2026 : Delibia, Civik-ia, dydu, Citia
 URL : https://civik-ia.fr/comparatif-chatbot-mairie-2026.html
-Resume : Comparatif détaillé des chatbots IA pour mairies en 2026 : prix, RGPD, fonctionnalités, souveraineté. Civik-ia vs dydu vs Citia vs Delibia vs PanneauPocket, tableau objectif.
+Resume : Delibia est-il gratuit ? Oui pour les secrétaires de mairie, mais il ne répond pas aux citoyens. Comparatif 2026 des chatbots mairie : prix, RGPD, souveraineté, tableau objectif.
 
-Comparatif chatbot mairie 2026 : Civik-ia, dydu, Citia, Delibia
+Comparatif chatbot mairie 2026 : Delibia, Civik-ia, dydu, Citia
 C
 Civik-ia
 Plateforme d'Intelligence Citoyenne
@@ -1419,6 +1420,7 @@ Sous-seuil marchés publics
 ✗ souvent dessus
 ✓
 Sources : sites officiels des éditeurs, témoignages clients publics, plateforme UGAP, comptes annuels disponibles via pappers.fr (consulté le 16 mai 2026). Tarif Civik-ia à jour au 5 juillet 2026. ± : partiel ou selon offre.
+Vous comparez pour votre commune ? Le Livre Blanc 2026 reprend ce comparatif avec le calcul de ROI par strate de commune, la checklist RGPD et la grille de décision, en PDF à garder. Recevoir le Livre Blanc , ou poser votre question à Civik-ia .
 Analyse détaillée par solution
 1. Civik-ia : la solution née pour les mairies rurales
 Civik-ia a construit sa plateforme spécifiquement pour les collectivités françaises , avec une attention particulière aux communes rurales (moins de 5 000 habitants), un segment moins ciblé par les éditeurs traditionnels orientés vers les grandes villes. Le tarif d'entrée à 49 € HT/mois est volontairement positionné sous le seuil des marchés publics formalisés.
@@ -1481,8 +1483,9 @@ Chatbot pour commune rurale : focus communes de moins de 5 000 habitants
 Campagnes citoyennes intégrées au chatbot : démocratie participative légère
 Guide RGPD : IA et collectivités territoriales : conformité, risques, bonnes pratiques
 Outils IA pour secrétaire de mairie : le panorama 2026 des trois familles d'outils
+Financer l'IA de sa collectivité : subventions, guichets et cofinancements 2026
 Voir Civik-ia en action sur une vraie commune
-Marianne, notre assistante IA, répond déjà aux citoyens de Thoré-la-Rochette (Loir-et-Cher), de Lunay et de Rigny-le-Ferron. Testez le chat depuis votre téléphone, comme un administré.
+Marianne, notre assistante IA, répond aux questions de la vie courante d'un administré : horaires, démarches, urbanisme, déchets. Testez le chat depuis votre téléphone, comme un habitant.
 Tester la démo →
 Accueil
 Marianne
@@ -1525,7 +1528,7 @@ Application municipale Diffusion + services Tout-en-un, signalements À installe
 Chatbot IA citoyen Dialogue 24h/24 Répond à la question précise, désengorge le standard Nécessite une base de connaissances locale fiable
 Aucun de ces outils n'est « le meilleur » dans l'absolu : ils répondent à des besoins différents. Une commune qui veut surtout prévenir d'une coupure d'eau a besoin d'un canal d'alerte. Une commune qui veut réduire les appels répétitifs au secrétariat a besoin d'un canal de dialogue.
 Donnée terrain : combien de sollicitations une petite mairie reçoit-elle ?
-D'après l'analyse des échanges sur nos premières communes pilotes ( Lunay, Thoré-la-Rochette, Rigny-le-Ferron , toutes en milieu rural de moins de 5 000 habitants), nous observons une structure de sollicitations très stable :
+D'après l'analyse des échanges sur nos premières communes pilotes, toutes en milieu rural de moins de 5 000 habitants, nous observons une structure de sollicitations très stable :
 ~70 %
 des questions portent sur 10 sujets récurrents (horaires, état civil, déchets, salle, école)
 40 %+
@@ -1569,7 +1572,7 @@ Un chatbot adapté aux communes rurales
 Pourquoi une IA souveraine française (Mistral)
 Combien coûte un chatbot pour mairie ?
 Voir le dialogue mairie-citoyen en vrai
-Marianne, l'assistante Civik-ia, répond aux habitants de Thoré-la-Rochette, Lunay et Rigny-le-Ferron. Testez le chat depuis votre téléphone, sans inscription.
+Marianne, l'assistante Civik-ia, répond aux questions des habitants 24h/24 : horaires, démarches, vie locale. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
 Accueil
 Marianne
@@ -1864,7 +1867,7 @@ appels/jour au-delà
 Le coût direct moyen d'un appel traité par un agent municipal (temps de réponse + recherche d'information + redirection éventuelle) est estimé à 3 à 4 euros . Pour une commune de 2 500 habitants recevant 60 appels par jour ouvré, cela représente environ 50 000 euros par an en temps agent.
 Et ce coût direct ne mesure pas l' impact indirect : les dossiers complexes décalés, les courriers retardés, l'agent interrompu en pleine instruction, l'usure psychologique du secrétariat face à la même question répétée pour la millième fois.
 Les 10 questions qui reviennent le plus en mairie
-D'après l'analyse des logs de nos premières communes pilotes (Lunay, Thoré-la-Rochette, Rigny-le-Ferron), le top 10 des questions répétitives représente 60 à 70 % du volume total :
+D'après l'analyse des logs de nos premières communes pilotes rurales, le top 10 des questions répétitives représente 60 à 70 % du volume total :
 Horaires d'ouverture de la mairie : 12 à 18 % des appels
 Démarches d'état civil (extrait de naissance, mariage) : 8 à 12 %
 Inscription école / cantine : 6 à 10 %
@@ -1926,7 +1929,7 @@ Combien coûte un chatbot pour mairie ?
 Comparatif des 5 solutions du marché
 Conformité RGPD pour l'IA en mairie
 Voir l'IA libérer une vraie mairie
-Marianne, l'assistante Civik-ia, répond aux citoyens de Thoré-la-Rochette, Lunay et Rigny-le-Ferron. Testez le chat depuis votre téléphone.
+Marianne, l'assistante Civik-ia, répond aux questions répétitives à la place du secrétariat, 24h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
 Accueil
 Marianne
@@ -2008,7 +2011,7 @@ IA souveraine en mairie avec Mistral
 Conformité RGPD pour l'IA en mairie
 Outils IA pour secrétaire de mairie : le guide 2026
 Voir l'outil sur une vraie commune
-Marianne, l'assistante Civik-ia, répond aux citoyens de Thoré-la-Rochette, Lunay et Rigny-le-Ferron. Testez le chat depuis votre téléphone.
+Marianne, l'assistante Civik-ia, répond aux questions des citoyens 24h/24, sans inscription. Testez le chat depuis votre téléphone.
 Tester la démo →
 Accueil
 Marianne
@@ -2086,7 +2089,7 @@ Réduire les appels en mairie grâce à l'IA
 IA en mairie et RGPD : ce qui est permis
 Logiciel pour petite commune : bien choisir
 Voir ce que vos citoyens verraient
-Marianne répond déjà aux citoyens de Thoré-la-Rochette, Lunay et Rigny-le-Ferron. Testez le chat depuis votre téléphone, sans inscription.
+Marianne répond aux questions des citoyens 24h/24 et décharge le secrétariat des questions répétitives. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
 Accueil
 Marianne
@@ -2323,7 +2326,7 @@ Logiciel pour petite commune : bien choisir
 Réduire les appels en mairie avec un assistant
 Comment communiquer avec ses citoyens
 Voir l'orientation des démarches en action
-Marianne, l'assistante Civik-ia, guide les citoyens de Thoré-la-Rochette, Lunay et Rigny-le-Ferron vers les bonnes démarches. Testez le chat depuis votre téléphone.
+Marianne, l'assistante Civik-ia, guide les citoyens vers la bonne démarche et le bon Cerfa, 24h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
 Accueil
 Marianne
@@ -2487,7 +2490,7 @@ Pourquoi équiper sa mairie d'un chatbot IA en 2026
 Comparatif détaillé des 5 solutions du marché français
 Calcul ROI précis pour 4 strates de communes
 Checklist RGPD pour votre DPO (téléchargeable)
-Retours d'expérience : Thoré-la-Rochette, Lunay, Marseillan
+Retours d'expérience de communes pilotes rurales
 Grille de décision en 3 questions pour choisir
 T
 Thibaut HARANG
@@ -2528,12 +2531,10 @@ Pourquoi Mistral AI plutôt qu'OpenAI ou Google. Cloud Act, Schrems II, alternat
 Chapitre 5 : Calcul ROI
 4 grilles de calcul selon la strate démographique de votre commune. Économies, payback, ROI à 3 ans.
 Chapitre 6 : Témoignages
-Retours d'expérience des communes pilotes : Thoré-la-Rochette, Lunay, Rigny-le-Ferron, Marseillan (en cours).
-Communes pilotes utilisant Civik-ia
-🏛️ Thoré-la-Rochette (41) · 817 hab
-🏛️ Lunay (41) · 1 200 hab
-🏛️ Rigny-le-Ferron (10) · 350 hab
-🏛️ Marseillan (34) · 7 800 hab
+Retours d'expérience de nos communes pilotes rurales, de 350 à 7 800 habitants.
+Construite avec des communes pilotes rurales
+🏛️ 4 communes pilotes · de 350 à 7 800 hab
+🏛️ 3 départements · Loir-et-Cher, Aube, Hérault
 Accueil
 Chatbot mairie
 Comparatif

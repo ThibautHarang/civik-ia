@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v147-conversion-comparatif-2026-08-24';
+const CACHE_NAME = 'civik-ia-v148-meta-prix-promesse-2026-08-24';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

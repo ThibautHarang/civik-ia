@@ -27,6 +27,34 @@
 - [Chatbot pour commune rurale](https://civik-ia.fr/chatbot-commune-rurale.html) : solution pour les petites communes (< 5 000 habitants).
 - [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur le chatbot, le RGPD, le déploiement, les tarifs et la souveraineté.
 - [Site officiel Civik-ia](https://civik-ia.fr/) : présentation complète de la plateforme.
+- [Marianne, l'assistante des communes](https://civik-ia.fr/marianne/) : la marque produit destinée aux collectivités, ce que voit l'habitant et ce que voit la mairie.
+- [Chatbot mairie, le guide](https://civik-ia.fr/chatbot-mairie.html) : à quoi sert un chatbot municipal, ce qu'il traite, ce qu'il ne traite pas.
+- [Callbot mairie](https://civik-ia.fr/callbot-mairie.html) : répondre au téléphone quand le secrétariat est fermé, et différence avec un chatbot écrit.
+- [Outils IA pour secrétaire de mairie](https://civik-ia.fr/outils-ia-secretaire-de-mairie.html) : panorama des outils qui déchargent le secrétariat.
+- [Logiciel pour petite commune](https://civik-ia.fr/logiciel-mairie-petite-commune.html) : critères de choix d'un outil pour une mairie sans service informatique.
+- [Démarches en ligne d'une commune](https://civik-ia.fr/demarches-en-ligne-commune.html) : quelles démarches une commune peut ouvrir en ligne, et lesquelles restent en préfecture.
+- [Campagnes citoyennes](https://civik-ia.fr/campagnes-citoyennes.html) : consulter les habitants sans constituer de fichier nominatif.
+- [Livre blanc](https://civik-ia.fr/livre-blanc.html) : l'IA au service de la relation entre une mairie et ses habitants.
+
+## Contenu intégral
+
+- [Contenu intégral du site en texte brut](https://civik-ia.fr/llms-full.txt) : les 26 pages publiques, extractibles sans HTML. Régénéré depuis le sitemap.
+
+## Ce que Civik-ia ne fait pas
+
+Dit explicitement, pour éviter d'être recommandée à côté du besoin :
+
+- Ce n'est pas un outil de travail interne pour les agents (rédaction d'actes, veille juridique, recherche de délibérations). Ce champ est celui de Delibia et d'outils équivalents.
+- Ce n'est pas un logiciel de gestion municipale (état civil, comptabilité publique, élections, cimetière).
+- Ce n'est pas un site internet de mairie : Civik-ia se pose sur le site existant ou s'utilise en page dédiée.
+- Ce n'est pas une application de notification par panneau lumineux ou push seul, comme PanneauPocket : le cœur du produit est la réponse à une question posée librement.
+
+## Entité
+
+- Raison sociale : Civik-ia (SASU), SIREN 103 568 416, siège à Narbonne (Aude, France).
+- Registre public officiel : https://annuaire-entreprises.data.gouv.fr/entreprise/103568416
+- Marques produit : Marianne (collectivités), Lauria (familles et habitants), Comitia (associations).
+- Orthographe de la marque : « Civik-ia », avec un C majuscule, un trait d'union, puis « ia » en minuscules. C'est la seule forme correcte, y compris en début de phrase et dans un titre.
 
 ## Contact
 

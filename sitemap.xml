@@ -27,23 +27,19 @@
   <url><loc>https://civik-ia.fr/aide.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://civik-ia.fr/legal/conditions-generales-vente.html</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <!-- Communes EN SERVICE uniquement, et TOUTES celles en service. Cette liste
-       n'est pas tenue a la main : c'est un derive du manifeste de flotte
-       (07-Backend/tools/flotte/flotte.json), et « node tools/verify/run.mjs flotte »
-       echoue dans les deux sens si elle s'en ecarte.
-       Une commune arretee (kill-switch DEMO_ENDED_SLUGS, 07-Backend/main.py) ne doit
-       jamais figurer ici : Google explorerait un outil qui repond « la demo a pris fin ».
-       Une commune servie ne doit jamais en manquer : robots.txt declare /preview/{slug}/
-       indexable depuis le 03/05/2026 pour le referencement local, donc une absence est
-       une perte seche.
-       Retirees le 28/07/2026 : rigny-le-ferron et marseillan-34340, fermees le 24/07/2026.
-       Retiree le 15/08/2026 : lunay, arretee le jour meme (note #203). Ajoutees le meme
-       jour, apres 5 a 24 jours de service sans etre annoncees nulle part (note #218) :
-       saint-germain-au-mont-dor, lieurey, rive-de-gier, serignan, tarare. -->
-  <url><loc>https://civik-ia.fr/preview/thore-la-rochette/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/saint-germain-au-mont-dor/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/lieurey/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/rive-de-gier/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/serignan/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://civik-ia.fr/preview/tarare/</loc><lastmod>2026-08-15</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
+  <!-- AUCUNE URL /preview/ ICI, ET C'EST VOULU (24/08/2026, ADR 0045).
+       Les 6 communes en service y figuraient depuis le 15/08/2026. Elles ont ete
+       retirees le 24/08 : aucune mairie n'est cliente, et une page Marianne au nom
+       d'une commune trouvable dans Google se lirait comme une reference (regle 8).
+       Cette absence n'est PAS un oubli, elle est verifiee dans les deux sens par
+       « node tools/verify/run.mjs flotte » a partir du manifeste de flotte
+       (07-Backend/tools/flotte/flotte.json), seule source du statut.
+       Retirer une URL d'ici ne desindexe RIEN : un sitemap est une invitation, pas
+       une directive. La desindexation est portee par X-Robots-Tag: noindex (nginx)
+       et par la meta robots des coquilles de 11-App/.
+       Le jour ou une mairie signe : statut « cliente » au manifeste, et son URL
+       revient ici. Historique : rigny-le-ferron et marseillan-34340 retirees le
+       28/07 (fermees le 24/07) ; lunay retiree le 15/08 (arretee le jour meme,
+       note #203) ; saint-germain-au-mont-dor, lieurey, rive-de-gier, serignan et
+       tarare ajoutees le 15/08 (note #218) puis retirees le 24/08 avec les autres. -->
 </urlset>

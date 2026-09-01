@@ -810,7 +810,19 @@ footer a:hover { color: var(--p); }
         if (timer) clearTimeout(timer);
         typing.remove();
         var resp = (data && data.response) || '';
+        /* Equite du quota : une reponse en difficulte technique du backend ne compte pas.
+           Si la banque de secours connait la question, c'est la reponse authentique
+           enregistree qui s'affiche a la place. */
+        var enEchec = /difficult\u00e9 technique/i.test(resp) || !resp.trim();
+        if (enEchec && FALLBACK[question]) {
+          addMsg('bot', FALLBACK[question] + '<span class="src">Réponse enregistrée de la démonstration</span>');
+          enregistrerEchange(question, FALLBACK[question].replace(/<[^>]+>/g, ' '));
+          pending = false;
+          apresReponse();
+          return;
+        }
         addMsg('bot', renderAnswer(resp) + '<span class="src">Réponse générée en direct pour la commune de démonstration</span>');
+        if (enEchec) { pending = false; return; }
         history.push({ query: question, response: String(resp).slice(0, 1200) });
         if (history.length > 2) history = history.slice(-2);
         enregistrerEchange(question, resp);

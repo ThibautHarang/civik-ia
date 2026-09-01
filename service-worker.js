@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v151-chatbot-mairie-respecialise-2026-08-31';
+const CACHE_NAME = 'civik-ia-v152-refonte-demo-v2-quota-2026-09-01';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

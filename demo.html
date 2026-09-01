@@ -162,8 +162,9 @@ img { max-width: 100%; height: auto; display: block; }
 .lead-card .ok { font-size: 14px; color: var(--p); font-weight: 600; margin: 4px 0 0; }
 
 /* Suggestions et saisie */
-.chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 20px 6px; border-top: 1px solid var(--line); background: var(--card); }
-.chip { border: 1.5px solid var(--line); background: var(--bg-warm); color: var(--ink); font: inherit; font-size: 13px; font-weight: 500; padding: 8px 15px; border-radius: 9999px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding: 14px 20px 6px; border-top: 1px solid var(--line); background: var(--card); }
+.chips::-webkit-scrollbar { display: none; }
+.chip { border: 1.5px solid var(--line); background: var(--bg-warm); color: var(--ink); font: inherit; font-size: 13px; font-weight: 500; padding: 8px 15px; border-radius: 9999px; cursor: pointer; transition: border-color .15s ease, background .15s ease; white-space: nowrap; flex: none; }
 .chip:hover { border-color: var(--teal); background: rgba(46, 196, 182, 0.1); }
 .chip:disabled { opacity: .45; cursor: default; }
 .chat-input { display: flex; gap: 10px; padding: 12px 20px 18px; background: var(--card); }
@@ -338,9 +339,9 @@ footer a:hover { color: var(--p); }
       </div>
     </div>
     <div class="chips" id="chips" aria-label="Questions suggérées">
-      <button class="chip" data-q="À quelle heure ouvre la mairie samedi ?">Horaires de la mairie</button>
+      <button class="chip" data-q="À quelle heure ouvre la mairie samedi ?">Horaires mairie</button>
       <button class="chip" data-q="Comment obtenir un acte de naissance ?">Acte de naissance</button>
-      <button class="chip" data-q="Comment inscrire mon enfant à l'école ?">Inscription à l'école</button>
+      <button class="chip" data-q="Comment inscrire mon enfant à l'école ?">Inscrire mon enfant</button>
       <button class="chip" data-q="Un lampadaire est en panne devant chez moi, que faire ?">Lampadaire en panne</button>
       <button class="chip" data-q="Quelles sont les règles pour construire un abri de jardin ?">Abri de jardin</button>
     </div>
@@ -517,6 +518,11 @@ footer a:hover { color: var(--p); }
       h1Fin.style.opacity = '0';
       setTimeout(function () { h1Fin.textContent = 'de la mairie de ' + c.nom; h1Fin.style.opacity = '1'; }, mouvementReduit ? 0 : 280);
     }
+    /* Les reponses deja affichees cessent elles aussi de nommer la commune de
+       demonstration ; le message d'accueil (data-fixe) garde sa parenthese honnete. */
+    Array.prototype.forEach.call(document.querySelectorAll('#chat-body .msg.bot:not([data-fixe])'), function (m) {
+      m.innerHTML = neutraliserNomDemo(m.innerHTML);
+    });
     saluerCommune(c.nom);
     track('cta_click', { cta_name: 'commune_choisie' });
   }
@@ -627,6 +633,21 @@ footer a:hover { color: var(--p); }
     'Quelles sont les règles pour construire un abri de jardin ?':
       '<strong>Démarche</strong> : déclaration préalable de travaux (Cerfa 13703).<br><br><ul><li>Une <strong>déclaration préalable</strong> est obligatoire pour un abri de jardin de 5 à 20 m² à Villeneuve-les-Ormes.</li><li>Gratuite, elle vérifie la conformité du projet avec le <strong>Plan Local d\'Urbanisme</strong> de la commune.</li><li>Au-delà de 20 m², un <strong>permis de construire</strong> (Cerfa 13406) est nécessaire.</li></ul>Pièces principales : Cerfa rempli, plan de situation (extrait cadastral), plan de masse coté, plan en coupe.'
   };
+
+  /* Des qu'une commune est choisie, le nom de la commune de demonstration disparait
+     des reponses affichees : les donnees restent celles de la demonstration (regle 8,
+     jamais de fausse donnee au nom d'une vraie commune), seul le nom qui casse la
+     projection est neutralise. Les adresses email et les slugs (minuscules) sont
+     naturellement hors de portee des motifs (nom capitalise). */
+  function neutraliserNomDemo(html) {
+    if (!chosenCommune) return html;
+    return String(html)
+      .replace(/36999 Villeneuve-les-Ormes/g, 'commune de démonstration')
+      .replace(/À Villeneuve-les-Ormes/g, 'Dans la commune de démonstration')
+      .replace(/à Villeneuve-les-Ormes/g, 'dans la commune de démonstration')
+      .replace(/de Villeneuve-les-Ormes/g, 'de la commune de démonstration')
+      .replace(/Villeneuve-les-Ormes/g, 'la commune de démonstration');
+  }
 
   function esc(s) {
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -815,13 +836,13 @@ footer a:hover { color: var(--p); }
            enregistree qui s'affiche a la place. */
         var enEchec = /difficult\u00e9 technique/i.test(resp) || !resp.trim();
         if (enEchec && FALLBACK[question]) {
-          addMsg('bot', FALLBACK[question] + '<span class="src">Réponse enregistrée de la démonstration</span>');
+          addMsg('bot', neutraliserNomDemo(FALLBACK[question]) + '<span class="src">Réponse enregistrée de la démonstration</span>');
           enregistrerEchange(question, FALLBACK[question].replace(/<[^>]+>/g, ' '));
           pending = false;
           apresReponse();
           return;
         }
-        addMsg('bot', renderAnswer(resp) + '<span class="src">Réponse générée en direct pour la commune de démonstration</span>');
+        addMsg('bot', neutraliserNomDemo(renderAnswer(resp)) + '<span class="src">Réponse générée en direct pour la commune de démonstration</span>');
         if (enEchec) { pending = false; return; }
         history.push({ query: question, response: String(resp).slice(0, 1200) });
         if (history.length > 2) history = history.slice(-2);
@@ -834,7 +855,7 @@ footer a:hover { color: var(--p); }
         typing.remove();
         var canned = FALLBACK[question];
         if (canned) {
-          addMsg('bot', canned + '<span class="src">Réponse enregistrée de la démonstration (connexion directe momentanément indisponible)</span>');
+          addMsg('bot', neutraliserNomDemo(canned) + '<span class="src">Réponse enregistrée de la démonstration (connexion directe momentanément indisponible)</span>');
           enregistrerEchange(question, canned.replace(/<[^>]+>/g, ' '));
           pending = false;
           apresReponse();
@@ -883,7 +904,8 @@ footer a:hover { color: var(--p); }
   function saluerCommune(nom) {
     if (dejaSaluee === nom) return;
     dejaSaluee = nom;
-    addMsg('bot', 'Bonjour ! Voici comment j\'accueillerai les habitants de <strong>' + esc(nom) + '</strong>. Posez-moi une question comme le ferait l\'un d\'eux. Pendant la démonstration publique, mes réponses s\'appuient sur la commune fictive de Villeneuve-les-Ormes ; votre version utilisera les informations officielles de ' + esc(nom) + '.');
+    var salut = addMsg('bot', 'Bonjour ! Voici comment j\'accueillerai les habitants de <strong>' + esc(nom) + '</strong>. Posez-moi une question comme le ferait l\'un d\'eux. Pendant la démonstration publique, mes réponses s\'appuient sur la commune fictive de Villeneuve-les-Ormes ; votre version utilisera les informations officielles de ' + esc(nom) + '.');
+    salut.setAttribute('data-fixe', '1');
     setTimeout(function () {
       document.getElementById('scene').scrollIntoView({ behavior: mouvementReduit ? 'auto' : 'smooth', block: 'start' });
     }, 350);

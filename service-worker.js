@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v153-demo-quota-equitable-2026-09-01';
+const CACHE_NAME = 'civik-ia-v154-demo-projection-et-chips-2026-09-01';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

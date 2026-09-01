@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v149-promesses-depersonnalisees-2026-08-24';
+const CACHE_NAME = 'civik-ia-v150-comparatif-livre-blanc-remonte-2026-08-31';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

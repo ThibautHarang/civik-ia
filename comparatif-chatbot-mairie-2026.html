@@ -92,6 +92,9 @@ td.civikia strong{color:#0a8b82}
 .cta-block p{color:rgba(255,255,255,0.9);margin-bottom:20px}
 .cta-btn{display:inline-block;background:var(--teal);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-weight:700;font-size:16px;box-shadow:0 8px 24px rgba(46,196,182,0.3)}
 .cta-btn:hover{transform:translateY(-2px)}
+.cta-btn-outline{display:inline-block;background:transparent;color:#fff;padding:12px 30px;border-radius:9999px;text-decoration:none;font-weight:700;font-size:16px;border:2px solid rgba(255,255,255,0.7)}
+.cta-btn-outline:hover{background:rgba(255,255,255,0.12)}
+.callout-strong-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
 
 footer{background:var(--p);color:#fff;padding:40px 24px;margin-top:80px;text-align:center;font-size:13px}
 footer a{color:#fff;text-decoration:underline}
@@ -100,7 +103,7 @@ footer a{color:#fff;text-decoration:underline}
 .footer-links a{opacity:0.85}
 .footer-links a:hover{opacity:1}
 
-@media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:30px}article h2{font-size:24px}article p,article li{font-size:16px}table{font-size:12px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}th,td{padding:8px}.cta-block{padding:24px}}
+@media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:30px}article h2{font-size:24px}article p,article li{font-size:16px}table{font-size:12px;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}th,td{padding:8px}.cta-block{padding:24px}.callout-strong-actions{flex-direction:column}.callout-strong-actions .cta-btn,.callout-strong-actions .cta-btn-outline{width:100%;text-align:center;box-sizing:border-box;padding:14px 20px}}
 </style>
 
 <!-- Schema.org Article -->
@@ -205,6 +208,10 @@ footer a{color:#fff;text-decoration:underline}
       <li><strong>Generia / Civic.ai</strong> : chatbot multi-secteur avec module collectivités.</li>
       <li><strong>PanneauPocket</strong> : bien que ce ne soit pas un chatbot mais un outil de diffusion (alertes, événements), nous l'incluons car il est souvent évoqué dans le même contexte d'« outil numérique de mairie ».</li>
     </ul>
+
+    <div class="callout">
+      <p><strong>Vous lisez ce comparatif pour votre commune ?</strong> Le <a href="/livre-blanc.html">Livre Blanc 2026</a> reprend les mêmes critères avec le calcul de ROI par strate de commune et une checklist RGPD, en PDF à garder, sans attendre la fin du tableau.</p>
+    </div>
 
     <h2 id="tableau">Tableau comparatif détaillé</h2>
 
@@ -330,7 +337,11 @@ footer a{color:#fff;text-decoration:underline}
     <p><em>Sources : sites officiels des éditeurs, témoignages clients publics, plateforme UGAP, comptes annuels disponibles via pappers.fr (consulté le 16 mai 2026). Tarif Civik-ia à jour au 5 juillet 2026. ± : partiel ou selon offre.</em></p>
 
     <div class="callout-strong">
-      <p><strong>Vous comparez pour votre commune ?</strong> Le Livre Blanc 2026 reprend ce comparatif avec le calcul de ROI par strate de commune, la checklist RGPD et la grille de décision, en PDF à garder. <a href="/livre-blanc.html" style="color:#fff;text-decoration:underline;font-weight:700">Recevoir le Livre Blanc</a>, ou <a href="/marianne/#contact" style="color:#fff;text-decoration:underline;font-weight:700">poser votre question à Civik-ia</a>.</p>
+      <p><strong>Vous comparez pour votre commune ?</strong> Le Livre Blanc 2026 reprend ce comparatif avec le calcul de ROI par strate de commune, la checklist RGPD et la grille de décision, en PDF à garder.</p>
+      <div class="callout-strong-actions">
+        <a class="cta-btn" href="/livre-blanc.html">Recevoir le Livre Blanc</a>
+        <a class="cta-btn-outline" href="/marianne/#contact">Poser votre question à Civik-ia</a>
+      </div>
     </div>
 
     <h2>Analyse détaillée par solution</h2>

@@ -1,0 +1,28 @@
+saint-chamond-og-v1.jpg, miniature de partage (Open Graph) de la page saint-chamond
+
+Source : Wikimedia Commons, « Saint-Chamond (Loire), cour de l'Hôtel de Ville »
+         (fichier 01-hotel-de-ville-cour-mairie.jpg du dossier de recherche
+         02-Demos/saint-chamond/assets/og-candidates/, credits detailles a cote).
+Sujet  : la cour de l'Hôtel de Ville de Saint-Chamond, arcades de brique et platanes.
+Auteur : Bissorte (contributeur Wikimedia Commons)
+Licence : CC BY-SA 4.0 (Creative Commons Attribution, Partage dans les memes conditions 4.0)
+
+OBLIGATIONS DE LA LICENCE, respectees ici :
+  1. ATTRIBUTION : le credit « Photo : Bissorte, CC BY-SA 4.0 / Wikimedia Commons » est
+     incruste en bas a droite de l'image elle-meme, donc visible partout ou l'apercu de
+     lien est partage (WhatsApp, iMessage, reseaux).
+  2. PARTAGE A L'IDENTIQUE : cette image derivee est elle aussi diffusee sous CC BY-SA 4.0.
+     La contrainte porte sur CE FICHIER uniquement, pas sur le reste du site ni sur le produit.
+Aucune demarche d'autorisation n'est necessaire : la licence est libre.
+
+Modification : recadrage 1200x630 (portrait 3456x4608, bande centrale), saturation +6 % et
+contraste +4 %, voile navy degrade en bas, sceau Marianne creme, titre « Marianne - Saint-Chamond »,
+fil bleu #2b6fd6 (gabarit maison, cf. Serignan v2, Rive-de-Gier v2, Tarare v1), accroche creme.
+Script de composition : 02-Demos/saint-chamond/make-og.py (conserve dans le depot cette fois,
+celui de Tarare vivait dans un scratchpad de session).
+
+Repli disponible : « vue d'ensemble avec la cite de Fonsala » (meme auteur, meme licence),
+ecarte parce que le cadrage est domine par le ciel et des toits.
+
+A FAIRE au premier contact avec la commune : proposer a la mairie de fournir sa propre photo
+officielle. Une photo cedee par elle leve toute question de licence.

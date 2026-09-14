@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v155-saint-chamond-2026-09-09';
+const CACHE_NAME = 'civik-ia-v156-conservation-90j-2026-09-14';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v157-seo-gratuit-2026-09-21';
+const CACHE_NAME = 'civik-ia-v158-flotte-strict-2026-09-25';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

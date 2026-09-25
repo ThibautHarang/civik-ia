@@ -410,6 +410,7 @@
       + levier("Splash public", l.splash_access_active === null ? null : (l.splash_access_active ? "actif" : "suspendu"), true)
       + levier("Routes verrouillées", (l.routes_verrouillees || []).join(", ") || "aucune, version complète", true)
       + levier("Bloc OG nginx", l.og_nginx === null ? null : (l.og_nginx ? "présent" : "absent"), l.og_nginx || !attendu)
+      + levier("Sources strictes", l.sources_strictes == null ? null : (l.sources_strictes ? "site officiel seul" : "non"), true)
       + levier("Surveillance", l.surveillance ? "revue, vigie, smoke" : "aucune", l.surveillance || c.statut !== "hors-perimetre");
 
     var themes = (b.categories || []).slice(0, 8).map(function(t){

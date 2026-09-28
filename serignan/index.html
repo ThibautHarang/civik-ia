@@ -97,7 +97,7 @@
 
   <script>
     // — Kill-switch (accès Sérignan) —
-    var ACCESS_ACTIVE = true;        // passer à false pour suspendre l'accès proprement
+    var ACCESS_ACTIVE = false;       // false depuis le 28/09/2026 : mise en pause (décision Thibaut, ADR 0051) ; repasser à true pour rouvrir l'accès
     var ACCESS_EXPIRE = null;        // ex. "2026-09-30T23:59:59" pour une suspension auto ; null = pas de date
     var expired = !ACCESS_ACTIVE || (ACCESS_EXPIRE && new Date() > new Date(ACCESS_EXPIRE));
     if (expired) {

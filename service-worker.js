@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v158-flotte-strict-2026-09-25';
+const CACHE_NAME = 'civik-ia-v159-pause-quatre-communes-2026-09-28';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

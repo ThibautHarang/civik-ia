@@ -30,9 +30,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
 
-<!-- Redirection vers le vrai produit /preview/thore-la-rochette/ (JS uniquement : les
-     robots d'aperçu de lien — WhatsApp, iMessage… — ne suivent PAS la redirection JS
-     et lisent donc les balises Open Graph de CETTE page. Jamais de meta-refresh. -->
+<!-- ===========================================================================
+     KILL-SWITCH (activation / suspension de l'accès Thoré-la-Rochette)
+     Marianne est servie ici (splash) + sur /preview/thore-la-rochette/ (produit réel).
+     Pour suspendre proprement l'accès à tout moment, sans lien mort : passer
+     ACCESS_ACTIVE à false ci-dessous (redéployer le site). Pour une suspension
+     automatique à une date, renseigner ACCESS_EXPIRE (date ISO). Redirection en JS
+     uniquement : les robots d'aperçu de lien lisent les balises Open Graph de CETTE
+     page, jamais de meta-refresh. Écran suspendu ajouté le 28/09/2026 (mise en pause).
+     =========================================================================== -->
 <style>
   :root{ --bg:#f7f4ed; --blue:#000091; --teal:#2EC4B6; --ink:#1E1E1E; }
   *{box-sizing:border-box}
@@ -58,6 +64,8 @@
   a.cta{display:inline-block;margin-top:4px;color:var(--teal);text-decoration:none;font-weight:600;font-size:14px}
   a.cta:hover{text-decoration:underline}
   .foot{margin-top:30px;font-size:12px;color:#9a958c}
+  .expired h1{color:var(--blue)}
+  .expired .sub{margin-bottom:8px}
   @media (max-width:600px){
     .card{max-width:340px}
     h1{font-size:22px}
@@ -66,8 +74,8 @@
 </style>
 </head>
 <body>
-  <main class="card">
-    <img class="mark" src="marianne-logo.png" width="64" height="64" alt="Marianne" decoding="async">
+  <main class="card" id="loading">
+    <img class="mark" src="/assets/brand/marianne-seal-cream.png" width="64" height="64" alt="Marianne" decoding="async">
     <div class="spinner" role="status" aria-label="Chargement"></div>
     <h1>Marianne</h1>
     <p class="pb">Propulsé par Civik-ia</p>
@@ -77,9 +85,30 @@
       <span style="font-size:11px;color:#b3aea4">Loir-et-Cher · Communauté d'agglomération Territoires Vendômois</span>
     </p>
   </main>
+
+  <!-- Écran affiché seulement si l'accès Thoré-la-Rochette est suspendu -->
+  <main class="card expired" id="expired" style="display:none">
+    <img class="mark" src="/assets/brand/marianne-seal-cream.png" width="64" height="64" alt="Marianne" decoding="async">
+    <h1>Marianne - Thoré-la-Rochette</h1>
+    <p class="pb">Propulsé par Civik-ia</p>
+    <p class="sub">L'accès à Marianne pour Thoré-la-Rochette est momentanément suspendu.</p>
+    <p class="sub">Vous êtes élu ou agent de la commune ? Pour l'activer durablement pour Thoré-la-Rochette, écrivez-nous à<br><strong>contact@civik-ia.fr</strong>.</p>
+    <p class="foot">Plateforme d'Intelligence Citoyenne souveraine</p>
+  </main>
+
   <script>
-    // Redirection immédiate (JS uniquement, pas de meta refresh : les robots d'aperçu lisent les OG ci-dessus)
-    window.location.replace('/preview/thore-la-rochette/');
+    // Kill-switch (accès Thoré-la-Rochette)
+    var ACCESS_ACTIVE = false;       // false depuis le 28/09/2026 : mise en pause (décision Thibaut, ADR 0051) ; repasser à true pour rouvrir l'accès
+    var ACCESS_EXPIRE = null;        // ex. "2026-12-31T23:59:59" pour une suspension auto ; null = pas de date
+    var expired = !ACCESS_ACTIVE || (ACCESS_EXPIRE && new Date() > new Date(ACCESS_EXPIRE));
+    if (expired) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('expired').style.display = 'block';
+    } else {
+      // Redirection immédiate (JS uniquement, pas de meta refresh : les robots
+      // d'aperçu de lien lisent les balises Open Graph de cette page).
+      window.location.replace('/preview/thore-la-rochette/');
+    }
   </script>
 </body>
 </html>

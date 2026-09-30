@@ -36,6 +36,11 @@ const INSEC = ' ';
 /* =====================================================================
    1. Canaux : tout ce qui depend de MARIANNE_CHANNELS
    ===================================================================== */
+const AU_PRESENT = {
+  whatsapp: 'Vos citoyens écrivent à leur mairie comme à un proche. Marianne répond directement dans la conversation',
+  messenger: 'Les messages privés de la page Facebook de la commune reçoivent enfin une réponse, même le week-end',
+  'whatsapp-diffusion': "<b>Urgente</b>\u00A0: coupure d'eau rue des Platanes, mardi 9h-13h",
+};
 securise(function canaux() {
   // Cartes, variantes de texte et pastilles
   $$('[data-canal]').forEach(el => {
@@ -47,6 +52,10 @@ securise(function canaux() {
     });
     const titre = $('[data-canal-titre]', el), libelle = (MARIANNE_CHANNELS[el.dataset.canal] || {}).label;
     if (titre && libelle) titre.textContent = libelle;
+    // La page porte la phrase au futur. La phrase au present vit ici, et n'est posee que le jour ou le canal ouvre :
+    // un robot qui lit le HTML brut ne doit pas croire WhatsApp ou Messenger disponibles.
+    const phrase = $('[data-canal-phrase]', el), present = AU_PRESENT[el.dataset.canal + (el.classList.contains('diffc') ? '-diffusion' : '')];
+    if (phrase && present && etat === 'disponible') phrase.innerHTML = present;
   });
 
   const dans = (cles, etat) => cles.filter(c => statut(c) === etat);
@@ -63,7 +72,7 @@ securise(function canaux() {
   const dispo = dans(ordre, 'disponible'), bientot = dans(ordre, 'bientot');
   let liste = lister(dispo, OU, 'ou');
   if (bientot.length) liste += (liste ? ', et bientôt ' : 'bientôt ') + lister(bientot, OU, 'et');
-  if (liste) ecrire('heroSous', 'Elle répond à chaque citoyen au nom de votre mairie, jour et nuit' + INSEC + ': ' + liste + '. Formée sur les données de votre commune, elle cite toujours ses sources');
+  if (liste) ecrire('heroSous', 'Marianne est le chatbot IA de votre mairie ou de votre collectivité. Elle répond à chaque citoyen, jour et nuit' + INSEC + ': ' + liste + '. Formée sur les données de votre commune, elle cite toujours ses sources');
 
   // Etape 3 de l'installation
   const tous = ['site', 'smartphone', 'qr', 'whatsapp', 'messenger'];
@@ -228,9 +237,13 @@ securise(function hero() {
   }
 
   /* --- horloge de la scene : 17:30 au depart, 22:47 a l'arrivee --- */
-  let heureAffichee = '', etatAffiche = '';
+  let heureAffichee = '', etatAffiche = '', angleAffiche = '';
   function horloge(p) {
-    const minutes = 17 * 60 + 30 + Math.round(317 * borne((p - 0.12) / 0.38, 0, 1));
+    const exact = 17 * 60 + 30 + 317 * borne((p - 0.12) / 0.38, 0, 1);
+    const minutes = Math.round(exact);
+    // les aiguilles de l'horloge de la mairie suivent la meme heure (angles en degres, lus par le CSS)
+    const am = (exact * 6).toFixed(0);
+    if (am !== angleAffiche) { angleAffiche = am; (art || el).style.setProperty('--am', am); (art || el).style.setProperty('--ah', (exact * 0.5).toFixed(1)); }
     const h = String(Math.floor(minutes / 60)).padStart(2, '0') + ':' + String(minutes % 60).padStart(2, '0');
     if (h !== heureAffichee) { heureAffichee = h; sH.textContent = h; }
     const etat = p >= 0.5 ? 'ouvert' : 'ferme';
@@ -388,6 +401,34 @@ securise(function hero() {
     };
   }
 
+  /* --- hors defilement pilote, mouvement accepte (telephone, tablette) : la nuit tombe une fois, toute seule.
+     Le script de tete a pose la classe « aube » : la scene s'ouvre de jour. --- */
+  // Sur telephone, --p n'est pose que sur le visuel (.hero__art) : le reste du hero n'est pas recalcule a chaque image.
+  let aube = 0;
+  function finAube() {
+    if (aube > 0) cancelAnimationFrame(aube);
+    aube = 0;
+    if (racine.classList.contains('aube')) { racine.classList.remove('aube'); if (art) art.style.removeProperty('--p'); horloge(1); }
+  }
+  function crepuscule() {
+    if (aube || !art || !racine.classList.contains('aube')) return;
+    const ATTENTE = 1100, DUREE = 7400;
+    let debut = 0;
+    const pas = t => {
+      if (!debut) debut = t;
+      const e = borne((t - debut - ATTENTE) / DUREE, 0, 1);
+      const p = 0.58 * e * e * (3 - 2 * e);
+      art.style.setProperty('--p', p.toFixed(3)); horloge(p);
+      if (e < 1) aube = requestAnimationFrame(pas); else finAube();
+    };
+    const partir = () => { if (racine.classList.contains('aube')) aube = requestAnimationFrame(pas); };
+    aube = -1;   // reserve : la page finit de charger avant que la nuit ne commence a tomber
+    if (document.readyState === 'complete') partir(); else addEventListener('load', partir, { once: true });
+  }
+
+  // hors de l'ecran, les animations de la scene se reposent (eau, etoiles, passants)
+  if ('IntersectionObserver' in window) new IntersectionObserver(e => el.classList.toggle('hero--hors', !e[0].isIntersecting)).observe(el);
+
   // Le mode est decide dans le <head> avant le premier rendu ; on le revalide ici, fenetre mesuree.
   // Si la fenetre change de categorie (rotation, redimensionnement), on bascule sans recharger :
   // un formulaire en cours de saisie n'est jamais perdu.
@@ -396,6 +437,7 @@ securise(function hero() {
     const coupe = racine.classList.contains('anim-non');   // animations arretees par le visiteur
     const anime = mq.matches && !coupe && !!(window.CSS && CSS.supports('color', 'color-mix(in srgb, red 50%, blue)'));
     racine.classList.toggle('scrub', anime);
+    if (anime || coupe) finAube();
     if (coupe && lecture) { lecture.arreter(); lecture = null; }
     if (anime) {
       if (lecture) { lecture.arreter(); lecture = null; }
@@ -404,6 +446,7 @@ securise(function hero() {
       p0.active = false;
       el.style.setProperty('--p', 1); horloge(1); affiches = -1; ecrire(1); el.classList.add('hero--fin');
     } else if (!mouvementReduit && !coupe && !lecture) jouer();
+    if (!anime && !coupe && !mouvementReduit) crepuscule();
   }
   basculer();
   document.addEventListener('marianne:statique', basculer);
@@ -710,15 +753,15 @@ securise(function () {
    ===================================================================== */
 const cbKnowledge = [
   { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous renseigner sur la <strong>Plateforme d'Intelligence Citoyenne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres" },
-  { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo.html'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune" },
+  { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune" },
   { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Réponse sous 24h" },
-  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "<strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 EPCI)\u00A0: pilote symbolique <strong>9,99\u00A0€/mois pendant 3 mois</strong>, puis tarif normal garanti 3 ans (49\u00A0€ Essentiel / 99\u00A0€ Engagement / 199\u00A0€ Pilotage). Setup offert (sinon 999\u00A0€). <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
-  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "La <strong>Plateforme d&#39;Intelligence Citoyenne</strong> est un assistant IA souverain qui répond 24h/24 aux questions des citoyens, fournit un dashboard aux élus, et permet les <strong>Campagnes Citoyennes</strong> et <strong>Alertes Intelligentes</strong>" },
+  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "<strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 EPCI)\u00A0: pilote symbolique <strong>9,99\u00A0€/mois pendant 3 mois</strong>, puis tarif normal garanti 3 ans (49\u00A0€ Essentiel / 99\u00A0€ Engagement / 199\u00A0€ Pilotage). Mise en service offerte (sinon 999\u00A0€). <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
+  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "La <strong>Plateforme d&#39;Intelligence Citoyenne</strong> est un assistant IA souverain qui répond 24h/24 aux questions des citoyens, fournit un tableau de bord aux élus, et permet les <strong>Campagnes Citoyennes</strong> et <strong>Alertes Intelligentes</strong>" },
   { keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français', 'europe'], response: "Le cerveau de Marianne est européen\u00A0: hébergement <strong>OVHcloud</strong> en Europe, IA <strong>Mistral AI</strong> (Paris), <strong>RGPD</strong> natif. Les données de votre commune ne servent jamais à entraîner d'autres modèles" },
-  { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "<strong>7 jours en moyenne</strong> pour déployer. On cadre le projet, on entraîne votre IA sur vos documents, on met en ligne votre page Marianne. Sous le seuil des marchés publics" },
+  { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "<strong>7 jours</strong> pour déployer. On cadre le projet, on entraîne votre IA sur vos documents, on met en ligne votre page Marianne. Sous le seuil de mise en concurrence" },
   { keywords: ['agent', 'emploi', 'poste', 'remplacer', 'personnel', 'supprime'], response: "Civik-ia <strong>ne remplace aucun agent</strong>. Elle prend en charge les questions répétitives (70 à 80\u00A0% des demandes). Les agents se recentrent sur l'accueil humain" },
   { keywords: ['campagne', 'sondage', 'avis', 'consultation', 'citoyenne'], response: "Les <strong>Campagnes Citoyennes</strong> permettent de consulter vos habitants en temps réel (sondages, votes, enquêtes). Incluses\u00A0: 2/an (Essentiel), 4/an (Engagement), 6/an (Pilotage)" },
-  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Nous pouvons vous en créer un, avec Marianne dès le premier jour. <a href='#contact' onclick=\"toggleChatbot();return true;\">Parlons-en</a>" }
+  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Nous pouvons en concevoir un avec vous, Marianne intégrée. Cette offre est nouvelle\u00A0: <a href='#contact' onclick=\"toggleChatbot();return true;\">parlons-en</a>" }
 ];
 const cbSugList = ["Tester la démo", "Les tarifs\u00A0?", "Contacter l'équipe", "C'est quoi la Plateforme\u00A0?", "Comment ça se déploie\u00A0?"];
 

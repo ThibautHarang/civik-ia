@@ -9,34 +9,46 @@ Deux images plein cadre de la même scène, au même format (1990 x 1075) :
 
 | Fichier | Rôle |
 |---|---|
-| `village-jour.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200` | 17 h 30 : papier crème, encre bleue, ciel clair, soleil, le marché et ses passants |
-| `village-nuit.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200` | 22 h 47 : bleu nuit, lune, toutes fenêtres éteintes |
+| `village-jour.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200`, `-900` | 17 h 30 : papier crème, encre bleue, ciel clair, soleil, le marché sans ses passants |
+| `village-nuit.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200`, `-900` | 22 h 47 : bleu nuit, lune, ciel étoilé, marché désert, toutes fenêtres éteintes |
+| `lumieres.webp` | planche de six vignettes : les fenêtres allumées, découpées sur les vitres du dessin (elles suivent la pente des façades) |
+| `passants.webp` | planche de six vignettes : les passants du marché, découpés de la gravure |
 
-La page les superpose et fond la nuit sur le jour au défilement. Les deux images couvrent tout l'écran ;
-quand l'écran est moins large que l'image, elle reste calée sur la mairie.
+La nuit est posée dessous, le jour dessus : le jour s'efface au défilement. Sur téléphone, la nuit tombe une fois,
+toute seule, au chargement. La version `-900` est celle des téléphones, plus compressée.
 
-Elles sont tirées de la gravure maison (`assets/brand/village-grave.jpg`) par le script
+Les images sont tirées de la gravure maison (`assets/brand/village-grave.jpg`) par le script
 `Civik-ia/tools/marianne-hero-art/build.py` (dépôt du socle) :
 
 ```bash
 python3 tools/marianne-hero-art/build.py <racine du site>
 ```
 
-Ce que fait le script : il efface le fil lumineux et la fenêtre éclairée de la gravure d'origine, met l'éclairage à plat
-(la gravure est nocturne d'un côté, diurne de l'autre), nettoie le ciel de jour, retourne la scène pour placer la mairie
-à droite et remet la plaque « MAIRIE » à l'endroit.
+Ce que fait le script : il efface le fil lumineux et la fenêtre éclairée de la gravure d'origine ; il retire la
+jointure verticale entre les deux panneaux de la gravure et reconstruit la bande par recopie de motifs voisins ;
+il met l'éclairage à plat, unit le ciel (de jour comme de nuit) ; il sort les passants du marché et reconstruit
+le sol derrière eux ; il efface les aiguilles de l'horloge ; il retourne la scène pour placer la mairie à droite
+et remet la plaque « MAIRIE » à l'endroit. `APERCU=1` devant la commande écrit seulement des PNG de contrôle.
 
-Ne sont PAS dans les images, mais posés par la page (blocs `.hero__lumieres` et `.hero__etoiles` de `index.html`) :
-les fenêtres qui s'allument à la tombée du jour puis s'éteignent une à une, la fenêtre bleue de la mairie,
-la lueur du couchant, les étoiles qui scintillent et l'étoile filante. Leurs positions sont en pourcentage de CETTE image.
+Ne sont PAS dans les images, mais posés par la page (`index.html`, dans `.hero__cadre`) :
+
+- les fenêtres (`.lum`, planche `lumieres.webp`), le réverbère et la lanterne qui vacillent, la fenêtre bleue de la mairie ;
+- les passants (`.passant`, planche `passants.webp`), qui flânent puis s'en vont au crépuscule ;
+- les aiguilles de l'horloge (`.hero__horloge`), qui suivent l'heure de la scène de 17 h 30 à 22 h 47 ;
+- l'eau de la fontaine (`.hero__fontaine`) : des traits qui descendent le long des nappes, en SVG ;
+- la lueur du couchant, les étoiles qui scintillent et l'étoile filante.
+
+Toutes leurs positions sont en pourcentage de CETTE image : le script les imprime à la fin de son exécution.
 
 ## Remplacer par d'autres visuels
 
-1. Garder le format (1990 x 1075, ou le même rapport) et les noms de fichiers, dans les trois largeurs et les trois formats.
+1. Garder le format (1990 x 1075, ou le même rapport) et les noms de fichiers, dans les quatre largeurs et les trois formats.
    La mairie doit rester dans le quart droit de l'image, le texte s'écrit à gauche.
-2. Recaler les lumières : dans `index.html`, chaque `<i class="lum">` porte sa position (`--x`, `--y`) et ses moments
-   d'allumage et d'extinction (`--a`, `--b`, entre 0 et 1). La fenêtre de la mairie est `.lum--mairie`
-   (une occurrence dans le hero, une dans l'appel final).
+2. Recaler ce que la page pose : chaque `<i class="lum">` porte sa position (`--x`, `--y`), son rang dans la planche
+   (`--i`) et ses moments d'allumage et d'extinction (`--a`, `--b`, entre 0 et 1) ; l'horloge et la fontaine ont
+   leur boîte (`left`, `top`, `width`, `height`) dans le CSS ; les passants leur position (`--l`, `--t`) et leur trajet.
+   La fenêtre de la mairie, le réverbère et l'horloge existent deux fois : dans le hero et dans l'appel final.
+   Avec une illustration qui n'a ni fontaine ni marché, retirer les blocs correspondants.
 3. Régler le cadrage : `.hero__cadre` dans le bloc `@media (min-width:900px)` (valeur `.78` : part du débord rognée à gauche).
 
 ## Vidéo (facultative)

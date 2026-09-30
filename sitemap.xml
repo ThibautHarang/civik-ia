@@ -29,8 +29,8 @@
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://civik-ia.fr/legal/conditions-generales-vente.html</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <!-- AUCUNE URL /preview/ ICI, ET C'EST VOULU (24/08/2026, ADR 0045).
-       Les 6 communes en service y figuraient depuis le 15/08/2026. Elles ont ete
-       retirees le 24/08 : aucune mairie n'est cliente, et une page Marianne au nom
+       Les 6 deploiements de test y figuraient depuis le 15/08/2026. Ils ont ete
+       retires le 24/08 : aucune mairie n'est cliente, et une page Marianne au nom
        d'une commune trouvable dans Google se lirait comme une reference (regle 8).
        Cette absence n'est PAS un oubli, elle est verifiee dans les deux sens par
        « node tools/verify/run.mjs flotte » a partir du manifeste de flotte

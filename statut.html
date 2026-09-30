@@ -234,7 +234,7 @@
       icon: '🤖',
       url: API_BASE + '/api/chat',
       method: 'POST',
-      body: { commune_id: 'thore-la-rochette-41100', query: 'ping' },
+      body: { commune_id: 'demo-villeneuve-les-ormes-36999', query: 'ping' },
       timeout: 15000, // LLM peut être lent
       expect: 200
     },
@@ -284,7 +284,7 @@
       name: 'Page wizard signalement',
       desc: 'civik-ia.fr/signaler/{commune}',
       icon: '📝',
-      url: SITE_BASE + '/signaler/thore-la-rochette-41100',
+      url: SITE_BASE + '/signaler/demo-villeneuve-les-ormes-36999',
       method: 'GET',
       timeout: 5000,
       expect: 200

@@ -792,7 +792,7 @@ Heure de pointe des recherches
 Les citoyens cherchent des informations communales le soir, quand la mairie est fermee. Le chatbot repond a leur place.
 -40%
 Appels telephoniques
-Reduction moyenne constatee apres deploiement d'un chatbot municipal. Du temps libere pour l'accueil social et le lien humain.
+Objectif retenu par Civik-ia pour la premiere annee, ordre de grandeur a confirmer sur le volume d'appels reel de la commune. Du temps libere pour l'accueil social et le lien humain.
 Pour une commune rurale de 1 500 habitants avec une secretaire de mairie a mi-temps, chaque appel telephonique consomme un temps precieux. Quand 7 appels sur 10 concernent les horaires d'ouverture, le calendrier de collecte des dechets ou les pieces a fournir pour un acte de naissance, c'est autant de temps qui n'est pas consacre a l'accompagnement des administres fragiles, au montage de dossiers ou a la gestion des deliberations.
 Un chatbot ne remplace pas l'agent de mairie. Il absorbe le flux de questions repetitives pour que l'humain se concentre sur ce qui compte : le lien social, l'ecoute, le conseil personnalise. Et il le fait 24 heures sur 24, 7 jours sur 7, y compris a 22h47, quand un citoyen se demande comment obtenir un permis de construire modificatif.
 Les criteres essentiels pour choisir un chatbot mairie
@@ -1454,7 +1454,7 @@ Limite : trop lourde pour une commune rurale de moins de 5 000 habitants. Délai
 5. PanneauPocket : un outil complémentaire, pas un chatbot
 PanneauPocket équipe environ 14 000 collectivités françaises avec une application mobile permettant à la mairie de pousser des alertes (travaux, fermetures, événements) sur le smartphone des administrés. Excellent ratio prix/utilité (~350 € HT/an).
 Mais : ce n'est pas un chatbot . Le citoyen ne pose pas de question, il reçoit des notifications. La diffusion est passive, descendante. Aucune réponse aux interrogations sur les Cerfa, les horaires, l'urbanisme. Si vous voulez répondre, vous avez besoin d'autre chose.
-Notre recommandation honnête : PanneauPocket et un chatbot IA sont complémentaires , pas concurrents. La mairie diffuse avec PanneauPocket, elle répond avec Civik-ia (ou dydu, ou Citia). C'est ce que font déjà nos premiers clients pilotes.
+Notre recommandation honnête : PanneauPocket et un chatbot IA sont complémentaires , pas concurrents. La mairie diffuse avec PanneauPocket, elle répond avec Civik-ia (ou dydu, ou Citia). C'est l'association que nous recommandons.
 Delibia : gratuit pour les secrétaires de mairie, mais pas un guichet citoyen
 Delibia revient souvent dans les recherches des secrétaires de mairie, il faut donc le situer correctement : c'est une IA de productivité interne , créée par d'anciens agents territoriaux, destinée aux agents et aux élus. Elle sert à chercher dans les données publiques, analyser des documents, rédiger et préparer des décisions, avec une bibliothèque d'assistants prêts à l'emploi (analyse, rédaction, veille, jurisprudence).
 Le détail de son offre gratuite, relevé à date, et sa comparaison avec les autres offres gratuites du marché figurent sur notre page existe-t-il un chatbot gratuit pour une mairie ?
@@ -1544,16 +1544,14 @@ Panneau / app d'alerte Diffusion d'alertes Notifications poussées (travaux, mé
 Application municipale Diffusion + services Tout-en-un, signalements À installer, faible taux d'adoption
 Chatbot IA citoyen Dialogue 24h/24 Répond à la question précise, désengorge le standard Nécessite une base de connaissances locale fiable
 Aucun de ces outils n'est « le meilleur » dans l'absolu : ils répondent à des besoins différents. Une commune qui veut surtout prévenir d'une coupure d'eau a besoin d'un canal d'alerte. Une commune qui veut réduire les appels répétitifs au secrétariat a besoin d'un canal de dialogue.
-Donnée terrain : combien de sollicitations une petite mairie reçoit-elle ?
-D'après l'analyse des échanges sur nos premières communes pilotes, toutes en milieu rural de moins de 5 000 habitants, nous observons une structure de sollicitations très stable :
+Ordres de grandeur : combien de sollicitations une petite mairie reçoit-elle ?
+Marianne est aujourd'hui présentée en démonstration et en test : nous n'avons pas de mesure en conditions réelles à publier. Voici les hypothèses de travail que nous retenons pour dimensionner un besoin dans une commune rurale de moins de 5 000 habitants, à confirmer en observant votre propre standard :
 ~70 %
-des questions portent sur 10 sujets récurrents (horaires, état civil, déchets, salle, école)
+des questions pourraient porter sur 10 sujets récurrents (horaires, état civil, déchets, salle, école)
 40 %+
-des sollicitations arrivent hors des horaires d'ouverture de la mairie
-4,3/5
-satisfaction moyenne déclarée sur les réponses du chatbot
-Autrement dit, une part importante du « lien » entre une mairie et ses habitants se joue sur des questions simples, en dehors des heures d'ouverture . C'est exactement là qu'un outil de dialogue automatisé fait la différence : il répond le soir et le week-end, quand le secrétariat est fermé.
-Note méthodologique : ces chiffres proviennent de l'observation interne de nos communes pilotes (échantillon limité, milieu rural). Ils sont des ordres de grandeur indicatifs, pas une étude statistique nationale.
+des sollicitations pourraient arriver hors des horaires d'ouverture de la mairie
+Si ces ordres de grandeur se vérifient dans votre commune, une part importante du « lien » entre une mairie et ses habitants se joue sur des questions simples, en dehors des heures d'ouverture . C'est exactement là qu'un outil de dialogue automatisé fait la différence : il répond le soir et le week-end, quand le secrétariat est fermé.
+Note méthodologique : ces chiffres sont des hypothèses de travail de Civik-ia, pas des mesures. Ils ne proviennent d'aucune enquête auprès de communes et ne constituent pas une étude statistique. Le plus fiable reste de compter, pendant quelques semaines, les appels et les questions reçus par votre mairie.
 Comment choisir : 4 questions à se poser
 1. Mon besoin principal est-il d'informer ou de répondre ?
 Si vous voulez surtout prévenir (alerte météo, travaux, événement), un panneau numérique ou une application d'alerte suffit. Si vous voulez réduire la charge du standard et donner une réponse à chaque habitant, il vous faut un canal de dialogue, c'est-à-dire un chatbot.
@@ -1854,25 +1852,25 @@ RGPD
 Démo
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
 
-## Réduire les appels en mairie de 40 % avec un chatbot IA
+## Réduire les appels en mairie avec un chatbot IA : objectif 40 %
 URL : https://civik-ia.fr/reduire-appels-mairie-chatbot-ia.html
-Resume : Comment un chatbot IA libère le secrétariat de mairie : exemples chiffrés, ROI, témoignages. Guide pour DGS et maires en 2026.
+Resume : Comment un chatbot IA peut libérer le secrétariat de mairie : ordres de grandeur, calcul de ROI et objectif chiffré. Guide pour DGS et maires en 2026.
 
-Réduire les appels en mairie de 40 % avec un chatbot IA
+Réduire les appels en mairie avec un chatbot IA : objectif 40 %
 C
 Civik-ia Plateforme d'Intelligence Citoyenne
 Voir la démo
 Accueil › Réduire les appels en mairie
 DGS / Secrétariat · 8 juin 2026
-Réduire les appels en mairie de 40 % avec un chatbot IA
-Votre secrétariat de mairie répète les mêmes informations 50 à 200 fois par jour ? Voici comment un chatbot IA bien paramétré libère votre équipe pour les missions à plus forte valeur ajoutée, avec des chiffres concrets.
+Réduire les appels en mairie avec un chatbot IA : objectif 40 %
+Votre secrétariat de mairie répète les mêmes informations 50 à 200 fois par jour ? Voici comment un chatbot IA bien paramétré peut libérer votre équipe pour les missions à plus forte valeur ajoutée, avec un exemple chiffré.
 Cible : DGS, secrétaire de mairie, maire
 Lecture : 7 minutes
 Mis à jour : 08/06/2026
 En bref
-Un chatbot IA bien paramétré absorbe 60 à 85 % des demandes répétitives reçues par une mairie (horaires, état civil, déchets, tarifs de salle), 24h/24 et sans inscription. Le secrétariat se recentre sur les dossiers complexes. Pour une petite commune, une solution souveraine française comme Civik-ia démarre à 49 €/mois.
+Un chatbot IA bien paramétré peut absorber une part importante des demandes répétitives reçues par une mairie (horaires, état civil, déchets, tarifs de salle), 24h/24 et sans inscription. Notre calcul de ROI retient un objectif prudent de 40 % la première année. Le secrétariat se recentre sur les dossiers complexes. Pour une petite commune, une solution souveraine française comme Civik-ia démarre à 49 €/mois.
 Ce que coûte vraiment un appel en mairie
-Selon l' Association des Maires de France et plusieurs études sectorielles, le volume de contacts entrants moyen d'une mairie française varie selon la strate démographique :
+Le volume de contacts entrants d'une mairie varie selon la strate démographique. Ordres de grandeur, à confirmer en comptant les appels réellement reçus par votre mairie (estimations de Civik-ia, aucune source publique unique n'est citée) :
 15-30
 appels/jour pour une commune < 1 000 hab.
 30-80
@@ -1881,10 +1879,10 @@ appels/jour pour 1 000 à 5 000 hab.
 appels/jour pour 5 000 à 20 000 hab.
 200+
 appels/jour au-delà
-Le coût direct moyen d'un appel traité par un agent municipal (temps de réponse + recherche d'information + redirection éventuelle) est estimé à 3 à 4 euros . Pour une commune de 2 500 habitants recevant 60 appels par jour ouvré, cela représente environ 50 000 euros par an en temps agent.
+Le coût direct moyen d'un appel traité par un agent municipal (temps de réponse + recherche d'information + redirection éventuelle) est estimé à 3 à 4 euros (ordre de grandeur, à confirmer). Pour une commune de 2 500 habitants recevant 60 appels par jour ouvré, cela représente environ 50 000 euros par an en temps agent.
 Et ce coût direct ne mesure pas l' impact indirect : les dossiers complexes décalés, les courriers retardés, l'agent interrompu en pleine instruction, l'usure psychologique du secrétariat face à la même question répétée pour la millième fois.
 Les 10 questions qui reviennent le plus en mairie
-D'après l'analyse des logs de nos premières communes pilotes rurales, le top 10 des questions répétitives représente 60 à 70 % du volume total :
+Les questions qui reviennent le plus souvent sont les mêmes d'une mairie à l'autre. Ordre de grandeur, à confirmer sur votre commune (estimation de Civik-ia, non issue de mesures en mairie) : les dix premiers sujets représenteraient 60 à 70 % du volume total des sollicitations :
 Horaires d'ouverture de la mairie : 12 à 18 % des appels
 Démarches d'état civil (extrait de naissance, mariage) : 8 à 12 %
 Inscription école / cantine : 6 à 10 %
@@ -1895,10 +1893,10 @@ Urbanisme (déclaration préalable, permis) : 4 à 6 %
 Contact d'un élu ou d'un service : 4 à 6 %
 Événements municipaux à venir : 3 à 5 %
 Documents administratifs divers (attestation, copie) : 3 à 5 %
-Ces 10 catégories sont précisément celles qu'un chatbot IA bien paramétré traite avec plus de 90 % d'auto-résolution . C'est le cœur du gain.
+Ce sont des questions dont la réponse est stable et écrite quelque part : c'est là qu'un chatbot alimenté par une base de connaissances locale à jour est le mieux placé pour répondre. Le taux d'auto-résolution dépend de la qualité de cette base et se mesure commune par commune ; nous n'en publions pas à ce jour. C'est le cœur du gain attendu.
 Comment un chatbot IA absorbe ces appels
 1. Disponibilité 24h/24, 7j/7
-Plus de 40 % des questions citoyennes arrivent hors horaires d'ouverture de la mairie : tôt le matin, le soir après le travail, le week-end. Sans chatbot, ces questions soit s'évaporent (frustration citoyenne), soit reviennent en bloc le lundi matin (saturation du secrétariat).
+Une part importante des questions citoyennes se pose hors horaires d'ouverture de la mairie : tôt le matin, le soir après le travail, le week-end. Sans chatbot, ces questions soit s'évaporent (frustration citoyenne), soit reviennent en bloc le lundi matin (saturation du secrétariat).
 Avec un chatbot, elles sont traitées immédiatement, à 22h47 comme à 9h00.
 2. Réponses précises et sourcées
 Un chatbot mairie de qualité (comme Civik-ia avec son skill « cerfa-municipal ») ne se contente pas de paraphraser. Il cite le bon numéro de Cerfa , l' article de loi applicable , le délai légal exact , le contact municipal dédié . C'est ce qui fait la différence entre un gadget et un outil professionnel.
@@ -1921,24 +1919,24 @@ Avec un chatbot absorbant 40 % des appels répétitifs (objectif conservateur en
 24 500 €/an d'économie en temps agent
 Coût du chatbot Civik-ia (tier Essentiel, commune de moins de 5 000 habitants) : 49 € HT/mois = 588 € HT/an
 Programme Partenaires Fondateurs (10 places) : pilote symbolique 9,99 € HT/mois pendant 3 mois , puis tarif tier garanti 3 ans, setup offert (sinon 999 €)
-ROI net première année : 24 500 € - 588 € = 23 912 € économisés , soit environ 40 fois le montant de l'abonnement . Et le ROI s'améliore d'année en année (la base de connaissances s'enrichit, les taux d'auto-résolution montent). Ces chiffres sont des estimations indicatives, à ajuster au volume d'appels réel de votre commune.
+ROI net première année : 24 500 € - 588 € = 23 912 € économisés , soit environ 40 fois le montant de l'abonnement . Le gain peut progresser d'année en année si la base de connaissances s'enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d'appels réel de votre commune.
 Le piège à éviter : sous-estimer la phase de mise en place
 Un chatbot ne fonctionne bien que s'il connaît vraiment la commune. Le piège fréquent est de signer rapidement avec un éditeur qui livre un produit générique « clé en main », et de constater que les réponses sont fausses ou imprécises pour les spécificités locales (tarifs salle, contact direct, calendrier scolaire).
 Civik-ia a résolu ce problème avec son outil de co-design : le DGS adapte le chatbot lui-même en 30 minutes via un formulaire web, sans aucune intervention technique. Les modifications sont prises en compte instantanément.
 Et les autres bénéfices, plus difficiles à chiffrer
 Image moderne de la commune : une mairie qui répond à 22h47 envoie un message politique fort sur la modernité du service public local.
-Satisfaction citoyenne : les enquêtes des premières communes pilotes montrent une note moyenne de 4,3/5 sur les réponses chatbot.
+Satisfaction citoyenne : une réponse immédiate le soir ou le week-end évite d'attendre le lendemain. Civik-ia ne publie pas de note de satisfaction mesurée : Marianne est aujourd'hui présentée en démonstration et en test.
 Égalité de traitement : un citoyen qui travaille en horaires décalés (infirmier, restaurateur, agriculteur) n'est plus défavorisé par rapport à un retraité disponible en journée.
 Pilotage politique : pour l'élu, l'analyse des questions remontées par le chatbot est un thermomètre précieux des préoccupations des administrés.
 Questions fréquentes
 Un chatbot peut-il vraiment réduire les appels en mairie ?
-Oui. Un chatbot IA bien paramétré absorbe 60 à 85 % des demandes répétitives (horaires, état civil, déchets, réservation de salle). Le top 10 des questions courantes représente 60 à 70 % du volume total des sollicitations, et ces catégories atteignent plus de 90 % d'auto-résolution une fois la base de connaissances locale renseignée.
+Oui, pour la part des demandes répétitives dont la réponse est stable (horaires, état civil, déchets, réservation de salle). Ordre de grandeur, à confirmer sur votre commune : les dix questions les plus courantes représenteraient 60 à 70 % du volume des sollicitations. La part réellement absorbée dépend de la qualité de la base de connaissances locale et se mesure commune par commune ; notre calcul de ROI retient un objectif prudent de 40 % la première année.
 Quelles sont les questions les plus posées en mairie ?
-Les plus fréquentes sont, dans l'ordre : les horaires d'ouverture (12 à 18 % des appels), les démarches d'état civil, l'inscription école et cantine, les jours de collecte des déchets, la réservation de salle communale, l'inscription sur les listes électorales (jusqu'à 20 % avant un scrutin), l'urbanisme, le contact d'un élu, les événements à venir et les documents administratifs divers.
+À titre d'ordre de grandeur, à confirmer sur votre commune, les plus fréquentes sont, dans l'ordre : les horaires d'ouverture (12 à 18 % des appels environ), les démarches d'état civil, l'inscription école et cantine, les jours de collecte des déchets, la réservation de salle communale, l'inscription sur les listes électorales (jusqu'à 20 % avant un scrutin), l'urbanisme, le contact d'un élu, les événements à venir et les documents administratifs divers.
 Quel est le retour sur investissement d'un chatbot de mairie ?
 Pour une commune type de 3 500 habitants recevant environ 70 appels par jour ouvré, le coût annuel des appels avoisine 61 000 euros. Un chatbot absorbant 40 % des demandes répétitives (objectif conservateur la première année) permet d'économiser environ 24 500 euros de temps agent, pour un coût d'abonnement de 588 euros par an (tier Essentiel, 49 euros par mois pour une commune de moins de 5 000 habitants), soit un retour sur investissement d'environ quarante fois la mise. Ces chiffres sont des estimations indicatives.
 Un chatbot de mairie fonctionne-t-il en dehors des horaires d'ouverture ?
-Oui, c'est l'un de ses principaux atouts : plus de 40 % des questions citoyennes arrivent hors des heures d'ouverture (tôt le matin, le soir, le week-end). Le chatbot y répond immédiatement, 24h/24 et 7j/7, ce qui évite à la fois la frustration des citoyens et la saturation du secrétariat le lundi matin.
+Oui, c'est l'un de ses principaux atouts : une part importante des questions citoyennes se pose hors des heures d'ouverture (tôt le matin, le soir, le week-end). Le chatbot y répond immédiatement, 24h/24 et 7j/7, ce qui évite à la fois la frustration des citoyens et la saturation du secrétariat le lundi matin.
 Pour aller plus loin
 Marianne, l'assistante des mairies par Civik-ia : le produit en détail, réponses 24h/24 sourcées et souveraines
 Guide complet du chatbot mairie
@@ -2353,62 +2351,48 @@ RGPD
 Démo
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
 
-## Chatbot mairie Loir-et-Cher (41) : Thoré-la-Rochette
+## Chatbot mairie Loir-et-Cher (41) : communes rurales · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie-loir-et-cher.html
-Resume : Civik-ia équipe les mairies du Loir-et-Cher. Cas pilote Thoré-la-Rochette, président AMRF 41. Chatbot IA souveraine 24h/24, dès 49 €/mois.
+Resume : Civik-ia propose aux mairies du Loir-et-Cher un chatbot IA souverain, 24h/24, pensé pour les communes rurales. Démonstration en ligne sur une commune fictive, dès 49 € HT/mois.
 
-Chatbot mairie Loir-et-Cher (41) : Thoré-la-Rochette
+Chatbot mairie Loir-et-Cher (41) : communes rurales · Civik-ia
 C
 Civik-ia Plateforme d'Intelligence Citoyenne
 Voir la démo
 Accueil › Chatbot mairie en Loir-et-Cher
-Cas pilote · 16 mai 2026
-Chatbot mairie en Loir-et-Cher (41) : Civik-ia × Thoré-la-Rochette
-Civik-ia déploie progressivement son chatbot IA souveraine dans les communes rurales du Loir-et-Cher. Premier pilote : Thoré-la-Rochette, 817 habitants, dont le maire préside l'Association des Maires Ruraux de France pour le département.
+Guide départemental · 30 septembre 2026
+Chatbot mairie en Loir-et-Cher (41) : une IA souveraine pour les communes rurales
+Civik-ia propose aux communes rurales du Loir-et-Cher un chatbot IA souverain, Marianne, qui répond aux habitants 24h/24 à partir des documents officiels de la mairie. Cette page présente le contexte du département et ce que la démonstration en ligne permet de voir.
 Département : Loir-et-Cher (41)
 Région : Centre-Val de Loire
-Mis à jour : 16/05/2026
+Mis à jour : 30/09/2026
 Le Loir-et-Cher, terrain idéal pour une IA citoyenne souveraine
 Le département du Loir-et-Cher compte 267 communes , dont plus de 200 ont moins de 2 000 habitants. C'est un département rural typique de la moyenne française : peuplé majoritairement de petites communes, animé par des maires bénévoles ou semi-bénévoles, avec des secrétariats de mairie limités à un ou deux agents.
 Dans ce contexte, deux dynamiques se cumulent :
 Une demande croissante des administrés pour des services numériques modernes (horaires, démarches en ligne, alertes locales).
 Une capacité technique limitée des mairies rurales pour déployer ce genre d'outils : pas de service informatique, budget contraint, peu de temps pour évaluer les solutions du marché.
 C'est précisément le créneau de Civik-ia : une solution clé en main, à 49 € HT/mois, déployable en moins d'une semaine, avec un outil de co-design qui permet au DGS d'adapter l'assistante en 30 minutes sans aucune compétence technique.
-Thoré-la-Rochette : la commune pilote
-Thoré-la-Rochette en chiffres
-Habitants 817 (INSEE 2022)
-Superficie 10,78 km²
-Densité 76 hab/km²
-Maire M. Thierry BENOIST
-Mandat 2026-2032
-Intercommunalité CA Territoires Vendômois
-Thoré-la-Rochette est une commune viticole du Vendômois, située à 8 km au nord-est de Vendôme. Quatre domaines produisent l'AOC Coteaux du Vendômois, et la commune accueille chaque année des manifestations qui attirent des visiteurs hors-commune (festival, marchés, événements viticoles).
-Son maire, M. Thierry BENOIST , est également président de l'Association des Maires Ruraux de France pour le Loir-et-Cher (AMRF 41) . À ce titre, il représente une centaine de communes rurales du département et est un référent reconnu sur les questions de numérique territorial.
-Pourquoi le choix de Civik-ia pour Thoré ?
-Trois raisons principales nous ont été données par le maire lors des échanges préparatoires :
+Trois critères pour choisir un chatbot de mairie
+Pour une commune rurale, trois points méritent d'être vérifiés avant de choisir un assistant IA.
 1. La précision juridique des réponses
-Les chatbots génériques qu'il avait testés inventaient régulièrement des informations (numéros de Cerfa erronés, délais imprécis, articles de loi inexistants). Civik-ia, grâce à son skill « cerfa-municipal » , cite systématiquement le bon numéro de formulaire (13703*11 pour une déclaration préalable de travaux, 12669*02 pour l'inscription électorale, etc.), le délai légal exact (1 mois, 6e vendredi avant scrutin…) et l'article du Code de l'urbanisme applicable.
+Un chatbot généraliste invente parfois des informations : numéro de Cerfa erroné, délai imprécis, article de loi inexistant. Marianne s'appuie sur une base de connaissances propre à chaque commune et sur des gabarits de formulaires Cerfa, afin d'indiquer le formulaire concerné, le délai légal et la source officielle.
 2. La souveraineté technologique
-En tant qu'élu rural attaché aux valeurs républicaines, M. Benoist exigeait une solution qui ne dépende ni d'OpenAI, ni de Google, ni d'AWS. Civik-ia utilise Mistral AI (IA française) hébergée sur OVH (datacenter Allemagne), sans aucun transfert hors UE. Notre choix technique est documenté en détail ici .
-3. L'effet d'entraînement AMRF
-Comme président départemental de l'AMRF, M. Benoist est aussi prescripteur. Si Civik-ia fonctionne bien à Thoré-la-Rochette, il pourra le présenter à ses confrères du conseil d'administration de l'AMRF 41 (10-12 maires) et envisager des présentations devant d'autres communes du département.
-« Ce qui m'a convaincu, c'est la précision des réponses sur les démarches concrètes. Un citoyen qui demande s'il a besoin d'une déclaration préalable pour un abri de jardin de 8 m² obtient immédiatement le bon Cerfa, le bon délai d'instruction, et même les particularités locales de notre PLU. Aucun autre outil ne fait ça. »
-Source : échange préparatoire mai 2026 (témoignage à confirmer après mise en production)
-Ce que le chatbot de Thoré-la-Rochette savait répondre
-La démonstration ouverte au public à Thoré-la-Rochette s'est achevée en septembre 2026. Pendant le pilote, n'importe quelle question de la vie courante d'un administré trouvait sa réponse, par exemple :
-« Quels sont les horaires de la mairie ? » : réponse instantanée avec horaires d'hiver complets et coordonnées
+Une collectivité peut exiger une solution qui ne dépende ni d'OpenAI, ni de Google, ni d'AWS. Civik-ia utilise Mistral AI (IA française) hébergée sur OVH (datacenter Allemagne), sans aucun transfert hors UE. Notre choix technique est documenté en détail ici .
+3. Des réponses sourcées, sans inscription
+Un habitant doit pouvoir poser sa question sans créer de compte, et la mairie doit pouvoir vérifier d'où vient la réponse. Marianne répond à partir des documents officiels de la commune et cite ses sources.
+Exemples de questions posées à Marianne
+La démonstration en ligne utilise une commune fictive. Vous pouvez y poser n'importe quelle question de la vie courante d'un administré, par exemple :
+« Quels sont les horaires de la mairie ? » : réponse avec les horaires et les coordonnées de la commune
 « Quand a lieu la prochaine collecte des déchets verts ? »
-« Je veux construire un abri de jardin » : réponse structurée avec Cerfa 13703*11, délai, pièces, contact urbanisme
+« Je veux construire un abri de jardin » : réponse structurée avec le Cerfa concerné, le délai, les pièces à fournir et le contact urbanisme
 « Comment m'inscrire sur la liste électorale ? »
 « Y a-t-il une boulangerie ouverte le dimanche ? »
-« Quelles caves viticoles puis-je visiter ? » : réponse avec les 4 domaines AOC Coteaux du Vendômois
 → Demander une démonstration pour votre commune
-Et pour les autres communes du Loir-et-Cher ?
-Si vous êtes élu ou DGS d'une commune du Loir-et-Cher (Vendôme, Romorantin-Lanthenay, Blois, Onzain, Mer, Saint-Aignan, Selles-sur-Cher, Contres, Salbris, Bracieux, Cellettes, ou plus petite encore) et que vous souhaitez équiper votre commune d'un chatbot IA souveraine, voici les prochaines étapes :
-Demander une démonstration pour vous faire une idée concrète du rendu sur une commune comparable à la vôtre.
+Vous êtes élu ou DGS d'une commune du Loir-et-Cher ?
+Quelle que soit la taille de votre commune, si vous souhaitez l'équiper d'un chatbot IA souverain, voici les prochaines étapes :
+Essayer la démonstration en ligne , sur une commune fictive, pour vous faire une idée concrète du rendu.
 Demander une démo personnalisée sur les données spécifiques de votre commune (45 minutes en visio).
 Profiter du programme Partenaires Fondateurs : 10 places communes maximum, pilote symbolique 9,99 € HT/mois pendant 3 mois (acte d'engagement administratif), puis tarif tier garanti 3 ans, setup offert (sinon 999 €), droit de regard produit, statut Ambassadeur Civik-ia.
-Une commune Loir-et-Cher est déjà accompagnée. L'AMRF 41 est mobilisée . C'est le moment de prendre l'une des 9 places restantes du programme Fondateurs.
 Pour aller plus loin
 Comparatif chatbot mairie 2026
 Chatbot pour commune rurale : le guide complet
@@ -2555,7 +2539,7 @@ Démo
 
 ## Marianne sur WhatsApp · Civik-ia | Le canal WhatsApp des mairies
 URL : https://civik-ia.fr/marianne-whatsapp.html
-Resume : Bientôt, l'IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, signalements avec photo et géolocalisation, bascule vers vos agents. Canal en construction, moteur souverain déjà en service. RGPD natif.
+Resume : Bientôt, l'IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, signalements avec photo et géolocalisation, bascule vers vos agents. Canal en construction, moteur souverain déjà disponible en démonstration. RGPD natif.
 
 Marianne sur WhatsApp · Civik-ia | Le canal WhatsApp des mairies
 WhatsApp
@@ -2567,7 +2551,7 @@ Bientôt disponible
 →
 Votre mairie est sur WhatsApp ?
 Connectez-la à Civik-ia
-Nous préparons le canal WhatsApp de Civik-ia pour les mairies. Bientôt, vos citoyens écriront à leur commune sur WhatsApp et Marianne répondra, sourcée sur vos arrêtés et votre PLU, avec signalements interactifs et basculement vers vos agents. Le moteur souverain est déjà en service sur nos autres canaux.
+Nous préparons le canal WhatsApp de Civik-ia pour les mairies. Bientôt, vos citoyens écriront à leur commune sur WhatsApp et Marianne répondra, sourcée sur vos arrêtés et votre PLU, avec signalements interactifs et basculement vers vos agents. Le moteur souverain est déjà disponible en démonstration sur nos autres canaux.
 Voir la démonstration ↓
 Comment ça marche
 ✓ Aucune app à installer
@@ -2643,11 +2627,11 @@ Demander une démo →
 Télécharger le livre blanc
 Plateforme d'Intelligence Citoyenne · Hébergement souverain OVH · RGPD natif
 Dès 49 €/mois HT · 🇫🇷 Conçu en France
-Le canal WhatsApp de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà en service sur nos autres canaux ; WhatsApp serait un canal de transport choisi par la mairie.
+Le canal WhatsApp de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; WhatsApp serait un canal de transport choisi par la mairie.
 
 ## Marianne sur Messenger · Civik-ia | La page Facebook des mairies répond 24 h/24
 URL : https://civik-ia.fr/marianne-messenger.html
-Resume : Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal en construction, moteur souverain déjà en service. RGPD natif.
+Resume : Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal en construction, moteur souverain déjà disponible en démonstration. RGPD natif.
 
 Marianne sur Messenger · Civik-ia | La page Facebook des mairies répond 24 h/24
 Messenger
@@ -2660,7 +2644,7 @@ Bientôt disponible
 Vos citoyens écrivent
 à votre page Facebook ?
 Marianne leur répondra
-Nous préparons le canal Messenger de Civik-ia pour les mairies. Bientôt, les messages reçus par votre page Facebook seront traités par Marianne, sourcée sur vos documents officiels, 24 h/24. Et vos agents garderont toujours la main : dès qu'un agent répond, Marianne se retire du fil. Le moteur souverain est déjà en service sur nos autres canaux.
+Nous préparons le canal Messenger de Civik-ia pour les mairies. Bientôt, les messages reçus par votre page Facebook seront traités par Marianne, sourcée sur vos documents officiels, 24 h/24. Et vos agents garderont toujours la main : dès qu'un agent répond, Marianne se retire du fil. Le moteur souverain est déjà disponible en démonstration sur nos autres canaux.
 Voir la démonstration ↓
 Comment ça marche
 ✓ Vos agents gardent la main
@@ -2735,7 +2719,7 @@ Demander une démo →
 Télécharger le livre blanc
 Plateforme d'Intelligence Citoyenne · Hébergement souverain OVH · RGPD natif
 Dès 49 €/mois HT · 🇫🇷 Conçu en France
-Le canal Messenger de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. Ce canal répond aux messages reçus ; il ne permet pas d'envoi massif sortant, par politique de la plateforme. Messenger est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà en service sur nos autres canaux ; Messenger serait un canal de transport choisi par la mairie, la conversation y transitant par Meta comme c'est déjà le cas de la messagerie de votre page aujourd'hui.
+Le canal Messenger de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. Ce canal répond aux messages reçus ; il ne permet pas d'envoi massif sortant, par politique de la plateforme. Messenger est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; Messenger serait un canal de transport choisi par la mairie, la conversation y transitant par Meta comme c'est déjà le cas de la messagerie de votre page aujourd'hui.
 
 ## Campagnes citoyennes : consultez vos habitants, Civik-ia
 URL : https://civik-ia.fr/campagnes-citoyennes.html
@@ -2765,8 +2749,8 @@ Un bandeau interactif apparaît automatiquement dans le chatbot citoyen. Les hab
 3
 Analysez en temps réel
 Scores, tendances, commentaires qualifiés : tout remonte en direct. Exportez les résultats, partagez-les en conseil municipal. Des données concrètes pour des décisions éclairées.
-Cas concrets
-Voici comment les collectivités utilisent les Campagnes Citoyennes au quotidien.
+Exemples illustratifs
+Quatre scénarios pour voir comment une collectivité peut utiliser les Campagnes Citoyennes. Ils sont fictifs : les chiffres sont donnés à titre d'illustration et ne proviennent d'aucune consultation menée par une commune.
 Aménagement urbain
 Rénovation Rue de la République
 La mairie hésite entre 3 options d'aménagement. Plutôt qu'une réunion publique à 15 participants, elle lance une campagne. En 72h, 342 avis collectés avec commentaires qualifiés.
@@ -2860,7 +2844,7 @@ Rechercher dans l'aide
 Liens rapides
 📸
 Signaler un problème
-Voirie, propreté, éclairage : photo + géoloc
+Voirie, propreté, éclairage : photo + géoloc (exemple sur une commune fictive)
 🤖
 Tester Marianne (démo)
 Découvrez le chatbot citoyen 24/7

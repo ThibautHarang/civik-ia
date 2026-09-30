@@ -153,228 +153,281 @@ Resume : Chatbot IA souverain pour mairies : Marianne répond aux administrés 2
 
 Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia
 Aller au contenu
+Arrêter les animations
 Nouveau
-·
-Civik-ia arrive bientôt sur WhatsApp
-→
 ×
 Mar ia nne par Civik-ia
 Fonctionnement
+Canaux
 Démo
 Campagnes
 Tarifs
-Parrainage
 FAQ
 Contact
 Tester la démo
 Fonctionnement
+Canaux
 Démo
 Campagnes
 Tarifs
-Parrainage
 FAQ
 Contact
 Tester la démo
-Fermée
-Votre mairie est fermée, mais …
-Votre mairie
-disponible 24h/24
-Marianne répond à vos citoyens à toute heure, en français, au nom de votre mairie. IA souveraine, RGPD native, formée sur votre PLU et vos arrêtés. Dès 49 €/mois HT.
-Tester la démo
-Comment ça marche →
-Cloud souverain OVH
-RGPD natif
-Mistral AI · modèle européen
-Déploiement en 7 jours
+Marianne en ligne
 22:47
-● ● ●
+Votre mairie ferme à 17 h 30 ?
+Marianne,
+jamais
+Marianne est le chatbot IA de votre mairie ou de votre collectivité. Elle répond à chaque citoyen, jour et nuit : sur votre site ou sur smartphone, et bientôt sur WhatsApp et Messenger. Formée sur les données de votre commune, elle cite toujours ses sources
+Réserver une démo de 20 min
+Tester la démo
+Cloud souverain OVH
+Mistral AI
+RGPD natif
+Déploiement en 7 jours
+Dès 49 € HT/mois
+22:47
+Mairie de Villeneuve-les-Ormes En ligne, 24 h/24
+22:47 Bonsoir, comment inscrire mon fils à la cantine pour septembre ?
+Bonsoir. Les inscriptions se font sur le portail famille jusqu'au 10 août. Il vous faut un justificatif de domicile et l'attestation CAF
+Source : site de la mairie, page Périscolaire
+Posez votre question
+Mettre la conversation en pause
+Faites défiler
+Passer l'animation
+Chatbot IA formé sur vos données
+Elle a lu tout votre site
+Et tout le reste
+Votre site
+Site officiel Pages du site
+Site officiel Actualités
+Site officiel Démarches
+Vos documents
+Urbanisme PLU
+Actes Arrêtés
+Conseil municipal Délibérations
+Publication Bulletin municipal
+Vie pratique Calendrier des déchets
+Accueil Horaires et contacts
+Marianne s'appuie d'abord sur le site officiel de votre commune : ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez : PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu
+Vous modifiez votre site ? Marianne le relit chaque nuit : ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir. Et pour une urgence, une alerte publiée depuis votre espace est prise en compte aussitôt
+Pas de site internet ?
+Nous pouvons vous en créer un
+Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia peut concevoir le vôtre : simple, lisible sur téléphone, avec Marianne intégrée. Cette offre est nouvelle : nous la construisons avec les premières communes qui la demandent
+www.villeneuve-les-ormes.fr
+VO
+Villeneuve-les-Ormes Site officiel de la commune
+Démarches Agenda Une question ?
+Bienvenue à Villeneuve-les-Ormes Mairie ouverte du lundi au vendredi, 9 h à 12 h et 14 h à 17 h 30
+Actualité Inscriptions cantine 2026-2027
+Démarche Demander un acte de naissance
+Agenda Fête du village, samedi 20 juin
+Une question ?
+Parler de mon site
+Communes rurales : notre offre
+Sur devis, après un premier échange
+Une réponse, une source
+Toujours
+Chaque réponse de Marianne cite le document officiel dont elle vient : une page de votre site, un arrêté, un article du PLU. D'un clic, le citoyen vérifie par lui-même. C'est ce qui fait la différence entre une réponse et une rumeur
+Quel jour sortir le bac jaune ?
+Le bac jaune est collecté le mercredi matin , une semaine sur deux. Sortez-le la veille au soir.
+Voir la source : Site de la mairie, page Déchets
+villeneuve-les-ormes.fr · Vie pratique
+Collecte des déchets
+Ordures ménagères : le lundi. Bac jaune : le mercredi matin, semaines paires. Verre : points d'apport volontaire.
+Je peux tondre ma pelouse le dimanche ?
+Oui, mais seulement de 10 h à 12 h le dimanche et les jours fériés.
+Voir la source : Arrêté municipal n° 2026-014
+Arrêté municipal n° 2026-014
+Lutte contre les bruits de voisinage
+Article 3. Les travaux de jardinage utilisant des appareils à moteur sont autorisés les dimanches et jours fériés de 10 h à 12 h .
+De quelle couleur puis-je repeindre mes volets ?
+En zone UA, les volets se peignent dans les teintes du nuancier communal . Le blanc pur et les teintes vives ne sont pas admis.
+Voir la source : PLU, article UA 11
+Plan local d'urbanisme · Règlement
+Article UA 11, aspect extérieur
+Les menuiseries et volets sont peints dans les teintes du nuancier annexé au présent règlement . Le blanc pur et les couleurs vives sont proscrits.
+Exemples sur Villeneuve-les-Ormes, notre commune de démonstration
+Et quand elle ne sait pas ?
+Elle le dit. Marianne n'invente jamais : si l'information n'est pas dans vos documents, elle oriente vers le bon service, vos horaires ou votre formulaire de contact. La question remonte dans votre tableau de bord, pour que vous complétiez
+Le prochain conseil municipal, c'est quel jour ?
+Je n'ai pas cette information dans les documents de la mairie. Le secrétariat pourra vous répondre au 02 61 91 40 00, du lundi au vendredi, de 9 h à 12 h et de 14 h à 17 h 30
+Question signalée dans le tableau de bord de la mairie
+Une seule Marianne
+Partout où sont vos citoyens
+Même cerveau, mêmes sources, même ton, quel que soit le canal. Vous mettez à jour une information une fois : elle est juste partout
+www.villeneuve-les-ormes.fr
+VO Villeneuve-les-Ormes Site officiel de la commune
+Accueil Démarches Une question ?
+Sur votre site
+Disponible
+Un bouton « Une question ? » sur chaque page et un onglet dans votre menu. Un clic, Marianne s'ouvre et répond. Nous fournissons le code, votre webmaster le colle en deux minutes
+Marianne - Villeneuve-les-Ormes
+Sur votre smartphone
+Disponible
+Une application dédiée, installée en un geste depuis votre site ou un QR code. Vos citoyens gardent la Marianne de leur ville dans la poche, tous les jours
 Mairie de Villeneuve-les-Ormes
-En ligne · 24 h/24
-Dimanche 22:47
-22 : 47
-Un dimanche soir de novembre
-Votre mairie est fermée
-Mais votre citoyen
-a une question urgente
-Chaque semaine, 63 % des questions citoyennes arrivent en dehors des horaires d'ouverture. Un numéro de voirie perdu, un permis qui presse, une poubelle qui déborde. Marianne répond à leur place, avec les mêmes informations que votre secrétariat.
-En 3 étapes
+Bonjour, c'est quand les encombrants ?
+Le premier jeudi du mois, sur inscription en mairie. Source : calendrier des déchets
+WhatsApp
+Bientôt
+Vos citoyens écriront à leur mairie comme à un proche. Marianne arrive dans la conversation
+Messages acheminés par les serveurs de Meta
+Marianne sur WhatsApp
+Commune de Villeneuve-les-Ormes
+La médiathèque est ouverte demain ?
+Non, elle est fermée le dimanche. Elle rouvre mardi à 14 h. Source : page Médiathèque
+Messenger
+Bientôt
+Les messages privés de la page Facebook de la commune recevront enfin une réponse, même le week-end
+Messages acheminés par les serveurs de Meta
+Marianne sur Messenger
+Une question ?
+Scannez
+Marianne répond, jour et nuit
+QR code & affichage
+Disponible
+À l'accueil, sur le bulletin municipal, sur les panneaux : un scan, et la conversation commence
+Sur WhatsApp et Messenger, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta
 Une installation
 en 7 jours, pas 7 mois
 01
 On cadre le projet ensemble
-Nous cadrons ensemble votre projet et récoltons les documents disponibles : PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du reste.
-Pas de pré-requis technique. Word, PDF, scan : tout est digéré par notre moteur.
+Nous cadrons ensemble votre projet et réunissons vos sources : l'intégralité de votre site internet (si vous n'en avez pas, nous pouvons en concevoir un) et les documents disponibles, PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du reste
+Pas de pré-requis technique. Word, PDF, scan : tout est digéré par notre moteur
 02
 On entraîne votre IA souveraine
-Un assistant virtuel formé uniquement sur vos données, hébergé en France chez OVH, propulsé par Mistral AI.
-Zéro donnée ne quitte l'Europe. Jamais réutilisée pour entraîner d'autres modèles.
+Un assistant virtuel formé uniquement sur vos données, hébergé en Europe chez OVHcloud, propulsé par Mistral AI
+Vos données restent en Europe. Jamais réutilisées pour entraîner d'autres modèles
 03
 Vos citoyens obtiennent des réponses
-Depuis votre site ou un QR code en mairie. Avec le ton, la signature et les sources de votre commune. WhatsApp et SMS : arrivée courant 2026.
-Déploiement moyen : 7 jours. Sous le seuil des marchés publics (
-Sur le site de votre mairie
-Un bouton sur votre site,
-votre mairie ouverte 24h/24
-Vos citoyens cherchent d'abord sur le site de la commune. C'est donc là que Marianne les attend : un bouton, fourni prêt à coller, et chaque visite peut devenir une réponse.
-Fourni dans le kit de livraison. Votre webmaster le colle en deux minutes, sans compétence particulière.
-Aucune maintenance. Le bouton pointe vers votre Marianne, toujours à jour de vos informations.
-Aussi en QR code à l'accueil de la mairie, sur le bulletin municipal ou les panneaux d'affichage.
-Relier le site de ma commune
-www.villeneuve-les-ormes.fr
-Mairie ouverte du lundi au vendredi · 9h-12h / 14h-17h30 02 61 91 40 00 · accueil@villeneuve-les-ormes.fr
-VO
-Villeneuve-les-Ormes Site officiel de la commune
-Liberté · Égalité · Fraternité
-Accueil Vie municipale Démarches Agenda
-Une question ?
-Travaux : coupure d'eau rue des Écoles jeudi 9 juillet, de 8h à 12h.
-Actualités
-1 juillet Inscriptions cantine et périscolaire 2026-2027 Le portail famille est ouvert jusqu'au 10 août.
-19 juillet Fête du village, place de la Mairie Repas, bal et feu d'artifice à partir de 19 h.
-Démarches rapides
-Acte de naissance
-Réserver la salle des fêtes
-Signaler un problème
-Marianne Mairie de Villeneuve-les-Ormes · en ligne
-La mairie est ouverte samedi ?
-Non, la mairie est ouverte du lundi au vendredi, de 9h à 12h et de 14h à 17h30. Vous pouvez toutefois faire votre demande en ligne dès maintenant. Source : mairie de Villeneuve-les-Ormes
-1 Un onglet dans votre menu
-2 La bulle Marianne, en bas de chaque page
-Essayez, pour de vrai
+Depuis votre site, leur smartphone ou un QR code en mairie. Bientôt sur WhatsApp et Messenger. Avec le ton, la signature et les sources de votre commune
+Mise en ligne en 7 jours. Sous le seuil de mise en concurrence
 Posez-lui
 une question
-Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez : Marianne répond avec les données d'une commune de démonstration.
-Horaires déchèterie ?
-Carte d'identité perdue, que faire ?
-Je peux abattre mon arbre ?
-Inscription cantine septembre
-Éclairage public en panne rue du Moulin
+Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez : Marianne répond avec les données d'une commune de démonstration
+Un abri de jardin de 12 m², il me faut un permis ?
+J'emménage le mois prochain, que dois-je faire ?
+La collecte tombe un jour férié, elle est maintenue ?
+La coupure d'eau de mardi, c'est toujours prévu ?
+Un lampadaire est en panne rue du Moulin
 Tester la démo complète
-Chatbot + Dashboard élu + Alertes Intelligentes + Campagnes · commune fictive, zéro inscription
-Le différenciant
+Chatbot, tableau de bord élu, Alertes Intelligentes et Campagnes, sur une commune fictive et sans inscription
+22:47
+Mairie de Villeneuve-les-Ormes En ligne, 24 h/24
+Je veux installer un abri de jardin de 12 m². Il me faut un permis de construire ?
+Non. Entre 5 et 20 m², une déclaration préalable suffit, à déposer en mairie ou en ligne. Dans votre zone (UB), l'abri doit rester à 3 m des limites séparatives et ne pas dépasser 3,50 m de haut Source : PLU, articles UB 7 et UB 10, et service-public.fr
+Posez votre question
+Campagnes Citoyennes
 Informez
 sans saturer
-Les Campagnes Citoyennes vous permettent de diffuser une info une seule fois : elle part sur tous vos canaux en même temps, et votre chatbot devient capable d'y répondre immédiatement.
-Une info, plusieurs canaux
-Site et email aujourd'hui, WhatsApp et SMS courant 2026. Vous écrivez une fois, on publie partout.
-Le chatbot l'apprend instantanément
-Quand un citoyen pose la question, Marianne répond avec la campagne du jour.
-Ciblage par quartier ou public
-Ne saturez personne : parents d'élèves, rue concernée, associations : pas tout le monde.
+Les Campagnes Citoyennes vous permettent de diffuser une info une seule fois : elle part sur tous vos canaux en même temps, et votre chatbot devient capable d'y répondre immédiatement
+Une info, plusieurs canaux Site et email aujourd'hui, WhatsApp bientôt. Vous écrivez une fois, on publie partout
+Le chatbot l'apprend instantanément Quand un citoyen pose la question, Marianne répond avec la campagne du jour
+Ciblage par quartier ou public Ne saturez personne : parents d'élèves, rue concernée, associations, pas tout le monde
 Nouvelle campagne Brouillon · 10h14
 Coupure d'eau rue des Platanes
-Suite à une fuite sur le réseau, l'eau sera coupée mardi 22 avril de 9h à 13h . Pensez à remplir une bouteille la veille au soir. Nous sommes désolés pour la gêne occasionnée.
+Suite à une fuite sur le réseau, l'eau sera coupée mardi 22 avril de 9h à 13h . Pensez à remplir une bouteille la veille au soir. Nous sommes désolés pour la gêne occasionnée
 Zone : rue des Platanes
 Priorité : Urgente
 Pendant 48 h
 Publier sur les canaux actifs
-Site mairie
-Live
-Urgente : coupure d'eau rue des Platanes, mardi 9h-13h.
-Email
-312 inscrits
+Site mairie En ligne
+Urgente : coupure d'eau rue des Platanes, mardi 9h-13h
+Email 312 inscrits
 Objet : Coupure d'eau, rue des Platanes, mardi matin
 WhatsApp
-Bientôt
-Diffusion WhatsApp Business : en préparation, disponible courant 2026.
-SMS
-Bientôt
-SMS certifié opérateur : en préparation, disponible courant 2026.
+Diffusion WhatsApp : en préparation
 Alertes Intelligentes
-Les campagnes alimentent aussi le flux d'alertes de votre commune.
-Coupure eau, rue des Platanes
-Conseil municipal reporté au 24/04
-Marché samedi 8h-13h maintenu
+Les campagnes alimentent aussi le flux d'alertes de votre commune
+Urgent : coupure eau, rue des Platanes
+Important : conseil municipal reporté au 24/04
+Info : marché samedi 8h-13h maintenu
 Diffuser n'est pas répondre
-Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent ; un seul crée le dialogue.
+Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent ; un seul crée le dialogue
 Voir le comparatif 2026
-3 s
-pour répondre, jour et nuit, avec la source citée.
-100%
-des réponses adossées aux documents de votre commune. Zéro poste supprimé.
-24/7
-disponible. Dimanche, férié, 3 h du matin.
-7 j
-pour déployer. Sans cahier des charges à 40 pages.
-Pour qui ?
+3 s pour répondre, jour et nuit, avec la source citée
+100 % des réponses adossées aux documents de votre commune. Zéro poste supprimé
+24/7 disponible. Dimanche, férié, 3 h du matin
+7 j pour déployer. Sans cahier des charges à 40 pages
 Côté citoyen, côté mairie :
 un seul outil
 Pour le citoyen
 Une réponse, pas un répondeur
-Fini les aller-retour en mairie. Une question, une réponse claire, avec la source de l'information.
+Fini les allers-retours en mairie. Une question, une réponse claire, avec la source de l'information
 Disponible 24 h/24, même dimanche et jours fériés
 Réponses signées avec la source officielle (PLU, arrêté…)
-Vouvoiement, ton institutionnel, pas de robotique
-Accessible par le site ou QR code mairie
+Vouvoiement, ton institutionnel, rien de robotique
+Sur le site, sur smartphone ou par QR code en mairie, et bientôt sur WhatsApp et Messenger
 Pour le maire & le DGS
 Recentrez vos agents sur ce qui compte
-70 à 80 % des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la différence.
-Dashboard : toutes les questions, zones de doute repérées
+70 à 80 % des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la différence
+Tableau de bord : toutes les questions, zones de doute repérées
 Campagnes Citoyennes : informer sans saturer
 Alertes Intelligentes : voirie, météo, travaux
-Budget maîtrisé, sous le seuil des marchés publics
-Comparer avant de choisir
+Budget maîtrisé, sous le seuil de mise en concurrence
 Trois familles d'outils,
 une seule fait tout
-Panneaux de diffusion, chatbots génériques, plateforme citoyenne : voici ce que chaque famille sait faire, pour choisir en connaissance de cause.
+Panneaux de diffusion, chatbots génériques, plateforme citoyenne : voici ce que chaque famille sait faire, pour choisir en connaissance de cause
+Ce que savent faire Marianne, les outils de diffusion et les chatbots génériques
 Ce dont votre commune a besoin
 Marianne
 Outils de diffusion
 Chatbots génériques
-Répondre aux questions de chaque citoyen, 24 h/24 ✓ ✗ ✓
-Diffuser alertes et campagnes sur plusieurs canaux ✓ ✓ ✗
-Réponses sourcées sur vos documents (PLU, arrêtés, délibérations) ✓ ✗ ±
-IA souveraine affichée : modèle français, hébergement UE ✓ ± ±
-Cockpit de pilotage pour le maire et les élus ✓ ± ±
-Aucun compte ni application imposés au citoyen ✓ ✗ ±
-✓ inclus · ± partiel, en option ou selon éditeur · ✗ pas prévu pour cela. Lecture par grandes familles d'outils du marché 2026.
+Répondre aux questions de chaque citoyen, 24 h/24 ✓ Inclus ✗ Pas prévu pour cela ✓ Inclus
+Diffuser alertes et campagnes sur plusieurs canaux ✓ Inclus ✓ Inclus ✗ Pas prévu pour cela
+Réponses sourcées sur vos documents (PLU, arrêtés, délibérations) ✓ Inclus ✗ Pas prévu pour cela ± Partiel
+Formé sur l'intégralité du site de la commune ✓ Inclus ✗ Pas prévu pour cela ± Partiel
+Multicanal : site, application mobile, QR code ✓ Inclus ± Partiel ± Partiel
+IA souveraine affichée : modèle français, hébergement UE ✓ Inclus ± Partiel ± Partiel
+Cockpit de pilotage pour le maire et les élus ✓ Inclus ± Partiel ± Partiel
+Aucun compte ni application imposés au citoyen ✓ Inclus ✗ Pas prévu pour cela ± Partiel
+✓ inclus ± partiel, en option ou selon éditeur ✗ pas prévu pour cela Lecture par grandes familles d'outils du marché 2026
 Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket, Generia)
-Stack souveraine
-100 % européen. Point.
-Aucune donnée ne quitte l'Europe. Aucune extraterritorialité américaine.
-OVHcloud Hébergement France
+Le cerveau de Marianne est 100 % européen
+Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres modèles
+OVHcloud Hébergement en Europe
 Mistral AI Moteur IA européen
 BAN Gouv. Adresses officielles
-Tarifs transparents · HT
+Tarifs transparents, hors taxes
 Taillé pour
 votre commune
-Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil des marchés publics.
+Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil de mise en concurrence
 Programme Partenaires Fondateurs · 10 places communes + 3 EPCI
-Pilote symbolique 9,99 €/mois pendant 3 mois, puis tarif tier normal garanti 3 ans .
-Setup offert (sinon 999 €) · Droit de regard produit · Statut Ambassadeur Civik-ia officiel. Au-delà des 10 places communes, tarif tier normal sans pilote.
-Prendre l'une des 10 places →
+Pilote symbolique 9,99 €/mois pendant 3 mois, puis tarif normal de votre offre, garanti 3 ans
+Mise en service offerte (sinon 999 €) · Droit de regard produit · Statut Ambassadeur Civik-ia officiel. Au-delà des 10 places communes, tarif normal, sans pilote
+Prendre l'une des 10 places
 Pour démarrer
 Essentiel
 Communes < 5 000 habitants
 49 €/mois HT · garanti 3 ans pour les Fondateurs
-Pilote 9,99 €/mois × 3 mois
+Pilote 9,99 €/mois × 3 mois
 Chatbot IA formé sur vos docs
-Dashboard questions
+Tableau de bord des questions
 2 Campagnes Citoyennes/an incluses
 Alertes Intelligentes
 Support email
-Commencer
-Le plus choisi
+Commencer avec l'offre Essentiel
+Recommandé
 Engagement
 Communes 5 000 à 20 000 hab.
 99 €/mois HT · garanti 3 ans pour les Fondateurs
-Pilote 9,99 €/mois × 3 mois
+Pilote 9,99 €/mois × 3 mois
 Tout Essentiel, +
 4 Campagnes Citoyennes/an
 Support prioritaire
-SMS inclus (alertes prioritaires)
-Commencer
+Commencer avec l'offre Engagement
 Communes-villes
 Pilotage
 Communes 20 000 à 50 000 hab.
 199 €/mois HT · garanti 3 ans pour les Fondateurs
-Pilote 9,99 €/mois × 3 mois
+Pilote 9,99 €/mois × 3 mois
 Tout Engagement, +
 6 Campagnes Citoyennes/an
 Cockpit narratif IA hebdo (Q4 2026)
 Connecteurs métier (Q4 2026)
 Formation agents + portail aide
-Commencer
+Commencer avec l'offre Pilotage
 Sur mesure
 Sur devis
 > 50 000 hab. & intercommunalités
@@ -385,81 +438,37 @@ SLA renforcé
 SSO & connecteurs métier
 Chef de projet dédié
 Parler à un humain
-Aujourd'hui... et demain !
-Marianne travaille déjà pour votre commune. Et elle ne s'arrête pas là.
-Voici notre promesse, en trois temps : ce que vous recevez dès la signature en pilote symbolique (9,99 €/mois pendant 3 mois), ce qui arrive avant la bascule au tarif garanti 3 ans, et ce qu'on construit ensuite avec vous.
-✓ Aujourd'hui
-Chatbot Marianne 24/7 sur votre commune
-Knowledge base personnalisée (vos horaires, démarches, contacts)
-Alertes Intelligentes (travaux, fermetures, événements)
-Démarches Cerfa pré-remplies (5 démarches V1)
-Campagnes Citoyennes (étoiles, oui/non, NPS, texte libre)
-Co-design DGS en 30 min (overrides locaux par commune)
-→ Très vite (avant le 25/08/2026)
-Inbox Agent multi-utilisateur (3 rôles : admin / agent / lecteur)
-Connexion sécurisée par lien magique (sans mot de passe)
-KPIs élu calculés en temps réel (5 indicateurs)
-Signalements citoyens (photo + texte + géoloc + suivi)
-Démarches Cerfa avec signature électronique + transmission auto
-Portail aide intégré (FAQ + vidéos tutos)
-Demain (Q4 2026, inclus tarif Pilotage)
-Authentification FranceConnect
-Cockpit narratif IA hebdomadaire (résumé Marianne)
-Connecteurs métier (SharePoint, M365, BL, JVS)
-Carte vivante des signalements (lecture publique)
-SSO Google Workspace / Microsoft 365
-Multi-EPCI agrégé (tier Souverain)
-Les 10 communes Partenaires Fondateurs orientent cette feuille de route en priorité : vous décidez ce qu'on construit en premier. Statut Ambassadeur Civik-ia officiel, tarif garanti 3 ans.
-Questions fréquentes
+Pas de site internet ? Nous pouvons vous en créer un. Parlons-en
+Vous cherchez comment financer l'abonnement ? Les aides et cofinancements à connaître
 Vos questions,
 sans langue de bois
+Qu'est-ce que Marianne ?
+Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24 h/24 à partir du site officiel de la commune et des documents que la mairie lui transmet (PLU, arrêtés, délibérations), et cite la source de chaque réponse. Hébergement en Europe, tarifs dès 49 € HT par mois
 Est-ce que le chatbot remplace nos agents ?
-Non, au contraire. Marianne absorbe les 70 à 80 % de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes : les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent.
+Non, au contraire. Marianne absorbe les 70 à 80 % de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes : les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent
 Et si l'IA se trompe ou « hallucine » ?
-Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations.
-Nos données restent-elles en France ?
-Oui, intégralement. Hébergement OVHcloud en Europe. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune extraterritorialité américaine. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles.
+Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations
+Marianne est-elle vraiment formée sur tout notre site ?
+Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit : une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, une alerte publiée depuis votre espace est connue de Marianne aussitôt
+Nous n'avons pas de site internet. Est-ce un problème ?
+Non. Civik-ia peut aussi concevoir le site de votre commune, avec Marianne intégrée. Cette offre est nouvelle : parlons-en lors de votre démonstration
+Nos données restent-elles en Europe ?
+Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. Seule particularité, détaillée plus bas : sur WhatsApp et Messenger, quand ils ouvriront, les messages transiteront par Meta
+WhatsApp et Messenger : où vont les données ?
+Sur WhatsApp et Messenger, canaux à venir, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta
+Faut-il télécharger une application ?
+Non, rien n'est imposé : Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran d'accueil
 Combien de temps pour déployer ?
-7 jours en moyenne. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout.
+7 jours. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout
 Comment cela se passe côté marchés publics ?
-Nos tarifs (49 à 199 €/mois) restent sous le seuil de dispense de publicité et mise en concurrence (40 000 € HT sur 4 ans). Un simple bon de commande suffit, sans cahier des charges. Au-delà de 50 000 habitants, nous établissons un devis sur-mesure.
+Même en offre Pilotage, quatre ans d'abonnement et la mise en service restent très en dessous du seuil sous lequel une commune peut acheter sans publicité ni mise en concurrence (article R2122-8 du code de la commande publique). Aucun cahier des charges n'est imposé : un devis signé, avec nos conditions générales et l'accord sur les données personnelles, suffit ; votre commune applique ses propres règles d'achat. Au-delà de 50 000 habitants, nous établissons un devis sur mesure
 Et si nos citoyens n'ont pas Internet ?
-Civik-ia propose dès aujourd'hui des QR codes imprimables à poser en mairie et sur les panneaux municipaux. WhatsApp Business et SMS certifié opérateur arrivent courant 2026 , ainsi qu'une interface téléphonique. Le canal suit le citoyen, pas l'inverse.
-Programme Ambassadeur
-Recommandez Civik-ia,
-gagnez des mois offerts
-Vous utilisez la Plateforme et vous en êtes satisfait ? Recommandez Civik-ia à une commune voisine et bénéficiez d'avantages exclusifs.
-1
-1ᵉʳ parrainage
-1 mois d'abonnement offert
-2
-2ᵉ parrainage
-2 mois d'abonnement offerts
-3
-3ᵉ parrainage
-3 mois d'abonnement offerts
-4+
-4ᵉ parrainage et plus
-4 mois offerts (plafond) + statut Ambassadeur Civik-ia
-Avantage filleul : la commune parrainée bénéficie de la mise en service offerte (Programme Partenaires Fondateurs, 10 places).
-Votre commune (parrain)
-Nom de votre commune
-Votre nom et fonction
-Votre email
-Commune recommandée (filleul)
-Nom de la commune recommandée
-Nom du contact (si connu)
-Email du contact (si connu)
-Un mot pour la commune recommandée (optionnel)
-Envoyer ma recommandation
-Merci pour votre recommandation !
-Nous contacterons la commune recommandée sous 48h en mentionnant votre parrainage.
-Parlons de votre commune
-Offrez à vos citoyens
-la mairie qu'ils méritent
-Une question ? Une idée ? Prêt pour une démo personnalisée ? Nous répondons sous 24h.
-Nom*
-Prénom*
+L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un proche
+Alors, une mairie ouverte 24 h/24,
+ça vous tente ?
+Une question ? Une idée ? Prêt pour une démo personnalisée ? Nous répondons sous 24h
+Nom *
+Prénom *
 Poste / Fonction
 Choisir
 Maire
@@ -467,40 +476,39 @@ DGS / Directeur général
 Élu
 Agent / Secrétariat
 Autre
-Email*
+Email *
 Téléphone
-Votre Commune*
+Votre Commune *
 Nombre d'habitants
 Votre message
+* champs obligatoires
 Envoyer
 Votre message a bien été envoyé !
-Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration personnalisée.
-Préférez télécharger notre Livre Blanc Civik-ia 2026 : 8 pages pour comprendre l'IA et les collectivités.
-Prêt ? Il est maintenant .
+Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration personnalisée
+Vous préférez lire avant d'échanger ? Téléchargez notre Livre Blanc Civik-ia 2026 : 12 pages pour savoir ce qu'un assistant IA de mairie doit faire, ce qu'il coûte, et ce qu'il faut exiger avant de signer. Ou écrivez-nous sur WhatsApp (nouvelle fenêtre)
+Prêt ? Il est 22 h 47
 Votre mairie,
 disponible dès lundi
-Démo personnalisée en 20 minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous voulez.
+Démo personnalisée en 20 minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous voulez
 Demander une démo
-Télécharger le livre blanc →
+Télécharger le livre blanc
+22:47
+Mairie de Villeneuve-les-Ormes En ligne, 24 h/24
+Bonsoir. La mairie est fermée, mais je suis là. Quelle est votre question ?
+Posez votre question
 Aller plus loin
-Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie,
-combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée.
-Chatbot pour mairie : guide complet
-Comment ça marche, ce que ça change pour vos agents, et pourquoi 24 h/24 fait la différence sur le service rendu aux citoyens.
-Combien coûte un chatbot mairie ?
-Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Pilote Partenaires Fondateurs : 9,99 €/mois × 3 mois (10 places).
-Chatbot commune rurale
-Pensé pour les communes de moins de 5 000 habitants. Pas de site web ? Pas de problème : la plateforme se substitue ou se greffe à l'existant.
-Campagnes Citoyennes
-Notre différenciateur. Sondages éclair, votes participatifs, retours d'expérience, directement intégrés au chatbot. Aucun fichier nominatif (RGPD natif).
-Démo interactive
-Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements : toutes les questions citoyennes typiques.
-Campagne 22h47
-L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme.
-Marianne en service :
-Rive-de-Gier (42800) ·
-Tarare (69170)
-La Plateforme d'Intelligence Citoyenne pour les mairies françaises. Souveraine, RGPD native, disponible 24h/24. Marianne est une marque de la maison Civik-ia.
+Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée
+Chatbot pour mairie : guide complet Comment ça marche, ce que ça change pour vos agents, et pourquoi 24 h/24 fait la différence sur le service rendu aux citoyens
+Combien coûte un chatbot mairie ? Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Pilote Partenaires Fondateurs : 9,99 €/mois × 3 mois (10 places)
+Chatbot commune rurale Pensé pour les communes de moins de 5 000 habitants. Pas de site web ? Pas de problème : la plateforme se substitue ou se greffe à l'existant
+Campagnes Citoyennes Notre différenciateur. Sondages éclair, votes participatifs, retours d'expérience, directement intégrés au chatbot. Aucun fichier nominatif (RGPD natif)
+Démo interactive Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements : toutes les questions citoyennes typiques
+Campagne 22h47 L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme
+Financer l'IA de sa commune Cofinancement et aides 2026 pour l'IA d'une commune : ce qui s'applique, et ce qui ne s'applique pas
+Communiquer avec ses citoyens Panorama 2026 des canaux d'une mairie : site, application, panneau, chatbot IA
+Démarches en ligne d'une commune Par où commencer pour proposer des démarches en ligne dans une petite commune
+Page mise à jour le 30 septembre 2026
+La Plateforme d'Intelligence Citoyenne pour les mairies françaises. Souveraine, RGPD native, disponible 24h/24. Marianne est une marque de la maison Civik-ia
 Produit
 La maison Civik-ia
 Comment ça marche
@@ -511,7 +519,6 @@ Livre blanc 2026
 Ressources
 FAQ
 Campagne 22h47
-Parrainage
 Chatbot mairie
 Commune rurale
 Prix chatbot
@@ -524,16 +531,15 @@ Chatbot mairie en Loir-et-Cher
 Chatbot mairie en Hérault
 Contact
 contact@civik-ia.fr
-WhatsApp
-LinkedIn
-Instagram
-X (Twitter)
-Facebook
+WhatsApp (nouvelle fenêtre)
+LinkedIn (nouvelle fenêtre)
+Instagram (nouvelle fenêtre)
+X (Twitter) (nouvelle fenêtre)
+Facebook (nouvelle fenêtre)
 Prendre RDV
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE) · Données traitées en Europe
-Mentions légales · CGV · Confidentialité · RGPD · Accessibilité
-Assistant Civik-ia
-En ligne · répond tout de suite
+Mentions légales · CGV · Confidentialité · RGPD · Accessibilité · Arrêter les animations
+Assistant Civik-ia En ligne · répond tout de suite
 ×
 Envoyer
 
@@ -2480,26 +2486,26 @@ Démo
 
 ## Livre Blanc 2026 : Chatbot IA pour Mairies, Civik-ia
 URL : https://civik-ia.fr/livre-blanc.html
-Resume : Téléchargez le Livre Blanc Civik-ia 2026 : guide complet du chatbot IA pour mairies. Conformité RGPD, ROI, comparatifs, retours d'expérience.
+Resume : Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pour mairies. Sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser.
 
 Livre Blanc 2026 : Chatbot IA pour Mairies, Civik-ia
 C
 Civik-ia Plateforme d'Intelligence Citoyenne
 Livre Blanc · Édition 2026
 Le guide du chatbot IA pour mairies françaises
-30 pages opérationnelles pour comprendre comment équiper votre commune d'une assistante IA souveraine, conforme RGPD, et rentable dès la première année.
-Pourquoi équiper sa mairie d'un chatbot IA en 2026
-Comparatif détaillé des 5 solutions du marché français
-Calcul ROI précis pour 4 strates de communes
-Checklist RGPD pour votre DPO (téléchargeable)
-Retours d'expérience de communes pilotes rurales
-Grille de décision en 3 questions pour choisir
+Douze pages pour savoir ce qu'un assistant IA de mairie doit faire, ce qu'il coûte, et ce qu'il faut exiger avant de signer. Sans témoignage ni chiffre invérifiable : des exigences, une check-list et des questions à poser
+Sept exigences pour un assistant de mairie, et comment les vérifier en démonstration
+Trois familles d'outils comparées, ligne par ligne
+La check-list RGPD à remettre à votre DPO
+Budget sur quatre ans et règles de la commande publique
+Une méthode pour calculer le temps rendu à votre secrétariat
+Douze questions à poser à tout fournisseur, et trois pour décider
 T
 Thibaut HARANG
 Fondateur Civik-ia · SASU SIREN 103 568 416
-Document mis à jour en mai 2026 · Sources publiques vérifiées
+Document mis à jour le 30 septembre 2026 · Textes de loi vérifiés à cette date
 Téléchargez votre exemplaire
-Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 30 pages, 2,8 Mo).
+Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).
 Prénom *
 Nom *
 Email professionnel *
@@ -2516,27 +2522,30 @@ Prestataire / Consultant
 Journaliste / Presse
 Autre
 Commune / EPCI
-📥 Télécharger le PDF (30 pages)
+Télécharger le PDF (12 pages)
 En cliquant, vous acceptez que vos coordonnées soient utilisées par Civik-ia pour vous transmettre le Livre Blanc et, occasionnellement, vous informer de nos nouveautés. Vous pouvez vous désinscrire à tout moment. Politique de confidentialité .
 ✓ Merci !
 Votre Livre Blanc se télécharge automatiquement. Vous l'avez aussi reçu par email.
 Cliquez ici si le téléchargement n'a pas démarré
 Ce que vous allez lire
-Chapitre 1 : État des lieux
-Combien d'appels reçoivent vraiment les mairies en France selon la strate démographique ? Quel coût agent réel ?
-Chapitre 2 : Comparatif marché
-Civik-ia, dydu, Citia, Generia, PanneauPocket : tableau objectif de 12 critères avec analyse par solution.
-Chapitre 3 : Conformité RGPD
-Bases légales applicables, registre des traitements, AIPD, droits des citoyens. Checklist DPO.
-Chapitre 4 : Souveraineté IA
-Pourquoi Mistral AI plutôt qu'OpenAI ou Google. Cloud Act, Schrems II, alternatives européennes.
-Chapitre 5 : Calcul ROI
-4 grilles de calcul selon la strate démographique de votre commune. Économies, payback, ROI à 3 ans.
-Chapitre 6 : Témoignages
-Retours d'expérience de nos communes pilotes rurales, de 350 à 7 800 habitants.
-Construite avec des communes pilotes rurales
-🏛️ 4 communes pilotes · de 350 à 7 800 hab
-🏛️ 3 départements · Loir-et-Cher, Aube, Hérault
+1. La question de 22 h 47
+Ce que coûtent à une commune les questions qui arrivent quand la mairie est fermée, et ce qu'un assistant peut faire ou non
+2. Sept exigences
+Répondre à partir de vos documents, citer sa source, dire qu'il ne sait pas, rester à jour : ce qu'il faut exiger, et comment le vérifier vous-même
+3. Trois familles d'outils
+Outils de diffusion, chatbots génériques, plateformes citoyennes : ce que chaque famille sait faire
+4. La check-list du DPO
+Rôles, base légale, registre, information des habitants, hébergement, fin de contrat : onze points à cocher avant de signer
+5. Budget et commande publique
+Le coût total sur quatre ans, le seuil de dispense de mise en concurrence et ce qu'il n'autorise pas
+6. La méthode de calcul
+Compter les demandes répétitives, les convertir en heures, mesurer après trois mois. Avec vos chiffres, pas les nôtres
+7. Une semaine dans une commune fictive
+Un scénario construit sur une commune de démonstration. Aucun retour de commune n'y figure : Marianne est aujourd'hui présentée en démonstration et en test
+8. Douze questions à poser
+À poser à tout fournisseur, Civik-ia compris, et trois questions pour décider
+9. Marianne en bref
+Fonctionnement, canaux disponibles et à venir, tarifs
 Accueil
 Chatbot mairie
 Comparatif

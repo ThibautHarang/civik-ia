@@ -54,10 +54,6 @@ const cbKnowledge = [
     {
         keywords: ['souverain', 'h\u00e9bergement', 'serveur', 'ovh', 'donn\u00e9e', 'usa', 'am\u00e9ricain'],
         response: 'Infrastructure 100% souveraine : serveurs <strong>OVHcloud en Europe</strong>, IA <strong>Mistral AI</strong> (entreprise fran\u00e7aise). Aucune donn\u00e9e ne quitte l\'UE. Aucune d\u00e9pendance \u00e0 un \u00e9diteur am\u00e9ricain (pas de Cloud Act). L\'IA est entra\u00een\u00e9e sur vos sources souveraines (L\u00e9gifrance, arr\u00eat\u00e9s locaux, PLU). Conforme RGPD et RGAA.'
-    },
-    {
-        keywords: ['parrain', 'parrainage', 'recommander', 'recommandation', 'r\u00e9duction', 'ambassadeur'],
-        response: 'Notre <strong>programme Parrainage</strong> r\u00e9compense les communes qui recommandent Civik-ia ! 1re recommandation = 1 mois offert, 2e = 2 mois, 3e = 3 mois, 4e et + = 4 mois offerts + statut Ambassadeur. La commune recommand\u00e9e b\u00e9n\u00e9ficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs). <a href="#parrainage" onclick="scrollToSection(\'parrainage\');toggleChatbot();" style="color:var(--secondary-innov);font-weight:700;">D\u00e9couvrir le programme</a> !'
     }
 ];
 

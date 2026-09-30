@@ -540,7 +540,7 @@ html.scrub .hero__passer{display:inline-flex;position:absolute;right:max(5vw,cal
 html.scrub .hero__passer:hover{background:#fff}
 html.scrub .hero--fin .hero__passer{visibility:hidden}
 
-/* ---- finitions d'interaction (check-list de Rauno, rapport DDC du 30/09/2026) ----
+/* ---- finitions d'interaction ----
    appui : le bouton s'enfonce un peu ; survol : reserve aux ecrans qui ont un vrai pointeur */
 .btn:active,.nav__cta:active,.puce:active,.ress__c:active{transform:scale(.97);transition-duration:.12s}
 @media (hover:none){.btn:hover,.puce:hover,.ress__c:hover,.nav__cta:hover{transform:none}.btn:hover svg{transform:none}}
@@ -1081,13 +1081,12 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="hero__scene" id="heroScene">
 
     <!-- Visuel plein cadre : le village de jour, le village de nuit (meme image, 1990 x 1075).
-         Fichiers provisoires tires de la gravure maison : voir marianne/assets/hero/README-assets.md.
+         Images tirees de la gravure maison.
          Pour activer la video, poser hero-scrub.mp4 puis passer data-video a "1". -->
     <div class="hero__art" aria-hidden="true" data-video="0">
       <div class="hero__cadre">
         <!-- La nuit est dessous, le jour dessus : le jour s'efface au defilement. Dans cet ordre, l'image de nuit est
-             peinte des son chargement ; posee au-dessus et devoilee plus tard, elle retardait la mesure du LCP de
-             plusieurs secondes sur telephone (6,3 s mesurees le 30/09/2026). -->
+             peinte des son chargement. -->
         <picture>
           <source type="image/avif" srcset="/marianne/assets/hero/village-nuit-900.avif 900w, /marianne/assets/hero/village-nuit-1200.avif 1200w, /marianne/assets/hero/village-nuit-1600.avif 1600w, /marianne/assets/hero/village-nuit.avif 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
           <source type="image/webp" srcset="/marianne/assets/hero/village-nuit-900.webp 900w, /marianne/assets/hero/village-nuit-1200.webp 1200w, /marianne/assets/hero/village-nuit-1600.webp 1600w, /marianne/assets/hero/village-nuit.webp 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
@@ -1265,16 +1264,12 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 
     <div class="savoir__bas">
       <div class="savoir__texte">
-        <!-- Tranche par Thibaut le 30/09/2026 : « chaque nuit » convient. Etat reel (ADR 0048) : la couche site est relue
-             chaque nuit, et le lecteur ne lit aujourd'hui que les sites WordPress et les PDF natifs. Ne pas ecrire
-             « en temps reel » pour le site ; seule l'alerte publiee depuis l'espace mairie est immediate. -->
+        <!-- Le site de la commune est relu chaque nuit ; une alerte publiee par la mairie est prise en compte aussitot -->
         <p>Marianne s'appuie d'abord sur <strong>le site officiel de votre commune</strong>&nbsp;: ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez&nbsp;: PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu</p>
         <p><strong>Vous modifiez votre site&nbsp;?</strong> Marianne le relit chaque nuit&nbsp;: ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir. Et pour une urgence, une alerte publiée depuis votre espace est prise en compte aussitôt</p>
       </div>
 
-      <!-- Offre de creation de site (Thibaut, 30/09/2026) : titre et texte de la DAJF, encart publie des maintenant pour
-           tester le marche ; l'objet social elargi est en cours de signature. Aucun prix affiche. Ne jamais ecrire
-           « conforme RGAA » ni promettre un delai : le devis fixe le perimetre. -->
+      <!-- Creation de site : offre sur devis, aucun prix affiche -->
       <aside class="creer" aria-labelledby="creerTitre">
         <div>
           <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? <br>Nous pouvons vous en créer un</h3>
@@ -1358,8 +1353,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     </div>
     <p class="preuves__note">Exemples sur Villeneuve-les-Ormes, notre commune de démonstration</p>
 
-    <!-- [À CONFIRMER] Coherence avec la question de la FAQ « Et si l'IA se trompe ? », et remontee
-         de la question dans le tableau de bord (« zones de doute » du cockpit). -->
     <div class="doute">
       <div class="doute__texte">
         <h3 class="h3">Et quand elle ne sait pas&nbsp;?</h3>
@@ -1395,9 +1388,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       </div>
 
       <ul class="canaux__piste" id="canauxPiste" aria-label="Les canaux de Marianne">
-        <!-- Valide par Thibaut le 30/09/2026. « Sur votre site » : ce qui est servi aujourd'hui est un bouton et un onglet qui ouvrent
-             Marianne (page dediee, iframe, PWA). La bulle de conversation integree (widget JS) est en construction
-             (table des canaux du socle). Le texte ci-dessous ne promet que le bouton et l'onglet. -->
+        <!-- Sur le site de la mairie : un bouton et un onglet qui ouvrent Marianne -->
         <li class="canal" data-canal="site">
           <div class="canal__ecran" aria-hidden="true">
             <div class="nav-mini ecr-site">
@@ -1476,8 +1467,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       </div>
     </div>
 
-    <!-- Mention Meta (regle de coherence souverainete). « en Europe » et non « en France » : le datacenter OVH
-         utilise est en Allemagne (CONTEXT.md, audit du 30/09/2026). Valide par Thibaut le 30/09/2026. -->
+    <!-- Mention Meta : affichee tant que WhatsApp ou Messenger est annonce -->
     <p class="canaux__note" id="noteMeta" data-meta>Sur WhatsApp et Messenger, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta</p>
   </div>
 </section>
@@ -1720,8 +1710,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 
 <!-- =====================================================================
      6.11 STACK SOUVERAINE
-     « 100 % européen » : titre conserve (Thibaut, 30/09/2026). Les sous-traitants de Mistral n'ont pas ete relus
-     (INCIDENTS.md). Hebergement ecrit « en Europe » (datacenter OVH en Allemagne), jamais « en France ».
      ===================================================================== -->
 <section class="stack" aria-labelledby="stackTitre">
   <div class="stack__in">
@@ -1739,7 +1727,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 
 <!-- =====================================================================
      6.12 TARIFS + PARTENAIRES FONDATEURS
-     Grille reprise mot pour mot. Une seule ligne retiree, dans l'offre Engagement (canal qui n'existe pas).
      ===================================================================== -->
 <section class="sec" id="pricing">
   <div class="wrap">
@@ -1842,7 +1829,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <summary>Et si l'IA se trompe ou « hallucine »&nbsp;?</summary>
         <div>Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations</div>
       </details>
-      <!-- « Chaque nuit », valide par Thibaut le 30/09/2026 : voir la note de la section Connaissance. -->
+      
       <details>
         <summary>Marianne est-elle vraiment formée sur tout notre site&nbsp;?</summary>
         <div>Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit&nbsp;: une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, une alerte publiée depuis votre espace est connue de Marianne aussitôt</div>
@@ -1867,10 +1854,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <summary>Combien de temps pour déployer&nbsp;?</summary>
         <div>7 jours. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout</div>
       </details>
-      <!-- Texte de la DAJF (avis du 30/09/2026, 00-Ecosysteme/avis/2026-09-30-dajf-page-marianne-site-seuil-parrainage.md).
-           Le seuil verifie sur Legifrance le 30/09/2026 est de 60 000 € HT (R2122-8, depuis le 01/04/2026). Le montant
-           n'est pas ecrit dans la page : il change, et Thibaut n'y tient pas. Ne pas reecrire « seuil des marches publics »
-           (tout contrat d'une commune est un marche public) ni « un simple bon de commande suffit ». -->
+      
       <details>
         <summary>Comment cela se passe côté marchés publics&nbsp;?</summary>
         <div>Même en offre Pilotage, quatre ans d'abonnement et la mise en service restent très en dessous du seuil sous lequel une commune peut acheter sans publicité ni mise en concurrence (article R2122-8 du code de la commande publique). Aucun cahier des charges n'est imposé&nbsp;: un devis signé, avec nos conditions générales et l'accord sur les données personnelles, suffit&nbsp;; votre commune applique ses propres règles d'achat. Au-delà de 50&nbsp;000 habitants, nous établissons un devis sur mesure</div>

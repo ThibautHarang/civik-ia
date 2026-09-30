@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v161-page-herault-2026-09-30';
+const CACHE_NAME = 'civik-ia-v162-bon-de-commande-2026-09-30';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

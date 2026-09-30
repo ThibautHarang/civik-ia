@@ -184,7 +184,7 @@
             background: rgba(0,0,145,0.03);
         }
 
-        /* ── Setup & parrainage ── */
+        /* ── Setup ── */
         .setup-line {
             display: flex;
             justify-content: space-between;
@@ -197,40 +197,6 @@
         }
         .setup-line .label { font-weight: 700; }
         .setup-line .amount { font-weight: 800; font-size: 15px; color: var(--primary-gov); }
-
-        .parrainage-box {
-            margin-top: 16px;
-            padding: 14px 18px;
-            border: 1.5px dashed var(--accent-teal);
-            border-radius: 8px;
-            background: rgba(46,196,182,0.03);
-        }
-        .parrainage-box .parrainage-check {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .parrainage-box .parrainage-detail {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-        .parrainage-sponsor {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        .parrainage-sponsor label {
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .parrainage-sponsor .field-line {
-            flex: 1;
-            border-bottom: 1.5px solid var(--border-light);
-            min-height: 24px;
-        }
 
         /* ── Recap ── */
         .recap-table {
@@ -542,21 +508,6 @@
             <div class="setup-line">
                 <span class="label">Mise en service (personnalisation, formation, configuration)</span>
                 <span class="amount">999 &euro; HT</span>
-            </div>
-
-            <!-- ── PARRAINAGE ── -->
-            <div class="parrainage-box">
-                <div class="parrainage-check">
-                    <span class="offer-checkbox"></span>
-                    <div>
-                        <span class="offer-label">Programme Parrainage</span><br>
-                        <span class="parrainage-detail">Mise en service réduite à <strong style="color: var(--accent-teal);">799 &euro; HT</strong> au lieu de 999 &euro; HT (économie de 200 &euro;)</span>
-                    </div>
-                </div>
-                <div class="parrainage-sponsor">
-                    <label>Collectivité parrain :</label>
-                    <div class="field-line"></div>
-                </div>
             </div>
 
             <!-- ── RECAPITULATIF ── -->

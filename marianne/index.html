@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Le script qui suit lit la largeur de l'ecran : il doit rester APRES la balise viewport, sinon un telephone
+     se mesure a 980 px, prend le mode grand ecran, puis la page saute quand marianne.js corrige. -->
 <!-- Mode d'affichage du hero, decide avant le premier rendu : "scrub" = grand ecran, animations acceptees.
      Sans ce script (ou si marianne.js ne charge pas), la page garde sa version statique, complete et lisible. -->
-<script>(function(d){var c=d.documentElement.classList;c.add('js');try{if(matchMedia('(prefers-reduced-motion:reduce)').matches||localStorage.getItem('marianne-anim')==='non')c.add('anim-non');else if(matchMedia('(min-width:900px) and (min-height:560px)').matches)c.add('scrub')}catch(e){}})(document)</script>
+<script>(function(d){var c=d.documentElement.classList;c.add('js');try{if(matchMedia('(prefers-reduced-motion:reduce)').matches||localStorage.getItem('marianne-anim')==='non')c.add('anim-non');else if(matchMedia('(min-width:900px) and (min-height:560px)').matches&&window.CSS&&CSS.supports('color','color-mix(in srgb, red 50%, blue)'))c.add('scrub')}catch(e){}})(document)</script>
 <!-- Mesure d'audience (Google Analytics) chargee uniquement apres consentement, CNIL art. 82 -->
 <script src="/cookie-consent.js" defer></script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia</title>
 <meta name="description" content="Chatbot IA souverain pour mairies : Marianne répond aux administrés 24h/24, sans inscription, conforme RGPD. Modèle français Mistral, dès 49 €/mois HT.">
 <meta name="author" content="Civik-ia">
@@ -139,15 +141,15 @@
   "mainEntity": [
     { "@type": "Question", "name": "Est-ce que le chatbot remplace nos agents ?", "acceptedAnswer": { "@type": "Answer", "text": "Non, au contraire. Marianne absorbe les 70 à 80 % de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes : les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent." } },
     { "@type": "Question", "name": "Et si l'IA se trompe ou « hallucine » ?", "acceptedAnswer": { "@type": "Answer", "text": "Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations." } },
-    { "@type": "Question", "name": "Marianne est-elle vraiment formée sur tout notre site ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit : une page modifiée aujourd'hui est prise en compte dès le lendemain matin." } },
+    { "@type": "Question", "name": "Marianne est-elle vraiment formée sur tout notre site ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit : une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, une alerte publiée depuis votre espace est connue de Marianne aussitôt." } },
     { "@type": "Question", "name": "Comment le citoyen sait-il d'où vient la réponse ?", "acceptedAnswer": { "@type": "Answer", "text": "Chaque réponse affiche sa source : page du site, arrêté, délibération ou article du PLU, consultable en un clic." } },
     { "@type": "Question", "name": "Nous n'avons pas de site internet. Est-ce un problème ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Nous pouvons vous créer un site communal simple, lisible sur téléphone, avec Marianne dès le départ. Parlons-en lors de votre démo." } },
     { "@type": "Question", "name": "Nos données restent-elles en Europe ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. Seule particularité, détaillée plus bas : sur WhatsApp et Messenger, les messages transitent par Meta." } },
     { "@type": "Question", "name": "WhatsApp et Messenger : où vont les données ?", "acceptedAnswer": { "@type": "Answer", "text": "Sur WhatsApp et Messenger, les messages transitent par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta." } },
-    { "@type": "Question", "name": "Comment fonctionne Marianne au téléphone ?", "acceptedAnswer": { "@type": "Answer", "text": "Ce canal est en préparation. La commune disposera d'un numéro dédié. Marianne décrochera, comprendra la question posée à voix haute et répondra avec les mêmes sources que sur le site. Si besoin, elle orientera vers le secrétariat aux heures d'ouverture." } },
+    { "@type": "Question", "name": "Faut-il télécharger une application ?", "acceptedAnswer": { "@type": "Answer", "text": "Non, rien n'est imposé : Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran d'accueil." } },
     { "@type": "Question", "name": "Combien de temps pour déployer ?", "acceptedAnswer": { "@type": "Answer", "text": "7 jours en moyenne. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout." } },
     { "@type": "Question", "name": "Comment cela se passe côté marchés publics ?", "acceptedAnswer": { "@type": "Answer", "text": "Nos tarifs (49 à 199 €/mois) restent sous le seuil de dispense de publicité et de mise en concurrence. Un simple bon de commande suffit, sans cahier des charges. Au-delà de 50 000 habitants, nous établissons un devis sur mesure." } },
-    { "@type": "Question", "name": "Et si nos citoyens n'ont pas Internet ?", "acceptedAnswer": { "@type": "Answer", "text": "L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel téléphone. Marianne arrive aussi au téléphone : un numéro dédié, pour ceux qui préfèrent appeler." } }
+    { "@type": "Question", "name": "Et si nos citoyens n'ont pas Internet ?", "acceptedAnswer": { "@type": "Answer", "text": "L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un proche." } }
   ]
 }
 </script>
@@ -166,8 +168,8 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/poppins-latin-800.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-var.woff2" crossorigin>
 <!-- Image du hero : c'est l'element LCP. Le jour sur grand ecran, la nuit sur mobile. -->
-<link rel="preload" as="image" type="image/webp" href="/marianne/assets/hero/village-jour.webp" imagesrcset="/marianne/assets/hero/village-jour-960.webp 960w, /marianne/assets/hero/village-jour.webp 1920w" imagesizes="80vw" media="(min-width:900px)" fetchpriority="high">
-<link rel="preload" as="image" type="image/webp" href="/marianne/assets/hero/village-nuit.webp" imagesrcset="/marianne/assets/hero/village-nuit-960.webp 960w, /marianne/assets/hero/village-nuit.webp 1920w" imagesizes="85vw" media="(max-width:899.98px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="/marianne/assets/hero/village-jour-1600.avif" imagesrcset="/marianne/assets/hero/village-jour-1200.avif 1200w, /marianne/assets/hero/village-jour-1600.avif 1600w, /marianne/assets/hero/village-jour.avif 1990w" imagesizes="max(100vw, 186vh)" media="(min-width:900px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" href="/marianne/assets/hero/village-nuit-1600.avif" imagesrcset="/marianne/assets/hero/village-nuit-1200.avif 1200w, /marianne/assets/hero/village-nuit-1600.avif 1600w, /marianne/assets/hero/village-nuit.avif 1990w" imagesizes="130vw" media="(max-width:899.98px)" fetchpriority="high">
 
 <style>
 /* =====================================================================
@@ -180,11 +182,9 @@
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/inter-latin-var.woff2') format('woff2')}
 @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/poppins-latin-700.woff2') format('woff2')}
 @font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('/assets/fonts/poppins-latin-800.woff2') format('woff2')}
-@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 600;font-display:swap;src:url('/assets/fonts/fraunces-latin-italic-var.woff2') format('woff2')}
 /* Polices de repli aux metriques ajustees : le passage a la vraie police ne decale pas la page */
 @font-face{font-family:'Poppins Fallback';src:local('Arial');size-adjust:112%;ascent-override:93.6%;descent-override:31.2%;line-gap-override:8.9%}
 @font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107.4%;ascent-override:90%;descent-override:22.4%;line-gap-override:0%}
-@font-face{font-family:'Fraunces Fallback';src:local('Georgia');size-adjust:99%;ascent-override:96%;descent-override:25%;line-gap-override:0%}
 
 :root{
   --bleu:#000091;--bleu-2:#1a1a6e;--trait:#2b6fd6;
@@ -200,7 +200,6 @@
   --gut:clamp(20px,5vw,72px);
   --sans:'Inter','Inter Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
   --titre:'Poppins','Poppins Fallback','Inter',sans-serif;
-  --serif:'Fraunces','Fraunces Fallback',Georgia,serif;
   --doux:cubic-bezier(.2,.8,.2,1);
   --focus:#000091;
 }
@@ -230,10 +229,8 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 
 /* ---------- typographie ---------- */
 .sur{display:inline-flex;align-items:center;gap:10px;font:700 12px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--teal-txt)}
-.sur::before{content:"";width:22px;height:1.5px;background:currentColor}
 .nuit .sur{color:#9db9ff}
 .h2{font:700 clamp(32px,4.3vw,60px)/1.04 var(--titre);letter-spacing:-.03em;color:var(--bleu);text-wrap:balance;margin-top:18px}
-.h2 em,.hero__h1 em{font:italic 400 1.04em/1 var(--serif);letter-spacing:-.015em}
 .nuit .h2{color:#fff}
 .h3{font:700 clamp(21px,2.1vw,27px)/1.18 var(--titre);letter-spacing:-.02em;color:var(--bleu)}
 .chapo{font-size:clamp(17px,1.45vw,20px);line-height:1.6;color:var(--encre-2);max-width:62ch;margin-top:22px}
@@ -246,7 +243,9 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 .sec{padding:clamp(84px,10.5vw,148px) var(--gut);position:relative}
 .sec--2{background:var(--creme-3)}
 /* Les sections hors ecran ne sont ni mises en page ni peintes tant qu'on n'en approche pas */
-.sec,.chiffres,.stack,.fin,.pied{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* grand ecran seulement : sur telephone les sections sont bien plus hautes que l'estimation, et l'outil de controle
+   des contrastes (axe) s'y trompe de fond */
+@media (min-width:900px){.sec,.chiffres,.stack,.pied{content-visibility:auto;contain-intrinsic-size:auto 900px}}
 .wrap{max-width:1200px;margin-inline:auto}
 .tete{max-width:840px;margin-bottom:clamp(40px,5.5vw,76px)}
 .tete--c{text-align:center;margin-inline:auto}
@@ -272,10 +271,9 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 .etat::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .etat:empty{display:none}
 .etat[data-etat="disponible"]{background:var(--vert-fond);color:var(--vert)}
-.etat[data-etat="bientot"]{background:rgba(30,30,30,.07);color:#4d493f}
-.etat[data-etat="bientot"]::before{background:none;border:1.5px solid currentColor}
+.etat[data-etat="bientot"]{background:rgba(244,162,97,.24);color:#7a4512}
 .nuit .etat[data-etat="disponible"]{background:rgba(110,220,160,.14);color:var(--vert-nuit)}
-.nuit .etat[data-etat="bientot"]{background:rgba(255,255,255,.09);color:#cdd3ec}
+.nuit .etat[data-etat="bientot"]{background:rgba(244,178,97,.2);color:#ffd08a}
 /* Variantes de texte : sans script, la formulation prudente (« bientot ») reste affichee */
 [data-si="disponible"]{display:none}
 [data-canal][data-etat="disponible"] [data-si="disponible"]{display:revert}
@@ -325,63 +323,71 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 
 /* =====================================================================
    HERO « 22 h 47 »
-   --p : progression de la scene, de 0 (17 h 30, le jour) a 1 (22 h 47, tout est en place).
+   La scene occupe tout l'ecran : le village de jour, puis la nuit qui tombe au defilement.
+   --p : progression, de 0 (17 h 30, plein jour) a 1 (22 h 47, tout est en place).
+   --n : part de nuit (0 le jour, 1 la nuit), deduite de --p ; elle pilote les couleurs du texte.
    Sans defilement pilote (mobile, mouvement reduit, script absent), --p vaut 1 : la nuit, tout visible.
    ===================================================================== */
-.hero{position:relative;background:var(--nuit);color:var(--nuit-txt);--p:1;--mx:0;--my:0}
-.hero__scene{position:relative;overflow:clip;padding:56px var(--gut) 64px}
-.hero__ciel{position:absolute;inset:0;pointer-events:none;opacity:clamp(0,calc((var(--p) - .3) / .25),1);
-  background:
-   radial-gradient(1.2px 1.2px at 12% 18%,rgba(255,255,255,.8),transparent 60%),
-   radial-gradient(1px 1px at 23% 9%,rgba(255,255,255,.6),transparent 60%),
-   radial-gradient(1.4px 1.4px at 37% 22%,rgba(255,255,255,.7),transparent 60%),
-   radial-gradient(1px 1px at 48% 7%,rgba(255,255,255,.55),transparent 60%),
-   radial-gradient(1.3px 1.3px at 61% 14%,rgba(255,255,255,.75),transparent 60%),
-   radial-gradient(1px 1px at 72% 5%,rgba(255,255,255,.5),transparent 60%),
-   radial-gradient(1.5px 1.5px at 84% 19%,rgba(255,255,255,.8),transparent 60%),
-   radial-gradient(1px 1px at 93% 11%,rgba(255,255,255,.55),transparent 60%),
-   radial-gradient(1px 1px at 6% 41%,rgba(255,255,255,.4),transparent 60%),
-   radial-gradient(1.2px 1.2px at 96% 38%,rgba(255,255,255,.45),transparent 60%)}
-.hero__art{position:relative;left:50%;width:150vw;margin:0 0 -17vw -75vw;aspect-ratio:16/9;pointer-events:none}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.hero__img--jour{display:none}
-.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .6s}
+.hero{position:relative;background:var(--nuit);color:var(--nuit-txt);--p:1;--mx:0;--my:0;--n:clamp(0,calc((var(--p) - .16) / .28),1)}
+/* --ha : hauteur donnee au visuel ; --w : largeur de l'image pour qu'elle couvre toujours l'ecran (format 1990 x 1075) */
+.hero__scene{position:relative;overflow:clip;padding:46vh var(--gut) 64px;padding-top:46svh;--ha:64vh;--w:max(100vw,calc(var(--ha) * 1.851))}
+@supports (height:1svh){.hero__scene{--ha:64svh}}
+/* mobile : l'image couvre le haut de l'ecran, cadree sur la mairie, et se fond dans la nuit */
+.hero__art{position:absolute;left:0;right:0;top:0;height:var(--ha);overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
+.hero__cadre{position:absolute;top:0;width:var(--w);aspect-ratio:1990/1075;left:clamp(calc(100vw - var(--w)),calc(50vw - var(--w) * .86),0px)}
+.hero__img{position:absolute;inset:0;width:100%;height:100%}
+.hero__img--jour,.hero__couchant{display:none}
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
 .hero__video.prete{opacity:1}
-/* Lumieres posees sur la gravure provisoire. A retirer avec elle (voir README-assets.md). */
-.lum{position:absolute;left:var(--x);top:var(--y);width:.86%;height:3.8%;transform:translate(-50%,-50%);border-radius:1px;
+/* Lumieres posees sur la gravure provisoire (positions en % de l'image). A retirer avec elle : voir README-assets.md.
+   --a : moment ou la fenetre s'allume, --b : moment ou elle s'eteint. */
+.lum{position:absolute;left:var(--x);top:var(--y);width:.9%;height:4.4%;transform:translate(-50%,-50%);border-radius:1px;
   background:
     linear-gradient(90deg,transparent 44%,rgba(70,36,10,.6) 44% 56%,transparent 56%),
     linear-gradient(0deg,transparent 30%,rgba(70,36,10,.5) 30% 35%,transparent 35% 63%,rgba(70,36,10,.5) 63% 68%,transparent 68%),
     linear-gradient(#ffe6ad,#f6b258);
   box-shadow:0 0 .45vw .1vw rgba(244,162,97,.7),0 0 1.6vw .45vw rgba(244,162,97,.24);
   opacity:calc(var(--o,1) * clamp(0,calc((var(--p) - var(--a)) / .025),1) * clamp(0,calc((var(--b) - var(--p)) / .02),1))}
-.lum--lanterne{width:.62%;height:1.15%;border-radius:50%;background:#ffe6ad}
-.lum--mairie{width:12%;height:32%;border-radius:50%;background:radial-gradient(closest-side,rgba(110,165,255,.5),rgba(43,111,214,.2) 48%,transparent 74%);box-shadow:none;opacity:clamp(0,calc((var(--p) - .42) / .1),1)}
-.lum--mairie::after{content:"";position:absolute;inset:18%;border-radius:50%;background:radial-gradient(closest-side,rgba(160,200,255,.38),transparent 72%);animation:souffle 5s ease-in-out infinite}
-@keyframes souffle{0%,100%{transform:scale(.9);opacity:.55}50%{transform:scale(1.12);opacity:1}}
+.lum--lanterne{width:.5%;height:.9%;border-radius:50%;background:#ffe6ad}
+/* la fenetre de la mairie : seule lumiere qui reste, et elle est bleue */
+.lum--mairie{width:2.1%;height:8.6%;border-radius:1px;
+  background:
+    linear-gradient(90deg,transparent 46%,rgba(8,20,70,.55) 46% 54%,transparent 54%),
+    linear-gradient(0deg,transparent 31%,rgba(8,20,70,.45) 31% 35%,transparent 35% 64%,rgba(8,20,70,.45) 64% 68%,transparent 68%),
+    linear-gradient(#eaf2ff,#8fb8ff);
+  box-shadow:0 0 .6vw .15vw rgba(120,170,255,.9),0 0 2.4vw .8vw rgba(43,111,214,.55),0 0 7vw 2.4vw rgba(43,111,214,.28);
+  opacity:clamp(0,calc((var(--p) - .42) / .1),1)}
+.lum--mairie::after{content:"";position:absolute;left:50%;top:50%;width:620%;height:300%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(110,165,255,.34),rgba(43,111,214,.12) 50%,transparent 74%);animation:souffle 5s ease-in-out infinite}
+@keyframes souffle{0%,100%{opacity:.55}50%{opacity:1}}
+/* etoiles : quelques points qui scintillent, et une etoile filante de temps en temps */
+.hero__etoiles{position:absolute;inset:0;opacity:clamp(0,calc((var(--p) - .34) / .2),1)}
+.hero__etoiles i{position:absolute;left:var(--x);top:var(--y);width:var(--t,4px);height:var(--t,4px);border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(200,220,255,.95),0 0 18px 4px rgba(120,160,255,.45);animation:scintille var(--d,3.2s) ease-in-out infinite;animation-delay:var(--r,0s)}
+@keyframes scintille{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.3)}}
+.filante{position:absolute;left:53%;top:13%;width:9%;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);transform-origin:right center;opacity:0;animation:filante 11s ease-in 3s infinite}
+@keyframes filante{0%{opacity:0;transform:rotate(-24deg) translateX(0) scaleX(.2)}1.5%{opacity:1}7%{opacity:0;transform:rotate(-24deg) translateX(-260%) scaleX(1)}100%{opacity:0;transform:rotate(-24deg) translateX(-260%) scaleX(1)}}
 
+.hero__voile{display:none}
 .hero__texte{position:relative;z-index:2;max-width:640px;margin-inline:auto;text-align:center}
-.statut{display:inline-flex;align-items:center;gap:9px;height:36px;padding:0 6px 0 14px;border-radius:9999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font:700 11.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.statut__pt{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pouls 2.4s ease-out infinite;flex:none}
-.statut[data-etat="ferme"] .statut__pt{background:#ff5d52;box-shadow:none;animation:none}
-@keyframes pouls{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%,100%{box-shadow:0 0 0 9px rgba(52,211,153,0)}}
-.statut__h{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;padding:6px 10px;border-radius:9999px;background:rgba(255,255,255,.12);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}
+.statut{display:inline-flex;align-items:center;gap:9px;height:36px;padding:0 5px 0 14px;border-radius:9999px;background:rgba(247,244,237,.95);border:1px solid rgba(0,0,80,.12);box-shadow:0 6px 18px rgba(0,0,60,.18);font:700 11.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--bleu)}
+.statut__pt{width:9px;height:9px;border-radius:50%;background:#1f9d63;box-shadow:0 0 0 0 rgba(31,157,99,.6);animation:pouls 2.4s ease-out infinite;flex:none}
+.statut[data-etat="ferme"] .statut__pt{background:var(--rouge);box-shadow:none;animation:none}
+@keyframes pouls{0%{box-shadow:0 0 0 0 rgba(31,157,99,.55)}70%,100%{box-shadow:0 0 0 9px rgba(31,157,99,0)}}
+.statut__h{font:600 12.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em;padding:7px 10px;border-radius:9999px;background:rgba(0,0,145,.08);font-variant-numeric:tabular-nums;min-width:56px;text-align:center}
 .hero__h1{font:800 clamp(38px,10.4vw,58px)/1.02 var(--titre);letter-spacing:-.035em;color:#fff;margin-top:22px;text-wrap:balance}
 .hero__l{display:block}
-.hero__l--1{color:rgba(238,241,251,.62)}
+.hero__l--1{color:rgba(238,241,251,.66)}
 .hero__l--2 br{display:none}
 .mot{display:inline-block;white-space:nowrap}
 .ch,.ci{display:inline-block}
 .hero__fin{margin-top:22px}
-.hero__sous{font-size:clamp(16.5px,1.35vw,19px);line-height:1.58;color:var(--nuit-txt2);max-width:50ch;margin-inline:auto}
+.hero__sous{font-size:clamp(16.5px,1.35vw,19px);line-height:1.58;color:#d5dbf2;max-width:50ch;margin-inline:auto}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
 .hero__gages{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px}
-.hero__gages li{font:600 12.5px/1 var(--sans);color:#d6dcf3;padding:8px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);white-space:nowrap}
-.hero__tel{position:relative;z-index:2;display:flex;justify-content:center;margin-top:52px}
+.hero__gages li{font:600 12.5px/1 var(--sans);color:#e3e8fa;padding:8px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,.2);background:rgba(10,15,44,.45);white-space:nowrap}
+.hero__tel{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;margin-top:52px}
 .hero__aide,.hero__passer{display:none}
 .tel__pause{display:none;margin:18px auto 0;min-height:44px;padding:10px 18px;border-radius:9999px;border:1px solid rgba(255,255,255,.3);color:#fff;font:600 13.5px/1 var(--sans)}
 .tel__pause.utile{display:block}
-.hero__tel{flex-direction:column;align-items:center}
 
 /* ---- telephone : meme cadre et meme en-tete partout sur la page.
    Tout l'interieur est en em : le contenu suit la largeur du telephone (--tel-l). ---- */
@@ -424,34 +430,47 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 .tel--joue .source{transition:opacity .4s,transform .4s var(--doux)}
 .tel--joue .msg:not(.cite) .source{opacity:0;transform:scale(.92)}
 
-/* ---- hero, grand ecran : la scene tient dans la fenetre ---- */
+/* ---- hero, grand ecran : l'image couvre toute la scene ---- */
 @media (min-width:900px){
-  .hero__scene{height:max(100vh,680px);padding:0}
-  .hero__art{position:absolute;left:68%;top:52%;width:min(92vw,160vh);margin:0;
+  .hero__scene{height:max(100vh,680px);padding:0;--ha:max(100vh,680px);--g:max(6vw,calc(50vw - 620px));--tel-l:min(310px,38vh,23vw)}
+  .hero__art{bottom:0;height:auto;-webkit-mask-image:none;mask-image:none}
+  /* quand l'ecran est moins large que l'image, on garde la mairie : l'image est calee aux trois quarts vers la droite */
+  .hero__cadre{left:calc((100vw - var(--w)) * .78);top:calc(50% - var(--w) / 3.702);transform-origin:84% 40%;
     --cam:clamp(0,calc((var(--p) - .54) / .14),1);
-    transform:translate(-50%,-50%) translate(calc(var(--mx) * -16px),calc(var(--my) * -10px)) scale(calc(1 - var(--cam) * .05))}
+    transform:translate(calc(var(--mx) * -10px),calc(var(--my) * -6px)) scale(calc(1.02 + var(--cam) * .03))}
   .hero__img--jour{display:block}
   .hero__img--nuit{opacity:clamp(0,calc((var(--p) - .14) / .32),1)}
-  .hero__texte{position:absolute;left:max(6vw,calc(50vw - 620px));top:50%;transform:translateY(-46%);width:min(44vw,650px);max-width:none;margin:0;text-align:left}
-  .hero__h1{font-size:min(5vw,9.2vh,82px);line-height:1;margin-top:24px}
+  /* le couchant : une lueur chaude passe sur la scene entre le jour et la nuit */
+  .hero__couchant{display:block;position:absolute;inset:0;background:radial-gradient(ellipse 75% 85% at 14% 4%,rgba(255,170,95,.62),rgba(255,120,105,.26) 46%,transparent 72%);
+    opacity:calc(clamp(0,calc((var(--p) - .1) / .14),1) * clamp(0,calc((.46 - var(--p)) / .16),1))}
+  /* voile sous le texte : papier creme le jour, bleu nuit la nuit */
+  .hero__voile{display:block;position:absolute;inset:0;pointer-events:none}
+  .hero__voile::before,.hero__voile::after{content:"";position:absolute;inset:0}
+  .hero__voile::before{background:radial-gradient(ellipse 44% 46% at 17% 43%,rgba(247,244,237,.82),rgba(247,244,237,.5) 55%,transparent 100%);opacity:calc(1 - var(--n))}
+  .hero__voile::after{background:linear-gradient(90deg,rgba(7,11,34,.86),rgba(7,11,34,.52) 40%,transparent 68%),linear-gradient(rgba(7,11,34,.5),transparent 22%);opacity:var(--n)}
+  .hero__texte{position:absolute;left:var(--g);top:50%;transform:translateY(-46%);width:min(46vw,660px);max-width:none;margin:0;text-align:left}
+  .hero__h1{font-size:min(4.7vw,9.2vh,80px);line-height:1;margin-top:24px;color:#fff;color:color-mix(in srgb,#fff calc(var(--n) * 100%),var(--bleu))}
+  .hero__l--1{color:inherit}
+  .hero__fin{max-width:calc((100vw - var(--w)) * .78 + var(--w) * .715 - var(--tel-l) - var(--g) - 44px)}
   .hero__sous{margin-inline:0;max-width:46ch}
   .hero__ctas,.hero__gages{justify-content:flex-start}
-  .hero__tel{position:absolute;right:max(5vw,calc(50vw - 640px));top:54%;margin:0;transform:translateY(-50%)}
-  .tel__pause{display:none !important}
+  .hero__tel{position:absolute;left:calc((100vw - var(--w)) * .78 + var(--w) * .715);top:54%;margin:0;transform:translate(-100%,-50%)}
   .hero__tel .tel{--tel-l:min(310px,38vh,23vw)}
+  .tel__pause{display:none !important}
 }
 @media (min-width:900px) and (max-height:760px){
   .hero__sous{font-size:16px;line-height:1.5}
   .hero__ctas,.hero__gages{margin-top:20px}
   .hero__gages li{padding:7px 10px;font-size:12px}
 }
+/* hors defilement pilote sur grand ecran (mouvement reduit) : les deux lignes du titre sont lisibles ensemble */
+@media (min-width:900px){html:not(.scrub) .hero__l--1{color:rgba(238,241,251,.66)}}
 
 /* ---- hero, defilement pilote ---- */
 html.scrub .hero{height:340vh;--p:0}
-html.scrub .hero__scene{position:sticky;top:0;height:100vh}
+html.scrub .hero__scene{position:sticky;top:0;height:100vh;--ha:100vh}
 html.scrub .hero__h1{display:grid}
 html.scrub .hero__l{grid-area:1/1}
-html.scrub .hero__l--1{color:#fff}
 html.scrub .hero__l--2{align-self:end}
 html.scrub .hero__l--2 br{display:inline}
 html.scrub .hero:not(.pret) .hero__l,html.scrub .hero:not(.pret) .statut{opacity:0}
@@ -465,16 +484,16 @@ html.scrub .hero__fin>*{--t:clamp(0,calc((var(--p) - .86 - var(--k,0) * .025) / 
 html.scrub .hero__ctas{--k:1}
 html.scrub .hero__gages{--k:2}
 html.scrub .hero:not(.hero--fin) .hero__fin{pointer-events:none}
-html.scrub .hero__tel{--up:clamp(0,calc((var(--p) - .54) / .11),1);opacity:clamp(0,calc(var(--up) * 3),1);transform:translateY(calc(-50% + (1 - var(--up)) * 62vh)) rotate(calc((1 - var(--up)) * 4deg))}
+html.scrub .hero__tel{--up:clamp(0,calc((var(--p) - .54) / .11),1);opacity:clamp(0,calc(var(--up) * 3),1);transform:translate(-100%,calc(-50% + (1 - var(--up)) * 62vh)) rotate(calc((1 - var(--up)) * 4deg))}
 html.scrub .hero .msg--moi{--t:clamp(0,calc((var(--p) - .625) / .03),1);opacity:var(--t);transform:translateY(calc((1 - var(--t)) * 10px))}
 html.scrub .hero .msg--m .saisie{display:flex;opacity:calc(clamp(0,calc((var(--p) - .665) / .012),1) * clamp(0,calc((.705 - var(--p)) / .01),1))}
 html.scrub .hero .msg--m .bulle{opacity:clamp(0,calc((var(--p) - .705) / .015),1)}
 html.scrub .hero .source{--t:clamp(0,calc((var(--p) - .815) / .025),1);opacity:var(--t);transform:scale(calc(.9 + var(--t) * .1));transform-origin:left center}
-html.scrub .hero__aide{display:flex;flex-direction:column;align-items:center;gap:10px;position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:600 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);opacity:clamp(0,calc(1 - var(--p) / .05),1);pointer-events:none}
-html.scrub .hero__aide i{width:1.5px;height:34px;background:linear-gradient(rgba(255,255,255,.8),transparent);animation:descend 2.2s var(--doux) infinite;transform-origin:top}
+html.scrub .hero__aide{display:flex;flex-direction:column;align-items:center;gap:10px;position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:700 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--bleu);opacity:clamp(0,calc(1 - var(--p) / .05),1);pointer-events:none}
+html.scrub .hero__aide i{width:1.5px;height:34px;background:linear-gradient(var(--bleu),transparent);animation:descend 2.2s var(--doux) infinite;transform-origin:top}
 @keyframes descend{0%{transform:scaleY(0)}55%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-html.scrub .hero__passer{display:inline-flex;position:absolute;right:max(5vw,calc(50vw - 640px));bottom:26px;font:600 12.5px/1 var(--sans);color:rgba(255,255,255,.78);padding:9px 0;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.35);opacity:clamp(0,calc((.84 - var(--p)) / .04),1)}
-html.scrub .hero__passer:hover{color:#fff;text-decoration-color:#fff}
+html.scrub .hero__passer{display:inline-flex;position:absolute;right:max(5vw,calc(50vw - 640px));bottom:22px;font:600 12.5px/1 var(--sans);padding:9px 14px;border-radius:9999px;background:rgba(247,244,237,.9);color:var(--bleu);box-shadow:0 4px 14px rgba(0,0,60,.16);opacity:clamp(0,calc((.84 - var(--p)) / .04),1)}
+html.scrub .hero__passer:hover{background:#fff}
 html.scrub .hero--fin .hero__passer{visibility:hidden}
 
 /* La page creme monte sur la nuit comme une feuille */
@@ -519,7 +538,31 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 }
 @media (min-width:900px){html.js:not(.anim-non) .savoir__scene{--e:0}html.js:not(.anim-non) .doc{opacity:clamp(0,calc(var(--e) * 4),1)}}
 
-/* mini navigateur (encart « Pas de site ? » et carte « Sur votre site ») */
+/* maquette du site communal (encart « Pas de site ? ») */
+.site{border-radius:14px;overflow:hidden;background:var(--papier);color:var(--encre);box-shadow:0 18px 44px rgba(0,0,40,.4)}
+.site__barre{display:flex;align-items:center;gap:7px;padding:9px 12px;background:#ece7db}
+.site__barre i{width:8px;height:8px;border-radius:50%;background:#cfc8b8}
+.site__barre span{flex:1;margin-left:6px;font:500 10.5px/1 var(--sans);color:#6d685c;background:#fbf9f3;padding:6px 11px;border-radius:9999px}
+.site__tete{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.site__blason{width:30px;height:30px;border-radius:7px;background:var(--bleu);color:#fff;font:800 11px/30px var(--titre);text-align:center;flex:none}
+.site__tete b{display:block;font:700 13px/1.2 var(--titre);color:var(--bleu)}
+.site__tete small{display:block;font:500 9.5px/1.2 var(--sans);color:var(--encre-2)}
+.site__menu{margin-left:auto;display:flex;align-items:center;gap:11px;font:600 10px/1 var(--sans);color:var(--encre-2)}
+.site__onglet{display:inline-flex;align-items:center;gap:4px;color:var(--bleu);background:rgba(0,0,145,.08);padding:5px 8px;border-radius:9999px}
+.site__onglet img{width:11px;height:11px}
+.site__bandeau{position:relative;height:118px;overflow:hidden}
+.site__bandeau img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
+.site__bandeau div{position:absolute;left:14px;bottom:12px;right:14px;padding:9px 12px;border-radius:10px;background:rgba(255,253,248,.92)}
+.site__bandeau b{display:block;font:800 13.5px/1.2 var(--titre);color:var(--bleu);letter-spacing:-.01em}
+.site__bandeau span{display:block;font:500 9.5px/1.3 var(--sans);color:var(--encre-2);margin-top:2px}
+.site__cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 14px 46px;position:relative}
+.site__cartes div{border:1px solid rgba(120,100,60,.22);border-radius:9px;padding:9px 10px;background:#fff}
+.site__cartes small{display:block;font:700 8px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--or-txt)}
+.site__cartes b{display:block;font:700 10.5px/1.25 var(--titre);color:var(--bleu);margin-top:5px}
+.site__bouton{position:absolute;right:12px;bottom:10px;display:inline-flex;align-items:center;gap:6px;padding:5px 11px 5px 5px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 10px/1 var(--sans);box-shadow:0 8px 18px rgba(0,0,80,.35)}
+.site__bouton img{width:22px;height:22px;border-radius:50%}
+@media (max-width:520px){.site__menu span:not(.site__onglet){display:none}.site__cartes{grid-template-columns:1fr 1fr}.site__cartes div:nth-child(3){display:none}}
+/* mini navigateur (carte « Sur votre site ») */
 .nav-mini{border-radius:12px;overflow:hidden;background:var(--papier);color:var(--encre);box-shadow:0 14px 34px rgba(0,0,40,.35)}
 .nav-mini__b{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#ece7db}
 .nav-mini__b i{width:7px;height:7px;border-radius:50%;background:#cfc8b8}
@@ -597,7 +640,6 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .canaux__fleches button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);color:#fff;display:grid;place-items:center;transition:background .25s,border-color .25s}
 .canaux__fleches button:hover{background:rgba(255,255,255,.1);border-color:#fff}
 .canaux__note{max-width:860px;margin:26px auto 0;font-size:13.5px;line-height:1.6;color:#c3cae6;text-align:center}
-.canaux__fin{text-align:center;font:italic 400 clamp(22px,2.4vw,30px)/1.3 var(--serif);color:#fff;margin-top:clamp(36px,4vw,56px)}
 @media (min-width:1180px){
   .canaux__traits{display:block}
   .canaux__piste{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));overflow:visible;padding:0;margin:0}
@@ -609,13 +651,12 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 }
 /* ecrans des cartes canaux */
 .ecr-site{height:100%;border-radius:0;box-shadow:none}
-.ecr-tel{height:100%;background:linear-gradient(170deg,#0f1750,#070b26);color:#fff;display:flex;flex-direction:column;align-items:center;padding:16px 14px 12px;text-align:center}
-.ecr-tel b{font:700 12.5px/1.25 var(--titre)}
-.ecr-tel small{font:500 10.5px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aab6e8;margin-top:4px;font-variant-numeric:tabular-nums}
-.onde{display:flex;align-items:center;gap:3px;height:38px;margin:12px 0 10px}
-.onde i{width:3px;border-radius:2px;background:#7fa8ff;height:calc(var(--h) * 1%);animation:onde 1.3s ease-in-out infinite;animation-delay:calc(var(--d) * -1s)}
-@keyframes onde{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
-.ecr-tel q{quotes:none;font:500 11.5px/1.45 var(--sans);color:#e6eaff;background:rgba(255,255,255,.08);border-radius:10px;padding:8px 10px}
+.ecr-app{height:100%;background:linear-gradient(165deg,#16206a,#070b26);display:grid;grid-template-columns:repeat(4,1fr);align-content:start;gap:12px 8px;padding:34px 16px 12px;position:relative}
+.ecr-app::before{content:"22:47";position:absolute;left:16px;top:11px;font:600 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#dfe6ff}
+.ecr-app i{aspect-ratio:1;border-radius:26%;background:rgba(255,255,255,.12)}
+.ecr-app__m{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.ecr-app__m img{width:62%;aspect-ratio:1;height:auto;border-radius:24%;background:var(--creme);box-shadow:0 0 0 2px rgba(120,170,255,.55),0 8px 22px rgba(43,111,214,.55)}
+.ecr-app__m span{font:600 9.5px/1.25 var(--sans);color:#fff}
 .ecr-msg{height:100%;display:flex;flex-direction:column;gap:7px;padding:10px 10px 12px}
 .ecr-msg__t{display:flex;align-items:center;gap:7px;font:700 11px/1.2 var(--sans);color:var(--encre);padding-bottom:8px;border-bottom:1px solid rgba(120,100,60,.18)}
 .ecr-msg__t svg{flex:none}
@@ -639,7 +680,7 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .frise{position:relative;display:grid;grid-template-columns:1fr;gap:34px;--p:1}
 .frise__rail{display:none}
 .etape{position:relative}
-.etape__num{font:italic 400 clamp(64px,7vw,96px)/.9 var(--serif);color:var(--bleu);letter-spacing:-.02em}
+.etape__num{font:800 clamp(56px,6vw,84px)/.9 var(--titre);color:var(--bleu);letter-spacing:-.04em}
 .etape h3{margin-top:16px}
 .etape p{font-size:15.5px;line-height:1.62;color:var(--encre-2);margin-top:12px}
 .etape p strong{color:var(--encre);font-weight:600}
@@ -651,6 +692,8 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
   .frise__rail::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bleu),var(--trait));border-radius:2px;transform-origin:left;transform:scaleX(var(--p))}
   .etape::before{content:"";position:absolute;left:0;top:-40px;width:14px;height:14px;border-radius:50%;background:var(--creme);border:2px solid rgba(0,0,145,.25);transition:background .4s,border-color .4s,box-shadow .4s}
   .etape.passee::before{background:var(--bleu);border-color:var(--bleu);box-shadow:0 0 0 6px rgba(0,0,145,.1)}
+  /* les trois colonnes partagent les memes lignes : titres, textes et encadres du bas s'alignent */
+  @supports (grid-template-rows:subgrid){.frise{grid-template-rows:repeat(4,auto);row-gap:0}.etape{display:grid;grid-template-rows:subgrid;grid-row:span 4}.etape__detail{align-self:start}}
   html.js:not(.anim-non) .frise{--p:0}
   html.js:not(.anim-non) .etape{transform:translateY(14px);transition:transform .8s var(--doux)}
   html.js:not(.anim-non) .etape.passee{transform:none}
@@ -826,18 +869,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .faq details strong{color:var(--encre);font-weight:600}
 
 /* =====================================================================
-   6.15 Parrainage, 6.16 Contact : formulaires
+   Contact : formulaire
    ===================================================================== */
-.parr{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);align-items:start}
-@media (min-width:900px){.parr{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
-.parr__pas{display:grid;gap:12px}
-.parr__p{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:var(--r-m);background:var(--papier);border:1px solid rgba(120,100,60,.22)}
-.parr__n{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none;background:rgba(0,0,145,.07);color:var(--bleu);font:italic 500 23px/1 var(--serif)}
-.parr__p b{display:block;font:700 15.5px/1.3 var(--sans);color:var(--bleu)}
-.parr__p p{font-size:14.5px;color:var(--encre-2)}
-.parr__p--amb{border-color:rgba(244,162,97,.7);background:rgba(244,162,97,.1)}
-.parr__p--amb .parr__n{background:rgba(244,162,97,.3);color:#7a4512}
-.parr__note{margin-top:16px;padding:16px 18px;border-radius:var(--r-m);background:rgba(46,196,182,.11);font-size:14.5px;line-height:1.55}
 .ci-form{background:var(--papier);border:1px solid rgba(120,100,60,.24);border-radius:var(--r-l);padding:clamp(22px,3vw,36px);box-shadow:var(--ombre-2);display:grid;gap:16px}
 .ci-form__row{display:grid;grid-template-columns:1fr;gap:16px}
 @media (min-width:600px){.ci-form__row{grid-template-columns:1fr 1fr}}
@@ -864,14 +897,27 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 /* =====================================================================
    Appel final (nuit)
    ===================================================================== */
-.fin{position:relative;background:var(--nuit);color:#fff;text-align:center;padding:clamp(76px,9vw,128px) var(--gut) clamp(84px,10vw,140px);overflow:clip}
-.fin__art{position:relative;width:min(760px,150vw);left:50%;transform:translateX(-50%);aspect-ratio:16/9;margin:-40px 0 -36px;pointer-events:none}
-.fin__art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.fin__art .lum--mairie{opacity:1}
-.fin .sur{color:#9db9ff;position:relative}
-.fin .h2{color:#fff;position:relative}
-.fin p{color:var(--nuit-txt2);font-size:clamp(17px,1.4vw,19.5px);max-width:56ch;margin:20px auto 0;position:relative}
-.fin__ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;position:relative}
+.fin{position:relative;background:var(--nuit);color:#fff;overflow:clip;padding:0 var(--gut);--ha:60vh;--w:max(100vw,calc(var(--ha) * 1.851))}
+.fin__art{position:absolute;left:0;right:0;top:0;height:var(--ha);overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(#000 55%,transparent 100%);mask-image:linear-gradient(#000 55%,transparent 100%)}
+.fin__cadre{position:absolute;top:0;width:var(--w);aspect-ratio:1990/1075;left:clamp(calc(100vw - var(--w)),calc(50vw - var(--w) * .86),0px)}
+.fin__cadre img{position:absolute;inset:0;width:100%;height:100%}
+.fin__cadre .lum--mairie{opacity:1}
+.fin__in{position:relative;max-width:1200px;margin-inline:auto;padding:42vh 0 84px;display:grid;gap:36px;text-align:center;justify-items:center}
+.fin .sur{color:#a9c4ff}
+.fin .h2{color:#fff;font-size:clamp(32px,3.8vw,54px)}
+.fin__texte p{color:#d5dbf2;font-size:clamp(17px,1.4vw,19.5px);max-width:52ch;margin:20px auto 0}
+.fin__tel .tel{--tel-l:min(230px,62vw)}
+.fin__tel .tel{aspect-ratio:300/470}
+@media (min-width:900px){
+  .fin{--ha:max(100vh,680px);min-height:var(--ha);display:grid;align-items:center}
+  .fin__art{bottom:0;height:auto;-webkit-mask-image:none;mask-image:none}
+  .fin__art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,34,.88),rgba(7,11,34,.55) 40%,transparent 68%)}
+  .fin__cadre{left:calc((100vw - var(--w)) * .78);top:calc(50% - var(--w) / 3.702)}
+  .fin__in{width:100%;padding:120px 0;grid-template-columns:minmax(0,1.3fr) auto minmax(0,.5fr);align-items:center;text-align:left;justify-items:start}
+  .fin__texte p{margin-inline:0}
+  .fin .fin__ctas{justify-content:flex-start}
+}
+.fin__ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
 
 /* =====================================================================
    6.17 Ressources, maison, pied de page
@@ -883,16 +929,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .ress__c:hover{transform:translateY(-3px);box-shadow:var(--ombre-2);border-color:rgba(0,0,145,.3)}
 .ress__c strong{display:block;font:700 18px/1.3 var(--titre);color:var(--bleu);letter-spacing:-.01em;margin-bottom:8px}
 .ress__c span{color:var(--encre-2);font-size:14.5px;line-height:1.55}
-.ress__service{margin-top:32px;padding-top:24px;border-top:1px solid rgba(0,0,145,.1);font-size:14.5px;color:var(--encre-2)}
-.ress__service strong{color:var(--bleu)}
-.ress__service a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(0,0,145,.3)}
 .ress__maj{margin-top:14px;font-size:13px;color:var(--encre-2)}
-.maison{border-top:1px solid var(--ligne);padding:26px var(--gut);background:var(--creme)}
-.maison p{max-width:1200px;margin-inline:auto;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;justify-content:center;font-size:14.5px;color:var(--encre-2)}
-.maison b{font:800 17px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu)}
-.maison b i{font-style:normal;color:var(--ia)}
-.maison a b{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(0,0,145,.25)}
-.maison small{font-size:12.5px}
 .pied{background:#070b22;color:#c9cfe8;padding:clamp(52px,6vw,80px) var(--gut) 28px}
 .pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1fr;gap:34px}
 @media (min-width:700px){.pied__in{grid-template-columns:repeat(2,1fr)}}
@@ -962,7 +999,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <a href="#demo">Démo</a>
     <a href="#campagnes">Campagnes</a>
     <a href="#pricing">Tarifs</a>
-    <a href="#parrainage">Parrainage</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -979,7 +1015,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <a href="#demo">Démo</a>
   <a href="#campagnes">Campagnes</a>
   <a href="#pricing">Tarifs</a>
-  <a href="#parrainage">Parrainage</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
   <a href="/demo.html" class="nav__mobile-cta">Tester la démo</a>
@@ -993,34 +1028,44 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
      ===================================================================== -->
 <section class="hero" id="hero" aria-label="Marianne répond quand la mairie est fermée">
   <div class="hero__scene" id="heroScene">
-    <div class="hero__ciel" aria-hidden="true"></div>
 
-    <!-- Visuel : village de jour, village de nuit (meme cadrage, fond #0A0F2C).
-         Les fichiers actuels sont provisoires (gravure maison) : voir marianne/assets/hero/README-assets.md.
-         Pour activer la video scrubbee, poser hero-scrub.mp4 et .webm puis passer data-video a "1". -->
+    <!-- Visuel plein cadre : le village de jour, le village de nuit (meme image, 1990 x 1075).
+         Fichiers provisoires tires de la gravure maison : voir marianne/assets/hero/README-assets.md.
+         Pour activer la video, poser hero-scrub.mp4 puis passer data-video a "1". -->
     <div class="hero__art" aria-hidden="true" data-video="0">
-      <picture>
-        <source media="(max-width:899.98px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
-        <source type="image/webp" srcset="/marianne/assets/hero/village-jour-960.webp 960w, /marianne/assets/hero/village-jour.webp 1920w" sizes="80vw">
-        <img class="hero__img hero__img--jour" src="/marianne/assets/hero/village-jour.jpg" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
-      </picture>
-      <picture>
-        <source type="image/webp" srcset="/marianne/assets/hero/village-nuit-960.webp 960w, /marianne/assets/hero/village-nuit.webp 1920w" sizes="(min-width:900px) 80vw, 85vw">
-        <img class="hero__img hero__img--nuit" src="/marianne/assets/hero/village-nuit.jpg" alt="" width="1920" height="1080" decoding="async">
-      </picture>
-      <video class="hero__video" id="heroVideo" muted playsinline preload="none" tabindex="-1"
-             data-mp4="/marianne/assets/hero/hero-scrub.mp4" data-webm="/marianne/assets/hero/hero-scrub.webm"></video>
-      <!-- Lumieres de la gravure provisoire : --a = moment ou la fenetre s'allume, --b = moment ou elle s'eteint -->
-      <div class="hero__lumieres" data-art="gravure">
-        <i class="lum" style="--x:28.14%;--y:42.33%;--a:.20;--b:.37;--o:.8"></i>
-        <i class="lum" style="--x:55.09%;--y:40.93%;--a:.22;--b:.46"></i>
-        <i class="lum" style="--x:55.09%;--y:49.30%;--a:.235;--b:.34"></i>
-        <i class="lum" style="--x:26.36%;--y:49.30%;--a:.25;--b:.43;--o:.45"></i>
-        <i class="lum" style="--x:58.02%;--y:42.05%;--a:.265;--b:.40"></i>
-        <i class="lum lum--lanterne" style="--x:65.92%;--y:50.33%;--a:.21;--b:9"></i>
-        <i class="lum lum--mairie" style="--x:38.45%;--y:28.6%"></i>
+      <div class="hero__cadre">
+        <picture>
+          <source media="(max-width:899.98px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          <source type="image/avif" srcset="/marianne/assets/hero/village-jour-1200.avif 1200w, /marianne/assets/hero/village-jour-1600.avif 1600w, /marianne/assets/hero/village-jour.avif 1990w" sizes="max(100vw, 186vh)">
+          <source type="image/webp" srcset="/marianne/assets/hero/village-jour-1200.webp 1200w, /marianne/assets/hero/village-jour-1600.webp 1600w, /marianne/assets/hero/village-jour.webp 1990w" sizes="max(100vw, 186vh)">
+          <img class="hero__img hero__img--jour" src="/marianne/assets/hero/village-jour.jpg" alt="" width="1990" height="1075" fetchpriority="high" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/avif" srcset="/marianne/assets/hero/village-nuit-1200.avif 1200w, /marianne/assets/hero/village-nuit-1600.avif 1600w, /marianne/assets/hero/village-nuit.avif 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
+          <source type="image/webp" srcset="/marianne/assets/hero/village-nuit-1200.webp 1200w, /marianne/assets/hero/village-nuit-1600.webp 1600w, /marianne/assets/hero/village-nuit.webp 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
+          <img class="hero__img hero__img--nuit" src="/marianne/assets/hero/village-nuit.jpg" alt="" width="1990" height="1075" decoding="async">
+        </picture>
+        <video class="hero__video" id="heroVideo" muted playsinline preload="none" tabindex="-1"
+               data-mp4="/marianne/assets/hero/hero-scrub.mp4" data-webm="/marianne/assets/hero/hero-scrub.webm"></video>
+        <div class="hero__couchant"></div>
+        <div class="hero__etoiles">
+          <i style="--x:38%;--y:15%;--d:3.4s;--t:5px"></i><i style="--x:44.5%;--y:23%;--d:2.7s;--r:-1.2s;--t:3px"></i><i style="--x:50.5%;--y:14%;--d:4.1s;--r:-2s;--t:4px"></i>
+          <i style="--x:56%;--y:26%;--d:3s;--r:-.6s;--t:3px"></i><i style="--x:64%;--y:18%;--d:3.7s;--r:-1.8s;--t:5px"></i><i style="--x:47%;--y:31%;--d:2.9s;--r:-.9s;--t:3px"></i>
+          <b class="filante"></b>
+        </div>
+        <!-- Lumieres calees sur la gravure provisoire -->
+        <div class="hero__lumieres" data-art="gravure">
+          <i class="lum" style="--x:96.23%;--y:42.33%;--a:.20;--b:.37;--o:.85"></i>
+          <i class="lum" style="--x:70.35%;--y:40.93%;--a:.22;--b:.46"></i>
+          <i class="lum" style="--x:70.35%;--y:49.30%;--a:.235;--b:.34"></i>
+          <i class="lum" style="--x:97.94%;--y:49.30%;--a:.25;--b:.43;--o:.7"></i>
+          <i class="lum" style="--x:67.54%;--y:42.05%;--a:.265;--b:.40"></i>
+          <i class="lum lum--lanterne" style="--x:59.95%;--y:50.33%;--a:.21;--b:9"></i>
+          <i class="lum lum--mairie" style="--x:86.33%;--y:28.28%"></i>
+        </div>
       </div>
     </div>
+    <div class="hero__voile" aria-hidden="true"></div>
 
     <div class="hero__texte">
       <p class="statut" id="heroStatut" data-etat="ouvert">
@@ -1028,13 +1073,13 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <span id="heroStatutTxt">Marianne en ligne</span>
         <span class="statut__h" id="heroStatutH">22:47</span>
       </p>
-      <h1 class="hero__h1" id="heroTitre" aria-label="Votre mairie ferme à 17 h 30. Marianne, jamais">
+      <h1 class="hero__h1" id="heroTitre" aria-label="Votre mairie ferme à 17 h 30, Marianne, jamais">
         <span class="hero__l hero__l--1" aria-hidden="true">Votre mairie ferme à 17&nbsp;h&nbsp;30</span>
-        <span class="hero__l hero__l--2" aria-hidden="true">Marianne,<br> <em>jamais</em></span>
+        <span class="hero__l hero__l--2" aria-hidden="true">Marianne,<br> jamais</span>
       </h1>
       <div class="hero__fin" id="heroFin">
         <!-- La liste des canaux est recomposee par marianne.js selon MARIANNE_CHANNELS. -->
-        <p class="hero__sous" id="heroSous">Elle répond à chaque citoyen au nom de votre mairie, jour et nuit&nbsp;: sur votre site, et bientôt au téléphone, sur WhatsApp et Messenger. Formée sur les données de votre commune, elle cite toujours ses sources.</p>
+        <p class="hero__sous" id="heroSous">Elle répond à chaque citoyen au nom de votre mairie, jour et nuit&nbsp;: sur votre site ou sur smartphone, et bientôt sur WhatsApp et Messenger. Formée sur les données de votre commune, elle cite toujours ses sources</p>
         <div class="hero__ctas">
           <a href="#contact" class="btn btn--clair">Réserver une démo de 20&nbsp;min <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <a href="/demo.html" class="btn btn--filet">Tester la démo</a>
@@ -1055,13 +1100,13 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <div class="tel__barre" aria-hidden="true"><span>22:47</span><span class="tel__encoche"></span><span class="tel__reseau"><i></i><i></i><i></i></span></div>
           <div class="tel__tete">
             <img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32">
-            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne · 24&nbsp;h/24</span></div>
+            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
           </div>
           <ol class="tel__fil" id="heroFil">
             <li class="msg msg--moi vu"><span class="msg__h">22:47</span><div class="bulle">Bonsoir, comment inscrire mon fils à la cantine pour septembre&nbsp;?</div></li>
             <li class="msg msg--m vu cite">
               <span class="saisie" aria-hidden="true"><i></i><i></i><i></i></span>
-              <div class="bulle"><span class="texte" id="heroReponse">Bonsoir. Les inscriptions se font sur le portail famille jusqu'au 10&nbsp;août. Il vous faut un justificatif de domicile et l'attestation CAF.</span>
+              <div class="bulle"><span class="texte" id="heroReponse">Bonsoir. Les inscriptions se font sur le portail famille jusqu'au 10&nbsp;août. Il vous faut un justificatif de domicile et l'attestation CAF</span>
                 <span class="source"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Source&nbsp;: site de la mairie, page Périscolaire</span>
               </div>
             </li>
@@ -1086,7 +1131,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">Toutes vos données</span>
-      <h2 class="h2">Elle a lu tout votre site. <br>Et <em>tout le reste</em></h2>
+      <h2 class="h2">Elle a lu tout votre site <br>Et tout le reste</h2>
     </div>
 
     <div class="savoir__scene" id="savoirScene">
@@ -1116,34 +1161,43 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 
     <div class="savoir__bas">
       <div class="savoir__texte">
-        <!-- [À CONFIRMER] Le brief disait « l'intégralité du site » et « à jour immédiatement » quand la mairie signale
-             une modification. Etat reel (ADR 0048) : la couche site est relue chaque nuit, et le lecteur ne lit
-             aujourd'hui que les sites WordPress et les PDF natifs. Formulation retenue : « chaque nuit ». -->
-        <p>Marianne s'appuie d'abord sur <strong>le site officiel de votre commune</strong>&nbsp;: ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez&nbsp;: PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu.</p>
-        <p><strong>Vous modifiez votre site&nbsp;?</strong> Marianne le relit chaque nuit&nbsp;: ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir.</p>
+        <!-- Tranche par Thibaut le 30/09/2026 : « chaque nuit » convient. Etat reel (ADR 0048) : la couche site est relue
+             chaque nuit, et le lecteur ne lit aujourd'hui que les sites WordPress et les PDF natifs. Ne pas ecrire
+             « en temps reel » pour le site ; seule l'alerte publiee depuis l'espace mairie est immediate. -->
+        <p>Marianne s'appuie d'abord sur <strong>le site officiel de votre commune</strong>&nbsp;: ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez&nbsp;: PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu</p>
+        <p><strong>Vous modifiez votre site&nbsp;?</strong> Marianne le relit chaque nuit&nbsp;: ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir. Et pour une urgence, une alerte publiée depuis votre espace est prise en compte aussitôt</p>
       </div>
 
-      <!-- [À CONFIRMER] Offre de creation de site : aucun prix affiche, module a venir (virage du 28/09, P5).
-           A relire par la DAJF avant mise en ligne (objet social, devis). -->
+      <!-- Offre de creation de site : texte valide par Thibaut le 30/09/2026, aucun prix affiche, module a venir
+           (virage du 28/09, P5). Reste a faire relire par la DAJF avant mise en ligne (objet social, devis). -->
       <aside class="creer" aria-labelledby="creerTitre">
         <div>
-          <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? On vous en crée un</h3>
-          <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia vous construit un site communal simple, lisible sur téléphone et facile à tenir, avec Marianne dès le premier jour. Vous nous transmettez vos informations, nous nous occupons du reste.</p>
+          <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? On vous en crée un&nbsp;!</h3>
+          <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia vous construit un site communal simple, lisible sur téléphone et facile à tenir, avec Marianne dès le premier jour. Vous nous transmettez vos informations, nous nous occupons du reste</p>
         </div>
-        <div class="nav-mini" aria-hidden="true">
-          <div class="nav-mini__b"><i></i><i></i><i></i><span class="nav-mini__url">www.villeneuve-les-ormes.fr</span></div>
-          <div class="nav-mini__p">
-            <div class="nav-mini__id"><span class="nav-mini__bl">VO</span><div><b>Villeneuve-les-Ormes</b><small>Site officiel de la commune</small></div></div>
-            <div class="nav-mini__menu"><span>Accueil</span><span>Démarches</span><span>Agenda</span><span class="ong"><img src="/marianne/assets/ui/glyphe-96.webp" alt="" width="11" height="11" loading="lazy">Une question&nbsp;?</span></div>
-            <div class="nav-mini__corps"><i></i><i></i><i></i><i></i></div>
-            <span class="nav-mini__bouton"><img src="/marianne/assets/ui/sceau-96.webp" alt="" width="24" height="24" loading="lazy"></span>
+        <div class="site" aria-hidden="true">
+          <div class="site__barre"><i></i><i></i><i></i><span>www.villeneuve-les-ormes.fr</span></div>
+          <div class="site__tete">
+            <span class="site__blason">VO</span>
+            <div><b>Villeneuve-les-Ormes</b><small>Site officiel de la commune</small></div>
+            <div class="site__menu"><span>Démarches</span><span>Agenda</span><span class="site__onglet"><img src="/marianne/assets/ui/glyphe-96.webp" alt="" width="11" height="11" loading="lazy">Une question&nbsp;?</span></div>
+          </div>
+          <div class="site__bandeau">
+            <img src="/marianne/assets/ui/site-bandeau.webp" alt="" width="480" height="341" loading="lazy" decoding="async">
+            <div><b>Bienvenue à Villeneuve-les-Ormes</b><span>Mairie ouverte du lundi au vendredi, 9&nbsp;h à 12&nbsp;h et 14&nbsp;h à 17&nbsp;h&nbsp;30</span></div>
+          </div>
+          <div class="site__cartes">
+            <div><small>Actualité</small><b>Inscriptions cantine 2026-2027</b></div>
+            <div><small>Démarche</small><b>Demander un acte de naissance</b></div>
+            <div><small>Agenda</small><b>Fête du village, samedi 20 juin</b></div>
+            <span class="site__bouton"><img src="/marianne/assets/ui/sceau-96.webp" alt="" width="22" height="22" loading="lazy">Une question&nbsp;?</span>
           </div>
         </div>
         <div class="creer__actions">
           <a href="#contact" class="btn btn--clair">Parler de mon site</a>
           <a href="/chatbot-commune-rurale.html" class="creer__lien">Communes rurales&nbsp;: notre offre</a>
         </div>
-        <p class="creer__note">Sur devis, après un premier échange.</p>
+        <p class="creer__note">Sur devis, après un premier échange</p>
       </aside>
     </div>
   </div>
@@ -1156,8 +1210,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete">
       <span class="sur">Vérifiable en un clic</span>
-      <h2 class="h2">Une réponse. Une source. <br><em>Toujours</em></h2>
-      <p class="chapo">Chaque réponse de Marianne cite le document officiel dont elle vient&nbsp;: une page de votre site, un arrêté, un article du PLU. D'un clic, le citoyen vérifie par lui-même. C'est ce qui fait la différence entre une réponse et une rumeur.</p>
+      <h2 class="h2">Une réponse, une source <br>Toujours</h2>
+      <p class="chapo">Chaque réponse de Marianne cite le document officiel dont elle vient&nbsp;: une page de votre site, un arrêté, un article du PLU. D'un clic, le citoyen vérifie par lui-même. C'est ce qui fait la différence entre une réponse et une rumeur</p>
     </div>
 
     <div class="preuves">
@@ -1198,18 +1252,18 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         </div>
       </div>
     </div>
-    <p class="preuves__note">Exemples sur Villeneuve-les-Ormes, notre commune de démonstration.</p>
+    <p class="preuves__note">Exemples sur Villeneuve-les-Ormes, notre commune de démonstration</p>
 
     <!-- [À CONFIRMER] Coherence avec la question de la FAQ « Et si l'IA se trompe ? », et remontee
          de la question dans le tableau de bord (« zones de doute » du cockpit). -->
     <div class="doute">
       <div class="doute__texte">
         <h3 class="h3">Et quand elle ne sait pas&nbsp;?</h3>
-        <p><strong style="color:var(--encre)">Elle le dit.</strong> Marianne n'invente jamais&nbsp;: si l'information n'est pas dans vos documents, elle oriente vers le bon service, vos horaires ou votre formulaire de contact. La question remonte dans votre tableau de bord, pour que vous complétiez.</p>
+        <p><strong style="color:var(--encre)">Elle le dit.</strong> Marianne n'invente jamais&nbsp;: si l'information n'est pas dans vos documents, elle oriente vers le bon service, vos horaires ou votre formulaire de contact. La question remonte dans votre tableau de bord, pour que vous complétiez</p>
       </div>
       <div class="preuve">
         <p class="preuve__q">Le prochain conseil municipal, c'est quel jour&nbsp;?</p>
-        <div class="preuve__r">Je n'ai pas cette information dans les documents de la mairie. Le secrétariat pourra vous répondre au 02&nbsp;61&nbsp;91&nbsp;40&nbsp;00, du lundi au vendredi, de 9&nbsp;h à 12&nbsp;h et de 14&nbsp;h à 17&nbsp;h&nbsp;30.</div>
+        <div class="preuve__r">Je n'ai pas cette information dans les documents de la mairie. Le secrétariat pourra vous répondre au 02&nbsp;61&nbsp;91&nbsp;40&nbsp;00, du lundi au vendredi, de 9&nbsp;h à 12&nbsp;h et de 14&nbsp;h à 17&nbsp;h&nbsp;30</div>
         <span class="doute__suivi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 5h13l-2.5 4L17 13H4"/></svg>Question signalée dans le tableau de bord de la mairie</span>
       </div>
     </div>
@@ -1225,8 +1279,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c" style="margin-bottom:0">
       <span class="sur">Tous les canaux</span>
-      <h2 class="h2">Une seule Marianne. <br><em>Partout</em> où sont vos citoyens</h2>
-      <p class="chapo">Même cerveau, mêmes sources, même ton, quel que soit le canal. Vous mettez à jour une information une fois&nbsp;: elle est juste partout.</p>
+      <h2 class="h2">Une seule Marianne <br>Partout où sont vos citoyens</h2>
+      <p class="chapo">Même cerveau, mêmes sources, même ton, quel que soit le canal. Vous mettez à jour une information une fois&nbsp;: elle est juste partout</p>
     </div>
 
     <div class="canaux__zone" id="canauxZone">
@@ -1238,7 +1292,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       </div>
 
       <ul class="canaux__piste" id="canauxPiste" aria-label="Les canaux de Marianne">
-        <!-- [À CONFIRMER] « Sur votre site » : ce qui est servi aujourd'hui est un bouton et un onglet qui ouvrent
+        <!-- Valide par Thibaut le 30/09/2026. « Sur votre site » : ce qui est servi aujourd'hui est un bouton et un onglet qui ouvrent
              Marianne (page dediee, iframe, PWA). La bulle de conversation integree (widget JS) est en construction
              (table des canaux du socle). Le texte ci-dessous ne promet que le bouton et l'onglet. -->
         <li class="canal" data-canal="site">
@@ -1254,22 +1308,20 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>Sur votre site</h3><span class="etat" data-canal-badge></span></div>
-          <p>Un bouton en bas de chaque page et un onglet dans votre menu&nbsp;: un clic, et Marianne répond. Fournis prêts à coller, votre webmaster les installe en deux minutes.</p>
+          <p>Un bouton «&nbsp;Une question&nbsp;?&nbsp;» sur chaque page et un onglet dans votre menu. Un clic, Marianne s'ouvre et répond. Nous fournissons le code, votre webmaster le colle en deux minutes</p>
         </li>
 
-        <!-- [À CONFIRMER] Telephone : aucun code a ce jour, et la page callbot-mairie.html dit que Civik-ia
-             ne propose pas de callbot. Statut « bientot » repris du brief, a confirmer ou a passer en « masque ». -->
-        <li class="canal" data-canal="telephone">
+        <!-- Sur smartphone : l'application web de la commune (PWA), installee sous le nom « Marianne - {Ville} ». -->
+        <li class="canal" data-canal="smartphone">
           <div class="canal__ecran" aria-hidden="true">
-            <div class="ecr-tel">
-              <b>Mairie de Villeneuve-les-Ormes</b><small>22:47 · appel en cours</small>
-              <div class="onde"><i style="--h:40;--d:.1"></i><i style="--h:70;--d:.5"></i><i style="--h:100;--d:.2"></i><i style="--h:60;--d:.8"></i><i style="--h:85;--d:.35"></i><i style="--h:45;--d:.65"></i><i style="--h:95;--d:.15"></i><i style="--h:65;--d:.9"></i><i style="--h:80;--d:.45"></i><i style="--h:50;--d:.7"></i><i style="--h:90;--d:.25"></i><i style="--h:55;--d:.55"></i><i style="--h:75;--d:.05"></i><i style="--h:40;--d:.95"></i></div>
-              <q>Le portage de repas se demande auprès du CCAS. Je vous donne ses horaires.</q>
+            <div class="ecr-app">
+              <i></i><i></i><i></i><i></i>
+              <div class="ecr-app__m"><img src="/marianne/assets/ui/sceau-256.webp" alt="" width="60" height="60" loading="lazy"><span>Marianne - Villeneuve-les-Ormes</span></div>
+              <i></i><i></i><i></i><i></i>
             </div>
           </div>
-          <div class="canal__tete"><h3 data-canal-titre>Au téléphone</h3><span class="etat" data-canal-badge></span></div>
-          <p data-si="disponible">Un numéro dédié&nbsp;: Marianne décroche, comprend la question et répond à voix haute, même un dimanche soir. Pour tous les citoyens qui préfèrent appeler.</p>
-          <p data-si="bientot">Un numéro dédié arrive&nbsp;: Marianne décrochera, comprendra la question et répondra à voix haute, même un dimanche soir. Pour tous les citoyens qui préfèrent appeler.</p>
+          <div class="canal__tete"><h3 data-canal-titre>Sur votre smartphone</h3><span class="etat" data-canal-badge></span></div>
+          <p>Une application dédiée, installée en un geste depuis votre site ou un QR code. Vos citoyens gardent la Marianne de leur ville dans la poche, tous les jours</p>
         </li>
 
         <li class="canal" data-canal="whatsapp">
@@ -1281,9 +1333,9 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>WhatsApp</h3><span class="etat" data-canal-badge></span></div>
-          <p data-si="disponible">Vos citoyens écrivent à leur mairie comme à un proche. Marianne répond directement dans la conversation.</p>
-          <p data-si="bientot">Vos citoyens écriront à leur mairie comme à un proche. Marianne arrive dans la conversation.</p>
-          <p class="canal__meta">Messages acheminés par les serveurs de Meta.</p>
+          <p data-si="disponible">Vos citoyens écrivent à leur mairie comme à un proche. Marianne répond directement dans la conversation</p>
+          <p data-si="bientot">Vos citoyens écriront à leur mairie comme à un proche. Marianne arrive dans la conversation</p>
+          <p class="canal__meta">Messages acheminés par les serveurs de Meta</p>
         </li>
 
         <li class="canal" data-canal="messenger">
@@ -1295,9 +1347,9 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>Messenger</h3><span class="etat" data-canal-badge></span></div>
-          <p data-si="disponible">Les messages privés de la page Facebook de la commune reçoivent enfin une réponse, même le week-end.</p>
-          <p data-si="bientot">Les messages privés de la page Facebook de la commune recevront enfin une réponse, même le week-end.</p>
-          <p class="canal__meta">Messages acheminés par les serveurs de Meta.</p>
+          <p data-si="disponible">Les messages privés de la page Facebook de la commune reçoivent enfin une réponse, même le week-end</p>
+          <p data-si="bientot">Les messages privés de la page Facebook de la commune recevront enfin une réponse, même le week-end</p>
+          <p class="canal__meta">Messages acheminés par les serveurs de Meta</p>
         </li>
 
         <li class="canal" data-canal="qr">
@@ -1311,7 +1363,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>QR code &amp; affichage</h3><span class="etat" data-canal-badge></span></div>
-          <p>À l'accueil, sur le bulletin municipal, sur les panneaux&nbsp;: un scan, et la conversation commence.</p>
+          <p>À l'accueil, sur le bulletin municipal, sur les panneaux&nbsp;: un scan, et la conversation commence</p>
         </li>
       </ul>
       <div class="canaux__fleches">
@@ -1321,12 +1373,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     </div>
 
     <!-- Mention Meta (regle de coherence souverainete). « en Europe » et non « en France » : le datacenter OVH
-         utilise est en Allemagne (CONTEXT.md, audit du 30/09/2026). -->
-    <p class="canaux__note" id="noteMeta" data-meta>Sur WhatsApp et Messenger, les messages transitent par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta.</p>
-    <p class="canaux__fin" data-canal="telephone">
-      <span data-si="disponible">Et pour ceux qui n'ont pas Internet&nbsp;: le téléphone</span>
-      <span data-si="bientot">Et bientôt, pour ceux qui n'ont pas Internet&nbsp;: le téléphone</span>
-    </p>
+         utilise est en Allemagne (CONTEXT.md, audit du 30/09/2026). Valide par Thibaut le 30/09/2026. -->
+    <p class="canaux__note" id="noteMeta" data-meta>Sur WhatsApp et Messenger, les messages transitent par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta</p>
   </div>
 </section>
 
@@ -1337,27 +1385,27 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">En 3 étapes</span>
-      <h2 class="h2">Une installation <br>en 7 jours, <em>pas 7 mois</em></h2>
+      <h2 class="h2">Une installation <br>en 7 jours, pas 7 mois</h2>
     </div>
     <div class="frise" id="frise">
       <div class="frise__rail" aria-hidden="true"></div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">01</div>
         <h3 class="h3">On cadre le projet ensemble</h3>
-        <p>Nous cadrons ensemble votre projet et réunissons vos sources&nbsp;: l'intégralité de votre site internet (ou on vous en crée un) et les documents disponibles, PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du reste.</p>
-        <p class="etape__detail"><strong>Pas de pré-requis technique.</strong> Word, PDF, scan&nbsp;: tout est digéré par notre moteur.</p>
+        <p>Nous cadrons ensemble votre projet et réunissons vos sources&nbsp;: l'intégralité de votre site internet (ou on vous en crée un) et les documents disponibles, PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du reste</p>
+        <p class="etape__detail"><strong>Pas de pré-requis technique.</strong> Word, PDF, scan&nbsp;: tout est digéré par notre moteur</p>
       </div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">02</div>
         <h3 class="h3">On entraîne votre IA souveraine</h3>
-        <p>Un assistant virtuel formé <strong>uniquement</strong> sur vos données, hébergé en Europe chez OVHcloud, propulsé par Mistral AI.</p>
-        <p class="etape__detail"><strong>Vos données restent en Europe.</strong> Jamais réutilisées pour entraîner d'autres modèles.</p>
+        <p>Un assistant virtuel formé <strong>uniquement</strong> sur vos données, hébergé en Europe chez OVHcloud, propulsé par Mistral AI</p>
+        <p class="etape__detail"><strong>Vos données restent en Europe.</strong> Jamais réutilisées pour entraîner d'autres modèles</p>
       </div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">03</div>
         <h3 class="h3">Vos citoyens obtiennent des réponses</h3>
-        <p><span id="howCanaux">Depuis votre site ou un QR code en mairie. Bientôt au téléphone, sur WhatsApp et Messenger.</span> Avec le ton, la signature et les sources de votre commune.</p>
-        <p class="etape__detail"><strong>Déploiement moyen&nbsp;: 7 jours.</strong> Sous le seuil des marchés publics.</p>
+        <p><span id="howCanaux">Depuis votre site, leur smartphone ou un QR code en mairie. Bientôt sur WhatsApp et Messenger.</span> Avec le ton, la signature et les sources de votre commune</p>
+        <p class="etape__detail"><strong>Déploiement moyen&nbsp;: 7 jours.</strong> Sous le seuil des marchés publics</p>
       </div>
     </div>
   </div>
@@ -1371,17 +1419,17 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <div>
       <span class="sur">Essayez, pour de vrai</span>
       <h2 class="h2">Posez-lui <br>une question</h2>
-      <p class="chapo">Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez&nbsp;: Marianne répond avec les données d'une commune de démonstration.</p>
+      <p class="chapo">Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez&nbsp;: Marianne répond avec les données d'une commune de démonstration</p>
       <div class="puces" id="demoPuces" role="group" aria-label="Questions d'exemple">
-        <button type="button" class="puce" data-q="1" aria-pressed="true">Horaires déchèterie&nbsp;?</button>
-        <button type="button" class="puce" data-q="2" aria-pressed="false">Carte d'identité perdue, que faire&nbsp;?</button>
-        <button type="button" class="puce" data-q="3" aria-pressed="false">Je peux abattre mon arbre&nbsp;?</button>
-        <button type="button" class="puce" data-q="4" aria-pressed="false">Inscription cantine septembre</button>
-        <button type="button" class="puce" data-q="5" aria-pressed="false">Éclairage public en panne rue du Moulin</button>
+        <button type="button" class="puce" data-q="1" aria-pressed="true">Un abri de jardin de 12&nbsp;m², il me faut un permis&nbsp;?</button>
+        <button type="button" class="puce" data-q="2" aria-pressed="false">J'emménage le mois prochain, que dois-je faire&nbsp;?</button>
+        <button type="button" class="puce" data-q="3" aria-pressed="false">La collecte tombe un jour férié, elle est maintenue&nbsp;?</button>
+        <button type="button" class="puce" data-q="4" aria-pressed="false">La coupure d'eau de mardi, c'est toujours prévu&nbsp;?</button>
+        <button type="button" class="puce" data-q="5" aria-pressed="false">Un lampadaire est en panne rue du Moulin</button>
       </div>
       <div class="demo__suite">
         <a href="/demo.html" class="btn btn--plein">Tester la démo complète <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <small>Chatbot + Dashboard élu + Alertes Intelligentes + Campagnes · commune fictive, zéro inscription</small>
+        <small>Chatbot, tableau de bord élu, Alertes Intelligentes et Campagnes, sur une commune fictive et sans inscription</small>
       </div>
     </div>
     <div class="demo__tel">
@@ -1390,11 +1438,11 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <div class="tel__barre" aria-hidden="true"><span>22:47</span><span class="tel__encoche"></span><span class="tel__reseau"><i></i><i></i><i></i></span></div>
           <div class="tel__tete">
             <img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32" loading="lazy">
-            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne · 24&nbsp;h/24</span></div>
+            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
           </div>
           <ol class="tel__fil" id="demoFil" aria-live="polite">
-            <li class="msg msg--moi"><div class="bulle">Quels sont les horaires de la déchèterie&nbsp;?</div></li>
-            <li class="msg msg--m"><div class="bulle">La déchèterie intercommunale est ouverte <strong>du mardi au samedi, 9h–12h et 14h–18h</strong> (fermeture à 17h le samedi). Accès gratuit avec le badge communal, à retirer en mairie.<span class="source"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Source&nbsp;: Règlement intérieur SICTOM, art. 3</span></div></li>
+            <li class="msg msg--moi"><div class="bulle">Je veux installer un abri de jardin de 12&nbsp;m². Il me faut un permis de construire&nbsp;?</div></li>
+            <li class="msg msg--m"><div class="bulle">Non. Entre 5 et 20&nbsp;m², une <strong>déclaration préalable</strong> suffit, à déposer en mairie ou en ligne. Dans votre zone (UB), l'abri doit rester à 3&nbsp;m des limites séparatives et ne pas dépasser 3,50&nbsp;m de haut<span class="source"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Source&nbsp;: PLU, articles UB 7 et UB 10, et service-public.fr</span></div></li>
           </ol>
           <div class="tel__champ" aria-hidden="true"><span>Posez votre question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
         </div>
@@ -1412,20 +1460,20 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <div>
         <span class="sur">Le différenciant</span>
         <h2 class="h2">Informez <br>sans saturer</h2>
-        <p class="chapo">Les <strong style="color:var(--bleu);font-weight:700">Campagnes Citoyennes</strong> vous permettent de diffuser une info une seule fois&nbsp;: elle part sur tous vos canaux en même temps, et votre chatbot devient capable d'y répondre immédiatement.</p>
+        <p class="chapo">Les <strong style="color:var(--bleu);font-weight:700">Campagnes Citoyennes</strong> vous permettent de diffuser une info une seule fois&nbsp;: elle part sur tous vos canaux en même temps, et votre chatbot devient capable d'y répondre immédiatement</p>
       </div>
       <div class="camp__points">
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span>
-          <div><b>Une info, plusieurs canaux</b><p><span id="campCanaux">Site et email aujourd'hui, WhatsApp bientôt.</span> Vous écrivez une fois, on publie partout.</p></div>
+          <div><b>Une info, plusieurs canaux</b><p><span id="campCanaux">Site et email aujourd'hui, WhatsApp bientôt.</span> Vous écrivez une fois, on publie partout</p></div>
         </div>
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5.5A1.5 1.5 0 015.5 4H19a1 1 0 011 1v12a1 1 0 01-1 1H6a2 2 0 00-2 1.5z"/><path d="M8 8.5h8M8 12h5"/></svg></span>
-          <div><b>Le chatbot l'apprend instantanément</b><p>Quand un citoyen pose la question, Marianne répond avec la campagne du jour.</p></div>
+          <div><b>Le chatbot l'apprend instantanément</b><p>Quand un citoyen pose la question, Marianne répond avec la campagne du jour</p></div>
         </div>
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span>
-          <div><b>Ciblage par quartier ou public</b><p>Ne saturez personne&nbsp;: parents d'élèves, rue concernée, associations, pas tout le monde.</p></div>
+          <div><b>Ciblage par quartier ou public</b><p>Ne saturez personne&nbsp;: parents d'élèves, rue concernée, associations, pas tout le monde</p></div>
         </div>
       </div>
     </div>
@@ -1434,7 +1482,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <div class="redac">
         <div class="redac__t"><span>Nouvelle campagne</span><span>Brouillon · 10h14</span></div>
         <p class="redac__titre">Coupure d'eau rue des Platanes</p>
-        <p class="redac__corps">Suite à une fuite sur le réseau, l'eau sera coupée <strong>mardi 22 avril de 9h à 13h</strong>. Pensez à remplir une bouteille la veille au soir. Nous sommes désolés pour la gêne occasionnée.</p>
+        <p class="redac__corps">Suite à une fuite sur le réseau, l'eau sera coupée <strong>mardi 22 avril de 9h à 13h</strong>. Pensez à remplir une bouteille la veille au soir. Nous sommes désolés pour la gêne occasionnée</p>
         <div class="redac__meta">
           <span>Zone&nbsp;: rue des Platanes</span>
           <span><i></i>Priorité&nbsp;: Urgente</span>
@@ -1445,7 +1493,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <div class="diff__canaux">
         <div class="diffc">
           <div class="diffc__t"><span class="diffc__nom"><span class="diffc__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M9 21h6M12 17.5V21"/></svg></span>Site mairie</span><span class="diffc__c">Live</span></div>
-          <p><b>Urgente</b>&nbsp;: coupure d'eau rue des Platanes, mardi 9h-13h.</p>
+          <p><b>Urgente</b>&nbsp;: coupure d'eau rue des Platanes, mardi 9h-13h</p>
         </div>
         <div class="diffc">
           <div class="diffc__t"><span class="diffc__nom"><span class="diffc__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></span>Email</span><span class="diffc__c">312 inscrits</span></div>
@@ -1453,8 +1501,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         </div>
         <div class="diffc" data-canal="whatsapp">
           <div class="diffc__t"><span class="diffc__nom"><span class="diffc__ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span>WhatsApp</span><span class="etat" data-canal-badge></span></div>
-          <p data-si="disponible"><b>Urgente</b>&nbsp;: coupure d'eau rue des Platanes, mardi 9h-13h.</p>
-          <p data-si="bientot">Diffusion WhatsApp&nbsp;: en préparation.</p>
+          <p data-si="disponible"><b>Urgente</b>&nbsp;: coupure d'eau rue des Platanes, mardi 9h-13h</p>
+          <p data-si="bientot">Diffusion WhatsApp&nbsp;: en préparation</p>
         </div>
       </div>
     </div>
@@ -1462,7 +1510,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <div class="alertes">
       <div>
         <h3 class="h3">Alertes Intelligentes</h3>
-        <p>Les campagnes alimentent aussi le flux d'alertes de votre commune.</p>
+        <p>Les campagnes alimentent aussi le flux d'alertes de votre commune</p>
       </div>
       <ul class="alertes__liste">
         <li><i style="background:var(--rouge)" aria-hidden="true"></i><span><b>Urgent</b>&nbsp;: coupure eau, rue des Platanes</span></li>
@@ -1474,7 +1522,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <div class="camp__vs">
       <div>
         <h3 class="h3">Diffuser n'est pas répondre</h3>
-        <p>Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent&nbsp;; un seul crée le dialogue.</p>
+        <p>Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent&nbsp;; un seul crée le dialogue</p>
       </div>
       <a href="/comparatif-chatbot-mairie-2026.html" class="btn btn--filet">Voir le comparatif 2026</a>
     </div>
@@ -1486,10 +1534,10 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
      ===================================================================== -->
 <section class="chiffres" aria-label="Marianne en quatre chiffres">
   <ul id="chiffres">
-    <li><span class="chiffre__n" data-compte="3" data-suffixe="&nbsp;s">3&nbsp;s</span><span class="chiffre__l">pour répondre, jour et nuit, avec la source citée.</span></li>
-    <li><span class="chiffre__n" data-compte="100" data-suffixe="&nbsp;%">100&nbsp;%</span><span class="chiffre__l">des réponses adossées aux documents de votre commune. Zéro poste supprimé.</span></li>
-    <li><span class="chiffre__n" data-compte="24" data-suffixe="/7">24/7</span><span class="chiffre__l">disponible. Dimanche, férié, 3 h du matin.</span></li>
-    <li><span class="chiffre__n" data-compte="7" data-suffixe="&nbsp;j">7&nbsp;j</span><span class="chiffre__l">pour déployer. Sans cahier des charges à 40 pages.</span></li>
+    <li><span class="chiffre__n" data-compte="3" data-suffixe="&nbsp;s">3&nbsp;s</span><span class="chiffre__l">pour répondre, jour et nuit, avec la source citée</span></li>
+    <li><span class="chiffre__n" data-compte="100" data-suffixe="&nbsp;%">100&nbsp;%</span><span class="chiffre__l">des réponses adossées aux documents de votre commune. Zéro poste supprimé</span></li>
+    <li><span class="chiffre__n" data-compte="24" data-suffixe="/7">24/7</span><span class="chiffre__l">disponible. Dimanche, férié, 3 h du matin</span></li>
+    <li><span class="chiffre__n" data-compte="7" data-suffixe="&nbsp;j">7&nbsp;j</span><span class="chiffre__l">pour déployer. Sans cahier des charges à 40 pages</span></li>
   </ul>
 </section>
 
@@ -1500,27 +1548,27 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">Pour qui&nbsp;?</span>
-      <h2 class="h2">Côté citoyen, côté mairie&nbsp;: <br><em>un seul outil</em></h2>
+      <h2 class="h2">Côté citoyen, côté mairie&nbsp;: <br>un seul outil</h2>
     </div>
     <div class="qui">
       <div class="profil rv">
         <div>
           <div class="profil__tag">Pour le citoyen</div>
           <h3>Une réponse, pas un répondeur</h3>
-          <p>Fini les allers-retours en mairie. Une question, une réponse claire, avec la source de l'information.</p>
+          <p>Fini les allers-retours en mairie. Une question, une réponse claire, avec la source de l'information</p>
         </div>
         <ul class="coches">
           <li>Disponible 24&nbsp;h/24, même dimanche et jours fériés</li>
           <li>Réponses signées avec la source officielle (PLU, arrêté…)</li>
           <li>Vouvoiement, ton institutionnel, rien de robotique</li>
-          <li id="quiCanaux">Sur le site ou par QR code en mairie, et bientôt au téléphone, sur WhatsApp et Messenger</li>
+          <li id="quiCanaux">Sur le site, sur smartphone ou par QR code en mairie, et bientôt sur WhatsApp et Messenger</li>
         </ul>
       </div>
       <div class="profil rv" style="--o:1">
         <div>
           <div class="profil__tag">Pour le maire &amp; le DGS</div>
           <h3>Recentrez vos agents sur ce qui compte</h3>
-          <p>70 à 80&nbsp;% des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la différence.</p>
+          <p>70 à 80&nbsp;% des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la différence</p>
         </div>
         <ul class="coches">
           <li>Dashboard&nbsp;: toutes les questions, zones de doute repérées</li>
@@ -1540,8 +1588,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">Comparer avant de choisir</span>
-      <h2 class="h2">Trois familles d'outils, <br><em>une seule fait tout</em></h2>
-      <p class="chapo">Panneaux de diffusion, chatbots génériques, plateforme citoyenne&nbsp;: voici ce que chaque famille sait faire, pour choisir en connaissance de cause.</p>
+      <h2 class="h2">Trois familles d'outils, <br>une seule fait tout</h2>
+      <p class="chapo">Panneaux de diffusion, chatbots génériques, plateforme citoyenne&nbsp;: voici ce que chaque famille sait faire, pour choisir en connaissance de cause</p>
     </div>
     <div class="vs__cadre" role="region" aria-label="Comparaison par familles d'outils" tabindex="0">
       <table>
@@ -1559,29 +1607,29 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <tr><th scope="row">Diffuser alertes et campagnes sur plusieurs canaux</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td></tr>
           <tr><th scope="row">Réponses sourcées sur vos documents (PLU, arrêtés, délibérations)</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
           <tr><th scope="row">Formé sur l'intégralité du site de la commune</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
-          <tr><th scope="row">Multicanal&nbsp;: site, téléphone, messageries</th><td class="col-m" id="vsMulti"><span class="etat" data-etat="bientot">Bientôt</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">Multicanal&nbsp;: site, application mobile, QR code</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
           <tr><th scope="row">IA souveraine affichée&nbsp;: modèle français, hébergement UE</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
           <tr><th scope="row">Cockpit de pilotage pour le maire et les élus</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
           <tr><th scope="row">Aucun compte ni application imposés au citoyen</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="vs__leg"><span><span class="sym sym--oui" aria-hidden="true">✓</span>inclus</span><span><span class="sym sym--pm" aria-hidden="true">±</span>partiel, en option ou selon éditeur</span><span><span class="sym sym--non" aria-hidden="true">✗</span>pas prévu pour cela</span><span>Lecture par grandes familles d'outils du marché 2026.</span></p>
+    <p class="vs__leg"><span><span class="sym sym--oui" aria-hidden="true">✓</span>inclus</span><span><span class="sym sym--pm" aria-hidden="true">±</span>partiel, en option ou selon éditeur</span><span><span class="sym sym--non" aria-hidden="true">✗</span>pas prévu pour cela</span><span>Lecture par grandes familles d'outils du marché 2026</span></p>
     <p class="vs__plus"><a class="lien" href="/comparatif-chatbot-mairie-2026.html">Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket, Generia)</a></p>
   </div>
 </section>
 
 <!-- =====================================================================
      6.11 STACK SOUVERAINE
-     [À CONFIRMER] « 100 % européen » : titre du brief. Les sous-traitants de Mistral n'ont pas ete relus
+     « 100 % européen » : titre conserve (Thibaut, 30/09/2026). Les sous-traitants de Mistral n'ont pas ete relus
      (INCIDENTS.md). Hebergement ecrit « en Europe » (datacenter OVH en Allemagne), jamais « en France ».
      ===================================================================== -->
 <section class="stack" aria-labelledby="stackTitre">
   <div class="stack__in">
     <div>
       <span class="sur" style="color:#9db9ff">Stack souveraine</span>
-      <h2 id="stackTitre">Le cerveau de Marianne est 100&nbsp;% européen. Point</h2>
-      <p class="stack__sous">Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres modèles.</p>
+      <h2 id="stackTitre">Le cerveau de Marianne est 100&nbsp;% européen</h2>
+      <p class="stack__sous">Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres modèles</p>
     </div>
     <div class="stack__logos">
       <div class="stack__logo"><b>OVHcloud</b><span>Hébergement en Europe</span></div>
@@ -1598,15 +1646,15 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec" id="pricing">
   <div class="wrap">
     <div class="tete tete--c">
-      <span class="sur">Tarifs transparents · HT</span>
-      <h2 class="h2">Taillé pour <br><em>votre commune</em></h2>
-      <p class="chapo">Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil des marchés publics.</p>
+      <span class="sur">Tarifs transparents, hors taxes</span>
+      <h2 class="h2">Taillé pour <br>votre commune</h2>
+      <p class="chapo">Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil des marchés publics</p>
     </div>
 
     <div class="pf">
       <div class="pf__tag">Programme Partenaires Fondateurs · 10 places communes + 3 EPCI</div>
       <h3>Pilote symbolique <span>9,99&nbsp;€/mois</span> pendant 3&nbsp;mois, puis tarif tier normal <strong>garanti 3&nbsp;ans</strong></h3>
-      <p>Setup offert (sinon 999&nbsp;€) · Droit de regard produit · Statut Ambassadeur Civik-ia officiel. Au-delà des 10 places communes, tarif tier normal sans pilote.</p>
+      <p>Setup offert (sinon 999&nbsp;€) · Droit de regard produit · Statut Ambassadeur Civik-ia officiel. Au-delà des 10 places communes, tarif tier normal sans pilote</p>
       <a href="#contact" class="btn">Prendre l'une des 10 places <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
 
@@ -1681,139 +1729,69 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">Questions fréquentes</span>
-      <h2 class="h2">Vos questions, <br><em>sans langue de bois</em></h2>
+      <h2 class="h2">Vos questions, <br>sans langue de bois</h2>
     </div>
     <div class="faq__liste" id="faqListe">
       <details open>
         <summary>Est-ce que le chatbot remplace nos agents&nbsp;?</summary>
-        <div><strong>Non, au contraire.</strong> Marianne absorbe les 70 à 80&nbsp;% de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes&nbsp;: les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent.</div>
+        <div><strong>Non, au contraire.</strong> Marianne absorbe les 70 à 80&nbsp;% de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes&nbsp;: les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent</div>
       </details>
       <details>
         <summary>Et si l'IA se trompe ou « hallucine »&nbsp;?</summary>
-        <div>Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations.</div>
+        <div>Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations</div>
       </details>
-      <!-- [À CONFIRMER] Le brief disait « mise à jour immédiatement » : voir la note de la section Connaissance. -->
+      <!-- « Chaque nuit », valide par Thibaut le 30/09/2026 : voir la note de la section Connaissance. -->
       <details>
         <summary>Marianne est-elle vraiment formée sur tout notre site&nbsp;?</summary>
-        <div>Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit&nbsp;: une page modifiée aujourd'hui est prise en compte dès le lendemain matin.</div>
+        <div>Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit&nbsp;: une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, une alerte publiée depuis votre espace est connue de Marianne aussitôt</div>
       </details>
       <details>
         <summary>Comment le citoyen sait-il d'où vient la réponse&nbsp;?</summary>
-        <div>Chaque réponse affiche sa source&nbsp;: page du site, arrêté, délibération ou article du PLU, consultable en un clic.</div>
+        <div>Chaque réponse affiche sa source&nbsp;: page du site, arrêté, délibération ou article du PLU, consultable en un clic</div>
       </details>
       <details>
         <summary>Nous n'avons pas de site internet. Est-ce un problème&nbsp;?</summary>
-        <div>Non. Nous pouvons vous créer un site communal simple, lisible sur téléphone, avec Marianne dès le départ. Parlons-en lors de votre démo.</div>
+        <div>Non. Nous pouvons vous créer un site communal simple, lisible sur téléphone, avec Marianne dès le départ. Parlons-en lors de votre démo</div>
       </details>
       <details>
         <summary>Nos données restent-elles en Europe&nbsp;?</summary>
-        <div>Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. <span data-meta>Seule particularité, détaillée plus bas&nbsp;: sur WhatsApp et Messenger, les messages transitent par Meta.</span></div>
+        <div>Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. <span data-meta>Seule particularité, détaillée plus bas&nbsp;: sur WhatsApp et Messenger, les messages transitent par Meta</span></div>
       </details>
       <details data-meta>
         <summary>WhatsApp et Messenger&nbsp;: où vont les données&nbsp;?</summary>
-        <div>Sur WhatsApp et Messenger, les messages transitent par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta.</div>
+        <div>Sur WhatsApp et Messenger, les messages transitent par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta</div>
       </details>
-      <!-- [À CONFIRMER] Question telephone : masquee si le canal passe en « masque ». -->
-      <details data-canal="telephone">
-        <summary>Comment fonctionne Marianne au téléphone&nbsp;?</summary>
-        <div data-si="disponible">La commune dispose d'un numéro dédié. Marianne décroche, comprend la question posée à voix haute et répond avec les mêmes sources que sur le site. Si besoin, elle oriente vers le secrétariat aux heures d'ouverture.</div>
-        <div data-si="bientot">Ce canal est en préparation. La commune disposera d'un numéro dédié. Marianne décrochera, comprendra la question posée à voix haute et répondra avec les mêmes sources que sur le site. Si besoin, elle orientera vers le secrétariat aux heures d'ouverture.</div>
+      <details>
+        <summary>Faut-il télécharger une application&nbsp;?</summary>
+        <div>Non, rien n'est imposé&nbsp;: Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran d'accueil</div>
       </details>
       <details>
         <summary>Combien de temps pour déployer&nbsp;?</summary>
-        <div>7 jours en moyenne. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout.</div>
+        <div>7 jours en moyenne. Vous nous envoyez vos documents (PLU, arrêtés, horaires) via un dossier partagé, nous entraînons votre instance, vous validez les premières réponses, on met en ligne votre page Marianne. C'est tout</div>
       </details>
-      <!-- [À CONFIRMER] Le montant du seuil a ete retire : la page disait 40 000 € HT sur 4 ans, la note interne
+      <!-- Thibaut, 30/09/2026 : pas besoin d'ecrire le montant, mais le seuil reste a verifier (DAJF). Le montant du seuil a ete retire : la page disait 40 000 € HT sur 4 ans, la note interne
            du 28/09 (P5) dit 60 000 € HT depuis le 01/04/2026. A faire valider par la DAJF avant de le reecrire. -->
       <details>
         <summary>Comment cela se passe côté marchés publics&nbsp;?</summary>
-        <div>Nos tarifs (49 à 199&nbsp;€/mois) restent sous le seuil de dispense de publicité et de mise en concurrence. Un simple bon de commande suffit, sans cahier des charges. Au-delà de 50&nbsp;000 habitants, nous établissons un devis sur mesure.</div>
+        <div>Nos tarifs (49 à 199&nbsp;€/mois) restent sous le seuil de dispense de publicité et de mise en concurrence. Un simple bon de commande suffit, sans cahier des charges. Au-delà de 50&nbsp;000 habitants, nous établissons un devis sur mesure</div>
       </details>
       <details>
         <summary>Et si nos citoyens n'ont pas Internet&nbsp;?</summary>
-        <div>L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel téléphone. <span data-canal="telephone"><span data-si="disponible">Marianne répond aussi au téléphone&nbsp;: un numéro dédié, pour ceux qui préfèrent appeler.</span><span data-si="bientot">Marianne arrive aussi au téléphone&nbsp;: un numéro dédié, pour ceux qui préfèrent appeler.</span></span></div>
+        <div>L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un proche</div>
       </details>
     </div>
   </div>
 </section>
 
 <!-- =====================================================================
-     6.15 PARRAINAGE (programme et formulaire inchanges)
-     ===================================================================== -->
-<section class="sec" id="parrainage">
-  <div class="wrap">
-    <div class="tete tete--c">
-      <span class="sur">Programme Ambassadeur</span>
-      <h2 class="h2">Recommandez Civik-ia, <br><em>gagnez des mois offerts</em></h2>
-      <p class="chapo">Vous utilisez la Plateforme et vous en êtes satisfait&nbsp;? Recommandez Civik-ia à une commune voisine et bénéficiez d'avantages exclusifs.</p>
-    </div>
-    <div class="parr">
-      <div>
-        <div class="parr__pas">
-          <div class="parr__p"><div class="parr__n" aria-hidden="true">1</div><div><b>1<sup>er</sup> parrainage</b><p>1 mois d'abonnement offert</p></div></div>
-          <div class="parr__p"><div class="parr__n" aria-hidden="true">2</div><div><b>2<sup>e</sup> parrainage</b><p>2 mois d'abonnement offerts</p></div></div>
-          <div class="parr__p"><div class="parr__n" aria-hidden="true">3</div><div><b>3<sup>e</sup> parrainage</b><p>3 mois d'abonnement offerts</p></div></div>
-          <div class="parr__p parr__p--amb"><div class="parr__n" aria-hidden="true">4+</div><div><b>4<sup>e</sup> parrainage et plus</b><p>4 mois offerts (plafond) + statut <strong>Ambassadeur Civik-ia</strong></p></div></div>
-        </div>
-        <p class="parr__note"><strong>Avantage filleul&nbsp;:</strong> la commune parrainée bénéficie de la <strong>mise en service offerte</strong> (Programme Partenaires Fondateurs, 10 places).</p>
-      </div>
-      <form id="parrainageForm" class="ci-form" action="https://formspree.io/f/mnjogblz" method="POST" onsubmit="handleParrainageSubmit(event)">
-        <input type="hidden" name="_subject" value="Nouveau parrainage Civik-ia">
-        <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1">
-        <fieldset class="ci-form__fieldset">
-          <legend>Votre commune (parrain)</legend>
-          <div class="ci-form__group">
-            <label for="parrain_commune">Nom de votre commune<span aria-hidden="true">*</span></label>
-            <input type="text" id="parrain_commune" name="parrain_commune" required autocomplete="organization">
-          </div>
-          <div class="ci-form__group">
-            <label for="parrain_nom">Votre nom et fonction<span aria-hidden="true">*</span></label>
-            <input type="text" id="parrain_nom" name="parrain_nom" required autocomplete="name" placeholder="Ex : Jean Durand, Maire">
-          </div>
-          <div class="ci-form__group">
-            <label for="parrain_email">Votre email<span aria-hidden="true">*</span></label>
-            <input type="email" id="parrain_email" name="parrain_email" required autocomplete="email">
-          </div>
-        </fieldset>
-        <fieldset class="ci-form__fieldset">
-          <legend>Commune recommandée (filleul)</legend>
-          <div class="ci-form__group">
-            <label for="filleul_commune">Nom de la commune recommandée<span aria-hidden="true">*</span></label>
-            <input type="text" id="filleul_commune" name="filleul_commune" required>
-          </div>
-          <div class="ci-form__group">
-            <label for="filleul_contact">Nom du contact <span>(si connu)</span></label>
-            <input type="text" id="filleul_contact" name="filleul_contact">
-          </div>
-          <div class="ci-form__group">
-            <label for="filleul_email">Email du contact <span>(si connu)</span></label>
-            <input type="email" id="filleul_email" name="filleul_email">
-          </div>
-          <div class="ci-form__group">
-            <label for="filleul_message">Un mot pour la commune recommandée <span>(optionnel)</span></label>
-            <textarea id="filleul_message" name="filleul_message" rows="3"></textarea>
-          </div>
-        </fieldset>
-        <p class="ci-form__note">* champs obligatoires</p>
-        <button type="submit" class="ci-form__submit">Envoyer ma recommandation</button>
-        <div id="parrainageSuccess" class="ci-form__success" style="display:none" role="status">
-          <strong>Merci pour votre recommandation&nbsp;!</strong>
-          <p>Nous contacterons la commune recommandée sous 48h en mentionnant votre parrainage.</p>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================================
-     6.16 CONTACT (formulaire inchange) + APPEL FINAL
+     CONTACT (formulaire inchange) + APPEL FINAL
      ===================================================================== -->
 <section class="sec sec--2" id="contact">
   <div class="wrap">
     <div class="tete tete--c">
       <span class="sur">Parlons de votre commune</span>
-      <h2 class="h2">Offrez à vos citoyens <br><em>la mairie qu'ils méritent</em></h2>
-      <p class="chapo">Une question&nbsp;? Une idée&nbsp;? Prêt pour une démo personnalisée&nbsp;? Nous répondons sous 24h.</p>
+      <h2 class="h2">Alors, une mairie ouverte 24&nbsp;h/24, <br>ça vous tente&nbsp;?</h2>
+      <p class="chapo">Une question&nbsp;? Une idée&nbsp;? Prêt pour une démo personnalisée&nbsp;? Nous répondons sous 24h</p>
     </div>
     <div class="contact__wrap">
       <form id="contactForm" class="ci-form" action="https://formspree.io/f/mnjogblz" method="POST" onsubmit="handleFormSubmit(event)">
@@ -1868,7 +1846,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <button type="submit" class="ci-form__submit">Envoyer</button>
         <div id="formSuccess" class="ci-form__success" style="display:none" role="status">
           <strong>Votre message a bien été envoyé&nbsp;!</strong>
-          <p>Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration personnalisée.</p>
+          <p>Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration personnalisée</p>
         </div>
       </form>
       <p class="contact__plus">Vous préférez lire avant d'échanger&nbsp;? Téléchargez notre <a class="lien" href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download>Livre Blanc Civik-ia 2026</a>&nbsp;: 8 pages pour comprendre l'IA et les collectivités. Ou écrivez-nous sur <a class="lien" href="https://wa.me/33631558796?text=Bonjour%20!%20Je%20souhaite%20en%20savoir%20plus%20sur%20Civik-ia%20pour%20ma%20collectivit%C3%A9." target="_blank" rel="noopener">WhatsApp<span class="sr"> (nouvelle fenêtre)</span></a>.</p>
@@ -1878,15 +1856,40 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 
 <section class="fin" id="final" aria-labelledby="finTitre">
   <div class="fin__art" aria-hidden="true">
-    <img src="/marianne/assets/hero/village-nuit-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
-    <i class="lum lum--mairie" style="--x:38.45%;--y:28.6%"></i>
+    <div class="fin__cadre">
+      <picture>
+        <source type="image/avif" srcset="/marianne/assets/hero/village-nuit-1200.avif 1200w, /marianne/assets/hero/village-nuit-1600.avif 1600w, /marianne/assets/hero/village-nuit.avif 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
+        <source type="image/webp" srcset="/marianne/assets/hero/village-nuit-1200.webp 1200w, /marianne/assets/hero/village-nuit-1600.webp 1600w, /marianne/assets/hero/village-nuit.webp 1990w" sizes="(min-width:900px) max(100vw, 186vh), 130vw">
+        <img src="/marianne/assets/hero/village-nuit.jpg" alt="" width="1990" height="1075" loading="lazy" decoding="async">
+      </picture>
+      <i class="lum lum--mairie" style="--x:86.33%;--y:28.28%"></i>
+    </div>
   </div>
-  <span class="sur">Prêt&nbsp;? Il est <span id="finHeure">22h47</span></span>
-  <h2 class="h2" id="finTitre">Votre mairie, <br>disponible <em>dès lundi</em></h2>
-  <p>Démo personnalisée en 20 minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous voulez.</p>
-  <div class="fin__ctas">
-    <a href="#contact" class="btn btn--clair">Demander une démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download class="btn btn--filet">Télécharger le livre blanc</a>
+  <div class="fin__in">
+    <div class="fin__texte">
+      <span class="sur">Prêt&nbsp;? Il est <span id="finHeure">22&nbsp;h&nbsp;47</span></span>
+      <h2 class="h2" id="finTitre">Votre mairie, <br>disponible dès lundi</h2>
+      <p>Démo personnalisée en 20 minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous voulez</p>
+      <div class="fin__ctas">
+        <a href="#contact" class="btn btn--clair">Demander une démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download class="btn btn--filet">Télécharger le livre blanc</a>
+      </div>
+    </div>
+    <div class="fin__tel">
+      <figure class="tel" aria-label="Marianne est en ligne, même quand la mairie est fermée">
+        <div class="tel__ecran">
+          <div class="tel__barre" aria-hidden="true"><span>22:47</span><span class="tel__encoche"></span><span class="tel__reseau"><i></i><i></i><i></i></span></div>
+          <div class="tel__tete">
+            <img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32" loading="lazy">
+            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
+          </div>
+          <ol class="tel__fil">
+            <li class="msg msg--m"><div class="bulle">Bonsoir. La mairie est fermée, mais je suis là. Quelle est votre question&nbsp;?</div></li>
+          </ol>
+          <div class="tel__champ" aria-hidden="true"><span>Posez votre question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
+        </div>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -1896,36 +1899,18 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec" id="ressources">
   <div class="wrap">
     <h2 class="h2" style="font-size:clamp(28px,3vw,38px);margin-top:0">Aller plus loin</h2>
-    <p class="chapo" style="margin-bottom:32px;font-size:16.5px">Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée.</p>
+    <p class="chapo" style="margin-bottom:32px;font-size:16.5px">Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée</p>
     <div class="ress__grille">
-      <a class="ress__c" href="/chatbot-mairie.html"><strong>Chatbot pour mairie&nbsp;: guide complet</strong><span>Comment ça marche, ce que ça change pour vos agents, et pourquoi 24&nbsp;h/24 fait la différence sur le service rendu aux citoyens.</span></a>
-      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Pilote Partenaires Fondateurs&nbsp;: 9,99&nbsp;€/mois × 3 mois (10 places).</span></a>
-      <a class="ress__c" href="/chatbot-commune-rurale.html"><strong>Chatbot commune rurale</strong><span>Pensé pour les communes de moins de 5&nbsp;000 habitants. Pas de site web&nbsp;? Pas de problème&nbsp;: la plateforme se substitue ou se greffe à l'existant.</span></a>
-      <a class="ress__c" href="/campagnes-citoyennes.html"><strong>Campagnes Citoyennes</strong><span>Notre différenciateur. Sondages éclair, votes participatifs, retours d'expérience, directement intégrés au chatbot. Aucun fichier nominatif (RGPD natif).</span></a>
-      <a class="ress__c" href="/demo.html"><strong>Démo interactive</strong><span>Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements&nbsp;: toutes les questions citoyennes typiques.</span></a>
-      <a class="ress__c" href="/22h47.html"><strong>Campagne 22h47</strong><span>L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme.</span></a>
+      <a class="ress__c" href="/chatbot-mairie.html"><strong>Chatbot pour mairie&nbsp;: guide complet</strong><span>Comment ça marche, ce que ça change pour vos agents, et pourquoi 24&nbsp;h/24 fait la différence sur le service rendu aux citoyens</span></a>
+      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Pilote Partenaires Fondateurs&nbsp;: 9,99&nbsp;€/mois × 3 mois (10 places)</span></a>
+      <a class="ress__c" href="/chatbot-commune-rurale.html"><strong>Chatbot commune rurale</strong><span>Pensé pour les communes de moins de 5&nbsp;000 habitants. Pas de site web&nbsp;? Pas de problème&nbsp;: la plateforme se substitue ou se greffe à l'existant</span></a>
+      <a class="ress__c" href="/campagnes-citoyennes.html"><strong>Campagnes Citoyennes</strong><span>Notre différenciateur. Sondages éclair, votes participatifs, retours d'expérience, directement intégrés au chatbot. Aucun fichier nominatif (RGPD natif)</span></a>
+      <a class="ress__c" href="/demo.html"><strong>Démo interactive</strong><span>Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements&nbsp;: toutes les questions citoyennes typiques</span></a>
+      <a class="ress__c" href="/22h47.html"><strong>Campagne 22h47</strong><span>L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme</span></a>
     </div>
-    <div class="ress__service">
-      <!-- Liste derivee du manifeste de flotte (07-Backend/tools/flotte/flotte.json).
-           Ne lister que des communes au statut « en-service » : le gate
-           « node tools/verify/run.mjs flotte » sort rouge si une commune arretee
-           reapparait ici. Ne pas ecrire « clients » : ces communes ne sont pas toutes
-           signees, ce serait une fausse promesse (regle 8). Le 28/09/2026 Thore-la-Rochette,
-           Saint-Germain-au-Mont-d'Or, Lieurey et Serignan ont ete mises en pause (ADR 0051)
-           et retirees d'ici le meme jour.
-           [À CONFIRMER] L'audit du 30/09/2026 propose « en test » plutot que « en service ». -->
-      <strong>Marianne en service&nbsp;:</strong>
-      <a href="/preview/rive-de-gier/" style="margin-left:12px">Rive-de-Gier (42800)</a> ·
-      <a href="/preview/tarare/" style="margin-left:8px">Tarare (69170)</a>
-    </div>
-    <p class="ress__maj">Page mise à jour le 30 septembre 2026.</p>
+    <p class="ress__maj">Page mise à jour le 30 septembre 2026</p>
   </div>
 </section>
-
-<!-- La maison : bandeau discret. Lauria n'est pas liee (marque en construction). -->
-<div class="maison">
-  <p><span>La maison Civik-ia&nbsp;:</span> <b>Mar<i>ia</i>nne</b> <a href="/comitia/"><b>Comit<i>ia</i></b></a> <span><b>Laur<i>ia</i></b> <small>(en construction)</small></span></p>
-</div>
 
 </div><!-- /.feuille -->
 </main>
@@ -1935,7 +1920,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="pied__in">
     <div class="pied__marque">
       <img src="/assets/logo-civik-ia.png" alt="Civik-ia" width="120" height="96" loading="lazy">
-      <p>La Plateforme d'Intelligence Citoyenne pour les mairies françaises. Souveraine, RGPD native, disponible 24h/24. Marianne est une marque de la maison Civik-ia.</p>
+      <p>La Plateforme d'Intelligence Citoyenne pour les mairies françaises. Souveraine, RGPD native, disponible 24h/24. Marianne est une marque de la maison Civik-ia</p>
     </div>
     <div>
       <h3>Produit</h3>
@@ -1953,7 +1938,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <ul>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="/22h47.html">Campagne 22h47</a></li>
-        <li><a href="#parrainage">Parrainage</a></li>
         <li><a href="/chatbot-mairie.html">Chatbot mairie</a></li>
         <li><a href="/chatbot-commune-rurale.html">Commune rurale</a></li>
         <li><a href="/chatbot-mairie-prix.html">Prix chatbot</a></li>

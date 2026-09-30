@@ -6,11 +6,11 @@
 // Statut des canaux de Marianne : modifier ici uniquement.
 // "disponible" | "bientot" | "masque"
 const MARIANNE_CHANNELS = {
-  site:      { status: "disponible", label: "Sur votre site" },
-  qr:        { status: "disponible", label: "QR code & affichage" },
-  telephone: { status: "bientot",    label: "Au téléphone" },   // [À CONFIRMER]
-  whatsapp:  { status: "bientot",    label: "WhatsApp" },       // [À CONFIRMER]
-  messenger: { status: "bientot",    label: "Messenger" },      // [À CONFIRMER]
+  site:       { status: "disponible", label: "Sur votre site" },
+  smartphone: { status: "disponible", label: "Sur votre smartphone" },   // application web installable (PWA)
+  qr:         { status: "disponible", label: "QR code & affichage" },
+  whatsapp:   { status: "bientot",    label: "WhatsApp" },
+  messenger:  { status: "bientot",    label: "Messenger" },
 };
 
 /* ---------- petits outils ---------- */
@@ -50,31 +50,31 @@ securise(function canaux() {
   });
 
   const dans = (cles, etat) => cles.filter(c => statut(c) === etat);
-  // « au téléphone, sur WhatsApp et Messenger »
+  // « sur smartphone, sur WhatsApp et Messenger »
   const lister = (cles, noms, liaison) => {
     const p = cles.map((c, i) => (c === 'messenger' && cles[i - 1] === 'whatsapp' && noms.messenger.indexOf('sur ') === 0) ? 'Messenger' : noms[c]);
     return p.length < 2 ? p.join('') : p.slice(0, -1).join(', ') + ' ' + liaison + ' ' + p[p.length - 1];
   };
-  const OU = { site: 'sur votre site', telephone: 'au téléphone', whatsapp: 'sur WhatsApp', messenger: 'sur Messenger' };
+  const OU = { site: 'sur votre site', smartphone: 'sur smartphone', whatsapp: 'sur WhatsApp', messenger: 'sur Messenger' };
   const ecrire = (id, texte) => { const el = document.getElementById(id); if (el && texte) el.textContent = texte; };
 
   // Sous-titre du hero
-  const ordre = ['site', 'telephone', 'whatsapp', 'messenger'];
+  const ordre = ['site', 'smartphone', 'whatsapp', 'messenger'];
   const dispo = dans(ordre, 'disponible'), bientot = dans(ordre, 'bientot');
   let liste = lister(dispo, OU, 'ou');
   if (bientot.length) liste += (liste ? ', et bientôt ' : 'bientôt ') + lister(bientot, OU, 'et');
-  if (liste) ecrire('heroSous', 'Elle répond à chaque citoyen au nom de votre mairie, jour et nuit' + INSEC + ': ' + liste + '. Formée sur les données de votre commune, elle cite toujours ses sources.');
+  if (liste) ecrire('heroSous', 'Elle répond à chaque citoyen au nom de votre mairie, jour et nuit' + INSEC + ': ' + liste + '. Formée sur les données de votre commune, elle cite toujours ses sources');
 
   // Etape 3 de l'installation
-  const tous = ['site', 'qr', 'telephone', 'whatsapp', 'messenger'];
-  const DEPUIS = { site: 'votre site', qr: 'un QR code en mairie', telephone: 'le téléphone', whatsapp: 'WhatsApp', messenger: 'Messenger' };
+  const tous = ['site', 'smartphone', 'qr', 'whatsapp', 'messenger'];
+  const DEPUIS = { site: 'votre site', smartphone: 'leur smartphone', qr: 'un QR code en mairie', whatsapp: 'WhatsApp', messenger: 'Messenger' };
   const d2 = dans(tous, 'disponible'), b2 = dans(tous, 'bientot');
   let etape = d2.length ? 'Depuis ' + lister(d2, DEPUIS, 'ou') + '.' : '';
   if (b2.length) { const t = lister(b2, Object.assign({}, OU, { qr: 'par QR code' }), 'et'); etape += (etape ? ' ' : '') + 'Bientôt ' + t + '.'; }
   ecrire('howCanaux', etape);
 
   // Colonne « Pour le citoyen »
-  const QUI = { site: 'sur le site', qr: 'par QR code en mairie', telephone: 'au téléphone', whatsapp: 'sur WhatsApp', messenger: 'sur Messenger' };
+  const QUI = { site: 'sur le site', smartphone: 'sur smartphone', qr: 'par QR code en mairie', whatsapp: 'sur WhatsApp', messenger: 'sur Messenger' };
   let qui = lister(d2, QUI, 'ou');
   if (b2.length) qui += (qui ? ', et bientôt ' : 'bientôt ') + lister(b2, QUI, 'et');
   if (qui) ecrire('quiCanaux', qui.charAt(0).toUpperCase() + qui.slice(1));
@@ -82,15 +82,6 @@ securise(function canaux() {
   // Campagnes Citoyennes
   const wa = statut('whatsapp');
   ecrire('campCanaux', wa === 'disponible' ? 'Site, email et WhatsApp.' : wa === 'bientot' ? "Site et email aujourd'hui, WhatsApp bientôt." : 'Site et email.');
-
-  // Comparatif, ligne « Multicanal »
-  const multi = ['telephone', 'whatsapp', 'messenger'].filter(c => statut(c) !== 'masque');
-  const cellule = document.getElementById('vsMulti');
-  if (cellule) {
-    cellule.innerHTML = multi.length && multi.every(c => statut(c) === 'disponible')
-      ? '<span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span>'
-      : '<span class="etat" data-etat="bientot">Bientôt</span>';
-  }
 
   // Mention Meta : inutile si ni WhatsApp ni Messenger ne sont presentes
   if (statut('whatsapp') === 'masque' && statut('messenger') === 'masque') $$('[data-meta]').forEach(n => { n.hidden = true; });
@@ -331,9 +322,9 @@ securise(function hero() {
   /* --- hors defilement pilote : la conversation se joue quand le telephone arrive a l'ecran --- */
   const SCENES = [
     { q: 'Bonsoir, comment inscrire mon fils à la cantine pour septembre' + INSEC + '?', r: texteComplet, s: 'site de la mairie, page Périscolaire' },
-    { q: 'Je peux tondre ma pelouse le dimanche' + INSEC + '?', r: 'Oui, de 10' + INSEC + 'h à 12' + INSEC + 'h seulement, le dimanche et les jours fériés.', s: 'arrêté municipal n°' + INSEC + '2026-014' },
-    { q: 'Quand passent les encombrants' + INSEC + '?', r: 'Le premier jeudi du mois, sur inscription en mairie. Trois objets au maximum.', s: 'calendrier des déchets' },
-    { q: 'La mairie est ouverte samedi' + INSEC + '?', r: 'Non, la mairie n\'ouvre que du lundi au vendredi, de 9' + INSEC + 'h à 12' + INSEC + 'h et de 14' + INSEC + 'h à 17' + INSEC + 'h' + INSEC + '30. Vous pouvez faire votre demande en ligne dès maintenant.', s: 'site de la mairie, page Horaires' }
+    { q: 'Je peux tondre ma pelouse le dimanche' + INSEC + '?', r: 'Oui, de 10' + INSEC + 'h à 12' + INSEC + 'h seulement, le dimanche et les jours fériés', s: 'arrêté municipal n°' + INSEC + '2026-014' },
+    { q: 'Quand passent les encombrants' + INSEC + '?', r: 'Le premier jeudi du mois, sur inscription en mairie. Trois objets au maximum', s: 'calendrier des déchets' },
+    { q: 'La mairie est ouverte samedi' + INSEC + '?', r: 'Non, la mairie n\'ouvre que du lundi au vendredi, de 9' + INSEC + 'h à 12' + INSEC + 'h et de 14' + INSEC + 'h à 17' + INSEC + 'h' + INSEC + '30. Vous pouvez faire votre demande en ligne dès maintenant', s: 'site de la mairie, page Horaires' }
   ];
   let lecture = null;
   function jouer() {
@@ -403,7 +394,7 @@ securise(function hero() {
   const mq = matchMedia('(min-width:900px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
   function basculer() {
     const coupe = racine.classList.contains('anim-non');   // animations arretees par le visiteur
-    const anime = mq.matches && !coupe;
+    const anime = mq.matches && !coupe && !!(window.CSS && CSS.supports('color', 'color-mix(in srgb, red 50%, blue)'));
     racine.classList.toggle('scrub', anime);
     if (coupe && lecture) { lecture.arreter(); lecture = null; }
     if (anime) {
@@ -609,11 +600,11 @@ securise(function sources() {
    ===================================================================== */
 securise(function demo() {
   const QA = {
-    1: { q: "Quels sont les horaires de la déchèterie\u00A0?", a: "La déchèterie intercommunale est ouverte <strong>du mardi au samedi, 9h–12h et 14h–18h</strong> (fermeture à 17h le samedi). Accès gratuit avec le badge communal, à retirer en mairie.", src: "Règlement intérieur SICTOM, art. 3" },
-    2: { q: "J'ai perdu ma carte d'identité, que dois-je faire\u00A0?", a: "Vous devez effectuer une <strong>déclaration de perte</strong> au moment du dépôt de la nouvelle demande de CNI, directement en mairie (sans passer par la police). Pensez à prendre un justificatif de domicile de moins de 3 mois, un timbre fiscal de 25\u00A0€ et une photo d'identité récente.", src: "Service-Public.fr, carte nationale d'identité" },
-    3: { q: "Je voudrais abattre un chêne dans mon jardin, dois-je demander une autorisation\u00A0?", a: "Oui\u00A0: tout abattage d'arbre de <strong>plus de 20 cm de diamètre</strong> à 1,30 m du sol nécessite une <strong>déclaration préalable</strong> en mairie. Le chêne est par ailleurs protégé dans les zones A et N du PLU\u00A0: merci de vérifier votre zonage avant tout travaux.", src: "PLU, article UB 13" },
-    4: { q: "Comment inscrire mon enfant à la cantine pour la rentrée de septembre\u00A0?", a: "Les inscriptions se font sur le <strong>portail famille jusqu'au 10 août</strong>. Il vous faut un justificatif de domicile et l'attestation CAF.", src: "Site de la mairie, page Périscolaire" },
-    5: { q: "Un lampadaire est en panne rue du Moulin, qui dois-je prévenir\u00A0?", a: "Je note votre signalement\u00A0: <strong>éclairage public en panne rue du Moulin</strong>. Une intervention sera programmée sous 72h par le service technique. Voulez-vous communiquer un numéro plus précis (point lumineux)\u00A0?", src: "Signalement voirie, n° SIG-2026-041" }
+    1: { q: "Je veux installer un abri de jardin de 12\u00A0m². Il me faut un permis de construire\u00A0?", a: "Non. Entre 5 et 20\u00A0m², une <strong>déclaration préalable</strong> suffit, à déposer en mairie ou en ligne. Dans votre zone (UB), l'abri doit rester à 3\u00A0m des limites séparatives et ne pas dépasser 3,50\u00A0m de haut", src: "PLU, articles UB 7 et UB 10, et service-public.fr" },
+    2: { q: "J'emménage à Villeneuve-les-Ormes le mois prochain. Que dois-je faire en arrivant\u00A0?", a: "Bienvenue. Trois démarches vous attendent en mairie\u00A0: <strong>l'inscription sur les listes électorales</strong>, <strong>l'inscription scolaire</strong> si vous avez des enfants, et <strong>le retrait du badge de déchèterie</strong>. Le changement d'adresse, lui, se déclare en ligne sur service-public.fr", src: "Site de la mairie, pages Nouveaux arrivants et Déchets" },
+    3: { q: "Lundi prochain est férié. La collecte des ordures est maintenue\u00A0?", a: "Non. Le lundi 25 mai est férié (Pentecôte)\u00A0: la collecte est <strong>reportée au mardi 26 mai</strong>. Sortez votre bac la veille au soir", src: "Calendrier de collecte 2026" },
+    4: { q: "La coupure d'eau de mardi, c'est toujours prévu\u00A0?", a: "Oui. L'eau sera coupée <strong>rue des Platanes, mardi de 9\u00A0h à 13\u00A0h</strong>, à la suite d'une fuite sur le réseau. Pensez à remplir une bouteille la veille au soir", src: "Alerte de la mairie, publiée ce matin à 10\u00A0h\u00A014" },
+    5: { q: "Un lampadaire est en panne rue du Moulin, qui dois-je prévenir\u00A0?", a: "Je note votre signalement\u00A0: <strong>éclairage public en panne rue du Moulin</strong>. Il est transmis au service technique. Pouvez-vous préciser le numéro du point lumineux, inscrit sur le mât\u00A0?", src: "Signalement voirie, n° SIG-2026-041" }
   };
   const ICONE = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>';
   const puces = $$('#demoPuces .puce'), fil = $('#demoFil');
@@ -696,57 +687,12 @@ function handleFormSubmit(e) {
     });
 }
 
-function handleParrainageSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const fd = new FormData(form);
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-  submitBtn.textContent = 'Envoi en cours…';
-  submitBtn.disabled = true;
-
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'generate_lead',
-    lead_source: 'parrainage_form',
-    lead_city: fd.get('filleul_commune') || ''
-  });
-
-  sendToGoogleSheet({
-    name: (fd.get('parrain_commune') || '') + ' → ' + (fd.get('filleul_commune') || ''),
-    email: fd.get('parrain_email'),
-    city: fd.get('filleul_commune'),
-    message: 'PARRAINAGE / Parrain : ' + (fd.get('parrain_nom') || '') + ' / Contact filleul : ' + (fd.get('filleul_contact') || ''),
-    source: 'parrainage'
-  });
-
-  fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-    .then(r => {
-      if (r.ok) {
-        form.style.display = 'none';
-        const ok = document.getElementById('parrainageSuccess');
-        form.parentNode.insertBefore(ok, form);
-        ok.style.display = 'block';
-        ok.tabIndex = -1; ok.focus();
-      } else {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-        alert('Une erreur est survenue. Merci de nous contacter à contact@civik-ia.fr');
-      }
-    })
-    .catch(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-      alert('Erreur de connexion. Merci de nous contacter à contact@civik-ia.fr');
-    });
-}
-
 /* form_start : premiere interaction reelle avec un formulaire de conversion.
    Une seule fois par formulaire et par chargement de page. Sans cet evenement,
    un zero de generate_lead ne dit pas si le visiteur a commence puis abandonne,
    ou n'a jamais commence. Meme parametre lead_source que generate_lead. */
 securise(function () {
-  [{ id: 'contactForm', source: 'contact_form' }, { id: 'parrainageForm', source: 'parrainage_form' }].forEach(function (f) {
+  [{ id: 'contactForm', source: 'contact_form' }].forEach(function (f) {
     var el = document.getElementById(f.id);
     if (!el) return;
     var fired = false;
@@ -763,17 +709,16 @@ securise(function () {
    9. Assistant du site (questions commerciales sur Civik-ia)
    ===================================================================== */
 const cbKnowledge = [
-  { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous renseigner sur la <strong>Plateforme d'Intelligence Citoyenne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres." },
-  { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo.html'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune." },
-  { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Réponse sous 24h." },
-  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "<strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 EPCI)\u00A0: pilote symbolique <strong>9,99\u00A0€/mois pendant 3 mois</strong>, puis tarif normal garanti 3 ans (49\u00A0€ Essentiel / 99\u00A0€ Engagement / 199\u00A0€ Pilotage). Setup offert (sinon 999\u00A0€). <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>." },
-  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "La <strong>Plateforme d&#39;Intelligence Citoyenne</strong> est un assistant IA souverain qui répond 24h/24 aux questions des citoyens, fournit un dashboard aux élus, et permet les <strong>Campagnes Citoyennes</strong> et <strong>Alertes Intelligentes</strong>." },
-  { keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français', 'europe'], response: "Le cerveau de Marianne est européen\u00A0: hébergement <strong>OVHcloud</strong> en Europe, IA <strong>Mistral AI</strong> (Paris), <strong>RGPD</strong> natif. Les données de votre commune ne servent jamais à entraîner d'autres modèles." },
-  { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "<strong>7 jours en moyenne</strong> pour déployer. On cadre le projet, on entraîne votre IA sur vos documents, on met en ligne votre page Marianne. Sous le seuil des marchés publics." },
-  { keywords: ['agent', 'emploi', 'poste', 'remplacer', 'personnel', 'supprime'], response: "Civik-ia <strong>ne remplace aucun agent</strong>. Elle prend en charge les questions répétitives (70 à 80\u00A0% des demandes). Les agents se recentrent sur l'accueil humain." },
-  { keywords: ['campagne', 'sondage', 'avis', 'consultation', 'citoyenne'], response: "Les <strong>Campagnes Citoyennes</strong> permettent de consulter vos habitants en temps réel (sondages, votes, enquêtes). Incluses\u00A0: 2/an (Essentiel), 4/an (Engagement), 6/an (Pilotage)." },
-  { keywords: ['parrainage', 'recommander', 'ambassadeur'], response: "Le <strong>programme Ambassadeur</strong> récompense les communes qui recommandent Civik-ia\u00A0: 1 à 4 mois offerts progressifs. <a href='#parrainage' onclick=\"toggleChatbot();return true;\">Découvrir</a>." },
-  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Nous pouvons vous en créer un, avec Marianne dès le premier jour. <a href='#contact' onclick=\"toggleChatbot();return true;\">Parlons-en</a>." }
+  { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous renseigner sur la <strong>Plateforme d'Intelligence Citoyenne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres" },
+  { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo.html'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune" },
+  { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Réponse sous 24h" },
+  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "<strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 EPCI)\u00A0: pilote symbolique <strong>9,99\u00A0€/mois pendant 3 mois</strong>, puis tarif normal garanti 3 ans (49\u00A0€ Essentiel / 99\u00A0€ Engagement / 199\u00A0€ Pilotage). Setup offert (sinon 999\u00A0€). <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
+  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "La <strong>Plateforme d&#39;Intelligence Citoyenne</strong> est un assistant IA souverain qui répond 24h/24 aux questions des citoyens, fournit un dashboard aux élus, et permet les <strong>Campagnes Citoyennes</strong> et <strong>Alertes Intelligentes</strong>" },
+  { keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français', 'europe'], response: "Le cerveau de Marianne est européen\u00A0: hébergement <strong>OVHcloud</strong> en Europe, IA <strong>Mistral AI</strong> (Paris), <strong>RGPD</strong> natif. Les données de votre commune ne servent jamais à entraîner d'autres modèles" },
+  { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "<strong>7 jours en moyenne</strong> pour déployer. On cadre le projet, on entraîne votre IA sur vos documents, on met en ligne votre page Marianne. Sous le seuil des marchés publics" },
+  { keywords: ['agent', 'emploi', 'poste', 'remplacer', 'personnel', 'supprime'], response: "Civik-ia <strong>ne remplace aucun agent</strong>. Elle prend en charge les questions répétitives (70 à 80\u00A0% des demandes). Les agents se recentrent sur l'accueil humain" },
+  { keywords: ['campagne', 'sondage', 'avis', 'consultation', 'citoyenne'], response: "Les <strong>Campagnes Citoyennes</strong> permettent de consulter vos habitants en temps réel (sondages, votes, enquêtes). Incluses\u00A0: 2/an (Essentiel), 4/an (Engagement), 6/an (Pilotage)" },
+  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Nous pouvons vous en créer un, avec Marianne dès le premier jour. <a href='#contact' onclick=\"toggleChatbot();return true;\">Parlons-en</a>" }
 ];
 const cbSugList = ["Tester la démo", "Les tarifs\u00A0?", "Contacter l'équipe", "C'est quoi la Plateforme\u00A0?", "Comment ça se déploie\u00A0?"];
 
@@ -793,7 +738,7 @@ function toggleChatbot() {
 }
 
 function initChatbot() {
-  addCbMessage("Bonjour ! Je suis l'assistant Civik-ia. Je peux vous renseigner sur la Plateforme, les tarifs, une démo, ou vous orienter vers nos contacts.", 'bot');
+  addCbMessage("Bonjour ! Je suis l'assistant Civik-ia. Je peux vous renseigner sur la Plateforme, les tarifs, une démo, ou vous orienter vers nos contacts", 'bot');
   const sug = document.getElementById('cbSuggestions');
   cbSugList.forEach(s => {
     const b = document.createElement('button');
@@ -830,7 +775,7 @@ function findCbAnswer(q) {
     if (score > bestScore) { bestScore = score; best = e; }
   }
   if (best && bestScore >= 3) return best.response;
-  return "Je n'ai pas la réponse exacte. Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> ou écrivez à <strong>contact@civik-ia.fr</strong> : nous répondons sous 24h.";
+  return "Je n'ai pas la réponse exacte. Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> ou écrivez à <strong>contact@civik-ia.fr</strong> : nous répondons sous 24h";
 }
 
 function sendCbMessage() {

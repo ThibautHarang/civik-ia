@@ -3,73 +3,63 @@
 Ce dossier porte les visuels de la scène « 22 h 47 » de `civik-ia.fr/marianne/`.
 Ce fichier n'est pas déployé (le script `deploy-site.sh` écarte les `.md`).
 
-## Ce qui est en place aujourd'hui (provisoire)
+## Ce qui est en place (depuis le 30/09/2026)
 
-Les visuels définitifs (la maquette du village sur son îlot) ne sont pas encore produits.
-En attendant, la page utilise une vignette tirée de la gravure maison
-(`assets/brand/village-grave.jpg`, la place de la mairie), teintée en deux états :
+Deux images plein cadre de la même scène, au même format (1990 x 1075) :
 
-| Fichier | Rôle | Poids |
-|---|---|---|
-| `village-jour.webp` (1920 x 1080) | état de départ, 17 h 30, lumière dorée | 94 Ko |
-| `village-jour-960.webp` | même image, petits écrans | 32 Ko |
-| `village-jour.jpg` | repli pour les navigateurs sans WebP | 147 Ko |
-| `village-nuit.webp` (1920 x 1080) | état d'arrivée, 22 h 47, la fenêtre de la mairie reste éclairée | 42 Ko |
-| `village-nuit-960.webp` | même image, mobile et appel final | 13 Ko |
-| `village-nuit.jpg` | repli | 84 Ko |
+| Fichier | Rôle |
+|---|---|
+| `village-jour.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200` | 17 h 30 : papier crème, encre bleue, ciel clair, soleil, le marché et ses passants |
+| `village-nuit.avif`, `.webp`, `.jpg` et les déclinaisons `-1600`, `-1200` | 22 h 47 : bleu nuit, lune, toutes fenêtres éteintes |
 
-Les deux images ont le même cadrage et le même fond, exactement `#0A0F2C`.
-La page les superpose et fond l'une dans l'autre au défilement : pas besoin de vidéo pour que la scène fonctionne.
+La page les superpose et fond la nuit sur le jour au défilement. Les deux images couvrent tout l'écran ;
+quand l'écran est moins large que l'image, elle reste calée sur la mairie.
 
-Elles sont fabriquées par `Civik-ia/tools/marianne-hero-art/build.py` (dépôt du socle) :
+Elles sont tirées de la gravure maison (`assets/brand/village-grave.jpg`) par le script
+`Civik-ia/tools/marianne-hero-art/build.py` (dépôt du socle) :
 
 ```bash
 python3 tools/marianne-hero-art/build.py <racine du site>
 ```
 
-Les fenêtres qui s'allument à la tombée du jour puis s'éteignent une à une, et le halo bleu de la mairie,
-ne sont pas dans les images : ce sont des éléments HTML posés dessus (bloc `.hero__lumieres` de `index.html`),
-calés en pourcentage sur CETTE gravure.
+Ce que fait le script : il efface le fil lumineux et la fenêtre éclairée de la gravure d'origine, met l'éclairage à plat
+(la gravure est nocturne d'un côté, diurne de l'autre), nettoie le ciel de jour, retourne la scène pour placer la mairie
+à droite et remet la plaque « MAIRIE » à l'endroit.
 
-## Fichiers attendus pour la version définitive
+Ne sont PAS dans les images, mais posés par la page (blocs `.hero__lumieres` et `.hero__etoiles` de `index.html`) :
+les fenêtres qui s'allument à la tombée du jour puis s'éteignent une à une, la fenêtre bleue de la mairie,
+la lueur du couchant, les étoiles qui scintillent et l'étoile filante. Leurs positions sont en pourcentage de CETTE image.
 
-À produire par Thibaut (prompts dans l'annexe du brief de refonte), puis à déposer ici avec ces noms exacts :
+## Remplacer par d'autres visuels
 
-| Fichier | Format |
-|---|---|
-| `village-jour.webp` + `village-jour.jpg` | 2560 px de large, 16:9, fond `#0A0F2C` uni |
-| `village-nuit.webp` + `village-nuit.jpg` | même cadrage, même fond |
-| `village-jour-960.webp`, `village-nuit-960.webp` | les mêmes, réduites à 960 px de large |
-| `hero-scrub.mp4` (H.264) + `hero-scrub.webm` | 6 s, du jour à la nuit, moins de 4 Mo, sans piste audio |
+1. Garder le format (1990 x 1075, ou le même rapport) et les noms de fichiers, dans les trois largeurs et les trois formats.
+   La mairie doit rester dans le quart droit de l'image, le texte s'écrit à gauche.
+2. Recaler les lumières : dans `index.html`, chaque `<i class="lum">` porte sa position (`--x`, `--y`) et ses moments
+   d'allumage et d'extinction (`--a`, `--b`, entre 0 et 1). La fenêtre de la mairie est `.lum--mairie`
+   (une occurrence dans le hero, une dans l'appel final).
+3. Régler le cadrage : `.hero__cadre` dans le bloc `@media (min-width:900px)` (valeur `.78` : part du débord rognée à gauche).
 
-Encodage conseillé de la vidéo (images clés rapprochées, indispensable pour un défilement fluide) :
+## Vidéo (facultative)
+
+Le code sait remplacer les deux images par une vidéo parcourue au défilement :
+déposer `hero-scrub.mp4` (H.264, 6 s, du jour à la nuit, moins de 4 Mo, sans piste audio), puis passer
+`data-video="0"` à `data-video="1"` sur `<div class="hero__art">`. Encodage conseillé (images clés rapprochées) :
 
 ```bash
 ffmpeg -i hero.mp4 -vf "scale=1920:-2" -c:v libx264 -g 2 -crf 26 -preset slow -an -movflags +faststart hero-scrub.mp4
-ffmpeg -i hero.mp4 -vf "scale=1920:-2" -c:v libvpx-vp9 -g 2 -crf 34 -b:v 0 -an hero-scrub.webm
 ```
 
-## Le jour où les visuels définitifs arrivent
-
-1. Remplacer les six images en gardant les noms de fichiers.
-2. Dans `marianne/index.html`, supprimer le bloc `<div class="hero__lumieres" data-art="gravure">` du hero
-   (ses lumières sont calées sur la gravure, elles tomberaient à côté sur la maquette).
-   Garder ou recaler le halo `.lum--mairie` de l'appel final (`.fin__art`).
-3. Pour activer la vidéo : déposer `hero-scrub.mp4` et `hero-scrub.webm`, puis passer `data-video="0"` à `data-video="1"`
-   sur `<div class="hero__art">`. La vidéo se charge après l'image, et prend le relais quand elle est prête.
-   Sans elle, ou tant qu'elle charge, les deux images font le travail.
-   Le navigateur lit d'abord le MP4 ; le WebM est facultatif. Testé le 30/09/2026 avec une vidéo d'essai : le MP4 encodé comme
-   ci-dessus se laisse parcourir dans les deux sens sans accroc ; le WebM encodé avec la commande VP9 ci-dessus a, lui, provoqué
-   une erreur de décodage dans Chrome. Si la vidéo plante ou se bloque, la page revient d'elle-même aux deux images.
-4. Si le fond de la vidéo n'est pas exactement `#0A0F2C` (les encodeurs décalent souvent les couleurs d'un ou deux points),
-   un rectangle devient visible autour du village. Le corriger à l'encodage, ou adoucir les bords par un masque CSS
-   sur `.hero__art` (`mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%)`).
-5. Régler la taille du visuel : propriété `width` de `.hero__art` dans le bloc `@media (min-width:900px)`.
-6. Au déploiement : bump de `CACHE_NAME` dans `service-worker.js` (règle 4 du socle).
+Testé le 30/09/2026 avec une vidéo d'essai : le MP4 se laisse parcourir dans les deux sens ; un WebM VP9 encodé avec
+`-g 2` a provoqué une erreur de décodage dans Chrome, il vaut mieux s'en passer. Si la vidéo plante ou se bloque,
+la page revient d'elle-même aux deux images.
 
 ## Polices
 
-Les polices de la page sont dans `assets/fonts/` (Inter, Poppins, Fraunces, sous-ensemble latin, licence SIL Open Font License).
+Les polices de la page sont dans `assets/fonts/` (Inter et Poppins, sous-ensemble latin, licence SIL Open Font License).
 Elles ne servent pour l'instant qu'à la page Marianne ; les autres pages du site appellent encore Google Fonts.
 
-Note Kalendia : 432 (carnet Civik-ia), points à trancher avant mise en ligne.
+## Au déploiement
+
+Bump de `CACHE_NAME` dans `service-worker.js` (règle 4 du socle).
+
+Note Kalendia : 432 (carnet Civik-ia).

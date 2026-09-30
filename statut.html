@@ -232,11 +232,17 @@
       name: 'Marianne (chatbot IA)',
       desc: 'Réponses citoyens 24/7 (Mistral AI)',
       icon: '🤖',
-      url: API_BASE + '/api/chat',
-      method: 'POST',
-      body: { commune_id: 'demo-villeneuve-les-ormes-36999', query: 'ping' },
-      timeout: 15000, // LLM peut être lent
-      expect: 200
+      // Sonde sans appel au modèle : cette page est publique et se relance toute seule,
+      // elle ne doit jamais envoyer de message à /api/chat. /api/health suffit.
+      url: API_BASE + '/api/health',
+      method: 'GET',
+      timeout: 5000,
+      expect: 200,
+      verdict: function (data) {
+        if (!data || data.status !== 'ok' || !(data.communes_loaded > 0)) return 'outage';
+        // Coupe-circuit de budget actif : Marianne répond en mode dégradé
+        return (data.llm_budget || {}).citoyens === 'coupe-circuit' ? 'degraded' : 'ok';
+      }
     },
     {
       id: 'signalements',
@@ -339,7 +345,15 @@
           var ok = r.status === svc.expect;
           // Latence > seuil = dégradé
           var state = ok ? (elapsed > 3000 ? 'degraded' : 'ok') : 'outage';
-          resolve({ id: svc.id, state: state, latency_ms: elapsed, status: r.status });
+          if (!ok || !svc.verdict) {
+            resolve({ id: svc.id, state: state, latency_ms: elapsed, status: r.status });
+            return;
+          }
+          // Sonde qui lit aussi le corps de la réponse (JSON illisible = panne, via le catch)
+          return r.json().then(function (data) {
+            var lu = svc.verdict(data);
+            resolve({ id: svc.id, state: lu === 'ok' ? state : lu, latency_ms: elapsed, status: r.status });
+          });
         })
         .catch(function () {
           clearTimeout(timer);

@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v164-exactitude-sans-commune-2026-09-30';
+const CACHE_NAME = 'civik-ia-v165-statut-sonde-sans-modele-2026-09-30';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

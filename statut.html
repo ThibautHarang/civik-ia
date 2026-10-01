@@ -73,11 +73,6 @@
       transition: transform 0.15s;
     }
     .service:hover { transform: translateY(-1px); }
-    .service-icon {
-      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--p-soft); font-size: 22px;
-    }
     .service-info { flex: 1; min-width: 0; }
     .service-name { font-size: 15px; font-weight: 700; margin: 0 0 2px; }
     .service-desc { font-size: 12px; color: var(--ink-soft); margin: 0; }
@@ -133,7 +128,6 @@
 
     @media (max-width: 520px) {
       .service { flex-direction: row; padding: 14px 16px; }
-      .service-icon { width: 36px; height: 36px; font-size: 18px; }
       .service-status { padding: 6px 10px; font-size: 12px; }
       .global-banner { flex-direction: column; gap: 8px; padding: 22px 18px; }
     }
@@ -147,7 +141,7 @@
     <div class="header">
       <span class="logo-pill">Civik-ia · Statut des services</span>
       <h1>Tout fonctionne ?</h1>
-      <p class="subtitle">Statut en temps réel de la plateforme Civik-ia. Mise à jour automatique toutes les 30 secondes.</p>
+      <p class="subtitle">Statut en temps réel de la plateforme Civik-ia. Mise à jour automatique toutes les 30 secondes</p>
     </div>
 
     <!-- Banner global -->
@@ -179,19 +173,19 @@
         </div>
         <div class="infra-item">
           <div class="infra-label">Email transactionnel</div>
-          <div class="infra-value">Brevo (DKIM/SPF/DMARC)</div>
+          <div class="infra-value">Brevo (SPF, DKIM, DMARC)</div>
         </div>
         <div class="infra-item">
-          <div class="infra-label">Disponibilité ciblée</div>
-          <div class="infra-value">99,5 % mois</div>
+          <div class="infra-label">Objectif de disponibilité</div>
+          <div class="infra-value">99,5 % par mois</div>
         </div>
         <div class="infra-item">
           <div class="infra-label">Frontend</div>
           <div class="infra-value">PWA + Service Worker</div>
         </div>
         <div class="infra-item">
-          <div class="infra-label">Backups</div>
-          <div class="infra-value muted">Quotidiens · 30j rétention</div>
+          <div class="infra-label">Sauvegardes</div>
+          <div class="infra-value muted">Quotidiennes · conservées 14 jours</div>
         </div>
       </div>
     </div>
@@ -199,11 +193,11 @@
     <div class="last-update" id="last-update" role="status" aria-live="polite">Aucune vérification effectuée</div>
 
     <div style="text-align: center; margin-top: 18px;">
-      <button class="refresh-btn" id="refresh-btn" aria-label="Vérifier maintenant l'état des services">↻ Vérifier maintenant</button>
+      <button class="refresh-btn" id="refresh-btn" aria-label="Vérifier maintenant l'état des services">Vérifier maintenant</button>
     </div>
 
     <div class="footer">
-      Si un service est en panne, vous serez automatiquement notifié par email à chaque mise à jour.<br>
+      Cette page vérifie les services depuis votre navigateur, au moment où vous la consultez. Elle n'envoie pas d'alerte et ne conserve pas d'historique<br>
       <strong>Support :</strong> <a href="mailto:support@civik-ia.fr">support@civik-ia.fr</a> · <a href="https://civik-ia.fr">civik-ia.fr</a>
     </div>
   </div>
@@ -221,7 +215,6 @@
       id: 'backend',
       name: 'API Backend',
       desc: 'FastAPI · cerveau central de la plateforme',
-      icon: '⚡',
       url: API_BASE + '/api/health',
       method: 'GET',
       timeout: 5000,
@@ -230,8 +223,7 @@
     {
       id: 'chat',
       name: 'Marianne (chatbot IA)',
-      desc: 'Réponses citoyens 24/7 (Mistral AI)',
-      icon: '🤖',
+      desc: 'Réponses aux habitants à toute heure (Mistral AI)',
       // Sonde sans appel au modèle : cette page est publique et se relance toute seule,
       // elle ne doit jamais envoyer de message à /api/chat. /api/health suffit.
       url: API_BASE + '/api/health',
@@ -248,7 +240,6 @@
       id: 'signalements',
       name: 'Signalements citoyens',
       desc: 'Dépôt + suivi + photos',
-      icon: '📸',
       url: API_BASE + '/api/signalements/meta/categories',
       method: 'GET',
       timeout: 5000,
@@ -256,9 +247,8 @@
     },
     {
       id: 'demarches',
-      name: 'Démarches signées (Cerfa B)',
-      desc: 'Signature eIDAS + transmission auto',
-      icon: '📝',
+      name: 'Démarches signées',
+      desc: 'Signature électronique simple (eIDAS) · envoi du PDF à la mairie par email',
       url: API_BASE + '/api/demarches/suivi/ping-token-inexistant',
       method: 'GET',
       timeout: 5000,
@@ -267,8 +257,7 @@
     {
       id: 'auth',
       name: 'Authentification agents',
-      desc: 'Magic link OTP par email',
-      icon: '🔐',
+      desc: 'Code à 6 chiffres envoyé par email',
       url: API_BASE + '/api/auth/agent/request-otp',
       method: 'POST',
       body: { email: 'statut-check@civik-ia.fr' },
@@ -279,7 +268,6 @@
       id: 'site',
       name: 'Site marketing',
       desc: 'civik-ia.fr (HTTPS, certificat valide)',
-      icon: '🌐',
       url: SITE_BASE + '/',
       method: 'GET',
       timeout: 5000,
@@ -289,7 +277,6 @@
       id: 'page-signaler',
       name: 'Page wizard signalement',
       desc: 'civik-ia.fr/signaler/{commune}',
-      icon: '📝',
       url: SITE_BASE + '/signaler/demo-villeneuve-les-ormes-36999',
       method: 'GET',
       timeout: 5000,
@@ -299,7 +286,6 @@
       id: 'page-suivi',
       name: 'Pages de suivi citoyen',
       desc: 'civik-ia.fr/suivi/{token} + suivi-demarche',
-      icon: '🔗',
       url: SITE_BASE + '/suivi/ping-token-inexistant',
       method: 'GET',
       timeout: 5000,
@@ -368,7 +354,6 @@
     var label = statusLabel(state);
     var latency = result && result.latency_ms ? result.latency_ms + ' ms' : '';
     var html = '<div class="service" data-id="' + escapeHtml(svc.id) + '" role="listitem">';
-    html += '  <div class="service-icon" aria-hidden="true">' + escapeHtml(svc.icon) + '</div>';
     html += '  <div class="service-info">';
     html += '    <p class="service-name">' + escapeHtml(svc.name) + '</p>';
     html += '    <p class="service-desc">' + escapeHtml(svc.desc) + '</p>';
@@ -394,14 +379,14 @@
     dot.className = 'pulse-dot ' + (anyOutage ? 'outage' : (anyDegraded ? 'degraded' : ''));
 
     if (anyOutage) {
-      label.textContent = '⚠️ Service partiellement perturbé';
-      sub.textContent = 'Un ou plusieurs services présentent un dysfonctionnement. Notre équipe technique est notifiée.';
+      label.textContent = 'Service partiellement perturbé';
+      sub.textContent = 'Un ou plusieurs services ne répondent pas depuis votre navigateur. Si cela dure, écrivez au support, à l\'adresse en bas de page';
     } else if (anyDegraded) {
-      label.textContent = '🟡 Service ralenti';
-      sub.textContent = 'Tous les services fonctionnent, mais certains présentent des temps de réponse élevés.';
+      label.textContent = 'Service ralenti';
+      sub.textContent = 'Tous les services fonctionnent, mais certains présentent des temps de réponse élevés';
     } else {
-      label.textContent = '✓ Tout fonctionne normalement';
-      sub.textContent = results.length + ' services vérifiés · disponibilité ' + Math.round(results.filter(function (r) { return r.state === 'ok'; }).length / results.length * 100) + ' %';
+      label.textContent = 'Tout fonctionne normalement';
+      sub.textContent = results.length + ' services vérifiés à l\'instant, tous opérationnels';
     }
   }
 
@@ -417,7 +402,7 @@
   function setLastUpdate() {
     var now = new Date();
     var lab = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById('last-update').textContent = '🕐 Dernière vérification : ' + lab + ' · prochaine dans 30 s';
+    document.getElementById('last-update').textContent = 'Dernière vérification : ' + lab + ' · prochaine dans 30 s';
   }
 
   var checking = false;
@@ -426,14 +411,14 @@
     checking = true;
     var btn = document.getElementById('refresh-btn');
     btn.disabled = true;
-    btn.textContent = '⏳ Vérification…';
+    btn.textContent = 'Vérification…';
 
     Promise.all(SERVICES.map(checkService)).then(function (results) {
       renderAll(results);
       updateGlobalBanner(results);
       setLastUpdate();
       btn.disabled = false;
-      btn.textContent = '↻ Vérifier maintenant';
+      btn.textContent = 'Vérifier maintenant';
       checking = false;
     });
   }

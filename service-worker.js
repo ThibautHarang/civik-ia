@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v166-statut-zero-fausse-promesse-2026-10-01';
+const CACHE_NAME = 'civik-ia-v168-signature-zero-fausse-promesse-2026-10-02';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

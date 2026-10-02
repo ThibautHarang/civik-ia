@@ -152,7 +152,9 @@
     steps.forEach(function (s) {
       var stepRank = rank[s.key];
       var cls = stepRank < curRank ? 'done' : (stepRank === curRank ? 'current' : '');
-      var dateStr = (cls === 'current' && d.updated_at) ? fmtDate(d.updated_at) : (s.date ? fmtDate(s.date) : '');
+      // Une étape à venir ne porte pas de date : sans ce garde, « Transmise à la mairie » affichait
+      // la date de signature alors que l'envoi à la mairie n'était pas parti.
+      var dateStr = !cls ? '' : ((cls === 'current' && d.updated_at) ? fmtDate(d.updated_at) : (s.date ? fmtDate(s.date) : ''));
       var stateText = cls === 'done' ? 'Étape terminée : ' : (cls === 'current' ? 'Étape en cours : ' : 'Étape à venir : ');
       html += '<li class="' + cls + '" role="listitem"' + (cls === 'current' ? ' aria-current="step"' : '') + '>';
       html += '<span class="sr-only">' + stateText + '</span>';
@@ -183,10 +185,17 @@
     }
     html += '</div>';
 
+    if (d.status === 'signe' && d.transmission_status === 'failed') {
+      html += '<div class="card" role="alert">';
+      html += '<h2 style="margin:0 0 10px;font-size:17px;font-weight:700;color:var(--p);">La mairie n\'a pas encore reçu votre démarche</h2>';
+      html += '<p style="margin:0;font-size:14px;color:var(--ink-soft);">L\'email qui transmet votre PDF signé à la mairie n\'est pas parti. Contactez la mairie de ' + escapeHtml(d.commune.name) + ' avec votre référence ' + escapeHtml(d.ticket_id) + ' pour vous assurer qu\'elle traite votre demande</p>';
+      html += '</div>';
+    }
+
     if (d.pdf_url) {
       html += '<div class="card">';
       html += '<h2 style="margin:0 0 10px;font-size:17px;font-weight:700;color:var(--p);">📄 Document signé</h2>';
-      html += '<p style="margin:0 0 12px;font-size:14px;color:var(--ink-soft);">Téléchargez votre PDF signé électroniquement. Il contient l\'intégralité des informations et la mention légale eIDAS.</p>';
+      html += '<p style="margin:0 0 12px;font-size:14px;color:var(--ink-soft);">Téléchargez la copie de votre demande signée</p>';
       html += '<a href="' + escapeHtml(d.pdf_url) + '" class="pdf-link" target="_blank" rel="noopener" aria-label="Télécharger le PDF signé (nouvelle fenêtre)">📥 Télécharger le PDF signé</a>';
       html += '</div>';
     }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Signer votre démarche : Civik-ia</title>
-  <meta name="description" content="Signez électroniquement votre démarche citoyenne. Signature eIDAS conforme, valeur juridique.">
+  <meta name="description" content="Vérifiez et signez votre demande avant son envoi à la mairie">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#000091">
   <link rel="icon" href="/assets/logo-civik-ia-seul.svg" type="image/svg+xml">
@@ -101,9 +101,9 @@
 <div class="wrap" id="main">
 
   <div class="header">
-    <span class="logo-pill">Civik-ia · Signature eIDAS</span>
+    <span class="logo-pill">Civik-ia · Signature électronique simple</span>
     <h1>Signer votre démarche</h1>
-    <p class="sub">Signature électronique conforme au Règlement UE n°910/2014</p>
+    <p class="sub">Vérifiez et signez votre demande avant son envoi à la mairie</p>
   </div>
 
   <div id="content" aria-live="polite" aria-busy="true">
@@ -173,6 +173,12 @@
     return html;
   }
 
+  // Texte de consentement : une seule chaîne, affichée à l'habitant puis envoyée telle quelle
+  // au serveur, qui la conserve et la fait entrer dans l'empreinte.
+  function consentText(d) {
+    return 'Je certifie que les informations ci-dessus sont exactes. Je signe électroniquement cette demande en tapant mon nom. J\'accepte que mon nom, la date, l\'heure et mon adresse IP soient conservés comme trace et transmis avec ma demande à la mairie de ' + d.commune.name;
+  }
+
   function submit() {
     if (state.submitting || !state.demarche) return;
     if (state.fullName.trim().length < 2) { state.error = 'Veuillez saisir votre nom complet.'; render(); return; }
@@ -185,7 +191,7 @@
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         signature_full_name: state.fullName.trim(),
-        consent_text: "J'atteste avoir pris connaissance des informations ci-dessus, les certifie exactes, et accepte de signer électroniquement cette démarche (RGPD + Règlement UE 910/2014 eIDAS art. 25.1).",
+        consent_text: consentText(state.demarche),
         suivi_token: TOKEN
       })
     }).then(function (r) {
@@ -214,12 +220,14 @@
     if (!state.demarche) { return; }
 
     if (state.result) {
+      // Le titre suit le statut renvoyé par l'API : « transmis » seulement si l'email à la mairie est parti.
+      var transmise = state.result.status === 'transmis';
       html += '<div class="success-card" role="status" aria-labelledby="signed-title">';
-      html += '<div class="success-icon" aria-hidden="true">✅</div>';
-      html += '<h2 id="signed-title">Démarche signée et transmise</h2>';
+      if (transmise) html += '<div class="success-icon" aria-hidden="true">✅</div>';
+      html += '<h2 id="signed-title">' + (transmise ? 'Démarche signée et transmise' : 'Démarche signée, pas encore transmise à la mairie') + '</h2>';
       html += '<p><strong>' + escapeHtml(state.result.ticket_id) + '</strong></p>';
       html += '<p>' + escapeHtml(state.result.message) + '</p>';
-      html += '<p style="font-size:13px;color:var(--ink-light);margin-top:14px;">Vous recevrez par email votre PDF signé et un lien de suivi.</p>';
+      html += '<p style="font-size:13px;color:var(--ink-light);margin-top:14px;">Si vous avez indiqué une adresse email, votre PDF signé et un lien de suivi vous y sont envoyés</p>';
       html += '<a href="' + escapeHtml(state.result.suivi_url) + '" class="suivi-link">Suivre ma démarche →</a>';
       html += '</div>';
       c.innerHTML = html;
@@ -259,23 +267,19 @@
     html += '<h2 id="sign-title">Signature électronique</h2>';
 
     html += '<div class="eidas-banner">';
-    html += '<strong>Signature eIDAS niveau simple :</strong> cette signature électronique a la valeur juridique d\'une signature manuscrite pour cette démarche administrative (Règlement UE n°910/2014, art. 25.1). Votre nom + horodatage + adresse IP + hash d\'intégrité SHA-256 sont enregistrés.';
+    html += '<strong>Signature électronique simple :</strong> vous tapez votre nom et cochez la case. Nous enregistrons ce nom, la date, l\'heure et votre adresse IP. Votre identité n\'est pas vérifiée. Ce n\'est pas une signature qualifiée, elle n\'a pas automatiquement la valeur d\'une signature manuscrite. La mairie peut vous demander un formulaire officiel ou des pièces';
     html += '</div>';
 
-    html += '<label for="fullname">Nom complet (tel que sur votre pièce d\'identité)</label>';
+    html += '<label for="fullname">Votre prénom et votre nom</label>';
     html += '<input type="text" id="fullname" required aria-required="true" aria-describedby="fullname-hint" placeholder="Prénom et nom" value="' + escapeHtml(state.fullName) + '" autocomplete="name">';
-    html += '<div class="field-hint" id="fullname-hint">Votre signature électronique. Sera apposée sur le PDF transmis à la mairie.</div>';
+    html += '<div class="field-hint" id="fullname-hint">Ce nom figurera sur le document envoyé à la mairie</div>';
 
     html += '<div class="consent-box">';
-    html += '<strong>En signant, j\'atteste :</strong><br>';
-    html += '• Avoir pris connaissance des informations ci-dessus et les certifier exactes.<br>';
-    html += '• Comprendre que cette signature électronique a une valeur juridique (eIDAS).<br>';
-    html += '• Accepter que mon nom, mon adresse IP et l\'horodatage soient enregistrés pour preuve.<br>';
-    html += '• Accepter que ces données soient transmises à la <strong>mairie de ' + escapeHtml(d.commune.name) + '</strong> pour traitement de ma demande (RGPD).';
+    html += escapeHtml(consentText(d));
     html += '</div>';
 
     html += '<label class="consent-check"><input type="checkbox" id="consent-cb" required aria-required="true"' + (state.consent ? ' checked' : '') + '>';
-    html += '<span>Je certifie avoir lu et j\'accepte de signer électroniquement cette démarche.</span></label>';
+    html += '<span>J\'ai lu et je signe cette demande</span></label>';
 
     html += '<div class="actions">';
     html += '<button class="btn-primary large" id="sign-btn"' + (state.submitting ? ' disabled' : '') + ' aria-label="Signer électroniquement et transmettre la démarche à la mairie">';

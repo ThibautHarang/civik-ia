@@ -2828,41 +2828,37 @@ Civik-ia, Plateforme d'Intelligence Citoyenne | Site principal · Tester la dém
 
 ## Centre d'aide & FAQ, Civik-ia
 URL : https://civik-ia.fr/aide.html
-Resume : Centre d'aide Civik-ia : FAQ par profil (citoyen, agent, élu, admin), guides pas-à-pas, vidéos tutos et contact support.
+Resume : Centre d'aide Civik-ia : questions fréquentes par profil (citoyen, agent municipal, élu, administrateur) et contact du support.
 
 Centre d'aide & FAQ, Civik-ia
 Aller au contenu
 Civik-ia · Centre d'aide
 Comment pouvons-nous vous aider ?
-Trouvez des réponses claires à vos questions, organisées par profil. Si vous ne trouvez pas, l'équipe répond en moins de 48 h.
+Trouvez des réponses claires à vos questions, organisées par profil. Si vous ne trouvez pas, écrivez-nous : toute demande est prise en charge sous 48 heures ouvrées
 Rechercher dans l'aide
-📚 Tous
-👤 Citoyen
-🧑‍💼 Agent municipal
-🏛️ Élu / Maire
-⚙️ Admin / DGS
+Tous
+Citoyen
+Agent municipal
+Élu / Maire
+Admin / DGS
 Liens rapides
-📸
 Signaler un problème
-Voirie, propreté, éclairage : photo + géoloc (exemple sur une commune fictive)
-🤖
+Voirie, propreté, éclairage : photo et position (exemple sur une commune fictive)
 Tester Marianne (démo)
-Découvrez le chatbot citoyen 24/7
-📊
+Posez vos questions à Marianne, sans inscription
 Statut des services
-Disponibilité temps réel de la plateforme
-✉️
+Vérification des services au moment où vous ouvrez la page
 Contacter le support
-Réponse sous 48 h ouvrées
+Prise en charge sous 48 heures ouvrées
 Foire aux questions
 Aucune réponse trouvée
-Essayez d'autres mots-clés ou contactez directement notre équipe ↓
+Essayez d'autres mots-clés ou écrivez-nous à l'adresse ci-dessous
 Vous n'avez pas trouvé votre réponse ?
-L'équipe Civik-ia répond personnellement à chaque demande sous 48 heures ouvrées (lundi-vendredi).
-✉️ support@civik-ia.fr
-💬 WhatsApp Business
+Écrivez-nous par email ou sur WhatsApp : toute demande est prise en charge sous 48 heures ouvrées
+contact@civik-ia.fr
+WhatsApp professionnel
 Civik-ia , Plateforme d'Intelligence Citoyenne · civik-ia.fr
-Dernière mise à jour du centre d'aide : 23 mai 2026
+Dernière mise à jour du centre d'aide : 2 octobre 2026
 
 ## 22h47 : Votre mairie est fermée | Civik-ia
 URL : https://civik-ia.fr/22h47.html

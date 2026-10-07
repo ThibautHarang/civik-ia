@@ -1,0 +1,11 @@
+aix-les-bains-og-v1.jpg : miniature de partage (Open Graph) de la page aix-les-bains
+
+Source : copie a l'octet de l'image generique de Marianne (11-App/marianne-og.jpg,
+1200x630, glyphe officiel Marianne et mention « L'assistante citoyenne · Civik-ia »),
+posee le 07/10/2026 au lot 2 du lecteur TYPO3. Aucune photo d'Aix-les-Bains n'est
+preparee : aucune contrainte de licence.
+
+A FAIRE avant que Thibaut partage le lien : remplacer ce fichier par une vraie
+miniature de la ville (photo cedee par la mairie de preference, sinon une photo sous
+licence libre avec credit incruste, gabarit maison de Tarare et Saint-Chamond), sous
+le meme nom. Le splash et le bloc OG nginx pointent deja sur ce nom.

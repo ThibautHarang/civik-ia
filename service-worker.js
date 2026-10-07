@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v169-aide-zero-fausse-promesse-2026-10-02';
+const CACHE_NAME = 'civik-ia-v170-splash-aix-les-bains-2026-10-07';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

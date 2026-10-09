@@ -378,7 +378,7 @@ Pour démarrer
 Essentiel
 Communes < 5 000 habitants
 49 €/mois HT, sans engagement
-Mise en service : 999 € HT, une seule fois
+Mise en service : à partir de 999 € HT, sur devis, une seule fois
 Marianne pour les habitants, 24 h sur 24
 Pilotage avec vos équipes, compris dans l'abonnement : l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance
 Support par courriel
@@ -387,7 +387,7 @@ Recommandé
 Engagement
 Communes 5 000 à 20 000 hab.
 99 €/mois HT, sans engagement
-Mise en service : 999 € HT, une seule fois
+Mise en service : à partir de 999 € HT, sur devis, une seule fois
 Tout Essentiel, à l'identique
 Support prioritaire
 Le prix suit la taille de la commune
@@ -396,7 +396,7 @@ Communes-villes
 Pilotage
 Communes 20 000 à 50 000 hab.
 199 €/mois HT, sans engagement
-Mise en service : 999 € HT, une seule fois
+Mise en service : à partir de 999 € HT, sur devis, une seule fois
 Tout Engagement, à l'identique
 Pas de module en plus
 Le prix suit la taille de la commune
@@ -411,7 +411,7 @@ SLA renforcé
 Chef de projet dédié
 Parler à un humain
 Pas de site internet ? Nous pouvons vous en créer un. Parlons-en
-Avant l'ouverture aux habitants, une mise en service en six étapes, une seule fois : le détail des étapes
+Mise en service : à partir de 999 € HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite, avant l'ouverture aux habitants : le détail des six étapes
 Vous cherchez comment financer l'abonnement ? Les aides et cofinancements à connaître
 Vos questions,
 sans langue de bois
@@ -699,7 +699,7 @@ La grille tarifaire reste sous le seuil de dispense de publicité des marchés p
 Une mise en service en six étapes
 Une seule fois, avant l'ouverture aux habitants : inventaire de votre site, cadre écrit, base de connaissances, mesure, validation par vos agents, version de référence. Le détail
 À partir de 49 € HT par mois
-Selon la taille de la commune, sans engagement. Mise en service : 999 € HT, facturée une seule fois.
+Selon la taille de la commune, sans engagement. Mise en service : à partir de 999 € HT, sur devis selon le travail à réaliser, facturée une seule fois.
 Voir la grille complète
 Vos questions, avant d'aller plus loin
 La démonstration utilise-t-elle de vraies données ?
@@ -849,7 +849,7 @@ Qu'est-ce qu'un chatbot IA pour mairie ?
 Un chatbot IA pour mairie est un assistant virtuel intelligent, accessible 24h/24 sur le site internet de la commune ou via une page dediee. Il repond automatiquement aux questions les plus frequentes des citoyens (horaires d'ouverture, collecte des dechets, etat civil, urbanisme) en s'appuyant sur une base de connaissances personnalisee. Contrairement a un chatbot generique, il est forme sur les donnees specifiques de votre commune (arretes municipaux, PLU, deliberations) pour fournir des reponses precises et a jour.
 Combien coute un chatbot pour une commune rurale ?
 +
-Chez Civik-ia, un chatbot IA pour une commune rurale de moins de 5 000 habitants coute a partir de 49 euros HT par mois, soit 588 euros par an. Ce tarif reste largement sous le seuil des marchés publics (60 000 euros HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026), ce qui signifie qu'un simple bon de commande suffit, pas d'appel d'offres, pas de procedure complexe. Le tarif comprend Marianne pour les habitants, disponible 24h/24 à partir du site officiel de la commune, et l'espace mairie, tableau de bord de la commune en cours de construction. La mise en service est facturée une seule fois, 999 € HT, à la validation écrite de la version de référence, avant l'ouverture aux habitants.
+Chez Civik-ia, un chatbot IA pour une commune rurale de moins de 5 000 habitants coute a partir de 49 euros HT par mois, soit 588 euros par an. Ce tarif reste largement sous le seuil des marchés publics (60 000 euros HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026), ce qui signifie qu'un simple bon de commande suffit, pas d'appel d'offres, pas de procedure complexe. Le tarif comprend Marianne pour les habitants, disponible 24h/24 à partir du site officiel de la commune, et l'espace mairie, tableau de bord de la commune en cours de construction. La mise en service coûte à partir de 999 € HT, sur devis selon le travail à réaliser (taille du site, documents à intégrer, fiches à écrire, ateliers avec les agents) ; elle est facturée une seule fois, à la validation écrite de la version de référence, avant l'ouverture aux habitants.
 Le chatbot remplace-t-il les agents de mairie ?
 +
 Non, et c'est un point fondamental. Le chatbot prend en charge les questions repetitives qui representent environ 70 % des sollicitations : horaires, dechets, urbanisme, pieces a fournir. Les agents sont ainsi liberes pour se concentrer sur l'accueil social, l'accompagnement des personnes fragiles et les dossiers complexes qui necessitent un contact humain. C'est un outil de soutien, pas de remplacement. Aucun poste n'est supprime : les agents recuperent chaque semaine les heures que ces questions repetitives dévoraient.
@@ -924,7 +924,7 @@ Sous seuil marches publics
 Civik-ia
 49€/mois (588€/an)
 99€/mois (1 188€/an)
-999€ HT, une seule fois
+À partir de 999€ HT, sur devis, une seule fois
 Oui
 Citia.io
 70€/mois (840€/an)
@@ -950,16 +950,16 @@ Delibia est un outil interne pour les agents et les elus (recherche, assistants 
 Le seuil des marches publics : pourquoi c'est crucial
 En dessous de 60 000€ HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procedure formalisee . Pas d'appel d'offres, pas de publication au BOAMP, pas de commission d'attribution.
 Concretement, votre DGS signe un bon de commande et c'est parti. La procedure est simplifiee au maximum, ce qui permet un deploiement rapide sans lourdeur administrative.
-Civik-ia pour une commune rurale : 49€/mois x 12 = 588€/an + 999€ de mise en service, une seule fois = 1 587€ HT la première année . Soit très loin du seuil de 60 000€. Meme l'offre Grandes Communes a 199€/mois (2 388€/an) reste tres largement sous ce plafond.
+Civik-ia pour une commune rurale : 49€/mois x 12 = 588€/an + une mise en service à partir de 999€, sur devis, une seule fois = à partir de 1 587€ HT la première année . Soit très loin du seuil de 60 000€. Meme l'offre Grandes Communes a 199€/mois (2 388€/an) reste tres largement sous ce plafond.
 588€
 Cout annuel
 Offre Rural
 60 000€
 Seuil marches
 publics
-999€
+à partir de 999€
 Mise en service
-une seule fois
+sur devis, une seule fois
 Et si une partie de cette dépense était cofinancée ? Depuis mai 2026, le guichet du programme Territoires d'IA, porté par la Banque des Territoires, couvre 30 à 50 % de l'achat de licences ou d'abonnements de solutions d'IA souveraine, en continu et sans date limite de dépôt. L'éligibilité est instruite par la Banque des Territoires, jamais promise par un éditeur : le détail des taux, des bonifications et de ce qui n'est pas accessible à une commune figure sur notre page financer l'IA de sa commune .
 Ce que vous obtenez pour 49€/mois
 Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes : la taille de la commune fait le prix.
@@ -1013,7 +1013,7 @@ Tout Grand, plus :
 Plusieurs communes, un seul contrat
 SLA garanti
 Nous contacter
-Mise en service : 999€ HT, facturée une seule fois, à la validation écrite de la version de référence ( les six étapes ). L'abonnement est mensuel, sans engagement de durée. Demander un devis &rarr;
+Mise en service : à partir de 999€ HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite, avant l'ouverture aux habitants ( les six étapes ). L'abonnement est mensuel, sans engagement de durée. Demander un devis &rarr;
 La mise en service, une seule fois
 Avant d'ouvrir Marianne à vos habitants, nous passons six étapes avec vous. C'est là que se fait l'essentiel du travail : consolider et fiabiliser la source sur laquelle Marianne répond.
 4 126 fiches
@@ -1048,14 +1048,14 @@ La version de référence
 La mairie fait essayer Marianne par ses agents d'accueil, valide par écrit la version de référence, puis décide d'ouvrir aux habitants.
 Civik-ia refait une mesure complète après les corrections et pose le garde-fou sur les personnes nommées.
 Chaque mesure est datée et dit ce qu'elle mesure : « justesse mesurée sur N questions de test le JJ/MM ; ce n'est pas un taux sur vos habitants ». Nous publions la méthode, jamais un taux promis.
-Avant l'ouverture aux habitants : 999 € HT, facturée une seule fois, à la validation écrite de la version de référence. Elle ne se renouvelle pas.
+Avant l'ouverture aux habitants : à partir de 999 € HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite de la version de référence. Elle ne se renouvelle pas.
 Ensuite, la base vit avec l'usage de Marianne : le site est relu chaque nuit, les vraies questions sont relues chaque semaine, chaque réponse non juste est corrigée puis remesurée. La mairie suivra tout cela dans son espace, en cours de construction.
 Les couts caches a surveiller
 Au-dela du tarif mensuel affiche, plusieurs postes de depense peuvent alourdir la facture. Voici les six points a verifier avant de signer.
 ⚙️
 Frais de mise en service
 Certains prestataires facturent entre 2 000€ et 5 000€ rien que pour l'installation et la configuration initiale. Cela peut suffire a depasser le seuil des marches publics des la premiere annee.
-Chez Civik-ia : 999€ HT, facturée une seule fois
+Chez Civik-ia : à partir de 999€ HT, sur devis, facturée une seule fois
 
 Maintenance et mises a jour
 Les mises a jour de l'IA, les corrections de bugs et l'evolution des fonctionnalites sont parfois facturees en supplement, sous forme de contrat de maintenance annuel.
@@ -1076,17 +1076,17 @@ Chez Civik-ia : vos donnees restent les votres
 Options et modules supplementaires
 Tableau de bord, formation, mises à jour : ces éléments sont souvent vendus en option payante chez d'autres éditeurs.
 Chez Civik-ia : compris dans l'abonnement
-Chez Civik-ia, le prix affiche est le prix paye. Pas de surprise.
+Chez Civik-ia, le devis fixe le prix de la mise en service avant toute commande ; l'abonnement est celui de la grille, sans frais cachés.
 Questions frequentes sur les prix
 Les reponses aux questions que se posent les DGS et les elus avant de choisir un chatbot pour leur mairie.
 Existe-t-il un chatbot gratuit pour les mairies ?
 Quelques solutions proposent un volet gratuit. C'est le cas de Delibia, qui offre une licence gratuite aux secretaires de mairie (constate en juillet 2026). Toutefois, ces offres gratuites sont presentees par leurs editeurs comme des outils internes pour les agents (recherche, assistants IA), sans chatbot conversationnel decrit pour les citoyens. Pour un assistant IA côté habitants, les tarifs débutent autour de 49 à 70€/mois. Notre page dediee, Existe-t-il un chatbot gratuit pour une mairie ? , detaille ce qui est reellement disponible gratuitement en 2026.
 Combien coute un chatbot Civik-ia pour une commune rurale ?
-Pour une commune de moins de 5 000 habitants, l'offre Civik-ia demarre a 49€ HT/mois, soit 588€ HT/an. La mise en service est facturée une seule fois : 999€ HT, à la validation écrite de la version de référence, avant l'ouverture aux habitants. L'offre comprend Marianne pour les habitants (réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse), l'hébergement souverain OVHcloud en Union européenne, la conformité RGPD et le support par courriel. Pilotage avec vos équipes, compris dans l'abonnement : l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance.
+Pour une commune de moins de 5 000 habitants, l'offre Civik-ia demarre a 49€ HT/mois, soit 588€ HT/an. La mise en service coûte à partir de 999€ HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents) ; elle est facturée une seule fois, à votre validation écrite de la version de référence, avant l'ouverture aux habitants. L'offre comprend Marianne pour les habitants (réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse), l'hébergement souverain OVHcloud en Union européenne, la conformité RGPD et le support par courriel. Pilotage avec vos équipes, compris dans l'abonnement : l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance.
 Faut-il passer par un marche public pour acheter un chatbot ?
 Non, pas necessairement. En dessous de 60 000€ HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procédure formalisée. Un simple bon de commande signe par le maire ou le DGS suffit. L'offre Civik-ia la plus elevee (199€/mois, soit 2 388€/an) reste tres largement en dessous de ce seuil.
 Quels sont les couts caches d'un chatbot de mairie ?
-Les principaux couts caches a surveiller sont les frais de setup (jusqu'a 5 000€ chez certains prestataires), la maintenance et les mises a jour parfois facturees en supplement, les couts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, la mise en service est facturée une seule fois (999€ HT, à la validation écrite de la version de référence) ; tout le reste est compris dans l'abonnement mensuel. Le prix affiché est le prix payé, sans mauvaise surprise.
+Les principaux couts caches a surveiller sont les frais de setup (jusqu'a 5 000€ chez certains prestataires), la maintenance et les mises a jour parfois facturees en supplement, les couts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, le devis fixe le prix de la mise en service avant toute commande (à partir de 999€ HT selon le travail à réaliser, facturée une seule fois à la validation écrite de la version de référence) ; tout le reste est compris dans l'abonnement mensuel, celui de la grille, sans frais cachés.
 Demandez votre devis en 2 minutes
 Decouvrez comment la Plateforme d'Intelligence Citoyenne peut transformer la relation entre votre mairie et vos citoyens.
 Tester la demo
@@ -1247,8 +1247,8 @@ Forfait Rural
 49€
 HT/mois, sans engagement
 Mise en service :
-999€ HT, une seule fois
-Total an 1 : 1 587€ HT (588€ d'abonnement et 999€ de mise en service), sous le seuil des marches publics (60 000 € HT, dispense de procedure, R. 2122-8, depuis le 01/04/2026)
+à partir de 999€ HT, sur devis, une seule fois
+Total an 1 : à partir de 1 587€ HT (588€ d'abonnement et une mise en service à partir de 999€), sous le seuil des marches publics (60 000 € HT, dispense de procedure, R. 2122-8, depuis le 01/04/2026)
 Chatbot IA personnalise sur les donnees de votre commune
 Accueil citoyen 24h/24, 365j/an, sans inscription
 Pilotage avec vos équipes, compris dans l'abonnement : l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance
@@ -1257,7 +1257,7 @@ Hebergement souverain UE (OVHcloud)
 Conforme RGPD : zero donnee hors UE
 Support par email, mises a jour incluses
 Demander un devis
-La mise en service (999 € HT) est facturee une seule fois, à la validation écrite de la version de référence, avant l'ouverture aux habitants. L'abonnement est mensuel, sans engagement de duree.
+Mise en service : à partir de 999 € HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturee une seule fois, à votre validation écrite de la version de référence, avant l'ouverture aux habitants. L'abonnement est mensuel, sans engagement de duree.
 Questions frequentes
 Les reponses aux questions que se posent les maires et DGS de communes rurales.
 Un chatbot est-il utile pour une commune de moins de 1 000 habitants ?
@@ -1319,7 +1319,7 @@ Generia
 PanneauPocket
 Prix d'entrée
 49 € HT/mois
-+ 999 € HT de mise en service, une seule fois
++ mise en service à partir de 999 € HT, sur devis, une seule fois
 ~1 750 € HT/an
 (~146 €/mois)
 ~70 € HT/mois
@@ -1868,8 +1868,8 @@ Avec un chatbot absorbant 40 % des appels répétitifs (objectif conservateur en
 7 000 appels/an évités
 24 500 €/an d'économie en temps agent
 Coût du chatbot Civik-ia (tier Essentiel, commune de moins de 5 000 habitants) : 49 € HT/mois = 588 € HT/an
-Mise en service : 999 € HT, facturée une seule fois
-ROI net première année : 24 500 € - 1 587 € (588 € d'abonnement et 999 € de mise en service) = 22 913 € économisés , soit environ 15 fois le coût de la première année . Le gain peut progresser d'année en année si la base de connaissances s'enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d'appels réel de votre commune.
+Mise en service : à partir de 999 € HT , sur devis selon le travail à réaliser, facturée une seule fois
+ROI net première année : 24 500 € - à partir de 1 587 € (588 € d'abonnement et une mise en service à partir de 999 €, fixée au devis) = jusqu'à 22 913 € économisés , soit jusqu'à environ 15 fois le coût de la première année . Le gain peut progresser d'année en année si la base de connaissances s'enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d'appels réel de votre commune.
 Le piège à éviter : sous-estimer la phase de mise en place
 Un chatbot ne fonctionne bien que s'il connaît vraiment la commune. Le piège fréquent est de signer rapidement avec un éditeur qui livre un produit générique « clé en main », et de constater que les réponses sont fausses ou imprécises pour les spécificités locales (tarifs salle, contact direct, calendrier scolaire).
 Civik-ia a résolu ce problème avec son outil de co-design : le DGS adapte le chatbot lui-même en 30 minutes via un formulaire web, sans aucune intervention technique. Les modifications sont prises en compte instantanément.
@@ -1946,8 +1946,8 @@ HT/mois, tier Essentiel (commune rurale)
 HT/mois, tier Engagement
 199 €
 HT/mois, tier Pilotage
-999 €
-HT de mise en service, facturée une seule fois
+dès 999 €
+HT de mise en service, sur devis selon le travail à réaliser, facturée une seule fois
 Astuce achat public : en restant sous le seuil de 5 000 euros par an, une commune peut contractualiser de gré à gré, sans procédure de marché public formalisée. C'est un vrai gain de temps pour un secrétariat déjà chargé.
 Le piège classique : le produit générique « clé en main »
 Le risque le plus fréquent est de signer avec un éditeur qui livre un outil générique, identique pour toutes les communes. Résultat : les réponses sont fausses ou imprécises sur les spécificités locales (tarif de la salle des fêtes, jour de collecte, contact direct d'un service).
@@ -1962,7 +1962,7 @@ Questions fréquentes
 Quel logiciel choisir pour une petite mairie rurale ?
 Pour une petite commune, il faut distinguer les outils de gestion interne (état civil, comptabilité, paie, élections), souvent fournis par les éditeurs historiques comme Berger-Levrault ou JVS-Mairistem, des outils de relation aux citoyens (site internet, application, assistant en ligne). Pour une commune de moins de 5 000 habitants, le bon critère n'est pas le nombre de fonctionnalités mais la simplicité d'usage, le coût maîtrisé et la capacité de l'équipe à le faire vivre sans compétence technique.
 Combien coûte un logiciel pour une commune de moins de 5 000 habitants ?
-Les logiciels métier de gestion interne se chiffrent généralement de quelques centaines à plusieurs milliers d'euros par an selon les modules. Pour un outil de relation citoyenne, comptez en moyenne de 20 à 300 euros par mois selon le périmètre. Un assistant en ligne souverain comme Civik-ia démarre à 49 euros HT par mois, avec une mise en service facturée une seule fois (999 euros HT). Ces ordres de grandeur sont indicatifs et varient selon les éditeurs.
+Les logiciels métier de gestion interne se chiffrent généralement de quelques centaines à plusieurs milliers d'euros par an selon les modules. Pour un outil de relation citoyenne, comptez en moyenne de 20 à 300 euros par mois selon le périmètre. Un assistant en ligne souverain comme Civik-ia démarre à 49 euros HT par mois, avec une mise en service facturée une seule fois, à partir de 999 euros HT sur devis selon le travail à réaliser. Ces ordres de grandeur sont indicatifs et varient selon les éditeurs.
 Faut-il un logiciel hébergé en France pour une mairie ?
 C'est fortement recommandé. Une mairie traite des données personnelles de citoyens, ce qui l'expose au RGPD. Privilégier un logiciel dont les données sont hébergées dans l'Union européenne, idéalement en France, et dont le moteur d'intelligence artificielle est européen, réduit l'exposition aux législations extra-européennes comme le Cloud Act américain. La souveraineté numérique est devenue un critère central des marchés publics depuis 2024.
 Un petit village a-t-il vraiment besoin d'un logiciel pour communiquer avec ses habitants ?
@@ -2342,7 +2342,7 @@ Vous êtes élu ou DGS d'une commune du Loir-et-Cher ?
 Quelle que soit la taille de votre commune, si vous souhaitez l'équiper d'un chatbot IA souverain, voici les prochaines étapes :
 Essayer la démonstration en ligne , sur une commune fictive, pour vous faire une idée concrète du rendu.
 Demander une démo personnalisée sur les données spécifiques de votre commune (45 minutes en visio).
-Demander un devis : abonnement de 49 à 199 € HT par mois selon la taille de la commune, sans engagement, et mise en service de 999 € HT, facturée une seule fois.
+Demander un devis : abonnement de 49 à 199 € HT par mois selon la taille de la commune, sans engagement, et mise en service à partir de 999 € HT, sur devis selon le travail à réaliser, facturée une seule fois.
 Pour aller plus loin
 Comparatif chatbot mairie 2026
 Chatbot pour commune rurale : le guide complet

@@ -49,7 +49,7 @@ if (/[?&]utm_source=flyer/.test(location.search)) { location.replace('/22h47.htm
         {"@type": "Question", "name": "La démonstration utilise-t-elle de vraies données ?", "acceptedAnswer": {"@type": "Answer", "text": "Les réponses sont générées en direct par le moteur d'IA de Civik-ia, sur la base de connaissances de Villeneuve-les-Ormes, une commune fictive construite pour la démonstration. Pour votre commune, la base est constituée à partir de vos informations réelles, vérifiées avec vous."}},
         {"@type": "Question", "name": "Combien coûte Marianne pour ma commune ?", "acceptedAnswer": {"@type": "Answer", "text": "À partir de 49 euros HT par mois pour une commune de moins de 5 000 habitants. La grille complète (49, 99, 199 euros HT par mois selon la taille et les modules) reste sous le seuil de dispense de publicité des marchés publics."}},
         {"@type": "Question", "name": "Faut-il que les citoyens créent un compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Marianne est accessible sans inscription, sans compte, sans adresse email. C'est un choix RGPD natif : aucun fichier nominatif côté citoyen."}},
-        {"@type": "Question", "name": "Combien de temps pour être en service ?", "acceptedAnswer": {"@type": "Answer", "text": "Une mairie est en production en 5 à 7 jours après signature : collecte de vos informations pratiques, construction de la base de connaissances, mise en service des trois espaces (citoyen, agent, élu)."}}
+        {"@type": "Question", "name": "Combien de temps pour être en service ?", "acceptedAnswer": {"@type": "Answer", "text": "Une mairie est en ligne en quelques semaines après sa validation écrite, selon son site et la disponibilité de ses agents : inventaire de ses informations pratiques, mise en service de la base de connaissances à partir du site officiel, validation avec ses agents, puis ouverture aux habitants. L'assistant répond aux habitants ; l'espace mairie est en construction."}}
       ]
     }
   ]
@@ -797,7 +797,7 @@ footer a:hover { color: var(--p); }
     verrouiller(true, 'Démonstration terminée. Poursuivons de vive voix.');
     addMsg('bot', 'Nous avons bien échangé : vous avez fait le tour de la démonstration publique. Votre conversation est transmise à notre équipe, qui revient vers vous sous 24 h ouvrées' +
       (etat.email ? '' : ' si vous laissez vos coordonnées dans <a href="#capture">le formulaire en bas de page</a>') +
-      '. Pour une présentation complète des trois espaces, <a href="#capture">demandez votre démonstration personnalisée</a>.');
+      '. Pour une présentation complète de Marianne, <a href="#capture">demandez votre démonstration personnalisée</a>.');
     track('cta_click', { cta_name: 'demo_fin_quota' });
   }
 

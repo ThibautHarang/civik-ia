@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Centre d'aide & FAQ, Civik-ia">
-  <meta property="og:description" content="Les questions fréquentes sur Civik-ia : Marianne sans compte, confidentialité, signalements, espace agent et cockpit élu.">
+  <meta property="og:description" content="Les questions fréquentes sur Civik-ia : Marianne sans compte, confidentialité, mise en service, espace mairie.">
   <meta property="og:url" content="https://civik-ia.fr/aide.html">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Civik-ia : Intelligence Citoyenne">
@@ -22,7 +22,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Centre d'aide & FAQ, Civik-ia">
-  <meta name="twitter:description" content="Les questions fréquentes sur Civik-ia : Marianne sans compte, confidentialité, signalements, espace agent et cockpit élu.">
+  <meta name="twitter:description" content="Les questions fréquentes sur Civik-ia : Marianne sans compte, confidentialité, mise en service, espace mairie.">
   <meta name="twitter:image" content="https://civik-ia.fr/og-image.png">
 
   <!-- Structured Data : FAQPage -->
@@ -34,7 +34,7 @@
       {
         "@type": "Question",
         "name": "Dois-je créer un compte pour utiliser Civik-ia ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Non. Vous posez vos questions à Marianne et vous signalez un problème sans créer de compte, sans mot de passe et sans donner votre email. Si vous souhaitez un accusé de réception ou être prévenu des suites données, vous pouvez laisser votre email : c'est facultatif, à chaque fois." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Non. Vous posez vos questions à Marianne sans créer de compte, sans mot de passe et sans donner votre email." }
       },
       {
         "@type": "Question",
@@ -48,8 +48,8 @@
       },
       {
         "@type": "Question",
-        "name": "Comment signaler un problème dans ma commune ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Rendez-vous sur civik-ia.fr/signaler/ suivi de l'identifiant de votre commune, si votre mairie propose ce service. Le parcours tient en 4 étapes : choisir la catégorie (voirie, propreté, éclairage, déchets), décrire le problème avec une photo et, si vous le souhaitez, votre position, laisser votre email si vous voulez être recontacté (facultatif), puis vérifier et envoyer. L'écran de confirmation vous donne un lien pour suivre votre signalement. Si vous avez laissé votre email, vous recevez aussi un accusé de réception avec ce lien." }
+        "name": "Que m'apportera l'espace mairie ?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Le tableau de bord de la commune : les questions des habitants et les sujets qui reviennent, les réponses justes et les erreurs connues, corrigées puis remesurées, ce que le site ne dit pas, et les sources de Marianne. Il est en cours de construction et ouvrira après les réglages de sécurité." }
       }
     ]
   }
@@ -203,7 +203,7 @@
 
     <div class="search-box">
       <label for="search" class="sr-only">Rechercher dans l'aide</label>
-      <input type="text" id="search" placeholder="Rechercher (ex : signaler, photo, mot de passe, tarif…)" autocomplete="off" aria-describedby="search-count">
+      <input type="text" id="search" placeholder="Rechercher (ex : données, mise en service, tarif, résilier…)" autocomplete="off" aria-describedby="search-count">
       <span id="search-count" class="sr-only" role="status" aria-live="polite"></span>
     </div>
 
@@ -218,9 +218,9 @@
     <!-- Quick links -->
     <div class="section-title">Liens rapides</div>
     <div class="quick-links">
-      <a href="/signaler/demo-villeneuve-les-ormes-36999" class="quick-link">
-        <span class="quick-link-title">Signaler un problème</span>
-        <p class="quick-link-desc">Voirie, propreté, éclairage : photo et position (exemple sur une commune fictive)</p>
+      <a href="/chatbot-mairie-prix.html#mise-en-service" class="quick-link">
+        <span class="quick-link-title">La mise en service</span>
+        <p class="quick-link-desc">Les six étapes avant l'ouverture aux habitants</p>
       </a>
       <a href="/demo" class="quick-link">
         <span class="quick-link-title">Tester Marianne (démo)</span>
@@ -257,7 +257,7 @@
 
     <div class="footer">
       <strong>Civik-ia</strong>, Plateforme d'Intelligence Citoyenne · <a href="https://civik-ia.fr">civik-ia.fr</a><br>
-      Dernière mise à jour du centre d'aide : 2 octobre 2026
+      Dernière mise à jour du centre d'aide : 9 octobre 2026
     </div>
   </div>
 
@@ -272,7 +272,7 @@
     {
       profile: 'citoyen',
       q: 'Dois-je créer un compte pour utiliser Civik-ia ?',
-      a: '<strong>Non.</strong> Vous posez vos questions à Marianne et vous signalez un problème sans créer de compte, sans mot de passe et sans donner votre email. Si vous souhaitez un accusé de réception ou être prévenu des suites données, vous pouvez laisser votre email : c\'est facultatif, à chaque fois'
+      a: '<strong>Non.</strong> Vous posez vos questions à Marianne sans créer de compte, sans mot de passe et sans donner votre email'
     },
     {
       profile: 'citoyen',
@@ -284,74 +284,29 @@
       q: 'Mes données sont-elles confidentielles ?',
       a: 'Voici ce qui est fait de vos données :<ul><li>Aucun compte n\'est demandé pour utiliser Marianne</li><li>Aucune publicité, aucun traceur publicitaire dans l\'application</li><li>Vos questions sont traitées par le modèle de Mistral AI pour produire la réponse</li><li>Le texte des conversations est effacé au bout de 90 jours, seules des statistiques anonymes sont conservées</li><li>Les visiteurs sont comptés grâce à un identifiant aléatoire enregistré dans votre navigateur, qui ne contient ni votre nom ni votre adresse</li><li>L\'hébergement est assuré par OVH, dans l\'Union européenne</li><li>Civik-ia ne vend aucune donnée</li></ul>Le détail figure dans la <a href="/legal/politique-confidentialite.html">politique de confidentialité</a>. Pour exercer vos droits, écrivez à contact@civik-ia.fr'
     },
-    {
-      profile: 'citoyen',
-      q: 'Comment signaler un problème dans ma commune ?',
-      a: 'Rendez-vous sur <code>civik-ia.fr/signaler/</code> suivi de l\'identifiant de votre commune, si votre mairie propose ce service (exemple sur une commune fictive : <code>/signaler/demo-villeneuve-les-ormes-36999</code>). Le parcours tient en 4 étapes :<ul><li>Étape 1 : choisir la catégorie (voirie, propreté, éclairage, déchets…)</li><li>Étape 2 : décrire le problème, ajouter une photo (5 Mo au maximum) et, si vous le souhaitez, votre position</li><li>Étape 3 : laisser votre email si vous voulez être recontacté (facultatif)</li><li>Étape 4 : vérifier et envoyer</li></ul>L\'écran de confirmation vous donne un lien pour suivre votre signalement. Si vous avez laissé votre email, vous recevez aussi un accusé de réception avec ce lien'
-    },
-    {
-      profile: 'citoyen',
-      q: 'Comment suivre mon signalement ?',
-      a: 'À la fin de votre signalement, un <strong>lien de suivi personnel</strong> vous est remis à l\'écran, et par email si vous avez laissé votre adresse (<code>civik-ia.fr/suivi/</code> suivi de votre code). Aucun compte n\'est nécessaire : ce lien est propre à votre dossier, conservez-le. Si vous avez laissé votre email, vous êtes aussi prévenu quand la mairie change l\'état de votre dossier'
-    },
-    {
-      profile: 'citoyen',
-      q: 'Peut-on signer une démarche en ligne ?',
-      a: 'Pas encore. La signature des démarches est en construction. Pour une démarche officielle, passez par le service en ligne de l\'État ou de votre mairie, ou par l\'accueil de la mairie'
-    },
-    {
-      profile: 'citoyen',
-      q: 'Que devient ma photo de signalement ?',
-      a: 'Elle est enregistrée avec votre signalement sur le serveur de Civik-ia, hébergé par OVH dans l\'Union européenne. Elle est visible par les agents de votre mairie depuis leur espace, et par toute personne qui détient votre lien de suivi : ne partagez ce lien qu\'avec des personnes de confiance. Elle sert uniquement au traitement de votre signalement : elle n\'est ni vendue, ni utilisée pour de la publicité, ni utilisée pour entraîner une IA'
-    },
 
     // ============== AGENT MUNICIPAL ==============
     {
       profile: 'agent',
-      q: 'Comment me connecter à mon espace agent ?',
-      a: 'L\'adresse de votre espace agent vous est communiquée par Civik-ia à la mise en service, sous la forme <code>civik-ia.fr/preview/votre-commune/agent/</code>. Saisissez votre email professionnel et votre mot de passe. À la première connexion, vous remplacez le mot de passe temporaire qui vous a été remis par le vôtre. En cas d\'oubli, écrivez à contact@civik-ia.fr. La connexion par code à usage unique, sans mot de passe, est en construction'
+      q: 'Quel est le rôle des agents pendant la mise en service ?',
+      a: 'Avant l\'ouverture aux habitants, vos agents relisent les fiches écrites à la main, jugent des réponses de Marianne sur un export où chaque réponse porte sa page source, et écrivent des questions de contrôle. Civik-ia applique chaque décision, corrige et remesure, sans jamais se servir de ces questions de contrôle pour corriger. Le détail des six étapes figure sur la <a href="/chatbot-mairie-prix.html#mise-en-service">page prix</a>'
     },
     {
       profile: 'agent',
-      q: 'Comment traiter un signalement citoyen ?',
-      a: '<ol><li>Connectez-vous à votre espace agent</li><li>Retrouvez la demande dans la liste, avec les filtres « À traiter », « Tous », « Mes affectations », « Archivés » ou la recherche</li><li>Ouvrez-la pour lire la description, voir la photo et la position</li><li>Changez son état : Nouveau, Lu, En cours, Répondu ou Archivé. Si l\'habitant a laissé son email, il est prévenu du changement</li><li>Rédigez votre réponse et enregistrez-la dans le dossier. Son envoi par email à l\'habitant est en construction</li></ol>'
-    },
-    {
-      profile: 'agent',
-      q: 'Comment traiter une démarche envoyée en ligne ?',
-      a: 'La signature et l\'envoi des démarches en ligne sont en construction : aucune démarche signée n\'arrive aujourd\'hui dans votre espace agent. Pour l\'instant, Marianne guide l\'habitant dans sa démarche et l\'oriente vers le téléservice officiel ou vers l\'accueil de la mairie'
-    },
-    {
-      profile: 'agent',
-      q: 'Comment publier une alerte intelligente ?',
-      a: 'Dans votre espace agent, rubrique « Diffusion », cliquez sur « Publier alerte ». Vous choisissez le type (travaux, services, événement, information), puis vous renseignez le titre, le message, la priorité (urgente, importante ou information) et la durée, de 1 à 90 jours. L\'alerte est transmise à Marianne, qui la mentionne quand la question d\'un habitant s\'y rapporte. Quatre alertes peuvent être actives en même temps, et chacune s\'arrête seule à la fin de sa durée. La publication est réservée aux rôles admin et maire'
-    },
-    {
-      profile: 'agent',
-      q: 'Quelle est la différence entre les rôles agent/admin/lecteur/maire ?',
-      a: '<ul><li><strong>agent</strong> : lit les demandes et y répond</li><li><strong>admin</strong> : lit les demandes et y répond, publie alertes, campagnes et événements, consulte le cockpit</li><li><strong>lecteur</strong> : consulte le cockpit, sans accès aux demandes</li><li><strong>maire</strong> : consulte le cockpit, lit les demandes sans pouvoir y répondre, publie alertes, campagnes et événements</li></ul>Le rôle admin convient au DGS ou au secrétaire de mairie, le rôle agent aux agents d\'accueil. Les comptes sont créés par Civik-ia, à la demande de la mairie'
-    },
-    {
-      profile: 'agent',
-      q: 'Comment exporter les signalements pour mon rapport mensuel ?',
-      a: 'L\'export des demandes au format CSV (type, numéro de dossier, catégorie, objet, état, agent affecté, date de création) existe pour les rôles admin et maire, mais son bouton n\'est pas encore dans l\'espace agent : il est en construction. Si vous en avez besoin d\'ici là, écrivez à contact@civik-ia.fr'
+      q: 'Où en est l\'espace mairie ?',
+      a: 'L\'espace mairie est le tableau de bord de la commune : questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources. Il est <strong>en cours de construction</strong> et ouvrira après les réglages de sécurité. D\'ici là, écrivez à contact@civik-ia.fr pour toute remarque sur une réponse de Marianne'
     },
 
     // ============== ÉLU / MAIRE ==============
     {
       profile: 'elu',
-      q: 'Que m\'apporte concrètement le Cockpit Élu ?',
-      a: 'Un tableau de bord qui résume ce que les habitants demandent à Marianne, sur 7, 28 ou 90 jours :<ul><li>Le nombre de questions traitées et de celles auxquelles Marianne a répondu seule</li><li>Les sujets les plus demandés</li><li>Jusqu\'à 3 recommandations générées par l\'IA</li><li>Un rapport PDF à télécharger</li></ul>Le vote de satisfaction des habitants sur les réponses, la liste des questions les plus posées et les plages horaires d\'usage sont en construction'
-    },
-    {
-      profile: 'elu',
-      q: 'Puis-je voir l\'Inbox des agents en tant que maire ?',
-      a: 'Oui, en <strong>lecture seule</strong>. Le rôle maire permet de voir les demandes et leur état. Répondre à un habitant ou changer l\'état d\'une demande reste réservé aux rôles agent et admin'
+      q: 'Que m\'apportera l\'espace mairie ?',
+      a: 'Le tableau de bord de la commune :<ul><li>Les questions des habitants et les sujets qui reviennent</li><li>Les réponses justes et les erreurs connues, corrigées puis remesurées</li><li>Ce que le site ne dit pas</li><li>Les sources de Marianne</li></ul>Il est <strong>en cours de construction</strong> et ouvrira après les réglages de sécurité'
     },
     {
       profile: 'elu',
       q: 'Comment obtenir un rapport pour mon conseil municipal ?',
-      a: 'Dans le cockpit, choisissez la période (7, 28 ou 90 jours) puis cliquez sur « Télécharger rapport PDF ». Le document contient la synthèse de la période, ses indicateurs (questions traitées, réponses automatiques, visiteurs uniques), les sujets les plus demandés et les recommandations. Vous pouvez l\'imprimer ou le projeter en séance'
+      a: 'Civik-ia vous remet le rapport de mesure daté de la mise en service : les questions de test, les réponses jugées contre leur page source, les erreurs connues et leur remède. Ce rapport mesure un test, pas l\'usage de vos habitants. L\'export depuis l\'espace mairie est en cours de construction'
     },
     {
       profile: 'elu',
@@ -362,8 +317,8 @@
     // ============== ADMIN / DGS ==============
     {
       profile: 'admin',
-      q: 'Comment créer un nouveau compte agent ?',
-      a: 'Les comptes sont créés par Civik-ia. Envoyez à contact@civik-ia.fr l\'email professionnel de l\'agent, son nom et le rôle souhaité (agent, admin, lecteur ou maire). L\'agent reçoit un mot de passe temporaire, qu\'il remplace à sa première connexion. La création de comptes par la mairie, depuis son propre espace, est en construction'
+      q: 'Qui aura accès à l\'espace mairie ?',
+      a: 'La mairie désigne les personnes qui y auront accès, et Civik-ia crée les comptes à sa demande. L\'espace mairie est en cours de construction et ouvrira après les réglages de sécurité'
     },
     {
       profile: 'admin',
@@ -378,7 +333,7 @@
     {
       profile: 'admin',
       q: 'Y a-t-il des coûts en plus de l\'abonnement ?',
-      a: 'L\'abonnement (à partir de 49 € HT par mois pour les communes de moins de 5 000 habitants) comprend :<ul><li>L\'hébergement</li><li>Le modèle de langage, sans coût par message</li><li>Les notifications par email</li><li>La maintenance et les mises à jour</li><li>Le support par email et messagerie professionnelle, avec prise en charge sous 48 heures ouvrées</li></ul>S\'y ajoutent la mise en service, facturée une seule fois 999 € HT (offerte aux Partenaires Fondateurs), et les options que vous choisissez, facturées à part, comme l\'envoi de SMS. Le détail figure dans les <a href="/legal/conditions-generales-vente.html">conditions générales de vente</a> et sur votre bon de commande'
+      a: 'L\'abonnement (à partir de 49 € HT par mois pour les communes de moins de 5 000 habitants) comprend :<ul><li>L\'hébergement</li><li>Le modèle de langage, sans coût par message</li><li>La maintenance et les mises à jour</li><li>La formation des agents à distance et un point trimestriel avec l\'élu</li><li>Le support par email et messagerie professionnelle, avec prise en charge sous 48 heures ouvrées</li></ul>S\'y ajoute la mise en service, facturée une seule fois 999 € HT avant l\'ouverture aux habitants (offerte aux Partenaires Fondateurs) : <a href="/chatbot-mairie-prix.html#mise-en-service">ses six étapes</a>. Le détail figure dans les <a href="/legal/conditions-generales-vente.html">conditions générales de vente</a> et sur votre bon de commande'
     },
     {
       profile: 'admin',

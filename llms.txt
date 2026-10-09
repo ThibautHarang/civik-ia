@@ -4,10 +4,12 @@
 
 ## Ce que fait Civik-ia
 
-- Chatbot citoyen (Marianne) : répond aux questions des habitants 24h/24 (horaires, état civil, déchets, urbanisme, démarches) à partir d'une base de connaissances vérifiée propre à chaque commune, sans création de compte.
-- Alertes intelligentes : les alertes publiées par la mairie (travaux, fermetures) sont intégrées par l'IA dans ses réponses, pas seulement affichées.
-- Campagnes citoyennes : consultations (étoiles, oui/non, NPS, texte libre) sans fichier nominatif, RGPD natif.
-- Inbox agent et cockpit élu : traitement des demandes et pilotage par les services et les élus.
+Marianne est un produit à deux faces :
+
+- Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel de la commune, page citée à chaque réponse (horaires, état civil, déchets, urbanisme, démarches), sans création de compte.
+- L'espace mairie : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), ouvert après les réglages de sécurité. Il est en cours de construction.
+
+Avant l'ouverture aux habitants, une mise en service unique en six étapes : inventaire du site officiel et des documents, cadre écrit avec la mairie, constitution de la base de connaissances (site relu chaque nuit, fiches écrites à la main pour ce que le site ne tranche pas), mesure sur 300 questions de test jugées contre leur page source, validation par les agents de la mairie, version de référence validée par la mairie. Ensuite, la base vit avec l'usage : site relu chaque nuit, vraies questions relues chaque semaine, réponses non justes corrigées puis remesurées. Détail : https://civik-ia.fr/chatbot-mairie-prix.html#mise-en-service
 
 ## Positionnement et souveraineté
 
@@ -34,7 +36,6 @@
 - [Outils IA pour secrétaire de mairie](https://civik-ia.fr/outils-ia-secretaire-de-mairie.html) : panorama des outils qui déchargent le secrétariat.
 - [Logiciel pour petite commune](https://civik-ia.fr/logiciel-mairie-petite-commune.html) : critères de choix d'un outil pour une mairie sans service informatique.
 - [Démarches en ligne d'une commune](https://civik-ia.fr/demarches-en-ligne-commune.html) : quelles démarches une commune peut ouvrir en ligne, et lesquelles restent en préfecture.
-- [Campagnes citoyennes](https://civik-ia.fr/campagnes-citoyennes.html) : consulter les habitants sans constituer de fichier nominatif.
 - [Livre blanc](https://civik-ia.fr/livre-blanc.html) : l'IA au service de la relation entre une mairie et ses habitants.
 
 ## Contenu intégral

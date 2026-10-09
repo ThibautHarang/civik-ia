@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
+    <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement : CNIL art. 82 -->
     <script src="/cookie-consent.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
     <meta name="twitter:image" content="https://civik-ia.fr/og-image.png">
     <meta name="twitter:image:alt" content="Civik-ia : Chatbot mairie, comparatif des prix 2026">
 
-    <!-- Structured Data — FAQPage -->
+    <!-- Structured Data : FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,7 +50,7 @@
           "name": "Combien coute un chatbot Civik-ia pour une commune rurale ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pour une commune rurale de moins de 5 000 habitants, Civik-ia propose son offre a partir de 49 euros HT par mois, soit 588 euros par an. Dans le cadre du Programme Partenaires Fondateurs (10 places communes + 3 places EPCI), les nouvelles mairies demarrent par un pilote symbolique a 9,99 euros HT par mois pendant 3 mois, puis basculent automatiquement sur le tarif tier normal garanti 3 ans. La mise en service (valeur 999 euros) est offerte pour les Fondateurs. L'offre inclut le chatbot IA personnalise, le dashboard elu, 2 Campagnes Citoyennes par an, l'hebergement souverain OVHcloud en Union Europeenne, et la conformite RGPD."
+            "text": "Pour une commune rurale de moins de 5 000 habitants, Civik-ia propose son offre a partir de 49 euros HT par mois, soit 588 euros par an. Dans le cadre du Programme Partenaires Fondateurs (10 places communes + 3 places EPCI), les nouvelles mairies demarrent par un pilote symbolique a 9,99 euros HT par mois pendant 3 mois, puis basculent automatiquement sur le tarif tier normal garanti 3 ans. La mise en service (valeur 999 euros) est offerte pour les Fondateurs. L'offre comprend Marianne pour les habitants (réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse), l'espace mairie (tableau de bord de la commune, en cours de construction), l'hébergement souverain OVHcloud en Union européenne et la conformité RGPD."
           }
         },
         {
@@ -58,7 +58,7 @@
           "name": "Faut-il passer par un marche public pour acheter un chatbot de mairie ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non, pas necessairement. Sous le seuil de 40 000 euros HT par an (article L2122-8 du Code de la commande publique), une commune peut acheter un chatbot sans procedure formalisee. Un simple bon de commande signe par le DGS ou le maire suffit. Civik-ia a 49 euros par mois (588 euros/an) reste tres largement sous ce seuil."
+            "text": "Non, pas necessairement. Sous le seuil de 60 000 euros HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un chatbot sans procédure formalisée. Un simple bon de commande signe par le DGS ou le maire suffit. Civik-ia a 49 euros par mois (588 euros/an) reste tres largement sous ce seuil."
           }
         },
         {
@@ -66,7 +66,7 @@
           "name": "Quels sont les couts caches d'un chatbot de mairie ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les principaux couts caches a surveiller sont : les frais de setup (de 0 a 5 000 euros selon les prestataires), la maintenance et les mises a jour (parfois facturees en supplement), les couts par conversation ou par message, la formation des agents (parfois payante), et les frais de migration en cas de changement de prestataire. Chez Civik-ia, le prix affiche est le prix paye : mise en service offerte (Programme Fondateurs), mises a jour incluses, formation incluse, et zero cout par message."
+            "text": "Les principaux couts caches a surveiller sont : les frais de setup (de 0 a 5 000 euros selon les prestataires), la maintenance et les mises a jour (parfois facturees en supplement), les couts par conversation ou par message, la formation des agents (parfois payante), et les frais de migration en cas de changement de prestataire. Chez Civik-ia, le prix affiché est le prix payé : mise en service facturée une seule fois (999 euros HT, offerte aux Partenaires Fondateurs), mises à jour et formation des agents à distance comprises dans l'abonnement, zéro coût par message."
           }
         },
         {
@@ -81,7 +81,7 @@
     }
     </script>
 
-    <!-- Structured Data — BreadcrumbList -->
+    <!-- Structured Data : BreadcrumbList -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -131,7 +131,7 @@
 
     <style>
         /* ============================================
-           DESIGN SYSTEM — LUXE INSTITUTIONNEL CHAUD
+           DESIGN SYSTEM : LUXE INSTITUTIONNEL CHAUD
            ============================================ */
         :root {
             --primary-gov: #000091;
@@ -865,7 +865,7 @@
         }
 
         /* ============================================
-           VALUE PROPOSITION — FEATURES
+           VALUE PROPOSITION : FEATURES
            ============================================ */
         .features-grid {
             display: grid;
@@ -1414,6 +1414,135 @@
         }
 
         /* ============================================
+           MISE EN SERVICE (D97 et D99 du 09/10/2026)
+           ============================================ */
+        .mes-chiffres {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .mes-chiffres li {
+            background: #fdfbf5;
+            border: 1px solid #e6e0d2;
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .mes-chiffres b {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-heading);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .mes-chiffres span {
+            display: block;
+            margin-top: 4px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .mes-note {
+            max-width: 760px;
+            margin: 14px auto 0;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .mes-etapes {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin: 48px 0 0;
+            padding: 0;
+        }
+
+        .mes-etape {
+            background: #fdfbf5;
+            border: 1px solid #e6e0d2;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .mes-lettre {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .mes-etape h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-heading);
+            line-height: 1.3;
+            margin: 6px 0 12px;
+        }
+
+        .mes-etape p {
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 0 8px;
+        }
+
+        .mes-etape p:last-child { margin-bottom: 0; }
+
+        .mes-etape p strong {
+            color: var(--text-heading);
+            font-weight: 700;
+        }
+
+        .mes-suite {
+            max-width: 760px;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .mes-suite p {
+            font-size: 16px;
+            color: var(--text-main);
+            line-height: 1.65;
+            margin: 0 0 12px;
+        }
+
+        .mes-suite p strong { color: var(--text-heading); }
+
+        [data-theme="dark"] .mes-chiffres li,
+        [data-theme="dark"] .mes-etape {
+            background: rgba(20, 20, 50, 0.55);
+            border-color: rgba(100, 100, 255, 0.15);
+        }
+
+        @media (max-width: 1100px) {
+            .mes-etapes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .mes-chiffres { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+            .mes-chiffres b { font-size: 24px; }
+            .mes-etapes { grid-template-columns: 1fr; gap: 14px; margin-top: 36px; }
+            .mes-etape { padding: 20px; }
+            .mes-suite p { font-size: 15px; }
+        }
+
+        /* ============================================
            ACCESSIBILITY
            ============================================ */
         @media (prefers-reduced-motion: reduce) {
@@ -1442,13 +1571,13 @@
   "operatingSystem": "Web",
   "url": "https://civik-ia.fr/",
   "inLanguage": "fr-FR",
-  "description": "Plateforme d'Intelligence Citoyenne pour les mairies : chatbot IA souverain qui repond aux administres 24h/24 sans inscription, inbox agent et cockpit elu. Modele francais Mistral AI, hebergement en Union europeenne, conforme au RGPD.",
+  "description": "Marianne, l'assistant IA des mairies édité par Civik-ia : réponses aux habitants 24 h sur 24 à partir du site officiel de la commune, page citée à chaque réponse, sans inscription. Modèle français Mistral AI, hébergement en Union européenne, conforme au RGPD.",
   "featureList": [
-    "Chatbot citoyen 24h/24 sans creation de compte",
-    "Base de connaissances verifiee propre a chaque commune",
-    "Alertes municipales integrees aux reponses de l'IA",
-    "Campagnes citoyennes sans fichier nominatif",
-    "Inbox agent et cockpit elu"
+    "Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse",
+    "Sans création de compte pour les habitants",
+    "Base de connaissances vérifiée propre à chaque commune",
+    "Mise en service en six étapes avant l'ouverture aux habitants",
+    "Espace mairie : tableau de bord de la commune, en cours de construction"
   ],
   "provider": {
     "@type": "Organization",
@@ -1610,7 +1739,7 @@
             <div class="landscape-card">
                 <span class="price-tag">49 - 70&#8364;/mois</span>
                 <h3>Entree de gamme specialisee</h3>
-                <p>Les solutions specialisees pour les collectivites debutent autour de 70&#8364;/mois. Civik-ia demarre a 49&#8364;/mois avec un perimetre large ; Citia.io propose une offre autour de 70&#8364;/mois : chatbot IA personnalise, dashboard elu, et Campagnes Citoyennes incluses. Ces tarifs permettent de rester largement sous le seuil des marches publics.</p>
+                <p>Les solutions specialisees pour les collectivites debutent autour de 70&#8364;/mois. Civik-ia démarre à 49&#8364;/mois ; Citia.io propose une offre autour de 70&#8364;/mois : chatbot IA personnalisé, tableau de bord pour l'élu et consultations citoyennes incluses. Ces tarifs permettent de rester largement sous le seuil des marches publics.</p>
             </div>
             <div class="landscape-card">
                 <span class="price-tag mid">150 - 250&#8364;/mois</span>
@@ -1684,7 +1813,7 @@
                 </table>
             </div>
 
-            <p class="table-note">Delibia est un outil interne pour les agents et les elus (recherche, assistants IA), pas un chatbot citoyen accessible 24h/24 ; la licence gratuite est offerte aux secretaires de mairie, les formules superieures sont sur devis. Botnation est un outil generique non specialise pour les mairies (pas de knowledge base commune, pas de dashboard elu, pas de Campagnes Citoyennes). Les prix sont indicatifs et susceptibles d'evoluer. Derniere mise a jour : juillet 2026.</p>
+            <p class="table-note">Delibia est un outil interne pour les agents et les elus (recherche, assistants IA), pas un chatbot citoyen accessible 24h/24 ; la licence gratuite est offerte aux secretaires de mairie, les formules superieures sont sur devis. Botnation est un outil generique non specialise pour les mairies (pas de base de connaissances propre à la commune). Les prix sont indicatifs et susceptibles d'evoluer. Derniere mise a jour : juillet 2026.</p>
         </div>
     </section>
 
@@ -1694,11 +1823,11 @@
     <section class="seuil-section" id="seuil">
         <div class="seuil-inner">
             <h2 class="section-title">Le seuil des marches publics : pourquoi c'est crucial</h2>
-            <p>En dessous de <strong>40 000&#8364; HT par an</strong> (article L2122-8 du Code de la commande publique), une commune peut acheter un logiciel <strong>sans procedure formalisee</strong>. Pas d'appel d'offres, pas de publication au BOAMP, pas de commission d'attribution.</p>
+            <p>En dessous de <strong>60 000&#8364; HT</strong> (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel <strong>sans procedure formalisee</strong>. Pas d'appel d'offres, pas de publication au BOAMP, pas de commission d'attribution.</p>
             <p>Concretement, votre DGS signe un bon de commande et c'est parti. La procedure est simplifiee au maximum, ce qui permet un deploiement rapide sans lourdeur administrative.</p>
 
             <div class="seuil-highlight">
-                <strong>Civik-ia pour une commune rurale :</strong> 49&#8364;/mois &times; 12 = <strong>588&#8364;/an</strong> + 0&#8364; de setup (Programme Partenaires Fondateurs) = <strong>588&#8364; HT/an</strong>. Soit 68 fois moins que le seuil de 40 000&#8364;. Meme l'offre Grandes Communes a 199&#8364;/mois (2 388&#8364;/an) reste tres largement sous ce plafond.
+                <strong>Civik-ia pour une commune rurale :</strong> 49&#8364;/mois &times; 12 = <strong>588&#8364;/an</strong> + 0&#8364; de setup (Programme Partenaires Fondateurs) = <strong>588&#8364; HT/an</strong>. Soit très loin du seuil de 60 000&#8364;. Meme l'offre Grandes Communes a 199&#8364;/mois (2 388&#8364;/an) reste tres largement sous ce plafond.
             </div>
 
             <div class="seuil-grid">
@@ -1707,7 +1836,7 @@
                     <div class="stat-label">Cout annuel<br>Offre Rural</div>
                 </div>
                 <div class="seuil-stat">
-                    <div class="stat-num">40 000&#8364;</div>
+                    <div class="stat-num">60 000&#8364;</div>
                     <div class="stat-label">Seuil marches<br>publics</div>
                 </div>
                 <div class="seuil-stat">
@@ -1724,24 +1853,24 @@
          ============================================ -->
     <section class="content-section section-center" id="tarifs">
         <h2 class="section-title">Ce que vous obtenez pour 49&#8364;/mois</h2>
-        <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">La Plateforme d'Intelligence Citoyenne de Civik-ia inclut tout ce dont une commune a besoin pour repondre a ses citoyens 24h/24 et piloter sa relation citoyenne.</p>
+        <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes&nbsp;: la taille de la commune fait le prix.</p>
 
         <div class="features-grid">
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
-                <span>Chatbot IA forme sur les donnees de <strong>votre</strong> commune</span>
+                <span><strong>Marianne pour les habitants</strong>&nbsp;: réponses 24&nbsp;h sur 24 à partir du site officiel, page citée à chaque réponse</span>
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
-                <span>Accessible <strong>24h/24</strong>, sans inscription pour les citoyens</span>
+                <span>Sans compte ni inscription pour les habitants</span>
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
-                <span>Dashboard elu : questions, tendances, alertes en temps reel</span>
+                <span><strong>L'espace mairie</strong>&nbsp;: le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), ouvert après les réglages de sécurité, <strong>en cours de construction</strong></span>
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
-                <span>2 <strong>Campagnes Citoyennes</strong> par an (sondages, consultations)</span>
+                <span>Point trimestriel avec l'élu</span>
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
@@ -1753,7 +1882,7 @@
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
-                <span>Support par email + formation initiale incluse</span>
+                <span>Support par courriel, formation des agents à distance</span>
             </div>
             <div class="feature-item">
                 <span class="feature-check" aria-hidden="true">&#10003;</span>
@@ -1765,17 +1894,18 @@
         <div class="pricing-grid">
             <!-- Rural -->
             <div class="pricing-card featured">
-                <div class="featured-badge">Le plus populaire</div>
+                <div class="featured-badge">Pour démarrer</div>
                 <div class="pricing-target">Rural</div>
                 <div class="pricing-size">&lt; 5 000 habitants</div>
                 <div class="pricing-amount">49&#8364;</div>
                 <div class="pricing-period">HT / mois</div>
                 <ul class="pricing-features">
-                    <li>Chatbot IA personnalise</li>
-                    <li>Dashboard elu temps reel</li>
-                    <li>2 Campagnes Citoyennes/an</li>
-                    <li>Page dediee (widget en construction)</li>
-                    <li>Support email</li>
+                    <li>Marianne pour les habitants, 24&nbsp;h sur 24</li>
+                    <li>Espace mairie (en construction)</li>
+                    <li>Page dédiée (widget en construction)</li>
+                    <li>Formation des agents à distance</li>
+                    <li>Point trimestriel avec l'élu</li>
+                    <li>Support par courriel</li>
                 </ul>
                 <a href="/marianne/#contact" class="btn-pricing" onclick="dataLayer.push({'event':'cta_click','cta_name':'pricing_rural'})">Demander un devis</a>
             </div>
@@ -1786,11 +1916,9 @@
                 <div class="pricing-amount">99&#8364;</div>
                 <div class="pricing-period">HT / mois</div>
                 <ul class="pricing-features">
-                    <li>Tout Rural, plus :</li>
-                    <li>4 Campagnes Citoyennes/an</li>
-                    <li>Notifications push + email</li>
-                    <li>Formation agents webinaire</li>
+                    <li>Tout Rural, à l'identique</li>
                     <li>Support prioritaire</li>
+                    <li>Le prix suit la taille de la commune</li>
                 </ul>
                 <a href="/marianne/#contact" class="btn-pricing" onclick="dataLayer.push({'event':'cta_click','cta_name':'pricing_moyen'})">Demander un devis</a>
             </div>
@@ -1801,11 +1929,9 @@
                 <div class="pricing-amount">199&#8364;</div>
                 <div class="pricing-period">HT / mois</div>
                 <ul class="pricing-features">
-                    <li>Tout Moyen, plus :</li>
-                    <li>6 Campagnes Citoyennes/an</li>
-                    <li>Notifications SMS incluses</li>
-                    <li>Analytics avances</li>
-                    <li>Account manager dedie</li>
+                    <li>Tout Moyen, à l'identique</li>
+                    <li>Pas de module en plus</li>
+                    <li>Le prix suit la taille de la commune</li>
                 </ul>
                 <a href="/marianne/#contact" class="btn-pricing" onclick="dataLayer.push({'event':'cta_click','cta_name':'pricing_grand'})">Demander un devis</a>
             </div>
@@ -1817,9 +1943,7 @@
                 <div class="pricing-period">Adapte a votre territoire</div>
                 <ul class="pricing-features">
                     <li>Tout Grand, plus :</li>
-                    <li>Campagnes illimitees</li>
-                    <li>Multi-communes</li>
-                    <li>Integrations sur mesure</li>
+                    <li>Plusieurs communes, un seul contrat</li>
                     <li>SLA garanti</li>
                 </ul>
                 <a href="/marianne/#contact" class="btn-pricing" onclick="dataLayer.push({'event':'cta_click','cta_name':'pricing_devis'})">Nous contacter</a>
@@ -1827,7 +1951,72 @@
         </div>
 
         <div class="pricing-setup">
-            <p><strong>Programme Partenaires Fondateurs :</strong> <strong>pilote symbolique 9,99&#8364; HT/mois pendant 3 mois</strong>, puis tarif tier normal <strong>garanti 3 ans</strong>. Mise en service (valeur 999&#8364;) <strong>offerte</strong>. Droit de regard produit + statut Ambassadeur. <strong>10 places communes + 3 places EPCI</strong>. <a href="/marianne/#contact" style="color: var(--accent-teal); font-weight: 700;">Reservez votre place &rarr;</a></p>
+            <p><strong>Programme Partenaires Fondateurs :</strong> <strong>pilote symbolique 9,99&#8364; HT/mois pendant 3 mois</strong>, puis tarif tier normal <strong>garanti 3 ans</strong>. Mise en service (valeur 999&#8364;) <strong>offerte</strong> (<a href="#mise-en-service" style="color: var(--accent-teal); font-weight: 700;">les six étapes</a>). Droit de regard produit + statut Ambassadeur. <strong>10 places communes + 3 places EPCI</strong>. <a href="/marianne/#contact" style="color: var(--accent-teal); font-weight: 700;">Reservez votre place &rarr;</a></p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         5 bis. LA MISE EN SERVICE (D97 et D99 du 09/10/2026)
+         Montant inchange (999 euros HT, offerte aux Fondateurs) ; aucun seuil de
+         justesse publie : la methode et le libelle de mesure, jamais un taux promis.
+         ============================================ -->
+    <section class="content-section" id="mise-en-service" aria-labelledby="mesTitre">
+        <h2 class="section-title section-center" id="mesTitre" style="text-align:center">La mise en service, une seule fois</h2>
+        <p class="section-subtitle section-center" style="text-align:center; margin-left:auto; margin-right:auto; margin-bottom:32px;">Avant d'ouvrir Marianne à vos habitants, nous passons six étapes avec vous. C'est là que se fait l'essentiel du travail&nbsp;: consolider et fiabiliser la source sur laquelle Marianne répond.</p>
+
+        <ul class="mes-chiffres" aria-label="Repères mesurés sur un déploiement de test, au 8 octobre 2026">
+            <li><b>4&nbsp;126</b><span>fiches</span></li>
+            <li><b>644</b><span>pages lues</span></li>
+            <li><b>272</b><span>actes lus</span></li>
+            <li><b>300</b><span>questions de test</span></li>
+            <li><b>15</b><span>rejeux</span></li>
+            <li><b>1&nbsp;994</b><span>réponses jugées</span></li>
+        </ul>
+        <p class="mes-note">Repères mesurés sur un déploiement de test, au 8 octobre 2026.</p>
+
+        <ol class="mes-etapes">
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape A</span>
+                <h3>L'inventaire des sources</h3>
+                <p><strong>La mairie</strong> confirme par écrit le périmètre des sources, à partir de l'inventaire.</p>
+                <p><strong>Civik-ia</strong> recense les pages du site officiel, ses documents, ses actes et les sites complémentaires, et note ce qui est lisible et ce qui ne l'est pas.</p>
+            </li>
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape B</span>
+                <h3>Le cadre écrit</h3>
+                <p><strong>La mairie</strong> désigne un référent, indique son délégué à la protection des données et choisit la règle sur les personnes nommées.</p>
+                <p><strong>Civik-ia</strong> rédige le cadre&nbsp;: périmètre des sources, règle sur les personnes nommées, retrait de tout contenu sous 24&nbsp;heures à la demande de la mairie.</p>
+            </li>
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape C</span>
+                <h3>La base de connaissances</h3>
+                <p><strong>La mairie</strong> admet, un par un, les sites complémentaires à lire (théâtre, intercommunalité, office de tourisme).</p>
+                <p><strong>Civik-ia</strong> lit le site chaque nuit et écrit à la main, page source à l'appui, les fiches sur ce que le site ne tranche pas.</p>
+            </li>
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape D</span>
+                <h3>La mesure avant ouverture</h3>
+                <p><strong>La mairie</strong> reçoit un rapport de mesure daté, lisible par la direction générale.</p>
+                <p><strong>Civik-ia</strong> tire 300 questions du site, les rejoue, juge chaque réponse contre sa page source et liste les réponses non justes avec leur cause et leur remède.</p>
+            </li>
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape E</span>
+                <h3>La validation par vos agents</h3>
+                <p><strong>La mairie</strong> relit les fiches écrites à la main, juge des réponses de Marianne et écrit ses propres questions de contrôle.</p>
+                <p><strong>Civik-ia</strong> applique chaque décision, corrige et remesure, sans jamais se servir de ces questions de contrôle pour corriger.</p>
+            </li>
+            <li class="mes-etape">
+                <span class="mes-lettre">Étape F</span>
+                <h3>La version de référence</h3>
+                <p><strong>La mairie</strong> fait essayer Marianne par ses agents d'accueil, valide par écrit la version de référence, puis décide d'ouvrir aux habitants.</p>
+                <p><strong>Civik-ia</strong> refait une mesure complète après les corrections et pose le garde-fou sur les personnes nommées.</p>
+            </li>
+        </ol>
+        <p class="mes-note">Chaque mesure est datée et dit ce qu'elle mesure&nbsp;: «&nbsp;justesse mesurée sur N questions de test le JJ/MM&nbsp;; ce n'est pas un taux sur vos habitants&nbsp;». Nous publions la méthode, jamais un taux promis.</p>
+
+        <div class="mes-suite">
+            <p><strong>Une seule fois, avant l'ouverture aux habitants&nbsp;:</strong> 999&nbsp;&#8364; HT, offerte aux Partenaires Fondateurs. Elle ne se renouvelle pas.</p>
+            <p>Ensuite, la base vit avec l'usage de Marianne&nbsp;: le site est relu chaque nuit, les vraies questions sont relues chaque semaine, chaque réponse non juste est corrigée puis remesurée. La mairie suivra tout cela dans son espace, en cours de construction.</p>
         </div>
     </section>
 
@@ -1844,7 +2033,7 @@
                     <div class="couts-icon" aria-hidden="true">&#9881;&#65039;</div>
                     <h3>Frais de mise en service</h3>
                     <p>Certains prestataires facturent entre 2 000&#8364; et 5 000&#8364; rien que pour l'installation et la configuration initiale. Cela peut suffire a depasser le seuil des marches publics des la premiere annee.</p>
-                    <div class="civik-note">Chez Civik-ia : OFFERT (Programme Fondateurs)</div>
+                    <div class="civik-note">Chez Civik-ia : 999&#8364; HT une seule fois, offerte aux Fondateurs</div>
                 </div>
                 <div class="couts-card">
                     <div class="couts-icon" aria-hidden="true">&#128260;</div>
@@ -1861,7 +2050,7 @@
                 <div class="couts-card">
                     <div class="couts-icon" aria-hidden="true">&#127891;</div>
                     <h3>Formation des agents</h3>
-                    <p>La prise en main du dashboard et la formation des equipes municipales representent un cout souvent oublie. Certains prestataires le facturent entre 500&#8364; et 1 500&#8364;.</p>
+                    <p>La prise en main de l'outil et la formation des équipes municipales representent un cout souvent oublie. Certains prestataires le facturent entre 500&#8364; et 1 500&#8364;.</p>
                     <div class="civik-note">Chez Civik-ia : formation incluse</div>
                 </div>
                 <div class="couts-card">
@@ -1873,8 +2062,8 @@
                 <div class="couts-card">
                     <div class="couts-icon" aria-hidden="true">&#128200;</div>
                     <h3>Options et modules supplementaires</h3>
-                    <p>Dashboard analytique, notifications multi-canal, sondages citoyens : ces fonctionnalites sont souvent vendues en option payante chez d'autres editeurs.</p>
-                    <div class="civik-note">Chez Civik-ia : tout est inclus dans le forfait</div>
+                    <p>Tableau de bord, formation, mises à jour : ces éléments sont souvent vendus en option payante chez d'autres éditeurs.</p>
+                    <div class="civik-note">Chez Civik-ia : compris dans l'abonnement</div>
                 </div>
             </div>
 
@@ -1892,19 +2081,19 @@
         <div class="faq-list">
             <div class="faq-item">
                 <h3 class="faq-question">Existe-t-il un chatbot gratuit pour les mairies ?</h3>
-                <p class="faq-answer">Quelques solutions proposent un volet gratuit. C'est le cas de Delibia, qui offre une licence gratuite aux secretaires de mairie (constate en juillet 2026). Toutefois, ces offres gratuites sont presentees par leurs editeurs comme des outils internes pour les agents (recherche, assistants IA), sans chatbot conversationnel decrit pour les citoyens. Pour un assistant IA cote citoyens avec dashboard et Campagnes Citoyennes, les tarifs debutent a partir de 49 a 70&#8364;/mois. Notre page dediee, <a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit pour une mairie ?</a>, detaille ce qui est reellement disponible gratuitement en 2026.</p>
+                <p class="faq-answer">Quelques solutions proposent un volet gratuit. C'est le cas de Delibia, qui offre une licence gratuite aux secretaires de mairie (constate en juillet 2026). Toutefois, ces offres gratuites sont presentees par leurs editeurs comme des outils internes pour les agents (recherche, assistants IA), sans chatbot conversationnel decrit pour les citoyens. Pour un assistant IA côté habitants, les tarifs débutent autour de 49 à 70&#8364;/mois. Notre page dediee, <a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit pour une mairie ?</a>, detaille ce qui est reellement disponible gratuitement en 2026.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Combien coute un chatbot Civik-ia pour une commune rurale ?</h3>
-                <p class="faq-answer">Pour une commune de moins de 5 000 habitants, l'offre Civik-ia demarre a 49&#8364; HT/mois, soit 588&#8364; HT/an. Dans le cadre du <strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 places EPCI), les nouvelles mairies demarrent par un <strong>pilote symbolique a 9,99&#8364; HT/mois pendant 3 mois</strong>, puis basculent sur le tarif tier normal garanti 3 ans. La mise en service (valeur 999&#8364;) est offerte. L'offre inclut le chatbot IA personnalise, le dashboard elu en temps reel, 2 Campagnes Citoyennes par an, l'hebergement souverain OVHcloud en Union Europeenne, la conformite RGPD, le support email et la formation initiale.</p>
+                <p class="faq-answer">Pour une commune de moins de 5 000 habitants, l'offre Civik-ia demarre a 49&#8364; HT/mois, soit 588&#8364; HT/an. Dans le cadre du <strong>Programme Partenaires Fondateurs</strong> (10 places communes + 3 places EPCI), les nouvelles mairies demarrent par un <strong>pilote symbolique a 9,99&#8364; HT/mois pendant 3 mois</strong>, puis basculent sur le tarif tier normal garanti 3 ans. La mise en service (valeur 999&#8364;) est offerte. L'offre comprend Marianne pour les habitants (réponses 24&nbsp;h sur 24 à partir du site officiel, page citée à chaque réponse), l'espace mairie (tableau de bord de la commune, en cours de construction), l'hébergement souverain OVHcloud en Union européenne, la conformité RGPD, le support par courriel, la formation des agents à distance et un point trimestriel avec l'élu.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Faut-il passer par un marche public pour acheter un chatbot ?</h3>
-                <p class="faq-answer">Non, pas necessairement. En dessous de 40 000&#8364; HT par an (article L2122-8 du Code de la commande publique), une commune peut acheter un logiciel sans procedure formalisee. Un simple bon de commande signe par le maire ou le DGS suffit. L'offre Civik-ia la plus elevee (199&#8364;/mois, soit 2 388&#8364;/an) reste tres largement en dessous de ce seuil.</p>
+                <p class="faq-answer">Non, pas necessairement. En dessous de 60 000&#8364; HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procédure formalisée. Un simple bon de commande signe par le maire ou le DGS suffit. L'offre Civik-ia la plus elevee (199&#8364;/mois, soit 2 388&#8364;/an) reste tres largement en dessous de ce seuil.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Quels sont les couts caches d'un chatbot de mairie ?</h3>
-                <p class="faq-answer">Les principaux couts caches a surveiller sont les frais de setup (jusqu'a 5 000&#8364; chez certains prestataires), la maintenance et les mises a jour parfois facturees en supplement, les couts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, tous ces elements sont inclus dans l'abonnement mensuel. Le prix affiche est le prix paye, sans mauvaise surprise.</p>
+                <p class="faq-answer">Les principaux couts caches a surveiller sont les frais de setup (jusqu'a 5 000&#8364; chez certains prestataires), la maintenance et les mises a jour parfois facturees en supplement, les couts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, la mise en service est facturée une seule fois (999&#8364; HT, offerte aux Partenaires Fondateurs)&nbsp;; tout le reste est compris dans l'abonnement mensuel. Le prix affiché est le prix payé, sans mauvaise surprise.</p>
             </div>
             <div class="faq-item">
                 <h3 class="faq-question">Le Programme Partenaires Fondateurs est-il toujours disponible ?</h3>

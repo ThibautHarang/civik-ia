@@ -1,14 +1,13 @@
 /**
- * Civik-ia — Service Worker
+ * Civik-ia, Service Worker
  * Cache-first pour les assets statiques, network-first pour les API
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v170-splash-aix-les-bains-2026-10-07';
+const CACHE_NAME = 'civik-ia-v172-d97-retrait-2026-10-09';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',
-  '/campagnes-citoyennes.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
   // doit toujours passer par le réseau pour servir la dernière version (mosaïque + ROI + FAQ).
   '/logo-civik-ia.svg',
@@ -17,7 +16,7 @@ const STATIC_ASSETS = [
   '/manifest.json'
 ];
 
-// Paths à NE PAS intercepter par le SW — l'app multi-persona doit toujours passer
+// Paths à NE PAS intercepter par le SW : l'app multi-persona doit toujours passer
 // par le réseau (sinon le browser sert l'ancienne version cachée).
 // /interne/ (Flotte Marianne) : la page lit un snapshot.json regenere chaque
 // nuit. En cache-first, le SW le servirait indefiniment depuis le cache et le
@@ -27,7 +26,7 @@ const STATIC_ASSETS = [
 const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/'];
 const SW_BYPASS_EXACT = ['/demo.html', '/demo'];
 
-// Installation — pr\u00e9-cache des assets statiques
+// Installation : pr\u00e9-cache des assets statiques
 self.addEventListener('install', (event) => {
   console.log('[SW] Installation Civik-ia v1');
   event.waitUntil(
@@ -37,7 +36,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activation — nettoyage des anciens caches
+// Activation : nettoyage des anciens caches
 self.addEventListener('activate', (event) => {
   console.log('[SW] Activation');
   event.waitUntil(
@@ -51,12 +50,12 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch — strat\u00e9gie hybride
+// Fetch : strat\u00e9gie hybride
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // BYPASS COMPLET — l'app multi-persona (/preview/, /app/, /portrait/, /demo.html)
+  // BYPASS COMPLET : l'app multi-persona (/preview/, /app/, /portrait/, /demo.html)
   // doit toujours passer par le réseau. Le SW ne doit JAMAIS intercepter.
   // Sinon le browser servirait l'ancienne version cachée (mobile cassé).
   if (SW_BYPASS_PREFIXES.some(p => url.pathname.startsWith(p))) {
@@ -158,7 +157,7 @@ function offlinePage() {
 </html>`;
 }
 
-// Push notifications — pr\u00eat pour les Campagnes Citoyennes
+// Push notifications : code dormant (D97 du 09/10/2026, diffusion retiree de l'offre)
 self.addEventListener('push', (event) => {
   if (!event.data) return;
 

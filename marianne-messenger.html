@@ -264,8 +264,8 @@
         </div>
         <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
           <div style="width:46px;height:46px;border-radius:13px;background:rgba(244,162,97,0.14);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#cf7d35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
-          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">Tableau de bord élu</h3>
-          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Les conversations remontent, canal par canal. Vous voyez ce qui préoccupe vos citoyens, en temps réel.</p>
+          <h3 style="font-family:'Poppins';font-weight:800;font-size:19px;color:#000091;margin:0 0 9px;letter-spacing:-0.4px;">L'espace mairie</h3>
+          <p style="font-size:14.5px;color:#5a5a5a;margin:0;">Les questions de vos habitants remonteront dans le tableau de bord de la commune. Il est en cours de construction.</p>
         </div>
         <div style="padding:30px 28px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:22px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
           <div style="width:46px;height:46px;border-radius:13px;background:rgba(0,0,145,0.07);display:grid;place-items:center;margin-bottom:18px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#000091" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
@@ -274,7 +274,7 @@
         </div>
       </div>
       <p style="max-width:760px;margin:40px auto 0;text-align:center;font:400 14px 'Inter';color:#8a8377;">
-        Deux limites assumées, pour être précis : ce canal répond aux messages reçus, il n'envoie pas de messages non sollicités (politique de la plateforme). Et pour un signalement avec photo, Marianne oriente vers l'application de la commune, où rien ne se perd.
+        Deux limites assumées, pour être précis : ce canal répond aux messages reçus, il n'envoie pas de messages non sollicités (politique de la plateforme). Et pour un problème à signaler, Marianne indique le service compétent de la mairie et ses coordonnées.
       </p>
     </div>
   </section>
@@ -361,12 +361,12 @@
         {sender:'system',text:'Un agent de la mairie a rejoint la conversation · Marianne s’est retirée du fil'},
         {sender:'agent',agentName:'Claire · Accueil mairie',text:"Bonjour, je prends le relais 🙂 Pour quelle date et combien de personnes environ ?",time:'09:13'}
       ]},
-    { id:'signal', label:'Signalement', sub:'Orientation vers l’application', glyph:'📍', accent:'#2EC4B6',
-      note:"Pour un signalement avec photo et localisation, Marianne oriente vers l'application de la commune : le dossier y arrive structuré, avec un numéro de suivi. Rien ne se perd.",
+    { id:'signal', label:'Signalement', sub:'Orientation vers le service', glyph:'📍', accent:'#2EC4B6',
+      note:"Pour un problème dans la rue, Marianne indique le service compétent et ses coordonnées, tirés du site officiel de la commune.",
       script:[
         {sender:'user',text:"Il y a un lampadaire cassé rue des Lilas",time:'22:50'},
-        {sender:'bot',text:"Merci pour ce signalement. Pour joindre une photo et la localisation exacte, le plus sûr est l'application de la commune : votre dossier y reçoit un numéro de suivi.",time:'22:50'},
-        {sender:'bot',text:"👉 civik-ia.fr/saint-remy · Vos services techniques le reçoivent directement.",time:'22:50'},
+        {sender:'bot',text:"Merci de le signaler. Pour l'éclairage public, contactez les services techniques de la mairie, en précisant la rue et le numéro le plus proche.",time:'22:50'},
+        {sender:'bot',text:"Leurs coordonnées figurent sur le site de la commune, page Services techniques.",time:'22:50'},
         {sender:'user',text:"Parfait, je fais ça, merci !",time:'22:51'}
       ]}
   ];

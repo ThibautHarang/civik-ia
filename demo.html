@@ -38,7 +38,7 @@ if (/[?&]utm_source=flyer/.test(location.search)) { location.replace('/22h47.htm
       "name": "Civik-ia, Plateforme d'Intelligence Citoyenne",
       "operatingSystem": "Web",
       "applicationCategory": "BusinessApplication",
-      "description": "Plateforme d'IA souveraine pour les mairies : Marianne répond aux citoyens 24h/24, l'inbox agent centralise les demandes, le cockpit élu éclaire les décisions.",
+      "description": "Marianne, l'assistant IA des mairies édité par Civik-ia : réponses aux habitants 24 h sur 24 à partir du site officiel de la commune, page citée à chaque réponse. L'espace mairie, tableau de bord de la commune, est en cours de construction.",
       "url": "https://civik-ia.fr/demo",
       "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR" },
       "publisher": { "@type": "Organization", "name": "Civik-ia", "url": "https://civik-ia.fr" }
@@ -182,7 +182,7 @@ img { max-width: 100%; height: auto; display: block; }
 .boucle-inner { max-width: 1120px; margin: 0 auto; }
 .boucle h2, .confiance h2, .faq h2, .capture h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(26px, 3.6vw, 40px); letter-spacing: -0.02em; line-height: 1.12; text-align: center; margin: 0 0 14px; }
 .boucle .sub, .confiance .sub, .capture .sub { text-align: center; font-size: 16px; color: rgba(255, 253, 248, 0.75); max-width: 640px; margin: 0 auto 48px; }
-.boucle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.boucle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 860px; margin: 0 auto; }
 @media (max-width: 900px) { .boucle-grid { grid-template-columns: 1fr; } }
 .boucle-card { background: rgba(255, 253, 248, 0.06); border: 1px solid rgba(255, 253, 248, 0.16); border-radius: 20px; padding: 28px 26px; display: flex; flex-direction: column; }
 .boucle-card .num { font-family: var(--font-display); font-weight: 800; font-size: 13px; letter-spacing: 0.14em; color: #7be3d8; margin-bottom: 12px; }
@@ -190,6 +190,7 @@ img { max-width: 100%; height: auto; display: block; }
 .boucle-card p { font-size: 14px; line-height: 1.6; color: rgba(255, 253, 248, 0.78); margin: 0 0 18px; flex: 1; }
 .boucle-card a { align-self: flex-start; font-size: 13.5px; font-weight: 600; color: #7be3d8; border: 1px solid rgba(123, 227, 216, 0.5); padding: 9px 18px; border-radius: 9999px; transition: background .2s ease; }
 .boucle-card a:hover { background: rgba(123, 227, 216, 0.12); }
+.boucle-card .boucle-etat { align-self: flex-start; font-size: 13px; font-weight: 600; color: rgba(255, 253, 248, 0.85); border: 1px solid rgba(255, 253, 248, 0.3); padding: 8px 16px; border-radius: 9999px; }
 .boucle-test { max-width: 760px; margin: 40px auto 0; text-align: center; background: rgba(255, 253, 248, 0.06); border: 1px dashed rgba(255, 253, 248, 0.3); border-radius: 18px; padding: 22px 26px; }
 .boucle-test p { margin: 0 0 12px; font-size: 14.5px; color: rgba(255, 253, 248, 0.85); }
 .boucle-test a { display: inline-block; background: var(--teal); color: var(--ink); font-weight: 700; font-size: 14px; padding: 12px 26px; border-radius: 9999px; transition: transform .15s ease; }
@@ -205,6 +206,7 @@ img { max-width: 100%; height: auto; display: block; }
 .confiance-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 22px; box-shadow: var(--shadow-card); }
 .confiance-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--p); margin: 0 0 8px; }
 .confiance-card p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+.confiance-card p a { font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 .pricing-line { text-align: center; background: var(--bg-deep); border-radius: 18px; padding: 26px 24px; }
 .pricing-line .big { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--p); margin: 0 0 6px; }
 .pricing-line p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
@@ -364,31 +366,21 @@ footer a:hover { color: var(--p); }
 
 <section class="boucle" id="boucle">
   <div class="boucle-inner">
-    <h2>La question d'un citoyen ne s'arrête pas au chat</h2>
-    <p class="sub">Ce que vous venez d'essayer est le premier des trois espaces d'un même logiciel. Chaque demande suit son chemin jusqu'à la décision.</p>
+    <h2>Deux faces d'un même logiciel</h2>
+    <p class="sub">Ce que vous venez d'essayer, c'est Marianne pour les habitants. L'autre face, l'espace mairie, est en cours de construction.</p>
     <div class="boucle-grid">
       <div class="boucle-card">
-        <div class="num">ESPACE CITOYEN</div>
+        <div class="num">POUR LES HABITANTS</div>
         <h3>Le citoyen obtient sa réponse</h3>
-        <p>Questions, démarches, signalements, agenda : Marianne répond au nom de la mairie, avec les informations officielles de la commune, sans compte à créer.</p>
+        <p>Marianne répond au nom de la mairie, 24 h sur 24, à partir du site officiel de la commune, et cite la page de chaque réponse. Sans compte à créer.</p>
         <a href="https://civik-ia.fr/preview/demo-villeneuve-les-ormes-36999/?demo=1" target="_blank" rel="noopener" data-cta="explorer_citoyen">Explorer cet espace</a>
       </div>
       <div class="boucle-card">
-        <div class="num">INBOX AGENT</div>
-        <h3>L'agent garde la main</h3>
-        <p>Ce que Marianne ne résout pas arrive trié dans une messagerie unifiée. L'agent répond, publie une alerte intelligente ou lance une campagne citoyenne.</p>
-        <a href="https://civik-ia.fr/preview/demo-villeneuve-les-ormes-36999/agent?demo=1&amp;orchestrate=1&amp;persona=agent" target="_blank" rel="noopener" data-cta="explorer_agent">Explorer cet espace</a>
+        <div class="num">L'ESPACE MAIRIE</div>
+        <h3>La mairie voit ce que demandent ses habitants</h3>
+        <p>Le tableau de bord de la commune : questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources. Il ouvrira après les réglages de sécurité.</p>
+        <span class="boucle-etat">En cours de construction</span>
       </div>
-      <div class="boucle-card">
-        <div class="num">COCKPIT ÉLU</div>
-        <h3>Le maire voit ce qui compte</h3>
-        <p>Les sujets qui montent, les indicateurs clés et un plan d'action : le cockpit élu résume la vie de la commune, sans tableau de bord à apprendre.</p>
-        <a href="https://civik-ia.fr/preview/demo-villeneuve-les-ormes-36999/elu?demo=1&amp;orchestrate=1&amp;persona=elu" target="_blank" rel="noopener" data-cta="explorer_elu">Explorer cet espace</a>
-      </div>
-    </div>
-    <div class="boucle-test">
-      <p>La preuve en direct : envoyez un signalement de test, puis ouvrez l'inbox agent. Il y apparaît en quelques secondes.</p>
-      <a href="https://civik-ia.fr/signaler/demo-villeneuve-les-ormes-36999" target="_blank" rel="noopener" data-cta="signalement_test">Envoyer un signalement de test</a>
     </div>
   </div>
 </section>
@@ -403,15 +395,15 @@ footer a:hover { color: var(--p); }
     </div>
     <div class="confiance-card">
       <h3>Réponses officielles</h3>
-      <p>Marianne répond depuis la base de connaissances de votre commune, construite avec vous et vérifiée avec vos services.</p>
+      <p>Marianne répond depuis la base de connaissances de votre commune, constituée à partir de votre site officiel et validée par vos services.</p>
     </div>
     <div class="confiance-card">
       <h3>Sous le seuil des marchés</h3>
       <p>La grille tarifaire reste sous le seuil de dispense de publicité des marchés publics : une délibération simple suffit.</p>
     </div>
     <div class="confiance-card">
-      <h3>En service en 5 à 7 jours</h3>
-      <p>Après signature : collecte de vos informations, construction de la base, mise en service des trois espaces et prise en main guidée.</p>
+      <h3>Une mise en service en six étapes</h3>
+      <p>Une seule fois, avant l'ouverture aux habitants : inventaire de votre site, cadre écrit, base de connaissances, mesure, validation par vos agents, version de référence. <a href="/chatbot-mairie-prix.html#mise-en-service">Le détail</a></p>
     </div>
   </div>
   <div class="pricing-line">
@@ -434,11 +426,11 @@ footer a:hover { color: var(--p); }
     </details>
     <details>
       <summary>Marianne remplace-t-elle Service-Public.fr ?</summary>
-      <p>Non, et c'est un choix volontaire. Les démarches d'identité restent orientées vers les téléservices officiels. Marianne prend en charge ce qui relève de votre commune : informations pratiques, démarches municipales, signalements, vie locale.</p>
+      <p>Non, et c'est un choix volontaire. Les démarches d'identité restent orientées vers les téléservices officiels. Marianne prend en charge ce qui relève de votre commune : informations pratiques, démarches municipales, vie locale.</p>
     </details>
     <details>
       <summary>Que se passe-t-il quand Marianne ne sait pas répondre ?</summary>
-      <p>Elle le dit, sans inventer, et transmet la question à l'inbox agent de la mairie. Vos agents gardent la main sur tout ce qui sort du cadre.</p>
+      <p>Elle le dit, sans inventer, et oriente vers le bon service de la mairie. La question est notée pour que la mairie complète son site ; l'espace mairie, en cours de construction, la lui montrera. Vos agents gardent la main sur tout ce qui sort du cadre.</p>
     </details>
   </div>
 </section>

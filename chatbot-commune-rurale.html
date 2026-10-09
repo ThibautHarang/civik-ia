@@ -65,7 +65,7 @@
           "name": "Un chatbot est-il utile pour une commune de moins de 1 000 habitants ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui. Plus la commune est petite, plus le secrétaire de mairie est sollicité sur des questions répétitives (horaires, déchets, état civil). Un chatbot IA prend en charge ces demandes 24h/24, y compris le soir et le week-end, sans mobiliser de personnel supplémentaire. À partir de 49€/mois (et pour les 10 premières communes, un pilote symbolique à 9,99€/mois pendant 3 mois dans le cadre du Programme Partenaires Fondateurs), c'est un investissement rentable dès 20 questions évitées par mois."
+            "text": "Oui. Plus la commune est petite, plus le secrétaire de mairie est sollicité sur des questions répétitives (horaires, déchets, état civil). Un chatbot IA prend en charge ces demandes 24h/24, y compris le soir et le week-end, sans mobiliser de personnel supplémentaire. À partir de 49€/mois, c'est un investissement rentable dès 20 questions évitées par mois."
           }
         },
         {
@@ -1095,6 +1095,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 28px;
             font-size: 15px;
@@ -1670,33 +1671,31 @@
             <p class="section-subtitle">Un investissement ma&icirc;tris&eacute;, bien en dessous du seuil des march&eacute;s publics.</p>
 
             <div class="pricing-card glass-card">
-                <span class="pricing-badge">Commune rurale &lt; 5 000 hab. &middot; Partenaire Fondateur</span>
+                <span class="pricing-badge">Commune rurale &lt; 5 000 hab.</span>
                 <h3>Forfait Rural</h3>
-                <div class="price">9,99&euro;</div>
-                <div class="price-unit">HT/mois pendant 3 mois (pilote symbolique), puis <strong>49&euro; HT/mois</strong> garanti 3 ans</div>
+                <div class="price">49&euro;</div>
+                <div class="price-unit">HT/mois, sans engagement</div>
 
                 <div class="pricing-setup">
                     <span>Mise en service :</span>
-                    <span class="strikethrough">999&euro;</span>
-                    <span class="free">OFFERT</span>
+                    <span>999&euro; HT, une seule fois</span>
                 </div>
 
-                <div class="price-annual">Total an&nbsp;1 : <strong>921&euro; HT</strong>, sous le seuil des march&eacute;s publics (60&nbsp;000&nbsp;&euro; HT, dispense de proc&eacute;dure, R. 2122-8, depuis le 01/04/2026)</div>
+                <div class="price-annual">Total an&nbsp;1 : <strong>1&nbsp;587&euro; HT</strong> (588&euro; d'abonnement et 999&euro; de mise en service), sous le seuil des march&eacute;s publics (60&nbsp;000&nbsp;&euro; HT, dispense de proc&eacute;dure, R. 2122-8, depuis le 01/04/2026)</div>
 
                 <ul class="pricing-features">
                     <li>Chatbot IA personnalis&eacute; sur les donn&eacute;es de votre commune</li>
                     <li>Accueil citoyen 24h/24, 365j/an, sans inscription</li>
-                    <li>Espace mairie, tableau de bord de la commune (en construction)</li>
-                    <li>Formation des agents &agrave; distance et point trimestriel avec l'&eacute;lu</li>
+                    <li>Pilotage avec vos équipes, compris dans l'abonnement&nbsp;: l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance</li>
                     <li>Page d&eacute;di&eacute;e (civik-ia.fr/votre-commune), widget &agrave; int&eacute;grer en construction</li>
                     <li>H&eacute;bergement souverain UE (OVHcloud)</li>
                     <li>Conforme RGPD : z&eacute;ro donn&eacute;e hors UE</li>
                     <li>Support par email, mises &agrave; jour incluses</li>
                 </ul>
 
-                <a href="/marianne/#contact" class="btn-primary" onclick="trackCTA('pricing_fondateurs')" style="display:inline-flex;">Profiter du Programme Fondateurs</a>
+                <a href="/marianne/#contact" class="btn-primary" onclick="trackCTA('pricing_devis')" style="display:inline-flex;">Demander un devis</a>
 
-                <p class="pricing-note">Le Programme Partenaires Fondateurs (10 places communes) propose un <strong>pilote symbolique 9,99&nbsp;&euro; HT/mois pendant 3&nbsp;mois</strong> (acte d'engagement administratif), puis tarif tier garanti 3 ans, mise en service offerte (valeur 999&nbsp;&euro;), droit de regard produit et statut Ambassadeur Civik-ia. Places limit&eacute;es.</p>
+                <p class="pricing-note">La mise en service (999&nbsp;&euro; HT) est factur&eacute;e une seule fois, à la validation écrite de la version de référence, avant l'ouverture aux habitants. L'abonnement est mensuel, sans engagement de dur&eacute;e.</p>
             </div>
         </div>
     </section>
@@ -1759,7 +1758,7 @@
             <p>Rejoignez les premi&egrave;res communes rurales &agrave; offrir un accueil num&eacute;rique intelligent et une d&eacute;mocratie participative &agrave; leurs habitants.</p>
             <div class="cta-final-buttons">
                 <a href="demo.html" class="btn-primary" onclick="trackCTA('cta_final_demo')">Tester la d&eacute;mo</a>
-                <a href="/marianne/#contact" class="btn-secondary" onclick="trackCTA('cta_final_fondateurs')">Rejoindre le Programme Fondateurs</a>
+                <a href="/marianne/#contact" class="btn-secondary" onclick="trackCTA('cta_final_devis')">Demander un devis</a>
             </div>
         </div>
     </section>

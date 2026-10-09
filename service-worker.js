@@ -4,7 +4,7 @@
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v172-d97-retrait-2026-10-09';
+const CACHE_NAME = 'civik-ia-v173-mise-en-service-2026-10-09';
 const STATIC_ASSETS = [
   '/',
   '/site-civik-ia.html',

@@ -230,7 +230,7 @@ h1,h2,h3,h4{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
 :focus{outline:none}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
-.nuit,.hero,.fin,.pied,.pf,.creer,.bandeau,.bandeau__x,.chiffres,.stack,.cb__tete{--focus:#ffffff}
+.nuit,.hero,.fin,.pied,.creer,.bandeau,.bandeau__x,.chiffres,.stack,.cb__tete{--focus:#ffffff}
 html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !important}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .evitement{position:fixed;left:16px;top:-80px;z-index:2000;background:var(--bleu);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;transition:top .2s}
@@ -840,13 +840,6 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 /* =====================================================================
    6.12 Tarifs
    ===================================================================== */
-.pf{max-width:1200px;margin:0 auto clamp(28px,4vw,44px);background:linear-gradient(135deg,#000091 0%,#1a1a6e 100%);color:#fff;border-radius:var(--r-l);padding:clamp(26px,3.4vw,40px);text-align:center;box-shadow:0 20px 50px rgba(0,0,145,.25)}
-.pf__tag{display:inline-block;padding:6px 14px;background:rgba(46,196,182,.22);color:#7fe6da;font:700 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;border-radius:9999px}
-.pf h3{font:700 clamp(21px,2.9vw,31px)/1.24 var(--titre);letter-spacing:-.02em;margin:16px 0 12px}
-.pf h3 span{color:#5fe0d2;white-space:nowrap}
-.pf p{font-size:15.5px;color:rgba(255,255,255,.88);max-width:720px;margin:0 auto 20px;line-height:1.55}
-.pf .btn{background:var(--teal-txt);color:#fff;box-shadow:0 8px 24px rgba(46,196,182,.3)}
-.pf .btn:hover{background:#08554e}
 .plans{display:grid;grid-template-columns:1fr;gap:18px;align-items:stretch}
 @media (min-width:700px){.plans{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1100px){.plans{grid-template-columns:repeat(4,1fr);gap:16px}}
@@ -863,7 +856,7 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .plan__prix .n--devis{font-size:44px}
 .plan__prix .par{font:600 16px/1 var(--sans);color:var(--encre)}
 .plan__prix .ht{flex-basis:100%;font-size:12.5px;color:var(--encre-2);margin-top:4px}
-.plan__pilote{align-self:flex-start;padding:6px 11px;background:rgba(46,196,182,.15);color:#0a6b63;font:700 11px/1.2 var(--sans);letter-spacing:.04em;border-radius:9999px;margin-bottom:16px}
+.plan__mes{font:600 13px/1.4 var(--sans);color:var(--encre-2);margin:0 0 16px}
 .plan__liste{display:grid;gap:10px;margin-bottom:24px}
 .plan__liste li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45}
 .plan__liste li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal-txt);flex:none;margin-top:8px}
@@ -1658,7 +1651,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 </section>
 
 <!-- =====================================================================
-     6.12 TARIFS + PARTENAIRES FONDATEURS
+     6.12 TARIFS
      ===================================================================== -->
 <section class="sec" id="pricing">
   <div class="wrap">
@@ -1668,25 +1661,16 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <p class="chapo">Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil de mise en concurrence</p>
     </div>
 
-    <div class="pf">
-      <div class="pf__tag">Programme Partenaires Fondateurs · 10 places communes + 3 EPCI</div>
-      <h3>Pilote symbolique <span>9,99&nbsp;€/mois</span> pendant 3&nbsp;mois, puis tarif normal de votre offre, <strong>garanti 3&nbsp;ans</strong></h3>
-      <p>Mise en service offerte (sinon 999&nbsp;€) · Droit de regard produit · Statut Ambassadeur Civik-ia officiel. Au-delà des 10 places communes, tarif normal, sans pilote</p>
-      <a href="#contact" class="btn">Prendre l'une des 10 places <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-
     <div class="plans">
       <div class="plan rv">
         <div class="plan__tag">Pour démarrer</div>
         <h3>Essentiel</h3>
         <p class="plan__taille">Communes &lt; 5&nbsp;000 habitants</p>
-        <div class="plan__prix"><span class="n">49</span><span class="par">€/mois</span><span class="ht">HT · garanti 3 ans pour les Fondateurs</span></div>
-        <div class="plan__pilote">Pilote 9,99&nbsp;€/mois × 3 mois</div>
+        <div class="plan__prix"><span class="n">49</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: 999&nbsp;€ HT, une seule fois</div>
         <ul class="plan__liste">
           <li>Marianne pour les habitants, 24&nbsp;h sur 24</li>
-          <li><span>Espace mairie <small>(en construction)</small></span></li>
-          <li>Formation des agents à distance</li>
-          <li>Point trimestriel avec l'élu</li>
+          <li>Pilotage avec vos équipes, compris dans l'abonnement&nbsp;: l'espace mairie (en construction), la relecture des questions et des corrections avec vos agents, la formation à distance</li>
           <li>Support par courriel</li>
         </ul>
         <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre Essentiel</span></a>
@@ -1695,8 +1679,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <div class="plan__tag">Recommandé</div>
         <h3>Engagement</h3>
         <p class="plan__taille">Communes 5&nbsp;000 à 20&nbsp;000 hab.</p>
-        <div class="plan__prix"><span class="n">99</span><span class="par">€/mois</span><span class="ht">HT · garanti 3 ans pour les Fondateurs</span></div>
-        <div class="plan__pilote">Pilote 9,99&nbsp;€/mois × 3 mois</div>
+        <div class="plan__prix"><span class="n">99</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: 999&nbsp;€ HT, une seule fois</div>
         <ul class="plan__liste">
           <li>Tout Essentiel, à l'identique</li>
           <li>Support prioritaire</li>
@@ -1708,8 +1692,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <div class="plan__tag">Communes-villes</div>
         <h3>Pilotage</h3>
         <p class="plan__taille">Communes 20&nbsp;000 à 50&nbsp;000 hab.</p>
-        <div class="plan__prix"><span class="n">199</span><span class="par">€/mois</span><span class="ht">HT · garanti 3 ans pour les Fondateurs</span></div>
-        <div class="plan__pilote">Pilote 9,99&nbsp;€/mois × 3 mois</div>
+        <div class="plan__prix"><span class="n">199</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: 999&nbsp;€ HT, une seule fois</div>
         <ul class="plan__liste">
           <li>Tout Engagement, à l'identique</li>
           <li>Pas de module en plus</li>
@@ -1917,7 +1901,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <p class="chapo" style="margin-bottom:32px;font-size:16.5px">Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée</p>
     <div class="ress__grille">
       <a class="ress__c" href="/chatbot-mairie.html"><strong>Chatbot pour mairie&nbsp;: guide complet</strong><span>Comment ça marche, ce que ça change pour vos agents, et pourquoi 24&nbsp;h/24 fait la différence sur le service rendu aux citoyens</span></a>
-      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Pilote Partenaires Fondateurs&nbsp;: 9,99&nbsp;€/mois × 3 mois (10 places)</span></a>
+      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Mise en service facturée une seule fois</span></a>
       <a class="ress__c" href="/chatbot-commune-rurale.html"><strong>Chatbot commune rurale</strong><span>Pensé pour les communes de moins de 5&nbsp;000 habitants. Pas de site web&nbsp;? Pas de problème&nbsp;: la plateforme se substitue ou se greffe à l'existant</span></a>
       <a class="ress__c" href="/demo"><strong>Démo interactive</strong><span>Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements&nbsp;: toutes les questions citoyennes typiques</span></a>
       <a class="ress__c" href="/22h47.html"><strong>Campagne 22h47</strong><span>L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme</span></a>

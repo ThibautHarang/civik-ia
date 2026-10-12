@@ -1,12 +1,14 @@
 /**
- * Civik-ia — Service Worker
+ * Civik-ia, Service Worker
  * Cache-first pour les assets statiques, network-first pour les API
  * Version: 1.0.0
  */
 
-const CACHE_NAME = 'civik-ia-v170-splash-aix-les-bains-2026-10-07';
+// v171 (refonte du 08/10/2026) : la home (/), le film (/c-film/), /commun/, /conseil/ et /atelier/ passent par le reseau,
+// jamais par ce cache (ni precache, ni mise en cache a la volee) : le film change encore et ses fichiers ne portent pas de
+// numero de version. Le navigateur les garde selon les en-tetes de nginx (voir maquettes/seo/nginx-DIFF.conf).
+const CACHE_NAME = 'civik-ia-v172-retrait-sms-2026-10-12';
 const STATIC_ASSETS = [
-  '/',
   '/site-civik-ia.html',
   '/campagnes-citoyennes.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
@@ -17,17 +19,17 @@ const STATIC_ASSETS = [
   '/manifest.json'
 ];
 
-// Paths à NE PAS intercepter par le SW — l'app multi-persona doit toujours passer
+// Paths à NE PAS intercepter par le SW : l'app multi-persona doit toujours passer
 // par le réseau (sinon le browser sert l'ancienne version cachée).
 // /interne/ (Flotte Marianne) : la page lit un snapshot.json regenere chaque
 // nuit. En cache-first, le SW le servirait indefiniment depuis le cache et le
 // telephone afficherait l'etat d'avant-hier SANS LE DIRE : caches.match ignore
 // le Cache-Control "no-store" pose par nginx. Le contournement est la seule
 // garde qui tienne.
-const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/'];
-const SW_BYPASS_EXACT = ['/demo.html', '/demo'];
+const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/', '/c-film/', '/commun/', '/conseil/', '/atelier/'];
+const SW_BYPASS_EXACT = ['/demo.html', '/demo', '/', '/index.html'];
 
-// Installation — pr\u00e9-cache des assets statiques
+// Installation : pr\u00e9-cache des assets statiques
 self.addEventListener('install', (event) => {
   console.log('[SW] Installation Civik-ia v1');
   event.waitUntil(
@@ -37,7 +39,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Activation — nettoyage des anciens caches
+// Activation : nettoyage des anciens caches
 self.addEventListener('activate', (event) => {
   console.log('[SW] Activation');
   event.waitUntil(
@@ -51,12 +53,12 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch — strat\u00e9gie hybride
+// Fetch : strat\u00e9gie hybride
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // BYPASS COMPLET — l'app multi-persona (/preview/, /app/, /portrait/, /demo.html)
+  // BYPASS COMPLET : l'app multi-persona (/preview/, /app/, /portrait/, /demo.html)
   // doit toujours passer par le réseau. Le SW ne doit JAMAIS intercepter.
   // Sinon le browser servirait l'ancienne version cachée (mobile cassé).
   if (SW_BYPASS_PREFIXES.some(p => url.pathname.startsWith(p))) {
@@ -129,7 +131,7 @@ function offlinePage() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Civik-ia \u2014 Hors connexion</title>
+  <title>Civik-ia : Hors connexion</title>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{min-height:100vh;display:flex;align-items:center;justify-content:center;
@@ -158,7 +160,7 @@ function offlinePage() {
 </html>`;
 }
 
-// Push notifications — pr\u00eat pour les Campagnes Citoyennes
+// Push notifications : pr\u00eat pour les Campagnes Citoyennes
 self.addEventListener('push', (event) => {
   if (!event.data) return;
 
@@ -180,7 +182,7 @@ self.addEventListener('push', (event) => {
 
   event.waitUntil(
     self.registration.showNotification(
-      data.title || 'Civik-ia \u2014 Votre mairie',
+      data.title || 'Civik-ia : Votre mairie',
       options
     )
   );

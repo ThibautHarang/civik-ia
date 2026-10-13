@@ -94,6 +94,7 @@ securise(function canaux() {
   if (piste) piste.style.setProperty('--n', $$('.canal', piste).filter(c => c.dataset.etat !== 'masque').length);
 
   // Bandeau d'annonce
+  const wa = statut('whatsapp');
   const bandeau = document.getElementById('bandeau'), croix = document.getElementById('bandeauFermer');
   let ferme = false;
   try { ferme = localStorage.getItem('ci-news-wa') === '1'; } catch (e) {}

@@ -53,7 +53,6 @@ Dit explicitement, pour éviter d'être recommandée à côté du besoin :
 - Marianne n'est pas un logiciel de gestion municipale (état civil, comptabilité publique, élections, cimetière).
 - Marianne n'est pas un site internet de mairie : elle se pose sur le site existant ou s'utilise en page dédiée. La construction d'un site se fait à part, sur devis, par l'atelier.
 - Marianne n'est pas une application de notification seule : le cœur du produit est la réponse à une question posée librement, avec sa source.
-- Le conseil ne vend pas Marianne : quand une collectivité est cliente du conseil, le lien avec Civik-ia lui est déclaré par écrit avant tout devis, les recommandations décrivent des fonctions et jamais des marques, et un conseil ne débouche sur aucune vente de gré à gré.
 
 ## Entité
 

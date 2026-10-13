@@ -191,8 +191,16 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
   if (rep.coin) rep.coin.addEventListener('click', e => { e.stopPropagation(); continuer(); });
   /* les trois boutons de la fin : leur style calculé au rendu, leur place et leur opacité par la piste */
   const T3 = (tr.find(t => t.nom === 'T3') || {}).piste, menuF = T3 && T3.figer ? T3.figer.menu : [];
+  /* passe 31 (13/10/2026, relecture de livraison) : les href de la piste T3 sont ceux de la maquette (../marianne-base/, ../conseil/,
+     ../atelier/), relevés au rendu ; en ligne, la page Marianne est /marianne/. Table explicite, sur le dossier qui suit « ../ » (les
+     clés n'ont pas de « ../ » entre guillemets : liensJs de l'installateur ne doit pas les réécrire) ; tout autre href est gardé tel
+     quel. La maquette (ESSAIS vrai, ou un hôte local : localhost, 127.0.0.1, 192.168.x) garde le chemin relatif, car /marianne/
+     n'y existe pas. Le href ne change aucune image */
+  const LIENS_FIN = { 'marianne-base/': '/marianne/', 'conseil/': '/conseil/', 'atelier/': '/atelier/' };
+  const hoteLocal = window.ESSAIS === true || /^(localhost|127\.0\.0\.1|192\.168\.\d{1,3}\.\d{1,3})$/.test(location.hostname);
+  const lienFin = h => { const r = !hoteLocal && typeof h === 'string' && /^\.\.\/([a-z-]+\/)(.*)$/.exec(h); return r && LIENS_FIN[r[1]] ? LIENS_FIN[r[1]] + r[2] : h; };
   const menu = menuF.map(m => {
-    const a = document.createElement('a'); a.className = 'p2-menu'; a.href = m.href; a.innerHTML = m.html;
+    const a = document.createElement('a'); a.className = 'p2-menu'; a.href = lienFin(m.href); a.innerHTML = m.html;
     for (const [p, v] of Object.entries(m.st)) a.style.setProperty(p, v);
     a.style.border = `${m.st['border-top-width']} ${m.st['border-top-style']} ${m.st['border-top-color']}`;   /* (les quatre côtés, relevés en haut) */
     a.querySelectorAll('.etincelle').forEach(x => x.remove());

@@ -10,7 +10,6 @@
 const CACHE_NAME = 'civik-ia-v175-refonte-film-2026-10-15';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
-  '/campagnes-citoyennes.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
   // doit toujours passer par le réseau pour servir la dernière version (mosaïque + ROI + FAQ).
   '/logo-civik-ia.svg',
@@ -160,7 +159,7 @@ function offlinePage() {
 </html>`;
 }
 
-// Push notifications : pr\u00eat pour les Campagnes Citoyennes
+// Push notifications : code dormant (D97 du 09/10/2026, diffusion retiree de l'offre)
 self.addEventListener('push', (event) => {
   if (!event.data) return;
 

@@ -51,12 +51,6 @@
       "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
     },
     {
-      "name": "Campagnes Citoyennes",
-      "short_name": "Campagnes",
-      "url": "/campagnes-citoyennes.html",
-      "icons": [{"src": "icons/icon-192x192.png", "sizes": "192x192"}]
-    },
-    {
       "name": "Tester la démo",
       "short_name": "Démo",
       "url": "/demo.html",

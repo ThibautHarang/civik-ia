@@ -534,22 +534,46 @@ Posez votre question
 Mettre la conversation en pause
 Faites défiler
 Passer l'animation
-Chatbot IA formé sur vos données
-Elle a lu tout votre site
-Et tout le reste
-Votre site
-Site officiel Pages du site
-Site officiel Actualités
-Site officiel Démarches
-Vos documents
-Urbanisme PLU
-Actes Arrêtés
-Conseil municipal Délibérations
-Publication Bulletin municipal
-Vie pratique Calendrier des déchets
-Accueil Horaires et contacts
-Marianne s'appuie d'abord sur le site officiel de votre commune : ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez : PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu
-Vous modifiez votre site ? Marianne le relit chaque nuit : ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir. Pour une urgence, l'espace mairie, en cours de construction, permettra de publier une information du moment, prise en compte aussitôt
+Le cerveau de Marianne
+Une seule source : vos données officielles
+Avant que Marianne réponde à un seul habitant, nous construisons ensemble la base de connaissances de votre commune : une seule source, officielle et unique, la vôtre. Tout ce que la commune publie est collecté, lu, trié, vérifié et consolidé ; chaque fiche est reliée à son document d'origine, et rien n'est ouvert aux habitants sans l'accord écrit de votre commune.
+Écartés Sources
+22:47
+Mairie de Villeneuve-les-Ormes En ligne, 24 h/24
+Plusieurs milliers de fiches, chacune reliée à sa source
+22:47 Jusqu'à quand inscrire mon fils à la cantine ?
+Jusqu'au vendredi 30 octobre, en mairie ou sur le site de la commune. Prévoyez un justificatif de domicile. Source : Inscription cantine, 01/09/2026
+Posez votre question
+OVHcloud hébergée en Europe
+Mistral moteur européen
+Vos données pour votre commune seule
+1
+Collecte
+Nous rassemblons tout ce que la commune publie : les pages de son site, ses PDF, ses actes, ses délibérations, ses comptes rendus, son bulletin, jusqu'aux scans et aux affiches. S'y ajoute ce que vous nous transmettez. Rien n'est encore trié : les doublons et les vieilles versions arrivent avec le reste.
+2
+Lecture
+Le texte de chaque document est extrait, les scans compris, par reconnaissance de caractères. Un arrêté photographié devient un texte que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait foi. Chaque document est daté et classé.
+3
+Nettoyage
+Chaque document passe au contrôle, un par un : les doublons sont écartés, les pages périmées retirées, les contradictions repérées. Quand deux documents se contredisent, nous vous alertons, et ce sont vos agents qui tranchent.
+4
+Consolidation
+Nous écrivons une fiche par sujet, à partir de tous les documents qui en parlent : la cantine, les déchets, l'état civil, l'urbanisme. Ce que disent trois documents tient alors en une fiche claire. Une session de tests vérifie ensuite les réponses aux questions les plus fréquentes, pour limiter le risque d'erreur.
+5
+Sourçage
+Chaque fiche garde sa source et sa date, et chaque réponse la cite. Indexée, la fiche est retrouvée au moment où l'habitant pose sa question. D'un clic, il ouvre le document d'origine : il peut vérifier l'information, ou la compléter par une autre recherche.
+6
+L'application
+Toutes les fiches rejoignent l'application Marianne, à portée de chaque habitant, de jour comme de nuit. Marianne répond désormais à partir de cette base de connaissances officielle, hébergée en Europe chez OVHcloud, avec le moteur de Mistral ; les données de votre commune ne servent qu'à votre commune.
+La base en chiffres, sur un déploiement de test
+Plusieurs milliers de fiches créées à partir du site officiel d'une commune de test, pages, PDF et actes compris, chacune reliée à sa source
+Des dizaines de fiches consolidées, nettoyées et organisées, une par sujet, actes réglementaires compris
+Chaque nuit le site officiel est parcouru et relu : ce que la mairie publie aujourd'hui, Marianne le saura cette nuit
+Ordres de grandeur relevés les 25 et 28 septembre 2026 sur un déploiement de test ; le nombre dépend de ce que votre commune publie.
+Un travail rare, unique et dédié à votre commune
+Un assistant IA n'est compétent que si ses informations sont vérifiées. Lire un site et s'arrêter là, beaucoup le font. Collecter, lire, nettoyer, consolider et sourcer chaque document de la commune, avec ses agents, puis tenir la base à jour chaque nuit : c'est un travail rare, et c'est le nôtre.
+Tester Marianne sur Villeneuve-les-Ormes
+Villeneuve-les-Ormes est notre commune de démonstration, fictive.
 Pas de site internet ?
 Nous pouvons vous en créer un
 Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia peut concevoir le vôtre : simple, lisible sur téléphone, avec Marianne intégrée. Cette offre est nouvelle : nous la construisons avec les premières communes qui la demandent
@@ -562,8 +586,8 @@ Actualité Inscriptions cantine 2026-2027
 Démarche Demander un acte de naissance
 Agenda Fête du village, samedi 20 juin
 Une question ?
-Parler de mon site
-Communes rurales : notre offre
+Demander un devis
+Découvrir l'atelier
 Sur devis, après un premier échange
 Une réponse, une source
 Toujours

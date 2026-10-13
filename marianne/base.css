@@ -1,0 +1,315 @@
+/* =====================================================================
+   Page Marianne, section « Le cerveau de Marianne » (#connaissance), la
+   bande datée (.chiffres-b) et le point différenciant (.difference).
+   Intégration du 13/10/2026 (cahier maquettes/marianne-base/INTEGRATION-2026-10-13.md)
+   depuis la maquette validée par Thibaut le 07/10/2026 (marianne-base/page.css,
+   passes 1 à 4, MB-1 à MB-15) : l'illustration garde le CSS de la maquette au pixel ;
+   les titres, l'étiquette, le chapô et le bouton prennent les classes de la page
+   (.sec, .wrap, .tete, .sur, .h2, .h3, .chapo, .btn, .btn--plein).
+   Collisions avec le <style> de la page : .doc__type, .doc__nom, .doc__lignes ;
+   toute la famille .doc__* de la maquette devient .kb-doc__* (ici et dans base.js).
+   Ne partent pas : .repere-hero, .feuille-m, .repere-suite (repères de la maquette).
+   La butée (MB-10 bis) se pose sur div.feuille, le conteneur qui suit le hero.
+   ===================================================================== */
+/* jetons absents de la page (valeurs de commun/pages/pages.css) */
+:root{--encre-3:#77705f;--entree:cubic-bezier(.16,1,.3,1)}
+/* la section reste mise en page même hors de l'écran (la page pose content-visibility:auto sur .sec au-dessus de 900 px) :
+   l'illustration collée et la butée mesurent la section avant d'y arriver */
+.sec.base{content-visibility:visible}
+/* les remises à zéro de commun/pages/pages.css dont la section dépend : l'italique des <i> (le mot à mot enveloppe chaque mot dans un <i> ;
+   sans elle, le titre passe en italique) et la largeur libre des images de l'illustration */
+#connaissance i,.chiffres-b i,.difference i{font-style:normal}
+#connaissance .table img,#connaissance .table svg{max-width:none}
+/* le titre mot à mot et les entrées au défilement (pages.css, R1 du 07/10/2026), limités à la section, à la bande et au
+   point différenciant ; cachés seulement quand base.js tourne (html.kb-js) et que les animations sont permises */
+.base .mots .w,.chiffres-b .mots .w,.difference .mots .w{display:inline-block;padding:.12em .03em .34em;margin:-.12em -.03em -.34em;vertical-align:top;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 .2em,#000 calc(100% - .16em),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 .2em,#000 calc(100% - .16em),transparent 100%)}
+html.kb-js:not(.anim-non) .base .mots .w>i,html.kb-js:not(.anim-non) .difference .mots .w>i{display:inline-block;transform:translateY(calc(105% + .18em));opacity:0;filter:blur(3px);transition:transform .9s var(--entree),opacity .7s var(--entree),filter .7s var(--entree);transition-delay:calc(var(--i) * 45ms + var(--d,0ms))}
+html.kb-js:not(.anim-non) .base .mots.vu .w>i,html.kb-js:not(.anim-non) .difference .mots.vu .w>i{transform:none;opacity:1;filter:none}
+html.kb-js:not(.anim-non) .base [data-entree],html.kb-js:not(.anim-non) .chiffres-b [data-entree],html.kb-js:not(.anim-non) .difference [data-entree]{opacity:0;transform:translateY(12px);filter:blur(2px);transition:opacity .8s var(--entree),transform .9s var(--entree),filter .8s var(--entree);transition-delay:var(--d,0ms)}
+html.kb-js:not(.anim-non) .base [data-entree].vu,html.kb-js:not(.anim-non) .chiffres-b [data-entree].vu,html.kb-js:not(.anim-non) .difference [data-entree].vu{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){.base [data-entree],.chiffres-b [data-entree],.difference [data-entree],.base .mots .w>i,.difference .mots .w>i{opacity:1 !important;transform:none !important;filter:none !important}}
+/* MB-12 (07/10/2026, soir) : un tout petit peu moins d'air entre le bord haut de la section blanche et l'étiquette (Thibaut : « il y a un petit
+   peu trop d'espace entre le blanc et la base de connaissances »). Le rembourrage haut de la section passe de 136 à 126 px à 1440 et de 80 à 74 px à 390
+   (dix et six pixels, dans la même proportion) : de clamp(80px, 9.5vw, 136px) à clamp(74px, 9.5vw moins 10px, 126px). Le bas de la section
+   et le rythme du récit (MB-1) ne bougent pas */
+.sec.base{padding-top:clamp(74px,calc(9.5vw - 10px),126px)}
+/* MB-13 (07/10/2026, soir) : « vos données officielles » (insécables) tient sur une ligne jusqu'à 320 px : sous 420 px, la taille du titre suit la largeur de
+   la fenêtre (32 px à partir de 400 px, 30 px à 375 px, 25 px à 320 px ; le groupe fait 11,1 em de large, mesuré à 32 px) ; au-dessus, rien ne change */
+@media (max-width:420px){.base .h2{font-size:clamp(25px,calc((100vw - 40px) / 11.2),32px)}}
+
+/* ---------- le récit en six temps, l'illustration qui suit ---------- */
+.recit{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(32px,5vw,80px);align-items:start}
+.recit__scene{position:sticky;top:104px;height:min(620px,calc(100vh - 136px))}
+/* MB-1, fluidité : la table est un calque composé à elle seule ; sans cela, WebKit recalcule à chaque image du défilement le chevauchement de ses cinquante éléments (20 images par seconde au lieu de 46 à 60) */
+.table{position:relative;width:100%;height:100%;--inv:1.8;will-change:transform}
+.table__papier{position:absolute;inset:0;border-radius:var(--r-l);background:var(--papier);border:1px solid rgba(120,100,60,.2);box-shadow:var(--ombre-2);background-image:radial-gradient(rgba(120,100,60,.12) 1px,transparent 1.2px);background-size:22px 22px}
+/* MB-2, MB-3 : le cartouche compte ce qui arrive ; une ligne sur ordinateur, deux au plus sur téléphone */
+.table__legende{position:absolute;left:16px;top:13px;max-width:calc(100% - 32px);z-index:120;padding:5px 7px;border-radius:7px;background:rgba(255,253,248,.9);font:700 11px/1.35 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--encre-2);font-variant-numeric:tabular-nums}
+
+/* ---------- MB-2 : les documents (éléments légers, seuls transform et opacity bougent) ---------- */
+.carte{position:absolute;left:0;top:0;z-index:2;transform-origin:50% 50%;opacity:0}
+.carte__face{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--papier);border:1px solid rgba(120,100,60,.26);border-radius:7px;padding:9px 9px 10px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 4px 12px rgba(0,0,80,.07);overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.kb-doc__type{display:block;font:600 8px/1.1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--or-txt)}
+.kb-doc__nom{display:block;font:700 11.5px/1.18 var(--titre);color:var(--bleu);letter-spacing:-.01em;margin-top:5px}
+.kb-doc__lignes{display:grid;gap:4px;margin-top:auto}
+.kb-doc__lignes i{height:3px;border-radius:2px;background:rgba(120,100,60,.2)}
+.kb-doc__lignes i:nth-child(2){width:86%}.kb-doc__lignes i:nth-child(3){width:64%}.kb-doc__lignes i:nth-child(4){width:78%}
+/* les genres de documents d'une mairie, dessinés au plus simple */
+.kb-doc__barre{display:flex;gap:3px;margin:-3px 0 6px;padding-bottom:4px;border-bottom:1px solid rgba(120,100,60,.18)}
+.kb-doc__barre i{width:4px;height:4px;border-radius:50%;background:rgba(120,100,60,.32)}
+.kb-doc__pdf{position:absolute;right:6px;top:6px;padding:1px 4px;border-radius:3px;background:rgba(200,50,43,.1);color:var(--rouge);font:800 7px/1.3 var(--sans);letter-spacing:.06em}
+.kb-doc__filet{display:flex;gap:2px;margin:-2px 0 6px}
+.kb-doc__filet i{width:9px;height:2px;border-radius:1px}
+.kb-doc__filet i:nth-child(1){background:var(--bleu)}.kb-doc__filet i:nth-child(2){background:#d9d4c8}.kb-doc__filet i:nth-child(3){background:var(--rouge)}
+.kb-doc__de{display:block;margin:-2px 0 5px;padding-bottom:4px;border-bottom:1px dashed rgba(120,100,60,.3);font:600 7px/1.2 var(--sans);color:var(--encre-3)}
+.carte--affiche .carte__face--doc{border-top:6px solid var(--or)}
+.carte--affiche .kb-doc__nom{font-size:13px}
+.carte--bulletin .carte__face--doc{border-left:5px solid var(--bleu)}
+.kb-doc__cases{display:grid;gap:5px;margin-top:auto}
+.kb-doc__cases i{display:flex;gap:4px;align-items:center;height:5px}
+.kb-doc__cases i::before{content:"";flex:none;width:5px;height:5px;border:1px solid rgba(120,100,60,.45);border-radius:1px}
+.kb-doc__cases i::after{content:"";flex:1;height:2px;border-radius:2px;background:rgba(120,100,60,.2)}
+/* corné : le coin replié */
+.carte__corne{position:absolute;right:-1px;top:-1px;width:16px;height:16px;background:linear-gradient(225deg,var(--creme) 0 50%,#e7dfcd 50% 100%);box-shadow:-1px 1px 2px rgba(60,40,10,.12);border-bottom-left-radius:3px}
+/* retourné : on voit le verso, puis la carte se retourne à la lecture */
+.carte__face--verso{background:#fbf8f0}
+.carte__face--verso .kb-doc__lignes{transform:scaleX(-1);opacity:.35;margin-top:10px}
+.carte--retourne .carte__face--doc{transform:rotateY(180deg);opacity:0}
+.carte--retourne.est-lu .carte__face--doc{transform:none;opacity:1}
+/* WebKit : la face cachée l'est aussi par l'opacité, qui bascule à mi-retournement */
+.carte--retourne.est-lu .carte__face--verso{transform:rotateY(180deg);opacity:0}
+/* scan : gris, grain, de travers, tampon « Scan » ; à la lecture, le grain part ligne à ligne */
+.kb-doc__corps{display:flex;flex-direction:column;flex:1;min-height:0}
+.carte--scan .kb-doc__corps{transform:rotate(-2.4deg);transform-origin:0 50%}
+.carte--scan.est-lu .kb-doc__corps{transform:none}
+.carte__grain{position:absolute;inset:0;pointer-events:none;background-color:rgba(214,210,200,.72);background-image:repeating-linear-gradient(0deg,rgba(60,60,60,.07) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(60,60,60,.05) 0 1px,transparent 1px 4px)}
+.carte.est-lu .carte__grain{transform:translateY(100%)}
+.carte__balai{position:absolute;left:5%;right:5%;top:0;height:2px;border-radius:2px;background:var(--teal);opacity:0}
+.tampon{position:absolute;z-index:3;padding:2px 6px;border-radius:4px;border:1.5px solid currentColor;background:rgba(255,253,248,.82);font:800 8.5px/1.15 var(--sans);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;pointer-events:none}
+.tampon--scan{right:6px;top:6px;color:#7c766a;font-size:7px;padding:1px 4px;transform:rotate(4deg)}
+.carte.est-lu .tampon--scan{opacity:0}
+/* MB-3 : les tampons du contrôle, toujours lisibles quelle que soit la taille du document (contre-échelle --inv) */
+.tampon--verdict{left:50%;top:50%;opacity:0;transform:translate(-50%,-50%) scale(var(--inv)) rotate(-9deg)}
+.tampon--doublon,.tampon--perime{color:var(--rouge)}
+.tampon--verif{color:var(--or-txt)}
+.tampon--verifie{color:var(--teal-txt)}
+.carte__ok{position:absolute;inset:0;z-index:2;border:1.5px solid var(--teal);border-radius:7px;opacity:0;pointer-events:none}
+.carte__rature{position:absolute;left:6%;right:6%;top:44%;z-index:2;height:2px;border-radius:2px;background:var(--rouge);transform:scaleX(0);transform-origin:0 50%}
+
+/* ---------- MB-3 : la pile de côté, le cadre de contrôle, les fils ---------- */
+.table__cote{position:absolute;z-index:1;border-radius:14px;border:1px dashed rgba(120,100,60,.32);background:rgba(120,100,60,.045);opacity:0;pointer-events:none}
+.table__cote-t{position:absolute;left:0;right:0;top:8px;text-align:center;font:700 9px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:0}
+.table__cote-t--ecartes{color:var(--rouge)}
+.table__cote-t--sources{color:var(--teal-txt)}
+.cadre{position:absolute;left:0;top:0;z-index:20;border:2px solid var(--bleu);border-radius:7px;box-shadow:0 0 0 3px rgba(0,0,145,.1);opacity:0;pointer-events:none}
+.cadre::before{content:"Contrôle";position:absolute;left:-2px;bottom:100%;margin-bottom:3px;padding:2px 5px;border-radius:4px;background:var(--bleu);color:#fff;font:700 7.5px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.fil{position:absolute;left:0;top:0;z-index:19;width:1px;height:1.5px;background:var(--or-txt);transform-origin:0 50%;opacity:0;pointer-events:none}
+.fil--source{background:var(--teal-txt)}
+
+/* ---------- MB-3 : les fiches, une par sujet, qui s'épaississent ---------- */
+.fiche-b{position:absolute;left:0;top:0;z-index:6;transform-origin:50% 50%;opacity:0}
+.fiche-b__ep{position:absolute;inset:0;border-radius:9px;background:#f7f2e6;border:1px solid rgba(120,100,60,.24);opacity:0}
+.fiche-b__ep--2{transform:translate(4px,4px)}
+.fiche-b__ep--3{transform:translate(8px,8px)}
+.fiche-b__face{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--papier);border:1px solid rgba(0,0,145,.22);border-radius:9px;padding:9px 10px 9px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,var(--ombre-1);overflow:hidden}
+.fiche-b .kb-doc__type{color:var(--teal-txt)}
+.fiche-b__titre{display:block;font:700 14px/1.12 var(--titre);color:var(--bleu);letter-spacing:-.01em;margin-top:4px}
+.fiche-b__lignes{display:grid;gap:3px;margin-top:7px}
+.fiche-b__lignes b{display:grid;gap:3px;transform:scaleX(0);transform-origin:0 50%}
+.fiche-b__lignes i{height:2.5px;border-radius:2px;background:rgba(0,0,145,.16)}
+.fiche-b__lignes i:nth-child(2){width:84%}.fiche-b__lignes i:nth-child(3){width:62%}
+.source-b{display:flex;align-items:flex-start;gap:5px;margin-top:auto;padding:4px 6px;border-radius:7px;background:rgba(14,124,114,.09);color:var(--teal-txt);font:700 8px/1.25 var(--sans);letter-spacing:.04em;text-transform:uppercase;opacity:0;transform-origin:0 100%}
+.source-b svg{flex:none;width:9px;height:9px;margin-top:1px}
+.source-b span{display:grid;min-width:0}
+.source-b b{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.source-b small{font:600 8px/1.25 var(--sans);letter-spacing:.02em;opacity:.85}
+
+/* ---------- MB-11 (07/10/2026) : la fin. Le sceau aspire les fiches, grossit, devient l'application posée sur le socle ----------
+   page.js pose les tailles et les positions (calculer) et les états (poserAppli) en styles en ligne ; seules transform et opacity bougent.
+   Le téléphone est la photo du film (fond transparent, écran retiré), l'écran un bloc HTML de 340 x 736 (la taille de l'écran du film)
+   réduit dans le trou de la photo par une mise à l'échelle, comme c-film/js/telephone.js ; ses styles reprennent ceux de la page Marianne. */
+.appli{position:absolute;inset:0;z-index:30;pointer-events:none}
+.appli__tel,.appli__sceau,.appli__dalles span{opacity:0}
+.appli__tel{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform,opacity}
+/* l'ombre portée du téléphone sur la table, et l'ombre de contact sur les dalles */
+.appli__ombre{position:absolute;left:4%;right:4%;top:3%;bottom:0;border-radius:14%/7%;background:rgba(10,15,44,.2);box-shadow:0 18px 34px 10px rgba(10,15,44,.16);transform:translate(5%,2%)}
+/* l'écran : le quad du manifeste (0,0628 ; 0,0274 ; 0,9372 ; 0,9726) et ses coins (rayon 0,1006 de la largeur de l'image : 11,5 % de la largeur de l'écran, 5,2 % de sa hauteur) */
+.appli__ecran{position:absolute;left:6.28%;top:2.74%;width:87.44%;height:94.52%;overflow:hidden;border-radius:11.5%/5.2%;background:#f4f0e7}
+.appli__reflet{position:absolute;left:6.28%;top:2.74%;width:87.44%;height:94.52%;overflow:hidden;border-radius:11.5%/5.2%}
+.appli__reflet::before{content:"";position:absolute;left:-60%;top:-40%;width:220%;height:180%;background:linear-gradient(118deg,rgba(255,255,255,0) 38%,rgba(255,255,255,.16) 46%,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 58%);transform:translateX(-14%)}
+.appli__photo{position:absolute;inset:0;width:100%;height:100%}
+.ecr{position:absolute;left:0;top:0;width:340px;height:736px;contain:strict;font-size:15.6px;transform-origin:0 0;background:linear-gradient(170deg,#f9f6ef,#f1ede3);display:flex;flex-direction:column;color:var(--encre);text-align:left}
+.ecr__barre{display:flex;align-items:center;justify-content:space-between;padding:1.25em 2.1em 0;font:600 .88em/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--bleu);font-variant-numeric:tabular-nums;height:2.6em;flex:none}
+.ecr__encoche{width:6.4em;height:1.85em;visibility:hidden}
+.ecr__reseau{display:flex;gap:.22em;align-items:flex-end}
+.ecr__reseau i{width:.27em;border-radius:1px;background:var(--bleu)}
+.ecr__reseau i:nth-child(1){height:.45em}.ecr__reseau i:nth-child(2){height:.7em}.ecr__reseau i:nth-child(3){height:.95em}
+.ecr__tete{flex:none;display:flex;align-items:center;gap:.77em;height:4.1em;margin:.9em .9em 0;padding:.7em .85em;background:rgba(255,255,255,.72);border:1px solid rgba(200,190,170,.4);border-radius:1.2em}
+.ecr__tete img{width:2.45em;height:2.45em;border-radius:50%;box-shadow:0 0 0 1.5px var(--or);flex:none;background:#fff}
+/* MB-11 : le nom de la commune sur une ligne (la coupe tombait sur le trait d'union de « Villeneuve-les-Ormes ») */
+.ecr__tete strong{display:block;font:700 .86em/1.25 var(--titre);color:var(--bleu);letter-spacing:-.015em;white-space:nowrap}
+.ecr__tete div{min-width:0}
+.ecr__tete span{display:flex;align-items:center;gap:.45em;font:500 .8em/1.2 var(--sans);color:var(--encre-2);margin-top:.15em}
+.ecr__tete span::before{content:"";width:.55em;height:.55em;border-radius:50%;background:#1f9d63}
+.ecr__corps{position:relative;flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+/* la ligne au-dessus de la conversation : le même chiffre que le bandeau, aucun autre */
+.ecr__base{align-self:center;display:flex;align-items:center;gap:.55em;margin:1.05em .9em 0;padding:.55em 1em;border-radius:1.2em;background:rgba(14,124,114,.09);color:var(--teal-txt);font:600 .8em/1.3 var(--sans);text-align:left;text-wrap:balance}
+.ecr__base svg{flex:none;width:1.15em;height:1.15em}
+.ecr__fil{display:flex;flex-direction:column;gap:.7em;padding:.85em .9em .77em}
+.ecr__msg{display:flex;flex-direction:column;position:relative}
+.ecr__msg--moi{align-items:flex-end}
+.ecr__msg--m{align-items:flex-start}
+.ecr__h{font:500 .73em/1 var(--sans);color:var(--encre-2);margin:0 .6em .4em}
+.ecr__bulle{max-width:88%;padding:.77em 1em;border-radius:1.3em;font-size:1em;line-height:1.42}
+.ecr__msg--moi .ecr__bulle{background:var(--bleu);color:#fff;border-bottom-right-radius:.38em}
+.ecr__msg--m .ecr__bulle{background:#fff;border:1px solid rgba(200,190,170,.45);border-bottom-left-radius:.38em;box-shadow:0 2px 6px rgba(0,0,80,.04)}
+.ecr__source{display:inline-flex;align-items:flex-start;gap:.6em;margin-top:.9em;padding:.6em .9em;border-radius:.9em;background:rgba(14,124,114,.09);color:var(--teal-txt);font:700 .77em/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;text-align:left;transform-origin:left center}
+.ecr__source svg{flex:none;margin-top:.05em;width:1.1em;height:1.1em}
+.ecr__champ{flex:none;display:flex;align-items:center;justify-content:space-between;margin:0 .9em 1.05em;padding:.7em .7em .7em 1.1em;border-radius:9999px;background:#fff;border:1px solid rgba(200,190,170,.5);font:500 .88em/1 var(--sans);color:#6f6a5f;white-space:nowrap;overflow:hidden;gap:.5em}
+.ecr__champ i{width:2.2em;height:2.2em;border-radius:50%;background:var(--bleu);display:grid;place-items:center;flex:none}
+.ecr__champ i svg{width:1em;height:1em}
+/* le sceau, en vecteur pour rester net à 40 % de la table : disque crème, liseré, glyphe (placé comme dans sceau-256.webp : 55 % de large, à 22,1 et 22,6 %) */
+.appli__sceau{position:absolute;left:0;top:0;border-radius:50%;background:radial-gradient(circle at 50% 46%,#fffefb 0,#fcf9f3 52%,#f3eee5 100%);box-shadow:0 0 0 1px rgba(170,174,235,.75),0 0 0 calc(var(--d,100px) * .05) rgba(43,111,214,.10),0 0 calc(var(--d,100px) * .3) calc(var(--d,100px) * .06) rgba(43,111,214,.22),var(--ombre-2);transform-origin:50% 50%;will-change:transform,opacity}
+.appli__sceau img{position:absolute;left:22.1%;top:22.6%;width:55%;height:auto}
+/* les trois dalles du socle, plus petites, en une rangée sous le téléphone */
+.appli__dalles{position:absolute;left:0;top:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.appli__dalles span{display:block;padding:8px 10px;border-radius:11px;background:var(--nuit);color:var(--nuit-txt2);font:500 10.5px/1.3 var(--sans);box-shadow:0 8px 20px rgba(0,0,40,.22)}
+.appli__dalles b{display:block;font:800 13.5px/1.2 var(--titre);color:#fff;letter-spacing:-.01em}
+
+/* MB-1 : les temps réduits d'un bon quart (62, 48 et 56 vh deviennent 46, 36 et 42) */
+.recit__temps{display:grid;padding-bottom:calc(120px + 4vh)} /* MB-1 : de l'air sous le dernier temps, pour que le socle se pose en entier avant que l'illustration ne remonte */
+.temps{position:relative;min-height:46vh;display:flex;flex-direction:column;justify-content:center;padding:24px 0;opacity:.32;transition:opacity .5s var(--doux)}
+.temps.actif{opacity:1}
+.temps:first-child{min-height:36vh;justify-content:flex-start;padding-top:40px}
+.temps:last-child{min-height:42vh}
+.temps__n{font:800 clamp(52px,5.4vw,76px)/.9 var(--titre);color:var(--bleu);letter-spacing:-.04em}
+.temps .h3{margin-top:12px;font-size:clamp(24px,2.3vw,30px)}
+.temps p{margin-top:12px;font-size:clamp(16.5px,1.3vw,18.5px);line-height:1.62;color:var(--encre-2);max-width:34em}
+html:not(.kb-js) .temps{opacity:1;min-height:0}
+html:not(.kb-js) .recit__scene{display:none}
+html.anim-non .temps{opacity:1}
+
+/* ---------- les chiffres datés (la bande bleue de la page Marianne) ---------- */
+.chiffres-b{background:linear-gradient(150deg,#000091,#0a0f5c);color:#fff;padding:clamp(56px,7vw,92px) var(--gut)}
+.chiffres-b__in{max-width:1200px;margin-inline:auto}
+/* MB-4 : trois colonnes alignées, titres et légendes à la même hauteur (sous-grille) */
+.chiffres-b ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto;column-gap:clamp(24px,3vw,40px)}
+.chiffres-b li{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:12px;align-content:start}
+/* MB-7 : « Plusieurs milliers » tient sur une ligne jusqu'à 1440 (46 px le coupait en deux) */
+.chiffres-b__n{display:block;align-self:end;font:800 clamp(30px,2.9vw,42px)/1.04 var(--titre);letter-spacing:-.035em;text-wrap:balance}
+.chiffres-b__l{display:block;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.84);max-width:32ch}
+.chiffres-b__note{margin-top:30px;font-size:13px;color:rgba(255,255,255,.7)}
+
+/* ---------- le point différenciant ---------- */
+.difference__in{max-width:900px;text-align:center}
+.difference__titre{font:800 clamp(34px,4.4vw,62px)/1.06 var(--titre);letter-spacing:-.035em;color:var(--bleu);text-wrap:balance}
+/* MB-15 (07/10/2026, soir) : « à votre commune » (insécables) tient sur une ligne jusqu'à 320 px : sous 360 px, la taille suit la largeur de la fenêtre (34 px à 360 px, 30 px à 320 px) */
+@media (max-width:360px){.difference__titre{font-size:clamp(28px,calc((100vw - 40px) / 9.4),34px)}}
+/* MB-13 à MB-15 (07/10/2026, soir) : les textes de la section ne laissent pas un mot seul sur leur dernière ligne, à aucune largeur (text-wrap: pretty ; les insécables
+   du texte tiennent le reste là où le navigateur ne le connaît pas) */
+.base .chapo,.temps p,.chiffres-b__l,.chiffres-b__note,.difference .chapo,.difference__note{text-wrap:pretty}
+.difference .chapo{margin-inline:auto}
+.difference .btn{margin-top:30px}
+/* intégration : la flèche du bouton prend la taille de commun/pages/pages.css (16 px) ; la page ne la règle pas (ses icônes portent width et height) */
+.difference .btn svg{width:16px;height:16px}
+.difference__note{margin-top:16px;font-size:13px;color:var(--encre-2)}
+
+@media (max-width:900px){
+  .recit{display:block}
+  /* T1 (07/10/2026) : un fond crème opaque derrière l'illustration collée. Le cadre collé monte de 80 px (jusqu'en haut de l'écran) : il porte 80 px de crème
+     au-dessus de la table, sous la barre, et le texte du temps précédent ne passe plus ni au-dessus de l'illustration ni dans l'écart de la barre.
+     La table reste à 80 px du haut, à la même place et à la même taille (la marge négative annule le rembourrage : la mise en page ne bouge pas). */
+  .recit__scene{top:0;z-index:2;margin-top:-80px;padding-top:80px;background:var(--creme);height:calc(min(46vh,380px) + 80px);height:calc(min(46svh,380px) + 80px);margin-bottom:8px}
+  /* T1 : le titre et le chapô restent au-dessus de ces 80 px de crème, qui recouvrent leur dernière ligne tant que le cadre n'est pas collé */
+  .base .tete{position:relative;z-index:3}
+  /* MB-1 : même réglage proportionnel sur téléphone (58, 40 et 56 vh deviennent 43, 30 et 42) */
+  .recit__temps{padding-bottom:0}
+  .temps{min-height:43vh;min-height:43svh;padding:18px 4px}
+  .temps:first-child{min-height:30vh;min-height:30svh;padding-top:24px}
+  .temps:last-child{min-height:42vh;min-height:42svh}
+  .chiffres-b ul{grid-template-columns:1fr;grid-template-rows:none;row-gap:28px}
+  .chiffres-b li{grid-row:auto;grid-template-rows:none}
+  /* MB-11 : les dalles du téléphone, sur une ligne chacune (le téléphone y gagne de la hauteur) */
+  .appli__dalles{gap:6px}
+  .appli__dalles span{padding:6px 7px;border-radius:9px;font-size:8.5px;line-height:1.25;box-shadow:0 6px 14px rgba(0,0,40,.22)}
+  .appli__dalles b{font-size:11px}
+  .table__legende{left:9px;top:8px;max-width:calc(100% - 18px);padding:4px 6px;font-size:9px;letter-spacing:.08em;line-height:1.35}
+}
+/* T2 (07/10/2026) : les documents et les fiches prennent le dessin du petit écran quand la TABLE fait moins de 520 px (page.js pose data-mob
+   à ce seuil), plus quand la fenêtre fait moins de 520 px : entre 900 et 1100 px de fenêtre, la table fait de 430 à 520 px, la géométrie était celle du
+   téléphone (documents de 62 px) avec les lettres de l'ordinateur, et les titres se coupaient au milieu des mots. data-mob="xs" : fiche trop étroite
+   pour porter le nom de la source (la date seule, comme sur téléphone) ; data-mob="m" : le nom tient. */
+  .table[data-mob] .carte__face{padding:5px 5px 6px;border-radius:5px}
+  .table[data-mob] .kb-doc__type{font-size:5.5px;letter-spacing:.08em}
+  .table[data-mob] .kb-doc__nom{font-size:7.5px;margin-top:3px;line-height:1.15}
+  .table[data-mob] .kb-doc__lignes{gap:2.5px}
+  .table[data-mob] .kb-doc__lignes i{height:2px}
+  .table[data-mob] .kb-doc__barre{gap:2px;margin:-1px 0 3px;padding-bottom:2px}
+  .table[data-mob] .kb-doc__barre i{width:3px;height:3px}
+  .table[data-mob] .kb-doc__pdf{right:3px;top:3px;font-size:5px;padding:0 2px}
+  .table[data-mob] .kb-doc__filet{margin:-1px 0 3px}
+  .table[data-mob] .kb-doc__filet i{width:6px;height:1.5px}
+  .table[data-mob] .kb-doc__de{font-size:5px;margin:-1px 0 3px;padding-bottom:2px}
+  .table[data-mob] .carte--affiche .carte__face--doc{border-top-width:4px}
+  .table[data-mob] .carte--affiche .kb-doc__nom{font-size:8px}
+  .table[data-mob] .carte--bulletin .carte__face--doc{border-left-width:3px}
+  .table[data-mob] .kb-doc__cases{gap:3px}
+  .table[data-mob] .kb-doc__cases i{height:3px}
+  .table[data-mob] .kb-doc__cases i::before{width:3px;height:3px}
+  .table[data-mob] .carte__corne{width:10px;height:10px}
+  .table[data-mob] .carte__ok{border-radius:5px}
+  .table[data-mob] .tampon{font-size:7px;padding:1px 4px;border-width:1.2px}
+  .table[data-mob] .tampon--scan{font-size:5px;padding:0 2px;right:3px;top:3px}
+  .table[data-mob] .cadre{border-width:1.5px;border-radius:5px}
+  .table[data-mob] .cadre::before{font-size:6.5px;padding:1px 4px}
+  .table[data-mob] .table__cote{border-radius:10px}
+  .table[data-mob] .table__cote-t{top:5px;font-size:7px;letter-spacing:.1em}
+  .table[data-mob] .fiche-b__face{padding:5px 6px 5px;border-radius:7px}
+  .table[data-mob] .fiche-b__ep{border-radius:7px}
+  .table[data-mob] .fiche-b__ep--2{transform:translate(2.5px,2.5px)}
+  .table[data-mob] .fiche-b__ep--3{transform:translate(5px,5px)}
+  .table[data-mob] .fiche-b .kb-doc__type{font-size:5.5px}
+  .table[data-mob] .fiche-b__titre{font-size:9.5px;line-height:1.1;margin-top:2px}
+  .table[data-mob] .fiche-b__lignes{gap:2px;margin-top:4px}
+  .table[data-mob] .fiche-b__lignes b{gap:2px}
+  .table[data-mob] .fiche-b__lignes i{height:1.5px}
+  .table[data-mob] .fiche-b__lignes b:nth-child(n+3),.table[data-mob] .fiche-b__lignes i:nth-child(3){display:none}
+  .table[data-mob] .source-b{padding:2px 4px;gap:3px;border-radius:5px;font-size:6px}
+  .table[data-mob] .source-b svg{width:7px;height:7px;margin-top:0}
+  .table[data-mob="xs"] .source-b b{display:none}
+  .table[data-mob] .source-b small{font-size:6.5px}
+
+/* intégration du 13/10/2026 : la barre de la page descend de 44 px quand le bandeau d'annonce est affiché (html.a-bandeau, marianne.js) ;
+   l'illustration collée descend d'autant pour ne pas passer sous la barre (sur ordinateur : 104 px de la maquette, 148 avec le bandeau ;
+   sur téléphone : 80 px de crème au-dessus de la table, 124 avec le bandeau). La table garde sa taille : la géométrie ne change pas */
+@media (min-width:901px){html.a-bandeau .recit__scene{top:148px;height:min(620px,calc(100vh - 180px))}}
+@media (max-width:900px){html.a-bandeau .recit__scene{margin-top:-124px;padding-top:124px;height:calc(min(46vh,380px) + 124px);height:calc(min(46svh,380px) + 124px)}}
+
+/* MB-10 bis (07/10/2026) : la butée unique du bas de la section (page.js). Tant que la ligne de temps des six temps n'est pas au bout, le
+   contenu de la page est rogné juste après le texte du sixième temps : la mise en page ne change pas, la fin du document remonte ; pas de
+   rebond tant qu'elle est posée */
+.feuille.retenu{overflow-y:clip}
+/* le pied de page suit <main> : il attend sous la butee, puis revient quand elle se leve */
+html.retenu .pied{display:none}
+html.retenu,html.retenu body{overscroll-behavior-y:none}
+
+/* mouvement réduit : la section à son état final, les six temps lisibles */
+@media (prefers-reduced-motion:reduce){.cadre,.fil{display:none}}
+html.anim-non .cadre,html.anim-non .fil{display:none}
+@media (max-width:520px){.difference .btn{white-space:normal;text-align:center;line-height:1.3}}
+/* MB-15 bis : le nom de la commune du bouton ne se coupe pas au trait d'union */
+.difference .btn .nb{white-space:nowrap}
+
+/* ---------- l'encart « Pas de site internet ? » (#creer-site), sorti de l'ancien .savoir__bas ----------
+   Intégration du 13/10/2026 : il avait la moitié droite d'une grille à deux colonnes (environ 600 px à 1440) ; seul dans son
+   bloc, il se dessine sur deux colonnes au-dessus de 900 px (le texte, les actions et la note à gauche, le site de
+   Villeneuve-les-Ormes à droite) pour ne pas étirer la maquette du site sur 1 200 px ; dessous, une colonne comme avant.
+   Le point différenciant au-dessus porte déjà le rembourrage : le bloc n'en remet pas en haut. */
+#creer-site{padding-top:0}
+@media (min-width:900px){
+  #creer-site .creer{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:clamp(32px,4.5vw,64px)}
+  #creer-site .creer>div:first-child{grid-column:1;grid-row:2}
+  #creer-site .creer__actions{grid-column:1;grid-row:3}
+  #creer-site .creer__note{grid-column:1;grid-row:4}
+  #creer-site .creer>.site{grid-column:2;grid-row:1 / -1;align-self:center}
+}

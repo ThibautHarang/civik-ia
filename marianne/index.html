@@ -551,27 +551,13 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 /* =====================================================================
    6.2 Connaissance
    ===================================================================== */
-.savoir__scene{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;--e:1}
-.savoir__groupe{display:grid;gap:12px}
-.savoir__groupe h3{font:700 12px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--encre-2)}
-.savoir__docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.doc{position:relative;background:var(--papier);border:1px solid rgba(120,100,60,.22);border-radius:10px;padding:14px 14px 16px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset,var(--ombre-1);
-  transform:translate(calc(var(--dx,0px) * (1 - var(--e))),calc(var(--dy,0px) * (1 - var(--e)))) rotate(calc(var(--rot,0deg) * (1 - var(--e) * .82)))}
-.doc__type{display:block;font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--or-txt)}
-.doc__nom{display:block;font:700 15px/1.2 var(--titre);color:var(--bleu);letter-spacing:-.01em;margin-top:8px}
-.doc__lignes{display:grid;gap:5px;margin-top:12px}
-.doc__lignes i{height:3px;border-radius:2px;background:rgba(120,100,60,.2)}
-.doc__lignes i:nth-child(2){width:82%}.doc__lignes i:nth-child(3){width:58%}
-.savoir__coeur{display:grid;place-items:center;position:relative;padding:8px 0}
+/* intégration du 13/10/2026 : .savoir__scene, .savoir__groupe, .savoir__docs, .doc et .doc__* retirés avec l'ancienne section ;
+   la nouvelle vit dans /marianne/base.css. .medaillon reste : le sceau des canaux (#canauxHub) l'utilise */
 .medaillon{position:relative;width:clamp(116px,13vw,164px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center}
 .medaillon img{width:100%;height:100%;border-radius:50%;position:relative;z-index:1;box-shadow:0 0 0 1px rgba(120,100,60,.22),var(--ombre-2)}
 .medaillon::before,.medaillon::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
 .medaillon::before{inset:-16%;border:1px solid rgba(43,111,214,.35);opacity:var(--e);transform:scale(calc(.8 + var(--e) * .2))}
 .medaillon::after{inset:-38%;background:radial-gradient(closest-side,rgba(43,111,214,.26),rgba(43,111,214,.08) 55%,transparent 72%);opacity:var(--e)}
-.savoir__bas{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);margin-top:clamp(48px,6vw,84px);align-items:start}
-.savoir__texte p{font-size:clamp(17px,1.35vw,19px);line-height:1.62;color:var(--encre-2)}
-.savoir__texte p+p{margin-top:18px}
-.savoir__texte strong{color:var(--encre);font-weight:600}
 .creer{background:linear-gradient(150deg,#000091,#0a0f5c);color:#fff;border-radius:var(--r-l);padding:clamp(26px,3.2vw,40px);box-shadow:0 24px 60px rgba(0,0,145,.26);display:grid;gap:22px}
 .creer .h3{color:#fff;font-size:clamp(23px,2.4vw,31px)}
 .creer p{color:rgba(255,255,255,.86);font-size:16px;line-height:1.6}
@@ -579,13 +565,6 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .creer__lien{color:#fff;font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.45)}
 .creer__lien:hover{text-decoration-color:#fff}
 .creer__note{font-size:13px !important;color:rgba(255,255,255,.72) !important}
-@media (min-width:900px){
-  .savoir__scene{grid-template-columns:minmax(0,.62fr) auto minmax(0,1.25fr);gap:clamp(24px,4vw,64px)}
-  .savoir__groupe--site .savoir__docs{grid-template-columns:1fr}
-  .savoir__groupe--docs .savoir__docs{grid-template-columns:repeat(2,1fr)}
-  .savoir__bas{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}
-}
-@media (min-width:900px){html.js:not(.anim-non) .savoir__scene{--e:0}html.js:not(.anim-non) .doc{opacity:clamp(0,calc(var(--e) * 4),1)}}
 
 /* maquette du site communal (encart « Pas de site ? ») */
 .site{border-radius:14px;overflow:hidden;background:var(--papier);color:var(--encre);box-shadow:0 18px 44px rgba(0,0,40,.4)}
@@ -989,6 +968,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .cb__saisie input:focus-visible{outline:none;border-color:var(--bleu);box-shadow:0 0 0 4px rgba(0,0,145,.16)}
 .cb__saisie button{padding:0 16px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 14px/1 var(--sans)}
 </style>
+<!-- intégration du 13/10/2026 : la section « Le cerveau de Marianne » (#connaissance) -->
+<link rel="stylesheet" href="/marianne/base.css">
 </head>
 <body id="top">
 <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -1193,78 +1174,149 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <div class="feuille">
 
 <!-- =====================================================================
-     6.2 ELLE CONNAIT VOTRE COMMUNE PAR COEUR
+     6.2 LE CERVEAU DE MARIANNE (intégration du 13/10/2026 ; style /marianne/base.css, script /marianne/base.js)
      ===================================================================== -->
-<section class="sec" id="connaissance">
+<section class="sec base" id="connaissance" aria-labelledby="base-titre">
   <div class="wrap">
     <div class="tete tete--c">
-      <span class="sur">Chatbot IA formé sur vos données</span>
-      <h2 class="h2">Elle a lu tout votre site <br>Et tout le reste</h2>
+      <span class="sur">Le cerveau de Marianne</span>
+      <h2 class="h2" id="base-titre" data-mots>Une seule source&nbsp;: vos&nbsp;données&nbsp;officielles</h2>
+      <!-- DAJF 08/10/2026 (1) : « et rien n'est ouvert aux habitants sans l'accord écrit de votre commune » remplace « et la base est validée de bout en bout » -->
+      <p class="chapo" data-entree data-chapo>Avant que Marianne réponde à un seul habitant, nous construisons ensemble la base de connaissances de votre commune&nbsp;: une seule source, officielle et unique, la vôtre. Tout ce que la commune publie est collecté, lu, trié, vérifié et consolidé&nbsp;; chaque fiche est reliée à son document d'origine, et rien n'est ouvert aux habitants sans l'accord écrit de votre&nbsp;commune.</p>
     </div>
 
-    <div class="savoir__scene" id="savoirScene">
-      <div class="savoir__groupe savoir__groupe--site">
-        <h3>Votre site</h3>
-        <ul class="savoir__docs">
-          <li class="doc" style="--dx:-38vw;--dy:-90px;--rot:-9deg"><span class="doc__type">Site officiel</span><span class="doc__nom">Pages du site</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:-46vw;--dy:30px;--rot:6deg"><span class="doc__type">Site officiel</span><span class="doc__nom">Actualités</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:-34vw;--dy:130px;--rot:-5deg"><span class="doc__type">Site officiel</span><span class="doc__nom">Démarches</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-        </ul>
+    <div class="recit" data-recit>
+      <div class="recit__scene">
+        <div class="table" data-table data-etat="0" aria-hidden="true">
+          <div class="table__papier"></div>
+          <div class="table__cote" data-cote><span class="table__cote-t table__cote-t--ecartes">Écartés</span><span class="table__cote-t table__cote-t--sources">Sources</span></div>
+          <div class="appli" data-appli>
+            <div class="appli__tel" data-tel>
+              <i class="appli__ombre"></i>
+              <div class="appli__ecran"><div class="ecr" data-ecr>
+                <div class="ecr__barre"><span class="ecr__heure">22:47</span><span class="ecr__encoche"></span><span class="ecr__reseau"><i></i><i></i><i></i></span></div>
+                <div class="ecr__tete"><img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32" decoding="async" data-avatar><div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div></div>
+                <div class="ecr__corps">
+                  <p class="ecr__base" data-ecr-base><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span>Plusieurs milliers de fiches, chacune reliée à sa source</span></p>
+                  <ol class="ecr__fil">
+                    <li class="ecr__msg ecr__msg--moi" data-ecr-q><span class="ecr__h">22:47</span><div class="ecr__bulle">Jusqu'à quand inscrire mon fils à la cantine&nbsp;?</div></li>
+                    <li class="ecr__msg ecr__msg--m" data-ecr-r><div class="ecr__bulle">Jusqu'au vendredi 30&nbsp;octobre, en mairie ou sur le site de la commune. Prévoyez un justificatif de domicile. <span class="ecr__source" data-ecr-s><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span>Source&nbsp;: Inscription cantine, 01/09/2026</span></span></div></li>
+                  </ol>
+                </div>
+                <div class="ecr__champ"><span>Posez votre question</span><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
+              </div></div>
+              <i class="appli__reflet"></i>
+              <img class="appli__photo" src="/commun/img/c/telephone.webp" alt="" width="589" height="1205" decoding="async" data-photo>
+            </div>
+            <div class="appli__sceau" data-sceau><img src="/commun/img/marianne-glyph.svg" alt="" width="439" height="439" decoding="async"></div>
+            <div class="appli__dalles" data-dalles>
+              <span><b>OVHcloud</b>hébergée en Europe</span>
+              <span><b>Mistral</b>moteur européen</span>
+              <span><b>Vos données</b>pour votre commune seule</span>
+            </div>
+          </div>
+          <p class="table__legende" data-legende></p>
+        </div>
       </div>
-      <div class="savoir__coeur">
-        <div class="medaillon"><img src="/marianne/assets/ui/sceau-256.webp" alt="Marianne" width="164" height="164" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="savoir__groupe savoir__groupe--docs">
-        <h3>Vos documents</h3>
-        <ul class="savoir__docs">
-          <li class="doc" style="--dx:30vw;--dy:-120px;--rot:8deg"><span class="doc__type">Urbanisme</span><span class="doc__nom">PLU</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:42vw;--dy:-60px;--rot:-7deg"><span class="doc__type">Actes</span><span class="doc__nom">Arrêtés</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:34vw;--dy:20px;--rot:5deg"><span class="doc__type">Conseil municipal</span><span class="doc__nom">Délibérations</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:46vw;--dy:60px;--rot:-10deg"><span class="doc__type">Publication</span><span class="doc__nom">Bulletin municipal</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:30vw;--dy:150px;--rot:7deg"><span class="doc__type">Vie pratique</span><span class="doc__nom">Calendrier des déchets</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-          <li class="doc" style="--dx:44vw;--dy:170px;--rot:-6deg"><span class="doc__type">Accueil</span><span class="doc__nom">Horaires et contacts</span><span class="doc__lignes" aria-hidden="true"><i></i><i></i><i></i></span></li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="savoir__bas">
-      <div class="savoir__texte">
-        <!-- Le site de la commune est relu chaque nuit ; l'information du moment publiee depuis l'espace mairie est a venir (en construction, D97) -->
-        <p>Marianne s'appuie d'abord sur <strong>le site officiel de votre commune</strong>&nbsp;: ses pages, ses actualités, ses démarches, ses documents publiés. S'y ajoutent ceux que vous nous transmettez&nbsp;: PLU, arrêtés, délibérations, horaires, contacts, calendrier des déchets, bulletin municipal. Word, PDF ou scan, tout est lu</p>
-        <p><strong>Vous modifiez votre site&nbsp;?</strong> Marianne le relit chaque nuit&nbsp;: ce que vous publiez aujourd'hui, elle le sait demain matin, sans que vous ayez rien à ressaisir. Pour une urgence, l'espace mairie, en cours de construction, permettra de publier une information du moment, prise en compte aussitôt</p>
-      </div>
-
-      <!-- Creation de site : offre sur devis, aucun prix affiche -->
-      <aside class="creer" aria-labelledby="creerTitre">
-        <div>
-          <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? <br>Nous pouvons vous en créer un</h3>
-          <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia peut concevoir le vôtre&nbsp;: simple, lisible sur téléphone, avec Marianne intégrée. Cette offre est nouvelle&nbsp;: nous la construisons avec les premières communes qui la demandent</p>
-        </div>
-        <div class="site" aria-hidden="true">
-          <div class="site__barre"><i></i><i></i><i></i><span>www.villeneuve-les-ormes.fr</span></div>
-          <div class="site__tete">
-            <span class="site__blason">VO</span>
-            <div><b>Villeneuve-les-Ormes</b><small>Site officiel de la commune</small></div>
-            <div class="site__menu"><span>Démarches</span><span>Agenda</span><span class="site__onglet"><img src="/marianne/assets/ui/glyphe-96.webp" alt="" width="11" height="11" loading="lazy">Une question&nbsp;?</span></div>
-          </div>
-          <div class="site__bandeau">
-            <img src="/marianne/assets/ui/site-bandeau.webp" alt="" width="480" height="341" loading="lazy" decoding="async">
-            <div><b>Bienvenue à Villeneuve-les-Ormes</b><span>Mairie ouverte du lundi au vendredi, 9&nbsp;h à 12&nbsp;h et 14&nbsp;h à 17&nbsp;h&nbsp;30</span></div>
-          </div>
-          <div class="site__cartes">
-            <div><small>Actualité</small><b>Inscriptions cantine 2026-2027</b></div>
-            <div><small>Démarche</small><b>Demander un acte de naissance</b></div>
-            <div><small>Agenda</small><b>Fête du village, samedi 20 juin</b></div>
-            <span class="site__bouton"><img src="/marianne/assets/ui/sceau-96.webp" alt="" width="22" height="22" loading="lazy">Une question&nbsp;?</span>
-          </div>
-        </div>
-        <div class="creer__actions">
-          <a href="#contact" class="btn btn--clair">Parler de mon site</a>
-          <a href="/chatbot-commune-rurale.html" class="creer__lien">Communes rurales&nbsp;: notre offre</a>
-        </div>
-        <p class="creer__note">Sur devis, après un premier échange</p>
-      </aside>
+      <ol class="recit__temps">
+        <li class="temps" data-temps="0">
+          <span class="temps__n">1</span>
+          <h3 class="h3">Collecte</h3>
+          <p>Nous rassemblons tout ce que la commune publie&nbsp;: les pages de son site, ses PDF, ses actes, ses délibérations, ses comptes rendus, son bulletin, jusqu'aux scans et aux affiches. S'y ajoute ce que vous nous transmettez. Rien n'est encore trié&nbsp;: les doublons et les vieilles versions arrivent avec le reste.</p>
+        </li>
+        <li class="temps" data-temps="1">
+          <span class="temps__n">2</span>
+          <h3 class="h3">Lecture</h3>
+          <!-- DAJF 08/10/2026 (2) : « que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait foi » remplace « que la Marianne de votre commune peut citer officiellement » -->
+          <p>Le texte de chaque document est extrait, les scans compris, par reconnaissance de caractères. Un arrêté photographié devient un texte que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait&nbsp;foi. Chaque document est daté et classé.</p>
+        </li>
+        <li class="temps" data-temps="2">
+          <span class="temps__n">3</span>
+          <h3 class="h3">Nettoyage</h3>
+          <!-- DAJF 08/10/2026 (3) : « nous vous alertons, et ce sont vos agents qui tranchent » remplace « nous vous alertons et posons la question à vos agents avant de trancher » -->
+          <p>Chaque document passe au contrôle, un par un&nbsp;: les doublons sont écartés, les pages périmées retirées, les contradictions repérées. Quand deux documents se contredisent, nous vous alertons, et ce sont vos agents qui&nbsp;tranchent.</p>
+        </li>
+        <li class="temps" data-temps="3">
+          <span class="temps__n">4</span>
+          <h3 class="h3">Consolidation</h3>
+          <!-- DAJF 08/10/2026 (4) : « vérifie ensuite les réponses aux questions les plus fréquentes, pour limiter le risque d'erreur » remplace « vérifie ensuite l'exactitude de chaque réponse, pour limiter le risque d'hallucination » -->
+          <p>Nous écrivons une fiche par sujet, à partir de tous les documents qui en parlent&nbsp;: la cantine, les déchets, l'état civil, l'urbanisme. Ce que disent trois documents tient alors en une fiche claire. Une session de tests vérifie ensuite les réponses aux questions les plus fréquentes, pour limiter le risque&nbsp;d'erreur.</p>
+        </li>
+        <li class="temps" data-temps="4">
+          <span class="temps__n">5</span>
+          <h3 class="h3">Sourçage</h3>
+          <p>Chaque fiche garde sa source et sa date, et chaque réponse la cite. Indexée, la fiche est retrouvée au moment où l'habitant pose sa question. D'un clic, il ouvre le document d'origine&nbsp;: il peut vérifier l'information, ou la compléter par une autre recherche.</p>
+        </li>
+        <li class="temps" data-temps="5">
+          <span class="temps__n">6</span>
+          <h3 class="h3">L'application</h3>
+          <p>Toutes les fiches rejoignent l'application Marianne, à portée de chaque habitant, de jour comme de nuit. Marianne répond désormais à partir de cette base de connaissances officielle, hébergée en Europe chez OVHcloud, avec le moteur de Mistral&nbsp;; les données de votre commune ne servent qu'à votre commune.</p>
+        </li>
+      </ol>
     </div>
+  </div>
+</section>
+
+<section class="chiffres-b" aria-labelledby="chiffres-titre">
+  <div class="chiffres-b__in">
+    <h2 class="sr" id="chiffres-titre">La base en chiffres, sur un déploiement de test</h2>
+    <ul>
+      <!-- DAJF 08/10/2026 (5) : « d'une commune de test » remplace « de votre commune » -->
+      <li data-entree data-releve="site"><span class="chiffres-b__n">Plusieurs milliers</span><span class="chiffres-b__l">de fiches créées à partir du site officiel d'une commune de test, pages, PDF et actes compris, chacune reliée à sa source</span></li>
+      <li data-entree data-releve="curees" style="--d:90ms"><span class="chiffres-b__n">Des dizaines</span><span class="chiffres-b__l">de fiches consolidées, nettoyées et organisées, une par sujet, actes réglementaires compris</span></li>
+      <li data-entree data-releve="nuit" style="--d:180ms"><span class="chiffres-b__n">Chaque nuit</span><span class="chiffres-b__l">le site officiel est parcouru et relu&nbsp;: ce que la mairie publie aujourd'hui, Marianne le saura cette nuit</span></li>
+    </ul>
+    <p class="chiffres-b__note" data-entree data-releve="date">Ordres de grandeur relevés les 25 et 28 septembre 2026 sur un déploiement de test&nbsp;; le nombre dépend de ce que votre commune publie.</p>
+  </div>
+</section>
+
+<section class="sec difference" aria-labelledby="difference-titre">
+  <div class="wrap difference__in">
+    <h2 class="difference__titre" id="difference-titre" data-mots>Un travail rare, unique et dédié à&nbsp;votre&nbsp;commune</h2>
+    <p class="chapo" data-entree data-difference>Un assistant IA n'est compétent que si ses informations sont vérifiées. Lire un site et s'arrêter là, beaucoup le font. Collecter, lire, nettoyer, consolider et sourcer chaque document de la commune, avec ses agents, puis tenir la base à jour chaque nuit&nbsp;: c'est un travail rare, et c'est le nôtre.</p>
+    <!-- intégration du 13/10/2026 : le bouton mène à la démonstration de la page (#demo) -->
+    <a class="btn btn--plein" href="#demo" data-entree style="--d:200ms"><span>Tester Marianne sur <span class="nb">Villeneuve-les-Ormes</span></span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <p class="difference__note">Villeneuve-les-Ormes est notre commune de démonstration, fictive.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PAS DE SITE INTERNET ? (encart gardé, dans son propre bloc depuis le 13/10/2026)
+     ===================================================================== -->
+<section class="sec" id="creer-site" aria-labelledby="creerTitre">
+  <div class="wrap">
+    <!-- Creation de site : offre sur devis, aucun prix affiche -->
+    <aside class="creer" aria-labelledby="creerTitre">
+      <div>
+        <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? <br>Nous pouvons vous en créer un</h3>
+        <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia peut concevoir le vôtre&nbsp;: simple, lisible sur téléphone, avec Marianne intégrée. Cette offre est nouvelle&nbsp;: nous la construisons avec les premières communes qui la demandent</p>
+      </div>
+      <div class="site" aria-hidden="true">
+        <div class="site__barre"><i></i><i></i><i></i><span>www.villeneuve-les-ormes.fr</span></div>
+        <div class="site__tete">
+          <span class="site__blason">VO</span>
+          <div><b>Villeneuve-les-Ormes</b><small>Site officiel de la commune</small></div>
+          <div class="site__menu"><span>Démarches</span><span>Agenda</span><span class="site__onglet"><img src="/marianne/assets/ui/glyphe-96.webp" alt="" width="11" height="11" loading="lazy">Une question&nbsp;?</span></div>
+        </div>
+        <div class="site__bandeau">
+          <img src="/marianne/assets/ui/site-bandeau.webp" alt="" width="480" height="341" loading="lazy" decoding="async">
+          <div><b>Bienvenue à Villeneuve-les-Ormes</b><span>Mairie ouverte du lundi au vendredi, 9&nbsp;h à 12&nbsp;h et 14&nbsp;h à 17&nbsp;h&nbsp;30</span></div>
+        </div>
+        <div class="site__cartes">
+          <div><small>Actualité</small><b>Inscriptions cantine 2026-2027</b></div>
+          <div><small>Démarche</small><b>Demander un acte de naissance</b></div>
+          <div><small>Agenda</small><b>Fête du village, samedi 20 juin</b></div>
+          <span class="site__bouton"><img src="/marianne/assets/ui/sceau-96.webp" alt="" width="22" height="22" loading="lazy">Une question&nbsp;?</span>
+        </div>
+      </div>
+      <!-- Thibaut 13/10/2026 : renvoi vers l'Atelier (« Parler de mon site » et « Communes rurales : notre offre » remplacés) -->
+      <div class="creer__actions">
+        <a href="/atelier/#contact" class="btn btn--clair">Demander un devis</a>
+        <a href="/atelier/" class="creer__lien">Découvrir l'atelier</a>
+      </div>
+      <p class="creer__note">Sur devis, après un premier échange</p>
+    </aside>
   </div>
 </section>
 
@@ -1992,5 +2044,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 </div>
 
 <script src="/marianne/marianne.js" defer onerror="document.documentElement.classList.remove('scrub','aube');document.documentElement.classList.add('anim-non')"></script>
+<script type="module" src="/marianne/base.js"></script>
 </body>
 </html>

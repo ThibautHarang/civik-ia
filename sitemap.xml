@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap de civik-ia.fr, refonte en trois branches (Marianne, Conseil, Atelier), mise en ligne du 15/10/2026. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-10-15</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://civik-ia.fr/conseil/</loc><lastmod>2026-10-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://civik-ia.fr/atelier/</loc><lastmod>2026-10-15</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <!-- /marianne/ : lastmod inchangé tant que la section « Une seule source » n'est pas en ligne (pas avant le 14/10/2026) ;
+       le jour où elle l'est, lastmod = date de cette mise en ligne -->
   <url><loc>https://civik-ia.fr/marianne/</loc><lastmod>2026-09-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://civik-ia.fr/comitia/</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://civik-ia.fr/lauria/</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://civik-ia.fr/demo</loc><lastmod>2026-05-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://civik-ia.fr/chatbot-mairie.html</loc><lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://civik-ia.fr/chatbot-mairie-prix.html</loc><lastmod>2026-07-22</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -28,19 +31,8 @@
   <url><loc>https://civik-ia.fr/aide.html</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://civik-ia.fr/22h47.html</loc><lastmod>2026-05-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://civik-ia.fr/legal/conditions-generales-vente.html</loc><lastmod>2026-06-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <!-- AUCUNE URL /preview/ ICI, ET C'EST VOULU (24/08/2026, ADR 0045).
-       Les 6 deploiements de test y figuraient depuis le 15/08/2026. Ils ont ete
-       retires le 24/08 : aucune mairie n'est cliente, et une page Marianne au nom
-       d'une commune trouvable dans Google se lirait comme une reference (regle 8).
-       Cette absence n'est PAS un oubli, elle est verifiee dans les deux sens par
-       « node tools/verify/run.mjs flotte » a partir du manifeste de flotte
-       (07-Backend/tools/flotte/flotte.json), seule source du statut.
-       Retirer une URL d'ici ne desindexe RIEN : un sitemap est une invitation, pas
-       une directive. La desindexation est portee par X-Robots-Tag: noindex (nginx)
-       et par la meta robots des coquilles de 11-App/.
-       Le jour ou une mairie signe : statut « cliente » au manifeste, et son URL
-       revient ici. Historique : rigny-le-ferron et marseillan-34340 retirees le
-       28/07 (fermees le 24/07) ; lunay retiree le 15/08 (arretee le jour meme,
-       note #203) ; saint-germain-au-mont-dor, lieurey, rive-de-gier, serignan et
-       tarare ajoutees le 15/08 (note #218) puis retirees le 24/08 avec les autres. -->
+  <!-- AUCUNE URL /preview/ NI AUCUNE PAGE DE COMMUNE ICI, ET C'EST VOULU (ADR 0045, 24/08/2026) : aucune mairie n'est
+       cliente, une page au nom d'une commune trouvable dans Google se lirait comme une référence. Retirer une URL d'ici ne
+       désindexe rien : la désindexation passe par X-Robots-Tag: noindex (nginx) et la meta robots. /comitia/ et /lauria/
+       sortent de ce fichier avec la refonte (redirections.conf). -->
 </urlset>

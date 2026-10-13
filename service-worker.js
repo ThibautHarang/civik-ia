@@ -7,7 +7,7 @@
 // v171 (refonte du 08/10/2026) : la home (/), le film (/c-film/), /commun/, /conseil/ et /atelier/ passent par le reseau,
 // jamais par ce cache (ni precache, ni mise en cache a la volee) : le film change encore et ses fichiers ne portent pas de
 // numero de version. Le navigateur les garde selon les en-tetes de nginx (voir maquettes/seo/nginx-DIFF.conf).
-const CACHE_NAME = 'civik-ia-v172-retrait-sms-2026-10-12';
+const CACHE_NAME = 'civik-ia-v175-refonte-film-2026-10-15';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   '/campagnes-citoyennes.html',

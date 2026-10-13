@@ -1,0 +1,158 @@
+{
+ "_note": "M4 (treizième passe, 05/10/2026) : préparations lourdes faites une fois (plaque, photo de près accordée, pierre autour de la planche du petit écran, bord fondu), prises par le film si les sources ont la taille notée et les entrées du manifeste la même empreinte ; sinon calculées comme avant ; P4 (seizième passe, 06/10/2026) : le masque du logo de la plaque et la flèche de la girouette (le SVG rastérisé coûtait 18 à 23 ms par étape dans WebKit) ; P4 bis (seizième passe, 07/10/2026) : le lointain préflouté (dans WebKit, sans filtre dans l'ouvrier, son flou et sa relecture coûtaient 11 à 24 ms par étape pendant la conversation) ; Q2 (dix-septième passe, 07/10/2026) : le masque du logo refait par le même code avec le « C » de « Civik-ia » (visuels.js, capitaleC) ; Q6 : ciel-haut-nuit.webp et ciel-haut-jour.webp, le ciel au-dessus des gravures du village et la lune entière, faits une fois d'après les gravures, lus par film.css (pas par cette liste) ; U2 (vingt et unième passe, 07/10/2026) : les mots gravés des deux flèches du poteau sur téléphone (fleche-11, fleche-23), faits une fois par le code du film (fleches.js, flecheGraveeCanvas, densité 1,8, Poppins 800 chargée) dans le moteur de Safari, en PNG (un WebP sans perte avec transparence faisait tomber la capture d'écran de Safari sur l'iPhone, au poteau : écarté par prudence) ; pris seulement si leur texte (« texte ») est celui des réglages (temps.js, TEXTES) ; P27 (vingt-septième passe, 12/10/2026) : la façade transparente (facade-vitre.webp, l'image de la façade après K11, 1307 x 632 avec sa couche alpha) et le masque lissé du vitrage (vitre-masque.webp, J10, noir et alpha), faits une fois par facade.js lui-même dans le moteur de Safari (les mêmes pixels en classe ordinateur et en classe téléphone), en WebP sans perte avec transparence (544 et 23 Ko) ; posés par la tâche « vitre-prete » au lieu du calcul de la tâche « vitre »",
+ "plaque": {
+  "fichier": "plaque.webp",
+  "taille": [
+   1300,
+   786
+  ],
+  "sources": {
+   "plaque-atelier.webp": 147438,
+   "atelier-facade-fermee.webp": 179620
+  },
+  "manifeste": {
+   "plaque-atelier": "e7caa038",
+   "atelier-facade-fermee": "5d63b7fc"
+  }
+ },
+ "planche-accordee": {
+  "fichier": "planche-accordee.webp",
+  "sources": {
+   "atelier-planche.webp": 238968,
+   "atelier-fond.webp": 245556,
+   "atelier-table.webp": 257228
+  },
+  "manifeste": {
+   "atelier-planche": "c9ad3c60",
+   "atelier-fond": "ec725b7f",
+   "atelier-table": "44f69ea5"
+  }
+ },
+ "mur-pierre": {
+  "fichier": "mur-pierre.jpg",
+  "couleur": "rgb(102, 70, 31)",
+  "sources": {
+   "atelier-planche.webp": 238968,
+   "atelier-fond.webp": 245556,
+   "atelier-table.webp": 257228,
+   "atelier-table-seule.webp": 131048
+  },
+  "manifeste": {
+   "atelier-planche": "c9ad3c60",
+   "atelier-fond": "ec725b7f",
+   "atelier-table": "44f69ea5",
+   "atelier-table-seule": "9b474795"
+  }
+ },
+ "plafond": {
+  "fichier": "plafond.webp",
+  "taille": [
+   2496,
+   430
+  ],
+  "sources": {
+   "atelier-fond.webp": 245556,
+   "atelier-planche.webp": 238968,
+   "atelier-table.webp": 257228,
+   "atelier-table-seule.webp": 131048
+  },
+  "manifeste": {
+   "atelier-fond": "ec725b7f",
+   "atelier-planche": "c9ad3c60",
+   "atelier-table": "44f69ea5",
+   "atelier-table-seule": "9b474795"
+  }
+ },
+ "bord-pres": {
+  "fichier": "bord-pres.png",
+  "sources": {},
+  "manifeste": {}
+ },
+ "logo-masque": {
+  "fichier": "logo-masque.png",
+  "taille": [
+   1050,
+   850
+  ],
+  "sources": {
+   "../logo-civik-ia.svg": 122135
+  },
+  "manifeste": {}
+ },
+ "girouette": {
+  "fichier": "girouette.png",
+  "taille": [
+   429,
+   167
+  ],
+  "pivot": [
+   197,
+   97.5
+  ],
+  "sources": {
+   "../logo-civik-ia.svg": 122135
+  },
+  "manifeste": {}
+ },
+ "lointain-flou": {
+  "fichier": "lointain-flou.webp",
+  "taille": [
+   1584,
+   672
+  ],
+  "sources": {
+   "lointain.webp": 153534
+  },
+  "manifeste": {
+   "lointain": "e9575c0c"
+  }
+ },
+ "fleche-11": {
+  "fichier": "fleche-11.png",
+  "taille": [
+   1116,
+   223
+  ],
+  "texte": "L’Horizon|bientôt",
+  "densite": 1.8,
+  "sources": {},
+  "manifeste": {}
+ },
+ "fleche-23": {
+  "fichier": "fleche-23.png",
+  "taille": [
+   1116,
+   223
+  ],
+  "texte": "Atelier|",
+  "densite": 1.8,
+  "sources": {},
+  "manifeste": {}
+ },
+ "facade-vitre": {
+  "fichier": "facade-vitre.webp",
+  "taille": [
+   1307,
+   632
+  ],
+  "sources": {
+   "atelier-facade-fermee.webp": 179620
+  },
+  "manifeste": {
+   "atelier-facade-fermee": "5d63b7fc"
+  }
+ },
+ "vitre-masque": {
+  "fichier": "vitre-masque.webp",
+  "taille": [
+   1307,
+   632
+  ],
+  "sources": {
+   "atelier-facade-fermee.webp": 179620
+  },
+  "manifeste": {
+   "atelier-facade-fermee": "5d63b7fc"
+  }
+ }
+}

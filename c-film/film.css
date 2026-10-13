@@ -1,0 +1,811 @@
+/* =====================================================================
+   Maquette C, « Le film ». Feuille de style.
+   Les éléments épinglés (téléphone, CV, mains, planche) sont posés en
+   left:0 top:0 et placés par matrix3d depuis le JavaScript.
+   ===================================================================== */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('../commun/fonts/inter-latin-var.woff2') format('woff2')}
+/* quatrième passe, D1 : l'écriture du CV, inspirée de celle de Thibaut (Caveat, licence OFL) */
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('../commun/fonts/caveat-latin-var.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('../commun/fonts/poppins-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('../commun/fonts/poppins-latin-800.woff2') format('woff2')}
+
+:root{
+  --bleu:#000091;--bleu-2:#1a1a6e;--trait:#2b6fd6;
+  --teal:#2EC4B6;--teal-txt:#0b6a62;--or:#F4A261;--or-txt:#9A5B1E;
+  --encre:#1E1E1E;--encre-2:#5a5a5a;
+  --creme:#f7f4ed;--creme-2:#f5f2eb;--creme-3:#efeae1;--papier:#fffdf8;
+  --nuit:#0A0F2C;--nuit-2:#121a47;
+  --plume:#16205C;
+  --r-s:12px;--r-m:18px;--r-l:24px;--r-xl:32px;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --titre:'Poppins','Inter',sans-serif;
+  --doux:cubic-bezier(.2,.8,.2,1);
+  --entree:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;max-width:100%;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--encre);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:clip;max-width:100%}
+/* Passe 28 (P28-0, 13/10/2026) : sur l'iPhone (Safari 27), page en haut, avant tout défilement, la barre au-dessus de la page prend la
+   couleur du fond du document (le body) : crème, alors que le film commence dans la nuit ; une fois la page défilée, elle prend la
+   scène collée (nuit). Mesuré sur l'iPhone de Thibaut (scratchpad p28/iphone, séries p0-1 et p0-2) : body en nuit, la barre est nuit
+   dès le chargement ; ni la theme-color, ni l'ordre de la tête, ni la pastille de l'étiquette, ni html en nuit, ni une bande fixe nuit
+   en haut n'y font rien. Le fond du body ne se voit nulle part ailleurs (le film, « Ce que fait Civik-ia » et le pied ont le leur),
+   sauf au rebond du défilement : en haut nuit comme le film, en bas nuit comme le pied. Téléphone seulement : l'ordinateur ne change pas */
+@media (max-width:767.98px){body{background:var(--nuit)}}
+img,svg{max-width:none}
+img{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0}
+h1,h2,h3,p,ol,ul,figure{margin:0}
+ol,ul{padding:0;list-style:none}
+i{font-style:normal}
+:focus{outline:none}
+:focus-visible{outline:3px solid var(--bleu);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.evitement{position:fixed;left:16px;top:-80px;z-index:200;background:var(--bleu);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;transition:top .2s}
+.evitement:focus{top:16px}
+
+/* ---------- boutons (page Marianne) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:9999px;font:600 15.5px/1.2 var(--sans);white-space:nowrap;transition:transform .14s var(--doux),box-shadow .45s var(--doux),background .3s,color .3s}
+.btn svg{flex:none;transition:transform .25s var(--doux)}
+.btn:active{transform:scale(.96)}
+.btn--plein{background:var(--bleu);color:#fff;box-shadow:0 8px 24px rgba(0,0,145,.22)}
+.btn--clair{background:var(--creme);color:var(--nuit);box-shadow:0 10px 30px rgba(0,0,0,.28)}
+@media (hover:hover){.btn--plein:hover{background:var(--teal-txt)}.btn--clair:hover{background:#fff}.btn:hover svg{transform:translateX(4px)}}
+
+/* ---------- navigation minimale ---------- */
+/* L5 (douzième passe) : la barre de navigation ne prend les clics que sur ses liens et ses boutons (le reste de la barre
+   laisse passer, par exemple vers la page retournée qui relance le film, sur les écrans bas) */
+.nav{pointer-events:none}
+.nav a,.nav button,.nav [tabindex]{pointer-events:auto}
+.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:0 10px 28px rgba(0,0,40,.12)}
+.nav__logo{display:flex;align-items:center;gap:8px;font:800 18px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu);flex:none}
+.nav__logo img{width:44px;height:37px;mix-blend-mode:multiply}
+.nav__logo b{font-weight:800;color:var(--trait)}
+.nav__liens{display:flex;gap:2px;margin-left:12px}
+.nav__liens a{font:600 14px/1 var(--sans);color:var(--encre);padding:10px 12px;border-radius:9999px;transition:background .25s,color .25s}
+@media (hover:hover){.nav__liens a:hover{color:var(--bleu);background:rgba(0,0,145,.06)}}
+.nav__esp{flex:1;min-width:4px}
+.nav__cta{min-height:42px;padding:11px 18px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 14px/1.2 var(--sans);white-space:nowrap;display:inline-flex;align-items:center;flex:none;transition:transform .14s var(--doux),background .3s}
+.nav__cta:active{transform:scale(.96)}
+@media (hover:hover){.nav__cta:hover{background:var(--teal-txt)}}
+@media (max-width:880px){.nav__liens{display:none}}
+@media (max-width:420px){.nav{padding:6px 6px 6px 10px}.nav__logo{font-size:16px}.nav__logo img{width:38px;height:32px}.nav__cta{padding:9px 13px;font-size:13px;min-height:38px}}
+/* Q5 (dix-septième passe, 07/10/2026) : la barre des pages (commun/pages/pages.css), au pixel : le bouton menu et le tiroir
+   des pages sous 880 px, le bouton d'action de 40 px et la barre de 56 px sur téléphone, l'écart de 8 px dans le bouton,
+   le contour de focus du logo arrondi à 12 px ; la barre ne saute plus d'une page à l'autre */
+.nav__logo{border-radius:12px}
+.nav__cta{gap:8px}
+.nav__menu{display:none;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;color:var(--bleu);background:rgba(255,255,255,.6);border:1px solid rgba(200,190,170,.45);flex:none}
+.nav__menu svg{width:20px;height:20px}
+.nav__tiroir{position:fixed;top:78px;left:50%;z-index:99;width:min(calc(100% - 32px),480px);transform:translate(-50%,-8px);opacity:0;visibility:hidden;background:rgba(247,244,237,.99);border:1px solid rgba(200,190,170,.5);border-radius:22px;padding:10px;box-shadow:0 40px 90px rgba(0,0,80,.18);display:grid;gap:2px;transition:opacity .3s var(--entree),transform .4s var(--entree),visibility 0s .4s}
+.nav__tiroir.ouvert{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s var(--entree),transform .4s var(--entree)}
+.nav__tiroir a{display:flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:14px;font:600 16px/1.2 var(--sans)}
+.nav__tiroir a[aria-current="page"]{color:var(--bleu);background:rgba(0,0,145,.07)}
+@media (max-width:880px){.nav__menu{display:inline-flex}}
+@media (max-width:420px){.nav{gap:6px}.nav__cta{min-height:40px}}
+/* N7 (quatorzième passe) : le bouton suit le chapitre (js/bouton.js) : l'ancien libellé glisse vers le haut en s'effaçant, le
+   nouveau monte du bas (0,4 s) ; la largeur suit en douceur ; en mouvement réduit, un fondu seul */
+/* O1 (quinzième passe) : le changement part à l'instant où le verbe commence à s'écrire ; les durées viennent de bouton.js
+   (variables --cta-*, posées sur la racine : la vitesse du film à cet instant, 0,4 à 0,9 s, 0,6 s par défaut) ; en remontant
+   le film (nav__cta--recul), le mouvement est inversé : l'ancien libellé descend, le nouveau revient d'en haut */
+.nav__cta.nav__cta--anime{justify-content:center;overflow:hidden;transition:transform .14s var(--doux),background .3s,width var(--cta-w,.63s) cubic-bezier(.45,0,.2,1)}
+.nav__cta-pile{display:inline-grid;position:relative}
+.nav__cta-txt{grid-area:1/1;white-space:nowrap;text-align:center;transition:transform var(--cta-t,.6s) cubic-bezier(.45,0,.2,1) .05s,opacity var(--cta-o,.43s) ease .08s}
+.nav__cta-txt--entre{transform:translateY(130%);opacity:0}
+.nav__cta-txt--sort{transform:translateY(-130%);opacity:0;transition:transform var(--cta-s,.54s) cubic-bezier(.45,0,.2,1),opacity var(--cta-so,.36s) ease}
+.nav__cta--recul:not(.nav__cta--reduit) .nav__cta-txt--entre{transform:translateY(-130%)}
+.nav__cta--recul:not(.nav__cta--reduit) .nav__cta-txt--sort{transform:translateY(130%)}
+.nav__cta--reduit .nav__cta-txt{transition:opacity .3s ease}
+.nav__cta--reduit .nav__cta-txt--entre,.nav__cta--reduit .nav__cta-txt--sort{transform:none}
+.nav__cta--reduit.nav__cta--anime{transition:background .3s}
+
+/* ---------- le film ---------- */
+.film{position:relative;height:1000vh;background:var(--nuit)}
+.scene{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--nuit);isolation:isolate}
+.scene>*{position:absolute}
+.couche{position:absolute;inset:0;pointer-events:none}
+/* la parallaxe des mains, du téléphone et de l'atelier : un décalage par enfant (voir film.js) */
+[data-atelier]>.ep,[data-atelier]>.couche,[data-porteurs]>.ep,[data-porteurs]>.couche{translate:var(--px,0px) var(--py,0px)}
+.ep{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;backface-visibility:hidden}
+.cache{visibility:hidden}
+
+/* la gravure du village (reprise de A) */
+.fond{z-index:1;overflow:hidden;background:#cfe0ea}
+.ciel{z-index:1;overflow:hidden;background:linear-gradient(180deg,#cfdcef 0%,#dfe7f2 38%,#eef0f0 52%,#f4efe6 62%,#f2efe7 100%)}
+.ciel .lointain{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform;max-width:none}
+/* J5 (dixième passe) : le soleil de la marche, découpé à la crête du lointain, avec le liseré de la crête devant lui (un
+   canevas, sous le dessin) ; au départ, le liseré de la colline du village */
+.soleil-crete{position:absolute;left:0;top:0;pointer-events:none}
+.lisere-village{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 5.5% 9% at var(--sx,43%) var(--cy,27%),#000 0,rgba(0,0,0,.6) 45%,transparent 100%);mask-image:radial-gradient(ellipse 5.5% 9% at var(--sx,43%) var(--cy,27%),#000 0,rgba(0,0,0,.6) 45%,transparent 100%)}
+.soleil2{position:absolute;left:0;top:0;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle,#fffaf0 0 50%,#fff1d6 64%,rgba(255,230,190,0) 72%);box-shadow:0 0 50px 22px rgba(255,214,160,.35),0 0 140px 60px rgba(255,200,150,.16)}
+.cadre{position:absolute;left:0;top:0;width:var(--fw,100vw);height:var(--fh,54vw);transform-origin:0 0;will-change:transform;--n:1}
+.cadre>img{position:absolute;inset:0;width:100%;height:100%}
+.ciel-sol{position:absolute;inset:0;clip-path:polygon(18% 0,68% 0,68% 27.6%,66% 27%,64% 28%,63% 29.9%,62% 31.4%,61% 33.2%,60% 36.7%,59% 35.7%,58% 35%,56% 34.9%,54% 34.6%,52% 33.8%,50% 36.2%,49% 37.3%,48% 34.7%,47% 33.6%,46% 34%,45% 32.6%,44% 29.7%,43% 27.1%,42% 24.8%,41% 25.5%,40% 24.5%,39% 21.6%,38% 20.8%,37% 20%,36% 17.7%,34% 16.1%,33% 14.6%,32% 14%,30% 11.8%,28% 10.5%,26% 9.7%,24% 7.2%,18% 8.4%)}
+.soleil{position:absolute;left:var(--sx,43%);top:var(--sy,33%);width:3.7%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fffdf5 0 52%,#fff4dc 66%,#ffe6c2 71%,rgba(255,226,186,0) 73%);box-shadow:0 0 2.2vw .9vw rgba(255,214,160,.55),0 0 6vw 2.4vw rgba(255,200,150,.22)}
+.rayons{position:absolute;left:var(--sx,43%);top:var(--sy,33%);width:30%;aspect-ratio:1;transform:translate(-50%,-50%);overflow:visible}
+.rayons line{stroke:#e9b98a;stroke-linecap:round}
+.aube{position:absolute;left:var(--sx,43%);top:var(--sy,33%);width:120%;aspect-ratio:1.4;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,226,186,.85),rgba(252,196,160,.5) 22%,rgba(244,172,160,.2) 48%,rgba(244,172,160,0) 75%)}
+.etoiles i{position:absolute;left:var(--x);top:var(--y);width:var(--t,4px);height:var(--t,4px);border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(200,220,255,.9),0 0 18px 4px rgba(120,160,255,.4);animation:scintille var(--d,3.2s) ease-in-out infinite;animation-delay:var(--r,0s)}
+@keyframes scintille{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.3)}}
+.filante{position:absolute;left:var(--fx,56%);top:var(--fy,11%);width:9%;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);transform-origin:right center;opacity:0}
+.filante--cycle{animation:filante 10s ease-in 6s infinite}
+@keyframes filante{0%{opacity:0;transform:rotate(-24deg) translateX(0) scaleX(.2)}1.5%{opacity:1}7%{opacity:0;transform:rotate(-24deg) translateX(-260%) scaleX(1)}100%{opacity:0;transform:rotate(-24deg) translateX(-260%) scaleX(1)}}
+.lum{position:absolute;left:var(--x);top:var(--y);width:3.015%;height:10.233%;transform:translate(-50%,-50%);background:url(../commun/img/lumieres.webp) calc(var(--i) * 20%) 0/600% 100% no-repeat}
+/* F2 : le vacillement passe sur un pseudo-élément ; l'opacité de la lanterne elle-même reste libre de s'éteindre à l'aube */
+.lum--lanterne{width:.5%;height:.9%;background:none}
+.lum--lanterne::before{content:"";position:absolute;inset:0;border-radius:50%;background:#ffe6ad;box-shadow:0 0 .45vw .1vw rgba(244,162,97,.7),0 0 1.6vw .45vw rgba(244,162,97,.24);animation:vacille-o 5.2s linear -1.4s infinite}
+.lum--reverbere{width:1.1%;height:2.4%;background:none}
+.lum--reverbere::before{content:"";position:absolute;inset:0;border-radius:42% 42% 30% 30%;background:radial-gradient(ellipse at 50% 46%,#fffbe6,#ffdf96 46%,rgba(246,178,88,0) 74%);box-shadow:0 0 .5vw .12vw rgba(255,214,140,.85),0 0 1.8vw .5vw rgba(244,162,97,.42),0 0 4.6vw 1.5vw rgba(244,162,97,.16);animation:vacille 4.3s linear infinite}
+.lum--reverbere::after{content:"";position:absolute;left:50%;top:640%;width:1700%;height:230%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,206,130,.2),rgba(244,162,97,.07) 60%,transparent);animation:vacille 4.3s linear infinite}
+@keyframes vacille{0%,100%{opacity:1;transform:scale(1)}8%{opacity:.82}11%{opacity:1}34%{opacity:.9;transform:scale(.97)}37%{opacity:1;transform:scale(1.03)}58%{opacity:.76}60%{opacity:.96}63%{opacity:.84}66%{opacity:1}86%{opacity:.92;transform:scale(.98)}}
+@keyframes vacille-o{0%,100%{opacity:1}12%{opacity:.78}15%{opacity:1}52%{opacity:.88}70%{opacity:1}74%{opacity:.84}}
+.lum-pulse{position:absolute;width:13%;aspect-ratio:1.15;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;opacity:0;mix-blend-mode:screen;background:radial-gradient(closest-side,rgba(225,236,255,1),rgba(150,190,255,.75) 16%,rgba(90,140,250,.32) 42%,rgba(43,111,214,0) 100%)}
+.lum--mairie::after{content:"";position:absolute;left:50%;top:50%;width:430%;height:250%;transform:translate(-50%,-50%) skewY(-3deg);border-radius:50%;background:radial-gradient(closest-side,rgba(110,165,255,.36),rgba(43,111,214,.13) 50%,transparent 74%);animation:souffle 5s ease-in-out infinite}
+@keyframes souffle{0%,100%{opacity:.55}50%{opacity:1}}
+.horloge{position:absolute;left:79.9%;top:14.09%;width:3.618%;height:6.698%;overflow:visible;fill:none;stroke-linecap:round;--hz:clamp(0%,calc((var(--n) - .5) * 600%),100%);stroke:color-mix(in srgb,#d2dcff var(--hz),#1b2560)}
+.horloge circle{fill:color-mix(in srgb,#d2dcff var(--hz),#1b2560);stroke:none}
+.hz-rep{stroke-width:1.3;opacity:.72}.hz-h{stroke-width:2.6;transform:rotate(var(--ah,323.5deg))}.hz-m{stroke-width:1.7;transform:rotate(var(--am,282deg))}
+.fontaine{position:absolute;left:70.1%;top:55.81%;width:12.06%;height:26.98%;overflow:visible;fill:none;stroke-linecap:round}
+/* G1 : le canevas de l'eau, à la place exacte des filets */
+.fontaine-eau{position:absolute;left:70.1%;top:55.81%;width:12.06%;height:26.98%;pointer-events:none}
+.eau{stroke:color-mix(in srgb,#b9ccff calc(var(--n) * 100%),#fff);opacity:var(--op);stroke-dasharray:var(--dl) var(--gp);animation:coule var(--du) linear var(--de) infinite}
+/* F22 : la nappe qui s'amincit, les reflets, la brume, les gouttes, les ondes */
+.eau-nappe{fill:color-mix(in srgb,#a9bff5 calc(var(--n) * 100%),#fff);stroke:none;opacity:var(--op);animation:respire-eau var(--du) ease-in-out var(--de) infinite}
+@keyframes respire-eau{0%,100%{opacity:var(--op)}37%{opacity:calc(var(--op) * .55)}61%{opacity:calc(var(--op) * 1.25)}82%{opacity:calc(var(--op) * .8)}}
+.eau-eclat{fill:#fffbea}
+.eau-goutte{fill:color-mix(in srgb,#cfdcff calc(var(--n) * 100%),#fff)}
+.eau-brume{fill:color-mix(in srgb,#b9ccff calc(var(--n) * 100%),#fff)}
+.eau-onde{fill:none;stroke:color-mix(in srgb,#b9ccff calc(var(--n) * 100%),#fff);stroke-width:.55}
+@keyframes coule{to{stroke-dashoffset:calc(-1px * (var(--dl) + var(--gp)))}}
+
+/* avant que le film soit prêt (chargement des visuels) : une affiche propre, la mairie de nuit, sans les textes
+   des plans superposés ni la gravure non dimensionnée */
+html:not(.film-pret) .fond{background:#0b1030 url(../commun/img/village-nuit.webp) 62% 40%/cover no-repeat}
+html:not(.film-pret) .fond>.cadre,html:not(.film-pret) .scene .bloc,html:not(.film-pret) .scene>.voile,html:not(.film-pret) .scene>.ciel,html:not(.film-pret) .scene>.couche:not(.fond){visibility:hidden}
+html:not(.film-pret) .continuer{display:none}
+/* Q6 (dix-septième passe) : sur un écran d'ordinateur large (rapport de 1,65 à 1,85), le village descend de 9,58 % de sa
+   hauteur et le ciel continue au-dessus de la gravure (fond.js) : la lune est entière. L'affiche d'avant le film prend
+   le même cadrage (la gravure de toute la hauteur, calée comme le film à 78 %, et la bande du ciel au-dessus) : rien ne
+   saute quand le film paraît */
+.ciel-haut{position:absolute;left:0;top:-13.02%;width:100%;height:13.02%;pointer-events:none;background:#c8d9e5 url(prets/ciel-haut-jour.webp) 0 0/100% 100% no-repeat}
+.ciel-haut--nuit{background:#0b1433 url(prets/ciel-haut-nuit.webp) 0 0/100% 100% no-repeat;opacity:var(--n,1)}
+@media (min-width:768px) and (min-aspect-ratio:33/20) and (max-aspect-ratio:2314/1250){
+  html:not(.film-pret) .fond{background:url(prets/ciel-haut-nuit.webp) 78% -3.439vh/185.12vh 13.02vh no-repeat,#0b1030 url(../commun/img/village-nuit.webp) 78% 9.581vh/185.12vh 100vh no-repeat}
+}
+
+/* le monde gravé : trois canevas, et les objets réels posés entre eux */
+.monde{inset:0;width:100%;height:100%;pointer-events:none}
+.monde--0{z-index:2}.objets-0{z-index:3}.monde--1{z-index:4}.objets-1{z-index:5}.monde--2{z-index:8}
+/* I1 (neuvième passe) : le calque des lavis d'aquarelle, au-dessus du monde gravé, en multiplication : la couleur passe
+   sous l'encre, le papier prend la teinte, les traits restent sombres */
+.monde--lavis{z-index:8;mix-blend-mode:multiply}
+/* L4 (douzième passe) : le lavis du sol, rendu dans la page (WebGL), juste au-dessus du sol gravé, en multiplication */
+.monde--lavsol{z-index:2;mix-blend-mode:multiply}
+/* T2 (vingtième passe) : sur téléphone, l'encre du sol rendue dans la page (WebGL), juste au-dessus du sol gravé */
+.monde--encsol{z-index:2}
+/* K8 (onzième passe) : l'encre un peu soluble sous l'aquarelle (la teinte du lavis, opacité réglée par le code) */
+.monde--teinte{z-index:8;mix-blend-mode:color}
+.poteau-img{z-index:5}
+/* T10 (07/10/2026) : le clou droit, posé sur la photo du poteau (monde.js, CLOU_PIECE), juste au-dessus d'elle */
+.poteau-clou{z-index:5}
+.poteau-texte{z-index:6;display:block;padding:0;border:0;background:none;white-space:nowrap}
+/* F19 : le mot gravé (SVG) remplit la flèche ; le texte lisible reste pour les lecteurs d'écran */
+.poteau-texte .fleche-gravee{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.poteau-soleil{z-index:6;background:linear-gradient(100deg,rgba(255,190,110,0) 0%,rgba(255,206,130,.75) 45%,rgba(255,236,190,.9) 55%,rgba(255,190,110,0) 100%);mix-blend-mode:soft-light}
+.plaque-logo{z-index:6}
+.plaque-logo i{position:absolute;inset:6% 18%;-webkit-mask:var(--masque) center/contain no-repeat;mask:var(--masque) center/contain no-repeat}
+.plaque-logo .pl-clair{background:rgba(255,255,255,.75);transform:translate(1.2%,2.5%)}
+.plaque-logo .pl-creux{background:linear-gradient(160deg,#4d5258,#7d838b 60%,#5c6168)}
+.plaque-logo .pl-ombre{background:rgba(20,22,26,.55);transform:translate(-.6%,-1.6%);-webkit-mask-composite:source-out}
+.clou{z-index:7}
+.eclat{z-index:6;background:#f6f3ea;clip-path:polygon(8% 0,92% 0,100% 30%,86% 62%,95% 100%,58% 82%,40% 100%,22% 78%,0 100%,6% 52%,0 22%);box-shadow:inset 0 0 6px rgba(80,60,40,.25)}
+.facade-img{z-index:3}
+/* la façade (cinquième passe) : portes, lumière du matin, plaque, voile de brume */
+.facade-interieur,.facade-lumiere,.plaque-atelier,.facade-voile{pointer-events:none;z-index:3}
+.facade-voile{background:#eef0ec}
+.facade-lumiere{mix-blend-mode:screen;opacity:0;background:radial-gradient(ellipse 34% 20% at 50% 60%,rgba(255,214,150,.55),rgba(255,214,150,0) 100%),linear-gradient(168deg,rgba(255,226,170,0) 52%,rgba(255,206,140,.42) 74%,rgba(255,226,170,.16) 92%,rgba(255,226,170,0) 100%),radial-gradient(ellipse 60% 30% at 34% 88%,rgba(255,230,180,.5),rgba(255,230,180,0) 70%)}
+.plaque-atelier img,.plaque-atelier svg{position:absolute;inset:0;width:100%;height:100%}
+.porte-interieur{z-index:3}
+
+/* l'atelier : la table entière, puis la planche de près */
+.atelier-img{z-index:10}
+.atelier-pres{z-index:11}
+.atelier-soleil-pres{z-index:11;pointer-events:none;mix-blend-mode:screen}
+.atelier-mur-pierre{background-repeat:no-repeat,no-repeat,repeat;pointer-events:none}
+.atelier-mur{z-index:10;background:radial-gradient(ellipse 80% 70% at 50% 42%,#dedbc0,#cfcbab 70%,#bdb895)}
+/* le bloc à dessin : la page blanche dessous, la feuille dessinée (un canevas) dessus */
+.page-blanche{z-index:11;pointer-events:none}
+.feuille-dessin{z-index:12;pointer-events:none;box-shadow:0 0 0 1px rgba(120,100,60,.10),3px 5px 9px rgba(40,24,8,.26)}
+.dessin{z-index:14;overflow:visible;pointer-events:none}
+.trace-visiteur{z-index:15;pointer-events:none}
+.gravure-mot{z-index:12}
+
+/* ---------- le téléphone : support (image), tranche, écran vivant, verre ---------- */
+.tel-ombre{border-radius:14%/7%;background:rgba(8,10,30,.55);box-shadow:0 0 40px 22px rgba(8,10,30,.4)}
+.tel-contact{border-radius:50%;background:radial-gradient(closest-side,rgba(20,12,4,.62),rgba(20,12,4,.28) 55%,rgba(20,12,4,0));opacity:0}
+.tel-tranche{border-radius:15%/7.4%;background:linear-gradient(90deg,#3d466c,#1a2041 30%,#0e1330 70%,#2a3150)}
+.tel-support{pointer-events:none}
+.tel-reflet{overflow:hidden;border-radius:12%/5.6%;pointer-events:none}
+.tel-reflet i{position:absolute;left:-60%;top:-40%;width:220%;height:180%;background:linear-gradient(118deg,rgba(255,255,255,0) 38%,rgba(255,255,255,.16) 46%,rgba(255,255,255,.05) 50%,rgba(255,255,255,0) 58%);transform:translate(var(--rx,0%),0)}
+.ecran{width:340px;height:736px;font-size:15.6px;border-radius:44px;background:linear-gradient(170deg,#f9f6ef,#f1ede3);overflow:hidden;display:flex;flex-direction:column;color:var(--encre);pointer-events:none}
+.ecran.actif{pointer-events:auto}
+.tel__barre{display:flex;align-items:center;justify-content:space-between;padding:1.25em 2.1em 0;font:600 .88em/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--bleu);font-variant-numeric:tabular-nums;height:2.6em;flex:none}
+.tel__encoche{width:6.4em;height:1.85em;visibility:hidden}
+.tel__reseau{display:flex;gap:.22em;align-items:flex-end}
+.tel__reseau i{width:.27em;border-radius:1px;background:var(--bleu)}
+.tel__reseau i:nth-child(1){height:.45em}.tel__reseau i:nth-child(2){height:.7em}.tel__reseau i:nth-child(3){height:.95em}
+.heure{display:inline-flex;align-items:center;height:1.1em;overflow:hidden}
+.heure .ch{display:inline-block;height:1.1em;overflow:hidden;width:.62em;text-align:center}
+.heure .ch i{display:flex;flex-direction:column;transform:translateY(calc(var(--d,0) * -1.1em))}
+.heure .ch i b{height:1.1em;line-height:1.1em;font-weight:600}
+.tel__tete{position:relative;flex:none;height:4.1em;margin:.9em .9em 0}
+.tete{position:absolute;inset:0;display:flex;align-items:center;gap:.77em;padding:.7em .85em;background:rgba(255,255,255,.72);border:1px solid rgba(200,190,170,.4);border-radius:1.2em}
+.tete img{width:2.45em;height:2.45em;border-radius:50%;box-shadow:0 0 0 1.5px var(--or);flex:none;background:#fff}
+.tete strong{display:block;font:700 .92em/1.25 var(--titre);color:var(--bleu);letter-spacing:-.01em}
+.tete span{display:flex;align-items:center;gap:.45em;font:500 .8em/1.2 var(--sans);color:var(--encre-2);margin-top:.15em}
+.tete span::before{content:"";width:.55em;height:.55em;border-radius:50%;background:#1f9d63}
+.tete--guide img{padding:.32em}
+.tel__corps{position:relative;flex:1;overflow:hidden}
+.tel__fil{position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:.7em;padding:1.05em .9em .77em}
+.panneau{position:absolute;inset:0;padding:.9em}
+.msg{display:flex;flex-direction:column;position:relative}
+.msg--moi{align-items:flex-end}
+.msg--m{align-items:flex-start}
+.msg__h{font:500 .73em/1 var(--sans);color:var(--encre-2);margin:0 .6em .4em}
+.bulle{max-width:88%;padding:.77em 1em;border-radius:1.3em;font-size:1em;line-height:1.42}
+.msg--moi .bulle{background:var(--bleu);color:#fff;border-bottom-right-radius:.38em}
+.msg--m .bulle{background:#fff;border:1px solid rgba(200,190,170,.45);border-bottom-left-radius:.38em;box-shadow:0 2px 6px rgba(0,0,80,.04)}
+.source{display:inline-flex;align-items:flex-start;gap:.6em;margin-top:.9em;padding:.6em .9em;border-radius:.9em;background:rgba(14,124,114,.09);color:var(--teal-txt);font:700 .77em/1.3 var(--sans);letter-spacing:.04em;text-transform:uppercase;text-align:left;transform-origin:left center}
+.source svg{flex:none;margin-top:.05em;width:1.1em;height:1.1em}
+.source .dom{text-transform:none;letter-spacing:.01em}
+.saisie{display:none;position:absolute;left:0;top:0;gap:.3em;padding:.85em 1em;border-radius:1.3em;border-bottom-left-radius:.38em;background:#fff;border:1px solid rgba(200,190,170,.45)}
+.saisie i{width:.46em;height:.46em;border-radius:50%;background:var(--teal-txt);animation:saut 1.2s ease-in-out infinite}
+.saisie i:nth-child(2){animation-delay:.15s}.saisie i:nth-child(3){animation-delay:.3s}
+@keyframes saut{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-.3em);opacity:1}}
+.msg.ecrit .saisie{display:flex}
+.msg.ecrit .bulle{visibility:hidden}
+.reste{visibility:hidden}
+.guider{display:inline-flex;align-items:center;gap:.55em;margin-top:.75em;padding:.62em 1.05em .62em .8em;border-radius:9999px;background:var(--bleu);color:#fff;font:700 .92em/1 var(--sans);box-shadow:0 6px 14px rgba(0,0,145,.25);transform-origin:center}
+.guider svg{width:1.1em;height:1.1em}
+.guider.cmd-actif{pointer-events:auto;cursor:pointer}
+/* les objets-commandes des arrêts : un battement très lent après 2,5 s d'attente */
+@keyframes battement{0%,100%{box-shadow:0 0 0 0 rgba(244,162,97,0),0 6px 14px rgba(0,0,145,.25)}50%{box-shadow:0 0 0 .55em rgba(244,162,97,.35),0 6px 14px rgba(0,0,145,.25)}}
+@keyframes battement-objet{0%,100%{filter:drop-shadow(0 0 0 rgba(255,214,150,0))}50%{filter:drop-shadow(0 0 10px rgba(255,214,150,.95))}}
+.scene.appel .guider.cmd-actif{animation:battement 2.4s ease-in-out infinite}
+.scene.appel .crayon-dessine.cmd-actif{animation:battement-objet 2.4s ease-in-out infinite}
+/* L6 (douzième passe) : ni la flèche « Atelier » ni le CV du poteau ne battent plus (le halo se lisait comme un cadre) */
+.poteau-texte.cmd-actif{pointer-events:auto;cursor:pointer}
+/* L6 (douzième passe) : la flèche « Atelier » n'a plus aucun cadre, liseré ni halo, ni au repos, ni au survol (le curseur
+   en main suffit) ; au clavier seulement (focus-visible), un contour fin en pointillé, à l'extérieur de la planche (le
+   cadre de la passe 2, point 24, se lisait comme un contour blanc « bizarre ») */
+.poteau-cadre{z-index:6;border-radius:18px;opacity:0;pointer-events:none;box-shadow:none;outline:0 dashed transparent}
+.poteau-texte.fl-d:focus,.poteau-texte.fl-d:focus-visible{outline:none}
+.poteau-texte.fl-d:focus-visible+.poteau-cadre{opacity:1;outline:2px dashed rgba(22,32,92,.85);outline-offset:10px}
+.crayon-dessine{padding:0;background:none;z-index:18;pointer-events:none}
+.crayon-dessine img{display:block;pointer-events:none}
+.crayon-dessine.cmd-actif{pointer-events:auto;cursor:pointer}
+.coin{pointer-events:auto;cursor:pointer;background:none;overflow:visible}
+.coin .pli{position:absolute;right:0;bottom:0;width:100%;height:100%;clip-path:polygon(100% 0,100% 100%,0 100%);background:linear-gradient(315deg,rgba(0,0,0,0) 0 49%,#ece6d6 50%,#f8f4ea 72%,#e2dac6 100%);box-shadow:-6px -6px 14px rgba(40,24,8,.25);transform-origin:100% 100%;transform:scale(.32);transition:transform .45s var(--entree)}
+@media (hover:hover){.coin:hover .pli{transform:scale(.62)}}
+.coin:focus-visible .pli{transform:scale(.62)}
+@media (max-width:767.98px){.coin .pli{transform:scale(.5)}}
+.scene.appel .coin .pli{animation:pli 2.4s ease-in-out infinite}
+@keyframes pli{0%,100%{transform:scale(.32)}50%{transform:scale(.5)}}
+.invite{position:absolute;left:0;top:0;z-index:47;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9999px;background:rgba(255,253,248,.95);border:1px solid rgba(200,190,170,.6);box-shadow:0 8px 22px rgba(0,0,40,.16);font:600 13px/1 var(--sans);color:var(--bleu);pointer-events:none;opacity:0;transition:opacity .5s;white-space:nowrap}
+.continuer{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:9px 15px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 13.5px/1 var(--sans);box-shadow:0 8px 24px rgba(0,0,145,.22);transition:transform .14s var(--doux),background .3s}
+.continuer:active{transform:scale(.96)}
+.continuer[hidden]{display:none}
+@media (hover:hover){.continuer:hover{background:var(--teal-txt)}}
+.continuer svg{width:15px;height:15px}
+.tel__champ{flex:none;display:flex;align-items:center;justify-content:space-between;margin:0 .9em 1.05em;padding:.7em .7em .7em 1.1em;border-radius:9999px;background:#fff;border:1px solid rgba(200,190,170,.5);font:500 .88em/1 var(--sans);color:#6f6a5f;white-space:nowrap;overflow:hidden;gap:.5em}
+.tel__champ span{overflow:hidden;min-width:0}
+.tel__champ span.tape{color:var(--encre)}
+.curseur{display:inline-block;width:1.5px;height:1.05em;background:var(--bleu);vertical-align:-.17em;margin-left:1px;animation:clign 1.05s steps(1) infinite}
+@keyframes clign{50%{opacity:0}}
+.tel__champ i{width:2.2em;height:2.2em;border-radius:50%;background:var(--bleu);display:grid;place-items:center;flex:none;transform:scale(var(--appui,1))}
+.tel__champ i svg{width:1em;height:1em}
+/* mode guide */
+.carte{position:relative;height:24em;border-radius:1.2em;overflow:hidden;background:#f6f1e4;border:1px solid rgba(160,140,100,.35);box-shadow:inset 0 0 0 4px rgba(255,255,255,.5)}
+.carte svg{position:absolute;inset:0;width:100%;height:100%}
+.dest{display:flex;align-items:center;gap:.8em;margin-top:.8em;padding:.75em .9em;border-radius:1.1em;background:#fff;border:1px solid rgba(200,190,170,.45)}
+.dest img{width:2.6em;height:2.6em;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1.5px var(--or)}
+.dest b{display:block;font:700 .95em/1.2 var(--titre);color:var(--bleu)}
+.dest>div>span{display:block;font:500 .78em/1.2 var(--sans);color:var(--encre-2)}
+.dest>div{flex:1;min-width:0}
+.dist{flex:none;margin-left:auto;font:800 1.45em/1 var(--titre);color:var(--bleu);font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:baseline}
+.dist small{font:700 .55em/1 var(--sans);margin-left:.15em;color:var(--encre-2)}
+.consignes{position:relative;margin-top:.8em;height:5.4em}
+.consignes .msg{position:absolute;left:0;right:0;top:0}
+/* veille et menu */
+.veille{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45em;text-align:center;padding-bottom:3em}
+.veille img{width:9.6em;height:9.6em;border-radius:50%;box-shadow:0 0 0 1.5px var(--or),0 10px 30px rgba(0,0,80,.1);margin-bottom:1.1em;background:#fff;padding:1.2em}
+.veille strong{font:700 1.15em/1.25 var(--titre);color:var(--bleu)}
+.veille span{font:500 .82em/1.3 var(--sans);color:var(--encre-2)}
+.menu{display:flex;flex-direction:column;gap:.7em}
+.menu .liens{display:flex;flex-direction:column;gap:.55em;margin-top:.4em;align-items:flex-start}
+.menu .liens a{display:inline-flex;align-items:center;gap:.6em;padding:.7em 1.05em;border-radius:9999px;background:#fff;border:1.5px solid rgba(0,0,145,.25);color:var(--bleu);font:700 .95em/1 var(--sans);transition:transform .14s var(--doux),background .3s}
+.menu .liens a:active{transform:scale(.96)}
+@media (hover:hover){.menu .liens a:hover{background:rgba(0,0,145,.06)}}
+.menu .liens a i{width:.55em;height:.55em;border-radius:50%;background:var(--or)}
+
+/* ---------- le CV : portrait et nom en haut, parcours sur toute la largeur,
+   « Deux domaines » en bas à gauche ; le quart bas droit reste vide (le pouce s'y pose) ---------- */
+.cv{width:600px;height:848px;color:var(--encre)}
+.cv__papier{position:absolute;inset:0;overflow:hidden;background:linear-gradient(168deg,#fffefb 0%,#fbf8f0 55%,#f1ebdd 100%);padding:58px 50px 0 54px;box-shadow:0 0 0 1px rgba(120,100,60,.14)}
+.cv__papier::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 100% 100%,rgba(120,90,40,.12),transparent 70%),radial-gradient(ellipse 40% 30% at 0 100%,rgba(120,90,40,.08),transparent 70%);pointer-events:none}
+.cv__tete{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.cv__photo{width:178px;height:178px;flex:none;border-radius:4px;object-fit:cover;object-position:50% 38%;box-shadow:0 0 0 1px rgba(0,0,80,.12),0 6px 14px rgba(40,30,10,.12)}
+.cv__nom{font:800 54px/1 var(--titre);color:var(--bleu);letter-spacing:-.035em}
+.cv__titre{font:500 22px/1.36 var(--sans);color:#3d3d48;margin-top:12px;max-width:21em}
+.cv__regle{width:84px;height:3px;border-radius:2px;background:var(--or);margin:34px 0 30px;transform-origin:left}
+.cv__liste{position:relative;display:grid;gap:22px}
+.cv__liste li{display:grid;grid-template-columns:22px 1fr;align-items:baseline;gap:14px;font:600 26px/1.28 var(--sans);color:#1f2030;letter-spacing:-.01em}
+.cv__liste li i{width:12px;height:12px;border-radius:50%;background:var(--bleu);transform:translateY(-3px);box-shadow:0 0 0 3px rgba(0,0,145,.12)}
+.cv__lien{position:absolute;left:54px;bottom:52px;display:inline-flex;align-items:center;gap:10px;font:700 20px/1.2 var(--sans);color:var(--bleu);border-bottom:2px solid rgba(0,0,145,.25);padding-bottom:4px;pointer-events:none}
+.cv__lien svg{width:20px;height:20px}
+.cv .m{display:inline-block;overflow:clip;overflow-clip-margin:.2em;vertical-align:top}
+.cv .mi{display:inline-block}
+.cv__trou{position:absolute;left:50%;top:26px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:radial-gradient(circle,#2a2420 0 45%,rgba(60,50,40,.4) 60%,transparent 70%)}
+.cv--dechire .cv__papier,.cv--dechire .cv__ombre{clip-path:polygon(0 0,46% 0,47.2% 2.4%,48.4% 1.1%,49.4% 4.6%,50.8% 2.6%,52% 5.2%,53.1% 1.4%,54% 0,100% 0,100% 100%,0 100%)}
+.cv--dechire .cv__trou{display:none}
+.cv__ombre{position:absolute;inset:0;background:rgba(10,6,2,.5);transform:translate(10px,14px);filter:blur(10px)}
+.cv__pouce{position:absolute;left:0;top:0;transform-origin:0 0;filter:brightness(0) blur(9px);opacity:0;pointer-events:none}
+.cv__voile{position:absolute;inset:0;background:linear-gradient(168deg,#fffefb,#f6f1e4);opacity:0;pointer-events:none}
+.cv__cmd{z-index:7;border-radius:4px;pointer-events:none}
+.cv__cmd.actif{pointer-events:auto;cursor:pointer}
+/* F23 et G7 : les initiales, le logo LinkedIn et « Mon parcours » forment un seul lien ; au survol ou au focus, le logo
+   passe au bleu et le soulignement s'épaissit */
+.cv__initiales{z-index:8;pointer-events:none;border-radius:8px;outline:none}
+.cv__initiales.actif{pointer-events:auto;cursor:pointer}
+.cv__initiales svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cv__logo{stroke:#000091;opacity:0;transition:opacity .25s}
+.cv__trait{stroke:#16205C;stroke-width:3.4;opacity:0;transition:opacity .25s,stroke-width .25s}
+/* N5 (quatorzième passe) : au survol et au focus, le soulignement de « Mon parcours » s'épaissit encore */
+.cv__initiales:hover .cv__trait,.cv__initiales:focus-visible .cv__trait{stroke-width:5.5}
+.cv__initiales:hover .cv__logo,.cv__initiales:focus-visible .cv__logo{opacity:1}
+.cv__initiales:hover .cv__trait,.cv__initiales:focus-visible .cv__trait{opacity:.85}
+.cv__initiales:focus-visible{box-shadow:0 0 0 3px rgba(0,0,145,.5)}
+/* H3 : de loin, le lien se limite aux initiales et au logo (pas de trait sous « Mon parcours », qui n'est pas écrit) */
+.cv__initiales.loin .cv__trait{display:none}
+/* le papier réel (WebGL) : feuilles, ombres, clous, écriture */
+.papier-gl{left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:6}
+.cv__cmd.cmd-actif{pointer-events:auto;cursor:pointer}
+/* L6 : le CV du poteau, même règle : rien au survol, un pointillé fin au clavier seulement */
+.cv__cmd:focus,.cv__cmd:focus-visible{outline:none;box-shadow:none}
+.cv__cmd:focus-visible{outline:2px dashed rgba(22,32,92,.85);outline-offset:8px}
+.cv svg.cv__dessin{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+
+/* ---------- les mains et le crayon ---------- */
+.main{pointer-events:none;z-index:31}
+.contact-main{pointer-events:none}
+.contact-main__ombre{filter:brightness(0) blur(9px);pointer-events:none}
+.crayon-dessine.libre{pointer-events:auto;cursor:grab;touch-action:none}
+.crayon-dessine.libre:active{cursor:grabbing}
+.crayon-ombre{z-index:17;border-radius:50%;background:rgba(30,18,6,.4);filter:blur(4px)}
+/* la bulle finale : petite, comme une bulle de Marianne (retours, point 21) */
+.bulle-projet{z-index:21;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:17px;border-bottom-right-radius:5px;background:var(--bleu);color:#fff;font:600 14.5px/1 var(--sans);letter-spacing:-.005em;box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25);white-space:nowrap;pointer-events:none;transition:background .3s}
+.bulle-projet.actif{pointer-events:auto;animation:respire-bulle 4.2s ease-in-out 1.2s infinite}
+/* cinquième passe, C5 : à la fin, seul le bouton respire (un halo très doux) */
+@keyframes respire-bulle{0%,100%{box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25),0 0 0 0 rgba(22,32,140,0)}50%{box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25),0 0 0 7px rgba(22,32,140,.12)}}
+@media (hover:hover){.bulle-projet.actif:hover{background:var(--teal-txt)}}
+.bulle-projet svg{width:14px;height:14px}
+
+/* le tableau final (quatrième passe, D12) : le téléphone et le CV sont des liens ; au survol ou au focus,
+   l'objet se soulève (rendu par le film) et une petite étiquette apparaît */
+.lien-objet{z-index:24;display:block;pointer-events:none;border-radius:10px}
+.lien-objet.actif{pointer-events:auto;cursor:pointer}
+.lien-objet__etiquette{position:absolute;left:50%;top:calc(100% + 8px);transform:translate(-50%,4px);display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:9999px;background:rgba(247,244,237,.96);border:1px solid rgba(200,190,170,.6);box-shadow:0 6px 16px rgba(0,0,40,.16);font:600 13px/1 var(--sans);color:var(--bleu);white-space:nowrap;opacity:0;transition:opacity .3s,transform .3s var(--doux);pointer-events:none}
+.lien-objet--cv .lien-objet__etiquette{top:auto;bottom:calc(100% + 8px)}
+@media (hover:hover){.lien-objet.actif:hover .lien-objet__etiquette{opacity:1;transform:translate(-50%,0)}}
+.lien-objet:focus-visible{outline:3px solid var(--bleu);outline-offset:4px}
+.lien-objet:focus-visible .lien-objet__etiquette{opacity:1;transform:translate(-50%,0)}
+
+.voile-retour{position:absolute;inset:0;z-index:58;background:var(--nuit);opacity:0;pointer-events:none;transition:opacity .4s ease}
+.voile-retour.visible{opacity:1}
+
+/* lumière commune, grain de papier commun */
+.lumiere{z-index:40;mix-blend-mode:soft-light;opacity:0;background:linear-gradient(105deg,rgba(255,220,170,.55),rgba(255,236,210,.15) 45%,rgba(40,30,80,.25))}
+.grain{z-index:41;opacity:.06;background-size:180px 180px;mix-blend-mode:multiply}
+
+/* ---------- textes du film ---------- */
+.voile{z-index:9;inset:0;pointer-events:none;opacity:0}
+.voile--nuit{background:radial-gradient(ellipse 40% 46% at var(--vx,48%) 34%,rgba(7,11,34,.62),rgba(7,11,34,.3) 55%,transparent 100%)}
+.voile--jour{background:radial-gradient(ellipse 44% 60% at 16% 50%,rgba(247,244,237,.94),rgba(247,244,237,.7) 52%,rgba(247,244,237,0) 100%)}
+.bloc{z-index:45;color:#fff;max-width:min(600px,44vw)}
+.verbe{font:800 112px/1.12 var(--titre);letter-spacing:-.04em;display:block;padding-bottom:.08em;white-space:nowrap}
+.bloc--1 .verbe{font-size:min(6.2vw,10.5vh,92px)}
+.bloc--4 .verbe{font-size:min(7.2vw,12vh,106px)}
+.bloc--7 .verbe{font-size:min(6vw,10vh,92px)}
+.verbe .m{display:inline-block;padding:.22em .06em .24em;margin:-.22em -.06em -.24em;vertical-align:top;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%)}
+.verbe .l{display:inline-block;--t:clamp(0,calc((var(--v,0) - var(--i) * .07) / .42),1);--x:clamp(0,calc((var(--s,0) - var(--i) * .05) / .4),1);transform:translateY(calc((1 - var(--t)) * 108% - var(--x) * 108%));opacity:calc(var(--t) * (1 - var(--x)));filter:blur(calc((1 - var(--t)) * 3px + var(--x) * 3px))}
+.legende{font:500 clamp(19px,1.7vw,24px)/1.4 var(--sans);margin-top:10px}
+.legende b{font-weight:600}
+/* T6 (vingtième passe, 07/10/2026) : sur l'iPhone (Safari d'iOS 27), le flou des mots qui entrent et qui sortent (filter: blur)
+   laissait des traits magenta nets au bord des mots (sous « Créer », entre « bon » et « chemin ») : un défaut de rendu du
+   moteur, reproduit et isolé sur l'appareil (le magenta disparaît sans ce flou, avec ou sans le halo de la légende). Les mots
+   paraissent et partent par l'opacité et la montée seules, sans flou, partout */
+.mots .w{display:inline-block;--t:clamp(0,calc((var(--v,0) - var(--i) * .1) / .4),1);--x:clamp(0,calc((var(--s,0) - var(--i) * .06) / .4),1);opacity:calc(var(--t) * (1 - var(--x)));transform:translateY(calc((1 - var(--t)) * 12px - var(--x) * 8px))}
+/* N3 (quatorzième passe) : au repos, le texte est du texte normal : ni filtre, ni transformation, ni masque (js/outils.js,
+   etatTexte) ; parti, plus rien n'est dessiné */
+.verbe.fini .l,.mots.fini .w{filter:none;transform:none;opacity:1}
+.verbe.fini .m{-webkit-mask-image:none;mask-image:none}
+.verbe.parti .l,.mots.parti .w{filter:none;transform:none;opacity:0}
+.bloc .btn{margin-top:26px;--t:var(--b,0);opacity:var(--t);transform:translateY(calc((1 - var(--t)) * 14px))}
+.bloc .btn:active{transform:scale(.96)}
+.bloc:not(.actif) .btn{pointer-events:none}
+.bloc--1{left:calc(max(5vw,50vw - 640px) + min(300px,36vh,24vw) + 92px);top:max(118px,17vh)}
+.bloc--1 .legende{color:#dfe5f8}
+.bloc--1 .legende b{color:var(--or)}
+.bloc--4{left:max(5vw,50vw - 640px);top:47%;transform:translateY(-50%);color:var(--bleu)}
+.bloc--4 .legende{color:#2a2e45}
+.bloc--4 .legende b{color:var(--or-txt)}
+.bloc--7{color:var(--bleu);max-width:none}
+/* L12 (douzième passe) : la légende de « Créer » est visible, comme les deux autres (son texte ne double plus la question
+   manuscrite de la feuille) : même typographie, même apparition mot à mot ; le bleu du verbe, le mot fort en couleur
+   d'accent, une ombre claire très courte pour se lire sur le bois */
+/* N3 (quatorzième passe) : lisible sur le bois : bleu plein, le mot fort en couleur d'accent, un halo clair très léger
+   derrière le texte, et sous la légende un fond de bois à peine éclairci (une ellipse floue, sans bord) */
+.bloc--7 .legende{color:var(--bleu);text-shadow:0 0 1px rgba(255,249,236,.9),0 0 7px rgba(255,246,228,.85),0 0 15px rgba(255,242,220,.55);position:relative;isolation:isolate}
+.bloc--7 .legende::before{content:"";position:absolute;inset:-.35em -.9em;z-index:-1;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(255,244,224,.42),rgba(255,244,224,.22) 55%,rgba(255,244,224,0) 100%);pointer-events:none;opacity:calc(clamp(0,var(--v,0) / 1.1,1) * (1 - clamp(0,var(--s,0) / .82,1)))}
+.bloc--7 .legende.parti::before{opacity:0}
+/* F17 : « Créer » posé sur la planche, une ombre courte et douce sous les lettres */
+/* N3 (quatorzième passe) : « un effet de titre 3D qui n'est pas dingue » : l'ombre empilée (trois ombres) devient une seule
+   ombre courte et douce */
+.bloc--7 .verbe .l{text-shadow:0 1px 3px rgba(46,30,12,.24)}
+.bloc--7 .legende b{color:var(--teal-txt)}
+
+/* ---------- repère de chapitres, lecture, passer, étiquette ---------- */
+.rail{position:fixed;left:50%;bottom:20px;z-index:60;transform:translateX(-50%);background:rgba(247,244,237,.96);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,40,.14);padding:6px 6px 6px 10px}
+.rail{display:flex;align-items:center;gap:8px}
+.rail[hidden],.commandes[hidden]{display:none}
+.rail ol{display:flex;align-items:center}
+.rail button{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:9999px;font:600 13.5px/1 var(--sans);color:#77705f;transition:color .3s,background .3s}
+.rail button:active{transform:scale(.96)}
+@media (hover:hover){.rail button:hover{background:rgba(0,0,145,.06)}}
+.rail__pt{width:11px;height:11px;border-radius:50%;border:1.6px solid #9a937f;background:transparent;transition:background .3s,border-color .3s;flex:none}
+.rail button.encre .rail__pt{background:var(--bleu);border-color:var(--bleu)}
+.rail button.ici{color:var(--bleu)}
+.rail button.ici .rail__pt{box-shadow:0 0 0 4px rgba(0,0,145,.12)}
+.rail__trait{width:34px;height:1.6px;background:#d8d0bd;position:relative;overflow:hidden;flex:none}
+.rail__trait i{position:absolute;inset:0;background:var(--bleu);transform-origin:left center;transform:scaleX(var(--k,0))}
+.commandes{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;gap:8px;align-items:center}
+/* le bouton Son (D14), discret, à côté de « Lancer le film » */
+.son{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:10px 14px 10px 12px;border-radius:9999px;background:rgba(247,244,237,.96);border:1px solid rgba(200,190,170,.45);box-shadow:0 8px 24px rgba(0,0,40,.14);font:600 13.5px/1 var(--sans);color:#4a4537;transition:transform .14s var(--doux),color .3s}
+.son[hidden]{display:none}
+.son:active{transform:scale(.96)}
+.son svg{width:17px;height:17px}
+.son .ic-actif{display:none}
+.son.actif{color:var(--bleu)}
+.son.actif .ic-actif{display:block}
+.son.actif .ic-coupe{display:none}
+/* F24 : pendant l'activation, le bouton attend (un clic annule) */
+.son.attente{color:#8a826e}
+.son.attente svg{animation:souffle 1.2s ease-in-out infinite}
+@media (max-width:767.98px){.son{width:40px;height:40px;min-height:0;padding:0;justify-content:center}.son span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}}
+.lecture,.passer{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 16px 10px 13px;border-radius:9999px;background:rgba(247,244,237,.96);border:1px solid rgba(200,190,170,.45);box-shadow:0 8px 24px rgba(0,0,40,.14);font:600 13.5px/1 var(--sans);color:var(--bleu);transition:transform .14s var(--doux)}
+.passer{padding:10px 16px;color:#4a4537}
+.lecture:active,.passer:active{transform:scale(.96)}
+.lecture[hidden]{display:none}
+.lecture svg{width:16px;height:16px}
+.lecture .ic-pause{display:none}
+.lecture[aria-pressed="true"] .ic-pause{display:block}
+.lecture[aria-pressed="true"] .ic-lire{display:none}
+/* à la fin, le même bouton propose de revoir le film (E1) */
+.lecture .ic-revoir{display:none}
+.lecture.revoir .ic-revoir{display:block}
+.lecture.revoir .ic-lire{display:none}
+.etiquette{position:fixed;left:20px;bottom:20px;z-index:60;font:600 12px/1 var(--sans);color:#5a5446;background:rgba(247,244,237,.9);border:1px solid rgba(200,190,170,.45);border-radius:9999px;padding:9px 13px;pointer-events:none}
+/* Q3 (dix-septième passe, 07/10/2026) : entre 768 et 1150 px de large, Son, Lancer le film et Passer le film couvraient
+   « Continuer » : ils se replient en icônes seules (44 px), leur nom reste lu ; sous 900 px, ils passent en plus
+   au-dessus du rail. Sous 1000 px, l'étiquette passe au-dessus du rail (à 768, elle couvrait « Communiquer ») */
+.passer .ic-passer{display:none}
+@media (min-width:768px) and (max-width:1149.98px){
+  .son,.lecture,.passer{width:44px;height:44px;min-height:0;padding:0;justify-content:center}
+  .son span,.lecture span,.passer span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .passer .ic-passer{display:block;width:17px;height:17px}
+}
+@media (min-width:768px) and (max-width:899.98px){.commandes{bottom:82px}}
+@media (min-width:768px) and (max-width:999.98px){.etiquette{bottom:82px}}
+/* Q6 (dix-septième passe) : l'étiquette s'efface quatre secondes après le chargement ; elle revient au survol de son coin
+   ou quand on revient en haut de la page (film.js) */
+.etiquette{transition:opacity .6s ease}
+.etiquette.effacee{opacity:0}
+
+/* ---------- le bloc en clair ---------- */
+.clair{position:relative;z-index:2;background:var(--creme);padding:clamp(72px,9vw,128px) max(20px,5vw) clamp(96px,10vw,140px)}
+.clair__in{max-width:1180px;margin:0 auto}
+.clair__titre{font:700 clamp(30px,3.6vw,48px)/1.08 var(--titre);letter-spacing:-.03em;color:var(--bleu);max-width:20ch}
+.clair__grille{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);margin-top:clamp(36px,4.5vw,60px)}
+.prop{background:var(--papier);border:1px solid rgba(120,100,60,.18);border-radius:var(--r-l);padding:34px 32px 32px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 6px 18px rgba(0,0,80,.05)}
+.prop h3{font:800 clamp(30px,2.8vw,40px)/1 var(--titre);letter-spacing:-.035em;color:var(--bleu)}
+.prop p{font-size:17px;line-height:1.6;color:#3f3f3f;margin:16px 0 28px;flex:1}
+@media (max-width:900px){.clair__grille{grid-template-columns:1fr}}
+.pied{padding:28px max(20px,5vw) 72px;font:500 13px/1.5 var(--sans);color:var(--encre-2);text-align:center;background:var(--creme)}
+/* Q4 (dix-septième passe, 07/10/2026) : le pied de page commun, recopié de commun/pages/pages.css (les règles du pied, la
+   gouttière et la couleur de texte des pages) ; le contour de focus y est blanc, comme sur les pages */
+.pied{position:relative;z-index:2;text-align:left;background:var(--nuit);color:#b9c1e0;font:inherit;padding:56px clamp(20px,5vw,72px) 92px}
+.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre);color:#fff;letter-spacing:-.02em}
+.pied__marque img{width:46px;height:39px;padding:3px 4px;border-radius:10px;background:var(--creme);mix-blend-mode:normal}
+.pied__marque b{color:#9db9ff;font-weight:800}
+/* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque, dessinés à la plume comme le logo LinkedIn du CV ; cibles de 44 px */
+.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-9px}
+.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:12px;color:#fff}
+.pied .pied__reseaux svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.pied .pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07);text-decoration:none}}
+.pied p{font-size:14px;line-height:1.6;margin-top:14px;max-width:44ch}
+.pied h2{font:700 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#8f99c4}
+.pied ul{margin-top:12px;display:grid;gap:4px}
+.pied ul a{display:inline-flex;min-height:36px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
+@media (hover:hover){.pied ul a:hover{text-decoration:underline;text-underline-offset:4px}}
+.pied__bas{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f99c4}
+/* bandeau de fin (07/10/2026, soir) : la ligne officielle, les liens légaux, la mention de maquette */
+.pied .pied__legal{max-width:1200px;margin:6px auto 0;display:flex;flex-wrap:wrap;gap:0 18px;font-size:12.5px}
+.pied .pied__legal a{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans);color:#b9c1e0}
+@media (hover:hover){.pied .pied__legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__maquette{max-width:1200px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#6f7aa6}
+/* .pied p (44ch) l’emportait sur .pied__bas : la ligne officielle prend toute la largeur, comme les liens légaux */
+.pied .pied__bas{max-width:1200px;line-height:1.5}
+/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes (la règle .pied p
+   poussait la marque de 14 px ; mesuré : centre des titres à 12 px au-dessus du centre de la marque une fois la marge retirée) */
+.pied .pied__marque{margin-top:-12px}
+/* guides (08/10/2026, nuit) : quatrième colonne du pied, liens plus serrés ; deux colonnes sous 1024, une sous 760 */
+.pied .pied__in{grid-template-columns:1.3fr 1fr 1fr 1.15fr}
+.pied .pied__guides ul a{min-height:30px;font-size:14px}
+@media (max-width:1024px){.pied .pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.pied .pied__in{grid-template-columns:1fr}}
+.pied :focus-visible{outline-color:#fff}
+@media (max-width:760px){.pied__in{grid-template-columns:1fr}}
+
+/* ---------- petit écran : la conversation se loge en bas, le monde défile derrière ---------- */
+@media (max-width:767.98px){
+  /* M7 (treizième passe) : sur iPhone, la scène prend la grande hauteur (100lvh, barres de Safari repliées) : quand les barres
+     se replient pendant le défilement, plus de bande du fond de page sous la scène ; barres dépliées, le bas de la scène
+     passe sous la barre de Safari, et la mise en page s'arrête au rail, posé au-dessus d'elle (F.basUtile) */
+  .scene{height:100vh;height:100lvh}
+  /* U1 (vingt et unième passe, 07/10/2026, règle posée par la session) : l'affiche d'avant la première image prend le cadrage du
+     film à p 0 sur téléphone (main.js : la gravure de toute la hauteur de la scène, largeur 1,8512 fois, son point à 79 % au
+     milieu de l'écran) : le village ne se recadre plus quand le téléphone paraît */
+  html:not(.film-pret) .fond{background:#0b1030 url(../commun/img/village-nuit.webp) calc(50vw - 146.24vh) 0/185.12vh 100vh no-repeat;background:#0b1030 url(../commun/img/village-nuit.webp) calc(50vw - 146.24lvh) 0/185.12lvh 100lvh no-repeat}
+  /* M7 (treizième passe) : le rail est descendu en bas ; les blocs se posent sous la barre de navigation (--bloc-haut, réglé
+     par la page), plus serrés : le téléphone de la nuit (M1) et le CV (M3) ont la place dessous */
+  .bloc{max-width:none !important;left:16px !important;right:16px;top:var(--bloc-haut,76px) !important;transform:none !important;text-align:center}
+  .bloc .verbe{font-size:min(12.5vw,54px) !important}
+  .bloc--1 .verbe{font-size:min(10.8vw,46px) !important}
+  .lecture{display:none !important}
+  .ecran.feuille-mobile .tel__champ{margin-bottom:1.9em}
+  .ecran.feuille-mobile.compact{height:auto;min-height:0}
+  /* M6, M7 (treizième passe) : le téléphone-menu final se pose au-dessus du rail (le rail est en bas), carte arrondie */
+  .ecran.feuille-mobile.compact{bottom:var(--rail-zone,0px);left:10px;right:10px;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,40,.26)}
+  .ecran.feuille-mobile.compact.final .tel__corps{height:4.7em}
+  .ecran.final.feuille-mobile .menu{padding:.15em 0 0}
+  .rail.appel .continuer{animation:battement 2.4s ease-in-out infinite}
+  .ecran.feuille-mobile.compact .tel__corps{flex:none;height:9.4em}
+  .ecran.feuille-mobile.compact .tel__champ,.ecran.feuille-mobile.compact .tel__tete{display:none}
+  .ecran.feuille-mobile .menu .liens{flex-direction:row;flex-wrap:wrap}
+  .legende{font-size:16px !important;margin-top:4px;text-wrap:balance}
+  /* N3 : la légende de « Créer », sur le bois, à 17 px au moins */
+  .bloc--7 .legende{font-size:17px !important}
+  .bloc .btn{margin-top:12px;min-height:44px;padding:11px 20px;font-size:14.5px}
+  .bloc--7 .legende{max-width:none}
+  /* M5 (treizième passe) : « Créer » posé juste au-dessus de l'idée, le groupe centré en hauteur (la page règle --bloc7-haut) */
+  .bloc.bloc--7{top:var(--bloc7-haut,var(--bloc-haut,76px)) !important}
+  .ecran.feuille-mobile{left:0;right:0;top:auto;bottom:0;width:auto;height:min(48%,420px);font-size:14.5px;border-radius:22px 22px 0 0;box-shadow:0 -12px 34px rgba(0,0,40,.28);transform-origin:50% 100%}
+  .ecran.feuille-mobile .tel__barre{display:none}
+  .ecran.feuille-mobile .tel__tete{margin-top:.7em}
+  .ecran.feuille-mobile .carte{height:9.5em}
+  .ecran.feuille-mobile .consignes{height:4.2em}
+  /* M7 (treizième passe) : le rail (les trois chapitres et « Continuer ») centré en bas, sur une ligne, au-dessus de la barre
+     de Safari (la marge du bas de l'iPhone comprise), jamais sous le bord ; boutons de 40 px de haut */
+  .rail{top:auto;bottom:calc(20px + env(safe-area-inset-bottom,0px));padding:4px 4px 4px 8px;max-width:calc(100% - 20px);gap:6px}
+  .continuer{min-height:38px;padding:8px 13px;font-size:13px}
+  .rail button{padding:8px 7px;font-size:12.5px;gap:6px}
+  .rail__trait{width:12px}
+  /* H11 : le bouton Son se range à droite, juste au-dessus de la messagerie (la page règle --son-bas à chaque image),
+     ou en bas à droite quand elle est descendue : il ne couvre plus jamais un verbe, une légende ni un bouton */
+  /* M7 : il se range dans la barre de navigation, entre le logo et « Tester Marianne » (la page règle --son-x et --son-y),
+     icône seule, sans fond ; sinon en haut à droite, sous la barre */
+  .commandes{right:10px;top:calc(var(--bloc-haut,76px) + 2px);bottom:auto}
+  .commandes.dans-nav{left:var(--son-x);top:var(--son-y);right:auto;z-index:101}
+  /* N7 : l'icône du son suit le bouton quand sa largeur change */
+  .commandes.dans-nav{transition:left var(--cta-w,.63s) cubic-bezier(.45,0,.2,1)}   /* O1 : la même durée que la largeur du bouton */
+  .commandes.dans-nav{gap:8px}   /* Q6 (dix-septième passe) : 8 px, les cibles de 44 px ne se chevauchent pas */
+  .commandes.dans-nav .son,.commandes.dans-nav.deux .lecture{width:36px;height:36px;min-height:0;padding:0;justify-content:center;background:transparent;border-color:transparent;box-shadow:none;color:var(--bleu)}
+  .commandes.dans-nav.deux .lecture{display:inline-flex !important}
+  .lecture{width:40px;height:40px;min-height:0;padding:0;justify-content:center}
+  .lecture span,.passer{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;padding:0;border:0}
+  .passer:focus{position:static;width:auto;height:auto;clip:auto;padding:10px 14px}
+  .voile--jour{background:radial-gradient(ellipse 90% 30% at 50% 16%,rgba(247,244,237,.94),rgba(247,244,237,.6) 55%,rgba(247,244,237,0) 100%)}
+  .voile--nuit{background:radial-gradient(ellipse 90% 26% at 50% 16%,rgba(7,11,34,.62),rgba(7,11,34,.25) 60%,transparent 100%)}
+  /* M7 : l'étiquette de travail, sous le rail, centrée */
+  .etiquette{left:50%;right:auto;top:auto;bottom:calc(3px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font-size:9px;padding:2px 7px;white-space:nowrap}
+  /* M1 : le téléphone de la nuit, son écran agrandi : plus de bouton « Me guider » */
+  .ecran.nuit-mobile .guider{display:none}
+  .ecran.nuit-mobile .tel__tete{height:3.5em;margin-top:.7em}
+  .ecran.nuit-mobile .tete{gap:.6em;padding:.5em .7em}
+  .ecran.nuit-mobile .tete img{width:2.1em;height:2.1em}
+  .ecran.nuit-mobile .tete strong{font-size:.74em;line-height:1.18;letter-spacing:-.015em}
+  .ecran.nuit-mobile .tete span{font-size:.66em}
+  .ecran.nuit-mobile .tel__barre{font-size:.78em}
+  .ecran.nuit-mobile .tel__fil{gap:.55em;padding-top:.8em}
+  .ecran.nuit-mobile .msg__h{font-size:.62em}
+  .ecran.nuit-mobile .source{font-size:.66em}
+  .ecran.nuit-mobile .tel__champ{font-size:.74em}
+}
+
+/* image figée par ?p= : pas de transition CSS ni d'animation de boucle */
+.fige *,.fige *::before,.fige *::after{transition:none !important}
+/* mouvement réduit : pas de film, trois tableaux figés */
+.film--fixe{height:auto}
+.film--fixe .scene{position:relative;height:min(100vh,920px);min-height:620px;border-bottom:1px solid rgba(0,0,0,.1)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .lecture{display:none}
+}
+/* cinquième passe, E4 et C1 : la pièce derrière la vitre, sombre, puis la nappe de soleil qui entre */
+.atelier-piece{z-index:19;pointer-events:none}
+.atelier-sombre{z-index:20;background:linear-gradient(180deg,rgba(24,22,20,.85),rgba(30,26,22,.7) 60%,rgba(20,18,16,.8))}
+.atelier-lampe{z-index:20;mix-blend-mode:soft-light;background:radial-gradient(ellipse 30% 42% at var(--lx,52%) calc(var(--ly,20%) + 14%),rgba(255,188,104,.92),rgba(255,182,100,.42) 46%,rgba(255,176,96,0) 100%),linear-gradient(180deg,rgba(255,196,124,.32),rgba(255,196,124,0) 70%)}
+/* I2 : dedans, la lampe hors du cadre, au-dessus de la planche, un peu à droite : plus chaud en haut (planche, mur près du
+   plafond), un rien plus froid en bas ; en lumière douce (la photo garde ses ombres, rien ne s'assombrit ailleurs) */
+.atelier-lampe-pres{z-index:11;mix-blend-mode:soft-light;background:radial-gradient(ellipse 78% 58% at var(--lpx,58%) -10%,rgba(255,186,106,.6),rgba(255,190,118,.22) 52%,rgba(255,200,140,0) 86%),linear-gradient(180deg,rgba(255,198,128,.22) 0%,rgba(255,214,166,.04) 46%,rgba(118,136,172,.09) 100%)}
+.atelier-soleil{z-index:20;mix-blend-mode:screen;background:radial-gradient(ellipse 30% 16% at 52% 78%,rgba(255,214,150,.5),rgba(255,214,150,0) 100%),linear-gradient(162deg,rgba(255,226,170,0) 48%,rgba(255,206,140,.32) 70%,rgba(255,226,170,.1) 90%,rgba(255,226,170,0) 100%)}
+/* sixième passe, F16, et septième passe, G3 : à la fin, l'écran du téléphone posé sur la page n'affiche que les trois
+   boutons, en Inter, grands, un par ligne, chacun avec son pictogramme au trait */
+.menu .liens .picto{display:none}
+.ecran.final .menu{justify-content:center;height:100%;padding-bottom:1.6em}
+.ecran.final .menu > .msg{display:none}
+.ecran.final .menu .liens{align-items:stretch;gap:1em;margin:0 .75em}
+.ecran.final .menu .liens a{justify-content:flex-start;gap:.7em;padding:.95em 1em .95em 1.05em;font:600 2.05em/1 Inter,var(--sans);letter-spacing:-.01em;border-width:2px;box-shadow:0 3px 0 rgba(0,0,145,.08);border-radius:.7em}
+.ecran.final .menu .liens a i{display:none}
+.ecran.final .menu .liens .picto{display:block;width:1.05em;height:1.05em;flex:none}
+.ecran.final.feuille-mobile .menu{height:auto;padding:.6em 0 0}
+.ecran.final.feuille-mobile .menu .liens{flex-direction:row;margin:0;gap:.5em}
+.ecran.final.feuille-mobile .menu .liens a{flex:1;font-size:1em;padding:.9em .4em;justify-content:center;gap:.4em}
+/* N6 (quatorzième passe) : le téléphone-menu final. Sur téléphone : plus de carte crème sous les trois boutons (« la petite
+   bulle crème sous les trois bulles ») ; les trois boutons centrés dans l'écran, à espacement régulier, leur icône et leur
+   libellé centrés, 48 px de haut, une ombre douce pour se détacher du mur. Sur ordinateur, par cohérence : le champ
+   « Posez votre question » disparaît de l'écran final (le menu est la fin de la conversation), icône et libellé centrés
+   dans chaque bouton ; le message de Marianne au-dessus reste */
+@media (max-width:767.98px){
+  .ecran.feuille-mobile.compact.final{background:none;box-shadow:none;left:16px;right:16px;border-radius:0;overflow:visible}
+  .ecran.feuille-mobile.compact.final .tel__corps{height:64px;overflow:visible}
+  /* T7 (vingtième passe) : la place des trois boutons, calculée par la page au milieu de la zone sous la feuille (p8-page.js) */
+  .ecran.feuille-mobile.compact.final.place-menu{top:var(--menu-haut,auto);bottom:auto}
+  .ecran.final.feuille-mobile .menu{padding:0;height:auto;inset:0;display:flex;align-items:center;justify-content:center}
+  .ecran.final.feuille-mobile .menu .liens{width:100%}
+  .ecran.final.feuille-mobile .menu .liens{justify-content:center;flex-wrap:nowrap;gap:8px;margin:0}
+  .ecran.final.feuille-mobile .menu .liens a{flex:1 1 0;min-width:0;min-height:48px;padding:0 6px;gap:6px;justify-content:center;font-size:15px;box-shadow:0 6px 16px rgba(0,0,40,.24),0 1px 2px rgba(0,0,40,.12)}
+}
+.ecran.final .tel__champ,.ecran.fin-conv .tel__champ{opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.ecran.final .menu .liens a,.msg--arrivee .liens a{justify-content:center}
+/* sixième passe, F21 : l'oiseau, posé dans le monde avec la façade */
+.oiseau{z-index:3;pointer-events:none}
+.oiseau-vol i{position:absolute;inset:0;background-repeat:no-repeat}
+.oiseau-pose img{position:absolute;inset:0;width:100%;height:100%}
+/* septième passe, G4 : le bouton discret qui efface le brouillon du visiteur */
+/* K3 (onzième passe) : la lisière de la page retombée, commande « Revoir le film » (transparente) */
+.lisiere-revoir{z-index:46;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;left:0;top:0;transform-origin:0 0}
+.lisiere-revoir:focus-visible{outline:3px solid rgba(0,0,145,.55);outline-offset:2px}
+.brouillon{z-index:47;display:inline-flex;align-items:center;min-height:36px;padding:8px 14px;border-radius:9999px;background:rgba(247,244,237,.94);border:1px solid rgba(200,190,170,.55);box-shadow:0 4px 14px rgba(0,0,40,.1);font:600 12.5px/1 var(--sans);color:#4a4537;cursor:pointer;opacity:0;transition:opacity .3s,transform .14s var(--doux);white-space:nowrap}
+.brouillon.vu{opacity:1;pointer-events:auto}
+.brouillon:focus-visible{outline:3px solid rgba(0,0,145,.5);outline-offset:2px}
+@media (hover:hover){.brouillon:hover{color:var(--bleu)}}
+/* huitième passe, H10.2 : la veille douce de l'écran tenu au bord (un voile sombre, dosé par la page) */
+.tel__voile{position:absolute;inset:0;border-radius:inherit;background:#05081c;opacity:0;pointer-events:none}
+/* H10.3 bis : le message de Marianne qui referme le film, et les trois boutons qui se posent dessous ; le message est
+   assez grand pour se lire à la taille du téléphone tenu, les boutons font au moins 44 px de haut à l'écran ; un
+   espace sous le message laisse la place du pouce de la main gauche */
+.msg--arrivee .bulle{font:500 1.42em/1.32 var(--sans);letter-spacing:-.01em;padding:.62em .85em;max-width:94%}
+/* L5 : deux lignes au plus. À la taille de K4 (1,42 em), « Que souhaitez-vous faire ? » ne tient pas sur une ligne de
+   l'écran (13 em pour 11,5) : la bulle redescend d'un cran (1,06 em, à peine plus que les autres bulles), prend toute la
+   largeur, et ses deux lignes sont équilibrées */
+.msg--arrivee .bulle{font-size:1.06em;line-height:1.3;max-width:100%;padding:.55em .6em;letter-spacing:-.015em;text-wrap:balance}
+.msg--arrivee .liens{display:flex;flex-direction:column;align-self:stretch;gap:.75em;margin:9.6em 0 0}
+.msg--arrivee .liens a{display:flex;align-items:center;gap:.6em;padding:1.02em .95em;border-radius:.62em;background:#fff;border:2px solid rgba(0,0,145,.25);color:var(--bleu);font:600 1.72em/1 Inter,var(--sans);letter-spacing:-.01em;box-shadow:0 3px 0 rgba(0,0,145,.08);transition:transform .14s var(--doux),background .3s}
+.msg--arrivee .liens a .picto{display:block;width:1.05em;height:1.05em;flex:none}
+.msg--arrivee .liens a:active{transform:scale(.97)}
+.msg--arrivee .liens a:focus-visible{outline:3px solid rgba(0,0,145,.55);outline-offset:2px}
+@media (hover:hover){.msg--arrivee .liens a:hover{background:rgba(0,0,145,.06)}}
+/* H7 : la surbrillance du prompt du site dessiné, un halo bleu clair qui respire très lentement (marque de Marianne) */
+.halo-prompt{z-index:13;pointer-events:none}
+.halo-prompt i{position:absolute;inset:8px;border-radius:18px;box-shadow:0 0 0 1.4px rgba(150,188,255,.62),0 0 10px 3px rgba(110,160,255,.48),0 0 24px 9px rgba(120,170,255,.24);animation:respire-halo 5.6s ease-in-out infinite}
+@keyframes respire-halo{0%,100%{opacity:.42}50%{opacity:1}}
+/* L4 (douzième passe) : sur un téléphone de 390 px ou moins, le rail (trois chapitres et « Continuer ») débordait de 28 à
+   58 px : « Continuer » sortait de l'écran. Sous 420 px, seul le chapitre en cours garde son nom écrit ; les deux autres
+   ne montrent que leur point (leur nom reste lu par les lecteurs d'écran) */
+@media (max-width:420px){
+  .rail button:not(.ici){padding:6px 5px}
+  .rail button:not(.ici) span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+}
+/* Q6 (dix-septième passe, 07/10/2026) : les cibles au doigt font au moins 44 px, sans changer le dessin des boutons (une
+   zone de toucher invisible autour d'eux) : le rail et ses points, Continuer, Son, Lancer le film ; le crayon de l'image
+   finale et le lien du CV ont la leur, réglée par la page à leur taille à l'écran (--zone-x, --zone-y, en pixels de
+   l'élément). Sur un téléphone de 420 px ou moins, les points du rail sont à 33 px l'un de l'autre : les traits qui les
+   relient passent de 12 à 23 px, pour que chaque point ait sa cible de 44 px sans chevaucher sa voisine (les traits ne
+   prennent pas le toucher) */
+@media (pointer:coarse){
+  .rail button,.continuer,.son,.lecture{position:relative}
+  .rail button::before,.continuer::before{content:"";position:absolute;left:0;right:0;top:50%;height:44px;margin-top:-22px}
+  .son::before,.lecture::before{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px}
+  .crayon-dessine::before,.cv__initiales::before{content:"";position:absolute;left:calc(-1 * var(--zone-x,0px));right:calc(-1 * var(--zone-x,0px));top:calc(-1 * var(--zone-y,0px));bottom:calc(-1 * var(--zone-y,0px))}
+}
+@media (pointer:coarse) and (max-width:420px){
+  .rail__trait{width:23px;pointer-events:none}
+  /* 17 px vers la gauche (dans le trait qui précède, ou hors du rail), 6 px vers la droite (le reste du trait suivant, ou
+     l'écart avant « Continuer ») : 44 px pour chaque point, quel que soit le chapitre en cours, sans chevauchement */
+  .rail [data-chap]:not(.ici)::before{left:-17px;right:-6px}
+}
+/* Q5, Q6 : sur un téléphone où la barre n'a plus la place du son (375 px : le bouton menu a pris la sienne), l'icône du son
+   se range au bout du rail, après « Continuer » (film.js, placerSon) ; 32 px dessinés, 44 px de cible */
+.rail .son{width:32px;height:36px;min-height:0;padding:0;justify-content:center;background:transparent;border-color:transparent;box-shadow:none;color:var(--bleu);flex:none}
+.rail .son span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media (pointer:coarse){.rail .son::before{left:50%;right:auto;width:44px;margin-left:-22px}}
+/* Q6 : sur téléphone, quand « Ce que fait Civik-ia » (ou le pied) est à l'écran, le rail et les boutons s'effacent : ils
+   couvraient les cartes (moteur.js pose la classe hors-film sur la racine) */
+@media (max-width:767.98px){
+  .rail,.commandes{transition:opacity .3s ease,visibility 0s 0s}
+  html.hors-film .rail,html.hors-film .commandes{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility 0s .3s}
+}
+/* T14 ter (07/10/2026) : sur téléphone, pendant un geste rapide, un seul chapitre affiché (moteur.js, NIV_GESTE) */
+.scene.geste-monde [data-atelier]{visibility:hidden}
+.scene.geste-atelier .monde,.scene.geste-atelier .objets-0,.scene.geste-atelier .objets-1{visibility:hidden}
+/* V1 (vingt-deuxième passe, 07/10/2026) : sur téléphone, le bouton du son vit dans la barre de navigation, juste à gauche du
+   bouton principal (film.js, placerSon, l'y pose à la première image). Rond, de la taille, du fond et du filet du bouton du
+   menu (42 px, sans ombre, comme lui), son icône à 20 px comme la sienne, centré dans la hauteur de la barre ; 44 px de cible
+   (une zone invisible autour) ; 8 px avant le bouton principal (10 au-dessus de 445 px, l'écart de la barre). Sa place est
+   réservée dès qu'il est dans la barre, même caché (hidden, tant que le film n'est pas prêt) : quand il paraît, par un fondu,
+   rien ne bouge. Il s'efface avec les autres commandes quand « Ce que fait Civik-ia » ou le pied sont à l'écran, sa place
+   gardée. Le menu et le bouton principal ne changent pas ; l'espace flexible de la barre laisse sa place à la marge
+   automatique du son (un écart de moins à payer). Ordinateur : rien ne change (le bouton reste dans ses commandes). */
+@media (max-width:767.98px){
+  .nav__esp{display:none}
+  .nav__cta{margin-left:auto}
+  .nav .son + .nav__cta{margin-left:0}
+  .nav .son{display:inline-flex;align-items:center;justify-content:center;flex:none;position:relative;width:42px;height:42px;min-height:0;padding:0;margin:0 2px 0 auto;border-radius:50%;color:var(--bleu);background:rgba(255,255,255,.6);border:1px solid rgba(200,190,170,.45);box-shadow:none;transition:opacity .35s ease,visibility 0s 0s,transform .14s var(--doux),color .3s}
+  .nav .son[hidden]{display:inline-flex;visibility:hidden;opacity:0;transition:none}
+  .nav .son svg{width:20px;height:20px}
+  .nav .son.attente{color:#8a826e}
+  .nav .son::before{content:"";position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px}
+  html.hors-film .nav .son{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility 0s .3s}
+}
+@media (min-width:446px) and (max-width:767.98px){.nav .son{margin-right:0}}
+/* V1 : la barre qui tient tout, mesurée dans le moteur de Safari sans barre de défilement (la largeur d'un iPhone), avec le plus
+   long des libellés du bouton à ces largeurs (« Tester Marianne » : 130 px sous 446, 148 au-dessus) : il faut 395,2 px sous
+   420 (logo 111,2 ; son 42 ; menu 42 ; écarts, marges et filets), 443,4 au-dessus. Les cessions, dans l'ordre du cahier et
+   seulement là où il le faut, avec au moins 2 px de jeu : de 392 à 397,98 px, le bouton principal cède 3 px de chaque côté
+   (393, l'iPhone 15 de Thibaut) ; de 389,5 à 391,98, 4 px (390) ; sous 389,5 px, le logo garde son signe et perd son nom (375,
+   360 : même 4 px de moins ne suffisaient pas à 375, il en manquait 12), le bouton reprenant ses marges ; sous 330, les deux.
+   Entre 420 et 445,98 px (430, 440), la barre garde ses mesures de 420 px (logo de 16 px, bouton de 13 px, écarts de 6) au lieu
+   d'y perdre le nom du logo. En mouvement réduit, pas de film ni de son : la barre ne change pas. film.js garde un filet : si,
+   une police manquant, la barre ne tient pas, le logo perd son nom (nav--sans-nom). */
+@media (prefers-reduced-motion:no-preference) and (min-width:392px) and (max-width:397.98px){.nav__cta{padding-left:10px;padding-right:10px}}
+@media (prefers-reduced-motion:no-preference) and (min-width:389.5px) and (max-width:391.98px){.nav__cta{padding-left:9px;padding-right:9px}}
+@media (prefers-reduced-motion:no-preference) and (max-width:389.49px){.nav__logo span{display:none}}
+@media (prefers-reduced-motion:no-preference) and (max-width:329.98px){.nav__cta{padding-left:9px;padding-right:9px}}
+@media (prefers-reduced-motion:no-preference) and (min-width:420.01px) and (max-width:445.98px){.nav{padding:6px 6px 6px 10px;gap:6px}.nav__logo{font-size:16px}.nav__logo img{width:38px;height:32px}.nav__cta{padding:9px 13px;font-size:13px;min-height:40px}}
+@media (max-width:767.98px){.nav.nav--sans-nom .nav__logo span{display:none}}
+
+/* Y6 (vingt-cinquième passe, 08/10/2026) : la forme légère (navigateurs des applications, ?leger=1 ; main.js, formeLegere). La scène
+   devient une seule image, haute d'un écran, dans le cours de la page (plus de défilement piloté) : la gravure, le bloc
+   « Communiquer », le téléphone, le voile et le grain ; le reste de la scène sort du rendu ; rien ne s'anime. Le bouton « Voir le
+   film » et la phrase d'aide (l'écriture du CV, à la plume) sont posés en bas de l'image, sur la nuit, avant les cartes */
+html.leger .film{height:auto}
+html.leger .scene{position:relative;height:100vh;height:100svh;min-height:540px}
+html.leger .scene>*:not(.fond):not([data-grain]):not([data-voile1]):not(.bloc--1):not(.leger-tel):not(.leger-voir){display:none}
+html.leger .scene *,html.leger .scene *::before,html.leger .scene *::after{animation:none !important;transition:none !important}
+html.leger .cadre{will-change:auto}
+html.leger .cadre>[data-jour],html.leger .ciel-sol,html.leger .aube,html.leger .filante{display:none}
+html.leger .ecran .guider{visibility:hidden}
+html.leger .leger-voir{left:0;right:0;bottom:0;z-index:50;display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 16px calc(22px + env(safe-area-inset-bottom,0px));background:linear-gradient(180deg,rgba(10,15,44,0),rgba(10,15,44,.55) 38%,rgba(10,15,44,.8));text-align:center;visibility:hidden}
+html.leger-pret .leger-voir{visibility:visible}
+.leger-voir__btn{min-height:50px;padding:13px 26px 13px 22px}
+.leger-voir__btn svg{width:15px;height:15px}
+.leger-voir__aide{margin:0;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 7px;font:500 21px/1.25 Caveat,cursive;color:#dfe5f8;opacity:.9}
+.leger-voir__aide svg{width:30px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;transform:translateY(1px)}
+.leger-voir__aide svg .pt{stroke-width:2}
+.leger-voir__aide svg.v{width:16px;height:24px}
+@media (min-width:768px){html.leger .leger-voir{padding-bottom:34px}}
+/* Y6 : sans le bouton du son dans la barre, le nom du logo tient dès 350 px (la mesure de V1 moins le son et son écart : 347 px) */
+@media (min-width:350px) and (max-width:389.49px){html.leger .nav__logo span{display:inline}}

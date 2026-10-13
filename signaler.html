@@ -187,7 +187,7 @@
 
   <div class="footer">
     Vos données sont traitées dans le respect du RGPD.<br>
-    <a href="https://civik-ia.fr">civik-ia.fr</a> · Plateforme d'Intelligence Citoyenne
+    <a href="https://civik-ia.fr">civik-ia.fr</a> · Marianne, l'assistant IA des collectivités territoriales
   </div>
 </div>
 
@@ -309,7 +309,7 @@
         state.lat = +pos.coords.latitude.toFixed(6);
         state.lng = +pos.coords.longitude.toFixed(6);
         state.location = 'Position GPS captée : ' + state.lat + ', ' + state.lng;
-        // Tenter d'enrichir avec une adresse via BAN reverse (différé V2.1 — pour le moment, juste coordonnées)
+        // Tenter d'enrichir avec une adresse via BAN reverse (différé V2.1 : pour le moment, juste coordonnées)
         render();
         cb && cb();
       },

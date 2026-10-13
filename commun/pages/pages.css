@@ -1,0 +1,286 @@
+/* =====================================================================
+   Pages Conseil et Atelier, et section « base de connaissances » de
+   Marianne : la feuille de style commune (maquette de travail du
+   06/10/2026). Jetons repris de la page Marianne en ligne et du film
+   (c-film/film.css) ; aucune bibliothèque, aucune police distante.
+   ===================================================================== */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/inter-latin-var.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/poppins-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('../fonts/poppins-latin-800.woff2') format('woff2')}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/caveat-latin-var.woff2') format('woff2')}
+
+:root{
+  --bleu:#000091;--bleu-2:#1a1a6e;--trait:#2b6fd6;
+  --teal:#2EC4B6;--teal-txt:#0b6a62;--ia:#245fc2;--or:#F4A261;--or-txt:#9A5B1E;
+  --encre:#1E1E1E;--encre-2:#5a5a5a;--encre-3:#77705f;
+  --creme:#f7f4ed;--creme-2:#f5f2eb;--creme-3:#efeae1;--papier:#fffdf8;
+  --nuit:#0A0F2C;--nuit-2:#121a47;--nuit-txt:#eef1fb;--nuit-txt2:#b9c1e0;
+  --plume:#16205C;--gravure:#60637b;
+  --rouge:#c8322b;
+  --ligne:rgba(120,100,60,.2);--ligne-2:rgba(120,100,60,.32);
+  --ombre-1:0 6px 18px rgba(0,0,80,.06);--ombre-2:0 18px 48px rgba(0,0,80,.10);--ombre-3:0 40px 90px rgba(0,0,80,.18);
+  --r-s:12px;--r-m:18px;--r-l:24px;--r-xl:32px;
+  --gut:clamp(20px,5vw,72px);
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --titre:'Poppins','Inter',sans-serif;
+  --main:'Caveat',cursive;
+  --doux:cubic-bezier(.2,.8,.2,1);
+  --entree:cubic-bezier(.16,1,.3,1);
+  --depl:cubic-bezier(.65,0,.35,1);
+  --focus:#000091;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:clip;max-width:100%;scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--encre);background:var(--creme);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip;max-width:100%}
+img,svg,canvas{max-width:none}
+img{display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none;padding:0}
+h1,h2,h3,h4,p,ol,ul,figure,fieldset,legend,dl,dd{margin:0}
+ol,ul{padding:0;list-style:none}
+fieldset{border:0;padding:0;min-width:0}
+legend{padding:0}
+i,em{font-style:normal}
+:focus{outline:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+.nuit,.bande-nuit,.pied{--focus:#ffffff}
+[hidden]{display:none !important}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.evitement{position:fixed;left:16px;top:-80px;z-index:300;background:var(--bleu);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;transition:top .2s}
+.evitement:focus{top:16px}
+
+/* ---------- navigation (celle du film, la page courante marquée) ---------- */
+.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:0 10px 28px rgba(0,0,40,.12);transition:box-shadow .4s var(--doux)}
+.nav__logo{display:flex;align-items:center;gap:8px;font:800 18px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu);flex:none;border-radius:12px}
+.nav__logo img{width:44px;height:37px;mix-blend-mode:multiply}
+.nav__logo b{font-weight:800;color:var(--trait)}
+.nav__liens{display:flex;gap:2px;margin-left:12px}
+.nav__liens a{font:600 14px/1 var(--sans);color:var(--encre);padding:10px 12px;border-radius:9999px;transition:background .25s,color .25s}
+.nav__liens a[aria-current="page"]{color:var(--bleu);background:rgba(0,0,145,.08)}
+@media (hover:hover){.nav__liens a:hover{color:var(--bleu);background:rgba(0,0,145,.06)}}
+.nav__esp{flex:1;min-width:4px}
+.nav__cta{min-height:42px;padding:11px 18px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 14px/1.2 var(--sans);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex:none;transition:transform .14s var(--doux),background .3s}
+.nav__cta:active{transform:scale(.96)}
+@media (hover:hover){.nav__cta:hover{background:var(--teal-txt)}}
+.nav__menu{display:none;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;color:var(--bleu);background:rgba(255,255,255,.6);border:1px solid rgba(200,190,170,.45);flex:none}
+.nav__menu svg{width:20px;height:20px}
+.nav__tiroir{position:fixed;top:78px;left:50%;z-index:99;width:min(calc(100% - 32px),480px);transform:translate(-50%,-8px);opacity:0;visibility:hidden;background:rgba(247,244,237,.99);border:1px solid rgba(200,190,170,.5);border-radius:22px;padding:10px;box-shadow:var(--ombre-3);display:grid;gap:2px;transition:opacity .3s var(--entree),transform .4s var(--entree),visibility 0s .4s}
+.nav__tiroir.ouvert{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s var(--entree),transform .4s var(--entree)}
+.nav__tiroir a{display:flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:14px;font:600 16px/1.2 var(--sans)}
+.nav__tiroir a[aria-current="page"]{color:var(--bleu);background:rgba(0,0,145,.07)}
+@media (max-width:880px){.nav__liens{display:none}.nav__menu{display:inline-flex}}
+@media (max-width:420px){.nav{padding:6px 6px 6px 10px;gap:6px}.nav__logo{font-size:16px}.nav__logo img{width:38px;height:32px}.nav__cta{padding:9px 13px;font-size:13px;min-height:40px}.nav__cta .long{display:none}}
+@media (min-width:421px){.nav__cta .court{display:none}}
+
+/* ---------- boutons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:9999px;font:600 15.5px/1.2 var(--sans);white-space:nowrap;transition:transform .14s var(--doux),box-shadow .45s var(--doux),background .3s,color .3s,border-color .3s}
+.btn svg{flex:none;width:16px;height:16px;transition:transform .25s var(--doux)}
+.btn:active{transform:scale(.96)}
+.btn--plein{background:var(--bleu);color:#fff;box-shadow:0 8px 24px rgba(0,0,145,.22)}
+.btn--clair{background:var(--creme);color:var(--nuit);box-shadow:0 10px 30px rgba(0,0,0,.28)}
+.btn--filet{border:1.5px solid rgba(0,0,145,.28);color:var(--bleu);background:transparent}
+.btn--petit{min-height:44px;padding:10px 18px;font-size:14.5px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+@media (hover:hover){.btn--plein:not([disabled]):hover{background:var(--teal-txt)}.btn--clair:hover{background:#fff}.btn--filet:hover{border-color:var(--bleu);background:rgba(0,0,145,.04)}.btn:not([disabled]):hover svg{transform:translateX(4px)}}
+.lien{color:var(--bleu);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-color:rgba(0,0,145,.3);transition:text-decoration-color .2s}
+@media (hover:hover){.lien:hover{text-decoration-color:currentColor}}
+
+/* ---------- typographie et gabarit (page Marianne) ---------- */
+.sur{display:inline-flex;align-items:center;gap:10px;font:600 15px/1.3 var(--sans);color:var(--teal-txt)}
+.h2{font:700 clamp(32px,4.1vw,56px)/1.06 var(--titre);letter-spacing:-.03em;color:var(--bleu);text-wrap:balance;margin-top:14px}
+.h2:first-child{margin-top:0}
+/* R2 (finitions du 07/10/2026) : les titres de carte, d'étape et de fiche s'équilibrent sur leurs lignes (repli : pretty,
+   puis une insécable dans le texte là où un mot restait seul) */
+.h3{font:700 clamp(20px,1.9vw,25px)/1.2 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:pretty;text-wrap:balance}
+.chapo{font-size:clamp(17px,1.4vw,19.5px);line-height:1.6;color:var(--encre-2);max-width:62ch;margin-top:20px}
+.chapo strong{color:var(--encre);font-weight:600}
+.sec{position:relative;padding:clamp(80px,9.5vw,136px) var(--gut)}
+.sec--2{background:var(--creme-3)}
+.sec--papier{background:var(--papier)}
+.wrap{max-width:1200px;margin-inline:auto}
+.tete{max-width:820px;margin-bottom:clamp(36px,5vw,64px)}
+.tete--c{text-align:center;margin-inline:auto}
+.tete--c .chapo{margin-inline:auto}
+.main-ecrite{font:500 1.35em/1.1 var(--main);color:var(--plume)}
+.date-maj{font-size:13.5px;color:var(--encre-2)}
+.bande-nuit{background:var(--nuit);color:var(--nuit-txt)}
+.bande-nuit .h2{color:#fff}
+.bande-nuit .sur{color:#9db9ff}
+
+/* ---------- entrées (grammaire de la DDC) : mot à mot sous un masque, montée de 12 px et flou de 2 px ---------- */
+/* R1 (finitions du 07/10/2026) : les jambages des titres. Le masque de chaque mot rognait le bas des lettres de Poppins
+   (le « g » de « Harang, », les « pp » d'« applications ») : son fondu du bas tombait sur les jambages. Le retrait bas de
+   chaque mot passe de 0,16 à 0,34 em (compensé par la marge : la ligne ne bouge pas), le masque est opaque jusqu'à
+   0,16 em du bas de cette boîte (les jambages de Poppins descendent à environ 0,25 em sous la ligne de base) ; le haut
+   du masque garde son fondu d'environ 0,2 em ; le mot part de 0,18 em plus bas, pour rester caché au départ comme avant. */
+.mots .w{display:inline-block;padding:.12em .03em .34em;margin:-.12em -.03em -.34em;vertical-align:top;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 .2em,#000 calc(100% - .16em),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 .2em,#000 calc(100% - .16em),transparent 100%)}
+.mots .w>i{display:inline-block;transform:translateY(calc(105% + .18em));opacity:0;filter:blur(3px);transition:transform .9s var(--entree),opacity .7s var(--entree),filter .7s var(--entree);transition-delay:calc(var(--i) * 45ms + var(--d,0ms))}
+.mots.vu .w>i{transform:none;opacity:1;filter:none}
+[data-entree]{opacity:0;transform:translateY(12px);filter:blur(2px);transition:opacity .8s var(--entree),transform .9s var(--entree),filter .8s var(--entree);transition-delay:var(--d,0ms)}
+[data-entree].vu{opacity:1;transform:none;filter:none}
+html:not(.js) [data-entree],html:not(.js) .mots .w>i{opacity:1;transform:none;filter:none}
+
+/* ---------- puces (cases et boutons radio en pastilles) ---------- */
+.puces{display:flex;flex-wrap:wrap;gap:9px}
+.puce{position:relative;display:inline-flex}
+.puce input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}
+.puce span{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:9999px;background:var(--papier);border:1px solid rgba(120,100,60,.3);font:500 14.5px/1.25 var(--sans);color:var(--encre);transition:background .25s,color .25s,border-color .25s,transform .14s var(--doux),box-shadow .25s}
+.puce span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;border:1.6px solid rgba(0,0,145,.35);transition:background .25s,border-color .25s}
+.puce input:checked+span{background:var(--bleu);border-color:var(--bleu);color:#fff;box-shadow:0 6px 16px rgba(0,0,145,.18)}
+.puce input:checked+span::before{background:var(--or);border-color:var(--or)}
+.puce input:focus-visible+span{outline:3px solid var(--focus);outline-offset:3px}
+.puce input:active+span{transform:scale(.96)}
+@media (hover:hover){.puce input:not(:checked):hover+span{border-color:var(--bleu);color:var(--bleu)}}
+
+/* ---------- champs de formulaire ---------- */
+.champ{display:grid;gap:7px}
+.champ label,.champ .lab{font:600 14.5px/1.3 var(--sans);color:var(--encre)}
+.champ .aide{font:500 13px/1.4 var(--sans);color:var(--encre-2)}
+.champ input,.champ textarea,.champ select{width:100%;min-height:50px;padding:13px 16px;border-radius:14px;border:1px solid rgba(120,100,60,.34);background:#fff;font:500 16px/1.4 var(--sans);color:var(--encre);transition:border-color .2s,box-shadow .2s}
+.champ textarea{min-height:104px;resize:vertical}
+.champ input:focus,.champ textarea:focus{border-color:var(--bleu);box-shadow:0 0 0 3px rgba(0,0,145,.14)}
+.champ [aria-invalid="true"]{border-color:var(--rouge);box-shadow:0 0 0 3px rgba(200,50,43,.12)}
+.erreur{font:600 13.5px/1.4 var(--sans);color:var(--rouge);min-height:0}
+.erreur:empty{display:none}
+.oblig{color:var(--rouge);font-weight:700}
+.grille-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:640px){.grille-2{grid-template-columns:1fr}}
+
+/* ---------- la fiche (document qui s'écrit) ---------- */
+.fiche{position:relative;background:var(--papier);border-radius:6px;padding:clamp(26px,3vw,40px) clamp(22px,3vw,40px) clamp(26px,3vw,36px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(120,100,60,.14),0 2px 3px rgba(60,40,10,.06),0 22px 48px -18px rgba(60,40,10,.28);color:var(--encre)}
+.fiche::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 100% 100%,rgba(120,90,40,.06),transparent 70%),radial-gradient(ellipse 50% 40% at 0 0,rgba(120,90,40,.04),transparent 70%)}
+.fiche__tete{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1.5px solid var(--bleu)}
+.fiche__titre{font:800 clamp(21px,2vw,26px)/1.1 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:pretty;text-wrap:balance}   /* R2 */
+.fiche__de{font:500 13px/1.4 var(--sans);color:var(--encre-2);margin-top:6px}
+.fiche__ref{text-align:right;font:600 11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--encre-2);white-space:nowrap}
+.fiche__filet{display:flex;gap:4px;margin-top:10px;justify-content:flex-end}
+.fiche__filet i{width:16px;height:3px;border-radius:2px}
+.fiche__filet i:nth-child(1){background:var(--bleu)}.fiche__filet i:nth-child(2){background:#d9d4c8}.fiche__filet i:nth-child(3){background:var(--rouge)}
+.fiche__sec{padding:15px 0 13px;border-bottom:1px dashed rgba(120,100,60,.32)}
+.fiche__sec:last-of-type{border-bottom:0}
+.fiche__h{display:flex;align-items:baseline;gap:10px;font:700 11.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--or-txt)}
+.fiche__h b{font:800 13px/1 var(--titre);letter-spacing:0;color:var(--bleu)}
+.fiche__l{display:grid;grid-template-columns:minmax(96px,32%) 1fr;gap:4px 14px;margin-top:8px;font:500 14.5px/1.45 var(--sans)}
+.fiche__l dt{color:var(--encre-2)}
+.fiche__l dd{color:var(--encre);min-height:1.45em;overflow-wrap:anywhere}
+.fiche__l dd.vide{color:#b4ab98}
+.fiche__resume{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(0,0,145,.045);font:500 15px/1.55 var(--sans);color:var(--encre)}
+.fiche__resume b{color:var(--bleu)}
+.fiche__suite{margin-top:14px;font:500 13.5px/1.5 var(--sans);color:var(--encre-2)}
+.curseur{display:inline-block;width:1.5px;height:1.05em;background:var(--bleu);vertical-align:-.17em;margin-left:1px;animation:clign 1.05s steps(1) infinite}
+@keyframes clign{50%{opacity:0}}
+.frappe{white-space:pre-wrap}
+@media (max-width:520px){.fiche__l{grid-template-columns:1fr;gap:0}.fiche__l dt{margin-top:6px;font-size:13px}.fiche__tete{flex-direction:column;gap:8px}.fiche__ref{text-align:left}.fiche__filet{justify-content:flex-start}}
+
+/* ---------- le parcours en étapes (fiche de demande, page blanche) ---------- */
+.pas{background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(22px,2.8vw,36px);box-shadow:var(--ombre-2)}
+.pas__barre{height:4px;border-radius:4px;background:rgba(0,0,145,.1);overflow:hidden}
+.pas__barre i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--bleu),var(--trait));transform-origin:left;transform:scaleX(.2);transition:transform .6s var(--entree)}
+.pas__etat{margin-top:12px;font:600 13px/1.3 var(--sans);color:var(--encre-2)}
+.pas__etape{margin-top:14px;display:grid;gap:16px}
+.pas__etape[hidden]{display:none}
+.pas__etape.entre{animation:entre .6s var(--entree)}
+@keyframes entre{from{opacity:0;transform:translateX(14px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+.pas__titre:focus{outline:none}
+.pas__titre{font:700 clamp(22px,2vw,27px)/1.2 var(--titre);color:var(--bleu);letter-spacing:-.02em;margin-bottom:2px;text-wrap:pretty;text-wrap:balance}   /* R2 */
+.pas .lab{font:600 14.5px/1.3 var(--sans);color:var(--encre);margin-bottom:-6px}
+.pas__actions{display:flex;align-items:center;gap:12px;margin-top:24px}
+.pas.fini .pas__actions{display:none}
+.pas__aide{font-size:14.5px;color:var(--encre-2);margin-top:-6px}
+
+/* ---------- l'encart « maquette : rien n'est transmis » ---------- */
+.envoi{margin-top:18px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,145,.18);box-shadow:var(--ombre-1)}
+.envoi[hidden]{display:none}
+.envoi p{font-size:15px;line-height:1.55;color:var(--encre-2);margin-top:6px}
+.envoi .envoi__t{font:700 17px/1.35 var(--titre);color:var(--bleu);margin-top:0}
+.envoi__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.copie-ok{font:600 13.5px/1.3 var(--sans);color:var(--teal-txt);align-self:center}
+/* CO-13 (première passe Conseil, 06/10/2026) : les états de l'envoi réel, seulement là où un formulaire porte data-envoi
+   (ces classes ne sont posées nulle part ailleurs : la page Atelier ne change pas) */
+.envoi--echec{border-color:rgba(200,50,43,.38)}
+.envoi--echec .envoi__t{color:var(--rouge)}
+.contact__formu.envoye>.champ,.contact__formu.envoye>button[type="submit"],.contact__formu.envoye>.mention{display:none}
+.contact__formu.envoye>.envoi{margin:0;padding:2px 0;border:0;box-shadow:none;background:none}
+
+/* ---------- l'emplacement de prix provisoire ---------- */
+.prix-provisoire{display:inline-flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;border:1.5px dashed #b9b2a2;background:repeating-linear-gradient(135deg,rgba(185,178,162,.08) 0 8px,transparent 8px 16px)}
+.prix-provisoire b{font:700 18px/1.2 var(--titre);color:#8d8676;letter-spacing:-.01em}
+.prix-provisoire small{font:600 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#9a9282}
+
+/* ---------- questions fréquentes (page Marianne) ---------- */
+.faq__liste{max-width:860px;margin-inline:auto;display:grid;gap:12px}
+.faq details{background:var(--papier);border:1px solid rgba(120,100,60,.24);border-radius:var(--r-m);transition:box-shadow .3s,border-color .3s}
+.faq details[open]{box-shadow:var(--ombre-2);border-color:rgba(0,0,145,.26)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;font:700 17px/1.35 var(--titre);color:var(--bleu);letter-spacing:-.01em;border-radius:var(--r-m);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-3px,-3px);transition:transform .35s var(--doux)}
+.faq details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+.faq details>div{padding:0 22px 22px;color:var(--encre-2);font-size:16px;line-height:1.65;max-width:72ch}
+.faq details strong{color:var(--encre);font-weight:600}
+
+/* ---------- contact court ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.contact__formu{background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(22px,3vw,36px);box-shadow:var(--ombre-2);display:grid;gap:16px}
+.contact__plus{margin-top:22px;font-size:15.5px;color:var(--encre-2)}
+.contact__mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font:700 17px/1.2 var(--sans);color:var(--bleu)}
+.mention{font:500 12.5px/1.5 var(--sans);color:var(--encre-2)}
+/* DJ-5 (avis DAJF du 08/10/2026) : la mention des formulaires garde sa taille ; le lien vers la politique de confidentialité
+   prend la couleur du texte courant, souligné ; sa zone de toucher grandit par un rembourrage vertical, qui ne change pas la
+   hauteur de la ligne (élément en ligne) ; le lien ne se coupe pas (à 375, dans la fiche de projet, « confidentialité. » restait
+   seul sur sa ligne) ; la mention reste cachée après l'envoi du contact (.envoye>.mention, plus haut) */
+.mention{text-wrap:pretty}
+/* DJ-5 : « contact@civik-ia.fr » se coupait au trait d’union à 375 (« contact@civik- » puis « ia.fr ») ; « Civik-ia » non plus */
+.mention .insec{white-space:nowrap}
+.mention a{white-space:nowrap;color:var(--encre);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,30,30,.45);padding-block:12px;transition:text-decoration-color .2s}
+@media (hover:hover){.mention a:hover{color:var(--bleu);text-decoration-color:currentColor}}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+
+/* ---------- pied de page ---------- */
+.pied{background:var(--nuit);color:var(--nuit-txt2);padding:56px var(--gut) 92px}
+.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre);color:#fff;letter-spacing:-.02em}
+.pied__marque img{width:46px;height:39px;padding:3px 4px;border-radius:10px;background:var(--creme);mix-blend-mode:normal}
+.pied__marque b{color:#9db9ff;font-weight:800}
+/* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque, dessinés à la plume comme le logo LinkedIn du CV ; cibles de 44 px */
+.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-9px}
+.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:12px;color:#fff}
+.pied .pied__reseaux svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.pied .pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07);text-decoration:none}}
+.pied p{font-size:14px;line-height:1.6;margin-top:14px;max-width:44ch}
+.pied h2{font:700 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#8f99c4}
+.pied ul{margin-top:12px;display:grid;gap:4px}
+.pied ul a{display:inline-flex;min-height:36px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
+@media (hover:hover){.pied ul a:hover{text-decoration:underline;text-underline-offset:4px}}
+.pied__bas{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f99c4}
+/* bandeau de fin (07/10/2026, soir) : la ligne officielle, les liens légaux, la mention de maquette */
+.pied .pied__legal{max-width:1200px;margin:6px auto 0;display:flex;flex-wrap:wrap;gap:0 18px;font-size:12.5px}
+.pied .pied__legal a{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans);color:#b9c1e0}
+@media (hover:hover){.pied .pied__legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__maquette{max-width:1200px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#6f7aa6}
+/* .pied p (44ch) l’emportait sur .pied__bas : la ligne officielle prend toute la largeur, comme les liens légaux */
+.pied .pied__bas{max-width:1200px;line-height:1.5}
+/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes (la règle .pied p
+   poussait la marque de 14 px ; mesuré : centre des titres à 12 px au-dessus du centre de la marque une fois la marge retirée) */
+.pied .pied__marque{margin-top:-12px}
+/* guides (08/10/2026, nuit) : quatrième colonne du pied, liens plus serrés ; deux colonnes sous 1024, une sous 760 */
+.pied .pied__in{grid-template-columns:1.3fr 1fr 1fr 1.15fr}
+.pied .pied__guides ul a{min-height:30px;font-size:14px}
+@media (max-width:1024px){.pied .pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.pied .pied__in{grid-template-columns:1fr}}
+@media (max-width:760px){.pied__in{grid-template-columns:1fr}}
+
+/* ---------- étiquette de travail ---------- */
+.etiquette{position:fixed;left:20px;bottom:20px;z-index:90;font:600 12px/1 var(--sans);color:#5a5446;background:rgba(247,244,237,.92);border:1px solid rgba(200,190,170,.5);border-radius:9999px;padding:9px 13px;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,40,.08)}
+@media (max-width:767.98px){.etiquette{left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);font-size:10px;padding:4px 9px;white-space:nowrap}}
+/* R8 (finitions du 07/10/2026) : l'étiquette s'efface quatre secondes après le chargement et revient au survol de son coin
+   ou en haut de page (pages.js, etiquette) ; seule l'opacité change, puis elle sort du rendu (plus de lecture, plus de calque) */
+.etiquette{transition:opacity .6s var(--doux),visibility 0s 0s}
+.etiquette--cachee{opacity:0;visibility:hidden;transition:opacity .9s var(--doux),visibility 0s .9s}
+
+/* ---------- mouvement réduit ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important;transition-delay:0ms !important}
+  [data-entree],.mots .w>i{opacity:1 !important;transform:none !important;filter:none !important}
+}

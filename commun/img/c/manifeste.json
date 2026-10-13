@@ -1,0 +1,1239 @@
+{
+ "poteau-planche": {
+  "taille": [
+   896,
+   1200
+  ],
+  "cv": [
+   [
+    0.3788,
+    0.2917
+   ],
+   [
+    0.6257,
+    0.2917
+   ],
+   [
+    0.6257,
+    0.5523
+   ],
+   [
+    0.3788,
+    0.5523
+   ]
+  ],
+  "plaque": [
+   [
+    0.4475,
+    0.2492
+   ],
+   [
+    0.5569,
+    0.2492
+   ],
+   [
+    0.5569,
+    0.28
+   ],
+   [
+    0.4475,
+    0.28
+   ]
+  ],
+  "planche": [
+   [
+    0.3259,
+    0.2375
+   ],
+   [
+    0.6786,
+    0.2375
+   ],
+   [
+    0.6786,
+    0.5767
+   ],
+   [
+    0.3259,
+    0.5767
+   ]
+  ],
+  "fleche_gauche": [
+   [
+    0.3739,
+    0.09
+   ],
+   [
+    0.6529,
+    0.0883
+   ],
+   [
+    0.6529,
+    0.1317
+   ],
+   [
+    0.3739,
+    0.1333
+   ]
+  ],
+  "fleche_droite": [
+   [
+    0.3482,
+    0.1642
+   ],
+   [
+    0.6417,
+    0.1625
+   ],
+   [
+    0.6417,
+    0.2058
+   ],
+   [
+    0.3482,
+    0.2075
+   ]
+  ],
+  "clou": [
+   0.5056,
+   0.305
+  ],
+  "pied": [
+   0.5022,
+   0.875
+  ]
+ },
+ "main-gauche-telephone": {
+  "taille": [
+   928,
+   1152
+  ],
+  "quad": [
+   [
+    0.4837,
+    0.2417
+   ],
+   [
+    0.7894,
+    0.2589
+   ],
+   [
+    0.7434,
+    0.7879
+   ],
+   [
+    0.4378,
+    0.7707
+   ]
+  ],
+  "angle": 4,
+  "poignet": [
+   0.4256,
+   0.8681
+  ]
+ },
+ "main-crayon": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "pointe": [
+   0.2275,
+   0.2305
+  ],
+  "poignet": [
+   0.8,
+   0.86
+  ]
+ },
+ "cypres-1": {
+  "taille": [
+   592,
+   1792
+  ],
+  "pied": [
+   0.5101,
+   0.9498
+  ],
+  "cime": 0.0485
+ },
+ "_encres": {
+  "gravure": [
+   96,
+   99,
+   123
+  ],
+  "papier_gravure": [
+   254,
+   254,
+   253
+  ],
+  "plume": [
+   22,
+   32,
+   92
+  ]
+ },
+ "atelier-table": {
+  "taille": [
+   1376,
+   768
+  ],
+  "planche": [
+   [
+    0.3358,
+    0.1016
+   ],
+   [
+    0.7485,
+    0.0651
+   ],
+   [
+    0.694,
+    0.5339
+   ],
+   [
+    0.2544,
+    0.4922
+   ]
+  ],
+  "version": "pierre (04/10/2026), meme table, lampe allumee au-dessus ; ancienne version : sources/atelier-table-v1.webp",
+  "ampoule": [
+   0.5102,
+   0.013,
+   0.0291
+  ],
+  "lampe": [
+   0.4578,
+   0,
+   0.5632,
+   0.0234
+  ]
+ },
+ "atelier-planche": {
+  "taille": [
+   1376,
+   768
+  ],
+  "planche": [
+   [
+    0.0967,
+    0.043
+   ],
+   [
+    0.9172,
+    0.043
+   ],
+   [
+    0.9797,
+    0.9505
+   ],
+   [
+    0.0196,
+    0.9505
+   ]
+  ],
+  "feuille": [
+   [
+    0.1483,
+    0.2948
+   ],
+   [
+    0.8529,
+    0.2948
+   ],
+   [
+    0.885,
+    0.8875
+   ],
+   [
+    0.1058,
+    0.8875
+   ]
+  ],
+  "telephone": [
+   [
+    0.168,
+    0.3855
+   ],
+   [
+    0.2815,
+    0.3855
+   ],
+   [
+    0.2576,
+    0.8927
+   ],
+   [
+    0.1339,
+    0.8927
+   ]
+  ],
+  "cv": [
+   [
+    0.3701,
+    0.3463
+   ],
+   [
+    0.5522,
+    0.3463
+   ],
+   [
+    0.5524,
+    0.8461
+   ],
+   [
+    0.3542,
+    0.8461
+   ]
+  ],
+  "idee": [
+   [
+    0.5912,
+    0.3463
+   ],
+   [
+    0.8383,
+    0.3463
+   ],
+   [
+    0.8629,
+    0.8256
+   ],
+   [
+    0.5947,
+    0.8256
+   ]
+  ],
+  "crayon": [
+   [
+    0.6144,
+    0.9052
+   ],
+   [
+    0.8431,
+    0.9052
+   ],
+   [
+    0.8445,
+    0.9346
+   ],
+   [
+    0.6147,
+    0.9346
+   ]
+  ],
+  "gravure": [
+   [
+    0.1666,
+    0.0978
+   ],
+   [
+    0.3821,
+    0.0978
+   ],
+   [
+    0.3771,
+    0.2609
+   ],
+   [
+    0.155,
+    0.2609
+   ]
+  ],
+  "clou": [
+   0.4608,
+   0.368
+  ],
+  "version": "pierre (04/10/2026), redressee sur le quadrilatere planche de la version 1 ; ancienne version : sources/atelier-planche-v1.webp",
+  "cable_lampe_x": 0.5018,
+  "ampoule": null
+ },
+ "main-droite-saisit": {
+  "taille": [
+   928,
+   1152
+  ],
+  "pince": [
+   0.345,
+   0.37
+  ],
+  "pouce": [
+   0.275,
+   0.47
+  ],
+  "index": [
+   0.455,
+   0.25
+  ]
+ },
+ "main-droite-feuille": {
+  "taille": [
+   928,
+   1152
+  ],
+  "quad": [
+   [
+    -0.2662,
+    -0.0294
+   ],
+   [
+    0.3683,
+    -0.1296
+   ],
+   [
+    0.5441,
+    0.5931
+   ],
+   [
+    -0.0904,
+    0.6933
+   ]
+  ],
+  "vert": [
+   [
+    0.0562,
+    0.2011
+   ],
+   [
+    0.4347,
+    0.146
+   ],
+   [
+    0.5786,
+    0.7872
+   ],
+   [
+    0.2001,
+    0.8423
+   ]
+  ],
+  "angle": -10.25,
+  "redressement_deg": 7,
+  "zone_pouce": "le quart bas droit du CV reste vide : le pouce s'y pose"
+ },
+ "main-souleve": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "coin": [
+   0.5371,
+   0.5498
+  ],
+  "bord_bas": 0.5498,
+  "bord_droit": 0.5371
+ },
+ "cypres-2": {
+  "taille": [
+   592,
+   1792
+  ],
+  "pied": [
+   0.5101,
+   0.9509
+  ],
+  "cime": 0.0653,
+  "gauche": 0.2939,
+  "droite": 0.7078
+ },
+ "vigne-1": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "pied": [
+   0.4805,
+   0.8818
+  ],
+  "cime": 0.1719,
+  "gauche": 0.0713,
+  "droite": 0.9248
+ },
+ "vigne-2": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "pied": [
+   0.5283,
+   0.8838
+  ],
+  "cime": 0.1719,
+  "gauche": 0.0605,
+  "droite": 0.9268
+ },
+ "borne": {
+  "taille": [
+   896,
+   1200
+  ],
+  "pied": [
+   0.519,
+   0.8117
+  ],
+  "cime": 0.1875,
+  "gauche": 0.1674,
+  "droite": 0.8326
+ },
+ "lointain": {
+  "taille": [
+   1584,
+   672
+  ],
+  "crete_moyenne": 0.4286,
+  "crete_min": 0.3392,
+  "bas_du_dessin": 0.6949
+ },
+ "feuille": {
+  "taille": [
+   672,
+   971
+  ],
+  "texte": [
+   [
+    0.0902,
+    0.0553
+   ],
+   [
+    0.9098,
+    0.0553
+   ],
+   [
+    0.9098,
+    0.7103
+   ],
+   [
+    0.0902,
+    0.7103
+   ]
+  ],
+  "clou": [
+   0.5,
+   0.0323
+  ],
+  "corps": [
+   [
+    0.0179,
+    0.0103
+   ],
+   [
+    0.9821,
+    0.0103
+   ],
+   [
+    0.9821,
+    0.9897
+   ],
+   [
+    0.0179,
+    0.9897
+   ]
+  ]
+ },
+ "telephone": {
+  "taille": [
+   589,
+   1205
+  ],
+  "quad": [
+   [
+    0.0628,
+    0.0274
+   ],
+   [
+    0.9372,
+    0.0274
+   ],
+   [
+    0.9372,
+    0.9726
+   ],
+   [
+    0.0628,
+    0.9726
+   ]
+  ],
+  "corps": [
+   [
+    0.0102,
+    0.005
+   ],
+   [
+    0.9898,
+    0.005
+   ],
+   [
+    0.9898,
+    0.995
+   ],
+   [
+    0.0102,
+    0.995
+   ]
+  ],
+  "rayon_ecran": 0.1006
+ },
+ "telephone-trois-quarts": {
+  "taille": [
+   454,
+   1016
+  ],
+  "quad": [
+   [
+    0.1079,
+    0.0192
+   ],
+   [
+    0.9515,
+    0.0648
+   ],
+   [
+    0.9515,
+    0.9674
+   ],
+   [
+    0.1079,
+    0.9748
+   ]
+  ],
+  "corps": [
+   [
+    0.0132,
+    0.0059
+   ],
+   [
+    0.9868,
+    0.0059
+   ],
+   [
+    0.9868,
+    0.9941
+   ],
+   [
+    0.0132,
+    0.9941
+   ]
+  ],
+  "rayon_ecran": 0.097
+ },
+ "sol-chemin": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "fond": "transparent : seule l'encre est opaque, a poser sur la couleur du chemin"
+ },
+ "clou": {
+  "taille": [
+   256,
+   257
+  ]
+ },
+ "feuille-dessin": {
+  "taille": [
+   931,
+   674
+  ],
+  "surface": [
+   [
+    0.0381,
+    0.0607
+   ],
+   [
+    0.9619,
+    0.0607
+   ],
+   [
+    0.9619,
+    0.9393
+   ],
+   [
+    0.0381,
+    0.9393
+   ]
+  ],
+  "corps": [
+   [
+    0.0086,
+    0.0119
+   ],
+   [
+    0.9914,
+    0.0119
+   ],
+   [
+    0.9914,
+    0.9881
+   ],
+   [
+    0.0086,
+    0.9881
+   ]
+  ]
+ },
+ "herbes": {
+  "taille": [
+   1264,
+   848
+  ],
+  "touffes": [
+   {
+    "boite": [
+     0.0949,
+     0.0483,
+     0.2919,
+     0.4623
+    ],
+    "pied": [
+     0.1899,
+     0.4623
+    ]
+   },
+   {
+    "boite": [
+     0.413,
+     0.1061,
+     0.6084,
+     0.4446
+    ],
+    "pied": [
+     0.4248,
+     0.4446
+    ]
+   },
+   {
+    "boite": [
+     0.7136,
+     0.1498,
+     0.9043,
+     0.4163
+    ],
+    "pied": [
+     0.807,
+     0.4163
+    ]
+   },
+   {
+    "boite": [
+     0.0815,
+     0.5625,
+     0.303,
+     0.9458
+    ],
+    "pied": [
+     0.2041,
+     0.9458
+    ]
+   },
+   {
+    "boite": [
+     0.413,
+     0.5531,
+     0.5949,
+     0.9269
+    ],
+    "pied": [
+     0.5,
+     0.9269
+    ]
+   },
+   {
+    "boite": [
+     0.7089,
+     0.5767,
+     0.9122,
+     0.908
+    ],
+    "pied": [
+     0.8038,
+     0.908
+    ]
+   }
+  ],
+  "ordre": [
+   "graminee haute",
+   "chardon",
+   "thym",
+   "pissenlit",
+   "coquelicots",
+   "graminee courte"
+  ],
+  "fond": "transparent : seule l'encre est opaque"
+ },
+ "atelier-facade-fermee": {
+  "taille": [
+   1307,
+   632
+  ],
+  "porte": [
+   [
+    0.3604,
+    0.3228
+   ],
+   [
+    0.6412,
+    0.3228
+   ],
+   [
+    0.6412,
+    0.9873
+   ],
+   [
+    0.3604,
+    0.9873
+   ]
+  ],
+  "vantail_gauche": [
+   [
+    0.3604,
+    0.3228
+   ],
+   [
+    0.5019,
+    0.3228
+   ],
+   [
+    0.5019,
+    0.9873
+   ],
+   [
+    0.3604,
+    0.9873
+   ]
+  ],
+  "vantail_droit": [
+   [
+    0.5019,
+    0.3228
+   ],
+   [
+    0.6412,
+    0.3228
+   ],
+   [
+    0.6412,
+    0.9873
+   ],
+   [
+    0.5019,
+    0.9873
+   ]
+  ],
+  "charniere_gauche": 0.3604,
+  "charniere_droite": 0.6412,
+  "sol": 0.9873,
+  "ouverte": "atelier-facade-ouverte.webp : la meme image, la porte remplacee par l'interieur (a poser sous les vantaux qui pivotent)"
+ },
+ "plaque-atelier": {
+  "taille": [
+   1065,
+   672
+  ],
+  "texte": [
+   [
+    0.1243,
+    0.3036
+   ],
+   [
+    0.8757,
+    0.3036
+   ],
+   [
+    0.8757,
+    0.8339
+   ],
+   [
+    0.1243,
+    0.8339
+   ]
+  ],
+  "vis": [
+   [
+    0.0897,
+    0.171
+   ],
+   [
+    0.9103,
+    0.171
+   ]
+  ]
+ },
+ "main-gauche-ouverte": {
+  "taille": [
+   928,
+   1152
+  ],
+  "poignet": [
+   0.4256,
+   0.8681
+  ],
+  "creux": [
+   0.6131,
+   0.5148
+  ],
+  "pouce": [
+   0.5603,
+   0.4531
+  ],
+  "index": [
+   0.8297,
+   0.4253
+  ],
+  "note": "meme main, meme poignet et meme base du pouce que main-gauche-telephone (04/10/2026) ; creux = centre du telephone dans la main fermee"
+ },
+ "lampe-atelier": {
+  "taille": [
+   611,
+   873
+  ],
+  "rosace": [
+   0.4984,
+   0.0069
+  ],
+  "bas_abat_jour": 0.9931,
+  "ampoule": [
+   0.5106,
+   0.8614,
+   0.0786
+  ],
+  "abat_jour": [
+   0.0115,
+   0.5498,
+   0.9853,
+   1
+  ],
+  "etat": "allumee ; l'etat eteint se derive en assombrissant l'ampoule et l'interieur de l'abat-jour",
+  "rosace_rayon": 0.1227,
+  "note": "ampoule : centre et rayon en fractions de la largeur ; abat_jour : boite (x0, y0, x1, y1) ; rosace : point d'accroche en haut du cable"
+ },
+ "calade": {
+  "taille": [
+   1024,
+   1024
+  ],
+  "fond": "transparent : seule l'encre est opaque, a poser sur la couleur du calcaire",
+  "ordre": "calade-ordre.png",
+  "dalles": 46,
+  "usage": "calade-ordre.png (gris 8 bits, meme grille, raccordable comme la tuile) donne l'ordre d'apparition de chaque dalle (0 premiere, 254 derniere ; joints, eclats et cailloux prennent l'ordre de la dalle voisine la plus precoce) : afficher la pierre et l'encre la ou ordre <= seuil * 254 ; seuil 0 terre nue, 1 pavage complet ; bord du masque adouci de 1 a 2 px",
+  "raccordable": "oui, en repetition simple ; le miroir est possible",
+  "eparse": "calade-eparse.jpeg (sources) non utilisee : Gemini a rendu le pavage complet avec un coin de terre ; la transition se fait par l'ordre des dalles"
+ },
+ "atelier-table-seule": {
+  "taille": [
+   1376,
+   768
+  ],
+  "planche": [
+   [
+    0.3358,
+    0.1016
+   ],
+   [
+    0.7485,
+    0.0651
+   ],
+   [
+    0.694,
+    0.5339
+   ],
+   [
+    0.2544,
+    0.4922
+   ]
+  ],
+  "boite": [
+   0.1977,
+   0,
+   0.75,
+   0.9805
+  ],
+  "pieds": [
+   [
+    0.3695,
+    0.9648
+   ],
+   [
+    0.6174,
+    0.9727
+   ]
+  ],
+  "bas_tabouret": [
+   0.4597,
+   0.9805
+  ],
+  "abat_jour": [
+   0.4201,
+   0,
+   0.5545,
+   0.1719
+  ],
+  "ampoule": [
+   0.5211,
+   0.1583,
+   0.0472
+  ],
+  "cable_x": 0.509,
+  "note": "meme grille et meme place que atelier-table (diff plateau 8,3/255) : table, tabouret, panier, lampe et cable detoures du vert (04/10/2026) ; la lampe pend plus bas que dans atelier-table (abat-jour entier visible) : elle fait foi dans le plan table ; tabouret et panier sont dans le plan de la table"
+ },
+ "atelier-fond": {
+  "taille": [
+   1376,
+   768
+  ],
+  "sol": 0.736,
+  "sol_gauche": 0.714,
+  "sol_droite": 0.78,
+  "plafond": 0.29,
+  "plafond_gauche": 0.26,
+  "horizon": 0.47,
+  "version": "poutres (05/10/2026) : la piece vide avec son plafond entier (solives de chene vieilli, planches chaulees), re-rendue par Gemini au lieu d'etre etendue ; sol et coin du mur au meme endroit que la version 1, verriere plus large et mur plus bas ; version 1 : sources/atelier-fond-v1.webp",
+  "note": "sol : ligne mur-plancher au centre, a gauche (coin) et a droite ; plafond : ligne de la poutre haute du mur du fond au centre et au coin gauche ; horizon : hauteur d'oeil estimee, a affiner ; la pierre et la lumiere (nappe chaude au centre du mur et du plafond) sont la seule source de pierre de la piece"
+ },
+ "prise-de-risque": {
+  "taille": [
+   1409,
+   1226
+  ],
+  "source": [
+   "sources/prise-de-risque-source.jpg",
+   "sources/prise-de-risque-source-2.jpg",
+   "sources/prise-de-risque-source-3.jpg"
+  ],
+  "texte": "J'ai quitté il y a peu un poste de direction pour mener le projet d'une vie.\n\nJ'ai créé Civik-ia pour construire, aider, accompagner ceux qui en ont besoin. Avec l'expérience qui est la mienne.\n\nMon objectif est donc clair : vous aider à atteindre les vôtres !\n\nThibaut H.",
+  "encre": "blanc pur, alpha = densite de l'encre ; la page teinte (creme sur la nuit, or sur mots_couleur)",
+  "temps": "prise-de-risque-temps.png",
+  "donnees": "prise-de-risque.json",
+  "lignes": [
+   {
+    "numero": 1,
+    "texte": "J'ai quitté il y a peu un poste",
+    "paragraphe": 1,
+    "boite": [
+     0.0199,
+     0.0131,
+     0.873,
+     0.1215
+    ]
+   },
+   {
+    "numero": 2,
+    "texte": "de direction pour mener le projet",
+    "paragraphe": 1,
+    "boite": [
+     0.0192,
+     0.1003,
+     0.8332,
+     0.1966
+    ]
+   },
+   {
+    "numero": 3,
+    "texte": "d'une vie.",
+    "paragraphe": 1,
+    "boite": [
+     0.022,
+     0.1933,
+     0.3045,
+     0.2398
+    ]
+   },
+   {
+    "numero": 4,
+    "texte": "J'ai créé Civik-ia pour construire,",
+    "paragraphe": 2,
+    "boite": [
+     0.0192,
+     0.3091,
+     0.8864,
+     0.4078
+    ]
+   },
+   {
+    "numero": 5,
+    "texte": "aider, accompagner ceux qui en ont",
+    "paragraphe": 2,
+    "boite": [
+     0.022,
+     0.3907,
+     0.8886,
+     0.4723
+    ]
+   },
+   {
+    "numero": 6,
+    "texte": "besoin. Avec l'expérience qui est",
+    "paragraphe": 2,
+    "boite": [
+     0.0114,
+     0.4747,
+     0.8382,
+     0.5644
+    ]
+   },
+   {
+    "numero": 7,
+    "texte": "la mienne.",
+    "paragraphe": 2,
+    "boite": [
+     0.0192,
+     0.5677,
+     0.296,
+     0.633
+    ]
+   },
+   {
+    "numero": 8,
+    "texte": "Mon objectif est donc clair : vous aider",
+    "paragraphe": 3,
+    "boite": [
+     0.0142,
+     0.6639,
+     0.9886,
+     0.7569
+    ]
+   },
+   {
+    "numero": 9,
+    "texte": "à atteindre les vôtres !",
+    "paragraphe": 3,
+    "boite": [
+     0.0192,
+     0.7496,
+     0.6409,
+     0.8067
+    ]
+   },
+   {
+    "numero": 10,
+    "texte": "T. H.",
+    "paragraphe": "signature",
+    "boite": [
+     0.7005,
+     0.8581,
+     0.8346,
+     0.9095
+    ]
+   },
+   {
+    "numero": 11,
+    "texte": "Thibaut H.",
+    "paragraphe": "signature",
+    "boite": [
+     0.6842,
+     0.9201,
+     0.951,
+     0.9869
+    ]
+   }
+  ],
+  "mots_couleur": [
+   {
+    "texte": "le projet",
+    "ligne": 2,
+    "boite": [
+     0.6437,
+     0.1028,
+     0.8332,
+     0.1941
+    ],
+    "bleu": 1
+   },
+   {
+    "texte": "d'une vie.",
+    "ligne": 3,
+    "boite": [
+     0.022,
+     0.1933,
+     0.3045,
+     0.2398
+    ],
+    "bleu": 2
+   },
+   {
+    "texte": "vous aider",
+    "ligne": 8,
+    "boite": [
+     0.7516,
+     0.6729,
+     0.9886,
+     0.7292
+    ],
+    "bleu": 3
+   },
+   {
+    "texte": "à atteindre les vôtres !",
+    "ligne": 9,
+    "boite": [
+     0.0192,
+     0.7496,
+     0.6409,
+     0.8067
+    ],
+    "bleu": 4
+   }
+  ],
+  "signature": {
+   "retenue": "Thibaut H.",
+   "fichier": "prise-de-risque-signature.webp",
+   "taille": [
+    392,
+    98
+   ],
+   "paraphe": "T. H.",
+   "fichier_paraphe": "prise-de-risque-paraphe.webp",
+   "taille_paraphe": [
+    205,
+    79
+   ],
+   "note": "le point final de « Thibaut H. » sort du cadre de la photo 1 (un demi-point coupe au bord) : il n'est pas dans l'image"
+  },
+  "remplacements": [
+   {
+    "ligne": 2,
+    "source": "sources/prise-de-risque-source-3.jpg",
+    "texte": "de direction pour mener le projet",
+    "date": "06/10/2026"
+   },
+   {
+    "ligne": 3,
+    "source": "sources/prise-de-risque-source-3.jpg",
+    "texte": "d'une vie.",
+    "date": "06/10/2026"
+   },
+   {
+    "ligne": 8,
+    "source": "sources/prise-de-risque-source-2.jpg",
+    "texte": "Mon objectif est donc clair : vous aider",
+    "date": "06/10/2026"
+   },
+   {
+    "ligne": 9,
+    "source": "sources/prise-de-risque-source-2.jpg",
+    "texte": "à atteindre les vôtres !",
+    "date": "06/10/2026"
+   }
+  ],
+  "retouches": [
+   {
+    "nom": "aider",
+    "date": "06/10/2026",
+    "faite": false,
+    "detail": "copie de « aider » (ligne 5) a la place du mot rate de la ligne 8 ; desactivee, la ligne 8 est reecrite"
+   },
+   {
+    "nom": "accent de créé",
+    "date": "06/10/2026",
+    "faite": true,
+    "detail": "accent aigu du premier e recopie sur le dernier e (decalage 25,8 ; -1,0 px)"
+   },
+   {
+    "nom": "trait d'union de Civik-ia",
+    "date": "06/10/2026",
+    "faite": true,
+    "detail": "tiret refait avec la barre du t de « Thibaut », a l'horizontale, centre a mi-hauteur des minuscules"
+   }
+  ],
+  "outil": "python3 commun/outils/preparer-ecriture.py commun/img/c prise-de-risque"
+ }
+}

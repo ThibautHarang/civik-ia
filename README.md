@@ -1,12 +1,13 @@
 # Site civik-ia.fr
 
-Site vitrine de Civik-ia, Plateforme d'Intelligence Citoyenne pour les
-mairies francaises. Pages statiques, sans framework ni etape de build.
+Site vitrine de Civik-ia : Marianne, le conseil et l'atelier. Pages statiques,
+sans framework ni etape de build.
 
 ## Structure
 
 - `index.html` : page d'accueil.
-- `marianne/`, `lauria/` : pages des marques produit.
+- `marianne/`, `conseil/`, `atelier/` : les trois branches ; `c-film/` et
+  `commun/` : le film de la page d'accueil et les fichiers communs des pages.
 - `chatbot-commune-rurale.html`, `demarches-en-ligne-commune.html`,
   `campagnes-citoyennes.html` et pages voisines : contenus SEO.
 - `legal/` : mentions, RGPD, conditions.

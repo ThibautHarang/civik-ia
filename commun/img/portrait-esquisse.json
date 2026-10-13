@@ -1,0 +1,18 @@
+{
+ "taille": [
+  1024,
+  1024
+ ],
+ "yeux_y": 0.4141,
+ "axe_x": 0.5137,
+ "crane_y": 0.0605,
+ "menton_y": 0.8291,
+ "visage": [
+  0.0771,
+  0.0605,
+  0.8887,
+  0.9873
+ ],
+ "source": "portrait-source-esquisse-2.jpg (04/10/2026), encre 16 24 92, col et epaules fondus vers le bas et les bords",
+ "v1": "portrait-esquisse-v1.png"
+}

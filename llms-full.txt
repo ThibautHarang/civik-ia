@@ -2,7 +2,8 @@
 # Genere par « node tools/llms-full/build.mjs » a partir de 01-Site-Web/sitemap.xml.
 # NE PAS EDITER A LA MAIN : il serait faux au premier changement de page.
 #
-# Civik-ia est une plateforme francaise d'intelligence citoyenne pour les mairies.
+# Civik-ia, au service des territoires : Marianne (assistant IA des collectivites territoriales),
+# conseil en sante, numerique et intelligence artificielle, atelier de sites, d'applications et de logiciels.
 # Editeur : Civik-ia (SASU), SIREN 103 568 416, Narbonne, France.
 # Registre public : https://annuaire-entreprises.data.gouv.fr/entreprise/103568416
 # Resume court : https://civik-ia.fr/llms.txt
@@ -10,142 +11,480 @@
 # 27 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
-## Civik-ia, l'intelligence artificielle au service de la vie locale
+## Civik-ia : Marianne, Conseil, Atelier
 URL : https://civik-ia.fr/
-Resume : Civik-ia est une maison française de produits d'intelligence artificielle : Marianne pour les collectivités, Comitia pour les associations, Lauria pour les familles. IA souveraine Mistral, hébergement européen OVH, RGPD natif.
+Resume : Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.
 
-Civik-ia, l'intelligence artificielle au service de la vie locale
-Aller au contenu
-Civik-ia Le trait d'union des territoires
-Nos solutions
-La maison
-Souveraineté
-Contact
+Civik-ia : Marianne, Conseil, Atelier
+Civik-ia : communiquer, conseiller, créer
+Civik-ia
+Marianne Conseil Atelier Contact
 Tester Marianne
-Nos solutions
-La maison
-Souveraineté
-Contact
-Tester Marianne
-Maison de marques · IA souveraine française
-Le trait d'union des territoires
-L'intelligence artificielle au service de la vie locale
-Nous rendons l'IA accessible à celles et ceux qui font vivre la société au quotidien : les communes, les associations, les familles. Un seul moteur souverain, français, et des solutions concrètes qui rapprochent chaque citoyen de ce qui l'entoure.
+Accueil Marianne Conseil Atelier Contact
+Communiquer
+Une mairie qui répond désormais 24h/24
 Découvrir Marianne
-Tester la démo en direct
-Modèle français Mistral AI
-Hébergé en Europe, OVH
-RGPD natif
-Premier club en cours
-Comit ia
-Le forum de votre association
-Assemblée générale Ordre du jour et vote des adhérents
-Tournoi de samedi 12 inscrits, départ 9 h
-Le fil du club Annonces, photos, événements
-Rejoindre l'assemblée
-Comitia, le forum de votre association
-En construction
-Laur ia
-Votre vie locale, tout près
-Marché de plein vent Dimanche, place de la Halle
-École Jules Ferry Reprise des cours lundi 8 h 30
-Boulangerie du centre Ouverte, à 300 m
-À deux pas de chez vous
-Lauria, votre vie locale, tout près
-Disponible
-Mar ia nne
-L'assistante officielle de votre ville, 24 h/24
-La mairie est ouverte samedi matin ?
-Oui, la mairie vous accueille le samedi de 9 h à 12 h. Le service état civil est ouvert sans rendez-vous. Source : mairie
-Posez votre question... &rarr;
-Marianne, votre mairie 24 h/24
-Notre conviction
-La technologie la plus utile n'est pas celle qui impressionne. C'est celle qui rapproche
-Civik-ia est une maison française de produits d'intelligence artificielle, fondée à Narbonne. Nous construisons des outils simples et souverains pour la mairie qui veut répondre à ses citoyens à toute heure, pour l'association qui veut réunir ses membres, pour la famille qui veut vivre pleinement son territoire. Trois solutions, un même moteur, une même exigence.
-i. Accessible
-Aucune inscription, aucune application à installer côté citoyen. On pose une question, on obtient une réponse claire et sourcée. L'IA disparaît derrière le service rendu.
-ii. Souveraine
-Modèle français Mistral AI, hébergement européen OVH, aucune donnée transférée hors d'Europe. La confiance ne se proclame pas, elle se construit.
-iii. Utile
-Des réponses vérifiées, des sources officielles citées, zéro promesse en l'air. Ce qui n'est pas prêt s'appelle en construction, jamais autrement.
-Nos solutions
-Une maison, trois marques, un même moteur souverain
-Chaque acteur du territoire a son outil. Ensemble, ils tissent un écosystème local que la commune peut fédérer.
-Disponible
-Collectivités
-Mar ia nne
-Marianne est le visage de la République, celle qui incarne la France au fronton de chaque mairie. Civik-ia lui a donné une voix : celle qui répond à vos citoyens, jour et nuit, au nom de la commune. Sourcée, souveraine, patiente. Marianne ne ferme jamais.
-Découvrir Marianne &rarr;
-Mar ia nne
-Votre mairie, disponible 24 h/24
-Premier club en cours
-Associations
-Comit ia
-Sur le Forum de Rome, quand les citoyens devaient décider du sort de la cité, ils se rassemblaient : c'étaient les comitia, l'assemblée des égaux. Comitia rend cette force à chaque association : réunir ses membres, partager l'information, voter, organiser, agir, d'une seule voix.
-Découvrir Comitia &rarr;
-En construction
-Familles et habitants
-Laur ia
-Il existe, autour de chez soi, une lumière discrète : le marché du dimanche, l'école au coin de la rue, le club où l'on a ses habitudes. Lauria réunit dans le creux de la main tout ce qui fait votre quotidien, les sorties, l'agenda, les commerces, les services, à deux pas de chez vous.
-Découvrir Lauria &rarr;
-Réalisations. Nous accompagnons aussi des entrepreneurs locaux avec des vitrines web professionnelles, réalisées sur mesure. Exemple : ID Metal, métallerie.
-Prestation sur mesure
-Le fil conducteur
-Souveraine par conception
-Toutes nos solutions partagent le même socle. C'est lui qui fait la différence entre un gadget et un service public numérique digne de confiance.
-i. Intelligence française
-L'inférence repose sur un modèle français, Mistral AI. Le savoir-faire européen, au service des territoires français.
-ii. Hébergement européen
-Les données sont hébergées chez OVH, en Union européenne. Aucun transfert hors UE, jamais, pour aucun de nos produits.
-iii. RGPD natif
-Zéro inscription imposée au citoyen, durées de conservation légales, registres tenus. La vie privée par défaut, pas par option.
-Du village à la métropole, le même moteur, la même exigence
-Le territoire connecté
-Chaque outil local nourrit l'intelligence de la commune
-Une association outillée par Comitia, des habitants qui vivent leur territoire avec Lauria, et c'est toute la commune qui gagne en visibilité. Avec l'accord de chacun, les informations locales remontent vers Marianne, qui oriente à son tour les citoyens vers les bons acteurs. Un cercle vertueux, souverain et respectueux de la vie privée.
-1 Les outils locaux : Comitia pour les associations, Lauria pour les habitants
-avec l'accord de chacun (opt-in)
-2 Marianne, le point de ralliement souverain de la commune
-réponses sourcées, orientation
-3 Le citoyen trouve, au même endroit, tout ce que son territoire lui offre
-Contact
-Parlons de votre territoire
-Vous êtes maire, secrétaire de mairie, président d'association ou simplement curieux de ce que nous construisons : écrivez-nous, nous répondons vite et sans jargon.
+Conseiller
+Vous aider à prendre le bon chemin
+Découvrir le conseil
+Créer
+Des solutions sur mesure adaptées à vos besoins
+Découvrez Civik-ia :
+Communiquer
+Marianne, l'assistant IA des collectivités territoriales, répond aux habitants 24h/24 à partir des sources officielles, vérifiées et consolidées de la commune, et les cite toutes, à chaque réponse.
+Découvrir Marianne
+Conseiller
+Je vous aide à prendre le bon chemin face aux problèmes que vous rencontrez en santé, en numérique et en intelligence artificielle. J'audite vos besoins, je recueille les usages et je vous propose un plan d'action.
+Découvrir le conseil
+Créer
+L'atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.
+Découvrir l'atelier
+Civik-ia
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Les trois activités
+Marianne, pour les collectivités territoriales
+Le conseil, pour tous
+L'atelier, pour vos besoins
+Nous joindre
 contact@civik-ia.fr
-WhatsApp professionnel
-LinkedIn
-Vous préférez vous faire une idée avant d'écrire : notre Livre blanc 2026 passe en revue la conformité RGPD, les coûts réels et les critères pour choisir un assistant de mairie. Trente pages, format PDF.
-Votre nom
-Votre email
-Votre message
-Envoyer le message
-Le trait d'union des territoires
-Maison française de produits d'intelligence artificielle au service de la vie locale. Souveraine, sobre, utile.
-Nos solutions
-Marianne, collectivités
-Comitia, associations
-Lauria, familles
-Démo interactive
-La maison
-Notre conviction
-Le territoire connecté
-La campagne 22h47
-Livre blanc 2026
-Chatbot mairie, le guide 2026
-Comparatif chatbot mairie
-Prix et tarif d'un chatbot mairie
-Chatbot mairie gratuit, ce qui existe
-Financer l'IA de sa collectivité
-Callbot mairie ou chatbot
-Centre d'aide et questions fréquentes
-Légal
-Confidentialité
-Conformité RGPD
-Conditions d'utilisation
+LinkedIn de Thibaut Harang
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d'un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Callbot ou chatbot
+Financer l'IA de sa commune
+Livre blanc
+Centre d'aide
+22h47, votre mairie est fermée
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+Mentions légales
 CGV
-Accessibilité RGAA
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
-Hébergement OVHcloud (UE) · Données traitées en Europe
+Confidentialité
+RGPD
+Accessibilité
+Communiquer
+Conseiller
+Créer
+
+## Thibaut Harang, conseil en santé, numérique et intelligence artificielle · Civik-ia
+URL : https://civik-ia.fr/conseil/
+Resume : Quinze ans dans la santé, dont plus de dix à la direction d’établissements, j’aide les acteurs de santé, les collectivités et les PME à prendre le bon chemin.
+
+Thibaut Harang, conseil en santé, numérique et intelligence artificielle · Civik-ia
+Aller au contenu
+Civik-ia
+Marianne Conseil Atelier Contact
+Prendre contact avec moi Me contacter
+Accueil Marianne Conseil Atelier Contact
+Thibaut Harang, conseil dédié au secteur de la santé, du numérique et de l’intelligence artificielle
+Quinze ans dans la santé, dont plus de dix à la direction d’établissements, j’aide les entreprises du secteur, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s’organiser et à conduire leur plan d’action.
+Trente minutes pour en parler
+nulle part
+de l’autre côté
+Décider seul
+Être accompagné
+un chemin qui se perd dans la brume, il ne mène nulle part
+un chemin qui mène de l’autre côté, un pont se construit et le jour se lève
+Thibaut Harang
+Conseil en santé, numérique & intelligence artificielle
+Direction de clinique
+Direction de la transformation numérique en santé
+Direction de la stratégie et du développement en télémédecine
+Direction des affaires publiques
+Décider seul
+Être accompagné
+Lire le CV
+Thibaut Harang
+Ce que je peux vous apporter
+Une vue d’ensemble J’ai dirigé des établissements de plus de cent cinquante salariés : équipes, budget, qualité, relations avec les tutelles et avec leur environnement. Votre projet ou votre problématique, je l’analyse dans son contexte, avec tout ce qui l’entoure.
+Des conseils éprouvés sur le terrain Je construis aussi des outils numériques : je sais ce qu’un projet demande vraiment, et ce qui le fait échouer. Je conseille ce que j’ai vu fonctionner, avec recul.
+Santé, collectivités territoriales et numérique Trois mondes que je pratique depuis quinze ans, et que j’ai souvent su faire travailler ensemble.
+Du sur-mesure Chaque mission part de votre situation, de vos besoins et de vos moyens. Je m’adapte, et je vous propose le format le plus juste.
+La franchise Si je ne suis pas la bonne personne pour vous aider, je vous le dis, en toute franchise.
+Trois domaines, un seul besoin
+J’interviens sur trois domaines qui se croisent de plus en plus : la santé, les collectivités territoriales et l’intelligence artificielle. Le besoin, lui, est toujours le même : décider juste, puis tenir le cap.
+i.
+Santé
+Aide à la gestion et à l’optimisation des services et de l’établissement
+Projet médical et projet d’établissement
+Aide à la mise en place de solutions innovantes
+Transformation et conduite du changement
+Coopérations avec les tutelles, les élus et l’écosystème du territoire
+ii.
+Collectivités territoriales
+Services numériques aux habitants : accueil, information, démarches
+Recherche de financements et réponse aux appels à projets
+Mise en place de solutions innovantes (IA, digitalisation, etc.)
+Accès aux soins : maison de santé, centre de santé, télémédecine
+Projet de santé du territoire et coopération avec les professionnels de santé
+iii.
+Intelligence artificielle
+Audit des usages et des besoins : le bon outil pour le bon agent, au bon endroit
+Schéma directeur et plan d’ensemble
+Conception d’outils sur mesure
+Formation des équipes et cadre réglementaire : RGPD, règlement européen sur l’IA
+Recherche de financements
+Établissements de santé Cliniques, soins de suite et de réadaptation, structures médico-sociales
+Collectivités Communes, intercommunalités, départements
+Entreprises TPE et PME qui veulent savoir ce que l’IA peut faire pour elles
+Le déroulé d’un conseil
+Du premier appel au bilan, six étapes. Pour chacune : ce que vous recevez, et le temps qu’elle prend, en ordre de grandeur.
+Prise de contact
+Vous m’exposez la situation, je pose mes questions.
+Vous recevez Une première lecture, et les prochaines étapes que je propose Durée Trente minutes, au moins
+Analyse du besoin
+Je lis vos documents et je rencontre les personnes qui décident.
+Vous recevez Une note de cadrage Durée Une à deux semaines
+Cadrage et proposition
+Objectifs, livrables, calendrier et prix : tout est écrit et argumenté.
+Vous recevez Une proposition écrite, à signer ou à amender Durée Quelques jours
+Accompagnement
+Ateliers avec les agents et les équipes, préparation des décisions, arbitrages.
+Vous recevez Les comptes rendus et les décisions écrites Durée Quelques semaines à quelques mois
+Suivi
+Des points réguliers et quelques indicateurs simples, choisis avec vous.
+Vous recevez Un tableau de suivi tenu à jour Durée Au rythme convenu ensemble
+Bilan et transmission
+Ce qui est fait, ce qui reste à faire, et qui le porte ensuite.
+Vous recevez Un bilan écrit et les outils, qui restent à vous Durée Une à deux séances
+votre décision, accompagnée
+Mon parcours
+Quinze ans dans la santé, de la direction d’une clinique au déploiement national du numérique et de la télémédecine, puis la création de Civik-ia.
+2011 Polyclinique Bordeaux Tondu Adjoint de direction, premiers projets transverses
+2012 Polyclinique Les Chênes Directeur opérationnel : 105 lits et places, 150 salariés, 10 millions d’euros de chiffre d’affaires
+2015 Korian (aujourd’hui Clariane) Direction d’un centre de soins de suite et de réadaptation public-privé, à Narbonne
+2019 Korian (aujourd’hui Clariane), siège Pilotage du programme de télémédecine du groupe, puis transformation numérique et ambulatoire
+2022 Omedys Stratégie, affaires publiques et développement ; levée de fonds conduite jusqu’à l’adossement
+2026 Civik-ia Création de la société
+Le parcours complet sur LinkedIn
+Ma prise de risque
+J’ai quitté il y a peu un poste de direction pour mener le projet d’une vie.
+J’ai créé Civik-ia pour construire, aider, accompagner ceux qui en ont besoin. Avec l’expérience qui est la mienne.
+Mon objectif est donc clair : vous aider à atteindre les vôtres !
+Thibaut H.
+Fiche de demande
+Préparez votre demande
+Cinq questions, deux minutes. Votre fiche s’écrit à mesure que vous répondez ; vous la relisez, puis vous me l’envoyez. J’arrive à notre premier échange en l’ayant lue.
+Étape 1 sur 5
+Qui êtes-vous ?
+Votre structure
+Établissement de santé
+Collectivité
+Entreprise
+Association
+Autre
+Sa taille
+Moins de 50 personnes
+50 à 250
+250 à 1 000
+Plus de 1 000
+Votre fonction
+Votre situation
+Le sujet touche
+La santé
+Les collectivités territoriales
+L’intelligence artificielle
+Plusieurs de ces domaines
+La santé
+Un projet médical ou d’établissement à écrire
+Un service ou un site à réorganiser
+Une coopération à préparer
+Une situation financière à redresser
+Les collectivités territoriales
+Un projet d’accès aux soins à monter
+Un projet de santé du territoire à écrire
+Une coopération avec les établissements à préparer
+Un service numérique aux habitants à mettre en place
+L’intelligence artificielle
+Comprendre ce que l’IA peut faire pour nous
+Un schéma directeur à écrire
+Un outil acheté qui ne prend pas
+Des équipes à former
+En une ou deux phrases
+Ce que vous attendez
+Plusieurs choix possibles
+Une décision à prendre
+Un projet à cadrer
+Une équipe à accompagner
+Un audit
+Une formation
+Vos contraintes
+Le délai (facultatif)
+Dans le mois
+D’ici trois mois
+Dans l’année
+Pas de délai fixé
+Le budget envisagé, hors taxes (facultatif)
+Moins de 5 000 €
+5 000 à 15 000 €
+15 000 à 40 000 €
+Plus de 40 000 €
+À définir ensemble
+Pour vous joindre
+Nom *
+Structure
+Courriel *
+Téléphone (facultatif)
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Retour
+Suivant
+Copier ma fiche
+Fiche de demande N° provisoire
+Structure à préciser
+Étape 1 sur 5 Relire la fiche
+Fiche de demande
+Conseil, à l’attention de Thibaut Harang
+N° provisoire
+1 Qui vous êtes
+Structure à préciser Taille à préciser Fonction à préciser
+2 Votre situation
+Domaine à préciser Situation à préciser En quelques mots à préciser
+3 Ce que vous attendez
+Attente à préciser
+4 Vos contraintes
+Délai à préciser Budget à préciser
+5 Pour vous joindre
+Nom à préciser Structure à préciser Courriel à préciser Téléphone à préciser
+Prochaine étape : trente minutes d’échange, à la date qui vous convient.
+Envoyer ma fiche
+Questions fréquentes
+Conseillez-vous des collectivités, alors que Civik-ia édite Marianne ? Oui, avec des règles écrites à l’avance. Ce lien est déclaré par écrit à la collectivité avant tout devis. Pendant le conseil, je ne recommande, ne rédige, n’analyse, ne choisis ni ne teste rien qui porte sur un outil de Civik-ia, et mes recommandations décrivent des fonctions, jamais des marques. Un conseil ne débouche sur aucune vente de gré à gré : si la collectivité choisit ensuite un outil, elle lance sa propre consultation.
+Combien de temps dure un diagnostic ? En ordre de grandeur, de quelques semaines à quelques mois , selon le besoin et le type de projet. Le délai est écrit dans la proposition.
+Intervenez-vous à distance ? Oui pour la prise de contact, les points de suivi et une partie de l’analyse. Les ateliers avec les équipes se tiennent sur place chaque fois que c’est possible : on décide mieux autour d’une table. Je m’adapte à votre organisation.
+Où intervenez-vous ? Partout en France. Je suis installé près de Bordeaux ; les déplacements sont prévus dans la proposition écrite.
+Combien coûte une mission ? Chaque mission fait l’objet d’une proposition écrite , au forfait ou à la journée, après un premier échange de trente minutes, gratuit et sans engagement.
+Sous quelle forme travaillez-vous ? Selon le besoin : un diagnostic court sur une question précise, l’écriture d’un schéma directeur ou d’un projet médical, un accompagnement à la journée pendant la mise en œuvre, ou une formation à l’intelligence artificielle sur vos cas réels. Je vous propose le format après notre premier échange de trente minutes ; chaque mission fait l’objet d’une proposition écrite.
+Pouvez-vous former nos équipes à l’intelligence artificielle ? Oui, en demi-journée ou en journée , à partir de vos cas réels. On y voit ce que l’IA fait bien, les erreurs qu’elle commet, ce qu’il ne faut pas lui confier, et les règles qui s’appliquent, dont le RGPD et le règlement européen sur l’IA.
+Que se passe-t-il lors de notre premier entretien ? Vous m’exposez la situation, je pose mes questions, et je vous dis si je peux vous être utile . Si oui, je vous envoie une proposition écrite. Sinon, je vous oriente vers quelqu’un qui le peut.
+Prenons trente minutes pour en parler
+Quatre lignes suffisent. Je vous réponds pour fixer un créneau.
+thibaut.harang@civik-ia.fr
+Vous préférez détailler votre situation ? Préparez votre fiche de demande .
+Nom *
+Structure
+Courriel *
+Votre besoin, en une phrase *
+Envoyer
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Page mise à jour le 7 octobre 2026, par Thibaut Harang.
+Civik-ia
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Les trois activités
+Marianne, pour les collectivités territoriales
+Le conseil, pour tous
+L'atelier, pour vos besoins
+Nous joindre
+contact@civik-ia.fr
+LinkedIn de Thibaut Harang
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d'un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Callbot ou chatbot
+Financer l'IA de sa commune
+Livre blanc
+Centre d'aide
+22h47, votre mairie est fermée
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+Mentions légales
+CGV
+Confidentialité
+RGPD
+Accessibilité
+
+## L'atelier : sites, applications, logiciels sur mesure · Civik-ia
+URL : https://civik-ia.fr/atelier/
+Resume : L'atelier Civik-ia construit votre site, votre application ou votre logiciel sur mesure : mairies, acteurs de santé, entreprises, associations. Sur devis.
+
+L'atelier : sites, applications, logiciels sur mesure · Civik-ia
+Aller au contenu
+Civik-ia
+Marianne Conseil Atelier Contact
+Parler de mon projet Mon projet
+Accueil Marianne Conseil Atelier Contact
+tirez
+Créer
+L'atelier Civik-ia : sites, applications, logiciels sur mesure
+L'atelier Civik-ia vous aide à construire votre propre projet, site web, application ou logiciel, pour les mairies, les acteurs de santé, les entreprises et les associations.
+Construire mon projet
+Ouvrez un tiroir
+Chaque tiroir range un type de projet : ce qu'il peut contenir, pour qui, comment nous travaillons. Le dernier laisse libre cours à votre imagination.
+Site web
+Application
+Logiciel sur mesure
+Autre projet
+ouvrez-en un
+Site web
+Pour qui Mairies, établissements de santé, entreprises, associations.
+Ce qu'il peut contenir Des pages claires, des actualités, un agenda, des formulaires, le paiement en ligne, un espace réservé aux adhérents ; pour une mairie, Marianne, l'assistant IA des collectivités territoriales, y est intégrée.
+Comment nous travaillons Un croquis d'abord, puis une maquette que vous validez, puis la construction. Vous gardez la main sur vos contenus et sur votre design system.
+Un exemple Ce site, civik-ia.fr ; d'autres sites sont en passe d'être mis en ligne.
+Demander un devis sur mesure
+Application
+Pour qui Les associations et les clubs, de la plus modeste amicale au plus grand club ; les collectivités ; les entreprises.
+Ce qu'elle peut contenir Pour une association : de quoi réunir les membres autour d'un fil commun, informer, organiser les sorties, les tournois et les assemblées, décider ensemble avec l'ordre du jour et les votes. Elle porte vos couleurs et votre nom.
+Comment nous travaillons Nous la construisons avec quelques membres, sur vos besoins réels. Elle s'installe sur le téléphone depuis un simple lien.
+Un exemple Une application pour un club de golf, en service depuis juillet 2026, environ 270 adhérents.
+Demander un devis sur mesure
+Logiciel sur mesure
+Pour qui Établissements de santé, collectivités et entreprises dont le métier ne rentre dans aucun outil du marché.
+Ce qu'il peut contenir Un tableau de bord, le suivi des dossiers, un planning, un outil de recrutement, des automatisations, un assistant d'intelligence artificielle, et bien d'autres idées encore qui répondent à vos besoins, à partir de vos documents et de votre façon de travailler.
+Comment nous travaillons Un cadrage d'abord, qui dit ce que l'outil fera et ce qu'il ne fera pas ; puis un devis ; puis la construction par étapes, que vous testez à chaque fois.
+Un exemple Marianne, l'assistant IA des collectivités territoriales, a été conçue et construite dans cet atelier. Découvrir Marianne
+Demander un devis sur mesure
+Autre projet
+Laissez libre cours à votre imagination.
+Un outil pour un service, une idée pour vos usagers, un projet qui ne rentre dans aucune case : racontez-le, ou dessinez-le.
+Partir d'une page blanche
+Ce qui est déjà sorti de l'atelier
+Sites internet
+civik-ia.fr
+Le site vitrine, socle de toute notre activité.
+Voir le site
+Un site et une boutique pour un métallier
+La vitrine du métallier, et ses pièces en vente en ligne.
+Sur demande
+Fiche 1 / sur 1
+Applications
+Une application pour un club de golf
+En service depuis juillet 2026, environ 270 adhérents.
+Sur demande
+Fiche 1 / sur 1
+Chatbot IA
+Marianne, l'assistant IA des collectivités territoriales
+Un chatbot d'intelligence artificielle qui répond aux habitants 24h/24 à partir des documents officiels de la commune, et cite toutes ses sources. Conçue et construite dans cet atelier.
+Découvrir Marianne
+Fiche 1 / sur 1
+Construire mon projet
+Partez d'une page blanche
+Vous avez déjà un projet ? N'hésitez pas : commencez à le dessiner ici, à la plume, au fil de vos choix, ou prenez le crayon. À la fin, envoyez-nous votre projet : vous en gardez le croquis.
+Feuille blanche : rien n'est encore choisi.
+Prendre le crayon
+Effacer mon dessin
+Télécharger le croquis
+Étape 1 sur 5
+Votre projet
+Un site web
+Une application
+Un logiciel sur mesure
+Autre chose
+Pour qui ?
+Une mairie
+Un acteur de santé
+Une entreprise
+Une association
+Les briques
+Chaque brique se dessine sur la feuille. Plusieurs choix possibles.
+Les contraintes
+Le délai
+Dans le mois
+D'ici trois mois
+Dans l'année
+Pas pressé
+Le budget envisagé, hors taxes
+Moins de 3 000 €
+3 000 à 10 000 €
+10 000 à 30 000 €
+Plus de 30 000 €
+À définir ensemble
+L'hébergement
+En France
+En Europe
+Pas de préférence
+L'accessibilité
+Exigée (RGAA)
+Souhaitée
+À voir ensemble
+Un mot sur l'idée
+L'idée, en quelques phrases
+Nom *
+Structure
+Courriel *
+Champs marqués d'un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité . Votre croquis reste dans votre navigateur.
+Retour
+Suivant
+Fiche de projet
+À l'attention de l'atelier Civik-ia
+N° provisoire
+1 Le projet
+Type à préciser Pour qui à préciser Briques à préciser
+2 Les contraintes
+Délai à préciser Budget à préciser Hébergement à préciser Accessibilité à préciser
+3 L'idée
+En quelques mots à préciser Croquis gardé par vous
+4 Pour vous joindre
+Nom à préciser Structure à préciser Courriel à préciser
+Prochaine étape : un échange, puis un croquis au propre et un devis.
+Télécharger le croquis
+Copier ma fiche
+Du croquis à la mise en ligne
+Six étapes, toujours dans le même ordre. Le calendrier de chacune est écrit dans le devis.
+1
+Écoute
+Un premier échange pour comprendre votre projet, vos besoins, et à qui il s'adresse.
+Mettre en pause
+Exemple sur Villeneuve-les-Ormes, notre commune de démonstration
+1 Écoute
+Un premier échange pour comprendre votre projet, vos besoins, et à qui il s'adresse.
+2 Croquis
+Un dessin rapide de l'idée, pour se mettre d'accord avant de construire.
+3 Maquette
+Les écrans principaux, hiérarchisés et dessinés au propre, que vous validez.
+4 Construction
+Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l'atelier.
+5 Mise en ligne
+Hébergée en Europe, à l'adresse que vous choisissez.
+6 Suivi
+Corrections, mises à jour, évolutions, adaptations : l'outil continue de vivre selon vos besoins.
+Demander un devis
+Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit.
+Demander un devis
+Questions fréquentes
+Combien coûte un site ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l'est aussi.
+Combien de temps faut-il pour construire un projet ? Cela dépend du projet. Le calendrier est écrit dans le devis et tenu à jour avec vous pendant la construction ; les premiers livrables arrivent en général au bout de quelques semaines.
+Faut-il un cahier des charges ? Non. Un échange et un croquis suffisent pour commencer ; ce qu'il faut écrire, nous l'écrivons ensemble, au fur et à mesure.
+Où sont hébergés vos sites et vos applications ? En Europe, chez OVHcloud , comme Marianne, l'assistant IA des collectivités territoriales.
+Pouvez-vous intégrer Marianne, l'assistant IA des collectivités territoriales, au site d'une mairie ? Oui. Marianne s'intègre au site de la mairie et répond aux habitants à partir des sources officielles de la commune. Elle reste une offre à part, avec ses propres conditions : découvrir Marianne .
+Construisez-vous des applications pour les associations ? Oui : réunir les membres, informer, organiser les sorties et les assemblées, préparer les votes. Une application est en service pour un club de golf depuis juillet 2026, avec environ 270 adhérents.
+Que devient le croquis que je dessine sur cette page ? Il reste dans votre navigateur. Vous pouvez le télécharger en image et nous l'envoyer avec votre projet.
+Parlons de votre projet
+Quatre lignes suffisent pour commencer. Nous revenons vers vous pour fixer un premier échange.
+contact@civik-ia.fr
+Vous avez déjà une idée précise ? Dessinez-la sur la page blanche .
+Nom *
+Structure
+Courriel *
+Votre besoin, en une phrase *
+Envoyer
+Champs marqués d'un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Page mise à jour le 7 octobre 2026.
+Civik-ia
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Les trois activités
+Marianne, pour les collectivités territoriales
+Le conseil, pour tous
+L'atelier, pour vos besoins
+Nous joindre
+contact@civik-ia.fr
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d'un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Callbot ou chatbot
+Financer l'IA de sa commune
+Livre blanc
+Centre d'aide
+22h47, votre mairie est fermée
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+Mentions légales
+CGV
+Confidentialité
+RGPD
+Accessibilité
 
 ## Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia
 URL : https://civik-ia.fr/marianne/
@@ -537,138 +876,11 @@ Instagram (nouvelle fenêtre)
 X (Twitter) (nouvelle fenêtre)
 Facebook (nouvelle fenêtre)
 Prendre RDV
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE) · Données traitées en Europe
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
 Mentions légales · CGV · Confidentialité · RGPD · Accessibilité · Arrêter les animations
 Assistant Civik-ia En ligne · répond tout de suite
 ×
 Envoyer
-
-## Comitia, l'application au service des associations · Civik-ia
-URL : https://civik-ia.fr/comitia/
-Resume : Comitia, le forum de votre association : réunir ses membres, partager l'information, voter, organiser, agir d'une seule voix. Une marque de la maison Civik-ia. Premier club en cours : le golf de Pont-Audemer.
-
-Comitia, l'application au service des associations · Civik-ia
-Aller au contenu
-Comit ia par Civik-ia
-L'esprit
-Ce que fait Comitia
-Le premier club
-La maison Civik-ia
-Équiper mon association
-Comitia · Associations et clubs
-Una voce, d'une seule voix
-Le forum de votre association
-Réunir ses membres, partager l'information, voter, organiser, agir. Comitia donne à chaque association, de la plus modeste amicale au plus grand club, un lieu numérique à son image, simple et souverain.
-En construction · Premier club en cours
-Équiper mon association
-Voir le premier club
-Golf de Pont-Audemer, premier club Comitia
-L'esprit Comitia
-L'assemblée des citoyens, rendue à vos associations
-Sur le Forum de Rome, lorsque les citoyens devaient décider du sort de la cité, ils se rassemblaient : c'étaient les comitia, l'assemblée des égaux. Chacun y portait sa voix ; ensemble, ils faisaient la République.
-Vingt siècles ont passé, l'esprit demeure intact. Une association, n'est-ce pas déjà cela ? Des femmes et des hommes qui se réunissent, échangent, décident, et font avancer ce qui leur tient à cœur. Comitia rend à chaque association la force de ce geste antique : là où l'on se réunit, là où l'on décide, là où le nous prend forme.
-Comitia · una voce
-Ce que fait Comitia
-Tout ce qu'une association fait déjà, en mieux organisé
-Comitia se construit avec un vrai club, sur de vrais besoins. Voici ce que le premier cas couvre, et ce que chaque association retrouvera.
-i. Réunir
-Le fil du club rassemble annonces, photos et événements au même endroit. Fini les informations éparpillées entre trois messageries et un panneau d'affichage.
-ii. Informer
-Horaires, tarifs, vie du club, actualités : les membres et les visiteurs trouvent une information claire, à jour, aux couleurs de l'association.
-iii. Organiser
-Tournois, sorties, assemblées : les événements du club sont annoncés, datés, et chacun sait où et quand se retrouver.
-iv. Décider ensemble
-L'assemblée générale reste le cœur de la vie associative. Comitia prépare l'ordre du jour et l'information des adhérents pour que chaque voix compte.
-Le premier club
-Le golf de Pont-Audemer ouvre la voie
-Comitia se construit sur le terrain, avec un club centenaire de l'Eure et ses quelque 270 adhérents. Le projet d'application a été présenté aux membres et validé à l'unanimité en assemblée générale, en juin 2026. Une démonstration grandeur nature est ouverte ci-dessous ; l'application complète est en construction.
-Unanimité le projet a été voté par l'assemblée générale du club.
-Sur mesure l'application porte les couleurs et l'identité du club, pas les nôtres.
-Souverain même moteur et mêmes exigences que toutes les solutions de la maison.
-Découvrir l'application du golf &rarr;
-Votre association
-Et si votre club était le prochain ?
-Club sportif, amicale, fédération rurale : dites-nous qui vous êtes et ce qui vous manque au quotidien. Nous construisons Comitia avec les associations, pas à leur place.
-contact@civik-ia.fr
-WhatsApp professionnel
-Votre nom
-Votre email
-Votre association
-Votre besoin
-Envoyer
-Comit ia
-Une marque de la maison Civik-ia · propulsé par Civik-ia
-La maison Civik-ia
-Marianne, collectivités
-Lauria, familles
-Confidentialité
-Conditions
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-
-## Lauria, votre vie locale, tout près · Civik-ia
-URL : https://civik-ia.fr/lauria/
-Resume : Lauria réunit tout ce qui fait votre quotidien : sorties, agenda, commerces, services, à deux pas de chez vous. L'application de la vie locale pour les familles, par la maison Civik-ia. En construction.
-
-Lauria, votre vie locale, tout près · Civik-ia
-Aller au contenu
-Laur ia par Civik-ia
-Le récit
-Ce qui arrive
-L'aura
-L'origine du nom
-La maison Civik-ia
-Être prévenu
-Lauria · Familles et habitants
-L'aura de votre vie locale
-Tout ce qui vous entoure, réuni
-Les sorties, l'agenda, les commerces, les services, les bons plans : Lauria réunira dans le creux de votre main tout ce qui fait votre quotidien, à deux pas de chez vous.
-En construction
-Être prévenu du lancement
-Découvrir le récit
-Laur ia
-Votre vie locale, tout près
-Marché de plein vent Dimanche matin, place de la Halle
-Fête de l'école Samedi 17 h, gymnase municipal
-Boulangerie du centre Ouverte, à 300 m
-Médiathèque Atelier lecture mercredi 10 h
-À deux pas de chez vous
-Le récit
-Il existe, autour de chez soi, une lumière discrète
-Celle du marché du dimanche, de l'école au coin de la rue, du club où l'on a ses habitudes, du voisin que l'on salue. On ne la voit pas vraiment, on la ressent.
-Cette lumière, nous l'avons appelée Lauria : comme une aura qui réchauffe, comme une aria que l'on fredonne. Pas une application de plus : un foyer numérique, qui rapproche les vôtres de tout ce qui les entoure. Parce que le bonheur, souvent, tient à ce qui est tout près .
-Concrètement : l'agenda des sorties, les horaires des commerces, la vie des associations et l'essentiel de la commune, réunis dans une seule application.
-Ce qui arrive
-Trois promesses simples, tenues avant d'être annoncées
-Lauria est en construction. Voici ce que nous bâtissons, sans date promise tant que ce n'est pas prêt : c'est la règle de la maison.
-i. Les sorties et l'agenda
-Le marché, la fête de l'école, le concert de l'été : ce qui se passe autour de chez vous, réuni et daté, sans avoir à chercher.
-ii. Les commerces et services
-Qui est ouvert, où et quand : les commerces, les artisans et les services de votre bassin de vie, à jour et à portée de main.
-iii. L'essentiel de la commune
-Là où la mairie a activé Marianne, Lauria s'appuie sur des informations vérifiées par la commune. Ailleurs, chacun peut inviter sa mairie à rejoindre le mouvement.
-Zéro friction, c'est promis. Pas de compte obligatoire, pas de données personnelles exigées pour consulter : on se localise dans sa ville et la vie locale apparaît.
-Le c&oelig;ur de Lauria
-Votre aura grandit quand votre vie locale s'anime
-Lauria n'est pas un annuaire : c'est un jeu doux avec votre territoire. Chaque sortie au marche, chaque commerce decouvert, chaque evenement vecu fait grandir votre aura, la lumiere qui entoure votre foyer dans l'application. Plus vous vivez pres de chez vous, plus elle rayonne.
-Derriere le jeu, une conviction : ce qui fait vivre un territoire, ce sont les habitants qui le pratiquent. L'aura recompense ceux qui font travailler le commerce du coin, remplissent la f&ecirc;te de l'ecole et les rangs du club. Le detail du systeme se devoile au lancement.
-L'origine du nom
-Un prénom, un chemin, un foyer
-Lauria est né d'un prénom et d'un chemin : Laurie-Anne, et la rue Lalaurie où la famille du fondateur a posé ses valises. De l'intime à l'universel, car chacun a sa Lauria : la chaleur de l'endroit qu'il appelle chez soi.
-Lancement
-Soyez prévenu, sans spam
-Laissez-nous votre email et votre commune : vous saurez quand Lauria arrive près de chez vous. Un message au lancement, rien d'autre.
-Votre email
-Votre commune
-Un mot, si vous voulez
-Être prévenu du lancement
-Laur ia
-Une marque de la maison Civik-ia · propulsé par Civik-ia
-La maison Civik-ia
-Marianne, collectivités
-Comitia, associations
-Confidentialité
-Conditions
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
 
 ## Tester Marianne en direct · La démo du chatbot mairie Civik-ia, sans inscription
 URL : https://civik-ia.fr/demo
@@ -752,10 +964,12 @@ Sans engagement. Vos coordonnées servent uniquement à vous répondre.
 Merci. Votre demande est bien envoyée : nous revenons vers vous sous 24 h ouvrées, avec la démonstration au nom de votre commune.
 Marianne pour les mairies
 Tarifs
+Conseil
+Atelier
 Livre Blanc
 Mentions légales
 Confidentialité
-Civik-ia · Plateforme d'Intelligence Citoyenne · Narbonne, France
+Civik-ia · Au service des territoires · Narbonne, France
 
 ## Chatbot mairie, ville et collectivité : le guide 2026 · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie.html
@@ -911,7 +1125,7 @@ Pret a moderniser l'accueil de votre mairie ?
 Decouvrez en 3 minutes comment Civik-ia repond aux questions de vos citoyens, 24 heures sur 24. Demonstration interactive, sans engagement.
 Tester la demo gratuite
 Demander un devis
-Civik-ia : Plateforme d'Intelligence Citoyenne pour les Mairies Francaises
+Civik-ia, au service des territoires : Marianne · Conseil · Atelier
 Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
 &copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
 Confidentialite · Mentions legales & CGU · RGPD · Accessibilite · contact@civik-ia.fr
@@ -1112,7 +1326,7 @@ Demandez votre devis en 2 minutes
 Decouvrez comment la Plateforme d'Intelligence Citoyenne peut transformer la relation entre votre mairie et vos citoyens.
 Tester la demo
 Demander un devis
-Civik-ia, Plateforme d'Intelligence Citoyenne pour les Mairies Francaises
+Civik-ia, au service des territoires : Marianne · Conseil · Atelier
 Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
 &copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
 Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
@@ -1124,7 +1338,7 @@ Resume : Du gratuit existe pour une commune, mais pas pour le même besoin : Del
 
 Chatbot mairie gratuit : ce qui existe en 2026 · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Chatbot mairie gratuit
 Comparatif · 24 août 2026
@@ -1177,6 +1391,8 @@ Testez Marianne depuis votre téléphone, sans inscription : posez la question q
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Tarifs
 RGPD
@@ -1298,7 +1514,7 @@ Votre commune merite un accueil 24h/24
 Rejoignez les premieres communes rurales a offrir un accueil numerique intelligent et une democratie participative a leurs habitants.
 Tester la demo
 Rejoindre le Programme Fondateurs
-Civik-ia : Plateforme d'Intelligence Citoyenne pour les Mairies Francaises
+Civik-ia, au service des territoires : Marianne · Conseil · Atelier
 Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
 &copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
 Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
@@ -1311,7 +1527,7 @@ Resume : Delibia est-il gratuit ? Oui pour les secrétaires de mairie, mais l'é
 Comparatif chatbot mairie 2026 : Delibia, Civik-ia, dydu, Citia
 C
 Civik-ia
-Plateforme d'Intelligence Citoyenne
+Au service des territoires
 Voir la démo
 Accueil › Chatbots mairie › Comparatif 2026
 Mis à jour le 8 juin 2026
@@ -1506,6 +1722,8 @@ Marianne, notre assistante IA, répond aux questions de la vie courante d'un adm
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Démo
 Campagnes
@@ -1519,7 +1737,7 @@ Resume : Quel outil pour créer du lien avec ses citoyens ? Panorama 2026 des ca
 
 Communiquer avec ses citoyens : les outils 2026 · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Communiquer avec ses citoyens
 Maire / Élu · 8 juin 2026
@@ -1591,6 +1809,8 @@ Marianne, l'assistante Civik-ia, répond aux questions des habitants 24h/24 : ho
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -1603,7 +1823,7 @@ Resume : Votre mairie utilise ou envisage une IA ? Base légale, AIPD, hébergem
 
 IA en mairie : les 7 points que la CNIL vérifie (checklist 2026) · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Guide RGPD IA collectivités
 Conformité · 8 juin 2026
@@ -1738,6 +1958,8 @@ Marianne, l'assistante Civik-ia, fonctionne sans inscription citoyenne, sans tra
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 Démo
@@ -1751,7 +1973,7 @@ Resume : Pourquoi votre mairie devrait utiliser Mistral AI plutôt qu'OpenAI ou 
 
 IA souveraine en mairie : Mistral AI plutôt qu'OpenAI
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › IA souveraine pour mairie
 Souveraineté · 8 juin 2026
@@ -1846,6 +2068,8 @@ Marianne, l'assistante Civik-ia, fonctionne avec Mistral Small et un hébergemen
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -1858,7 +2082,7 @@ Resume : Comment un chatbot IA peut libérer le secrétariat de mairie : ordres 
 
 Réduire les appels en mairie avec un chatbot IA : objectif 40 %
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Réduire les appels en mairie
 DGS / Secrétariat · 8 juin 2026
@@ -1948,6 +2172,8 @@ Marianne, l'assistante Civik-ia, répond aux questions répétitives à la place
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -1960,7 +2186,7 @@ Resume : Quel logiciel pour une petite mairie rurale ? Critères de choix, budge
 
 Logiciel pour petite commune : bien choisir en 2026
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Logiciel pour petite commune
 Maire / Secrétaire de mairie · 24 juin 2026
@@ -2030,6 +2256,8 @@ Marianne, l'assistante Civik-ia, répond aux questions des citoyens 24h/24, sans
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2042,7 +2270,7 @@ Resume : Quels outils d'IA une secrétaire de mairie peut-elle utiliser en 2026 
 
 Outils IA pour secrétaire de mairie : le guide 2026
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Outils IA pour secrétaire de mairie
 Secrétaire de mairie · 5 juillet 2026
@@ -2108,6 +2336,8 @@ Marianne répond aux questions des citoyens 24h/24 et décharge le secrétariat 
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2120,7 +2350,7 @@ Resume : Callbot téléphonique ou chatbot écrit pour votre mairie ? Différenc
 
 Callbot mairie ou chatbot : coûts, limites, que choisir en 2026 · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Callbot mairie ou chatbot
 Guide de choix · 19 juillet 2026
@@ -2168,6 +2398,8 @@ Testez Marianne depuis votre téléphone, sans inscription : posez une vraie que
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2180,7 +2412,7 @@ Resume : Le guichet Territoires d'IA cofinance 30 à 50 % d'un abonnement d'IA s
 
 Financer l'IA de sa commune : cofinancement et aides 2026 · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Financer l'IA de sa commune
 Guide de financement · 3 août 2026
@@ -2262,6 +2494,8 @@ Testez Marianne depuis votre téléphone, sans inscription : posez une vraie que
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Tarifs
 RGPD
@@ -2274,7 +2508,7 @@ Resume : Comment proposer des démarches en ligne dans une petite commune ? Serv
 
 Démarches en ligne pour une commune : par où commencer en 2026
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Démarches en ligne pour une commune
 Maire / Secrétaire de mairie · 24 juin 2026
@@ -2345,6 +2579,8 @@ Marianne, l'assistante Civik-ia, guide les citoyens vers la bonne démarche et l
 Tester la démo →
 Accueil
 Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2357,7 +2593,7 @@ Resume : Civik-ia propose aux mairies du Loir-et-Cher un chatbot IA souverain, 2
 
 Chatbot mairie Loir-et-Cher (41) : communes rurales · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Chatbot mairie en Loir-et-Cher
 Guide départemental · 30 septembre 2026
@@ -2403,6 +2639,9 @@ Loir-et-Cher : une démo personnalisée pour votre commune
 45 minutes en visio. Pas de préparation requise. Démonstration sur les vraies données de votre commune.
 Demander une démo →
 Accueil
+Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2415,7 +2654,7 @@ Resume : Ce qu'un chatbot de mairie doit savoir traiter dans l'Hérault : saison
 
 Chatbot mairie Hérault (34) : littoral, urbanisme, saison · Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Voir la démo
 Accueil › Chatbot mairie en Hérault
 Guide départemental · mis à jour le 30 septembre 2026
@@ -2462,6 +2701,9 @@ Hérault : votre commune, votre démo personnalisée
 Démo personnalisée en 20 minutes. Nous vous montrons Marianne sur une vraie commune, la vôtre si vous le souhaitez.
 Demander une démo →
 Accueil
+Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2474,7 +2716,7 @@ Resume : Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pou
 
 Livre Blanc 2026 : Chatbot IA pour Mairies, Civik-ia
 C
-Civik-ia Plateforme d'Intelligence Citoyenne
+Civik-ia Au service des territoires
 Livre Blanc · Édition 2026
 Le guide du chatbot IA pour mairies françaises
 Douze pages pour savoir ce qu'un assistant IA de mairie doit faire, ce qu'il coûte, et ce qu'il faut exiger avant de signer. Sans témoignage ni chiffre invérifiable : des exigences, une check-list et des questions à poser
@@ -2531,6 +2773,9 @@ Un scénario construit sur une commune de démonstration. Aucun retour de commun
 9. Marianne en bref
 Fonctionnement, canaux disponibles et à venir, tarifs
 Accueil
+Marianne
+Conseil
+Atelier
 Chatbot mairie
 Comparatif
 RGPD
@@ -2625,8 +2870,8 @@ grâce à Civik-ia sur WhatsApp
 Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
-Plateforme d'Intelligence Citoyenne · Hébergement souverain OVH · RGPD natif
-Dès 49 €/mois HT · 🇫🇷 Conçu en France
+Au service des territoires · Hébergement souverain OVH · RGPD natif
+Dès 49 €/mois HT · Conçu en France
 Le canal WhatsApp de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; WhatsApp serait un canal de transport choisi par la mairie.
 
 ## Marianne sur Messenger · Civik-ia | La page Facebook des mairies répond 24 h/24
@@ -2717,8 +2962,8 @@ enfin à la hauteur des messages reçus
 Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
-Plateforme d'Intelligence Citoyenne · Hébergement souverain OVH · RGPD natif
-Dès 49 €/mois HT · 🇫🇷 Conçu en France
+Au service des territoires · Hébergement souverain OVH · RGPD natif
+Dès 49 €/mois HT · Conçu en France
 Le canal Messenger de Civik-ia est en construction ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. Ce canal répond aux messages reçus ; il ne permet pas d'envoi massif sortant, par politique de la plateforme. Messenger est une marque de Meta Platforms, Inc., citée à des fins d'illustration ; Civik-ia n'est pas affilié à Meta. Le moteur d'intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; Messenger serait un canal de transport choisi par la mairie, la conversation y transitant par Meta comme c'est déjà le cas de la messagerie de votre page aujourd'hui.
 
 ## Campagnes citoyennes : consultez vos habitants, Civik-ia
@@ -2823,7 +3068,7 @@ Prêt à donner la parole
 Les Campagnes Citoyennes sont incluses dans toutes les offres Communes Moyennes et supérieures. Pas de surcoût, pas d'outil tiers.
 Tester la démo en direct
 Demander une démo personnalisée
-Civik-ia, Plateforme d'Intelligence Citoyenne | Site principal · Tester la démo
+Civik-ia, au service des territoires | Marianne · Conseil · Atelier · Tester la démo
 100% souverain. RGPD natif. Cloud européen OVH.
 
 ## Centre d'aide & FAQ, Civik-ia
@@ -2857,7 +3102,7 @@ Vous n'avez pas trouvé votre réponse ?
 Écrivez-nous par email ou sur WhatsApp : toute demande est prise en charge sous 48 heures ouvrées
 contact@civik-ia.fr
 WhatsApp professionnel
-Civik-ia , Plateforme d'Intelligence Citoyenne · civik-ia.fr
+Civik-ia , au service des territoires · civik-ia.fr
 Dernière mise à jour du centre d'aide : 2 octobre 2026
 
 ## 22h47 : Votre mairie est fermée | Civik-ia
@@ -2885,4 +3130,4 @@ Pr&ecirc;t a ouvrir votre mairie 24h/24 ?
 Deploiement en 4 semaines. Des 49€/mois. Cloud souverain UE.
 Tester la demo complete
 Demander une demo personnalisee
-civik-ia.fr : Plateforme d'Intelligence Citoyenne
+civik-ia.fr : Marianne, l'assistant IA des collectivités territoriales

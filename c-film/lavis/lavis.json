@@ -1,0 +1,176 @@
+{
+ "version": 1,
+ "date": "2026-10-05",
+ "note": "M4 (treizième passe) : lavis préparés, calculés par lavis.js (laverEtapes) sur les visuels de commun/img/c ; recalculés par le film si la source a changé (taille du fichier ou dimensions)",
+ "lavis": {
+  "cypres-1": {
+   "fichier": "cypres-1.webp",
+   "source": "cypres-1.webp",
+   "octetsSource": 157694,
+   "tailleSource": [
+    592,
+    1792
+   ],
+   "taille": [
+    296,
+    896
+   ]
+  },
+  "cypres-2": {
+   "fichier": "cypres-2.webp",
+   "source": "cypres-2.webp",
+   "octetsSource": 143172,
+   "tailleSource": [
+    592,
+    1792
+   ],
+   "taille": [
+    296,
+    896
+   ]
+  },
+  "vigne-1": {
+   "fichier": "vigne-1.webp",
+   "source": "vigne-1.webp",
+   "octetsSource": 180434,
+   "tailleSource": [
+    1024,
+    1024
+   ],
+   "taille": [
+    512,
+    512
+   ]
+  },
+  "vigne-2": {
+   "fichier": "vigne-2.webp",
+   "source": "vigne-2.webp",
+   "octetsSource": 188270,
+   "tailleSource": [
+    1024,
+    1024
+   ],
+   "taille": [
+    512,
+    512
+   ]
+  },
+  "borne": {
+   "fichier": "borne.webp",
+   "source": "borne.webp",
+   "octetsSource": 137618,
+   "tailleSource": [
+    896,
+    1200
+   ],
+   "taille": [
+    448,
+    600
+   ]
+  },
+  "herbe-0": {
+   "fichier": "herbe-0.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    250,
+    352
+   ],
+   "taille": [
+    125,
+    176
+   ]
+  },
+  "herbe-1": {
+   "fichier": "herbe-1.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    247,
+    288
+   ],
+   "taille": [
+    124,
+    144
+   ]
+  },
+  "herbe-2": {
+   "fichier": "herbe-2.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    242,
+    226
+   ],
+   "taille": [
+    121,
+    113
+   ]
+  },
+  "herbe-3": {
+   "fichier": "herbe-3.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    280,
+    326
+   ],
+   "taille": [
+    140,
+    163
+   ]
+  },
+  "herbe-4": {
+   "fichier": "herbe-4.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    230,
+    317
+   ],
+   "taille": [
+    115,
+    159
+   ]
+  },
+  "herbe-5": {
+   "fichier": "herbe-5.webp",
+   "source": "herbes.webp",
+   "octetsSource": 133938,
+   "tailleSource": [
+    257,
+    281
+   ],
+   "taille": [
+    129,
+    141
+   ]
+  },
+  "sol": {
+   "fichier": "sol.webp",
+   "source": "sol-chemin.webp",
+   "octetsSource": 264090,
+   "tailleSource": [
+    1024,
+    1024
+   ],
+   "taille": [
+    512,
+    512
+   ]
+  },
+  "lointain": {
+   "fichier": "lointain.webp",
+   "source": "lointain.webp",
+   "octetsSource": 153534,
+   "tailleSource": [
+    1584,
+    672
+   ],
+   "taille": [
+    792,
+    336
+   ]
+  }
+ }
+}

@@ -1,860 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<script>try{if(sessionStorage.getItem("ciDawn"))document.documentElement.className+=" no-dawn";else sessionStorage.setItem("ciDawn","1")}catch(e){}</script>
-<!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement — CNIL art. 82 -->
+<!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement, CNIL art. 82 -->
 <script src="/cookie-consent.js" defer></script>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Civik-ia, l'intelligence artificielle au service de la vie locale</title>
-<meta name="description" content="Civik-ia est une maison française de produits d'intelligence artificielle : Marianne pour les collectivités, Comitia pour les associations, Lauria pour les familles. IA souveraine Mistral, hébergement européen OVH, RGPD natif.">
+<style>@media (max-width:767.98px){html:not(.hors-film):has(.rail:not([hidden])) .cc-reopen{opacity:0;visibility:hidden;pointer-events:none}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="/commun/essais.js"></script>
+<title>Civik-ia&nbsp;: Marianne, Conseil, Atelier</title>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="description" content="Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.">
 <link rel="canonical" href="https://civik-ia.fr/">
-<link rel="alternate" hreflang="fr-FR" href="https://civik-ia.fr/">
-<link rel="alternate" hreflang="x-default" href="https://civik-ia.fr/">
-
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/icones/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/assets/icones/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="mask-icon" href="/assets/icones/safari-pinned-tab.svg" color="#000091">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<meta name="theme-color" content="#0A0F2C">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://civik-ia.fr/">
-<meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Civik-ia">
-<meta property="og:title" content="Civik-ia, l'intelligence artificielle au service de la vie locale">
-<meta property="og:description" content="Une maison française de produits IA souverains : Marianne (collectivités), Comitia (associations), Lauria (familles). Le trait d'union des territoires.">
-<meta property="og:image" content="https://civik-ia.fr/assets/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://civik-ia.fr/">
+<meta property="og:title" content="Civik-ia : communiquer, conseiller, créer">
+<meta property="og:description" content="Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.">
+<meta property="og:image" content="https://civik-ia.fr/assets/partage/home.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Civik-ia, le trait d'union des territoires">
+<meta property="og:image:alt" content="Civik-ia : communiquer, conseiller, créer. Marianne, Conseil, Atelier">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Civik-ia, l'intelligence artificielle au service de la vie locale">
-<meta name="twitter:description" content="Marianne pour les collectivités, Comitia pour les associations, Lauria pour les familles. IA souveraine française, RGPD natif.">
-<meta name="twitter:image" content="https://civik-ia.fr/assets/og-image.png">
-
-<link rel="icon" type="image/svg+xml" href="/assets/logo-civik-ia-seul.svg">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<meta name="theme-color" content="#000091">
-
+<meta name="twitter:site" content="@Civik_ia">
+<meta name="twitter:title" content="Civik-ia : communiquer, conseiller, créer">
+<meta name="twitter:description" content="Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.">
+<meta name="twitter:image" content="https://civik-ia.fr/assets/partage/home.jpg">
+<meta name="twitter:image:alt" content="Civik-ia : communiquer, conseiller, créer. Marianne, Conseil, Atelier">
+<link rel="preload" href="/commun/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/commun/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/commun/img/village-nuit.webp" as="image">
+<link rel="stylesheet" href="/c-film/film.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Civik-ia",
-  "legalName": "Civik-ia SASU",
-  "url": "https://civik-ia.fr/",
-  "logo": "https://civik-ia.fr/assets/logo-civik-ia-complet.png",
-  "image": "https://civik-ia.fr/assets/og-image.png",
-  "sameAs": [
-    "https://www.linkedin.com/company/civik-ia/",
-    "https://www.instagram.com/civik_ia/",
-    "https://www.facebook.com/61576248676403/",
-    "https://x.com/Civik_ia",
-    "https://annuaire-entreprises.data.gouv.fr/entreprise/103568416"
-  ],
-  "description": "Maison française de produits d'intelligence artificielle au service de la vie locale : Marianne pour les collectivités, Comitia pour les associations, Lauria pour les familles et les habitants.",
-  "foundingDate": "2026",
-  "slogan": "Le trait d'union des territoires.",
-  "address": {
-    "@type": "PostalAddress",
-    "postalCode": "11100",
-    "addressLocality": "Narbonne",
-    "addressCountry": "FR"
-  },
-  "taxID": "103568416",
-  "brand": [
-    { "@type": "Brand", "name": "Marianne", "description": "L'assistante IA des collectivités, disponible 24h/24.", "url": "https://civik-ia.fr/marianne/" },
-    { "@type": "Brand", "name": "Comitia", "description": "L'application au service des associations.", "url": "https://civik-ia.fr/comitia/" },
-    { "@type": "Brand", "name": "Lauria", "description": "L'application de la vie locale pour les familles.", "url": "https://civik-ia.fr/lauria/" }
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "contact@civik-ia.fr",
-    "contactType": "sales",
-    "availableLanguage": "French"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://civik-ia.fr/#organisation",
+      "name": "Civik-ia",
+      "legalName": "Civik-ia",
+      "url": "https://civik-ia.fr/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://civik-ia.fr/assets/icones/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://civik-ia.fr/assets/partage/home.jpg",
+      "description": "Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.",
+      "foundingDate": "2026",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://civik-ia.fr/conseil/#thibaut-harang",
+        "name": "Thibaut Harang",
+        "url": "https://civik-ia.fr/conseil/"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Narbonne",
+        "postalCode": "11100",
+        "addressCountry": "FR"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "SIREN",
+        "value": "103568416"
+      },
+      "iso6523Code": "0002:103568416",
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@civik-ia.fr",
+        "contactType": "sales",
+        "availableLanguage": "French"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Marianne",
+        "description": "L'assistant IA des collectivités territoriales",
+        "url": "https://civik-ia.fr/marianne/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/civik-ia/",
+        "https://x.com/Civik_ia",
+        "https://www.instagram.com/civik_ia/",
+        "https://www.facebook.com/61576248676403/",
+        "https://annuaire-entreprises.data.gouv.fr/entreprise/103568416"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://civik-ia.fr/#site",
+      "url": "https://civik-ia.fr/",
+      "name": "Civik-ia",
+      "alternateName": "civik-ia.fr",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@id": "https://civik-ia.fr/#organisation"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://civik-ia.fr/#page",
+      "url": "https://civik-ia.fr/",
+      "name": "Civik-ia : Marianne, Conseil, Atelier",
+      "description": "Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.",
+      "inLanguage": "fr-FR",
+      "isPartOf": {
+        "@id": "https://civik-ia.fr/#site"
+      },
+      "about": {
+        "@id": "https://civik-ia.fr/#organisation"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://civik-ia.fr/assets/partage/home.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "breadcrumb": {
+        "@id": "https://civik-ia.fr/#fil"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://civik-ia.fr/#fil",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Civik-ia",
+          "item": "https://civik-ia.fr/"
+        }
+      ]
+    }
+  ]
 }
 </script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Civik-ia",
-  "alternateName": "Civik-ia, le trait d'union des territoires",
-  "url": "https://civik-ia.fr/",
-  "inLanguage": "fr-FR",
-  "publisher": { "@type": "Organization", "name": "Civik-ia", "url": "https://civik-ia.fr/" }
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
-
-<style>
-/* ==========================================================================
-   Civik-ia, page maison. DA Luxe institutionnel chaud (DESIGN.md 1 à 8)
-   + filigrane gravé et fil bleu Trait d'union (passerelle validée 04/07/2026).
-   Palette souveraine : #000091 #007bff #2EC4B6 #F4A261 #f7f4ed
-   ========================================================================== */
-:root{
-  --ci-blue-marianne:#000091;
-  --ci-blue-marianne-light:#1a1a6e;
-  --ci-blue-electric:#007bff;
-  --ci-teal:#2EC4B6;
-  --ci-gold:#F4A261;
-  --ci-ink:#1E1E1E;
-  --ci-ink-soft:#5a5a5a;
-  --ci-cream:#f7f4ed;
-  --ci-cream-warm:#f5f2eb;
-  --ci-cream-deep:#efeae1;
-  --ci-line:rgba(200,190,170,.25);
-  --ci-line-soft:rgba(140,120,80,.08);
-  --ci-thread:#2b6fd6;
-  --lauria-terracotta:#C04A36;
-  --comitia-green:#164027;
-  --sh-card:0 8px 24px rgba(0,0,80,.08),0 0 0 1px rgba(0,0,145,.04);
-  --sh-hover:0 16px 40px rgba(0,0,80,.12),0 0 0 1px rgba(0,0,145,.06);
-  --sh-deep:0 32px 80px rgba(0,0,80,.18),0 0 0 1px rgba(0,0,145,.04);
-  --ease:cubic-bezier(.4,0,.2,1);
-  --font-sans:'Inter',system-ui,sans-serif;
-  --font-display:'Poppins',sans-serif;
-  --font-serif:'Fraunces',serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-sans);background:var(--ci-cream);color:var(--ci-ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
-h1,h2,h3{font-family:var(--font-display);color:var(--ci-blue-marianne);letter-spacing:-.03em}
-a{color:inherit;text-decoration:none}
-img{max-width:100%}
-.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
-section{padding:104px 0}
-.eyebrow{display:inline-block;color:var(--ci-ink-soft);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
-.ia{color:var(--ci-thread)}
-.kicker{font-family:var(--font-serif);font-style:italic;font-weight:500;color:var(--ci-blue-marianne);font-size:23px;letter-spacing:-.01em}
-
-/* ---------- lever de page : voile creme + trois points tricolores ---------- */
-.page-dawn{position:fixed;inset:0;z-index:600;background:var(--ci-cream);display:flex;align-items:center;justify-content:center;gap:13px;pointer-events:none;animation:dawnOut .5s ease .4s forwards}
-.page-dawn i{width:9px;height:9px;border-radius:50%;opacity:0;animation:dawnDot .4s var(--ease) forwards}
-.page-dawn i:nth-child(1){background:#002395;animation-delay:.03s}
-.page-dawn i:nth-child(2){background:#FFFFFF;box-shadow:inset 0 0 0 1.5px rgba(0,35,149,.4);animation-delay:.13s}
-.page-dawn i:nth-child(3){background:#ED2939;animation-delay:.23s}
-@keyframes dawnDot{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-@keyframes dawnOut{to{opacity:0;visibility:hidden}}
-
-/* ---------- WhatsApp flottant ---------- */
-.wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4),0 2px 8px rgba(0,0,0,.12);transition:background .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
-.wa-float:hover{background:#1EBE5D;transform:translateY(-3px) scale(1.04);box-shadow:0 14px 32px rgba(37,211,102,.5)}
-.wa-float svg{width:29px;height:29px;fill:#fff;display:block}
-@media (max-width:600px){.wa-float{right:14px;bottom:14px;width:48px;height:48px}.wa-float svg{width:24px;height:24px}}
-
-/* ---------- reveal on scroll ---------- */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
-
-/* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:80;background:rgba(247,244,237,.78);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--ci-line)}
-.nav-in{display:flex;align-items:center;gap:26px;height:74px;max-width:1240px;margin:0 auto;padding:0 40px}
-.nav-logo{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--ci-blue-marianne);letter-spacing:-.02em;flex-shrink:0}
-.nav-logo img{height:36px;width:auto;display:block}
-.nav-logo .sub{display:block;font-family:var(--font-sans);font-size:9.5px;font-weight:600;color:var(--ci-ink-soft);letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--ci-ink-soft);margin-left:auto}
-.nav-links a{transition:color .25s ease}
-.nav-links a:hover{color:var(--ci-teal)}
-.nav-cta{background:var(--ci-blue-marianne);color:var(--ci-cream);padding:11px 24px;border-radius:9999px;font-weight:600;font-size:14px;transition:background .35s var(--ease);flex-shrink:0}
-.nav-cta:hover{background:var(--ci-teal)}
-.nav-burger{display:none;background:none;border:0;color:var(--ci-blue-marianne);cursor:pointer;padding:8px;margin-left:auto}
-.nav-burger svg{width:26px;height:26px;display:block}
-.mobile-menu{display:none;position:fixed;inset:74px 0 auto 0;z-index:79;background:rgba(247,244,237,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--ci-line);padding:18px 24px 26px;flex-direction:column;gap:4px}
-.mobile-menu.open{display:flex}
-.mobile-menu a{padding:13px 6px;font-weight:600;color:var(--ci-blue-marianne);border-bottom:1px solid var(--ci-line-soft);font-size:16px}
-.mobile-menu a:last-child{border-bottom:0}
-
-/* ---------- hero ---------- */
-.hero{position:relative;padding:76px 0 104px;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-220px;right:-180px;width:640px;height:640px;background:radial-gradient(circle,rgba(0,0,145,.06),transparent 68%);border-radius:50%}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
-.hero-copy{max-width:580px}
-.hero .kicker{display:block;margin:20px 0 12px}
-.hero h1{font-size:clamp(40px,4.6vw,64px);font-weight:800;line-height:1.05;letter-spacing:-.038em}
-.hero p.lead{font-size:18.5px;color:var(--ci-ink-soft);max-width:56ch;margin-top:22px}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.btn-primary{display:inline-block;background:var(--ci-blue-marianne);color:var(--ci-cream);padding:17px 38px;border-radius:9999px;font-weight:600;font-size:16px;transition:background .35s var(--ease),transform .35s var(--ease);box-shadow:var(--sh-card)}
-.btn-primary:hover{background:var(--ci-teal);transform:translateY(-2px)}
-.btn-ghost{display:inline-block;background:transparent;color:var(--ci-blue-marianne);border:1.5px solid var(--ci-blue-marianne);padding:15.5px 32px;border-radius:9999px;font-weight:600;font-size:16px;transition:all .35s var(--ease)}
-.btn-ghost:hover{background:var(--ci-blue-marianne);color:var(--ci-cream)}
-.hero-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:34px;font-size:13.5px;color:var(--ci-ink-soft)}
-.hero-meta span{display:inline-flex;align-items:center;gap:8px}
-.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--ci-gold);display:inline-block}
-
-/* ---------- la scène : gravure pleine page + téléphones ---------- */
-.hero-etching{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
-.hero-etching img{position:absolute;left:50%;bottom:-3%;transform:translateX(-50%);
-  width:max(102vw,1500px);max-width:none;height:auto;
-  filter:blur(2.4px);opacity:.4;mix-blend-mode:multiply;
-  -webkit-mask-image:linear-gradient(to top,transparent 1%,#000 22%,#000 58%,transparent 94%);
-  mask-image:linear-gradient(to top,transparent 1%,#000 22%,#000 58%,transparent 94%)}
-.hero-etching::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,var(--ci-cream) 4%,rgba(247,244,237,.72) 30%,rgba(247,244,237,.12) 58%,transparent 75%)}
-.hero>.wrap{position:relative;z-index:1}
-.stage{position:relative;height:620px;z-index:1}
-
-/* téléphones */
-.phones{position:absolute;inset:0;z-index:3}
-.phone{position:absolute;display:block;border-radius:46px;padding:3px;cursor:pointer;
-  background:linear-gradient(150deg,#4a4d57 0%,#181a20 30%,#3c3f49 55%,#14161c 100%);
-  box-shadow:var(--sh-deep);
-  transition:transform .55s var(--ease),box-shadow .55s var(--ease),filter .55s var(--ease),opacity .55s var(--ease)}
-.phone-body{position:relative;border-radius:43px;background:#0b0d12;padding:9px;height:100%}
-/* boutons latéraux */
-.phone::before{content:"";position:absolute;right:-2.5px;top:26%;width:3px;height:64px;border-radius:2px;background:linear-gradient(90deg,#2c2f38,#101218)}
-.phone::after{content:"";position:absolute;left:-2.5px;top:20%;width:3px;height:34px;border-radius:2px;background:linear-gradient(90deg,#101218,#2c2f38);box-shadow:0 46px 0 0 #1c1f27}
-.scr{position:relative;border-radius:34px;overflow:hidden;height:100%;display:flex;flex-direction:column;background:var(--ci-cream)}
-/* dynamic island + reflet verre */
-.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:74px;height:20px;border-radius:12px;background:#07080c;z-index:6}
-.glass{position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:34px;
-  background:linear-gradient(118deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.05) 18%,transparent 38%);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-.pstatus{position:absolute;top:15px;right:13px;z-index:7;background:rgba(247,244,237,.94);color:var(--ci-ink-soft);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:9999px;border:1px solid var(--ci-line)}
-.pstatus.on{color:var(--ci-blue-marianne);border-color:rgba(0,0,145,.22)}
-/* positions et lévitation */
-.p-comitia{width:212px;height:438px;left:-6px;top:34px;z-index:1;transform:rotate(-8.5deg);animation:floatA 9s ease-in-out infinite}
-.p-lauria{width:212px;height:438px;right:-2px;top:150px;z-index:2;transform:rotate(7.5deg);animation:floatB 10.5s ease-in-out infinite}
-.p-marianne{width:258px;height:532px;left:50%;top:38px;z-index:3;transform:translateX(-52%) rotate(-1.5deg);animation:floatC 8s ease-in-out infinite}
-@keyframes floatA{0%,100%{margin-top:0}50%{margin-top:-9px}}
-@keyframes floatB{0%,100%{margin-top:0}50%{margin-top:-12px}}
-@keyframes floatC{0%,100%{margin-top:0}50%{margin-top:-7px}}
-/* survol : le téléphone passe devant, les autres s'effacent */
-.phones:has(.phone:hover) .phone:not(:hover){filter:blur(2.5px) saturate(.85);opacity:.66;transform-origin:center}
-.phones:has(.p-marianne:hover) .p-comitia{transform:rotate(-10deg) scale(.95)}
-.phones:has(.p-marianne:hover) .p-lauria{transform:rotate(9deg) scale(.95)}
-.phones:has(.p-comitia:hover) .p-marianne{transform:translateX(-52%) rotate(-1.5deg) scale(.96)}
-.phones:has(.p-comitia:hover) .p-lauria{transform:rotate(9deg) scale(.95)}
-.phones:has(.p-lauria:hover) .p-marianne{transform:translateX(-52%) rotate(-1.5deg) scale(.96)}
-.phones:has(.p-lauria:hover) .p-comitia{transform:rotate(-10deg) scale(.95)}
-.p-comitia:hover,.p-comitia:focus-visible{transform:rotate(-1deg) scale(1.06) translateY(-14px);z-index:9;box-shadow:0 46px 100px rgba(0,0,80,.3),0 0 0 1px rgba(0,0,145,.05)}
-.p-lauria:hover,.p-lauria:focus-visible{transform:rotate(1deg) scale(1.06) translateY(-14px);z-index:9;box-shadow:0 46px 100px rgba(0,0,80,.3),0 0 0 1px rgba(0,0,145,.05)}
-.p-marianne:hover,.p-marianne:focus-visible{transform:translateX(-52%) rotate(0deg) scale(1.05) translateY(-12px);z-index:9;box-shadow:0 50px 110px rgba(0,0,80,.32),0 0 0 1px rgba(0,0,145,.05)}
-.phone:focus-visible{outline:3px solid var(--ci-teal);outline-offset:4px}
-/* étiquette au survol */
-.plabel{position:absolute;left:50%;bottom:-46px;transform:translateX(-50%) translateY(-6px);white-space:nowrap;background:var(--ci-blue-marianne);color:var(--ci-cream);font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:9999px;opacity:0;transition:opacity .35s ease,transform .35s var(--ease);pointer-events:none;box-shadow:var(--sh-card)}
-.phone:hover .plabel,.phone:focus-visible .plabel{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* écrans produits */
-.seal{border-radius:50%;background:var(--ci-cream);border:2px solid var(--ci-gold);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,80,.1)}
-.seal img{width:62%;height:62%;object-fit:contain;display:block}
-/* Marianne */
-.scr-mar{padding:44px 15px 12px;align-items:center;text-align:center}
-.mar-seal{width:56px;height:56px;margin-bottom:10px}
-.mar-t{font-family:var(--font-display);font-weight:700;color:var(--ci-blue-marianne);font-size:19px;letter-spacing:-.02em}
-.mar-s{font-size:10.5px;color:var(--ci-ink-soft);margin-top:2px;line-height:1.4;padding:0 10px}
-.mar-chat{width:calc(100% - 6px);margin:14px 3px 0;display:flex;flex-direction:column;gap:7px;text-align:left}
-.mar-q{align-self:flex-end;max-width:82%;background:var(--ci-blue-marianne);color:var(--ci-cream);font-size:10.5px;line-height:1.45;padding:8px 11px;border-radius:13px 13px 3px 13px}
-.mar-r{align-self:flex-start;max-width:88%;background:#fdfbf6;border:1px solid var(--ci-line);font-size:10.5px;line-height:1.45;padding:8px 11px;border-radius:13px 13px 13px 3px;color:var(--ci-ink);box-shadow:0 3px 10px rgba(0,0,80,.05)}
-.mar-src{display:inline-block;margin-top:5px;font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ci-blue-marianne);background:rgba(0,0,145,.06);padding:2.5px 7px;border-radius:9999px}
-.mar-ask{margin:12px 3px 0;width:calc(100% - 6px);background:#fdfbf6;border:1px solid var(--ci-line);border-radius:9999px;display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 14px;box-shadow:0 5px 14px rgba(0,0,145,.06)}
-.mar-ask span{font-size:10.5px;color:var(--ci-ink-soft)}
-.mar-arrow{width:26px;height:26px;border-radius:50%;background:var(--ci-blue-marianne);color:var(--ci-cream);display:flex;align-items:center;justify-content:center;font-size:13px}
-.mar-nav{margin-top:auto;display:flex;justify-content:space-around;align-items:center;padding:11px 20px 5px;border-top:1px solid var(--ci-line);width:100%}
-.mar-nav i{width:19px;height:19px;border-radius:6px;background:rgba(0,0,145,.1);display:block}
-.mar-nav i:first-child{background:var(--ci-blue-marianne)}
-/* Comitia */
-.scr-com{background:#f6f3ea;padding:40px 13px 14px;align-items:center;text-align:center}
-.com-seal{width:46px;height:46px;margin-bottom:8px;border-color:rgba(22,64,39,.4)}
-.com-t{font-family:var(--font-serif);font-weight:600;color:var(--comitia-green);font-size:17px}
-.com-s{font-size:9.5px;color:var(--ci-ink-soft);margin-top:2px;line-height:1.4;padding:0 8px}
-.com-rows{width:calc(100% - 4px);margin:13px 2px 0;display:flex;flex-direction:column;gap:7px;text-align:left}
-.com-row{background:#fdfbf4;border:1px solid rgba(22,64,39,.14);border-radius:11px;padding:9px 11px;font-size:10px;font-weight:600;color:var(--comitia-green)}
-.com-row small{display:block;font-weight:500;color:var(--ci-ink-soft);font-size:8.8px;margin-top:2px;line-height:1.35}
-.com-cta{margin-top:11px;width:calc(100% - 4px);background:var(--comitia-green);color:#f6f3ea;font-size:10px;font-weight:700;text-align:center;padding:9px;border-radius:9999px;letter-spacing:.04em}
-/* Lauria */
-.scr-lau{background:#fbfaf8;padding:40px 13px 14px;align-items:center;text-align:center}
-.lau-seal{width:46px;height:46px;margin-bottom:8px;border-color:rgba(192,74,54,.4);background:#fff}
-.lau-t{font-family:var(--font-display);font-weight:700;color:var(--lauria-terracotta);font-size:17px;letter-spacing:-.01em}
-.lau-s{font-size:9.5px;color:var(--ci-ink-soft);margin-top:2px;line-height:1.4;padding:0 8px}
-.lau-rows{width:calc(100% - 4px);margin:13px 2px 0;display:flex;flex-direction:column;gap:7px;text-align:left}
-.lau-row{background:#fff;border:1px solid #ebebed;border-radius:13px;padding:9px 11px;font-size:10px;font-weight:600;color:#1d1d1f;box-shadow:0 2px 8px rgba(30,30,30,.04)}
-.lau-row small{display:block;font-weight:500;color:#6e6e73;font-size:8.8px;margin-top:2px;line-height:1.35}
-.lau-chip{display:inline-block;margin-top:11px;background:rgba(192,74,54,.1);color:var(--lauria-terracotta);font-size:9px;font-weight:700;padding:5px 12px;border-radius:9999px;letter-spacing:.05em;text-transform:uppercase}
-
-/* ---------- immersion : on entre dans le téléphone au clic ---------- */
-.hero.diving{z-index:300;overflow:visible}
-.hero.diving .hero-copy,.hero.diving .hero-etching{opacity:0;transition:opacity .5s ease}
-.hero.diving .phones .phone:not(.dive-zoom){opacity:0;filter:blur(6px);transition:opacity .45s ease,filter .45s ease,transform .45s ease}
-body.diving-out .nav{opacity:0;transition:opacity .4s ease}
-.phone.dive-zoom{z-index:400;animation:none;margin-top:0;
-  transition:transform .95s cubic-bezier(.72,.02,.26,1),box-shadow .95s ease,margin-top .3s ease;
-  box-shadow:0 60px 140px rgba(0,0,80,.35)}
-.phone.dive-zoom .plabel{opacity:0!important}
-.scr-veil{position:absolute;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s ease .38s}
-.dive-zoom .scr-veil{opacity:1}
-.scr-veil img{width:34%;max-width:150px;height:auto}
-
-/* ---------- manifesto ---------- */
-.manifesto{background:var(--ci-cream-deep);position:relative;overflow:hidden}
-.mani-in{max-width:880px;margin:0 auto;text-align:center}
-.mani-quote{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:clamp(26px,3.2vw,40px);line-height:1.28;color:var(--ci-blue-marianne);margin:26px auto 30px;max-width:24ch;letter-spacing:-.015em}
-.mani-quote em{font-style:italic;color:var(--ci-blue-electric)}
-.mani-p{font-size:17.5px;color:var(--ci-ink-soft);max-width:66ch;margin:0 auto}
-.mani-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:58px;text-align:left}
-.pillar{background:rgba(247,244,237,.65);backdrop-filter:blur(10px) saturate(150%);border:1px solid var(--ci-line);border-radius:18px;padding:30px 28px;box-shadow:var(--sh-card);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.pillar:hover{transform:translateY(-4px);box-shadow:var(--sh-hover)}
-.pillar h3{font-size:19px;margin-bottom:8px}
-.pillar p{font-size:14.5px;color:var(--ci-ink-soft)}
-.pillar .n{font-family:var(--font-serif);font-style:italic;font-size:15px;color:var(--ci-gold);display:block;margin-bottom:12px}
-
-/* ---------- marques ---------- */
-.marques{background:var(--ci-cream-warm)}
-.head{max-width:700px;margin-bottom:58px}
-.head h2{font-size:clamp(32px,3.8vw,50px);font-weight:700;line-height:1.08;letter-spacing:-.032em;margin-top:16px}
-.head p{font-size:18px;color:var(--ci-ink-soft);margin-top:16px}
-.mq-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.mq-card{position:relative;background:rgba(250,248,242,.72);backdrop-filter:blur(10px) saturate(150%);border:1px solid var(--ci-line);border-radius:22px;padding:38px;box-shadow:var(--sh-card);transition:transform .45s var(--ease),box-shadow .45s var(--ease);display:flex;flex-direction:column}
-.mq-card:hover{transform:translateY(-5px);box-shadow:var(--sh-hover)}
-.mq-card.flagship{grid-column:1/-1;display:grid;grid-template-columns:1.3fr 1fr;gap:38px;align-items:center;box-shadow:var(--sh-deep);border-color:rgba(0,0,145,.09)}
-.mq-tag{align-self:flex-start;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:9999px;color:var(--ci-ink-soft);background:var(--ci-cream-deep);border:1px solid var(--ci-line)}
-.mq-tag.on{color:var(--ci-blue-marianne);border-color:rgba(0,0,145,.2)}
-.mq-who{font-size:12px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ci-ink-soft);margin-top:16px}
-.mq-card h3{font-size:27px;margin:8px 0 10px}
-.mq-card.flagship h3{font-size:33px}
-.mq-card p.story{color:var(--ci-ink-soft);font-size:15.5px;line-height:1.65}
-.mq-link{margin-top:auto;padding-top:22px;font-weight:600;color:var(--ci-blue-marianne);display:inline-flex;align-items:center;gap:8px;font-size:15px;transition:color .25s ease,gap .3s var(--ease)}
-.mq-card:hover .mq-link{color:var(--ci-teal);gap:12px}
-.mq-visual{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(0,0,145,.045);border-radius:18px;padding:34px 26px}
-.mq-visual .seal{width:104px;height:104px;margin-bottom:16px}
-.mq-visual .vt{font-family:var(--font-display);font-weight:700;color:var(--ci-blue-marianne);font-size:19px}
-.mq-visual .vs{font-size:13px;color:var(--ci-ink-soft);margin-top:4px}
-.mq-mini-seal{width:52px;height:52px;margin-bottom:18px}
-.mq-card.c-comitia .mq-mini-seal{border-color:rgba(22,64,39,.35)}
-.mq-card.c-lauria .mq-mini-seal{border-color:rgba(192,74,54,.35);background:#fff}
-.mq-card.c-comitia h3{color:var(--comitia-green);font-family:var(--font-serif);font-weight:600}
-.mq-card.c-lauria h3{color:var(--lauria-terracotta)}
-.real-strip{margin-top:28px;background:var(--ci-cream-deep);border:1px dashed var(--ci-line);border-radius:16px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.real-strip p{font-size:14.5px;color:var(--ci-ink-soft)}
-.real-strip b{color:var(--ci-blue-marianne)}
-
-/* ---------- souveraineté (sombre) ---------- */
-.souv{background:linear-gradient(140deg,var(--ci-blue-marianne) 0%,var(--ci-blue-marianne-light) 100%);color:var(--ci-cream);position:relative;overflow:hidden}
-.souv::after{content:"";position:absolute;bottom:-140px;left:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(43,111,214,.18),transparent 70%);border-radius:50%}
-.souv .head{position:relative;z-index:1}
-.souv .eyebrow{color:rgba(247,244,237,.78)}
-.souv h2{color:var(--ci-cream)}
-.souv .head p{color:rgba(247,244,237,.78)}
-.souv-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.souv-card{border-top:1px solid rgba(247,244,237,.22);padding-top:26px}
-.souv-card .ix{font-family:var(--font-serif);font-style:italic;font-size:15px;color:var(--ci-gold)}
-.souv-card h3{color:var(--ci-cream);font-size:20px;margin:10px 0 8px;letter-spacing:-.015em}
-.souv-card p{color:rgba(247,244,237,.84);font-size:15px}
-.souv-sig{position:relative;z-index:1;margin-top:64px;text-align:center;font-family:var(--font-serif);font-style:italic;font-size:21px;color:rgba(247,244,237,.85)}
-
-/* ---------- territoire ---------- */
-.terr .fly{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.terr h2{font-size:clamp(30px,3.4vw,44px);line-height:1.1;letter-spacing:-.03em;margin:16px 0 16px}
-.terr p.big{color:var(--ci-ink-soft);font-size:17px}
-.fly-diagram{background:var(--ci-cream-warm);border:1px solid var(--ci-line);border-radius:22px;padding:36px;box-shadow:var(--sh-card)}
-.fly-node{display:flex;align-items:center;gap:15px;padding:15px 17px;border-radius:14px;background:rgba(0,0,145,.045);font-size:14.5px;font-weight:500}
-.fly-node .nb{width:32px;height:32px;border-radius:50%;background:var(--ci-blue-marianne);color:var(--ci-cream);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
-.fly-node.hub{background:rgba(0,0,145,.08);font-weight:600}
-.fly-node.hub .nb{background:var(--ci-teal)}
-.fly-arrow{display:flex;align-items:center;gap:10px;color:var(--ci-ink-soft);font-size:13px;margin:9px 0 9px 15px}
-.fly-arrow::before{content:"";width:2px;height:22px;background:var(--ci-thread);border-radius:2px;display:block}
-
-/* ---------- contact ---------- */
-.contact{background:var(--ci-cream-deep);position:relative;overflow:hidden}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.contact h2{font-size:clamp(30px,3.4vw,44px);letter-spacing:-.03em;margin-top:16px}
-.contact p.sub{color:var(--ci-ink-soft);font-size:17px;margin-top:14px;max-width:46ch}
-.contact-direct{margin-top:28px;display:flex;flex-direction:column;gap:10px;font-size:15.5px}
-.contact-direct a{color:var(--ci-blue-marianne);font-weight:600;transition:color .25s ease}
-.contact-direct a:hover{color:var(--ci-teal)}
-.contact-resource{margin-top:26px;padding-top:22px;border-top:1px solid var(--ci-line);font-size:15.5px;line-height:1.6;color:var(--ci-ink-soft);max-width:46ch}
-.contact-resource a{color:var(--ci-blue-marianne);font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .25s ease}
-.contact-resource a:hover{color:var(--ci-teal)}
-.cform{background:rgba(250,248,242,.8);backdrop-filter:blur(10px) saturate(150%);border:1px solid var(--ci-line);border-radius:22px;padding:36px;box-shadow:var(--sh-card);display:flex;flex-direction:column;gap:16px}
-.cform label{font-size:13px;font-weight:600;color:var(--ci-blue-marianne);display:block;margin-bottom:6px}
-.cform input,.cform textarea{width:100%;background:#fdfbf6;border:1px solid var(--ci-line);border-radius:12px;padding:13px 15px;font-family:var(--font-sans);font-size:15px;color:var(--ci-ink);transition:border-color .25s ease,box-shadow .25s ease}
-.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--ci-teal);box-shadow:0 0 0 3px rgba(46,196,182,.14)}
-.cform textarea{min-height:120px;resize:vertical}
-.cform button{align-self:flex-start;background:var(--ci-blue-marianne);color:var(--ci-cream);border:0;cursor:pointer;padding:15px 36px;border-radius:9999px;font-weight:600;font-size:15.5px;font-family:var(--font-sans);transition:background .35s var(--ease),transform .35s var(--ease)}
-.cform button:hover{background:var(--ci-teal);transform:translateY(-2px)}
-
-/* ---------- footer ---------- */
-footer{background:var(--ci-cream-warm);border-top:1px solid var(--ci-line);padding:64px 0 30px;position:relative;overflow:hidden}
-.foot-grid{position:relative;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;z-index:1}
-.foot-brand img{height:44px;width:auto;margin-bottom:14px}
-.foot-brand .sig{font-family:var(--font-serif);font-style:italic;font-weight:500;color:var(--ci-blue-marianne);font-size:19px}
-.foot-brand p{font-size:13.5px;color:var(--ci-ink-soft);margin-top:12px;max-width:36ch}
-.foot-grid h3{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ci-ink-soft);margin-bottom:16px;font-family:var(--font-sans)}
-.foot-grid ul{list-style:none}
-.foot-grid li{margin-bottom:10px}
-.foot-grid ul a{font-size:14.5px;color:var(--ci-ink);transition:color .25s ease}
-.foot-grid ul a:hover{color:var(--ci-teal)}
-.foot-bar{position:relative;z-index:1;margin-top:52px;padding-top:22px;border-top:1px solid var(--ci-line);font-size:12.5px;color:var(--ci-ink-soft);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-
-/* ---------- responsive ---------- */
-@media (max-width:1080px){
-  .hero-grid{gap:26px}
-  .stage{height:560px}
-  .p-marianne{width:236px;height:488px}
-  .p-comitia,.p-lauria{width:194px;height:402px}
-}
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-copy{max-width:none}
-  .stage{height:540px;width:100%;max-width:520px;margin:26px auto 0}
-  .mani-pillars{grid-template-columns:1fr}
-  .mq-grid{grid-template-columns:1fr}
-  .mq-card.flagship{grid-template-columns:1fr}
-  .souv-grid{grid-template-columns:1fr;gap:26px}
-  .terr .fly{grid-template-columns:1fr;gap:34px}
-  .contact-grid{grid-template-columns:1fr;gap:34px}
-  .foot-grid{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-  .nav-burger{display:block}
-}
-@media (max-width:600px){
-  .wrap{padding:0 22px}
-  .nav-in{padding:0 22px;height:66px}
-  .mobile-menu{inset:66px 0 auto 0}
-  section{padding:66px 0}
-  .hero{padding:46px 0 66px}
-  .hero p.lead{font-size:17px}
-  .kicker,.hero .kicker{font-size:20px}
-  .cta-row{flex-direction:column}
-  .btn-primary,.btn-ghost{width:100%;text-align:center}
-  .stage{height:470px;width:100%;max-width:100%;margin:18px auto 0}
-  .p-marianne{width:184px;height:380px;top:22px}
-  .p-comitia{width:148px;height:306px;left:-6px;top:48px;transform:rotate(-10deg)}
-  .p-lauria{width:148px;height:306px;right:-6px;top:128px;transform:rotate(9deg)}
-  .mar-chat .mar-r{font-size:9.5px}
-  .plabel{display:none}
-  .pstatus{font-size:7.5px;padding:3px 7px;top:12px;right:10px;letter-spacing:.05em;white-space:nowrap;max-width:calc(100% - 20px);overflow:hidden;text-overflow:ellipsis}
-  .mq-card{padding:28px}
-  .head h2{letter-spacing:-.025em}
-  .foot-grid{grid-template-columns:1fr}
-  .foot-bar{flex-direction:column}
-}
-/* accessibilité : mouvement réduit */
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
-  .page-dawn{display:none}
-}
-.no-dawn .page-dawn{display:none!important}
-.skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:#000091;color:#f7f4ed;padding:12px 22px;border-radius:0 0 12px 0;font-weight:600;text-decoration:none}.skip-link:focus{left:0}
-</style>
 </head>
 <body>
-<a class="skip-link" href="#top">Aller au contenu</a>
+<a class="evitement" href="#clair">Passer le film</a>
+<h1 class="sr">Civik-ia : communiquer, conseiller, créer</h1>
 
-<div class="page-dawn" aria-hidden="true"><i></i><i></i><i></i></div>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-in">
-    <a class="nav-logo" href="/">
-      <img src="/assets/logo-civik-ia-nav.png" alt="Logo Civik-ia" width="36" height="36">
-      <span>Civik-<span class="ia">ia</span><span class="sub">Le trait d'union des territoires</span></span>
-    </a>
-    <div class="nav-links">
-      <a href="#solutions">Nos solutions</a>
-      <a href="#maison">La maison</a>
-      <a href="#souverainete">Souveraineté</a>
-      <a href="#contact">Contact</a>
-      <a class="nav-cta" href="/demo.html">Tester Marianne</a>
-    </div>
-    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-    </button>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#solutions">Nos solutions</a>
-  <a href="#maison">La maison</a>
-  <a href="#souverainete">Souveraineté</a>
-  <a href="#contact">Contact</a>
-  <a href="/demo.html">Tester Marianne</a>
-</div>
-
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-etching" aria-hidden="true"><picture><source type="image/webp" srcset="/assets/brand/village-grave-900.webp 900w, /assets/brand/village-grave.webp 2000w" sizes="100vw"><img src="/assets/brand/village-grave.jpg" alt="" width="2000" height="1075" fetchpriority="high"></picture></div>
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Maison de marques · IA souveraine française</span>
-        <span class="kicker">Le trait d'union des territoires</span>
-        <h1>L'intelligence artificielle au service de la vie locale</h1>
-        <p class="lead">Nous rendons l'IA accessible à celles et ceux qui font vivre la société au quotidien : les communes, les associations, les familles. Un seul moteur souverain, français, et des solutions concrètes qui rapprochent chaque citoyen de ce qui l'entoure.</p>
-        <div class="cta-row">
-          <a class="btn-primary" href="/marianne/">Découvrir Marianne</a>
-          <a class="btn-ghost" href="/demo.html">Tester la démo en direct</a>
-        </div>
-        <div class="hero-meta">
-          <span><i></i>Modèle français Mistral AI</span>
-          <span><i></i>Hébergé en Europe, OVH</span>
-          <span><i></i>RGPD natif</span>
-        </div>
-      </div>
-
-      <!-- La scène : village gravé, fil bleu, trois téléphones -->
-      <div class="stage" aria-label="Nos trois solutions">
-
-
-        <div class="phones">
-          <!-- Comitia (associations) -->
-          <a class="phone p-comitia" href="/comitia/" aria-label="Comitia, l'application au service des associations. Découvrir la page Comitia.">
-            <div class="phone-body">
-              <div class="scr scr-com">
-                <span class="island"></span>
-                <span class="glass"></span>
-                <span class="pstatus">Premier club en cours</span>
-                <span class="seal com-seal"><img src="/assets/brand/comitia-glyph.png" alt="" width="46" height="46" loading="lazy"></span>
-                <div class="com-t">Comit<span class="ia">ia</span></div>
-                <div class="com-s">Le forum de votre association</div>
-                <div class="com-rows">
-                  <div class="com-row">Assemblée générale<small>Ordre du jour et vote des adhérents</small></div>
-                  <div class="com-row">Tournoi de samedi<small>12 inscrits, départ 9 h</small></div>
-                  <div class="com-row">Le fil du club<small>Annonces, photos, événements</small></div>
-                </div>
-                <div class="com-cta">Rejoindre l'assemblée</div>
-              </div>
-            </div>
-            <span class="plabel">Comitia, le forum de votre association</span>
-          </a>
-
-          <!-- Lauria (familles, habitants) -->
-          <a class="phone p-lauria" href="/lauria/" aria-label="Lauria, l'application de la vie locale pour les familles. Découvrir la page Lauria.">
-            <div class="phone-body">
-              <div class="scr scr-lau">
-                <span class="island"></span>
-                <span class="glass"></span>
-                <span class="pstatus">En construction</span>
-                <span class="seal lau-seal"><img src="/assets/brand/lauria-glyph.png" alt="" width="46" height="46" loading="lazy"></span>
-                <div class="lau-t">Laur<span class="ia">ia</span></div>
-                <div class="lau-s">Votre vie locale, tout près</div>
-                <div class="lau-rows">
-                  <div class="lau-row">Marché de plein vent<small>Dimanche, place de la Halle</small></div>
-                  <div class="lau-row">École Jules Ferry<small>Reprise des cours lundi 8 h 30</small></div>
-                  <div class="lau-row">Boulangerie du centre<small>Ouverte, à 300 m</small></div>
-                </div>
-                <span class="lau-chip">À deux pas de chez vous</span>
-              </div>
-            </div>
-            <span class="plabel">Lauria, votre vie locale, tout près</span>
-          </a>
-
-          <!-- Marianne (collectivités, flagship) -->
-          <a class="phone p-marianne" href="/marianne/" aria-label="Marianne, l'assistante des collectivités, disponible aujourd'hui. Découvrir la page Marianne.">
-            <div class="phone-body">
-              <div class="scr scr-mar">
-                <span class="island"></span>
-                <span class="glass"></span>
-                <span class="pstatus on">Disponible</span>
-                <span class="seal mar-seal"><img src="/assets/brand/marianne-glyph.png" alt="" width="56" height="56"></span>
-                <div class="mar-t">Mar<span class="ia">ia</span>nne</div>
-                <div class="mar-s">L'assistante officielle de votre ville, 24 h/24</div>
-                <div class="mar-chat">
-                  <div class="mar-q">La mairie est ouverte samedi matin ?</div>
-                  <div class="mar-r">Oui, la mairie vous accueille le samedi de 9 h à 12 h. Le service état civil est ouvert sans rendez-vous.<span class="mar-src">Source : mairie</span></div>
-                </div>
-                <div class="mar-ask"><span>Posez votre question...</span><span class="mar-arrow">&rarr;</span></div>
-                <div class="mar-nav"><i></i><i></i><i></i><i></i></div>
-              </div>
-            </div>
-            <span class="plabel">Marianne, votre mairie 24 h/24</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+<header class="nav" aria-label="Navigation principale">
+  <a class="nav__logo" href="#" aria-label="Civik-ia, accueil">
+    <img src="/commun/img/logo-civik-ia.svg#svgView(viewBox(720,150,720,600))" alt="" width="44" height="37">
+    <span>Civik-<b>ia</b></span>
+  </a>
+  <nav class="nav__liens" aria-label="Rubriques">
+    <a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="#contact">Contact</a>
+  </nav>
+  <span class="nav__esp"></span>
+  <a class="nav__cta" href="/marianne/">Tester Marianne</a>
+  <button class="nav__menu" type="button" aria-expanded="false" aria-controls="tiroir-nav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </header>
+<nav class="nav__tiroir" id="tiroir-nav" aria-label="Menu">
+  <a href="/" aria-current="page">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="#contact">Contact</a>
+</nav>
 
-<!-- MANIFESTO -->
-<section class="manifesto" id="maison">
-  <div class="wrap mani-in">
-    <span class="eyebrow reveal">Notre conviction</span>
-    <p class="mani-quote reveal d1">La technologie la plus utile n'est pas celle qui impressionne. C'est celle qui <em>rapproche</em></p>
-    <p class="mani-p reveal d2">Civik-ia est une maison française de produits d'intelligence artificielle, fondée à Narbonne. Nous construisons des outils simples et souverains pour la mairie qui veut répondre à ses citoyens à toute heure, pour l'association qui veut réunir ses membres, pour la famille qui veut vivre pleinement son territoire. Trois solutions, un même moteur, une même exigence.</p>
-    <div class="mani-pillars">
-      <div class="pillar reveal"><span class="n">i.</span><h3>Accessible</h3><p>Aucune inscription, aucune application à installer côté citoyen. On pose une question, on obtient une réponse claire et sourcée. L'IA disparaît derrière le service rendu.</p></div>
-      <div class="pillar reveal d1"><span class="n">ii.</span><h3>Souveraine</h3><p>Modèle français Mistral AI, hébergement européen OVH, aucune donnée transférée hors d'Europe. La confiance ne se proclame pas, elle se construit.</p></div>
-      <div class="pillar reveal d2"><span class="n">iii.</span><h3>Utile</h3><p>Des réponses vérifiées, des sources officielles citées, zéro promesse en l'air. Ce qui n'est pas prêt s'appelle en construction, jamais autrement.</p></div>
-    </div>
-  </div>
-</section>
+<main>
+<section class="film" id="film" aria-label="Petit film : la nuit, Marianne répond et vous guide jusqu'à Thibaut Harang, du croisement jusqu'à l'atelier où votre idée se dessine">
+  <div class="scene" data-scene>
 
-<!-- MARQUES -->
-<section class="marques" id="solutions">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Nos solutions</span>
-      <h2>Une maison, trois marques, un même moteur souverain</h2>
-      <p>Chaque acteur du territoire a son outil. Ensemble, ils tissent un écosystème local que la commune peut fédérer.</p>
-    </div>
-
-    <div class="mq-grid">
-      <article class="mq-card flagship reveal">
-        <div style="display:flex;flex-direction:column;height:100%">
-          <span class="mq-tag on">Disponible</span>
-          <div class="mq-who">Collectivités</div>
-          <h3>Mar<span class="ia">ia</span>nne</h3>
-          <p class="story">Marianne est le visage de la République, celle qui incarne la France au fronton de chaque mairie. Civik-ia lui a donné une voix : celle qui répond à vos citoyens, jour et nuit, au nom de la commune. Sourcée, souveraine, patiente. Marianne ne ferme jamais.</p>
-          <a class="mq-link" href="/marianne/">Découvrir Marianne <span aria-hidden="true">&rarr;</span></a>
+    <div class="fond couche" aria-hidden="true" data-fond>
+      <div class="cadre" data-cadre>
+        <img src="/commun/img/village-jour.webp" alt="" width="1990" height="1075" decoding="async" data-jour>
+        <img src="/commun/img/village-nuit.webp" alt="" width="1990" height="1075" decoding="async" data-nuit>
+        <div class="aube" data-aube style="opacity:0"></div>
+        <div class="ciel-sol" data-cielsol>
+          <svg class="rayons" viewBox="-100 -100 200 200" data-rayons></svg>
+          <div class="soleil" data-soleil></div>
         </div>
-        <div class="mq-visual">
-          <span class="seal"><img src="/assets/brand/marianne-glyph.png" alt="Glyphe officiel Marianne" width="104" height="104" loading="lazy"></span>
-          <div class="vt">Mar<span class="ia">ia</span>nne</div>
-          <div class="vs">Votre mairie, disponible 24 h/24</div>
+        <div class="etoiles" data-etoiles>
+          <i style="--x:38%;--y:15%;--d:3.4s;--t:5px"></i><i style="--x:44.5%;--y:23%;--d:2.7s;--r:-1.2s;--t:3px"></i><i style="--x:50.5%;--y:14%;--d:4.1s;--r:-2s;--t:4px"></i>
+          <i style="--x:56%;--y:26%;--d:3s;--r:-.6s;--t:3px"></i><i style="--x:64%;--y:18%;--d:3.7s;--r:-1.8s;--t:5px"></i><i style="--x:47%;--y:31%;--d:2.9s;--r:-.9s;--t:3px"></i>
+          <i style="--x:60%;--y:9%;--d:3.3s;--r:-2.4s;--t:3px"></i><i style="--x:33%;--y:6%;--d:4.4s;--r:-.3s;--t:4px"></i>
+          <b class="filante filante--cycle" style="--fx:62%;--fy:7%"></b>
+          <b class="filante" data-filante></b>
         </div>
+        <div data-lumieres>
+          <i class="lum" style="--i:1;--x:70.40%;--y:40.93%" data-off=".262"></i>
+          <i class="lum" style="--i:3;--x:70.30%;--y:49.49%" data-off=".27"></i>
+          <i class="lum" style="--i:5;--x:97.89%;--y:49.21%" data-off=".266"></i>
+          <i class="lum lum--lanterne" style="--x:59.95%;--y:50.33%" data-off=".276"></i>
+          <i class="lum lum--reverbere" style="--x:93.07%;--y:49.55%" data-off=".285"></i>
+          <i class="lum lum--mairie" style="--i:0;--x:86.33%;--y:28.37%" data-off=".292"></i>
+        </div>
+        <svg class="horloge" viewBox="-36 -36 72 72" aria-hidden="true" focusable="false"><g transform="matrix(.67 -.055 0 1 0 0)"><path class="hz-rep" d="M0.0 -21.5L0.0 -27.0M11.6 -20.1L13.5 -23.4M20.1 -11.6L23.4 -13.5M21.5 -0.0L27.0 -0.0M20.1 11.6L23.4 13.5M11.6 20.1L13.5 23.4M0.0 21.5L0.0 27.0M-11.6 20.1L-13.5 23.4M-20.1 11.6L-23.4 13.5M-21.5 0.0L-27.0 0.0M-20.1 -11.6L-23.4 -13.5M-11.6 -20.1L-13.5 -23.4"/><line class="hz-h" y1="3" y2="-14"/><line class="hz-m" y1="4" y2="-22.5"/><circle r="1.7"/></g></svg>
+        <svg class="fontaine" viewBox="1395 600 240 290" aria-hidden="true" focusable="false">
+          <path class="eau" d="M1607.0 689.9C1607.6 745.5 1613.0 787.2 1613.0 828.9" style="--dl:38;--gp:5;--du:0.63s;--de:-0.12s;--op:0.35" stroke-width="1.2"/>
+          <path class="eau" d="M1605.2 690.8C1605.8 746.4 1611.0 788.1 1611.0 829.8" style="--dl:30;--gp:15;--du:0.6s;--de:-0.0s;--op:0.62" stroke-width="0.8"/>
+          <path class="eau" d="M1602.7 691.8C1603.3 747.4 1608.3 789.1 1608.3 830.8" style="--dl:58;--gp:5;--du:0.85s;--de:-0.42s;--op:0.43" stroke-width="0.8"/>
+          <path class="eau" d="M1595.6 693.5C1596.2 749.1 1600.8 790.8 1600.8 832.5" style="--dl:22;--gp:12;--du:0.42s;--de:-0.21s;--op:0.49" stroke-width="1.5"/>
+          <path class="eau" d="M1590.2 694.5C1590.7 750.1 1595.0 791.8 1595.0 833.5" style="--dl:22;--gp:15;--du:0.55s;--de:-0.25s;--op:0.49" stroke-width="1.5"/>
+          <path class="eau" d="M1583.8 695.4C1584.3 751.0 1588.3 792.7 1588.3 834.4" style="--dl:22;--gp:15;--du:0.51s;--de:-0.02s;--op:0.42" stroke-width="1.5"/>
+          <path class="eau" d="M1564.8 697.2C1565.1 752.8 1568.1 794.5 1568.1 836.2" style="--dl:38;--gp:5;--du:0.65s;--de:-0.05s;--op:0.21" stroke-width="1.2"/>
+          <path class="eau" d="M1545.3 698.3C1545.5 753.9 1547.4 795.6 1547.4 837.3" style="--dl:58;--gp:5;--du:1.08s;--de:-0.14s;--op:0.35" stroke-width="1.2"/>
+          <path class="eau" d="M1512.5 699.0C1512.5 754.6 1512.5 796.3 1512.5 838.0" style="--dl:22;--gp:15;--du:0.46s;--de:-0.19s;--op:0.27" stroke-width="1.5"/>
+          <path class="eau" d="M1460.2 697.2C1459.9 752.8 1456.9 794.5 1456.9 836.2" style="--dl:38;--gp:9;--du:0.81s;--de:-0.03s;--op:0.17" stroke-width="1.5"/>
+          <path class="eau" d="M1449.5 696.3C1449.1 751.9 1445.6 793.6 1445.6 835.3" style="--dl:30;--gp:5;--du:0.53s;--de:-0.27s;--op:0.64" stroke-width="1.2"/>
+          <path class="eau" d="M1441.2 695.4C1440.7 751.0 1436.7 792.7 1436.7 834.4" style="--dl:22;--gp:15;--du:0.54s;--de:-0.28s;--op:0.69" stroke-width="1.2"/>
+          <path class="eau" d="M1429.4 693.5C1428.8 749.1 1424.2 790.8 1424.2 832.5" style="--dl:30;--gp:12;--du:0.53s;--de:-0.02s;--op:0.45" stroke-width="1.5"/>
+          <path class="eau" d="M1422.3 691.8C1421.7 747.4 1416.7 789.1 1416.7 830.8" style="--dl:22;--gp:9;--du:0.39s;--de:-0.24s;--op:0.51" stroke-width="1.5"/>
+          <path class="eau" d="M1416.9 689.0C1416.3 744.6 1410.9 786.3 1410.9 828.0" style="--dl:22;--gp:7;--du:0.35s;--de:-0.34s;--op:0.7" stroke-width="1.2"/>
+          <path class="eau" d="M1554.2 632.2C1554.6 653.4 1557.8 669.3 1557.8 685.2" style="--dl:22;--gp:9;--du:0.42s;--de:-0.22s;--op:0.5" stroke-width="1.0"/>
+          <path class="eau" d="M1469.8 632.2C1469.4 653.4 1466.2 669.3 1466.2 685.2" style="--dl:46;--gp:15;--du:1.04s;--de:-0.68s;--op:0.54" stroke-width="0.8"/>
+        </svg>
+      </div>
+    </div>
+
+    <canvas class="monde monde--0" data-c0 aria-hidden="true"></canvas>
+    <div class="couche objets-0" data-objets0></div>
+    <canvas class="monde monde--1" data-c1 aria-hidden="true"></canvas>
+    <div class="couche objets-1" data-objets1></div>
+    <canvas class="monde monde--2" data-c2 aria-hidden="true"></canvas>
+
+    <div class="couche" data-atelier></div>
+    <div class="couche" data-porteurs></div>
+
+    <div class="couche lumiere" data-lumiere aria-hidden="true"></div>
+    <div class="couche grain" data-grain aria-hidden="true"></div>
+    <div class="voile voile--nuit" data-voile1 aria-hidden="true"></div>
+    <div class="voile voile--jour" data-voile2 aria-hidden="true"></div>
+
+    <p class="invite" data-invite aria-hidden="true">Touchez pour avancer</p>
+    <div class="bloc bloc--1" data-bloc="1">
+      <h2 class="verbe" data-lettres>Communiquer</h2>
+      <p class="legende mots" data-mots>Une mairie qui répond désormais <b>24h/24</b></p>
+      <a class="btn btn--clair" href="/marianne/">Découvrir Marianne <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="bloc bloc--4" data-bloc="4">
+      <h2 class="verbe" data-lettres>Conseiller</h2>
+      <p class="legende mots" data-mots>Vous aider à prendre le <b>bon chemin</b></p>
+      <a class="btn btn--plein" href="/conseil/">Découvrir le conseil <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+    <div class="bloc bloc--7" data-bloc="7">
+      <h2 class="verbe" data-lettres>Créer</h2>
+      <p class="legende mots" data-mots>Des solutions <b>sur mesure</b> adaptées à vos besoins</p>
+    </div>
+  </div>
+</section>
+
+<section class="clair" id="clair" aria-labelledby="clair-titre">
+  <div class="clair__in">
+    <h2 class="clair__titre" id="clair-titre">Découvrez Civik-ia&nbsp;:</h2>
+    <div class="clair__grille">
+      <article class="prop">
+        <h3>Communiquer</h3>
+        <p>Marianne, l'assistant IA des collectivités territoriales, répond aux habitants 24h/24 à partir des sources officielles, vérifiées et consolidées de la commune, et les cite toutes, à chaque réponse.</p>
+        <a class="btn btn--plein" href="/marianne/">Découvrir Marianne</a>
       </article>
-
-      <article class="mq-card c-comitia reveal d1">
-        <span class="mq-tag">Premier club en cours</span>
-        <div class="mq-who">Associations</div>
-        <span class="seal mq-mini-seal"><img src="/assets/brand/comitia-glyph.png" alt="Glyphe Comitia" width="52" height="52" loading="lazy"></span>
-        <h3>Comit<span class="ia">ia</span></h3>
-        <p class="story">Sur le Forum de Rome, quand les citoyens devaient décider du sort de la cité, ils se rassemblaient : c'étaient les comitia, l'assemblée des égaux. Comitia rend cette force à chaque association : réunir ses membres, partager l'information, voter, organiser, agir, d'une seule voix.</p>
-        <a class="mq-link" href="/comitia/">Découvrir Comitia <span aria-hidden="true">&rarr;</span></a>
+      <article class="prop">
+        <h3>Conseiller</h3>
+        <p>Je vous aide à prendre le bon chemin face aux problèmes que vous rencontrez en santé, en numérique et en intelligence artificielle. J'audite vos besoins, je recueille les usages et je vous propose un plan d'action.</p>
+        <a class="btn btn--plein" href="/conseil/">Découvrir le conseil</a>
       </article>
-
-      <article class="mq-card c-lauria reveal d2">
-        <span class="mq-tag">En construction</span>
-        <div class="mq-who">Familles et habitants</div>
-        <span class="seal mq-mini-seal"><img src="/assets/brand/lauria-glyph.png" alt="Glyphe Lauria" width="52" height="52" loading="lazy"></span>
-        <h3>Laur<span class="ia">ia</span></h3>
-        <p class="story">Il existe, autour de chez soi, une lumière discrète : le marché du dimanche, l'école au coin de la rue, le club où l'on a ses habitudes. Lauria réunit dans le creux de la main tout ce qui fait votre quotidien, les sorties, l'agenda, les commerces, les services, à deux pas de chez vous.</p>
-        <a class="mq-link" href="/lauria/">Découvrir Lauria <span aria-hidden="true">&rarr;</span></a>
+      <article class="prop">
+        <h3>Créer</h3>
+        <p>L'atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.</p>
+        <a class="btn btn--plein" href="/atelier/">Découvrir l'atelier</a>
       </article>
     </div>
-
-    <div class="real-strip reveal" id="realisations">
-      <p><b>Réalisations.</b> Nous accompagnons aussi des entrepreneurs locaux avec des vitrines web professionnelles, réalisées sur mesure. Exemple : ID Metal, métallerie.</p>
-      <span class="mq-tag">Prestation sur mesure</span>
-    </div>
   </div>
 </section>
+</main>
 
-<!-- SOUVERAINETÉ -->
-<section class="souv" id="souverainete">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Le fil conducteur</span>
-      <h2>Souveraine par conception</h2>
-      <p>Toutes nos solutions partagent le même socle. C'est lui qui fait la différence entre un gadget et un service public numérique digne de confiance.</p>
+<footer class="pied">
+  <div class="pied__in">
+    <div>
+      <p class="pied__marque"><img src="/commun/img/logo-civik-ia.svg#svgView(viewBox(720,150,720,600))" alt="" width="46" height="39" loading="lazy" decoding="async"><span>Civik-<b>ia</b></span></p>
+      <p>Civik-ia, au service des territoires&nbsp;: un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.</p>
+      <ul class="pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul>
     </div>
-    <div class="souv-grid">
-      <div class="souv-card reveal"><span class="ix">i.</span><h3>Intelligence française</h3><p>L'inférence repose sur un modèle français, Mistral AI. Le savoir-faire européen, au service des territoires français.</p></div>
-      <div class="souv-card reveal d1"><span class="ix">ii.</span><h3>Hébergement européen</h3><p>Les données sont hébergées chez OVH, en Union européenne. Aucun transfert hors UE, jamais, pour aucun de nos produits.</p></div>
-      <div class="souv-card reveal d2"><span class="ix">iii.</span><h3>RGPD natif</h3><p>Zéro inscription imposée au citoyen, durées de conservation légales, registres tenus. La vie privée par défaut, pas par option.</p></div>
-    </div>
-    <p class="souv-sig reveal">Du village à la métropole, le même moteur, la même exigence</p>
+    <nav aria-labelledby="pied-1"><h2 id="pied-1">Les trois activités</h2><ul><li><a href="/marianne/">Marianne, pour les collectivités territoriales</a></li><li><a href="/conseil/">Le conseil, pour tous</a></li><li><a href="/atelier/">L'atelier, pour vos besoins</a></li></ul></nav>
+    <nav id="contact" aria-labelledby="pied-2"><h2 id="pied-2">Nous joindre</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li></ul></nav>
+    <nav aria-labelledby="pied-3" class="pied__guides"><h2 id="pied-3">Guides pour les mairies</h2><ul><li><a href="https://civik-ia.fr/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-prix.html">Prix d'un chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="https://civik-ia.fr/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="https://civik-ia.fr/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="https://civik-ia.fr/financement-ia-collectivite.html">Financer l'IA de sa commune</a></li><li><a href="https://civik-ia.fr/livre-blanc.html">Livre blanc</a></li><li><a href="https://civik-ia.fr/aide.html">Centre d'aide</a></li><li><a href="https://civik-ia.fr/22h47.html">22h47, votre mairie est fermée</a></li></ul></nav>
   </div>
-</section>
-
-<!-- TERRITOIRE CONNECTÉ -->
-<section class="terr" id="territoire">
-  <div class="wrap fly">
-    <div class="reveal">
-      <span class="eyebrow">Le territoire connecté</span>
-      <h2>Chaque outil local nourrit l'intelligence de la commune</h2>
-      <p class="big">Une association outillée par Comitia, des habitants qui vivent leur territoire avec Lauria, et c'est toute la commune qui gagne en visibilité. Avec l'accord de chacun, les informations locales remontent vers Marianne, qui oriente à son tour les citoyens vers les bons acteurs. Un cercle vertueux, souverain et respectueux de la vie privée.</p>
-    </div>
-    <div class="fly-diagram reveal d1">
-      <div class="fly-node"><span class="nb">1</span>Les outils locaux : Comitia pour les associations, Lauria pour les habitants</div>
-      <div class="fly-arrow">avec l'accord de chacun (opt-in)</div>
-      <div class="fly-node hub"><span class="nb">2</span>Marianne, le point de ralliement souverain de la commune</div>
-      <div class="fly-arrow">réponses sourcées, orientation</div>
-      <div class="fly-node"><span class="nb">3</span>Le citoyen trouve, au même endroit, tout ce que son territoire lui offre</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="reveal">
-      <span class="eyebrow">Contact</span>
-      <h2>Parlons de votre territoire</h2>
-      <p class="sub">Vous êtes maire, secrétaire de mairie, président d'association ou simplement curieux de ce que nous construisons : écrivez-nous, nous répondons vite et sans jargon.</p>
-      <div class="contact-direct">
-        <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>
-        <a href="https://wa.me/33631558796" target="_blank" rel="noopener">WhatsApp professionnel</a>
-        <a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <p class="contact-resource">Vous préférez vous faire une idée avant d'écrire : notre <a href="/livre-blanc.html" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',cta_name:'home_livre_blanc'})">Livre blanc 2026</a> passe en revue la conformité RGPD, les coûts réels et les critères pour choisir un assistant de mairie. Trente pages, format PDF.</p>
-    </div>
-    <form class="cform reveal d1" action="https://formspree.io/f/mnjogblz" method="POST">
-      <input type="hidden" name="_subject" value="Contact maison Civik-ia (page d'accueil)">
-      <div>
-        <label for="cf-nom">Votre nom</label>
-        <input id="cf-nom" type="text" name="nom" required autocomplete="name">
-      </div>
-      <div>
-        <label for="cf-email">Votre email</label>
-        <input id="cf-email" type="email" name="email" required autocomplete="email">
-      </div>
-      <div>
-        <label for="cf-msg">Votre message</label>
-        <textarea id="cf-msg" name="message" required placeholder="Commune, association, projet : dites-nous tout."></textarea>
-      </div>
-      <button type="submit">Envoyer le message</button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <img src="/assets/logo-civik-ia.png" alt="Civik-ia">
-        <div class="sig">Le trait d'union des territoires</div>
-        <p>Maison française de produits d'intelligence artificielle au service de la vie locale. Souveraine, sobre, utile.</p>
-      </div>
-      <div>
-        <h3>Nos solutions</h3>
-        <ul>
-          <li><a href="/marianne/">Marianne, collectivités</a></li>
-          <li><a href="/comitia/">Comitia, associations</a></li>
-          <li><a href="/lauria/">Lauria, familles</a></li>
-          <li><a href="/demo.html">Démo interactive</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>La maison</h3>
-        <ul>
-          <li><a href="#maison">Notre conviction</a></li>
-          <li><a href="#territoire">Le territoire connecté</a></li>
-          <li><a href="/22h47.html">La campagne 22h47</a></li>
-          <li><a href="/livre-blanc.html">Livre blanc 2026</a></li>
-          <li><a href="/chatbot-mairie.html">Chatbot mairie, le guide 2026</a></li>
-          <li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif chatbot mairie</a></li>
-          <li><a href="/chatbot-mairie-prix.html">Prix et tarif d'un chatbot mairie</a></li>
-          <li><a href="/chatbot-mairie-gratuit.html">Chatbot mairie gratuit, ce qui existe</a></li>
-          <li><a href="/financement-ia-collectivite.html">Financer l'IA de sa collectivité</a></li>
-          <li><a href="/callbot-mairie.html">Callbot mairie ou chatbot</a></li>
-          <li><a href="/aide.html">Centre d'aide et questions fréquentes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Légal</h3>
-        <ul>
-          <li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li>
-          <li><a href="/legal/conformite-rgpd.html">Conformité RGPD</a></li>
-          <li><a href="/legal/conditions-utilisation.html">Conditions d'utilisation</a></li>
-          <li><a href="/legal/conditions-generales-vente.html">CGV</a></li>
-          <li><a href="/legal/accessibilite-rgaa.html">Accessibilité RGAA</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bar">
-      <span>© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne</span>
-      <span>Hébergement OVHcloud (UE) · Données traitées en Europe</span>
-    </div>
-  </div>
+  <p class="pied__bas">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · Hébergement OVHcloud (UE)</p>
+  <ul class="pied__legal" aria-label="Informations légales"><li><a href="https://civik-ia.fr/legal/conditions-utilisation.html">Mentions légales</a></li><li><a href="https://civik-ia.fr/legal/conditions-generales-vente.html">CGV</a></li><li><a href="https://civik-ia.fr/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="https://civik-ia.fr/legal/conformite-rgpd.html">RGPD</a></li><li><a href="https://civik-ia.fr/legal/accessibilite-rgaa.html">Accessibilité</a></li></ul>
+  <p class="pied__maquette" style="color:#8f99c4">Villeneuve-les-Ormes est une commune fictive.</p>
 </footer>
 
-<a class="wa-float" href="https://wa.me/33631558796" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<nav class="rail" aria-label="Chapitres du film">
+  <ol>
+    <li><button type="button" data-chap="0"><i class="rail__pt"></i><span>Communiquer</span></button></li>
+    <li class="rail__trait" aria-hidden="true"><i data-fil="0"></i></li>
+    <li><button type="button" data-chap="1"><i class="rail__pt"></i><span>Conseiller</span></button></li>
+    <li class="rail__trait" aria-hidden="true"><i data-fil="1"></i></li>
+    <li><button type="button" data-chap="2"><i class="rail__pt"></i><span>Créer</span></button></li>
+  </ol>
+  <button type="button" class="continuer" data-continuer>Continuer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
 
-<script>
-(function(){
-  'use strict';
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+</nav>
+<div class="commandes">
+  <button type="button" class="son" data-son aria-pressed="false" aria-label="Activer le son" hidden>
+    <svg class="ic-coupe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+    <svg class="ic-actif" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+    <span>Son</span>
+  </button>
+  <button type="button" class="lecture" data-lecture aria-pressed="false">
+    <svg class="ic-lire" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8v10.4L13 8z" fill="currentColor"/></svg>
+    <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z" fill="currentColor"/></svg>
+    <svg class="ic-revoir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+    <span data-lecture-txt>Lancer le film</span>
+  </button>
+  <a class="passer" href="#clair" data-passer><svg class="ic-passer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M6.5 10l5.5 5.5 5.5-5.5M5 20h14"/></svg><span>Passer le film</span></a>
+</div>
 
-  /* menu mobile */
-  var burger = document.getElementById('navBurger');
-  var menu = document.getElementById('mobileMenu');
-  if (burger && menu) {
-    burger.addEventListener('click', function(){
-      var open = menu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    menu.addEventListener('click', function(e){
-      if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
-    });
-  }
-
-  /* reveal au scroll */
-  var toReveal = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reduced) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: .14 });
-    toReveal.forEach(function(el){ io.observe(el); });
-  } else {
-    toReveal.forEach(function(el){ el.classList.add('in'); });
-  }
-
-  /* immersion : au clic, le téléphone grossit et on entre dans son écran */
-  var DIVE = {
-    '/marianne/': { bg: '#f7f4ed', glyph: '/assets/brand/marianne-glyph.png' },
-    '/comitia/':  { bg: '#f6f3ea', glyph: '/assets/brand/comitia-glyph.png' },
-    '/lauria/':   { bg: '#fbfaf8', glyph: '/assets/brand/lauria-glyph.png' }
-  };
-  document.querySelectorAll('.phone').forEach(function(phone){
-    phone.addEventListener('click', function(e){
-      var href = phone.getAttribute('href');
-      var conf = DIVE[href];
-      if (!conf || reduced || e.metaKey || e.ctrlKey || e.shiftKey) return; /* navigation normale */
-      var vw = window.innerWidth || document.documentElement.clientWidth;
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      if (!vw || !vh) return; /* viewport indisponible : navigation classique */
-      e.preventDefault();
-      if (document.body.classList.contains('diving-out')) return;
-      document.body.classList.add('diving-out');
-      var hero = document.querySelector('.hero');
-      var stage = document.querySelector('.stage');
-      hero.classList.add('diving');
-      /* voile crème + glyphe qui se révèle dans l'écran pendant le zoom */
-      var scr = phone.querySelector('.scr');
-      var veil = document.createElement('div');
-      veil.className = 'scr-veil';
-      veil.style.background = conf.bg;
-      var img = document.createElement('img');
-      img.src = conf.glyph; img.alt = '';
-      veil.appendChild(img);
-      scr.appendChild(veil);
-      /* zoom : le centre du téléphone rejoint le centre de la fenêtre, à l'échelle plein écran */
-      var stageRect = stage.getBoundingClientRect();
-      var cx = stageRect.left + phone.offsetLeft + phone.offsetWidth / 2;
-      var cy = stageRect.top + phone.offsetTop + phone.offsetHeight / 2;
-      var s = Math.max(vw / phone.offsetWidth, vh / phone.offsetHeight) * 1.12;
-      phone.classList.add('dive-zoom');
-      void phone.offsetWidth; /* reflow force : la transition demarre a coup sur */
-      phone.style.transform = 'translate(' + (vw / 2 - cx) + 'px,' + (vh / 2 - cy) + 'px) scale(' + s + ')';
-      if (window.dataLayer) { window.dataLayer.push({ event: 'phone_dive', destination: href }); }
-      setTimeout(function(){ window.location.href = href; }, 950);
-    });
-  });
-
-  /* retour navigateur (BFCache) : on remet la scene a neuf */
-  window.addEventListener('pageshow', function(ev){
-    if (!ev.persisted) return;
-    document.body.classList.remove('diving-out');
-    var hero = document.querySelector('.hero');
-    if (hero) hero.classList.remove('diving');
-    document.querySelectorAll('.phone').forEach(function(p){
-      p.classList.remove('dive-zoom');
-      p.style.transform = '';
-      p.style.transition = '';
-    });
-    document.querySelectorAll('.scr-veil').forEach(function(v){ v.remove(); });
-  });
-
-  /* nettoyage du voile de lever de page */
-  setTimeout(function(){
-    var d = document.querySelector('.page-dawn');
-    if (d) d.remove();
-  }, 1100);
-
-  /* service worker */
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function(){ navigator.serviceWorker.register('/service-worker.js').catch(function(){}); });
-  }
-})();
-</script>
+<script type="module" src="/c-film/js/main.js"></script>
 </body>
 </html>

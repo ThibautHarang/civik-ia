@@ -1,0 +1,453 @@
+/* =====================================================================
+   Page Conseil (maquette du 06/10/2026). Le croisement : le monde gravé,
+   le poteau réel et son CV, deux chemins ; puis la carte d'identité, la
+   méthode, la porte d'entrée.
+   ===================================================================== */
+
+/* ---------- 1. le croisement ---------- */
+/* R5 (finitions du 07/10/2026) : la scène va jusqu'au bas de l'écran jusqu'à 1 200 px de haut (1920 x 1080 compris :
+   plus de bande crème sous la scène) ; au-delà, elle reste bornée */
+.croisement{position:relative;height:max(720px,min(100vh,1200px));height:max(720px,min(100svh,1200px));height:max(720px,min(calc(100svh - var(--choix-h)),1200px));background:linear-gradient(180deg,#eceff0 0%,#f2f1ec 38%,#f6f3ec 62%,#f7f4ed 100%);overflow:hidden;isolation:isolate}
+.croisement__scene{position:absolute;inset:0;z-index:1}
+.croisement__scene>*{position:absolute}
+.monde,.lavis-chemin{left:0;top:0;width:100%;height:100%;pointer-events:none}
+.lavis-chemin{opacity:0;mix-blend-mode:multiply;transition:opacity 1.1s var(--entree)}
+.croisement[data-etat="d"] .lavis-chemin{opacity:1;transition-delay:.25s}
+/* CO-29 (cinquième passe, 07/10/2026) : la colonne passe de 540 à 560 px (39vw) pour que le rôle, plus long, tienne en deux
+   lignes à 1440 avec de la marge (la plus longue fait 535 px) ; le chapô, lui, garde ses 540 px */
+.croisement__texte{position:absolute;z-index:4;left:max(5vw,calc(50vw - 640px));top:clamp(118px,16vh,168px);width:min(560px,39vw)}
+.croisement__texte::before{content:"";position:absolute;z-index:-1;left:-14%;top:-18%;width:132%;height:136%;background:radial-gradient(ellipse 50% 50% at 46% 50%,rgba(247,244,237,.94),rgba(247,244,237,.78) 46%,rgba(247,244,237,0) 100%);pointer-events:none}
+.croisement__h1{font-family:var(--titre);letter-spacing:-.03em;color:var(--bleu);text-wrap:balance}
+.croisement__h1 .nom{display:block;font:800 clamp(44px,4.7vw,68px)/1.02 var(--titre);letter-spacing:-.04em}
+/* CO-29 : le rôle, deux fois plus long, passe de 32 à 25 px à 1440 : deux lignes (« conseil dédié au secteur de la santé, » /
+   « du numérique et de l’intelligence artificielle ») ; deux lignes aussi à 1280 */
+.croisement__h1 .role{display:block;margin-top:12px;font:700 clamp(20px,1.74vw,25px)/1.2 var(--titre);color:var(--bleu-2);letter-spacing:-.02em}
+.croisement__def{margin-top:20px;font:500 clamp(17px,1.3vw,19px)/1.55 var(--sans);color:#3d3d48;max-width:min(34em,540px)}   /* CO-29 : le chapô garde ses 540 px (à 100 px de la planche), seul le rôle prend la colonne de 560 */
+.croisement__texte .btn{margin-top:28px}
+
+/* le poteau réel, ses flèches et le CV (placés par la page) */
+.poteau{z-index:3;left:0;top:0;transform-origin:50% 100%;opacity:0;transform:translateY(26px);transition:opacity 1s var(--entree) .15s,transform 1.2s var(--entree) .15s}
+.pret .poteau{opacity:1;transform:none}
+.poteau__img{position:absolute;left:0;top:0;width:100%;height:100%;filter:drop-shadow(18px 22px 16px rgba(30,24,40,.22))}
+.fleche{position:absolute;z-index:2;display:block;cursor:pointer;border-radius:6px;-webkit-tap-highlight-color:transparent}
+.fleche__mot{position:absolute;inset:0;pointer-events:none}
+.fleche__mot svg{width:100%;height:100%;overflow:visible}
+.fleche__soleil{position:absolute;inset:-6% -2%;overflow:hidden;pointer-events:none;mix-blend-mode:soft-light;opacity:0;transition:opacity .45s var(--entree)}
+.fleche__soleil::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:60%;background:linear-gradient(100deg,rgba(255,200,120,0),rgba(255,214,150,.95) 50%,rgba(255,200,120,0));transform:translateX(0);transition:transform 1s var(--entree)}
+.fleche:hover .fleche__soleil,.fleche:focus-visible .fleche__soleil,.fleche[aria-pressed="true"] .fleche__soleil{opacity:1}
+.fleche:hover .fleche__soleil::after,.fleche:focus-visible .fleche__soleil::after,.fleche[aria-pressed="true"] .fleche__soleil::after{transform:translateX(270%)}
+.fleche:focus-visible{outline:2px dashed rgba(22,32,92,.85);outline-offset:6px}
+.fleche:active{transform:scale(.98)}   /* (au toucher ; la mise en avant de CO-24 utilise translate) */
+.cv{position:absolute;z-index:3}
+/* CO-6 : la plaque est un canevas à la résolution de l'écran, posé au pixel près (aucun texte HTML transformé) */
+.poteau__plaque{position:absolute;left:0;top:0;z-index:2;display:block;pointer-events:none;transform-origin:0 0}
+.cv__feuille{position:absolute;inset:0;display:block;cursor:zoom-in;filter:drop-shadow(5px 9px 6px rgba(8,5,2,.5));transform-origin:50% 4%;animation:vent 7s ease-in-out infinite}
+.cv__feuille canvas{display:block;width:100%;height:100%}
+.cv__feuille:focus-visible{outline:2px dashed rgba(22,32,92,.85);outline-offset:6px}
+/* CO-25 (quatrième passe, 07/10/2026) : la loupe à la plume, dans le coin bas droit de la feuille (sous le texte, sur le
+   papier : la feuille se rétrécit plus bas), 18 px, l'encre du CV posée en multiplication ; elle bouge avec la feuille */
+.cv__loupe{position:absolute;left:86%;top:74.5%;width:18px;height:18px;margin:-9px 0 0 -9px;pointer-events:none;mix-blend-mode:multiply}
+.loupe-plume{display:block;width:100%;height:100%;overflow:visible}
+.loupe-plume path{fill:none;stroke:#16205C;stroke-linecap:round;stroke-linejoin:round}
+/* CO-25 : la lecture du CV, sur téléphone, sous la scène (un lien avec la loupe) ; sur ordinateur, la loupe et le clic suffisent */
+/* CO-27 : sur ordinateur, la scène laisse la hauteur de la rangée des boutons (14 + 44 + 14 px) : ils tiennent dans le premier
+   écran dès 792 px de haut (1440 x 900 compris) ; au-dessous, la scène garde ses 720 px */
+:root{--choix-h:72px}
+.choix{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 14px;padding:14px var(--gut)}
+.choix__lire{display:flex;justify-content:center;padding:12px var(--gut) 0}
+.lien-cv{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px;font:600 15px/1.2 var(--sans);color:var(--bleu)}
+.lien-cv .loupe-plume{width:20px;height:20px}
+@media (min-width:768px){.choix__lire{display:none}}
+@keyframes vent{0%,100%{transform:rotate(-.6deg) skewX(0deg)}38%{transform:rotate(.25deg) skewX(.35deg)}64%{transform:rotate(-.3deg) skewX(-.2deg)}}
+.cv__clou{position:absolute;z-index:2;pointer-events:none;filter:drop-shadow(2px 3px 2px rgba(10,6,2,.55))}
+.cv__lien{position:absolute;z-index:3;border-radius:8px;transition:background .25s,box-shadow .25s}
+@media (hover:hover){.cv__lien:hover{background:rgba(0,0,145,.07);box-shadow:0 0 0 2px rgba(0,0,145,.25)}}
+.cv__lien:focus-visible{outline:3px solid var(--bleu);outline-offset:2px}
+/* CO-24 (quatrième passe, 07/10/2026) : l'invite « Survolez les flèches » est retirée (remplacée par les deux boutons) ;
+   le panneau mis en avant : une copie du bois de la flèche (découpée dans la photo du poteau, au pixel) se soulève de 3 px
+   avec son ombre, ses lettres gravées et la lueur de soleil la suivent ; opacity et transform seulement */
+/* au repos à une opacité de 0,001 (comme les calques du ciel) : la copie est déjà peinte quand elle se soulève */
+.bois-fleche{position:absolute;z-index:1;overflow:hidden;pointer-events:none;opacity:.001;transform:translate3d(0,0,0);filter:drop-shadow(0 5px 4px rgba(24,14,4,.38));transition:opacity .3s var(--doux),transform .45s var(--entree)}
+.bois-fleche img{position:absolute;max-width:none}
+.bois-fleche.en-avant{opacity:1;transform:translate3d(0,-3px,0)}
+.fleche{transition:transform .45s var(--entree)}
+.fleche.en-avant{transform:translate3d(0,-3px,0)}
+.fleche.en-avant .fleche__soleil{opacity:1}
+.fleche.en-avant .fleche__soleil::after{transform:translateX(270%)}
+/* CO-24 : les deux boutons sous la scène ; celui de l'état en cours est plein */
+.choix__btn[aria-pressed="true"]{background:var(--bleu);border-color:var(--bleu);color:#fff;box-shadow:0 8px 20px rgba(0,0,145,.18)}
+@media (hover:hover){.choix__btn[aria-pressed="true"]:hover{background:var(--bleu);color:#fff}}
+html:not(.js) .choix__btn{display:none}
+/* CO-24 : côte à côte jusqu'à 375 px de large */
+@media (max-width:440px){.choix{padding-inline:14px;column-gap:8px}.choix__btn{padding:10px 13px;gap:7px}}
+/* CO-27 (quatrième passe, 07/10/2026) : sur téléphone, les deux boutons sont à l'écran dès l'arrivée : une bande de papier
+   translucide (85 %), collée au bas de l'écran pendant toute la traversée de la scène, qui se pose sous elle à la fin ; le
+   poteau et le CV ne bougent pas (CO-23) ; la démonstration (CO-24) continue, le bouton joué se remplit avec son panneau */
+@media (max-width:767.98px){
+  .choix{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:95;width:max-content;max-width:calc(100% - 16px);margin:0 auto;padding:6px;column-gap:8px;border-radius:9999px;background:rgba(255,253,248,.85);box-shadow:0 0 0 1px rgba(120,100,60,.2),0 12px 26px -12px rgba(40,30,10,.38)}
+  .choix__btn:not([aria-pressed="true"]){background:var(--papier)}
+}
+
+/* CO-17 (deuxième passe, 06/10/2026) : le ciel et le paysage répondent aux deux flèches. Tout est en calques posés une fois
+   (dégradés fixes, le soleil du film peint une fois, les nuages et le cairn en traits de plume) ; les transitions ne
+   touchent qu'opacity et transform. Le ciel est derrière le monde gravé, dont les collines sont pleines sous leur crête :
+   il ne se voit qu'au-dessus. « aube » : Être accompagné ; « couvert » : Décider seul (CO-22) ; sans classe : le repos. */
+.ciel{left:0;top:0;width:100%;pointer-events:none;overflow:hidden}
+/* au repos, les calques sont à une opacité de 0,001 (invisibles) : ils sont déjà peints et posés quand la flèche est survolée */
+.ciel>i{position:absolute;inset:0;opacity:.001;transition:opacity 1s var(--doux);will-change:opacity}
+.ciel__aube--droite{background:radial-gradient(ellipse 72% 150% at 100% 0%,rgba(150,184,226,.88) 0%,rgba(178,203,234,.72) 38%,rgba(214,222,232,.36) 66%,rgba(240,236,228,0) 100%)}
+.ciel__aube--plein{background:radial-gradient(ellipse 34% 70% at var(--sx,86%) 100%,rgba(255,214,160,.5),rgba(255,214,160,0) 70%),linear-gradient(180deg,#bcd0ea 0%,#d4e0f0 40%,#ebe9e3 78%,rgba(246,241,231,0) 100%)}
+/* CO-20 : le gris de l'orage, plus profond, de la gauche vers la droite */
+.ciel__gris--gauche{background:radial-gradient(ellipse 80% 160% at 0% 0%,rgba(104,110,124,.92) 0%,rgba(132,138,150,.78) 40%,rgba(170,174,182,.42) 70%,rgba(200,202,206,0) 100%)}
+.ciel__gris--plein{background:linear-gradient(180deg,#8f95a1 0%,#a7acb5 45%,#c3c5ca 80%,rgba(214,214,214,0) 100%)}
+.croisement.aube .ciel__aube--droite{opacity:1;transition:opacity 1.2s var(--entree)}
+.croisement.aube .ciel__aube--plein{opacity:.82;transition:opacity 2.2s var(--entree) .7s}
+.croisement.couvert .ciel__gris--gauche{opacity:1;transition:opacity 1.1s var(--entree)}
+.croisement.couvert .ciel__gris--plein{opacity:.95;transition:opacity 2.4s var(--entree) .7s}
+/* le soleil du film : son disque et son halo (peints une fois), qui montent derrière la crête et s'arrêtent bas */
+.ciel__soleil{position:absolute;left:0;top:0;opacity:.001;transition:opacity .9s var(--doux);will-change:opacity}
+.ciel__disque{display:block;transform:translate3d(0,var(--bas,60px),0);transition:transform 1.2s var(--depl);will-change:transform}
+.croisement.aube .ciel__soleil{opacity:1;transition:opacity 1.6s var(--entree) .5s}
+.croisement.aube .ciel__disque{transform:translate3d(0,var(--haut,-20px),0);transition:transform 3.4s cubic-bezier(.22,.62,.25,1) .6s}
+.lisere{left:0;top:0;pointer-events:none;opacity:.001;transition:opacity .8s var(--doux)}
+.croisement.aube .lisere{opacity:.55;transition:opacity 1.6s var(--entree) 1.3s}
+/* CO-20 : les gros nuages de l'orage, qui montent lentement de derrière la crête, puis dérivent à peine ; l'éclair */
+.ciel__nuages{position:absolute;inset:0}
+.nuage{position:absolute;opacity:.001;transform:translate3d(0,46px,0);transition:opacity 1s var(--doux),transform 1.2s var(--doux);will-change:opacity,transform}
+.nuage canvas{display:block;animation:nuage-derive 40s ease-in-out infinite alternate;animation-play-state:paused;will-change:transform}
+.croisement.couvert .nuage{opacity:1;transform:none;transition:opacity 2.6s var(--entree) var(--d,0s),transform 3.2s cubic-bezier(.2,.7,.25,1) var(--d,0s)}
+.croisement.couvert .nuage canvas{animation-play-state:running}
+@keyframes nuage-derive{from{transform:translate3d(-10px,0,0)}to{transform:translate3d(18px,0,0)}}
+.eclair{position:absolute;overflow:visible;opacity:0;pointer-events:none;will-change:opacity}
+.eclair-lueur{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(255,252,238,.62),rgba(240,240,244,.26) 55%,rgba(240,240,244,0));opacity:0;pointer-events:none;will-change:opacity}
+.croisement.couvert .eclair.frappe{animation:eclair .36s linear}
+.croisement.couvert .eclair-lueur.frappe{animation:lueur .5s ease-out}
+@keyframes eclair{0%{opacity:0}6%{opacity:1}28%{opacity:.25}40%{opacity:1}72%{opacity:.85}100%{opacity:0}}
+@keyframes lueur{0%{opacity:0}8%{opacity:1}30%{opacity:.4}42%{opacity:.9}100%{opacity:0}}
+/* le lavis léger du paysage (aube) et le voile froid (couvert) */
+.lavis-monde{left:0;top:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;opacity:.001;transition:opacity .9s var(--doux)}
+.croisement.aube .lavis-monde{opacity:1;transition:opacity 2.2s var(--entree) 1s}
+/* CO-20 : le paysage s'éteint davantage : papier refroidi, et une ombre sur les vignes de gauche */
+.orage-avant{inset:0;pointer-events:none}
+.voile-terne{inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(52,60,80,.3) 0%,rgba(64,72,92,.14) 45%,rgba(0,0,0,0) 75%),linear-gradient(180deg,rgba(118,128,148,.3),rgba(136,144,162,.4));opacity:.001;transition:opacity 1s var(--doux);will-change:opacity}
+.croisement.couvert .voile-terne{opacity:1;transition:opacity 1.8s var(--entree) .3s}
+/* CO-19 (troisième passe) : le chemin de l'autre côté, tracé au survol (bords, puis matière, puis ocre), et le village au
+   bout, dont les fenêtres s'allument une à une et dont les toits et les murs prennent le lavis quand le soleil est levé */
+.loin-sol{left:0;top:0;width:100%;height:100%;pointer-events:none;opacity:.001}
+.loin-trait{left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+/* au repos, à une opacité de 0,001 : l'image et les lumières sont décodées avant le survol */
+.village{pointer-events:none;opacity:.001}
+.village img{position:absolute;inset:0;width:100%;height:100%}
+.village__lavis{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply;opacity:.001;transition:opacity 1s var(--doux)}
+.croisement.reussite .village__lavis{opacity:1;transition:opacity 1.8s var(--entree) .2s}
+.village__lum{position:absolute;transform:translate(-50%,-50%);background:url(../commun/img/lumieres.webp) calc(var(--i) * 20%) 0/600% 100% no-repeat;opacity:.001;transition:opacity .6s var(--doux)}
+.croisement.reussite .village__lum{opacity:1;transition:opacity .9s var(--entree) var(--d,0s)}
+
+/* la brume du chemin de gauche */
+.brume{z-index:2;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 1s var(--entree)}
+.croisement[data-etat="g"] .brume{opacity:1}
+.brume i{position:absolute;display:block}
+/* CO-20 : la nappe de brume est une ellipse posée en bas à gauche : son haut se fond (sous le ciel gris de l'orage, plus de bord net), sans masque */
+.brume__nappe{left:-10%;top:0;width:120%;height:100%;background:radial-gradient(ellipse 78% 92% at 18% 100%,rgba(246,244,238,1) 0%,rgba(246,244,238,.96) 42%,rgba(246,244,238,.72) 66%,rgba(246,244,238,0) 100%);transform:translateX(-62%);transition:transform 2.2s var(--entree)}
+.brume__voile{left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(246,244,238,0),rgba(246,244,238,.85));opacity:.0;transition:opacity 1.6s var(--entree)}
+.croisement[data-etat="g"] .brume__nappe{transform:translateX(0)}
+.croisement[data-etat="g"] .brume__voile{opacity:1}
+.brume__flocon{border-radius:50%;background:radial-gradient(closest-side,rgba(250,248,243,.95),rgba(250,248,243,0));animation:derive 9s ease-in-out infinite alternate}
+.brume__flocon--1{left:6%;top:34%;width:46%;height:30%}
+.brume__flocon--2{left:30%;top:52%;width:52%;height:34%;animation-duration:11s;animation-delay:-3s}
+.brume__flocon--3{left:-8%;top:58%;width:40%;height:36%;animation-duration:13s;animation-delay:-6s}
+@keyframes derive{from{transform:translate3d(-4%,0,0)}to{transform:translate3d(6%,-3%,0)}}
+
+/* CO-5 (06/10/2026) : la passerelle au bout du chemin de droite. Elle n'a pas d'indice d'empilement : son lavis se
+   multiplie avec le paysage ; ses surfaces ont un fond de papier opaque (dans le SVG) ; le lavis du chemin d'en face et
+   la lumière de la berge paraissent quand elle est faite */
+.passerelle{pointer-events:none}
+.passerelle__trait,.passerelle__lavis{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.passerelle__lavis{mix-blend-mode:multiply;opacity:0;transition:opacity 1.2s var(--entree)}
+.croisement.couleur .passerelle__lavis{opacity:.92}
+.lavis-loin{left:0;top:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;opacity:0;transition:opacity 1.4s var(--entree)}
+/* CO-19 : l'ocre du chemin d'en face suit sa matière (classe « loin ») */
+.croisement.loin .lavis-loin{opacity:1;transition-delay:.15s}
+.lumiere-loin{pointer-events:none;border-radius:50%;background:radial-gradient(closest-side,rgba(255,214,140,.62),rgba(255,214,140,.24) 55%,rgba(255,214,140,0));mix-blend-mode:screen;opacity:0;transform:scale(.8);transition:opacity 1.6s var(--entree),transform 2s var(--entree)}
+.croisement.couleur .lumiere-loin{opacity:1;transform:none;transition-delay:.9s}
+.legende-main{z-index:4;font:600 clamp(22px,1.9vw,29px)/1 var(--main);color:var(--plume);white-space:nowrap;opacity:0;transform:translateY(10px);filter:blur(2px);transition:opacity .7s var(--entree),transform .8s var(--entree),filter .7s var(--entree);pointer-events:none;text-shadow:0 0 6px rgba(247,244,237,.95),0 0 2px rgba(247,244,237,.95)}
+.croisement[data-etat="g"] .legende-main--g{opacity:.85;transform:none;filter:none;transition-delay:.9s}
+.croisement[data-etat="d"].couleur .legende-main--d{opacity:.92;transform:none;filter:none;transition-delay:.5s}
+
+/* la feuille lue en grand */
+.cv-grand{position:fixed;inset:0;z-index:200;display:grid;place-items:center}
+.cv-grand[hidden]{display:none}
+.cv-grand__fond{position:absolute;inset:0;background:rgba(10,15,44,.6);opacity:0;transition:opacity .4s var(--entree)}
+.cv-grand.ouvert .cv-grand__fond{opacity:1}
+/* CO-25 : l'origine en haut à gauche : la feuille part de sa place exacte sur le poteau et y revient (page.js) */
+.cv-grand__feuille{position:relative;margin:0;width:min(520px,88vw,calc(78vh * .692));transform-origin:0 0;filter:drop-shadow(0 30px 40px rgba(0,0,30,.4))}
+.cv__feuille.en-grand{visibility:hidden}
+/* CO-25 : pendant la lecture en grand, le clou et la loupe s'effacent ; ils reviennent en douceur quand la feuille est reclouée */
+.cv__clou,.cv__loupe{transition:opacity .35s var(--doux)}
+.cv.en-grand .cv__clou,.cv__feuille.en-grand .cv__loupe{opacity:0;transition:none}
+.cv__feuille.en-grand,.cv__feuille.au-repos{animation-play-state:paused}
+.cv-grand__feuille canvas{display:block;width:100%;height:auto}
+.cv-grand__fermer{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--creme);color:var(--bleu);box-shadow:0 8px 24px rgba(0,0,40,.25);opacity:0;transition:opacity .3s}
+.cv-grand.ouvert .cv-grand__fermer{opacity:1}
+.cv-grand__fermer svg{width:20px;height:20px}
+
+/* petit écran : le texte d'abord, la scène dessous */
+@media (max-width:767.98px){
+  .croisement{height:auto;display:flex;flex-direction:column}
+  /* CO-40 (07/10/2026, soir) : le titre et le chapô de la cinquième passe, plus longs, faisaient descendre la scène de 78 px
+     (390) et de 102 px (375) : le bloc de texte se resserre, sans changer un mot, pour que le haut de la scène revienne à sa
+     place de la quatrième passe (les deux panneaux et la bande des boutons dans le premier écran, CO-27) : « Thibaut
+     Harang, » un peu plus petit, le rôle plus serré (trois lignes : en deux, il faudrait 16 px), le chapô à 15 px et
+     interligne 1,45, moins d'air au-dessus du titre, autour du chapô et du bouton, et sous le bouton */
+  .croisement__texte{position:relative;order:1;left:auto;top:auto;width:auto;padding:88px 20px 0}
+  .croisement__texte::before{display:none}
+  .croisement__h1 .nom{font-size:clamp(31px,8.8vw,38px)}
+  .croisement__h1 .role{font-size:clamp(18px,5vw,21px);line-height:1.13;margin-top:6px}
+  .croisement__def{font-size:15px;line-height:1.45;margin-top:9px}
+  .croisement__texte .btn{margin-top:12px}
+  .croisement__scene{position:relative;order:2;inset:auto;height:var(--scene-h,640px)}
+  /* R4 (finitions du 07/10/2026) : un fondu de 52 px entre le haut crème (titre, bouton) et le ciel de la scène, plus de
+     couture nette ; il passe sur le ciel et le monde gravé, sous le poteau (posé 18 px plus bas, page.js) ; sa couleur est
+     celle du fond de la section à cette hauteur (--couture, posée par la page) */
+  .croisement__scene::after{content:"";position:absolute;left:0;right:0;top:0;height:52px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgb(var(--couture,240,240,237)) 0%,rgba(var(--couture,240,240,237),.9) 22%,rgba(var(--couture,240,240,237),.45) 58%,rgba(var(--couture,240,240,237),0) 100%)}
+  .legende-main{font-size:22px}
+}
+
+/* ---------- 2. ce que j'apporte ---------- */
+.apport__in{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(36px,6vw,96px);align-items:center}
+.apport__portrait{position:relative;margin:0;max-width:470px}
+.apport__portrait img{width:100%;height:auto;clip-path:inset(0 0 100% 0);transition:clip-path 2.4s cubic-bezier(.45,.05,.3,1)}
+.apport__portrait.vu img{clip-path:inset(0 0 0 0)}
+html:not(.js) .apport__portrait img{clip-path:none}
+.apport__portrait figcaption{position:absolute;right:6%;bottom:6%;font-size:30px;transform:rotate(-4deg);opacity:0;transition:opacity 1s var(--entree) 1.8s}
+.apport__portrait.vu figcaption{opacity:.85}
+.qualites{margin-top:30px;counter-reset:q;display:grid}
+.qualites li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:18px 0;border-top:1px solid var(--ligne)}
+.qualites li:last-child{border-bottom:1px solid var(--ligne)}
+.qualites li::before{content:counter(q);grid-row:span 2;font:600 34px/1 var(--main);color:var(--or-txt);padding-top:2px}
+.qualites b{font:700 19px/1.3 var(--titre);color:var(--bleu);letter-spacing:-.01em}
+.qualites span{margin-top:4px;color:var(--encre-2);font-size:16.5px;line-height:1.55}
+/* CO-37 (cinquième passe, 07/10/2026) : pas de mot seul en dernière ligne là où le navigateur sait l'éviter (les insécables du
+   HTML font le reste) */
+.qualites span,.etape p,.etape dd,.croisement__def,.sec .chapo{text-wrap:pretty}
+@media (max-width:900px){.apport__in{grid-template-columns:1fr}.apport__portrait{max-width:300px;margin-inline:auto}}
+
+/* ---------- 3. trois domaines, un seul besoin (CO-31, cinquième passe, 07/10/2026 ; d'abord deux domaines) ----------
+   Trois blocs de cinq points, même dessin qu'avant. À 1020 px et plus (l’iPad en largeur compris), trois colonnes dont les lignes se répondent (règle du
+   06/10/2026) : le numéro, le titre, puis chacun des cinq points sont à la même hauteur d'un bloc à l'autre (sous-grille sur
+   sept rangées : numéro, titre, cinq points ; la liste est elle-même une sous-grille) ; « Pour qui » reste dessous, en trois
+   colonnes. Au-dessous de 1020 px, les blocs s'empilent. Repli sans sous-grille : les blocs gardent leur flux. */
+.domaines__grille{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.4vw,32px)}
+.domaine{position:relative;background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(26px,3vw,40px);box-shadow:var(--ombre-1);background-image:repeating-linear-gradient(180deg,transparent 0 41px,rgba(43,111,214,.07) 41px 42px);background-position:0 108px}
+.domaine__num{font-size:34px;color:var(--or-txt)}
+.domaine .h3{margin-top:4px}
+.domaine ul{margin-top:18px;display:grid;gap:0}
+.domaine li{position:relative;padding:9px 0 9px 22px;font-size:16.5px;line-height:1.45;color:var(--encre)}
+.domaine li::before{content:"";position:absolute;left:2px;top:19px;width:9px;height:2px;border-radius:2px;background:var(--bleu);opacity:.7}
+/* CO-31 : les filets du papier réglé suivent les points (ils traversaient le texte, désormais souvent sur deux ou trois
+   lignes) : un filet sous le titre et un sous chaque point, de bord à bord du bloc ; à trois colonnes, ils sont à la même
+   hauteur dans les trois blocs ; même encre, même finesse qu'avant, à toutes les largeurs */
+.domaine{--pad:clamp(26px,3vw,40px);background-image:none}
+.domaine .h3{position:relative}
+.domaine .h3::after,.domaine li::after{content:"";position:absolute;left:calc(-1 * var(--pad));right:calc(-1 * var(--pad));height:1px;background:rgba(43,111,214,.07);pointer-events:none}
+.domaine .h3::after{bottom:-10px}
+.domaine li::after{bottom:0}
+@media (min-width:1020px){
+  /* CO-41 (08/10/2026, matin, Thibaut) : plus de rangées partagées entre les trois blocs (elles laissaient de grands blancs sous les
+     points courts) : chaque bloc espace ses cinq points de la même façon, régulièrement */
+  .domaines__grille{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  /* les trois titres tiennent chacun sur une ligne (« Collectivités territoriales », le plus long, faisait 304 px pour 297) :
+     un peu moins de marge sur les côtés des blocs et un titre à 23,5 px au plus (25 avant) */
+  .domaine{--pad:clamp(24px,2.6vw,40px);padding-inline:var(--pad)}
+  .domaine .h3{font-size:clamp(19px,1.66vw,23.5px)}
+}
+.terrains{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,32px);margin-top:clamp(34px,4vw,52px);padding-top:28px;border-top:1.5px solid rgba(0,0,145,.18)}
+.terrains b{display:block;font:700 18px/1.3 var(--titre);color:var(--bleu)}
+.terrains span{display:block;margin-top:6px;font-size:15.5px;color:var(--encre-2);line-height:1.5}
+@media (max-width:860px){.terrains{grid-template-columns:1fr}}   /* CO-31 : les blocs, eux, s’empilent sous 1020 px */
+
+/* ---------- 4. le déroulé : une route tracée à la plume, six bornes ----------
+   CO-9 (06/10/2026) : les chiffres sont dessinés au centre de la face des bornes (dans le SVG de la route) ; les six
+   étapes partagent leurs lignes (sous-grille) : le titre, le texte, « Vous recevez » et « Durée » sont à la même hauteur
+   d'une colonne à l'autre, à six colonnes comme à trois ; au bout, la petite passerelle et sa légende, jamais rognée. */
+.frise{position:relative;padding-top:140px}
+.frise__trace{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.frise__num{font:700 26px/1 var(--main);fill:var(--plume)}
+.frise__etapes{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(6,auto);column-gap:clamp(12px,1.6vw,22px);row-gap:0}
+.etape{position:relative;grid-row:1 / span 6;display:grid;grid-template-rows:subgrid;align-content:start;opacity:.38;transform:translateY(8px);transition:opacity .7s var(--entree),transform .8s var(--entree)}
+.etape.atteinte{opacity:1;transform:none}
+html:not(.js) .etape{opacity:1;transform:none}
+.etape h3{grid-row:1;font:700 17.5px/1.25 var(--titre);color:var(--bleu);letter-spacing:-.01em;text-wrap:pretty;text-wrap:balance}   /* R2 : titres d'étape équilibrés (repli : insécables dans le HTML) */
+.etape p{grid-row:2;margin-top:8px;font-size:15px;line-height:1.5;color:var(--encre-2)}
+.etape dl{grid-row:3 / span 4;display:grid;grid-template-rows:subgrid;align-content:start;margin-top:12px;padding-top:10px;border-top:1px dashed rgba(120,100,60,.38);font-size:13.5px;line-height:1.45}
+.etape dt{font:700 10.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--or-txt);margin-top:8px}
+.etape dt:first-child{margin-top:0}
+.etape dd{color:var(--encre);margin-top:2px}
+/* repli sans sous-grille : les hauteurs sont égalisées par la page (frise, egaliser) */
+@supports not (grid-template-rows:subgrid){.etape,.etape dl{display:block}}
+.frise__but{position:absolute;right:0;top:0;z-index:1;font-size:25px;white-space:nowrap;opacity:0;transform:translateY(6px);transition:opacity 1s var(--entree),transform 1s var(--entree)}
+.frise.finie .frise__but{opacity:.9;transform:none}
+.frise__but.deux-lignes{white-space:normal;width:6.2em;text-align:right;line-height:1.02}
+html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top:22px;text-align:right}
+@media (max-width:1100px){
+  .frise__etapes{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(6,auto) 150px repeat(6,auto)}
+  .etape:nth-child(n+4){grid-row:8 / span 6}
+}
+@media (max-width:767.98px){
+  .frise{padding-top:0;padding-left:66px;padding-bottom:128px}
+  .frise__etapes{grid-template-columns:1fr;grid-template-rows:none;row-gap:34px}
+  .etape,.etape:nth-child(n+4){grid-row:auto;display:block}
+  .etape dl{display:block}
+  .frise__but{right:auto;left:66px;font-size:24px}
+}
+
+/* ---------- 5. le parcours ---------- */
+.annees{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-top:34px}
+.annees::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:linear-gradient(90deg,var(--bleu),var(--trait));opacity:.22;border-radius:2px}
+.annees li{position:relative}
+.annees li::before{content:"";position:absolute;left:0;top:-31px;width:12px;height:12px;border-radius:50%;background:var(--creme-3);border:2px solid var(--bleu)}
+.annees li:last-child::before{background:var(--bleu);box-shadow:0 0 0 5px rgba(0,0,145,.12)}
+.annees time{display:block;font:800 26px/1 var(--titre);color:var(--bleu);letter-spacing:-.02em}
+.annees b{display:block;margin-top:10px;font:700 15.5px/1.3 var(--titre);color:var(--encre)}
+.annees span{display:block;margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--encre-2)}
+/* CO-18 (06/10/2026) : plus de bande des quatre chiffres ; le lien vers LinkedIn, précédé du logo à la plume du CV, aligné
+   sur le début de la frise des années (la section se resserre d'autant) */
+.parcours__lien{margin-top:clamp(30px,3.6vw,44px)}
+.lien-linkedin{display:inline-flex;align-items:center;gap:.55em;min-height:44px}
+.logo-plume{flex:none;width:1.3em;height:1.3em;overflow:visible}
+.logo-plume path{fill:none;stroke:var(--plume);stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.lien-linkedin:hover .lien{text-decoration-color:currentColor}}
+@media (max-width:980px){.annees{grid-template-columns:repeat(3,1fr);row-gap:44px}}
+@media (max-width:600px){
+  .annees{grid-template-columns:1fr;padding-top:0;padding-left:28px;row-gap:22px}
+  .annees::before{left:5px;right:auto;top:4px;bottom:4px;width:2px;height:auto;background:linear-gradient(180deg,var(--bleu),var(--trait))}
+  .annees li::before{left:-28px;top:6px}
+}
+
+/* ---------- 6. la prise de risque ----------
+   CO-16 (06/10/2026) : la vraie écriture de Thibaut, dans un canevas WebGL (ecriture.js) à la largeur de la colonne de texte
+   (760 px au plus), au rapport de l'image (1409 x 1226) ; la pointe d'une plume suit l'écriture. Sans script ou sans WebGL,
+   le texte de la page, typographié comme avant. Plus d'initiales à part ni de second point en code (CO-15 remplacé : la
+   signature « Thibaut H. » et son point sont dans l'écriture). */
+.risque{overflow:hidden}
+.risque__in{position:relative;max-width:980px}
+/* CO-21 (troisième passe) : l'écriture portée à 880 px à 1440 (dans la colonne de 980), toute la colonne sur téléphone */
+.ecriture{position:relative;margin:26px 0 0;width:min(880px,100%)}
+.ecriture__texte{margin:0}
+.ecriture__toile{display:none}
+.ecriture__plume{display:none}
+.ecriture__texte p{font:700 clamp(28px,3.4vw,46px)/1.2 var(--titre);letter-spacing:-.025em;color:#fff;text-wrap:balance}
+.ecriture__texte p+p{margin-top:14px;color:#d8def4}
+.ecriture__texte p:last-of-type{color:#fff}
+.ecriture__texte .or{color:var(--or)}
+.ecriture__texte footer{margin-top:22px;font:600 30px/1 var(--main);color:#f7f4ed;text-align:right}
+/* avec le script (et tant que WebGL ne manque pas) : l'écriture à la place du texte, qui reste lu par les lecteurs d'écran ; la place est réservée dès le départ (aucun saut de mise en page) */
+.js .ecriture:not(.sans-toile){aspect-ratio:1409/1226}
+.js .ecriture:not(.sans-toile) .ecriture__toile{display:block;position:absolute;inset:0;width:100%;height:100%}
+.js .ecriture:not(.sans-toile) .ecriture__texte{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.js .ecriture:not(.sans-toile) .ecriture__plume{display:block;position:absolute;left:0;top:0;width:0;height:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .45s var(--entree);will-change:transform}
+.ecriture__plume svg{position:absolute;left:-3.6px;top:-36.4px;width:40px;height:40px;overflow:visible}
+@media (max-width:767.98px){.ecriture__plume svg{left:-2.7px;top:-27.3px;width:30px;height:30px}.ecriture__texte footer{font-size:26px}}
+
+/* ---------- 7. formats : CO-11 (06/10/2026), la section est supprimée, son CSS aussi ---------- */
+
+/* ---------- 8. la fiche de demande ---------- */
+.atelier-demande{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,3.4vw,52px);align-items:start}
+/* CO-39 (07/10/2026, soir) : trois domaines et « Plusieurs de ces domaines », qui montre les trois groupes, chacun sous son nom */
+.situations [data-pour]{display:none}
+.situations[data-domaine="sante"] [data-pour="sante"],.situations[data-domaine="collectivites"] [data-pour="collectivites"],.situations[data-domaine="ia"] [data-pour="ia"],.situations[data-domaine="plusieurs"] [data-pour]{display:block}
+.situations__titre{display:none;margin-bottom:8px;font:600 13px/1.3 var(--sans);color:var(--encre-2)}
+.situations[data-domaine="plusieurs"] .situations__titre{display:block}
+.situations[data-domaine="plusieurs"] .situations__bloc+.situations__bloc{margin-top:16px}
+.fiche-zone{position:sticky;top:104px}
+/* CO-14 : « Copier ma fiche », le second geste, sous les boutons de la dernière étape */
+.pas__second{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px}
+.fiche-zone .fiche{transform:rotate(.5deg)}
+/* CO-34 (cinquième passe, 07/10/2026) : « (facultatif) » sur le délai et le budget, comme sur le téléphone de l'étape 5 */
+.pas .lab .aide{font:500 13px/1.4 var(--sans);color:var(--encre-2)}
+.fiche dd.ecrit{animation:surligne 1.2s var(--entree)}
+@keyframes surligne{from{background:rgba(244,162,97,.28)}to{background:transparent}}
+@media (max-width:900px){
+  .atelier-demande{display:flex;flex-direction:column;gap:18px}
+  .fiche-zone{order:-1;top:74px;z-index:3;max-height:36vh;max-height:36svh;overflow:hidden;border-radius:8px;transition:max-height .6s var(--entree)}
+  .fiche-zone::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,rgba(255,253,248,0),rgba(255,253,248,1));pointer-events:none;border-radius:0 0 8px 8px}
+  .fiche-zone .fiche{transform:none;font-size:14px;padding:18px 18px 26px}
+  .fiche-zone .fiche__titre{font-size:19px}
+  .fiche-zone.complete{position:relative;top:auto;max-height:none}
+  .fiche-zone.complete::after{display:none}
+  .fiche-zone .fiche__l{font-size:13.5px}
+}
+/* CO-26 (quatrième passe, 07/10/2026) : sur téléphone, la fiche ne rogne plus rien. Collée en haut, elle n'est plus qu'une
+   bande compacte (l'en-tête et le numéro, la ligne qui vient de s'écrire, en entier, la progression) : le formulaire
+   commence sous elle. Un toucher ouvre la fiche entière dans un panneau de papier qui monte du bas (défilable, une croix,
+   un glissé vers le bas le referme). À la fin, la fiche s'affiche en place sous le formulaire, puis l'envoi. Ordinateur et
+   tablette (768 px et plus) : rien ne change (la bande, la croix et le bloc de fin n'y paraissent pas). */
+.fiche-bande,.fiche-panneau__fermer{display:none}
+#fiche-titre:focus{outline:none}   /* CO-26 : le titre de la fiche reçoit le focus à la relecture (lecteurs d'écran), sans contour */
+@media (max-width:767.98px){
+  .fiche-zone{align-self:stretch;top:78px;max-height:none;overflow:visible;border-radius:14px;transition:none}
+  .fiche-zone::after{display:none}
+  .fiche-zone.panneau-ouvert{z-index:180}
+  .fiche-bande{display:grid;gap:5px;width:100%;text-align:left;padding:10px 14px 9px;border-radius:14px;background:var(--papier);color:var(--encre);box-shadow:0 0 0 1px rgba(120,100,60,.18),0 12px 26px -14px rgba(60,40,10,.4);-webkit-tap-highlight-color:transparent}
+  .fiche-bande:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+  .fiche-bande__tete{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;padding-bottom:6px;border-bottom:1.5px solid var(--bleu)}
+  .fiche-bande__titre{font:800 15.5px/1.15 var(--titre);letter-spacing:-.02em;color:var(--bleu);white-space:nowrap}
+  .fiche-bande__num{font:600 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--encre-2);white-space:nowrap}
+  .fiche-bande__ligne{display:flex;flex-wrap:wrap;column-gap:8px;row-gap:1px;font:500 14px/1.4 var(--sans);border-radius:6px;padding:2px 4px;margin:0 -4px}
+  .fiche-bande__ligne.ecrit{animation:surligne 1.2s var(--entree)}
+  .fiche-bande__dt{color:var(--encre-2)}
+  .fiche-bande__dt::after{content:"\00a0:"}
+  .fiche-bande__dd{color:var(--encre);font-weight:600;overflow-wrap:anywhere}
+  .fiche-bande__dd.vide{color:#b4ab98;font-weight:500}
+  .fiche-bande__pied{display:flex;align-items:center;justify-content:space-between;gap:10px;font:600 12.5px/1.3 var(--sans);color:var(--encre-2)}
+  .fiche-bande__ouvrir{display:inline-flex;align-items:center;gap:4px;color:var(--bleu)}
+  .fiche-bande__ouvrir svg{width:15px;height:15px}
+  /* la fiche entière, dans un panneau qui monte du bas */
+  .fiche-panneau{position:fixed;left:0;right:0;top:0;bottom:0;z-index:180;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:var(--papier);padding:68px 16px calc(28px + env(safe-area-inset-bottom,0px));transform:translate3d(0,100%,0);visibility:hidden;transition:transform .45s var(--entree),visibility 0s .45s}
+  .fiche-panneau.ouvert{transform:none;visibility:visible;transition:transform .45s var(--entree)}
+  .fiche-panneau.glisse{transition:none}
+  .fiche-zone .fiche-panneau .fiche{transform:none;box-shadow:none;padding:4px 4px 16px;background:none}
+  .fiche-panneau .fiche::before{display:none}
+  .fiche-panneau__fermer{display:grid;place-items:center;position:fixed;z-index:3;top:14px;right:14px;width:48px;height:48px;border-radius:50%;background:var(--creme);color:var(--bleu);box-shadow:0 6px 18px rgba(0,0,40,.18)}
+  .fiche-panneau__fermer svg{width:20px;height:20px}
+  .fiche-panneau::before{content:"";position:fixed;z-index:3;top:10px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:5px;background:rgba(120,100,60,.3)}
+  html.fiche-ouverte,html.fiche-ouverte body{overflow:hidden}
+  /* la fin : la bande s'en va, la fiche entière est en place sous le formulaire, puis l'envoi */
+  .fiche-zone.complete{order:1;position:relative;top:auto}
+  .fiche-zone.complete .fiche-bande{display:none}
+  .fiche-zone.complete .fiche-panneau{position:static;transform:none;visibility:visible;overflow:visible;padding:0;background:none;transition:none}
+  .fiche-zone.complete .fiche-panneau::before,.fiche-zone.complete .fiche-panneau__fermer{display:none}
+  .fiche-zone.complete .fiche-panneau .fiche{padding:18px 18px 26px;background:var(--papier);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(120,100,60,.14),0 2px 3px rgba(60,40,10,.06),0 22px 48px -18px rgba(60,40,10,.28)}
+  .fiche-zone.complete .fiche-panneau .fiche::before{display:block}
+  .fiche-fin{order:2;align-self:stretch;display:grid;gap:12px}
+  .fiche-fin .btn{width:100%}
+  .fiche-fin .envoi{margin-top:0}
+  .fiche-fin .pas__second{margin-top:0}
+  /* le formulaire et ses étapes, quand la page y amène le visiteur, s'arrêtent sous la barre et la bande */
+  .demande .pas{scroll-margin-top:calc(90px + var(--bande-h,96px))}
+}
+
+/* ---------- 9 et 10 ---------- */
+/* CO-37 (cinquième passe, 07/10/2026) : un groupe de mots qui ne se coupe pas (« travaillez-vous ? » se coupait au trait d'union) */
+.insec{white-space:nowrap}
+/* CO-12 : l'encart de la déclaration d'intérêts est retiré, son CSS aussi */
+.contact-sec .date-maj{margin-top:40px;text-align:right}
+
+
+/* CO-42 (08/10/2026, matin, Thibaut) : le chapô de la fiche de demande tient en deux lignes sur ordinateur, « J’arrive à notre
+   premier échange en l’ayant lue. » entière sur la seconde ; en dessous de 1280 px, coupe normale, la phrase reste insécable à partir
+   de 768 px */
+/* DJ-9 (08/10/2026, soir), contrôle de largeur : de 421 à 466 px, « Prendre contact avec moi » poussait le bouton du menu hors de
+   la barre et hors de l'écran (de 46 px à 421, 12 px hors de l'écran à 430) ; la forme courte « Me contacter » jusqu'à 479 px */
+@media (min-width:421px) and (max-width:479.98px){.nav__cta .long{display:none}.nav__cta .court{display:inline}}
+/* DJ-9, même contrôle : à l'étape 5 sur téléphone, « Retour » et « Voir ma fiche » (292 px) élargissaient la carte de la fiche
+   au-delà de sa colonne (18 px à 360, 3 px à 375). Même traitement que la fiche de projet de l'Atelier : le bouton passe dessous,
+   à la largeur de la colonne, quand il ne tient pas ; les étapes 1 à 4 et l'ordinateur ne changent pas */
+@media (max-width:767.98px){
+  #demande-form .pas__actions{flex-wrap:wrap}
+  #demande-form .pas__actions .nav__esp{flex:1000 1 0}
+  #demande-form [data-pas-suite]{flex:1 1 auto}
+}
+.chapo__br{display:none}
+@media (min-width:768px){.chapo__ligne{white-space:nowrap}}
+@media (min-width:1024px){.chapo--fiche{max-width:none}.chapo__br{display:inline}}   /* mesuré : 729 et 797 px à 1440, 670 et 732 à 1280, pour 820 px de colonne (le chapô ordinaire est borné à 763 px) */

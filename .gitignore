@@ -15,3 +15,6 @@
 
 # Espaces de travail internes : jamais dans le depot public ni en prod
 civik-ia-design-system/
+
+# Videos du lecteur du film (passe 26, avis DSI du 11/10/2026) : hors depot public, envoyees a part (rsync)
+c-film/videos/

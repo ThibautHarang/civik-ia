@@ -1,0 +1,846 @@
+/* =====================================================================
+   « Combien coûte Marianne pour votre commune ? » (14/10/2026) : le
+   calculateur de prix public de Marianne, page des prix
+   (chatbot-mairie-prix.html, bloc [data-prix-marianne]), dans la main
+   du film : gravure à la plume, encre #60637B, trait qui se dessine.
+   Scène 1 : un panneau d'entrée de commune, la plaque vide est le
+   champ ; les suggestions sont des panneaux fléchés. Scène 2 : la
+   population s'écrit à la main, le prix se grave sur la borne du film.
+   Scène 3 : deux petites plaques d'options et la question du site,
+   accrochées au poteau. Scène 4 : le chemin des six étapes de la mise
+   en service, et la borne de son montant. Scène 5 : la feuille
+   d'estimation, et deux sorties : « Recevoir cette estimation » (la
+   feuille devient la lettre de pages.js et lettre.js, envoi Formspree)
+   et « Partager cette estimation » (un lien qui rouvre le même état).
+   Données : ../donnees/communes.json (34 969 communes, population
+   municipale INSEE servie par geo.api.gouv.fr), chargé au premier geste
+   dans le champ, ou tout de suite si l'adresse porte ?commune=.
+   Sécurité : aucune valeur venue de l'adresse, de la saisie ou du
+   fichier n'entre par innerHTML ; textContent et setAttribute partout ;
+   la commune se retrouve par son code INSEE, le nom vient du fichier.
+   Aucun service extérieur, aucun cookie, rien dans le stockage du
+   navigateur. Sous prefers-reduced-motion, tout apparaît posé.
+   ===================================================================== */
+
+/* la source des populations, mot pour mot comme l'en-tête « source » de commun/donnees/communes.json (Thibaut, 16 h 40) */
+export const SOURCE_POPULATION = '* Population municipale, populations légales INSEE 2023 en vigueur au 1er janvier 2026, relevées le 14 octobre 2026 sur geo.api.gouv.fr.';
+/* ---------- la grille : chaque arbitrage de Thibaut est une ligne ici ---------- */
+export const GRILLE = {
+  /* les trois lignes, une même fonction (prixParPalier) ; forme 'continue' : minimum jusqu'à barre - 1, puis minimum plus
+     les centimes par habitant au-dessus de la barre, plafond s'il existe ; forme 'totale' : le plus grand du minimum et des
+     centimes par habitant sur toute la population */
+  abonnement: {
+    minimum: 69,              // euros HT par mois jusqu'à 4 999 habitants (Thibaut, 14/10/2026, 16 h 25)
+    barre: 5000,              // population (palier) à partir de laquelle le centime par habitant s'ajoute
+    centimesParHabitant: 1,   // centimes par habitant et par mois, au-dessus de la barre
+    plafond: 500,             // euros HT par mois, au plus (atteint à 48 100 habitants)
+    forme: 'continue'         // 69 € puis un centime par habitant au-delà de 5 000
+  },
+  miseEnService: {
+    minimum: 999,             // euros HT, une seule fois, plancher sous 5 000 habitants
+    barre: 5000,              // population (palier) à partir de laquelle les 30 centimes par habitant s'ajoutent
+    centimesParHabitant: 30,  // centimes par habitant au-dessus de 5 000 (Thibaut, 14/10/2026, 16 h 50)
+    plafond: null,            // pas de plafond
+    forme: 'continue'         // 999 € jusqu'à 4 999 habitants, puis 30 centimes par habitant au-delà
+  },
+  collecte: {
+    minimum: 499,             // euros HT, une seule fois, si le site n'est pas à jour ou n'existe pas
+    barre: 5000,              // sans effet en forme totale
+    centimesParHabitant: 10,  // centimes par habitant
+    plafond: null,            // pas de plafond
+    forme: 'totale'           // le plus grand de 499 € et des centimes par habitant sur toute la population
+  },
+  option: 10,                 // Marianne sur WhatsApp, Marianne sur Messenger : euros HT par mois, chacune (9.99 s'écrit 9.99)
+  optionsComprises: 35000,    // à partir de ce nombre d'habitants, les deux options sont comprises dans l'abonnement
+  plafond: 49999,             // au-delà de ce nombre d'habitants, le prix s'établit sur devis
+  palier: 100,                // la population est arrondie à ce palier, vers le bas, avant tout calcul
+  SOURCE_POPULATION           // la note sous le bloc (même texte que l'en-tête du fichier des communes)
+};
+/* le nom de la ligne des six étapes, tel que la page des prix l'écrit (« La mise en service, une seule fois ») */
+export const MISE = 'Mise en service';
+/* l'adresse du service d'envoi : celle du formulaire de contact de /marianne/ (même boîte, même filtre) */
+export const ENVOI = 'https://formspree.io/f/mnjogblz';
+/* les six étapes, mot pour mot (section « La mise en service, une seule fois » de la page), et leur nom court sur la borne */
+export const ETAPES = [['A', "L'inventaire des sources", 'Inventaire'], ['B', 'Le cadre écrit', 'Cadre écrit'], ['C', 'La base de connaissances', 'Base'], ['D', 'La mesure avant ouverture', 'Mesure'], ['E', 'La validation par vos agents', 'Validation'], ['F', 'La version de référence', 'Référence']];
+const DONNEES = new URL('../donnees/communes.json', import.meta.url).href;
+const BORNE = new URL('../img/c/borne.webp', import.meta.url).href;
+const ENCRE = '#60637B';
+const GROS = { wMin: .8, wMax: 2.6, tremble: .5, op: .9 }, DET = { wMin: .5, wMax: 1.7, tremble: .45, op: .88 }, FIN = { wMin: .4, wMax: 1.1, tremble: .35, op: .8 };
+const reduit = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS = 'http://www.w3.org/2000/svg';
+const DEPARTEMENTS = { '01': 'Ain', '02': 'Aisne', '03': 'Allier', '04': 'Alpes-de-Haute-Provence', '05': 'Hautes-Alpes', '06': 'Alpes-Maritimes', '07': 'Ardèche', '08': 'Ardennes', '09': 'Ariège', '10': 'Aube', '11': 'Aude', '12': 'Aveyron', '13': 'Bouches-du-Rhône', '14': 'Calvados', '15': 'Cantal', '16': 'Charente', '17': 'Charente-Maritime', '18': 'Cher', '19': 'Corrèze', '2A': 'Corse-du-Sud', '2B': 'Haute-Corse', '21': "Côte-d'Or", '22': "Côtes-d'Armor", '23': 'Creuse', '24': 'Dordogne', '25': 'Doubs', '26': 'Drôme', '27': 'Eure', '28': 'Eure-et-Loir', '29': 'Finistère', '30': 'Gard', '31': 'Haute-Garonne', '32': 'Gers', '33': 'Gironde', '34': 'Hérault', '35': 'Ille-et-Vilaine', '36': 'Indre', '37': 'Indre-et-Loire', '38': 'Isère', '39': 'Jura', '40': 'Landes', '41': 'Loir-et-Cher', '42': 'Loire', '43': 'Haute-Loire', '44': 'Loire-Atlantique', '45': 'Loiret', '46': 'Lot', '47': 'Lot-et-Garonne', '48': 'Lozère', '49': 'Maine-et-Loire', '50': 'Manche', '51': 'Marne', '52': 'Haute-Marne', '53': 'Mayenne', '54': 'Meurthe-et-Moselle', '55': 'Meuse', '56': 'Morbihan', '57': 'Moselle', '58': 'Nièvre', '59': 'Nord', '60': 'Oise', '61': 'Orne', '62': 'Pas-de-Calais', '63': 'Puy-de-Dôme', '64': 'Pyrénées-Atlantiques', '65': 'Hautes-Pyrénées', '66': 'Pyrénées-Orientales', '67': 'Bas-Rhin', '68': 'Haut-Rhin', '69': 'Rhône', '70': 'Haute-Saône', '71': 'Saône-et-Loire', '72': 'Sarthe', '73': 'Savoie', '74': 'Haute-Savoie', '75': 'Paris', '76': 'Seine-Maritime', '77': 'Seine-et-Marne', '78': 'Yvelines', '79': 'Deux-Sèvres', '80': 'Somme', '81': 'Tarn', '82': 'Tarn-et-Garonne', '83': 'Var', '84': 'Vaucluse', '85': 'Vendée', '86': 'Vienne', '87': 'Haute-Vienne', '88': 'Vosges', '89': 'Yonne', '90': 'Territoire de Belfort', '91': 'Essonne', '92': 'Hauts-de-Seine', '93': 'Seine-Saint-Denis', '94': 'Val-de-Marne', '95': "Val-d'Oise", '971': 'Guadeloupe', '972': 'Martinique', '973': 'Guyane', '974': 'La Réunion', '975': 'Saint-Pierre-et-Miquelon', '976': 'Mayotte', '977': 'Saint-Barthélemy', '978': 'Saint-Martin', '984': 'Terres australes et antarctiques françaises', '986': 'Wallis-et-Futuna', '987': 'Polynésie française', '988': 'Nouvelle-Calédonie', '989': 'Île de Clipperton' };
+const departement = c => (DEPARTEMENTS[c[2]] ? `${DEPARTEMENTS[c[2]]} (${c[2]})` : `(${c[2]})`);
+
+/* ---------- les calculs, en centimes entiers (9,99 € reste juste) ---------- */
+const cts = e => Math.round(e * 100);
+/* le prix d'une ligne de la grille, en centimes, pour un nombre d'habitants (population arrondie au palier inférieur) */
+export function prixParPalier({ minimum, barre, centimesParHabitant, plafond, forme }, habitants) {
+  const palier = Math.floor(habitants / GRILLE.palier) * GRILLE.palier;
+  let c = forme === 'continue'
+    ? (palier < barre ? cts(minimum) : cts(minimum) + (palier - barre) * centimesParHabitant)
+    : Math.max(cts(minimum), palier * centimesParHabitant);
+  if (plafond) c = Math.min(c, cts(plafond));
+  return Math.round(c);
+}
+export function calculer(habitants, o = {}) {
+  const G = GRILLE;
+  if (!Number.isInteger(habitants) || habitants < 0) return null;
+  if (habitants > G.plafond) return { devis: true, habitants };
+  const palier = Math.floor(habitants / G.palier) * G.palier;
+  const abo = prixParPalier(G.abonnement, habitants);
+  const comprises = habitants >= G.optionsComprises;
+  const choisies = (o.whatsapp ? 1 : 0) + (o.messenger ? 1 : 0);
+  const options = comprises ? 0 : choisies * cts(G.option);
+  const mensuel = abo + options, annuel = 12 * mensuel;
+  const mise = prixParPalier(G.miseEnService, habitants);
+  const collecte = (o.site === 'non' || o.site === 'aucun') ? prixParPalier(G.collecte, habitants) : 0;
+  return { devis: false, habitants, palier, abo, comprises, choisies, options, mensuel, annuel, mise, collecte, premiere: annuel + mise + collecte, ensuite: annuel, auMinimum: abo === cts(G.abonnement.minimum) };
+}
+/* le dernier nombre d'habitants auquel le minimum d'une ligne s'applique (999 € et 20 centimes, forme totale : 4 999) */
+export const jusqua = l => (l.forme === 'continue' ? l.barre - 1 : Math.floor(cts(l.minimum) / l.centimesParHabitant / GRILLE.palier) * GRILLE.palier + GRILLE.palier - 1);
+const nf0 = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }), nf2 = new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+/* l'espace des milliers : l'insécable ordinaire (l'espace fine U+202F manque dans Caveat et Poppins) */
+const fine = t => t.replace(/\u202f/g, '\u00a0');
+export const euros = c => fine(c % 100 ? nf2.format(c / 100) : nf0.format(c / 100)) + '\u00a0€';
+export const nombre = n => fine(nf0.format(n));
+export const habitantsTexte = n => `${nombre(n)} habitant${n > 1 ? 's' : ''}`;
+const centimesTexte = c => (c === 1 ? 'un centime' : `${String(c).replace('.', ',')} centimes`);
+/* la règle d'une ligne, en une phrase, tirée de la grille (jamais écrite en dur) ; parMois : « par mois » et « et par mois » */
+export function regle(l, parMois) {
+  /* forme continue : « 69 € par mois jusqu'à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà
+     de 5 000, 500 € par mois au plus » ; forme totale : « 10 centimes par habitant, 499 € au minimum » (consigne de 18 h 15 :
+     le minimum est rappelé dans la suite, pour qu'on ne calcule pas les centimes sur toute la population) */
+  const m = parMois ? ' par mois' : '';
+  if (l.forme === 'continue') return `${euros(cts(l.minimum))}${m} jusqu'à ${nombre(l.barre - 1)} habitants, puis ${euros(cts(l.minimum))} plus ${centimesTexte(l.centimesParHabitant)}${m} pour chaque habitant au-delà de ${nombre(l.barre)}${l.plafond ? `, ${euros(cts(l.plafond))}${m} au plus` : ''}.`;
+  return `${centimesTexte(l.centimesParHabitant)} par habitant${parMois ? ' et par mois' : ''}, ${euros(cts(l.minimum))}${m} au minimum${l.plafond ? `, ${euros(cts(l.plafond))}${m} au plus` : ''}.`;
+}
+export const regleAbonnement = () => regle(GRILLE.abonnement, true);
+
+/* ---------- la recherche : sans accents, sans casse, sans tirets ni apostrophes ; « st » vaut « saint » ---------- */
+export const cle = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/œ/g, 'oe').replace(/æ/g, 'ae').replace(/[^a-z0-9]+/g, ' ').trim();
+const ABREGES = { st: 'saint', ste: 'sainte', sts: 'saints', stes: 'saintes' };
+let base = null, chargement = null;
+function charger() {
+  if (!chargement) chargement = fetch(DONNEES, { credentials: 'omit' }).then(r => { if (!r.ok) throw new Error('statut ' + r.status); return r.json(); }).then(d => {
+    if (!d || !Array.isArray(d.communes)) throw new Error('fichier inattendu');
+    const communes = d.communes.filter(c => Array.isArray(c) && typeof c[0] === 'string' && typeof c[1] === 'string' && typeof c[2] === 'string')
+      .map(c => [c[0], c[1], c[2], Number.isInteger(c[3]) && c[3] >= 0 ? c[3] : null]);
+    const mots = communes.map(c => cle(c[0]));
+    base = { communes, mots, compacts: mots.map(m => m.replace(/ /g, '')), parCode: new Map(communes.map(c => [c[1].toUpperCase(), c])), source: typeof d.source === 'string' ? d.source : '' };
+    return base;
+  }).catch(e => { chargement = null; throw e; });
+  return chargement;
+}
+export function chercher(q, n = 6) {
+  if (!base) return [];
+  const mots = cle(q).split(' ').filter(Boolean).map(m => ABREGES[m] || m), qc = mots.join('');
+  if (!qc) return [];
+  if (/^\d+$/.test(qc)) return [];   /* un numéro (code postal ou code INSEE) ne se cherche pas : les codes postaux ne sont pas dans le fichier */
+  const res = [], { communes, mots: M, compacts: C } = base;
+  for (let i = 0; i < communes.length; i++) {
+    const k = C[i]; let s = -1;
+    if (k === qc) s = 0;
+    else if (k.startsWith(qc)) s = 1;
+    else if (qc.length >= 3) {
+      const w = M[i]; let p = w.indexOf(' ');
+      while (p >= 0) { if (w.slice(p + 1).replace(/ /g, '').startsWith(qc)) { s = 2; break; } p = w.indexOf(' ', p + 1); }
+    }
+    if (s >= 0) res.push([s, -(communes[i][3] || 0), i]);
+  }
+  res.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  return res.slice(0, n).map(r => communes[r[2]]);
+}
+
+/* ---------- petits outils ---------- */
+const $ = (s, r) => r.querySelector(s);
+let plumeP = null; const plume = () => (plumeP = plumeP || import('./plume.js').catch(e => { plumeP = null; throw e; }));
+let pagesP = null; const pages = () => (pagesP = pagesP || import('./pages.js').catch(e => { pagesP = null; throw e; }));
+const AUJOURDHUI = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+const nomCommune = c => `${c[0]} (${c[2]})`;
+const COURRIEL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/* un nombre d'habitants lu par Number, entier, de 1 à 10 000 000 ; sinon null */
+const HAB_MAX = 10000000;
+const lireNombre = t => { const n = Number(t); return Number.isInteger(n) && n >= 1 && n <= HAB_MAX ? n : null; };
+const attendre = ms => new Promise(r => setTimeout(r, reduit() ? 0 : ms));
+const el = (tag, cls, texte) => { const e = document.createElement(tag); if (cls) e.className = cls; if (texte !== undefined) e.textContent = texte; return e; };
+/* une valeur qui roule de l'ancienne à la nouvelle (de 0 la première fois), 600 ms ; posée d'un coup sous mouvement réduit */
+const comptes = new WeakMap();
+function compter(e, vers, format, duree = 600) {
+  const avant = comptes.get(e); if (avant) cancelAnimationFrame(avant.raf);
+  const de = avant ? avant.valeur : 0;
+  if (reduit() || de === vers) { e.textContent = format(vers); comptes.set(e, { valeur: vers, raf: 0 }); return; }
+  const t0 = performance.now(), etat = { valeur: vers, raf: 0 }; comptes.set(e, etat);
+  const pas = t => {
+    const u = Math.min(1, (t - t0) / duree), f = 1 - Math.pow(1 - u, 3);
+    e.textContent = format(u >= 1 ? vers : Math.round((de + (vers - de) * f) / 100) * 100);
+    if (u < 1) etat.raf = requestAnimationFrame(pas);
+  };
+  etat.raf = requestAnimationFrame(pas);
+}
+/* une suite de phases jouée au fil du temps : [nom, début ms, fin ms] ; rend une promesse ; posée d'un coup sous mouvement réduit */
+function jouerPhases(rendre, phases, fin, anime = true) {
+  return new Promise(r => {
+    if (!anime || reduit()) { const p = {}; phases.forEach(([n]) => { p[n] = 1; }); rendre(p); r(); return; }
+    const t0 = performance.now();
+    const pas = t => {
+      const dt = t - t0, p = {};
+      phases.forEach(([n, a, b]) => { p[n] = Math.max(0, Math.min(1, (dt - a) / (b - a))); });
+      rendre(p);
+      if (dt < fin) requestAnimationFrame(pas); else r();
+    };
+    requestAnimationFrame(pas);
+  });
+}
+const taille = (svg, w, h) => { svg.setAttribute('width', w.toFixed(0)); svg.setAttribute('height', h.toFixed(0)); svg.setAttribute('viewBox', `0 0 ${w.toFixed(0)} ${h.toFixed(0)}`); svg.textContent = ''; };
+
+/* ---------- scène 1 : la plaque du panneau (contour, liseré, hachures côté ombre) ---------- */
+async function dessinerPlaque(plaque, anime) {
+  const P = await plume();
+  const svg = plaque.querySelector(':scope > svg'), w = plaque.clientWidth, h = plaque.clientHeight;
+  if (!w || !h) return;
+  taille(svg, w + 12, h + 12);
+  const D = new P.Dessin(svg, ENCRE);
+  P.formeMain(D, P.perimetre(2, 2, w - 4, h - 4, 14), Object.assign({ phase: 'a', graine: 11, reprise: true }, GROS));
+  P.formeMain(D, P.perimetre(10, 10, w - 20, h - 20, 8), Object.assign({ phase: 'b', graine: 17 }, DET));
+  P.hachures(D, [[w - 1, 16], [w + 8, 22], [w + 8, h + 8], [w - 1, h - 1]], { phase: 'c', angle: 58, pas: 3.4, long: [5, 11], op: .42, wMax: .9, graine: 5 });
+  P.hachures(D, [[16, h - 1], [w - 1, h - 1], [w + 8, h + 8], [22, h + 8]], { phase: 'c', angle: 58, pas: 3.4, long: [5, 11], op: .42, wMax: .9, graine: 6 });
+  D.monter();
+  await jouerPhases(p => D.rendre(p), [['a', 0, 560], ['b', 380, 820], ['c', 700, 980]], 1000, anime);
+}
+
+/* ---------- scènes 1 et 3 : le poteau, la terre, et les plaques accrochées ---------- */
+async function dessinerPoteau(zone, anime) {
+  const P = await plume();
+  const svg = zone.querySelector(':scope > svg.pm-poteau'), Z = zone.getBoundingClientRect();
+  if (!Z.width || !Z.height) return;
+  taille(svg, Z.width, Z.height);
+  const sol = Z.height - 14, x0 = 24, x1 = 33;
+  const D = new P.Dessin(svg, ENCRE);
+  D.trait(P.ligne(x0, 0, x0 - .4, sol + 1), Object.assign({ phase: 'p', graine: 21 }, DET));
+  D.trait(P.ligne(x1, 0, x1 + .3, sol + 1), Object.assign({ phase: 'p', graine: 22 }, FIN));
+  P.hachures(D, [[x1 + 1, 4], [x1 + 6, 8], [x1 + 6, sol], [x1 + 1, sol]], { phase: 'p', angle: 80, pas: 4, long: [6, 14], op: .35, wMax: .8, graine: 9 });
+  D.trait(P.catmull([[0, sol + 1], [Z.width * .3, sol - 1], [Z.width * .62, sol + 1.5], [Z.width, sol]]), Object.assign({ phase: 's', graine: 41 }, FIN, { wMax: 1.4 }));
+  const rnd = P.rng(7);
+  for (const bx of [6, 14, 19, 38, 44, 52]) {
+    const hx = 5 + rnd() * 8; D.trait([[bx, sol + 1], [bx + (rnd() - .5) * 5, sol + 1 - hx * .6], [bx + (rnd() - .3) * 6, sol + 1 - hx]], { phase: 's', profil: 'hachure', wMin: .3, wMax: 1, op: .55, pas: 1.4, graine: Math.round(bx * 7) });
+  }
+  /* les plaques accrochées : contour à la plume, deux brides vers le poteau ; seules les nouvelles se dessinent */
+  const plaques = Array.from(zone.querySelectorAll('.pm-accroche')).filter(e => !e.hidden && e.offsetParent);
+  const phases = [['p', 0, 1], ['s', 0, 1]];
+  let k = 0;
+  plaques.forEach((pl, i) => {
+    const q = pl.getBoundingClientRect(), x = q.left - Z.left, y = q.top - Z.top, ph = 'q' + i;
+    P.formeMain(D, P.perimetre(x, y, q.width, q.height, 7), Object.assign({ phase: ph, graine: 30 + i * 3 }, DET));
+    for (const by of [y + 12, y + q.height - 12]) D.trait(P.ligne(x1, by, x + 1, by + .4), Object.assign({ phase: ph, graine: 60 + i * 5 + Math.round(by) }, DET, { wMax: 2.2 }));
+    const neuve = anime && !pl.dataset.dessinee;
+    phases.push([ph, neuve ? 40 + k * 300 : 0, neuve ? 40 + k * 300 + 420 : 1]);
+    if (neuve) k++;
+    pl.dataset.dessinee = '1';
+  });
+  D.monter();
+  const voir = p => { plaques.forEach((pl, i) => { pl.style.opacity = String(Math.min(1, (p['q' + i] || 0) * 1.6)); }); };
+  await jouerPhases(p => { D.rendre(p); voir(p); }, phases, Math.max(...phases.map(x => x[2])) + 40, anime && k > 0);
+}
+
+/* ---------- scène 4 : le chemin, les bornes des étapes, la borne du montant ---------- */
+async function dessinerChemin(route, anime) {
+  const P = await plume();
+  const svg = route.querySelector(':scope > svg'), R = route.getBoundingClientRect();
+  const lieux = Array.from(route.querySelectorAll('.pm-etape:not([hidden]) .pm-etape__borne'));
+  const fin = route.querySelector('.pm-fin__borne');
+  if (!R.width || !lieux.length || !fin) return;
+  taille(svg, R.width, R.height);
+  const B = lieux.map(l => { const q = l.getBoundingClientRect(); return { cx: q.left - R.left + q.width / 2, haut: q.top - R.top + 2, bas: q.bottom - R.top - 1, l: q.width / 2 - 2 }; });
+  const qf = fin.getBoundingClientRect(), F = { cx: qf.left - R.left + qf.width / 2, haut: qf.top - R.top + 2, bas: qf.bottom - R.top - 1, l: qf.width / 2 - 2 };
+  const enLigne = Math.abs(F.bas - B[0].bas) < 40;
+  const rnd = P.rng(5), pts = [], T = B.concat([F]);
+  if (enLigne) {
+    pts.push([0, B[0].bas - 6]);
+    T.forEach((b, i) => { pts.push([b.cx, b.bas - 7]); if (i < T.length - 1) pts.push([(b.cx + T[i + 1].cx) / 2, b.bas - 7 + (rnd() - .5) * 8]); });
+    pts.push([R.width, F.bas - 6]);
+  } else {
+    pts.push([B[0].cx + 2, 0]);
+    T.forEach((b, i) => { pts.push([b.cx, (b.haut + b.bas) / 2]); if (i < T.length - 1) pts.push([b.cx + (rnd() - .5) * 10, (b.bas + T[i + 1].haut) / 2]); });
+  }
+  const chemin = new P.Dessin(svg, ENCRE);
+  const c1 = P.catmull(pts, 10);
+  chemin.trait(c1, Object.assign({ phase: 'c', graine: 3 }, FIN, { wMax: 1.5 }));
+  chemin.trait(c1.map(([a, b]) => (enLigne ? [a, b + 6] : [a + 6, b])), Object.assign({ phase: 'c', graine: 4 }, FIN, { wMax: .9, op: .4 }));
+  chemin.monter();
+  const pierres = T.map(b => {
+    const e = document.createElementNS(NS, 'path'), r = Math.min(b.l, (b.bas - b.haut) * .45);
+    e.setAttribute('class', 'pm-pierre');
+    e.setAttribute('d', `M${b.cx - b.l} ${b.bas}V${b.haut + r}Q${b.cx - b.l} ${b.haut} ${b.cx} ${b.haut}Q${b.cx + b.l} ${b.haut} ${b.cx + b.l} ${b.haut + r}V${b.bas}Z`);
+    svg.appendChild(e); return e;
+  });
+  const bornes = new P.Dessin(svg, ENCRE);
+  T.forEach((b, i) => {
+    const r = Math.min(b.l, (b.bas - b.haut) * .45), grand = i === T.length - 1;
+    const contour = [[b.cx - b.l, b.bas], ...P.arcE(b.cx, b.haut + r, b.l, r, Math.PI, 2 * Math.PI), [b.cx + b.l, b.bas]];
+    bornes.trait(contour, Object.assign({ phase: 'b' + i, graine: 50 + i }, grand ? GROS : DET));
+    bornes.trait(P.ligne(b.cx - b.l - 6, b.bas, b.cx + b.l + 6, b.bas + .5), Object.assign({ phase: 'b' + i, graine: 60 + i }, FIN));
+    const h0 = grand ? .84 : .6;   /* sur la grande borne, l'ombre reste au bord : le montant se lit */
+    P.hachures(bornes, [[b.cx + b.l * h0, b.haut + r * .9], [b.cx + b.l - 1, b.haut + r], [b.cx + b.l - 1, b.bas - 1], [b.cx + b.l * h0, b.bas - 1]], { phase: 'b' + i, angle: 80, pas: grand ? 3.2 : 3.6, long: [4, 9], op: .38, wMax: .8, graine: 70 + i });
+  });
+  bornes.monter();
+  const textes = T.map((b, i) => (i === T.length - 1 ? fin.querySelector('.pm-fin__texte') : lieux[i].querySelector('span')));
+  const noms = T.map((b, i) => (i === T.length - 1 ? null : lieux[i].closest('li').querySelector('.pm-etape__nom')));
+  const rendre = p => {
+    chemin.rendre(p); bornes.rendre(p);
+    T.forEach((b, i) => { const v = p['b' + i] || 0; pierres[i].style.opacity = String(Math.min(1, v * 2.5)); const o = String(Math.min(1, Math.max(0, v * 2 - .9))); if (textes[i]) textes[i].style.opacity = o; if (noms[i]) noms[i].style.opacity = o; });
+  };
+  const pas = Math.min(240, 1300 / T.length);
+  const phases = [['c', 0, 1400], ...T.map((b, i) => ['b' + i, 100 + i * pas, 460 + i * pas])];
+  if (anime && !reduit()) rendre({});
+  await jouerPhases(rendre, phases, phases[phases.length - 1][2] + 40, anime);
+}
+
+/* ---------- le bloc ---------- */
+function gabarit(id) {
+  const i = s => `${id}-${s}`;
+  const etapes = ETAPES.map(([l, t, court]) => `<li class="pm-etape"><span class="pm-etape__borne" aria-hidden="true"><span>${l}</span></span><button type="button" class="pm-etape__nom" aria-expanded="false">${court}<span class="pm-sr"> : ${t}</span></button><span class="pm-bulle" aria-hidden="true">${t}</span></li>`).join('');
+  const etapesFeuille = ETAPES.map(([l, t]) => `<li data-l="${l}">${t}</li>`).join('');
+  return `
+<p class="pm-sr" aria-live="polite" data-annonce></p>
+<p class="pm-sr" role="status" data-compte></p>
+<div class="pm-scene">
+  <div class="pm-col-panneau">
+    <div class="pm-plaque" data-plaque>
+      <svg aria-hidden="true" focusable="false"></svg>
+      <label class="pm-sr" for="${i('champ')}">Le nom de votre commune</label>
+      <input class="pm-champ" id="${i('champ')}" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${i('liste')}" aria-describedby="${i('aide')}" autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="search" maxlength="60">
+      <span class="pm-plaque__vide" aria-hidden="true">VOTRE COMMUNE<i class="pm-curseur"></i></span>
+      <span class="pm-plaque__nom" aria-hidden="true"></span>
+      <span class="pm-plaque__dep" aria-hidden="true"></span>
+    </div>
+    <ul class="pm-fleches" id="${i('liste')}" role="listbox" aria-label="Communes proposées" hidden></ul>
+    <p class="pm-etat" id="${i('aide')}" role="status"></p>
+    <div class="pm-poteau-zone">
+      <svg class="pm-poteau" aria-hidden="true" focusable="false"></svg>
+      <div class="pm-accroches">
+        <div class="pm-pop" data-pop hidden>
+          <p class="pm-pop__ligne"><span class="pm-pop__n" data-habitants></span><span class="pm-pop__ast" data-ast aria-hidden="true">*</span></p>
+          <p class="pm-pop__source" data-source>population municipale INSEE</p>
+          <p class="pm-pop__prix" aria-hidden="true"><span data-prix-court></span><span data-prix-court-u> HT par mois<span class="pm-pop__an">abonnement annuel</span></span></p>
+          <button type="button" class="pm-lien" data-corriger aria-controls="${i('saisie')}">Ce n’est pas le bon chiffre&nbsp;? Corrigez-le</button>
+        </div>
+        <div class="pm-repli">
+          <button type="button" class="pm-lien" data-bascule aria-expanded="false" aria-controls="${i('saisie')}">ou saisissez le nombre d’habitants</button>
+          <div class="pm-saisie" id="${i('saisie')}" hidden>
+            <label for="${i('hab')}">Nombre d’habitants</label>
+            <input id="${i('hab')}" type="text" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="12 400">
+          </div>
+        </div>
+        <label class="pm-accroche pm-option" data-plaque-opt hidden><input type="checkbox" data-opt="whatsapp"><span class="pm-case" aria-hidden="true"></span><span>Marianne sur WhatsApp (bientôt), <b data-opt-prix></b></span></label>
+        <label class="pm-accroche pm-option" data-plaque-opt hidden><input type="checkbox" data-opt="messenger"><span class="pm-case" aria-hidden="true"></span><span>Marianne sur Messenger (bientôt), <b data-opt-prix></b></span></label>
+        <fieldset class="pm-accroche pm-question" data-site hidden>
+          <legend>Le site internet de la mairie est-il à jour&nbsp;?</legend>
+          <div class="pm-reponses">
+            <label class="pm-radio"><input type="radio" name="${i('site')}" value="oui" checked><span class="pm-rond" aria-hidden="true"></span>Oui</label>
+            <label class="pm-radio"><input type="radio" name="${i('site')}" value="non"><span class="pm-rond" aria-hidden="true"></span>Non</label>
+            <label class="pm-radio"><input type="radio" name="${i('site')}" value="aucun"><span class="pm-rond" aria-hidden="true"></span>Pas de site</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  <div class="pm-col-borne" data-col-borne>
+    <div class="pm-borne" data-borne>
+      <img alt="" decoding="async" width="896" height="1200">
+      <p class="pm-gravure" data-gravure><span class="pm-gravure__n" data-mensuel></span><span class="pm-gravure__u" data-unite>HT par mois</span></p>
+      <p class="pm-attente" aria-hidden="true">votre prix</p>
+    </div>
+    <div class="pm-sous-borne" data-sous-borne hidden>
+      <p class="pm-an" data-chiffre>soit <span data-annuel></span> HT par an, abonnement annuel</p>
+      <p class="pm-regle" data-regle data-chiffre></p>
+      <p class="pm-devis" data-surdevis hidden>Pour une commune de votre taille, une intercommunalité ou un département, le prix s’établit avec vous.</p>
+    </div>
+  </div>
+</div>
+<div class="pm-route-zone" data-mise hidden>
+  <h4 class="pm-route__titre">La ${MISE.toLowerCase()}, une seule fois</h4>
+  <div class="pm-route">
+    <svg aria-hidden="true" focusable="false"></svg>
+    <ol class="pm-etapes-route">
+      <li class="pm-etape pm-etape--collecte" data-borne-collecte hidden><span class="pm-etape__borne" aria-hidden="true"><span>+</span></span><span class="pm-etape__nom pm-etape__nom--texte">Collecte des informations&nbsp;: <b data-collecte-montant></b></span></li>
+      ${etapes}
+      <li class="pm-fin"><span class="pm-fin__borne"><span class="pm-fin__texte"><span>${MISE}</span><b data-mise-montant></b><span>HT, une seule fois</span></span></span></li>
+    </ol>
+  </div>
+  <p class="pm-route__regle" data-mise-regle></p>
+</div>
+<div class="pm-feuille-zone" data-feuille-zone hidden>
+  <div class="pm-feuille" data-feuille>
+    <div class="pm-feuille__tete"><h4 data-feuille-titre></h4><span>${AUJOURDHUI}</span></div>
+    <form class="pm-form" id="${i('form')}" data-envoi="${ENVOI}" data-voix="nous" novalidate hidden>
+      <div class="pm-form__corps">
+        <div class="pm-form__rang">
+          <div class="pm-form__champ"><label for="${i('nom')}">Nom et prénom</label><input id="${i('nom')}" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="${i('nom-err')}"><span class="pm-erreur" id="${i('nom-err')}" aria-live="polite"></span></div>
+          <div class="pm-form__champ"><label for="${i('mel')}">Courriel</label><input id="${i('mel')}" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="${i('mel-err')}"><span class="pm-erreur" id="${i('mel-err')}" aria-live="polite"></span></div>
+        </div>
+        <div class="pm-form__champ"><label for="${i('mot')}">Un mot pour nous (facultatif)</label><textarea id="${i('mot')}" name="mot" rows="3" maxlength="2000"></textarea></div>
+        <div class="pm-pot" aria-hidden="true"><label for="${i('pot')}">Ne pas remplir</label><input id="${i('pot')}" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="pm-form__note">L’estimation ci-dessous part avec votre message. Votre courriel sert à vous répondre&nbsp;: <a href="/legal/politique-confidentialite.html">politique de confidentialité</a>.</p>
+        <button type="submit" class="pm-action pm-action--plein">Envoyer l’estimation</button>
+      </div>
+      <div class="pm-envoi" data-bloc hidden></div>
+    </form>
+    <dl>
+      <div class="pm-ligne"><dt>Commune</dt><dd data-f="commune"></dd><dd class="pm-sous" data-f="pop-source"></dd><dd class="pm-main" aria-hidden="true" data-main="commune"></dd></div>
+      <div class="pm-ligne" data-f-chiffre><dt>Abonnement Marianne</dt><dd data-f="abo"></dd><dd class="pm-sous" data-f="abo-an"></dd><dd class="pm-main" aria-hidden="true" data-main="abo"></dd></div>
+      <div class="pm-ligne" data-f-chiffre><dt>Options</dt><dd data-f="options"></dd></div>
+      <div class="pm-ligne" data-f-chiffre><dt>${MISE}, une seule fois</dt><dd data-f="mise"></dd><dd class="pm-main" aria-hidden="true" data-main="mise"></dd><dd class="pm-sous"><ol class="pm-etapes">${etapesFeuille}</ol></dd></div>
+      <div class="pm-ligne" data-f-collecte hidden><dt>Collecte des informations, une seule fois</dt><dd data-f="collecte"></dd><dd class="pm-main" aria-hidden="true" data-main="collecte"></dd></div>
+      <div class="pm-ligne pm-ligne--total" data-f-chiffre><dt>Première année</dt><dd data-f="premiere"></dd><dd class="pm-main" aria-hidden="true" data-main="premiere"></dd></div>
+      <div class="pm-ligne pm-ligne--total" data-f-chiffre><dt>Ensuite</dt><dd data-f="ensuite"></dd></div>
+      <div class="pm-ligne" data-f-devis hidden><dt>Prix</dt><dd data-f="devis">sur devis</dd><dd class="pm-main" aria-hidden="true" data-main="devis"></dd></div>
+    </dl>
+    <p class="pm-mention" data-mention>Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.</p>
+    <p class="pm-mention">Le devis retient la population municipale INSEE en vigueur à la date de la commande.</p>
+  </div>
+  <div class="pm-sorties">
+    <button type="button" class="pm-action pm-action--plein" data-recevoir aria-expanded="false" aria-controls="${i('form')}">Recevoir cette estimation</button>
+    <button type="button" class="pm-action" data-partager>Partager cette estimation</button>
+  </div>
+  <p class="pm-copie" data-copie role="status"></p>
+</div>
+<p class="pm-note" data-note hidden></p>`;
+}
+
+/* la taille de la typographie du panneau : la plus grande qui tient dans la plaque, en une ou deux lignes */
+let toile = null;
+function ajusterNom(cible, nom, largeur, hauteur) {
+  if (!toile) toile = document.createElement('canvas').getContext('2d');
+  const fonte = getComputedStyle(cible).fontFamily || 'Poppins, sans-serif';
+  const L = s => { toile.font = `700 100px ${fonte}`; return toile.measureText(s).width * 1.04 || s.length * 62; };
+  const jetons = String(nom).toUpperCase().match(/[^- ]+[- ]?/g) || [String(nom).toUpperCase()];
+  let mieux = null;
+  const essayer = lignes => { const w = Math.max(...lignes.map(s => L(s.trim()))), n = lignes.length; const fs = Math.min(46, 100 * largeur / w, hauteur / (n * 1.08)); if (!mieux || fs > mieux.fs * 1.12) mieux = { fs, lignes: lignes.map(s => s.trim()) }; };
+  essayer([jetons.join('')]);
+  for (let k = 1; k < jetons.length; k++) essayer([jetons.slice(0, k).join(''), jetons.slice(k).join('')]);
+  cible.textContent = '';
+  mieux.lignes.forEach((l, k) => { if (k) cible.appendChild(document.createElement('br')); cible.appendChild(document.createTextNode(l)); });
+  cible.style.fontSize = Math.max(12, mieux.fs).toFixed(1) + 'px';
+}
+
+let compteur = 0;
+export function monter(racine) {
+  if (!racine || racine.dataset.pret) return;
+  racine.dataset.pret = '1';
+  const hote = racine.querySelector('[data-prix-calcul]') || racine;
+  const id = 'pm' + (++compteur);
+  hote.innerHTML = gabarit(id);   /* gabarit : constantes du module seulement, aucune valeur extérieure */
+  const q = s => $(s, hote);
+  const plaque = q('[data-plaque]'), champ = q('.pm-champ'), liste = q('.pm-fleches'), etatTxt = q('.pm-etat'), bascule = q('[data-bascule]'), corriger = q('[data-corriger]'), saisie = q('.pm-saisie'), habIn = q(`#${id}-hab`);
+  const nomPlaque = q('.pm-plaque__nom'), depPlaque = q('.pm-plaque__dep'), zonePoteau = q('.pm-poteau-zone');
+  const pop = q('[data-pop]'), borne = q('[data-borne]'), gravure = q('[data-gravure]'), sousBorne = q('[data-sous-borne]');
+  const zoneMise = q('[data-mise]'), route = q('.pm-route'), zoneFeuille = q('[data-feuille-zone]'), feuille = q('[data-feuille]'), note = q('[data-note]');
+  const form = q('form'), bloc = q('[data-bloc]'), recevoir = q('[data-recevoir]'), partager = q('[data-partager]'), copieTxt = q('[data-copie]');
+  const etat = { commune: null, saisie: null, whatsapp: false, messenger: false, site: 'oui' };
+  let options = [], actif = -1, annonceT = 0, generation = 0, dejaVu = false, cheminFait = '', feuillePosee = false;
+  note.textContent = SOURCE_POPULATION;
+
+  /* --- la scène se dessine quand le bloc entre dans la vue : la plaque, le poteau, la borne --- */
+  function entrer() {
+    if (dejaVu) return; dejaVu = true;
+    plume().then(() => dessinerPlaque(plaque, true)).then(() => dessinerPoteau(zonePoteau, false)).catch(() => {});
+    const img = borne.querySelector('img'); img.src = BORNE;
+    const vue = () => borne.classList.add('pm-borne--vue');
+    if (img.decode) img.decode().then(vue, vue); else vue();
+  }
+  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); entrer(); } }, { rootMargin: '0px 0px -10% 0px' }); io.observe(plaque); }
+  else entrer();
+
+  /* --- le chargement des données, au premier geste dans le champ --- */
+  let echecDonnees = false;
+  const preparer = () => {
+    entrer();
+    if (base) return Promise.resolve(base);
+    if (echecDonnees) return Promise.resolve(null);
+    etatTxt.textContent = 'Chargement de la liste des communes…';
+    return charger().then(b => { if (etatTxt.textContent.startsWith('Chargement')) etatTxt.textContent = ''; return b; }, () => {
+      echecDonnees = true;
+      etatTxt.textContent = 'La liste des communes n’a pas pu se charger. Saisissez le nombre d’habitants.';
+      ouvrirSaisie(false); return null;
+    });
+  };
+  champ.addEventListener('focus', () => { preparer(); plaque.classList.remove('pm-plaque--posee'); plaque.classList.add('pm-plaque--active'); taillerSaisie(); if (etat.commune) champ.select(); });
+  champ.addEventListener('pointerdown', preparer);
+
+  /* --- les suggestions : des panneaux fléchés (combobox, clavier et souris) --- */
+  const fermer = () => { liste.hidden = true; champ.setAttribute('aria-expanded', 'false'); champ.removeAttribute('aria-activedescendant'); actif = -1; };
+  const marquer = k => {
+    actif = k;
+    Array.from(liste.children).forEach((li, j) => li.setAttribute('aria-selected', String(j === k)));
+    if (k >= 0 && liste.children[k]) { champ.setAttribute('aria-activedescendant', liste.children[k].id); liste.children[k].scrollIntoView({ block: 'nearest' }); }
+    else champ.removeAttribute('aria-activedescendant');
+  };
+  const proposer = () => {
+    const v = champ.value;
+    if (!base) { if (v.trim()) preparer().then(b => { if (b) proposer(); }); return; }
+    options = chercher(v);
+    liste.textContent = '';
+    if (!v.trim()) { fermer(); etatTxt.textContent = ''; return; }
+    if (!options.length) { fermer(); etatTxt.textContent = /^\s*\d/.test(v) ? 'Écrivez le nom de la commune : les codes postaux ne sont pas reconnus.' : 'Aucune commune de ce nom dans la liste. Vérifiez l’orthographe, ou saisissez le nombre d’habitants.'; return; }
+    options.forEach((c, j) => {
+      const li = el('li', 'pm-fleche'); li.id = `${id}-opt-${j}`; li.setAttribute('role', 'option'); li.setAttribute('aria-selected', 'false');
+      const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'pm-fleche__forme'); svg.setAttribute('viewBox', '0 0 100 40'); svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
+      const forme = document.createElementNS(NS, 'path'); forme.setAttribute('d', 'M1.5 2.5H90L98.5 20L90 37.5H1.5Z'); forme.setAttribute('vector-effect', 'non-scaling-stroke'); svg.appendChild(forme);
+      li.append(svg, el('b', 'pm-fleche__nom', c[0]), el('span', 'pm-fleche__dep', departement(c)), el('span', 'pm-fleche__hab', c[3] === null ? 'population non disponible' : nombre(c[3]) + ' hab.'));
+      /* le champ garde le focus (pointerdown sans défaut) ; la commune se choisit au relâcher, si le doigt n'a pas glissé */
+      let x0 = 0, y0 = 0;
+      li.addEventListener('pointerdown', e => { e.preventDefault(); x0 = e.clientX; y0 = e.clientY; });
+      li.addEventListener('pointerup', e => { if (Math.hypot(e.clientX - x0, e.clientY - y0) > 10) return; choisir(c); if (e.pointerType !== 'mouse') champ.blur(); });
+      liste.appendChild(li);
+    });
+    liste.hidden = false; champ.setAttribute('aria-expanded', 'true'); marquer(-1); etatTxt.textContent = '';
+    /* le nombre de propositions, pour les lecteurs d'écran seulement (les panneaux fléchés le montrent) */
+    q('[data-compte]').textContent = options.length === 1 ? 'Une commune proposée, flèche du bas pour la choisir.' : `${options.length} communes proposées, flèches pour choisir.`;
+  };
+  let raf = 0;
+  champ.addEventListener('input', () => { plaque.classList.remove('pm-plaque--posee'); plaque.classList.toggle('pm-plaque--ecrite', !!champ.value); taillerSaisie(); cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { raf = 0; proposer(); }); });
+  champ.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (liste.hidden) proposer(); else marquer(Math.min(options.length - 1, actif + 1)); }
+    else if (e.key === 'ArrowUp') { if (liste.hidden) return; e.preventDefault(); marquer(Math.max(0, actif - 1)); }
+    else if (e.key === 'Enter') { if (raf) { cancelAnimationFrame(raf); raf = 0; proposer(); } if (!liste.hidden && options.length) { e.preventDefault(); choisir(options[actif >= 0 ? actif : 0]); } }
+    else if (e.key === 'Escape') { if (!liste.hidden) { e.preventDefault(); fermer(); } }
+  });
+  /* en quittant la plaque sans choisir, la commune déjà choisie revient : le panneau et le prix disent la même chose */
+  champ.addEventListener('blur', () => setTimeout(() => { if (document.activeElement === champ) return; fermer(); plaque.classList.remove('pm-plaque--active'); if (etat.commune) { champ.value = etat.commune[0]; plaque.classList.add('pm-plaque--ecrite'); poserNom(false); } }, 120));
+  /* la saisie en capitales, à la taille qui tient dans la plaque */
+  function taillerSaisie() {
+    const w = champ.clientWidth - 12; if (!w) return;
+    if (!toile) toile = document.createElement('canvas').getContext('2d');
+    const max = Math.min(40, champ.clientHeight * .5);
+    toile.font = `700 ${max}px ${getComputedStyle(champ).fontFamily}`;
+    const lg = toile.measureText((champ.value || '').toUpperCase()).width * 1.05;
+    /* 16 px au moins : en dessous, Safari sur iPhone agrandit la page au focus */
+    champ.style.fontSize = (lg > w ? Math.max(16, max * w / lg) : max).toFixed(1) + 'px';
+  }
+
+  /* --- le nom posé sur la plaque, le département en petit dessous --- */
+  function poserNom(anime) {
+    if (!etat.commune) { plaque.classList.remove('pm-plaque--posee'); return; }
+    ajusterNom(nomPlaque, etat.commune[0], plaque.clientWidth - 60, plaque.clientHeight - 64);
+    depPlaque.textContent = departement(etat.commune);
+    plaque.classList.add('pm-plaque--posee');
+    if (anime && !reduit()) { plaque.classList.remove('pm-plaque--pose'); void plaque.offsetWidth; plaque.classList.add('pm-plaque--pose'); }
+  }
+  function choisir(c) {
+    cancelAnimationFrame(raf); raf = 0; fermer();
+    etat.commune = c; champ.value = c[0]; plaque.classList.add('pm-plaque--ecrite');
+    etat.saisie = null; habIn.value = '';
+    if (c[3] === null) {
+      etatTxt.textContent = `La population de ${c[0]} n’est pas dans la liste. Saisissez le nombre d’habitants.`;
+      ouvrirSaisie(true); poserNom(true); rendre(); return;
+    }
+    saisie.hidden = true; bascule.setAttribute('aria-expanded', 'false'); etatTxt.textContent = '';
+    poserNom(true); rendre(true);
+  }
+  /* --- la saisie du nombre d'habitants : le repli sans commune, et la correction par la mairie --- */
+  function ouvrirSaisie(focus) { saisie.hidden = false; bascule.setAttribute('aria-expanded', 'true'); if (focus) habIn.focus(); requestAnimationFrame(() => dessinerPoteau(zonePoteau, false).catch(() => {})); }
+  bascule.addEventListener('click', () => { if (saisie.hidden) ouvrirSaisie(true); else { saisie.hidden = true; bascule.setAttribute('aria-expanded', 'false'); requestAnimationFrame(() => dessinerPoteau(zonePoteau, false).catch(() => {})); } });
+  corriger.addEventListener('click', () => { if (etat.commune && etat.commune[3] !== null && !habIn.value) habIn.placeholder = nombre(etat.commune[3]).replace(/\s/g, ' '); corriger.hidden = true; ouvrirSaisie(true); });
+  habIn.addEventListener('input', () => {
+    const brut = habIn.value.replace(/[\s  .]/g, '');
+    if (!brut) { etat.saisie = null; etatTxt.textContent = ''; rendre(); return; }
+    const n = /^\d{1,8}$/.test(brut) ? lireNombre(brut) : null;
+    if (n === null) { etatTxt.textContent = `Un nombre entier de 1 à ${nombre(HAB_MAX)}, sans lettres, par exemple 12 400.`; if (etat.saisie !== null) { etat.saisie = null; rendre(); } return; }
+    etatTxt.textContent = '';
+    const premiere = habitants() === null; etat.saisie = n; rendre(premiere);
+  });
+
+  /* --- les options et la question du site --- */
+  hote.querySelectorAll('[data-opt]').forEach(c => c.addEventListener('change', () => { etat[c.dataset.opt] = c.checked; rendre(); }));
+  hote.querySelectorAll(`input[name="${id}-site"]`).forEach(r => r.addEventListener('change', () => { if (r.checked) { etat.site = r.value; rendre(); } }));
+
+  /* --- l'état écrit dans le bloc --- */
+  const habitants = () => (etat.saisie !== null ? etat.saisie : etat.commune && etat.commune[3] !== null ? etat.commune[3] : null);
+  const indiquee = () => etat.saisie !== null;
+  const nomBloc = () => (etat.commune ? etat.commune[0] : 'votre commune');
+  function texteOptions(c) {
+    /* WhatsApp et Messenger ne sont pas encore en service (« Bientôt » sur leurs pages) : la feuille et le message le disent */
+    const noms = [etat.whatsapp && 'WhatsApp (bientôt)', etat.messenger && 'Messenger (bientôt)'].filter(Boolean);
+    if (c.comprises) return 'WhatsApp et Messenger (bientôt), comprises';
+    if (!noms.length) return 'aucune';
+    return `${noms.join(' et ')}, ${euros(c.options)} HT par mois`;
+  }
+  /* le lien : le code INSEE, ou le nombre indiqué par la mairie à sa place (consigne de 16 h 40) */
+  function lienPartage() {
+    const p = new URLSearchParams();
+    if (indiquee()) p.set('habitants', String(etat.saisie)); else if (etat.commune) p.set('commune', etat.commune[1]);
+    p.set('whatsapp', etat.whatsapp ? '1' : '0'); p.set('messenger', etat.messenger ? '1' : '0'); p.set('site', etat.site);
+    return `${location.origin}${location.pathname}?${p.toString()}#prix`;
+  }
+  function texteEstimation(c) {
+    const h = habitants(), nom = etat.commune ? `${nomCommune(etat.commune)}, code INSEE ${etat.commune[1]}` : 'commune non nommée';
+    const l = [`Estimation Marianne du ${AUJOURDHUI} : ${nom}`, `Population : ${habitantsTexte(h)} (${indiquee() ? 'indiquée par la mairie' : 'INSEE 2023'})`];
+    if (c.devis) l.push(`Au-delà de ${nombre(GRILLE.plafond)} habitants : prix sur devis, demande de rendez-vous de trente minutes.`);
+    else {
+      l.push(`Abonnement : ${euros(c.mensuel)} HT par mois, soit ${euros(c.annuel)} HT par an, abonnement annuel`);
+      l.push(`Options : ${texteOptions(c)}`);
+      l.push(`Site internet de la mairie : ${{ oui: 'à jour', non: 'pas à jour', aucun: 'pas de site' }[etat.site]}`);
+      l.push(`${MISE}, une seule fois : ${euros(c.mise)} HT (${ETAPES.map(([a, t]) => `${a}. ${t}`).join(' ; ')})`);
+      if (c.collecte) l.push(`Collecte des informations, une seule fois : ${euros(c.collecte)} HT`);
+      l.push(`Première année : ${euros(c.premiere)} HT. Ensuite : ${euros(c.ensuite)} HT par an.`);
+      l.push('Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.');
+    }
+    l.push('Le devis retient la population municipale INSEE en vigueur à la date de la commande.');
+    l.push(`Lien de l’estimation : ${lienPartage()}`);
+    return l.join('\n');
+  }
+  /* les lignes écrites à la main pendant la scène de la lettre (dd invisibles, sur toute la largeur de la ligne) */
+  function ecrireMain(c) {
+    const m = (k, t) => { const e = q(`[data-main="${k}"]`); if (e) e.textContent = t; };
+    m('commune', etat.commune ? `${nomCommune(etat.commune)}, ${habitantsTexte(habitants())}` : habitantsTexte(habitants()));
+    m('abo', c.devis ? '' : `Abonnement : ${euros(c.mensuel)} HT par mois`);
+    m('mise', c.devis ? '' : `${MISE} : ${euros(c.mise)} HT`);
+    m('collecte', c.devis || !c.collecte ? '' : `Collecte : ${euros(c.collecte)} HT`);
+    m('premiere', c.devis ? '' : `Première année : ${euros(c.premiere)} HT`);
+    m('devis', c.devis ? 'Prix sur devis, rendez-vous de trente minutes' : '');
+  }
+
+  /* la suite des scènes, une chose à la fois ; une nouvelle commune interrompt la suite en cours. Un appel qui n'est pas
+     une nouvelle commune (option, site, correction) pose tout l'état final sur-le-champ : une suite interrompue ne laisse
+     jamais une scène cachée */
+  async function jouer(c, nouvelle) {
+    const g = ++generation, encore = () => g === generation, anime = nouvelle && !reduit();
+    zoneMise.hidden = !!c.devis; zoneFeuille.hidden = false; note.hidden = indiquee(); pop.hidden = false;
+    const court = q('.pm-pop__prix');
+    if (nouvelle) {
+      /* une nouvelle commune : l'ancien prix s'efface de la borne et de la ligne du téléphone, le nouveau comptera depuis 0 */
+      gravure.classList.remove('pm-gravure--vue'); comptes.delete(q('[data-mensuel]')); comptes.delete(q('[data-prix-court]'));
+      q('[data-mensuel]').textContent = ''; q('[data-prix-court]').textContent = ''; court.hidden = true;
+    }
+    if (anime) {
+      pop.classList.remove('pm-pop--ecrit'); void pop.offsetWidth;
+      await attendre(240); if (!encore()) return;
+      pop.classList.add('pm-pop--ecrit');
+      await attendre(460); if (!encore()) return;
+    } else pop.classList.add('pm-pop--ecrit');
+    gravure.classList.toggle('pm-gravure--devis', !!c.devis);
+    if (c.devis) { comptes.delete(q('[data-mensuel]')); q('[data-mensuel]').textContent = 'Sur devis'; q('[data-unite]').textContent = ''; }
+    else { q('[data-unite]').textContent = 'HT par mois'; gravure.classList.toggle('pm-gravure--long', euros(c.mensuel).length > 7); compter(q('[data-mensuel]'), c.mensuel, euros, 600); }
+    /* sur téléphone, la borne est plus bas : le prix du mois s'écrit aussi sous la population */
+    if (c.devis) { comptes.delete(q('[data-prix-court]')); q('[data-prix-court]').textContent = 'Sur devis'; q('[data-prix-court-u]').hidden = true; }
+    else { q('[data-prix-court-u]').hidden = false; compter(q('[data-prix-court]'), c.mensuel, euros, 600); }
+    gravure.classList.add('pm-gravure--vue'); court.hidden = false;
+    if (anime) { await attendre(620); if (!encore()) return; }
+    sousBorne.hidden = false;
+    hote.querySelectorAll('[data-plaque-opt], [data-site]').forEach(pl => { pl.hidden = !!c.devis; });
+    await new Promise(r => requestAnimationFrame(r));
+    if (anime) { await dessinerPoteau(zonePoteau, true).catch(() => {}); if (!encore()) return; }
+    else dessinerPoteau(zonePoteau, false).catch(() => {});
+    const cleChemin = c.devis ? '' : `${c.collecte ? 1 : 0}`;
+    if (cleChemin && cheminFait !== cleChemin) { const avant = cheminFait; cheminFait = cleChemin; if (avant) dessinerChemin(route, true).catch(montrerChemin); else quandVisible(route, () => dessinerChemin(route, true).catch(montrerChemin)); }
+    if (!feuillePosee) { feuillePosee = true; quandVisible(feuille, () => feuille.classList.add('pm-feuille--posee'), .12); }
+  }
+  /* si le dessin du chemin échoue (plume.js introuvable), les lettres et les noms des étapes restent lisibles */
+  const montrerChemin = () => route.querySelectorAll('.pm-etape__borne > span, .pm-etape__nom, .pm-fin__texte').forEach(e => { e.style.opacity = '1'; });
+  const visibles = new WeakMap();
+  function quandVisible(e, f, seuil = .3) {
+    if (!('IntersectionObserver' in window) || reduit()) { requestAnimationFrame(f); return; }
+    const avant = visibles.get(e); if (avant) avant.disconnect();
+    const io = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) { io.disconnect(); visibles.delete(e); f(); } }, { threshold: seuil });
+    visibles.set(e, io); requestAnimationFrame(() => io.observe(e));
+  }
+
+  function rendre(nouvelle) {
+    const h = habitants();
+    if (h === null) {
+      generation++; clearTimeout(annonceT); q('[data-annonce]').textContent = ''; pop.hidden = true; sousBorne.hidden = true; zoneMise.hidden = true; zoneFeuille.hidden = true; note.hidden = true; gravure.classList.remove('pm-gravure--vue');
+      hote.querySelectorAll('[data-plaque-opt], [data-site]').forEach(p => { p.hidden = true; p.style.opacity = '0'; delete p.dataset.dessinee; });
+      for (const s of ['[data-mensuel]', '[data-prix-court]']) { comptes.delete(q(s)); q(s).textContent = ''; }
+      q('[data-unite]').textContent = ''; q('.pm-pop__prix').hidden = true;
+      requestAnimationFrame(() => dessinerPoteau(zonePoteau, false).catch(() => {})); return;
+    }
+    const c = calculer(h, etat), G = GRILLE;
+    if (form.classList.contains('envoye')) {
+      /* une estimation déjà partie : la feuille se réarme pour la nouvelle */
+      form.classList.remove('envoye'); form.hidden = true; bloc.hidden = true; bloc.replaceChildren(); bloc.classList.remove('envoi--echec', 'lettre-pose');
+      recevoir.hidden = false; recevoir.setAttribute('aria-expanded', 'false'); form.querySelector('[type="submit"]').disabled = false;
+    }
+    q('[data-habitants]').textContent = habitantsTexte(h);
+    q('[data-ast]').hidden = indiquee();
+    q('[data-source]').textContent = indiquee() ? 'population indiquée par vous' : 'population municipale INSEE';
+    corriger.hidden = !etat.commune || etat.commune[3] === null || !saisie.hidden;
+    bascule.hidden = !!etat.commune && etat.commune[3] !== null;
+    hote.querySelectorAll('[data-chiffre]').forEach(e => { e.hidden = c.devis; });
+    q('[data-surdevis]').hidden = !c.devis;
+    hote.querySelectorAll('[data-f-chiffre]').forEach(e => { e.hidden = c.devis; });
+    q('[data-f-devis]').hidden = !c.devis;
+    partager.hidden = c.devis;
+    q('[data-f-collecte]').hidden = c.devis || !c.collecte; q('[data-borne-collecte]').hidden = c.devis || !c.collecte;
+    q('[data-feuille-titre]').textContent = `Estimation pour ${nomBloc()}`;
+    q('[data-f="commune"]').textContent = `${etat.commune ? nomCommune(etat.commune) + ', ' : ''}${habitantsTexte(h)}`;
+    q('[data-f="pop-source"]').textContent = indiquee() ? 'population indiquée par vous' : 'population municipale INSEE 2023*';
+    recevoir.textContent = c.devis ? 'Prendre rendez-vous, trente minutes' : 'Recevoir cette estimation';
+    q('[data-mention]').textContent = c.devis ? 'Une première réunion de trente minutes établit le devis, hors taxes.' : 'Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.';
+    if (!c.devis) {
+      q('[data-annuel]').textContent = euros(c.annuel);
+      q('[data-regle]').textContent = regleAbonnement() + (c.auMinimum ? '' : ` Population arrondie ${G.palier === 100 ? 'à la centaine inférieure' : `au palier de ${nombre(G.palier)} habitants inférieur`} : ${nombre(c.palier)}.`) + (c.options ? ` Dont ${euros(c.options)} HT par mois pour ${c.choisies === 2 ? 'les deux options' : 'l’option'}.` : '');
+      hote.querySelectorAll('[data-opt]').forEach(box => {
+        const lab = box.closest('label'), b = lab.querySelector('[data-opt-prix]');
+        if (c.comprises) { box.checked = true; box.disabled = true; b.textContent = 'comprise'; lab.classList.add('pm-option--comprise'); }
+        else { box.disabled = false; box.checked = !!etat[box.dataset.opt]; b.textContent = `${euros(cts(G.option))} par mois`; lab.classList.remove('pm-option--comprise'); }
+      });
+      q('[data-borne-collecte]').hidden = !c.collecte; q('[data-collecte-montant]').textContent = c.collecte ? `${euros(c.collecte)} HT` : '';
+      q('[data-mise-montant]').textContent = euros(c.mise);
+      const maj = t => t[0].toUpperCase() + t.slice(1);
+      q('[data-mise-regle]').textContent = `${maj(regle(G.miseEnService, false))} Facturée une seule fois, à votre validation écrite de la version de référence.` + (c.collecte ? ` Collecte des informations, puisque le site n’est pas à jour ou n’existe pas : ${regle(G.collecte, false)}` : '');
+      q('[data-f="abo"]').textContent = `${euros(c.mensuel)} HT par mois`;
+      q('[data-f="abo-an"]').textContent = `soit ${euros(c.annuel)} HT par an, abonnement annuel`;
+      q('[data-f="options"]').textContent = texteOptions(c);
+      q('[data-f="mise"]').textContent = `${euros(c.mise)} HT`;
+      q('[data-f-collecte]').hidden = !c.collecte; q('[data-f="collecte"]').textContent = c.collecte ? `${euros(c.collecte)} HT` : '';
+      q('[data-f="premiere"]').textContent = `${euros(c.premiere)} HT`;
+      q('[data-f="ensuite"]').textContent = `${euros(c.ensuite)} HT par an`;
+    }
+    if (base && base.source) note.textContent = base.source;
+    jouer(c, !!nouvelle);
+    clearTimeout(annonceT);
+    annonceT = setTimeout(() => {
+      q('[data-annonce]').textContent = c.devis ? `${nomBloc()}, ${habitantsTexte(h)} : le prix s’établit sur devis.`
+        : `${nomBloc()}, ${habitantsTexte(h)}. Abonnement estimé : ${euros(c.mensuel)} HT par mois, soit ${euros(c.annuel)} HT par an. ${MISE} : ${euros(c.mise)} HT${c.collecte ? `. Collecte : ${euros(c.collecte)} HT` : ''}. Première année : ${euros(c.premiere)} HT.`;
+    }, 500);
+    copieTxt.textContent = '';
+  }
+
+  /* --- les bornes des étapes : la phrase complète au survol, au focus ou au toucher --- */
+  hote.querySelectorAll('.pm-etape__nom[aria-expanded]').forEach(b => b.addEventListener('click', () => {
+    const ouvert = b.getAttribute('aria-expanded') === 'true';
+    hote.querySelectorAll('.pm-etape__nom[aria-expanded="true"]').forEach(x => x.setAttribute('aria-expanded', 'false'));
+    b.setAttribute('aria-expanded', String(!ouvert));
+  }));
+
+  hote.addEventListener('keydown', e => { if (e.key === 'Escape') hote.querySelectorAll('.pm-etape__nom[aria-expanded="true"]').forEach(x => x.setAttribute('aria-expanded', 'false')); });
+
+  /* --- le redessin quand la largeur change (sans animation) --- */
+  if ('ResizeObserver' in window) {
+    let largeur = 0, t = 0;
+    new ResizeObserver(es => {
+      const w = Math.round(es[0].contentRect.width); if (w === largeur) return; largeur = w; clearTimeout(t);
+      t = setTimeout(() => {
+        if (dejaVu) dessinerPlaque(plaque, false).catch(() => {});
+        if (dejaVu) dessinerPoteau(zonePoteau, false).catch(() => {});
+        if (cheminFait && !zoneMise.hidden) dessinerChemin(route, false).catch(montrerChemin);
+        if (etat.commune && plaque.classList.contains('pm-plaque--posee')) poserNom(false);
+        taillerSaisie();
+      }, 160);
+    }).observe(hote);
+  }
+
+  /* --- « Partager cette estimation » : un lien qui rouvre le bloc dans le même état --- */
+  partager.addEventListener('click', async () => {
+    const lien = lienPartage();
+    let ok = false;
+    try { await navigator.clipboard.writeText(lien); ok = true; } catch (e) {
+      try { const t = document.createElement('textarea'); t.value = lien; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); t.remove(); } catch (e2) { ok = false; }
+    }
+    copieTxt.textContent = ok ? 'Lien copié.' : `Copiez ce lien : ${lien}`;
+  });
+
+  /* --- « Recevoir cette estimation » : la feuille part, et devient la lettre --- */
+  recevoir.addEventListener('click', () => {
+    const ouvert = !form.hidden;
+    form.hidden = ouvert; recevoir.setAttribute('aria-expanded', String(!ouvert));
+    if (!ouvert) { pages().catch(() => {}); q(`#${id}-nom`).focus(); }
+  });
+  const verifier = c => {
+    const err = c.parentElement.querySelector('.pm-erreur'); let m = '';
+    if (!c.value.trim()) m = c.type === 'email' ? 'Indiquez votre courriel, pour recevoir l’estimation.' : 'Indiquez votre nom.';
+    else if (c.type === 'email' && !COURRIEL.test(c.value.trim())) m = 'Cette adresse ne semble pas complète, par exemple prenom.nom@mairie.fr.';
+    c.setAttribute('aria-invalid', m ? 'true' : 'false'); if (err) err.textContent = m; return !m;
+  };
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (form.dataset.enCours) return;
+    const nomC = q(`#${id}-nom`), melC = q(`#${id}-mel`), motC = q(`#${id}-mot`), potC = q(`#${id}-pot`);
+    form.dataset.tente = '1';
+    const ko = [nomC, melC].filter(c => !verifier(c)); if (ko.length) { ko[0].focus(); return; }
+    const h = habitants(); if (h === null) return;
+    const c = calculer(h, etat);
+    const texte = texteEstimation(c) + (motC.value.trim() ? `\n\nMessage : ${motC.value.trim()}` : '');
+    const sujet = `Estimation Marianne, ${etat.commune ? nomCommune(etat.commune) : nombre(h) + ' habitants'}`;
+    const donnees = new FormData();
+    donnees.set('name', nomC.value.trim()); donnees.set('email', melC.value.trim()); donnees.set('message', texte);
+    donnees.set('city', etat.commune ? nomCommune(etat.commune) : ''); donnees.set('population', String(h)); if (etat.commune) donnees.set('insee', etat.commune[1]);
+    donnees.set('_subject', sujet); donnees.set('_replyto', melC.value.trim());
+    if (potC.value) donnees.set('_gotcha', potC.value);
+    form.dataset.enCours = '1'; form.setAttribute('aria-busy', 'true');
+    const bouton = form.querySelector('[type="submit"]'), avant = bouton.textContent; bouton.disabled = true; bouton.textContent = 'Envoi…';
+    let m = null; try { m = await Promise.race([pages(), new Promise(ok => setTimeout(() => ok(null), 4000))]); } catch (err) { m = null; }
+    ecrireMain(c);
+    const champs = ['commune', 'abo', 'mise', 'collecte', 'premiere', 'devis'].map(k => q(`[data-main="${k}"]`)).filter(d => d && d.textContent.trim() && !d.closest('[hidden]'));
+    champs.push(nomC, melC); if (motC.value.trim()) champs.push(motC);
+    let ok;
+    if (m && m.envoyerAvecLettre) ok = await m.envoyerAvecLettre(form, ENVOI, donnees, { bloc, carte: feuille, tenir: feuille, champs });
+    else ok = await envoyerSeul(ENVOI, donnees);
+    delete form.dataset.enCours; form.removeAttribute('aria-busy');
+    bouton.textContent = avant; bouton.disabled = !!ok;
+    const etatEnvoi = m && m.etatEnvoi ? m.etatEnvoi : etatSimple;
+    if (ok) {
+      form.classList.add('envoye'); recevoir.hidden = true;
+      if (m && typeof m.signalerDemande === 'function') try { m.signalerDemande(form, 'estimation'); } catch (err) { /* rien */ }
+      etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Merci, votre estimation est partie.', texte: 'Nous revenons vers vous pour fixer une première réunion de trente minutes.' });
+      if (m && m.poserVignette) m.poserVignette(bloc);
+    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de rendez-vous de trente minutes. ${lienPartage()}` : `Estimation : ${euros(c.mensuel)} HT par mois, mise en service ${euros(c.mise)} HT. ${lienPartage()}` });
+  });
+  [q(`#${id}-nom`), q(`#${id}-mel`)].forEach(c => {
+    /* à la sortie du champ, seulement après un premier essai d'envoi : un message qui apparaît au moment du clic sur
+       « Envoyer » décalerait le bouton sous le doigt */
+    c.addEventListener('blur', () => { if (c.value && form.dataset.tente) verifier(c); });
+    c.addEventListener('input', () => { if (c.getAttribute('aria-invalid') === 'true') verifier(c); });
+  });
+
+  /* --- un lien partagé : ?commune=69243&whatsapp=1&messenger=0&site=non, ou ?habitants=11200 (paramètres faux : ignorés, sans message) --- */
+  const p = new URLSearchParams(location.search);
+  const code = (p.get('commune') || '').trim().toUpperCase(), habP = (p.get('habitants') || '').trim();
+  if (p.get('whatsapp') === '1') etat.whatsapp = true;
+  if (p.get('messenger') === '1') etat.messenger = true;
+  if (['oui', 'non', 'aucun'].includes(p.get('site'))) { etat.site = p.get('site'); const r = hote.querySelector(`input[name="${id}-site"][value="${etat.site}"]`); if (r) r.checked = true; }
+  const habOk = /^\d{1,8}$/.test(habP) ? lireNombre(habP) : null;
+  if (/^(\d{5}|2[AB]\d{3})$/.test(code)) {
+    preparer().then(b => {
+      if (!b) return;
+      const c = b.parCode.get(code);   /* le nom affiché vient toujours du fichier, jamais de l'adresse */
+      if (!c) { if (habOk !== null) { etat.saisie = habOk; habIn.value = String(habOk); ouvrirSaisie(false); requestAnimationFrame(() => rendre(true)); } return; }
+      etat.commune = c; champ.value = c[0]; plaque.classList.add('pm-plaque--ecrite');
+      if (habOk !== null) { etat.saisie = habOk; habIn.value = String(habOk); ouvrirSaisie(false); }
+      else if (c[3] === null) { etatTxt.textContent = `La population de ${c[0]} n’est pas dans la liste. Saisissez le nombre d’habitants.`; ouvrirSaisie(false); }
+      requestAnimationFrame(() => { poserNom(true); rendre(true); });
+    });
+  } else if (habOk !== null) { etat.saisie = habOk; habIn.value = String(habOk); ouvrirSaisie(false); entrer(); requestAnimationFrame(() => rendre(true)); }
+}
+
+/* l'envoi sans la lettre (pages.js introuvable) : même requête, même délai de 15 s */
+async function envoyerSeul(url, donnees) {
+  const ctl = 'AbortController' in window ? new AbortController() : null, t = ctl ? setTimeout(() => ctl.abort(), 15000) : 0;
+  try { const r = await fetch(url, { method: 'POST', body: donnees, headers: { Accept: 'application/json' }, signal: ctl ? ctl.signal : undefined }); return r.ok; }
+  catch (e) { return false; } finally { clearTimeout(t); }
+}
+function etatSimple(bloc, etat, o = {}) {
+  const p1 = el('p', 'envoi__t'), p2 = el('p');
+  if (etat === 'reussite') { p1.textContent = o.titre || ''; p2.textContent = o.texte || ''; }
+  else {
+    p1.textContent = 'L’envoi n’a pas abouti.';
+    const a = el('a', '', 'contact@civik-ia.fr'); a.href = `mailto:contact@civik-ia.fr?subject=${encodeURIComponent(o.sujet || '')}&body=${encodeURIComponent(o.corps || '')}`;
+    p2.append('Écrivez-nous directement à ', a);
+  }
+  bloc.replaceChildren(p1, p2); bloc.hidden = false; bloc.setAttribute('tabindex', '-1'); bloc.focus();
+}
+
+/* la grille en clair de la page (cellules [data-grille]) réécrite depuis GRILLE : la page et le calcul ne divergent pas */
+function remplirGrille(racine) {
+  racine.querySelectorAll('[data-grille]').forEach(td => {
+    const [ligne, quoi] = td.dataset.grille.split('-'), l = GRILLE[ligne];
+    if (!l || typeof l !== 'object' || !('forme' in l)) return;
+    const unite = ligne === 'abonnement' ? ' HT par mois' : ' HT';
+    if (quoi === 'regle') td.textContent = regle(l, ligne === 'abonnement');
+    else if (/^\d+$/.test(quoi)) td.textContent = euros(prixParPalier(l, Number(quoi))) + unite;
+  });
+}
+
+/* ---------- démarrage : chaque bloc [data-prix-marianne] de la page ---------- */
+function demarrer() { document.querySelectorAll('[data-prix-marianne]').forEach(r => { remplirGrille(r); monter(r); }); }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer, { once: true }); else demarrer();

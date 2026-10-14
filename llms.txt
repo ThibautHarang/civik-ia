@@ -4,7 +4,7 @@
 
 ## Les trois activités
 
-- [Marianne, l'assistant IA des collectivités territoriales](https://civik-ia.fr/marianne/) : répond aux habitants 24h/24 à partir des sources officielles de la commune, et cite sa source à chaque réponse. Sur le site de la mairie ou en application installée sur smartphone ; WhatsApp et Messenger à venir. Hébergement en Europe chez OVHcloud, moteur Mistral AI. Dès 49 € HT par mois.
+- [Marianne, l'assistant IA des collectivités territoriales](https://civik-ia.fr/marianne/) : répond aux habitants 24h/24 à partir des sources officielles de la commune, et cite sa source à chaque réponse. Sur le site de la mairie ou en application installée sur smartphone ; WhatsApp et Messenger à venir. Hébergement en Europe chez OVHcloud, moteur Mistral AI. Abonnement sur devis, selon la taille de la commune.
 - [Thibaut Harang, conseil en santé, numérique et intelligence artificielle](https://civik-ia.fr/conseil/) : directeur d'établissements de santé pendant près de quinze ans, il aide les entreprises du secteur de la santé, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s'organiser et à conduire leur plan d'action : diagnostic, schéma directeur ou projet médical, accompagnement, formation à l'intelligence artificielle. Proposition écrite après un premier échange de trente minutes, gratuit et sans engagement.
 - [L'atelier Civik-ia : sites, applications, logiciels sur mesure](https://civik-ia.fr/atelier/) : dessine puis construit des sites, des applications et des logiciels pour les mairies, les acteurs de santé, les entreprises et les associations, sur devis. Marianne a été conçue et construite dans cet atelier.
 
@@ -21,7 +21,7 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 
 - [Tester Marianne](https://civik-ia.fr/demo) : la démonstration en direct, sur une commune fictive, sans inscription.
 - [Chatbot mairie, le guide](https://civik-ia.fr/chatbot-mairie.html) : à quoi sert un chatbot municipal, ce qu'il traite, ce qu'il ne traite pas.
-- [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : grille tarifaire et coût réel d'un assistant virtuel pour une commune.
+- [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : ce qui fait le prix d'un assistant virtuel pour une commune, la mise en service et le seuil de dispense de procédure.
 - [Existe-t-il un chatbot gratuit pour une mairie ?](https://civik-ia.fr/chatbot-mairie-gratuit.html) : les offres gratuites réellement disponibles en 2026, à qui chacune s'adresse et ce qu'elle ne couvre pas. Relevé sur les sites des éditeurs le 24 août 2026.
 - [Chatbot pour commune rurale](https://civik-ia.fr/chatbot-commune-rurale.html) : un assistant pour les petites communes (moins de 5 000 habitants).
 - [Comparatif chatbot mairie 2026](https://civik-ia.fr/comparatif-chatbot-mairie-2026.html) : comparaison datée des solutions du marché français.
@@ -34,7 +34,6 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 - [Financer l'IA de sa commune](https://civik-ia.fr/financement-ia-collectivite.html) : le guichet de cofinancement Territoires d'IA (Banque des Territoires) couvre 30 à 50 % de l'achat de licences ou abonnements d'IA souveraine, en continu depuis mai 2026 ; les appels à projets France 2030 sur l'IA, eux, sont hors de portée d'une commune (assiette minimale de 600 000 € pour l'AAP démonstrateurs, clos depuis le 01/12/2023). Civik-ia n'est ni labellisée ni partenaire de ces programmes.
 - [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, checklist pour le délégué à la protection des données.
 - [IA souveraine pour mairie](https://civik-ia.fr/ia-souveraine-mairie-mistral.html) : pourquoi un modèle français (Mistral AI) plutôt qu'un modèle américain.
-- [Chatbot mairie en Loir-et-Cher](https://civik-ia.fr/chatbot-mairie-loir-et-cher.html) et [Chatbot mairie en Hérault](https://civik-ia.fr/chatbot-mairie-herault.html) : guides pour les communes de ces départements.
 - [Livre blanc](https://civik-ia.fr/livre-blanc.html) : l'IA au service de la relation entre une mairie et ses habitants.
 - [Marianne sur WhatsApp](https://civik-ia.fr/marianne-whatsapp.html) et [Marianne sur Messenger](https://civik-ia.fr/marianne-messenger.html) : canaux à venir, pages d'annonce.
 - [22h47](https://civik-ia.fr/22h47.html) : la campagne « votre mairie est fermée, un habitant a une question ».
@@ -43,7 +42,7 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 
 ## Contenu intégral
 
-- [Contenu intégral du site en texte brut](https://civik-ia.fr/llms-full.txt) : les 26 pages publiques du sitemap (hors pages légales), extractibles sans HTML. Régénéré depuis le sitemap.
+- [Contenu intégral du site en texte brut](https://civik-ia.fr/llms-full.txt) : les 24 pages publiques du sitemap (hors pages légales), extractibles sans HTML. Régénéré depuis le sitemap.
 
 ## Ce que Civik-ia ne fait pas
 

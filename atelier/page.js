@@ -1152,10 +1152,22 @@ function pageBlanche() {
     fiche.ecrire('croquis', aDessine ? 'dessiné par vous sur la feuille, gardé de votre côté' : 'celui de la feuille, gardé de votre côté', true);
     $('[data-fin]', form).hidden = false;
     const finir = () => { form.classList.add('fini'); etapes.forEach(f => f.hidden = true); };
+    /* AT-34 (14/10/2026, Thibaut) : après la réussite, le remerciement se voit, sur téléphone comme sur ordinateur. etatEnvoi
+       (pages.js) pose le focus sur le bloc d'état avant le repli des étapes : le navigateur défile jusqu'au bloc tel qu'il était,
+       puis le repli (étape 5 et boutons : 559 px à 1440, 758 px à 390) le remonte au-dessus de la vue. Le repli fait, un seul
+       défilement (doux, instantané en mouvement réduit) remplace celui du focus et pose le haut du bloc 16 px sous l'en-tête fixe.
+       Le focus reste où etatEnvoi l'a mis (rien n'est refocalisé), aucun écouteur. Vaut avec ou sans la lettre qui part :
+       envoyerFiche rend la main après la scène et etatEnvoi. */
+    const montrerMerci = bloc => {
+      if (!bloc || bloc.hidden) return;
+      const nav = $('.nav'), nb = nav ? nav.getBoundingClientRect().bottom : 0;
+      const haut = Math.max(0, Math.round(bloc.getBoundingClientRect().top + scrollY - nb - 16));
+      if (Math.abs(haut - scrollY) > 1) scrollTo({ top: haut, behavior: reduit() ? 'instant' : 'smooth' });
+    };
     if (!envoiReel(form)) { finir(); etatTxt.textContent = 'Projet complet'; return; }
     etatTxt.textContent = 'Envoi du projet';
     const ok = await envoyerFiche(form, { texte: texteFiche(), num, bouton: suite, bloc: $('[data-projet-envoi]', form) });
-    if (ok) { finir(); etatTxt.textContent = 'Projet envoyé'; }
+    if (ok) { finir(); etatTxt.textContent = 'Projet envoyé'; montrerMerci($('[data-projet-envoi]', form)); }   /* AT-34 */
     else if (ok === false) etatTxt.textContent = 'Projet complet';
   });
 

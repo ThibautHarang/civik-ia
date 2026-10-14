@@ -679,7 +679,8 @@ function methode() {
     if (n <= 3) { const d = svgEtat(n); d.rendre(1); v.appendChild(d.svg); } else v.appendChild(miniSite(n));
     mesureurs.observe(v);
   });
-  let cur = 0, raf = 0, minuteur = 0, enVue = false, survol = false, arret = false;
+  /* AT-33 (14/10/2026, relecture de Thibaut) : recul, vrai après un défilement vers le haut, faux au premier vers le bas */
+  let cur = 0, raf = 0, minuteur = 0, enVue = false, survol = false, arret = false, recul = false;
   let surEtat = () => {}, pilote = null;   /* AT-15 ter : prévenu à chaque état montré ; la ligne de temps de la piste */
   const dessiner = n => {
     cancelAnimationFrame(raf); const d = dessins[n]; if (!d) return;
@@ -708,10 +709,11 @@ function methode() {
   fen.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { survol = false; majPause(); planifier(1500); } });
   fen.addEventListener('click', e => { if (matchMedia('(hover: none)').matches) { arret = !arret; majPause(); planifier(1200); } });
   btns.forEach((b, i) => {
-    b.addEventListener('click', () => { montrer(i + 1); planifier(6000); });
+    /* AT-33 : une vignette choisie met fin au recul (la lecture reprend comme aujourd'hui) */
+    b.addEventListener('click', () => { recul = false; montrer(i + 1); planifier(6000); });
     b.addEventListener('keydown', e => {
       let j = null; if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % 6; else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i + 5) % 6; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = 5;
-      if (j === null) return; e.preventDefault(); btns[j].focus(); montrer(j + 1); planifier(6000);
+      if (j === null) return; e.preventDefault(); btns[j].focus(); recul = false; montrer(j + 1); planifier(6000);   /* AT-33 */
       btns[j].scrollIntoView({ block: 'nearest', inline: 'nearest' });
     });
   });
@@ -751,7 +753,7 @@ function methode() {
   /* AT-31 : le sixième n'a jamais été vu au chargement (avant, la session s'en souvenait : un rechargement ne retenait plus) ; une fois
      vu dans ce chargement, un retour sur la section n'est plus retenu */
   let vu6 = false;
-  let hautColle = 96, dernierChangement = performance.now(), finT = 0, dansPiste = false, suiteT = 0, suite = false, filetT = 0;
+  let hautColle = 96, dernierChangement = performance.now(), finT = 0, dansPiste = false, suiteT = 0, suite = false, filetT = 0, yPrec = scrollY;   /* AT-33 : yPrec */
   const B = { actif: false, desarme: vu6, L: 0, suspendu: false, attente: 0, sonde: null };
   /* la hauteur où la scène se colle : centrée sous la barre, le bas de la scène toujours à l'écran */
   const mesurer = () => {
@@ -790,11 +792,25 @@ function methode() {
     section.classList.toggle('fleche-avance', sens === 'avance'); section.classList.toggle('fleche-suite', sens === 'suite');
   };
   const montrerSuite = () => { suite = true; clearTimeout(suiteT); majFleche(); suiteT = setTimeout(() => { suite = false; majFleche(); }, 1600); };
-  /* la ligne de temps : elle conduit tant que la scène est collée et que le sixième n'a pas été vu */
+  /* la ligne de temps : elle conduit tant que la scène est collée (AT-33 : avant et après le sixième, et en remontant, ci-dessous) */
+  /* AT-33 (14/10/2026, relecture de Thibaut) : en remontant, la scène recule avec la position, un état à la fois (6, 5, 4, 3, 2, 1), à
+     l'allure de la descente (1 s par état, 0,62 s quand la position a deux états d'avance ou plus), puis reste sur l'état de la position
+     tant qu'on ne bouge plus, le temps de le relire ; au-dessus de la piste, elle finit sur 1 et la page monte librement. Cause du
+     défaut : la ligne de temps ne savait qu'avancer (Math.max(0, cible() - cur)) et s'éteignait une fois le sixième vu (!vu6) ; en
+     remontant, la scène restait sur 6, puis la lecture en boucle repartait dès qu'elle revenait à l'écran (1, 2, 3 : elle avançait
+     pendant qu'on remontait). Désormais la ligne de temps conduit dans toute la piste, avant et après le sixième (après : jusqu'à 6, sans
+     butée), et hors de la piste en remontant tant que la scène est à l'écran ; en remontant, elle n'avance jamais. Rien ne change en
+     descendant : le recul ne vaut qu'après un défilement vers le haut, cesse au premier vers le bas ou au choix d'une vignette, et
+     jamais à la butée (son filet, les touches et les liens sont inchangés) ; la position n'est jamais réécrite. */
   pilote = {
-    actif: () => dansPiste && !vu6 && !reduit(),
+    actif: () => !reduit() && (dansPiste || (recul && enVue)),
     programmer: () => {
       clearTimeout(minuteur);
+      const c = cible();
+      if (recul && !enButee()) {
+        if (c < cur) minuteur = setTimeout(() => { if (recul && cible() < cur) montrer(cur - 1); planifier(); }, Math.max(0, dernierChangement + NORMAL / Math.min(FACTEUR_MAX, 1 + 1.5 * (cur - c)) - performance.now()));
+        return;
+      }
       if (cur >= 6) return;
       const avance = Math.max(0, cible() - cur), bout = enButee();
       if (!avance && !bout && arret) return;   /* en pause, seule la position fait avancer */
@@ -816,6 +832,8 @@ function methode() {
     resserrer();
   };
   addEventListener('scroll', () => {
+    /* AT-33 : le sens du défilement ; au premier défilement vers le bas, hors de la ligne de temps, la lecture d'avant reprend */
+    const y = scrollY; if (y !== yPrec) { const r = y < yPrec; yPrec = y; if (r !== recul) { recul = r; if (!r && !pilote.actif()) planifier(); } }
     suivre();
     if (B.suspendu) { clearTimeout(B.attente); B.attente = setTimeout(reprendre, 260); return; }
     /* filet : à la butée, si plus rien n'avance pendant 2 s (une horloge en retard), la butée se lève */

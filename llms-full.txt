@@ -360,7 +360,7 @@ Découvrir Marianne
 Fiche 1 / sur 1
 Construire mon projet
 Partez d'une page blanche
-Vous avez déjà un projet ? N'hésitez pas : commencez à le dessiner ici, à la plume, au fil de vos choix, ou prenez le crayon. À la fin, envoyez-nous votre projet : vous en gardez le croquis.
+Vous avez déjà un projet ? N'hésitez pas : commencez à le dessiner ici, à la plume, au fil de vos choix, ou prenez le crayon. À la fin, envoyez-nous votre projet. Vous pouvez même en garder le croquis, pour le souvenir.
 Feuille blanche : rien n'est encore choisi.
 Prendre le crayon
 Effacer mon dessin
@@ -436,9 +436,9 @@ Les écrans principaux, hiérarchisés et dessinés au propre, que vous validez.
 4 Construction
 Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l'atelier.
 5 Mise en ligne
-Hébergée en Europe, à l'adresse que vous choisissez.
+À la date et selon le calendrier décidés ensemble, à l'adresse de votre choix. Hébergée en Europe.
 6 Suivi
-Corrections, mises à jour, évolutions, adaptations : l'outil continue de vivre selon vos besoins.
+Corrections, mises à jour, adaptations : l'outil continue de vivre selon vos besoins (compris dans l'abonnement).
 Demander un devis
 Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit.
 Demander un devis

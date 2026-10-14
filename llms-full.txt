@@ -99,9 +99,9 @@ Décider seul
 Lire le CV
 Thibaut Harang
 Ce que je peux vous apporter
-Une vue d’ensemble J’ai dirigé des établissements de plus de cent cinquante salariés : équipes, budget, qualité, relations avec les tutelles et avec leur environnement. Votre projet ou votre problématique, je l’analyse dans son contexte, avec tout ce qui l’entoure.
-Des conseils éprouvés sur le terrain Je construis aussi des outils numériques : je sais ce qu’un projet demande vraiment, et ce qui le fait échouer. Je conseille ce que j’ai vu fonctionner, avec recul.
-Santé, collectivités territoriales et numérique Trois mondes que je pratique depuis quinze ans, et que j’ai souvent su faire travailler ensemble.
+Une vue d’ensemble J’ai dirigé des établissements de tailles différentes, et j’en ai assuré la direction globale : équipes, management, budget, qualité, relations avec les tutelles et avec leur environnement. Votre projet ou votre problématique, je l’analyse dans son contexte, avec tout ce qui l’entoure.
+Des conseils éprouvés sur le terrain Je construis des outils numériques sur mesure. L’expérience m’a appris ce qui fait avancer un projet, et ce qui peut faire échouer même le plus solide. Je conseille à partir de ce que j’ai vu fonctionner sur le terrain, avec recul et analyse.
+Santé, collectivités territoriales et numérique Trois mondes que je pratique depuis quinze ans, et que j’ai souvent su faire travailler ensemble avec efficacité.
 Du sur-mesure Chaque mission part de votre situation, de vos besoins et de vos moyens. Je m’adapte, et je vous propose le format le plus juste.
 La franchise Si je ne suis pas la bonne personne pour vous aider, je vous le dis, en toute franchise.
 Trois domaines, un seul besoin
@@ -122,14 +122,14 @@ Accès aux soins : maison de santé, centre de santé, télémédecine
 Projet de santé du territoire et coopération avec les professionnels de santé
 iii.
 Intelligence artificielle
-Audit des usages et des besoins : le bon outil pour le bon agent, au bon endroit
+Audit des usages et des besoins : le bon outil au bon endroit, pour les agents comme pour les citoyens
 Schéma directeur et plan d’ensemble
 Conception d’outils sur mesure
 Formation des équipes et cadre réglementaire : RGPD, règlement européen sur l’IA
 Recherche de financements
 Établissements de santé Cliniques, soins de suite et de réadaptation, structures médico-sociales
 Collectivités Communes, intercommunalités, départements
-Entreprises TPE et PME qui veulent savoir ce que l’IA peut faire pour elles
+Entreprises TPE et PME qui veulent savoir ce que l’IA peut faire pour elles, et créer leurs outils sur mesure
 Le déroulé d’un conseil
 Du premier appel au bilan, six étapes. Pour chacune : ce que vous recevez, et le temps qu’elle prend, en ordre de grandeur.
 Prise de contact

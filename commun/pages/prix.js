@@ -5,7 +5,9 @@
    du film : gravure à la plume, encre #60637B, trait qui se dessine.
    Scène 1 : un panneau d'entrée de commune, la plaque vide est le
    champ ; les suggestions sont des panneaux fléchés. Scène 2 : la
-   population s'écrit à la main, le prix se grave sur la borne du film.
+   population s'écrit à la main, le prix s'abat en tampon de mairie
+   (passe 3 : le sceau rond remplace la borne, le tampon rectangulaire
+   la grande borne de la mise en service).
    Scène 3 : deux petites plaques d'options et la question du site,
    accrochées au poteau. Scène 4 : le chemin des six étapes de la mise
    en service, et la borne de son montant. Scène 5 : la feuille
@@ -63,7 +65,6 @@ export const ENVOI = 'https://formspree.io/f/mnjogblz';
 /* les six étapes, mot pour mot (section « La mise en service, une seule fois » de la page), et leur nom court sur la borne */
 export const ETAPES = [['A', "L'inventaire des sources", 'Inventaire'], ['B', 'Le cadre écrit', 'Cadre écrit'], ['C', 'La base de connaissances', 'Base'], ['D', 'La mesure avant ouverture', 'Mesure'], ['E', 'La validation par vos agents', 'Validation'], ['F', 'La version de référence', 'Référence']];
 const DONNEES = new URL('../donnees/communes.json', import.meta.url).href;
-const BORNE = new URL('../img/c/borne.webp', import.meta.url).href;
 const ENCRE = '#60637B';
 const GROS = { wMin: .8, wMax: 2.6, tremble: .5, op: .9 }, DET = { wMin: .5, wMax: 1.7, tremble: .45, op: .88 }, FIN = { wMin: .4, wMax: 1.1, tremble: .35, op: .8 };
 const reduit = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -103,6 +104,8 @@ const nf0 = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 }), nf2 = 
 const fine = t => t.replace(/\u202f/g, '\u00a0');
 export const euros = c => fine(c % 100 ? nf2.format(c / 100) : nf0.format(c / 100)) + '\u00a0€';
 export const nombre = n => fine(nf0.format(n));
+/* un montant hors taxes : « HT » collé au montant par une insécable, jamais à la ligne suivante */
+export const ht = c => euros(c) + '\u00a0HT';
 export const habitantsTexte = n => `${nombre(n)} habitant${n > 1 ? 's' : ''}`;
 const centimesTexte = c => (c === 1 ? 'un centime' : `${String(c).replace('.', ',')} centimes`);
 /* la règle d'une ligne, en une phrase, tirée de la grille (jamais écrite en dur) ; parMois : « par mois » et « et par mois » */
@@ -163,20 +166,6 @@ const HAB_MAX = 10000000;
 const lireNombre = t => { const n = Number(t); return Number.isInteger(n) && n >= 1 && n <= HAB_MAX ? n : null; };
 const attendre = ms => new Promise(r => setTimeout(r, reduit() ? 0 : ms));
 const el = (tag, cls, texte) => { const e = document.createElement(tag); if (cls) e.className = cls; if (texte !== undefined) e.textContent = texte; return e; };
-/* une valeur qui roule de l'ancienne à la nouvelle (de 0 la première fois), 600 ms ; posée d'un coup sous mouvement réduit */
-const comptes = new WeakMap();
-function compter(e, vers, format, duree = 600) {
-  const avant = comptes.get(e); if (avant) cancelAnimationFrame(avant.raf);
-  const de = avant ? avant.valeur : 0;
-  if (reduit() || de === vers) { e.textContent = format(vers); comptes.set(e, { valeur: vers, raf: 0 }); return; }
-  const t0 = performance.now(), etat = { valeur: vers, raf: 0 }; comptes.set(e, etat);
-  const pas = t => {
-    const u = Math.min(1, (t - t0) / duree), f = 1 - Math.pow(1 - u, 3);
-    e.textContent = format(u >= 1 ? vers : Math.round((de + (vers - de) * f) / 100) * 100);
-    if (u < 1) etat.raf = requestAnimationFrame(pas);
-  };
-  etat.raf = requestAnimationFrame(pas);
-}
 /* une suite de phases jouée au fil du temps : [nom, début ms, fin ms] ; rend une promesse ; posée d'un coup sous mouvement réduit */
 function jouerPhases(rendre, phases, fin, anime = true) {
   return new Promise(r => {
@@ -242,12 +231,74 @@ async function dessinerPoteau(zone, anime) {
   await jouerPhases(p => { D.rendre(p); voir(p); }, phases, Math.max(...phases.map(x => x[2])) + 40, anime && k > 0);
 }
 
-/* ---------- scène 4 : le chemin, les bornes des étapes, la borne du montant ---------- */
+/* ---------- les tampons de mairie, à l'encre de la plume (passe 3, 14/10/2026) : un trait irrégulier, des lacunes d'encre
+   (stroke-dasharray tiré au hasard, graine fixe par commune), aucune image ; le texte est posé par textContent ---------- */
+const ENCRE_TAMPON = '#16205C';
+let tamponsN = 0;
+const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+const graineDe = t => { let h = 2166136261; for (const ch of String(t)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
+function hasard(graine) { let a = graine >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+/* des lacunes d'encre : des traits de 22 à 90 unités, des trous de 1 à 5, jamais réguliers */
+function lacunes(rnd, longueur) { const d = []; let t = 0; while (t < longueur) { const a = 22 + rnd() * 68, b = 1 + rnd() * 4; d.push(a.toFixed(1), b.toFixed(1)); t += a + b; } return d.join(' '); }
+/* un cercle tremblé (le bord d'un tampon de caoutchouc) */
+function cercleTremble(cx, cy, r, rnd, amp) { let d = ''; const n = 96; for (let i = 0; i <= n; i++) { const t = i / n * Math.PI * 2, rr = r + (rnd() - .5) * amp; d += (i ? 'L' : 'M') + (cx + rr * Math.cos(t)).toFixed(2) + ' ' + (cy + rr * Math.sin(t)).toFixed(2); } return d + 'Z'; }
+function etoile(cx, cy, r) { let d = ''; for (let i = 0; i < 10; i++) { const t = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .42 : r; d += (i ? 'L' : 'M') + (cx + rr * Math.cos(t)).toFixed(2) + ' ' + (cy + rr * Math.sin(t)).toFixed(2); } return d + 'Z'; }
+const mesureTexte = (t, px, poids) => { if (!toile) toile = document.createElement('canvas').getContext('2d'); toile.font = `${poids} ${px}px Poppins, Inter, sans-serif`; return toile.measureText(t).width; };
+/* le sceau rond : deux cercles, la commune sur l'arc du haut, MARIANNE sur l'arc du bas, deux étoiles, le prix au centre */
+function tamponRond(svg, o) {
+  svg.textContent = ''; svg.setAttribute('viewBox', '0 0 240 240');
+  const id = 'pmt' + (++tamponsN), rnd = hasard(graineDe(o.haut));
+  const g = svgEl('g', { fill: 'none', stroke: ENCRE_TAMPON, 'stroke-linecap': 'round' }, svg);
+  const c1 = svgEl('path', { d: cercleTremble(120, 120, 112, rnd, 1.6), 'stroke-width': 3.2 }, g); c1.setAttribute('stroke-dasharray', lacunes(rnd, 710));
+  const c2 = svgEl('path', { d: cercleTremble(120, 120, 82, rnd, 1.2), 'stroke-width': 1.6 }, g); c2.setAttribute('stroke-dasharray', lacunes(rnd, 520));
+  const defs = svgEl('defs', {}, svg);
+  const pt = (r, deg) => [120 + r * Math.cos(deg * Math.PI / 180), 120 + r * Math.sin(deg * Math.PI / 180)];
+  const [h1x, h1y] = pt(91, 155), [h2x, h2y] = pt(91, 25), [b1x, b1y] = pt(101, 150), [b2x, b2y] = pt(101, 30);
+  svgEl('path', { id: id + 'h', d: `M${h1x.toFixed(2)} ${h1y.toFixed(2)}A91 91 0 1 1 ${h2x.toFixed(2)} ${h2y.toFixed(2)}` }, defs);
+  svgEl('path', { id: id + 'b', d: `M${b1x.toFixed(2)} ${b1y.toFixed(2)}A101 101 0 0 0 ${b2x.toFixed(2)} ${b2y.toFixed(2)}` }, defs);
+  const texteArc = (chemin, contenu, px, espace) => {
+    const t = svgEl('text', { fill: ENCRE_TAMPON, 'font-family': 'Poppins, Inter, sans-serif', 'font-weight': 700, 'font-size': px.toFixed(1), 'letter-spacing': espace }, svg);
+    const tp = svgEl('textPath', { href: '#' + chemin, startOffset: '50%', 'text-anchor': 'middle' }, t); tp.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#' + chemin);
+    tp.textContent = contenu; return t;
+  };
+  const haut = String(o.haut).toUpperCase(), arcH = 91 * Math.PI * 230 / 180 * .9;
+  const pxH = Math.max(7, Math.min(17, 17 * arcH / Math.max(1, mesureTexte(haut, 17, 700) * 1.12)));
+  texteArc(id + 'h', haut, pxH, '.08em'); texteArc(id + 'b', 'MARIANNE', 13, '.22em');
+  for (const deg of [135, 45]) { const [x, y] = pt(97, deg); svgEl('path', { d: etoile(x, y, 5.2), fill: ENCRE_TAMPON }, svg); }
+  const centre = String(o.centre), pxC = Math.min(o.devis ? 26 : 34, 150 / Math.max(1, mesureTexte(centre, 1, 800)));
+  const tc = svgEl('text', { x: 120, y: o.sous ? 124 : 129, fill: ENCRE_TAMPON, 'font-family': 'Poppins, Inter, sans-serif', 'font-weight': 800, 'font-size': pxC.toFixed(1), 'text-anchor': 'middle' }, svg); tc.textContent = centre;
+  if (o.sous) { const ts = svgEl('text', { x: 120, y: 148, fill: ENCRE_TAMPON, 'font-family': 'Inter, sans-serif', 'font-weight': 600, 'font-size': 13, 'text-anchor': 'middle', 'letter-spacing': '.04em' }, svg); ts.textContent = o.sous; }
+}
+/* le tampon rectangulaire à coins arrondis (« payé ») : la mise en service, la collecte */
+function tamponRect(svg, o) {
+  svg.textContent = ''; const W = 200, H = 108; svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const rnd = hasard(graineDe(o.haut + o.centre));
+  const bord = (x, y, w, h, r, amp) => { const pts = []; const pas = 3; const coin = (cx, cy, a0) => { for (let k = 0; k <= 8; k++) { const t = a0 + k / 8 * Math.PI / 2; pts.push([cx + r * Math.cos(t), cy + r * Math.sin(t)]); } };
+    for (let X = x + r; X < x + w - r; X += pas) pts.push([X, y]); coin(x + w - r, y + r, -Math.PI / 2);
+    for (let Y = y + r; Y < y + h - r; Y += pas) pts.push([x + w, Y]); coin(x + w - r, y + h - r, 0);
+    for (let X = x + w - r; X > x + r; X -= pas) pts.push([X, y + h]); coin(x + r, y + h - r, Math.PI / 2);
+    for (let Y = y + h - r; Y > y + r; Y -= pas) pts.push([x, Y]); coin(x + r, y + r, Math.PI);
+    return pts.map(([a, b], i) => (i ? 'L' : 'M') + (a + (rnd() - .5) * amp).toFixed(2) + ' ' + (b + (rnd() - .5) * amp).toFixed(2)).join('') + 'Z'; };
+  const g = svgEl('g', { fill: 'none', stroke: ENCRE_TAMPON, 'stroke-linecap': 'round' }, svg);
+  svgEl('path', { d: bord(5, 5, W - 10, H - 10, 11, 1.4), 'stroke-width': 3, 'stroke-dasharray': lacunes(rnd, 620) }, g);
+  svgEl('path', { d: bord(12, 12, W - 24, H - 24, 7, 1), 'stroke-width': 1.3, 'stroke-dasharray': lacunes(rnd, 560) }, g);
+  const ecrire = (y, t, px, poids, espace) => { const e = svgEl('text', { x: W / 2, y, fill: ENCRE_TAMPON, 'font-family': poids > 600 ? 'Poppins, Inter, sans-serif' : 'Inter, sans-serif', 'font-weight': poids, 'font-size': px.toFixed(1), 'text-anchor': 'middle', 'letter-spacing': espace || '0' }, svg); e.textContent = t; };
+  const pxC = Math.min(27, 150 / Math.max(1, mesureTexte(o.centre, 1, 800)));
+  ecrire(34, String(o.haut).toUpperCase(), 11, 700, '.14em'); ecrire(67, o.centre, pxC, 800); ecrire(88, o.bas, 11.5, 600, '.03em');
+}
+/* le tampon s'abat (0,22 s) ou se retampe (0,3 s) ; posé sans mouvement sous mouvement réduit */
+function frapper(e, retampe) {
+  e.classList.remove('pm-tampon--frappe', 'pm-tampon--retampe'); e.style.opacity = '1';
+  if (reduit()) return; void e.getBoundingClientRect(); e.classList.add(retampe ? 'pm-tampon--retampe' : 'pm-tampon--frappe');
+}
+
+/* ---------- scène 4 : le chemin, les bornes des étapes, le tampon du montant ---------- */
 async function dessinerChemin(route, anime) {
   const P = await plume();
   const svg = route.querySelector(':scope > svg'), R = route.getBoundingClientRect();
   const lieux = Array.from(route.querySelectorAll('.pm-etape:not([hidden]) .pm-etape__borne'));
-  const fin = route.querySelector('.pm-fin__borne');
+  const fin = route.querySelector('.pm-fin__borne'), tampon = fin && fin.querySelector('.pm-tampon');
+  const col = route.querySelector('.pm-etape--collecte:not([hidden])');
   if (!R.width || !lieux.length || !fin) return;
   taille(svg, R.width, R.height);
   const B = lieux.map(l => { const q = l.getBoundingClientRect(); return { cx: q.left - R.left + q.width / 2, haut: q.top - R.top + 2, bas: q.bottom - R.top - 1, l: q.width / 2 - 2 }; });
@@ -255,27 +306,28 @@ async function dessinerChemin(route, anime) {
   const enLigne = Math.abs(F.bas - B[0].bas) < 40;
   const rnd = P.rng(5), pts = [], T = B.concat([F]);
   if (enLigne) {
-    pts.push([0, B[0].bas - 6]);
-    T.forEach((b, i) => { pts.push([b.cx, b.bas - 7]); if (i < T.length - 1) pts.push([(b.cx + T[i + 1].cx) / 2, b.bas - 7 + (rnd() - .5) * 8]); });
-    pts.push([R.width, F.bas - 6]);
+    pts.push([col ? col.getBoundingClientRect().right - R.left + 6 : 0, B[0].bas - 6]);
+    B.forEach((b, i) => { pts.push([b.cx, b.bas - 7]); pts.push([(b.cx + (B[i + 1] || { cx: F.cx - F.l }).cx) / 2, b.bas - 7 + (rnd() - .5) * 8]); });
+    pts.push([F.cx - F.l - 6, B[0].bas - 7]);
   } else {
     pts.push([B[0].cx + 2, 0]);
-    T.forEach((b, i) => { pts.push([b.cx, (b.haut + b.bas) / 2]); if (i < T.length - 1) pts.push([b.cx + (rnd() - .5) * 10, (b.bas + T[i + 1].haut) / 2]); });
+    B.forEach((b, i) => { pts.push([b.cx, (b.haut + b.bas) / 2]); pts.push([b.cx + (rnd() - .5) * 10, (b.bas + (B[i + 1] || F).haut) / 2]); });
+    pts.push([B[B.length - 1].cx, F.haut - 4]);
   }
   const chemin = new P.Dessin(svg, ENCRE);
   const c1 = P.catmull(pts, 10);
   chemin.trait(c1, Object.assign({ phase: 'c', graine: 3 }, FIN, { wMax: 1.5 }));
   chemin.trait(c1.map(([a, b]) => (enLigne ? [a, b + 6] : [a + 6, b])), Object.assign({ phase: 'c', graine: 4 }, FIN, { wMax: .9, op: .4 }));
   chemin.monter();
-  const pierres = T.map(b => {
+  const pierres = B.map(b => {
     const e = document.createElementNS(NS, 'path'), r = Math.min(b.l, (b.bas - b.haut) * .45);
     e.setAttribute('class', 'pm-pierre');
     e.setAttribute('d', `M${b.cx - b.l} ${b.bas}V${b.haut + r}Q${b.cx - b.l} ${b.haut} ${b.cx} ${b.haut}Q${b.cx + b.l} ${b.haut} ${b.cx + b.l} ${b.haut + r}V${b.bas}Z`);
     svg.appendChild(e); return e;
   });
   const bornes = new P.Dessin(svg, ENCRE);
-  T.forEach((b, i) => {
-    const r = Math.min(b.l, (b.bas - b.haut) * .45), grand = i === T.length - 1;
+  B.forEach((b, i) => {
+    const r = Math.min(b.l, (b.bas - b.haut) * .45), grand = false;
     const contour = [[b.cx - b.l, b.bas], ...P.arcE(b.cx, b.haut + r, b.l, r, Math.PI, 2 * Math.PI), [b.cx + b.l, b.bas]];
     bornes.trait(contour, Object.assign({ phase: 'b' + i, graine: 50 + i }, grand ? GROS : DET));
     bornes.trait(P.ligne(b.cx - b.l - 6, b.bas, b.cx + b.l + 6, b.bas + .5), Object.assign({ phase: 'b' + i, graine: 60 + i }, FIN));
@@ -283,16 +335,17 @@ async function dessinerChemin(route, anime) {
     P.hachures(bornes, [[b.cx + b.l * h0, b.haut + r * .9], [b.cx + b.l - 1, b.haut + r], [b.cx + b.l - 1, b.bas - 1], [b.cx + b.l * h0, b.bas - 1]], { phase: 'b' + i, angle: 80, pas: grand ? 3.2 : 3.6, long: [4, 9], op: .38, wMax: .8, graine: 70 + i });
   });
   bornes.monter();
-  const textes = T.map((b, i) => (i === T.length - 1 ? fin.querySelector('.pm-fin__texte') : lieux[i].querySelector('span')));
-  const noms = T.map((b, i) => (i === T.length - 1 ? null : lieux[i].closest('li').querySelector('.pm-etape__nom')));
+  const textes = B.map((b, i) => lieux[i].querySelector('span'));
+  const noms = B.map((b, i) => lieux[i].closest('li').querySelector('.pm-etape__nom'));
   const rendre = p => {
     chemin.rendre(p); bornes.rendre(p);
-    T.forEach((b, i) => { const v = p['b' + i] || 0; pierres[i].style.opacity = String(Math.min(1, v * 2.5)); const o = String(Math.min(1, Math.max(0, v * 2 - .9))); if (textes[i]) textes[i].style.opacity = o; if (noms[i]) noms[i].style.opacity = o; });
+    B.forEach((b, i) => { const v = p['b' + i] || 0; pierres[i].style.opacity = String(Math.min(1, v * 2.5)); const o = String(Math.min(1, Math.max(0, v * 2 - .9))); if (textes[i]) textes[i].style.opacity = o; if (noms[i]) noms[i].style.opacity = o; });
   };
-  const pas = Math.min(240, 1300 / T.length);
-  const phases = [['c', 0, 1400], ...T.map((b, i) => ['b' + i, 100 + i * pas, 460 + i * pas])];
-  if (anime && !reduit()) rendre({});
+  const pas = Math.min(240, 1300 / B.length);
+  const phases = [['c', 0, 1400], ...B.map((b, i) => ['b' + i, 100 + i * pas, 460 + i * pas])];
+  if (anime && !reduit()) { rendre({}); if (tampon) { tampon.classList.remove('pm-tampon--frappe', 'pm-tampon--retampe'); tampon.style.opacity = '0'; } }
   await jouerPhases(rendre, phases, phases[phases.length - 1][2] + 40, anime);
+  if (tampon) { if (anime) frapper(tampon); else tampon.style.opacity = '1'; }
 }
 
 /* ---------- le bloc ---------- */
@@ -302,7 +355,7 @@ function gabarit(id) {
   const etapesFeuille = ETAPES.map(([l, t]) => `<li data-l="${l}">${t}</li>`).join('');
   return `
 <p class="pm-sr" aria-live="polite" data-annonce></p>
-<p class="pm-sr" role="status" data-compte></p>
+<p class="pm-sr" role="status" data-pm-compte></p>
 <div class="pm-scene">
   <div class="pm-col-panneau">
     <div class="pm-plaque" data-plaque>
@@ -321,7 +374,6 @@ function gabarit(id) {
         <div class="pm-pop" data-pop hidden>
           <p class="pm-pop__ligne"><span class="pm-pop__n" data-habitants></span><span class="pm-pop__ast" data-ast aria-hidden="true">*</span></p>
           <p class="pm-pop__source" data-source>population municipale INSEE</p>
-          <p class="pm-pop__prix" aria-hidden="true"><span data-prix-court></span><span data-prix-court-u> HT par mois<span class="pm-pop__an">abonnement annuel</span></span></p>
           <button type="button" class="pm-lien" data-corriger aria-controls="${i('saisie')}">Ce n’est pas le bon chiffre&nbsp;? Corrigez-le</button>
         </div>
         <div class="pm-repli">
@@ -340,15 +392,16 @@ function gabarit(id) {
             <label class="pm-radio"><input type="radio" name="${i('site')}" value="non"><span class="pm-rond" aria-hidden="true"></span>Non</label>
             <label class="pm-radio"><input type="radio" name="${i('site')}" value="aucun"><span class="pm-rond" aria-hidden="true"></span>Pas de site</label>
           </div>
+          <p class="pm-collecte-ligne" data-collecte-ligne hidden>Collecte des informations&nbsp;: <b data-collecte-q></b>, une seule fois</p>
         </fieldset>
       </div>
     </div>
   </div>
   <div class="pm-col-borne" data-col-borne>
-    <div class="pm-borne" data-borne>
-      <img alt="" decoding="async" width="896" height="1200">
-      <p class="pm-gravure" data-gravure><span class="pm-gravure__n" data-mensuel></span><span class="pm-gravure__u" data-unite>HT par mois</span></p>
-      <p class="pm-attente" aria-hidden="true">votre prix</p>
+    <div class="pm-sceau" data-borne>
+      <svg class="pm-sceau__vide" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><circle cx="120" cy="120" r="108" fill="none" stroke="#b9bccb" stroke-width="1.6" stroke-dasharray="3 6" stroke-linecap="round"></circle><text x="120" y="128" text-anchor="middle" font-family="Caveat, 'Segoe Print', cursive" font-size="27" fill="#8a8da0">votre prix</text></svg>
+      <svg class="pm-tampon pm-tampon--rond" data-pm-sceau aria-hidden="true" focusable="false" hidden></svg>
+      <p class="pm-sr" data-gravure><span data-mensuel></span> <span data-unite>HT par mois</span></p>
     </div>
     <div class="pm-sous-borne" data-sous-borne hidden>
       <p class="pm-an" data-chiffre>soit <span data-annuel></span> HT par an, abonnement annuel</p>
@@ -362,9 +415,9 @@ function gabarit(id) {
   <div class="pm-route">
     <svg aria-hidden="true" focusable="false"></svg>
     <ol class="pm-etapes-route">
-      <li class="pm-etape pm-etape--collecte" data-borne-collecte hidden><span class="pm-etape__borne" aria-hidden="true"><span>+</span></span><span class="pm-etape__nom pm-etape__nom--texte">Collecte des informations&nbsp;: <b data-collecte-montant></b></span></li>
+      <li class="pm-etape pm-etape--collecte" data-borne-collecte hidden><svg class="pm-tampon pm-tampon--rect pm-tampon--petit" data-tampon-collecte aria-hidden="true" focusable="false"></svg><span class="pm-sr">Collecte des informations, une seule fois&nbsp;: <b data-collecte-montant></b>&nbsp;HT</span></li>
       ${etapes}
-      <li class="pm-fin"><span class="pm-fin__borne"><span class="pm-fin__texte"><span>${MISE}</span><b data-mise-montant></b><span>HT, une seule fois</span></span></span></li>
+      <li class="pm-fin"><span class="pm-fin__borne"><svg class="pm-tampon pm-tampon--rect" data-tampon-mise aria-hidden="true" focusable="false"></svg><span class="pm-sr">${MISE}, une seule fois&nbsp;: <b data-mise-montant></b>&nbsp;HT</span></span></li>
     </ol>
   </div>
   <p class="pm-route__regle" data-mise-regle></p>
@@ -415,7 +468,7 @@ function ajusterNom(cible, nom, largeur, hauteur) {
   const L = s => { toile.font = `700 100px ${fonte}`; return toile.measureText(s).width * 1.04 || s.length * 62; };
   const jetons = String(nom).toUpperCase().match(/[^- ]+[- ]?/g) || [String(nom).toUpperCase()];
   let mieux = null;
-  const essayer = lignes => { const w = Math.max(...lignes.map(s => L(s.trim()))), n = lignes.length; const fs = Math.min(46, 100 * largeur / w, hauteur / (n * 1.08)); if (!mieux || fs > mieux.fs * 1.12) mieux = { fs, lignes: lignes.map(s => s.trim()) }; };
+  const essayer = lignes => { const w = Math.max(...lignes.map(s => L(s.trim()))), n = lignes.length; const fs = Math.min(34, 100 * largeur / w, hauteur / (n * 1.08)); if (!mieux || fs > mieux.fs * 1.12) mieux = { fs, lignes: lignes.map(s => s.trim()) }; };
   essayer([jetons.join('')]);
   for (let k = 1; k < jetons.length; k++) essayer([jetons.slice(0, k).join(''), jetons.slice(k).join('')]);
   cible.textContent = '';
@@ -433,9 +486,13 @@ export function monter(racine) {
   const q = s => $(s, hote);
   const plaque = q('[data-plaque]'), champ = q('.pm-champ'), liste = q('.pm-fleches'), etatTxt = q('.pm-etat'), bascule = q('[data-bascule]'), corriger = q('[data-corriger]'), saisie = q('.pm-saisie'), habIn = q(`#${id}-hab`);
   const nomPlaque = q('.pm-plaque__nom'), depPlaque = q('.pm-plaque__dep'), zonePoteau = q('.pm-poteau-zone');
-  const pop = q('[data-pop]'), borne = q('[data-borne]'), gravure = q('[data-gravure]'), sousBorne = q('[data-sous-borne]');
+  const pop = q('[data-pop]'), sceau = q('[data-pm-sceau]'), sceauVide = q('.pm-sceau__vide'), sousBorne = q('[data-sous-borne]');
   const zoneMise = q('[data-mise]'), route = q('.pm-route'), zoneFeuille = q('[data-feuille-zone]'), feuille = q('[data-feuille]'), note = q('[data-note]');
   const form = q('form'), bloc = q('[data-bloc]'), recevoir = q('[data-recevoir]'), partager = q('[data-partager]'), copieTxt = q('[data-copie]');
+  /* sur téléphone (860 px et moins), le sceau se place sous la population, dans la colonne des plaques ; ailleurs, à droite */
+  const colBorne = q('[data-col-borne]'), scene = q('.pm-scene'), mqTel = matchMedia('(max-width: 860px)');
+  const placer = () => { if (mqTel.matches) { if (colBorne.previousElementSibling !== pop) pop.after(colBorne); } else if (colBorne.parentElement !== scene) scene.appendChild(colBorne); };
+  placer(); if (mqTel.addEventListener) mqTel.addEventListener('change', placer); else if (mqTel.addListener) mqTel.addListener(placer);
   const etat = { commune: null, saisie: null, whatsapp: false, messenger: false, site: 'oui' };
   let options = [], actif = -1, annonceT = 0, generation = 0, dejaVu = false, cheminFait = '', feuillePosee = false;
   note.textContent = SOURCE_POPULATION;
@@ -444,9 +501,6 @@ export function monter(racine) {
   function entrer() {
     if (dejaVu) return; dejaVu = true;
     plume().then(() => dessinerPlaque(plaque, true)).then(() => dessinerPoteau(zonePoteau, false)).catch(() => {});
-    const img = borne.querySelector('img'); img.src = BORNE;
-    const vue = () => borne.classList.add('pm-borne--vue');
-    if (img.decode) img.decode().then(vue, vue); else vue();
   }
   if ('IntersectionObserver' in window) { const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); entrer(); } }, { rootMargin: '0px 0px -10% 0px' }); io.observe(plaque); }
   else entrer();
@@ -464,7 +518,7 @@ export function monter(racine) {
       ouvrirSaisie(false); return null;
     });
   };
-  champ.addEventListener('focus', () => { preparer(); plaque.classList.remove('pm-plaque--posee'); plaque.classList.add('pm-plaque--active'); taillerSaisie(); if (etat.commune) champ.select(); });
+  champ.addEventListener('focus', () => { preparer(); plaque.classList.remove('pm-plaque--posee', 'pm-plaque--pose'); plaque.classList.add('pm-plaque--active'); taillerSaisie(); if (etat.commune) champ.select(); });
   champ.addEventListener('pointerdown', preparer);
 
   /* --- les suggestions : des panneaux fléchés (combobox, clavier et souris) --- */
@@ -495,7 +549,7 @@ export function monter(racine) {
     });
     liste.hidden = false; champ.setAttribute('aria-expanded', 'true'); marquer(-1); etatTxt.textContent = '';
     /* le nombre de propositions, pour les lecteurs d'écran seulement (les panneaux fléchés le montrent) */
-    q('[data-compte]').textContent = options.length === 1 ? 'Une commune proposée, flèche du bas pour la choisir.' : `${options.length} communes proposées, flèches pour choisir.`;
+    q('[data-pm-compte]').textContent = options.length === 1 ? 'Une commune proposée, flèche du bas pour la choisir.' : `${options.length} communes proposées, flèches pour choisir.`;
   };
   let raf = 0;
   champ.addEventListener('input', () => { plaque.classList.remove('pm-plaque--posee'); plaque.classList.toggle('pm-plaque--ecrite', !!champ.value); taillerSaisie(); cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { raf = 0; proposer(); }); });
@@ -511,7 +565,7 @@ export function monter(racine) {
   function taillerSaisie() {
     const w = champ.clientWidth - 12; if (!w) return;
     if (!toile) toile = document.createElement('canvas').getContext('2d');
-    const max = Math.min(40, champ.clientHeight * .5);
+    const max = Math.min(30, champ.clientHeight * .62);
     toile.font = `700 ${max}px ${getComputedStyle(champ).fontFamily}`;
     const lg = toile.measureText((champ.value || '').toUpperCase()).width * 1.05;
     /* 16 px au moins : en dessous, Safari sur iPhone agrandit la page au focus */
@@ -521,7 +575,7 @@ export function monter(racine) {
   /* --- le nom posé sur la plaque, le département en petit dessous --- */
   function poserNom(anime) {
     if (!etat.commune) { plaque.classList.remove('pm-plaque--posee'); return; }
-    ajusterNom(nomPlaque, etat.commune[0], plaque.clientWidth - 60, plaque.clientHeight - 64);
+    ajusterNom(nomPlaque, etat.commune[0], plaque.clientWidth - 56, plaque.clientHeight - 44);
     depPlaque.textContent = departement(etat.commune);
     plaque.classList.add('pm-plaque--posee');
     if (anime && !reduit()) { plaque.classList.remove('pm-plaque--pose'); void plaque.offsetWidth; plaque.classList.add('pm-plaque--pose'); }
@@ -563,7 +617,7 @@ export function monter(racine) {
     const noms = [etat.whatsapp && 'WhatsApp (bientôt)', etat.messenger && 'Messenger (bientôt)'].filter(Boolean);
     if (c.comprises) return 'WhatsApp et Messenger (bientôt), comprises';
     if (!noms.length) return 'aucune';
-    return `${noms.join(' et ')}, ${euros(c.options)} HT par mois`;
+    return `${noms.join(' et ')}, ${ht(c.options)} par mois`;
   }
   /* le lien : le code INSEE, ou le nombre indiqué par la mairie à sa place (consigne de 16 h 40) */
   function lienPartage() {
@@ -577,12 +631,12 @@ export function monter(racine) {
     const l = [`Estimation Marianne du ${AUJOURDHUI} : ${nom}`, `Population : ${habitantsTexte(h)} (${indiquee() ? 'indiquée par la mairie' : 'INSEE 2023'})`];
     if (c.devis) l.push(`Au-delà de ${nombre(GRILLE.plafond)} habitants : prix sur devis, demande de rendez-vous de trente minutes.`);
     else {
-      l.push(`Abonnement : ${euros(c.mensuel)} HT par mois, soit ${euros(c.annuel)} HT par an, abonnement annuel`);
+      l.push(`Abonnement : ${ht(c.mensuel)} par mois, soit ${ht(c.annuel)} par an, abonnement annuel`);
       l.push(`Options : ${texteOptions(c)}`);
       l.push(`Site internet de la mairie : ${{ oui: 'à jour', non: 'pas à jour', aucun: 'pas de site' }[etat.site]}`);
-      l.push(`${MISE}, une seule fois : ${euros(c.mise)} HT (${ETAPES.map(([a, t]) => `${a}. ${t}`).join(' ; ')})`);
-      if (c.collecte) l.push(`Collecte des informations, une seule fois : ${euros(c.collecte)} HT`);
-      l.push(`Première année : ${euros(c.premiere)} HT. Ensuite : ${euros(c.ensuite)} HT par an.`);
+      l.push(`${MISE}, une seule fois : ${ht(c.mise)} (${ETAPES.map(([a, t]) => `${a}. ${t}`).join(' ; ')})`);
+      if (c.collecte) l.push(`Collecte des informations, une seule fois : ${ht(c.collecte)}`);
+      l.push(`Première année : ${ht(c.premiere)}. Ensuite : ${ht(c.ensuite)} par an.`);
       l.push('Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.');
     }
     l.push('Le devis retient la population municipale INSEE en vigueur à la date de la commande.');
@@ -593,38 +647,40 @@ export function monter(racine) {
   function ecrireMain(c) {
     const m = (k, t) => { const e = q(`[data-main="${k}"]`); if (e) e.textContent = t; };
     m('commune', etat.commune ? `${nomCommune(etat.commune)}, ${habitantsTexte(habitants())}` : habitantsTexte(habitants()));
-    m('abo', c.devis ? '' : `Abonnement : ${euros(c.mensuel)} HT par mois`);
-    m('mise', c.devis ? '' : `${MISE} : ${euros(c.mise)} HT`);
-    m('collecte', c.devis || !c.collecte ? '' : `Collecte : ${euros(c.collecte)} HT`);
-    m('premiere', c.devis ? '' : `Première année : ${euros(c.premiere)} HT`);
+    m('abo', c.devis ? '' : `Abonnement : ${ht(c.mensuel)} par mois`);
+    m('mise', c.devis ? '' : `${MISE} : ${ht(c.mise)}`);
+    m('collecte', c.devis || !c.collecte ? '' : `Collecte : ${ht(c.collecte)}`);
+    m('premiere', c.devis ? '' : `Première année : ${ht(c.premiere)}`);
     m('devis', c.devis ? 'Prix sur devis, rendez-vous de trente minutes' : '');
   }
 
   /* la suite des scènes, une chose à la fois ; une nouvelle commune interrompt la suite en cours. Un appel qui n'est pas
      une nouvelle commune (option, site, correction) pose tout l'état final sur-le-champ : une suite interrompue ne laisse
      jamais une scène cachée */
+  /* le sceau : il s'abat pour une nouvelle commune, il se retampe quand le prix change (option, site, correction) */
+  let sceauCle = '';
+  function graver(c, nouvelle) {
+    q('[data-mensuel]').textContent = c.devis ? 'Sur devis' : euros(c.mensuel); q('[data-unite]').textContent = c.devis ? '' : 'HT par mois';
+    const cle = `${c.devis ? 'devis' : c.mensuel}|${nomBloc()}`;
+    if (cle === sceauCle && !sceau.hasAttribute('hidden')) return;
+    const premier = sceau.hasAttribute('hidden') || nouvelle; sceauCle = cle;
+    tamponRond(sceau, { haut: etat.commune ? etat.commune[0] : 'Votre commune', centre: c.devis ? 'SUR DEVIS' : ht(c.mensuel), sous: c.devis ? '' : 'par mois', devis: c.devis });
+    sceau.toggleAttribute('hidden', false); sceauVide.toggleAttribute('hidden', true);
+    frapper(sceau, !premier);
+  }
   async function jouer(c, nouvelle) {
     const g = ++generation, encore = () => g === generation, anime = nouvelle && !reduit();
     zoneMise.hidden = !!c.devis; zoneFeuille.hidden = false; note.hidden = indiquee(); pop.hidden = false;
-    const court = q('.pm-pop__prix');
-    if (nouvelle) {
-      /* une nouvelle commune : l'ancien prix s'efface de la borne et de la ligne du téléphone, le nouveau comptera depuis 0 */
-      gravure.classList.remove('pm-gravure--vue'); comptes.delete(q('[data-mensuel]')); comptes.delete(q('[data-prix-court]'));
-      q('[data-mensuel]').textContent = ''; q('[data-prix-court]').textContent = ''; court.hidden = true;
-    }
+    if (nouvelle) { sceau.toggleAttribute('hidden', true); sceauVide.toggleAttribute('hidden', false); sceauCle = ''; q('[data-mensuel]').textContent = ''; }
     if (anime) {
       pop.classList.remove('pm-pop--ecrit'); void pop.offsetWidth;
+      /* le poteau et la terre se redessinent tout de suite à la nouvelle hauteur : aucun trait ne traverse le texte */
+      requestAnimationFrame(() => dessinerPoteau(zonePoteau, false).catch(() => {}));
       await attendre(240); if (!encore()) return;
       pop.classList.add('pm-pop--ecrit');
       await attendre(460); if (!encore()) return;
     } else pop.classList.add('pm-pop--ecrit');
-    gravure.classList.toggle('pm-gravure--devis', !!c.devis);
-    if (c.devis) { comptes.delete(q('[data-mensuel]')); q('[data-mensuel]').textContent = 'Sur devis'; q('[data-unite]').textContent = ''; }
-    else { q('[data-unite]').textContent = 'HT par mois'; gravure.classList.toggle('pm-gravure--long', euros(c.mensuel).length > 7); compter(q('[data-mensuel]'), c.mensuel, euros, 600); }
-    /* sur téléphone, la borne est plus bas : le prix du mois s'écrit aussi sous la population */
-    if (c.devis) { comptes.delete(q('[data-prix-court]')); q('[data-prix-court]').textContent = 'Sur devis'; q('[data-prix-court-u]').hidden = true; }
-    else { q('[data-prix-court-u]').hidden = false; compter(q('[data-prix-court]'), c.mensuel, euros, 600); }
-    gravure.classList.add('pm-gravure--vue'); court.hidden = false;
+    graver(c, nouvelle);
     if (anime) { await attendre(620); if (!encore()) return; }
     sousBorne.hidden = false;
     hote.querySelectorAll('[data-plaque-opt], [data-site]').forEach(pl => { pl.hidden = !!c.devis; });
@@ -636,7 +692,7 @@ export function monter(racine) {
     if (!feuillePosee) { feuillePosee = true; quandVisible(feuille, () => feuille.classList.add('pm-feuille--posee'), .12); }
   }
   /* si le dessin du chemin échoue (plume.js introuvable), les lettres et les noms des étapes restent lisibles */
-  const montrerChemin = () => route.querySelectorAll('.pm-etape__borne > span, .pm-etape__nom, .pm-fin__texte').forEach(e => { e.style.opacity = '1'; });
+  const montrerChemin = () => route.querySelectorAll('.pm-etape__borne > span, .pm-etape__nom, .pm-tampon').forEach(e => { e.style.opacity = '1'; });
   const visibles = new WeakMap();
   function quandVisible(e, f, seuil = .3) {
     if (!('IntersectionObserver' in window) || reduit()) { requestAnimationFrame(f); return; }
@@ -648,10 +704,9 @@ export function monter(racine) {
   function rendre(nouvelle) {
     const h = habitants();
     if (h === null) {
-      generation++; clearTimeout(annonceT); q('[data-annonce]').textContent = ''; pop.hidden = true; sousBorne.hidden = true; zoneMise.hidden = true; zoneFeuille.hidden = true; note.hidden = true; gravure.classList.remove('pm-gravure--vue');
+      generation++; clearTimeout(annonceT); q('[data-annonce]').textContent = ''; pop.hidden = true; sousBorne.hidden = true; zoneMise.hidden = true; zoneFeuille.hidden = true; note.hidden = true; sceau.toggleAttribute('hidden', true); sceauVide.toggleAttribute('hidden', false); sceauCle = '';
       hote.querySelectorAll('[data-plaque-opt], [data-site]').forEach(p => { p.hidden = true; p.style.opacity = '0'; delete p.dataset.dessinee; });
-      for (const s of ['[data-mensuel]', '[data-prix-court]']) { comptes.delete(q(s)); q(s).textContent = ''; }
-      q('[data-unite]').textContent = ''; q('.pm-pop__prix').hidden = true;
+      q('[data-mensuel]').textContent = ''; q('[data-unite]').textContent = '';
       requestAnimationFrame(() => dessinerPoteau(zonePoteau, false).catch(() => {})); return;
     }
     const c = calculer(h, etat), G = GRILLE;
@@ -678,30 +733,34 @@ export function monter(racine) {
     q('[data-mention]').textContent = c.devis ? 'Une première réunion de trente minutes établit le devis, hors taxes.' : 'Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.';
     if (!c.devis) {
       q('[data-annuel]').textContent = euros(c.annuel);
-      q('[data-regle]').textContent = regleAbonnement() + (c.auMinimum ? '' : ` Population arrondie ${G.palier === 100 ? 'à la centaine inférieure' : `au palier de ${nombre(G.palier)} habitants inférieur`} : ${nombre(c.palier)}.`) + (c.options ? ` Dont ${euros(c.options)} HT par mois pour ${c.choisies === 2 ? 'les deux options' : 'l’option'}.` : '');
+      q('[data-regle]').textContent = regleAbonnement() + (c.auMinimum ? '' : ` Population arrondie ${G.palier === 100 ? 'à la centaine inférieure' : `au palier de ${nombre(G.palier)} habitants inférieur`} : ${nombre(c.palier)}.`) + (c.options ? ` Dont ${ht(c.options)} par mois pour ${c.choisies === 2 ? 'les deux options' : 'l’option'}.` : '');
       hote.querySelectorAll('[data-opt]').forEach(box => {
         const lab = box.closest('label'), b = lab.querySelector('[data-opt-prix]');
         if (c.comprises) { box.checked = true; box.disabled = true; b.textContent = 'comprise'; lab.classList.add('pm-option--comprise'); }
         else { box.disabled = false; box.checked = !!etat[box.dataset.opt]; b.textContent = `${euros(cts(G.option))} par mois`; lab.classList.remove('pm-option--comprise'); }
       });
-      q('[data-borne-collecte]').hidden = !c.collecte; q('[data-collecte-montant]').textContent = c.collecte ? `${euros(c.collecte)} HT` : '';
+      const colLi = q('[data-borne-collecte]'), colAvant = !colLi.hidden;
+      colLi.hidden = !c.collecte; q('[data-collecte-montant]').textContent = c.collecte ? euros(c.collecte) : '';
+      q('[data-collecte-ligne]').hidden = !c.collecte; q('[data-collecte-q]').textContent = c.collecte ? ht(c.collecte) : '';
+      if (c.collecte) { const tc = q('[data-tampon-collecte]'), avant = tc.dataset.cle; tc.dataset.cle = String(c.collecte); tamponRect(tc, { haut: 'Collecte', centre: ht(c.collecte), bas: 'une seule fois' }); if (!colAvant || avant !== tc.dataset.cle) frapper(tc, colAvant); }
       q('[data-mise-montant]').textContent = euros(c.mise);
+      { const tm = q('[data-tampon-mise]'), avant = tm.dataset.cle; tm.dataset.cle = String(c.mise); tamponRect(tm, { haut: MISE, centre: ht(c.mise), bas: 'une seule fois' }); if (avant && avant !== tm.dataset.cle && cheminFait) frapper(tm, true); }
       const maj = t => t[0].toUpperCase() + t.slice(1);
       q('[data-mise-regle]').textContent = `${maj(regle(G.miseEnService, false))} Facturée une seule fois, à votre validation écrite de la version de référence.` + (c.collecte ? ` Collecte des informations, puisque le site n’est pas à jour ou n’existe pas : ${regle(G.collecte, false)}` : '');
-      q('[data-f="abo"]').textContent = `${euros(c.mensuel)} HT par mois`;
-      q('[data-f="abo-an"]').textContent = `soit ${euros(c.annuel)} HT par an, abonnement annuel`;
+      q('[data-f="abo"]').textContent = `${ht(c.mensuel)} par mois`;
+      q('[data-f="abo-an"]').textContent = `soit ${ht(c.annuel)} par an, abonnement annuel`;
       q('[data-f="options"]').textContent = texteOptions(c);
-      q('[data-f="mise"]').textContent = `${euros(c.mise)} HT`;
-      q('[data-f-collecte]').hidden = !c.collecte; q('[data-f="collecte"]').textContent = c.collecte ? `${euros(c.collecte)} HT` : '';
-      q('[data-f="premiere"]').textContent = `${euros(c.premiere)} HT`;
-      q('[data-f="ensuite"]').textContent = `${euros(c.ensuite)} HT par an`;
+      q('[data-f="mise"]').textContent = `${ht(c.mise)}`;
+      q('[data-f-collecte]').hidden = !c.collecte; q('[data-f="collecte"]').textContent = c.collecte ? `${ht(c.collecte)}` : '';
+      q('[data-f="premiere"]').textContent = `${ht(c.premiere)}`;
+      q('[data-f="ensuite"]').textContent = `${ht(c.ensuite)} par an`;
     }
     if (base && base.source) note.textContent = base.source;
     jouer(c, !!nouvelle);
     clearTimeout(annonceT);
     annonceT = setTimeout(() => {
       q('[data-annonce]').textContent = c.devis ? `${nomBloc()}, ${habitantsTexte(h)} : le prix s’établit sur devis.`
-        : `${nomBloc()}, ${habitantsTexte(h)}. Abonnement estimé : ${euros(c.mensuel)} HT par mois, soit ${euros(c.annuel)} HT par an. ${MISE} : ${euros(c.mise)} HT${c.collecte ? `. Collecte : ${euros(c.collecte)} HT` : ''}. Première année : ${euros(c.premiere)} HT.`;
+        : `${nomBloc()}, ${habitantsTexte(h)}. Abonnement estimé : ${ht(c.mensuel)} par mois, soit ${ht(c.annuel)} par an. ${MISE} : ${ht(c.mise)}${c.collecte ? `. Collecte : ${ht(c.collecte)}` : ''}. Première année : ${ht(c.premiere)}.`;
     }, 500);
     copieTxt.textContent = '';
   }
@@ -784,7 +843,7 @@ export function monter(racine) {
       if (m && typeof m.signalerDemande === 'function') try { m.signalerDemande(form, 'estimation'); } catch (err) { /* rien */ }
       etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Merci, votre estimation est partie.', texte: 'Nous revenons vers vous pour fixer une première réunion de trente minutes.' });
       if (m && m.poserVignette) m.poserVignette(bloc);
-    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de rendez-vous de trente minutes. ${lienPartage()}` : `Estimation : ${euros(c.mensuel)} HT par mois, mise en service ${euros(c.mise)} HT. ${lienPartage()}` });
+    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de rendez-vous de trente minutes. ${lienPartage()}` : `Estimation : ${ht(c.mensuel)} par mois, mise en service ${ht(c.mise)}. ${lienPartage()}` });
   });
   [q(`#${id}-nom`), q(`#${id}-mel`)].forEach(c => {
     /* à la sortie du champ, seulement après un premier essai d'envoi : un message qui apparaît au moment du clic sur

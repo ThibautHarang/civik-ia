@@ -20,30 +20,30 @@
 .pm-chapo { max-width: 640px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.5; }
 
 /* ---------- la scène : le panneau à gauche, la borne à droite ---------- */
-.pm-scene { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 40px 56px; align-items: start; margin-top: 40px; }
+.pm-scene { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 32px 56px; align-items: start; margin-top: 24px; }
 .pm-col-panneau { position: relative; }
 
 /* scène 1 : la plaque vide, qui est le champ */
-.pm-plaque { position: relative; height: clamp(148px, 14vw, 172px); background: var(--pm-papier); border-radius: 14px; color: #1b1e33; }
+.pm-plaque { position: relative; height: clamp(104px, 10vw, 120px); background: var(--pm-papier); border-radius: 14px; color: #1b1e33; }
 .pm-plaque > svg { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 .pm-plaque > svg path { fill: #60637B; }
 .pm-plaque:focus-within { outline: 2px solid var(--pm-anneau); outline-offset: 6px; }
-.pm-champ { position: absolute; left: 26px; right: 26px; top: 20px; bottom: 34px; width: calc(100% - 52px); margin: 0; padding: 0 4px; border: 0; background: transparent; text-align: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: 40px; letter-spacing: .02em; text-transform: uppercase; color: #1b1e33; caret-color: #16205C; -webkit-appearance: none; appearance: none; border-radius: 0; }
+.pm-champ { position: absolute; left: 24px; right: 24px; top: 14px; bottom: 24px; width: calc(100% - 48px); margin: 0; padding: 0 4px; border: 0; background: transparent; text-align: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: 30px; letter-spacing: .02em; text-transform: uppercase; color: #1b1e33; caret-color: #16205C; -webkit-appearance: none; appearance: none; border-radius: 0; }
 .pm-champ:focus { outline: none; }
-.pm-plaque__vide { position: absolute; left: 26px; right: 26px; top: 20px; bottom: 34px; display: flex; align-items: center; justify-content: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: clamp(1.15rem, 2.4vw, 1.55rem); letter-spacing: .08em; color: #6e7186; pointer-events: none; }
+.pm-plaque__vide { position: absolute; left: 24px; right: 24px; top: 14px; bottom: 24px; display: flex; align-items: center; justify-content: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: clamp(1rem, 2vw, 1.3rem); letter-spacing: .08em; color: #6e7186; pointer-events: none; }
 .pm-curseur { display: inline-block; width: 2px; height: 1.05em; margin-left: 8px; background: #16205C; animation: pm-cligne 1.1s steps(1) infinite; }
 @keyframes pm-cligne { 50% { opacity: 0; } }
 .pm-plaque--active .pm-plaque__vide, .pm-plaque--ecrite .pm-plaque__vide { display: none; }
-.pm-plaque__nom { position: absolute; left: 28px; right: 28px; top: 18px; bottom: 36px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; line-height: 1.04; letter-spacing: .02em; color: #1b1e33; opacity: 0; pointer-events: none; }
-.pm-plaque__dep { position: absolute; left: 0; right: 0; bottom: 17px; text-align: center; font-size: .82rem; letter-spacing: .04em; color: #4b4e63; opacity: 0; pointer-events: none; }
+.pm-plaque__nom { position: absolute; left: 26px; right: 26px; top: 12px; bottom: 26px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: Poppins, Inter, sans-serif; font-weight: 700; line-height: 1.04; letter-spacing: .02em; color: #1b1e33; opacity: 0; pointer-events: none; }
+.pm-plaque__dep { position: absolute; left: 0; right: 0; bottom: 11px; text-align: center; font-size: .78rem; letter-spacing: .04em; color: #4b4e63; opacity: 0; pointer-events: none; }
 .pm-plaque--posee .pm-champ { color: transparent; caret-color: transparent; }
 .pm-plaque--posee .pm-plaque__nom, .pm-plaque--posee .pm-plaque__dep { opacity: 1; }
-.pm-plaque--pose .pm-plaque__nom { animation: pm-pose .42s cubic-bezier(.2, .7, .2, 1) both; }
-.pm-plaque--pose .pm-plaque__dep { animation: pm-pose .42s .18s cubic-bezier(.2, .7, .2, 1) both; }
+.pm-plaque--posee.pm-plaque--pose .pm-plaque__nom { animation: pm-pose .42s cubic-bezier(.2, .7, .2, 1) both; }
+.pm-plaque--posee.pm-plaque--pose .pm-plaque__dep { animation: pm-pose .42s .18s cubic-bezier(.2, .7, .2, 1) both; }
 @keyframes pm-pose { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
 /* les suggestions : des panneaux fléchés empilés sous la plaque */
-.pm-fleches { list-style: none; margin: 0; padding: 6px 0 2px; position: absolute; left: 12%; right: 0; top: calc(clamp(148px, 14vw, 172px) + 8px); z-index: 30; background: var(--bg-warm, #f5f2eb); }
+.pm-fleches { list-style: none; margin: 0; padding: 6px 0 2px; position: absolute; left: 12%; right: 0; top: calc(clamp(104px, 10vw, 120px) + 8px); z-index: 30; background: var(--bg-warm, #f5f2eb); }
 .pm-fleches[hidden] { display: none; }
 .pm-fleche { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; min-height: 52px; margin: 0 0 6px; padding: 9px 48px 9px 16px; cursor: pointer; color: #1b1e33; }
 .pm-fleche__forme { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -56,13 +56,13 @@
 .pm-fleche[aria-selected="true"] .pm-fleche__dep, .pm-fleche[aria-selected="true"] .pm-fleche__hab, .pm-fleche:hover .pm-fleche__dep, .pm-fleche:hover .pm-fleche__hab { color: #dfe1f0; }
 
 /* le poteau et ce qui s'y accroche */
-.pm-poteau-zone { position: relative; margin-left: 12%; padding: 14px 0 34px 56px; min-height: 76px; }
+.pm-poteau-zone { position: relative; margin-left: 12%; padding: 10px 0 28px 56px; min-height: 64px; }
 .pm-poteau { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
 .pm-poteau path { fill: var(--pm-encre); }
 .pm-accroches { position: relative; }
 .pm-etat { margin: 0; font-size: .9rem; line-height: 1.45; color: var(--pm-doux); }
 .pm-etat:empty { display: none; }
-.pm-pop { margin: 4px 0 8px; }
+.pm-pop { margin: 2px 0 4px; }
 .pm-pop[hidden] { display: none; }
 .pm-pop__ligne { margin: 0; font-family: Caveat, 'Segoe Print', 'Bradley Hand', cursive; font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.5rem); line-height: 1.05; color: #16205C; clip-path: inset(0 100% 0 0); }
 [data-theme="dark"] .pm-pop__ligne { color: #d9dcf2; }
@@ -70,11 +70,6 @@
 .pm-pop__ast { font-size: .8em; margin-left: 2px; vertical-align: .35em; }
 .pm-pop__ast[hidden] { display: none; }
 .pm-pop__source { margin: 2px 0 0; font-size: .82rem; color: var(--pm-doux); }
-.pm-pop__prix { display: none; margin: 6px 0 0; line-height: 1.15; color: var(--pm-titre); font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: 1rem; }
-.pm-pop__prix [data-prix-court] { font-weight: 800; font-size: 1.9rem; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
-.pm-pop__prix [hidden] { display: none; }
-.pm-pop__prix[hidden] { display: none !important; }
-.pm-pop__an { display: block; margin-top: 2px; font-family: Inter, system-ui, sans-serif; font-weight: 600; font-size: .85rem; color: var(--pm-doux); }
 .pm-lien { display: inline-flex; align-items: center; min-height: 44px; margin: 0; padding: 0; border: 0; background: none; font: 500 .9rem/1.3 Inter, system-ui, sans-serif; color: var(--pm-titre); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; text-align: left; }
 .pm-lien[hidden] { display: none; }
 .pm-lien:focus-visible { outline: 3px solid var(--pm-anneau); outline-offset: 2px; border-radius: 3px; }
@@ -86,7 +81,7 @@
 .pm-saisie input:focus { outline: 3px solid var(--pm-anneau); outline-offset: 2px; }
 
 /* scène 3 : les petites plaques accrochées au poteau */
-.pm-accroche { position: relative; display: flex; align-items: center; gap: 12px; max-width: 380px; margin: 14px 0 0; padding: 11px 16px; min-height: 52px; background: #fffdf8; border-radius: 7px; color: #1b1e33; font-size: .98rem; line-height: 1.35; }
+.pm-accroche { position: relative; display: flex; align-items: center; gap: 12px; max-width: 430px; margin: 10px 0 0; padding: 9px 16px; min-height: 48px; background: #fffdf8; border-radius: 7px; color: #1b1e33; font-size: .98rem; line-height: 1.35; }
 .pm-accroche[hidden] { display: none; }
 .pm-option { cursor: pointer; }
 .pm-option input { position: absolute; left: 12px; top: 50%; width: 26px; height: 26px; margin: -13px 0 0; opacity: 0; cursor: pointer; }
@@ -104,23 +99,26 @@
 .pm-radio input { position: absolute; left: 0; top: 50%; width: 22px; height: 22px; margin: -11px 0 0; opacity: 0; cursor: pointer; }
 .pm-rond { width: 20px; height: 20px; border: 1.8px solid #16205C; border-radius: 50%; background: #fff; position: relative; flex: none; }
 .pm-radio input:checked + .pm-rond::after { content: ""; position: absolute; inset: 3.5px; border-radius: 50%; background: #16205C; }
+.pm-collecte-ligne { margin: 4px 0 0; font-size: .92rem; line-height: 1.4; color: #1b1e33; animation: pm-apparait .3s ease-out both; }
+.pm-collecte-ligne[hidden] { display: none; }
+.pm-collecte-ligne b { white-space: nowrap; }
+@keyframes pm-apparait { from { opacity: 0; } to { opacity: 1; } }
 .pm-radio input:focus-visible + .pm-rond { outline: 3px solid var(--pm-anneau); outline-offset: 3px; }
 
-/* scène 2 : la borne du film, et le prix qui s'y grave */
+/* scène 2 : le sceau de mairie où le prix s'abat (passe 3) */
 .pm-col-borne { display: flex; flex-direction: column; align-items: center; }
-.pm-borne { position: relative; width: min(100%, 300px); aspect-ratio: 645 / 792; overflow: hidden; container-type: inline-size; }
-.pm-borne img { display: block; width: 138.9%; height: auto; max-width: none; margin: -31.6% 0 0 -19.44%; clip-path: inset(100% 0 0 0); }
-.pm-borne--vue img { clip-path: inset(0 0 0 0); transition: clip-path .6s cubic-bezier(.3, .7, .2, 1); }
-.pm-gravure { position: absolute; left: 23%; width: 46%; top: 29%; height: 40%; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #2b2e45; opacity: 0; transition: opacity .3s; }
-.pm-gravure--vue { opacity: .92; }
-.pm-attente { position: absolute; left: 23%; width: 46%; top: 42%; margin: 0; text-align: center; font-family: Caveat, 'Segoe Print', 'Bradley Hand', cursive; font-size: 28px; font-size: 10cqw; color: #6e7186; opacity: 0; transition: opacity .4s .5s; pointer-events: none; }
-.pm-borne--vue .pm-attente { opacity: .8; }
-.pm-borne--vue .pm-gravure--vue + .pm-attente { opacity: 0; transition: opacity .2s; }
-.pm-gravure__n { font-family: Poppins, Inter, sans-serif; font-weight: 800; font-size: 38px; font-size: 13.5cqw; line-height: 1; letter-spacing: -.02em; white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 0 1px 0 rgba(255, 255, 255, .8); }
-.pm-gravure__u { margin-top: 6px; font-family: Poppins, Inter, sans-serif; font-weight: 600; font-size: 16px; font-size: 5.6cqw; letter-spacing: .04em; }
-.pm-gravure--devis .pm-gravure__n { font-size: 30px; font-size: 10.5cqw; white-space: normal; line-height: 1.05; }
-.pm-gravure--long .pm-gravure__n { font-size: 28px; font-size: 10cqw; }
-.pm-sous-borne { max-width: 360px; margin-top: 4px; text-align: center; }
+.pm-sceau { position: relative; width: min(100%, 236px); aspect-ratio: 1; }
+.pm-sceau > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pm-sceau > svg[hidden] { display: none; }
+.pm-tampon--rond { transform: rotate(-6deg); }
+.pm-tampon { --r: -6deg; transform-origin: 50% 50%; }
+.pm-tampon--rect { --r: 4deg; transform: rotate(4deg); }
+.pm-tampon--petit { --r: 3deg; transform: rotate(3deg); }
+.pm-tampon--frappe { animation: pm-frappe .22s cubic-bezier(.35, .1, .35, 1) both; }
+.pm-tampon--retampe { animation: pm-retampe .3s cubic-bezier(.35, .1, .35, 1) both; }
+@keyframes pm-frappe { 0% { opacity: 0; transform: rotate(calc(var(--r) * 1.7)) scale(1.35); } 72% { opacity: 1; transform: rotate(var(--r)) scale(.97); } 100% { opacity: 1; transform: rotate(var(--r)) scale(1); } }
+@keyframes pm-retampe { 0% { opacity: 1; transform: rotate(var(--r)) scale(1); } 38% { opacity: .25; transform: rotate(calc(var(--r) * 1.4)) scale(1.12); } 76% { opacity: 1; transform: rotate(var(--r)) scale(.97); } 100% { opacity: 1; transform: rotate(var(--r)) scale(1); } }
+.pm-sous-borne { max-width: 360px; margin-top: 10px; text-align: center; }
 .pm-sous-borne[hidden] { display: none; }
 .pm-an { margin: 0; font-weight: 600; font-size: 1.02rem; line-height: 1.45; }
 .pm-regle { margin: 6px 0 0; font-size: .9rem; line-height: 1.5; color: var(--pm-doux); }
@@ -146,10 +144,10 @@
 .pm-bulle { position: absolute; top: 100%; left: 50%; z-index: 6; width: max-content; max-width: 200px; transform: translateX(-50%); padding: 7px 10px; background: #fffdf8; border: 1px solid #60637B; border-radius: 6px; font-size: .84rem; line-height: 1.35; color: #1b1e33; opacity: 0; visibility: hidden; transition: opacity .2s; pointer-events: none; }
 .pm-etape:hover .pm-bulle, .pm-etape__nom:focus-visible + .pm-bulle, .pm-etape__nom[aria-expanded="true"] + .pm-bulle { opacity: 1; visibility: visible; }
 .pm-fin { flex: 1.9 1 0; display: flex; justify-content: center; }
-.pm-fin__borne { position: relative; width: 168px; height: 124px; margin-top: -60px; display: flex; align-items: center; justify-content: center; }
-.pm-fin__texte { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 18px; text-align: center; color: #1b1e33; opacity: 0; }
-.pm-fin__texte span { font-size: .74rem; letter-spacing: .04em; line-height: 1.25; }
-.pm-fin__texte b { font-family: Poppins, Inter, sans-serif; font-weight: 800; font-size: 1.35rem; line-height: 1.15; white-space: nowrap; }
+.pm-fin__borne { position: relative; width: 200px; height: 108px; margin-top: -44px; display: block; }
+.pm-fin__borne > svg { display: block; width: 100%; height: 100%; overflow: visible; opacity: 0; }
+.pm-etape--collecte { flex: 1.5 1 0; justify-content: center; }
+.pm-etape--collecte > svg { display: block; width: 150px; height: 81px; margin-top: -24px; overflow: visible; }
 .pm-route__regle { margin: 18px 0 0; font-size: .9rem; line-height: 1.5; color: var(--pm-doux); }
 
 /* scène 5 : la feuille d'estimation, posée */
@@ -174,8 +172,8 @@
 .pm-ligne--total dt, .pm-ligne--total dd { font-family: Poppins, Inter, sans-serif; font-weight: 700; color: #16205C; }
 .pm-ligne--total dt { font-size: 1.05rem; }
 .pm-ligne--total dd { font-size: 1.25rem; }
-.pm-mention { margin: 12px 0 0; font-family: Caveat, 'Segoe Print', 'Bradley Hand', cursive; font-size: 1.4rem; line-height: 1.2; color: #16205C; }
-.pm-mention + .pm-mention { margin-top: 4px; }
+.pm-mention { margin: 12px 0 0; font-family: Inter, system-ui, sans-serif; font-style: normal; font-weight: 400; font-size: 13px; line-height: 1.5; color: #5C5F73; }
+.pm-mention + .pm-mention { margin-top: 2px; }
 .pm-sorties { margin: 22px auto 0; max-width: 720px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .pm-sorties [hidden] { display: none; }
 .pm-action { font: 600 1rem/1.25 Inter, system-ui, sans-serif; border-radius: 8px; padding: 13px 22px; min-height: 48px; cursor: pointer; border: 1.6px solid #16205C; background: transparent; color: #16205C; }
@@ -224,20 +222,22 @@
 /* ---------- les écrans moyens et petits : les scènes s'empilent ---------- */
 @media (max-width: 860px) {
   .pm-scene { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .pm-borne { width: min(78%, 280px); }
-  .pm-pop__prix { display: block; }
-}
+  .pm-col-borne { margin: 8px 0 6px; }
+  .pm-sceau { width: 200px; }
+  .pm-sceau__vide { display: none !important; }
+  }
 @media (max-width: 760px) {
   .prix-marianne { margin-top: 40px; }
-  .pm-plaque { height: 136px; }
-  .pm-fleches { top: 148px; left: 4%; }
+  .pm-plaque { height: 96px; }
+  .pm-fleches { top: 104px; left: 4%; }
   .pm-poteau-zone { margin-left: 4%; padding-left: 50px; }
   .pm-etapes-route { flex-direction: column; align-items: stretch; gap: 2px; padding-top: 8px; }
   .pm-etape { flex-direction: row; text-align: left; gap: 14px; }
   .pm-etape__nom { margin-top: 0; text-align: left; font-size: .95rem; }
   .pm-bulle { top: 50%; left: auto; right: 0; transform: translateY(-50%); max-width: 170px; }
   .pm-fin { justify-content: flex-start; margin-top: 10px; }
-  .pm-fin__borne { margin-top: 0; width: 150px; height: 112px; }
+  .pm-fin__borne { margin-top: 0; width: 180px; height: 97px; }
+  .pm-etape--collecte > svg { margin: 0 0 6px; width: 140px; height: 76px; }
   .pm-feuille { padding: 22px 18px 20px; }
   .pm-ligne { grid-template-columns: minmax(0, 1fr); }
   .pm-ligne dd { text-align: left; white-space: normal; }
@@ -252,6 +252,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .prix-marianne *, .prix-marianne *::before, .prix-marianne *::after { transition: none !important; animation: none !important; }
-  .pm-pop__ligne, .pm-borne img { clip-path: none; }
+  .pm-pop__ligne { clip-path: none; }
   .pm-feuille { opacity: 1; transform: none; }
 }

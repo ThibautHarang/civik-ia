@@ -749,17 +749,17 @@ securise(function () {
    9. Assistant du site (questions commerciales sur Civik-ia)
    ===================================================================== */
 const cbKnowledge = [
-  { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous renseigner sur la <strong>Plateforme d'Intelligence Citoyenne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres" },
+  { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous présenter <strong>Marianne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres" },
   { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune" },
   { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Réponse sous 24h" },
-  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "Le prix suit la taille de la commune\u00A0: 49\u00A0€ Essentiel / 99\u00A0€ Engagement / 199\u00A0€ Pilotage, HT par mois, sans engagement. Mise en service\u00A0: à partir de 999\u00A0€ HT, sur devis selon le travail à réaliser, facturée une seule fois. <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
-  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "La <strong>Plateforme d&#39;Intelligence Citoyenne</strong> est un assistant IA souverain qui répond 24h/24 aux habitants à partir du site officiel de la commune, et cite la page de chaque réponse. L'espace mairie, le tableau de bord de la commune, est en cours de construction" },
+  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "Abonnement sur devis, selon la taille de la commune. Mise en service\u00A0: à partir de 999\u00A0€ HT, sur devis selon le travail à réaliser, facturée une seule fois. <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
+  { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "<strong>Marianne</strong> est un assistant IA souverain qui répond 24h/24 aux habitants à partir du site officiel de la commune, et cite la page de chaque réponse. L'espace mairie, le tableau de bord de la commune, sera adapté aux besoins de chaque commune" },
   { keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français', 'europe'], response: "Le cerveau de Marianne est européen\u00A0: hébergement <strong>OVHcloud</strong> en Europe, IA <strong>Mistral AI</strong> (Paris), <strong>RGPD</strong> natif. Les données de votre commune ne servent jamais à entraîner d'autres modèles" },
   { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "Avant l'ouverture aux habitants, une <strong>mise en service en six étapes</strong>, une seule fois\u00A0: inventaire de votre site, cadre écrit, base de connaissances, mesure, validation par vos agents, version de référence. <a href='/chatbot-mairie-prix.html#mise-en-service'>Le détail</a>" },
   { keywords: ['agent', 'emploi', 'poste', 'remplacer', 'personnel', 'supprime'], response: "Civik-ia <strong>ne remplace aucun agent</strong>. Elle prend en charge les questions répétitives (70 à 80\u00A0% des demandes). Les agents se recentrent sur l'accueil humain" },
-  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Nous pouvons en concevoir un avec vous, Marianne intégrée. Cette offre est nouvelle\u00A0: <a href='#contact' onclick=\"toggleChatbot();return true;\">parlons-en</a>" }
+  { keywords: ['site internet', 'site web', 'pas de site', 'créer un site', 'creer un site'], response: "Pas de site, ou un site qui n'est plus à jour\u00A0? Civik-ia peut concevoir le vôtre, avec Marianne intégrée\u00A0: c'est <a href='/atelier/'>l'Atelier</a>" }
 ];
-const cbSugList = ["Tester la démo", "Les tarifs\u00A0?", "Contacter l'équipe", "C'est quoi la Plateforme\u00A0?", "Comment ça se déploie\u00A0?"];
+const cbSugList = ["Tester la démo", "Les tarifs\u00A0?", "Contacter l'équipe", "C'est quoi Marianne\u00A0?", "Comment ça se déploie\u00A0?"];
 
 let chatbotOpen = false;
 let cbInitialized = false;
@@ -777,7 +777,7 @@ function toggleChatbot() {
 }
 
 function initChatbot() {
-  addCbMessage("Bonjour ! Je suis l'assistant Civik-ia. Je peux vous renseigner sur la Plateforme, les tarifs, une démo, ou vous orienter vers nos contacts", 'bot');
+  addCbMessage("Bonjour ! Je suis l'assistant Civik-ia. Je peux vous renseigner sur Marianne, les tarifs, une démo, ou vous orienter vers nos contacts", 'bot');
   const sug = document.getElementById('cbSuggestions');
   cbSugList.forEach(s => {
     const b = document.createElement('button');

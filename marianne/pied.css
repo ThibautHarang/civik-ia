@@ -1,0 +1,61 @@
+/* =====================================================================
+   Pied de page commun des pages Marianne (/marianne/, /marianne-whatsapp.html, /marianne-messenger.html), 14/10/2026.
+   Les règles du pied de la page d'accueil et des pages Conseil et Atelier (commun/pages/pages.css, section « pied de page »,
+   recopiée telle quelle dans c-film/film.css), reprises ici pour les trois pages Marianne, qui ne chargent pas pages.css
+   (ses règles de page, .sec, .h2, .btn, entreraient en collision avec celles de la page Marianne). Une seule source pour les
+   trois pages : ce fichier. Les jetons ont une valeur de repli, les deux pages WhatsApp et Messenger n'en définissent pas.
+   Petite remise à zéro locale, sans poids (:where) pour ne rien ôter aux règles du pied : les pages WhatsApp et Messenger n'ont
+   pas celle de pages.css.
+   ===================================================================== */
+:where(.pied),:where(.pied) *,:where(.pied) *::before,:where(.pied) *::after{box-sizing:border-box}
+:where(.pied) :where(h2,p,ul){margin:0}
+:where(.pied) :where(ul){padding:0;list-style:none}
+:where(.pied) :where(a){color:inherit;text-decoration:none}
+:where(.pied) :where(button){font:inherit;color:inherit;cursor:pointer;border:none;background:none;padding:0}
+:where(.pied) :where(img){display:block;max-width:none}
+.pied{--focus:#ffffff}
+.pied :focus{outline:none}
+.pied :focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:8px}
+
+/* ---------- pied de page (commun/pages/pages.css, à l'identique) ---------- */
+.pied{position:relative;z-index:2;text-align:left;background:var(--nuit,#0A0F2C);color:var(--nuit-txt2,#b9c1e0);font-family:var(--sans,'Inter',system-ui,-apple-system,'Segoe UI',sans-serif);font-size:17px;line-height:1.6;padding:56px var(--gut,clamp(20px,5vw,72px)) 92px}
+.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre,'Poppins','Inter',sans-serif);color:#fff;letter-spacing:-.02em}
+.pied__marque img{width:46px;height:39px;padding:3px 4px;border-radius:10px;background:var(--creme,#f7f4ed);mix-blend-mode:normal}
+.pied__marque b{color:#9db9ff;font-weight:800}
+/* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque, dessinés à la plume comme le logo LinkedIn du CV ; cibles de 44 px */
+.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-9px}
+.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:12px;color:#fff}
+.pied .pied__reseaux svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.pied .pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07);text-decoration:none}}
+.pied p{font-size:14px;line-height:1.6;margin-top:14px;max-width:44ch}
+.pied h2{font:700 12px/1.3 var(--sans,'Inter',system-ui,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:#8f99c4}
+.pied ul{margin-top:12px;display:grid;gap:4px}
+.pied ul a{display:inline-flex;min-height:36px;align-items:center;font:600 14.5px/1.3 var(--sans,'Inter',system-ui,sans-serif);color:#fff}
+@media (hover:hover){.pied ul a:hover{text-decoration:underline;text-underline-offset:4px}}
+.pied__bas{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f99c4}
+.pied .pied__legal{max-width:1200px;margin:6px auto 0;display:flex;flex-wrap:wrap;gap:0 18px;font-size:12.5px}
+.pied .pied__legal a{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans,'Inter',system-ui,sans-serif);color:#b9c1e0}
+@media (hover:hover){.pied .pied__legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__maquette{max-width:1200px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#6f7aa6}
+/* .pied p (44ch) l’emportait sur .pied__bas : la ligne officielle prend toute la largeur, comme les liens légaux */
+.pied .pied__bas{max-width:1200px;line-height:1.5}
+/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes */
+.pied .pied__marque{margin-top:-12px}
+/* guides (08/10/2026, nuit) : quatrième colonne du pied, liens plus serrés ; deux colonnes sous 1024, une sous 760 */
+.pied .pied__in{grid-template-columns:1.3fr 1fr 1fr 1.15fr}
+.pied .pied__guides ul a{min-height:30px;font-size:14px}
+@media (max-width:1024px){.pied .pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.pied .pied__in{grid-template-columns:1fr}}
+
+/* ---------- propre aux pages Marianne ---------- */
+/* le bouton « Arrêter les animations » de la page /marianne/ (RGAA 13.8), rangé avec les liens légaux, au même dessin */
+.pied .pied__legal .pied__anim{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans,'Inter',system-ui,sans-serif);color:#b9c1e0;text-decoration:none}
+@media (hover:hover){.pied .pied__legal .pied__anim:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+/* la mention des pages WhatsApp et Messenger (marque de Meta, canal en préparation) : la largeur des liens légaux */
+.pied .pied__maquette{max-width:1200px}
+
+/* ---------- icônes de canaux dessinées à la plume (même tracé, même trait que les réseaux du pied) ---------- */
+.plume-ic{width:26px;height:26px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.plume-ic--fixe{vector-effect:non-scaling-stroke}
+.plume-ic--fixe *{vector-effect:non-scaling-stroke;stroke-width:1.625px}

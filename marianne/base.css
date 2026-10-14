@@ -193,7 +193,8 @@ html.anim-non .temps{opacity:1}
 .chiffres-b{background:linear-gradient(150deg,#000091,#0a0f5c);color:#fff;padding:clamp(56px,7vw,92px) var(--gut)}
 .chiffres-b__in{max-width:1200px;margin-inline:auto}
 /* MB-4 : trois colonnes alignées, titres et légendes à la même hauteur (sous-grille) */
-.chiffres-b ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto;column-gap:clamp(24px,3vw,40px)}
+/* 14/10/2026 (Thibaut) : un seul bandeau de chiffres sur la page, quatre chiffres alignés (« 100 % » ajouté) */
+.chiffres-b ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:auto auto;column-gap:clamp(24px,3vw,40px)}
 .chiffres-b li{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:12px;align-content:start}
 /* MB-7 : « Plusieurs milliers » tient sur une ligne jusqu'à 1440 (46 px le coupait en deux) */
 .chiffres-b__n{display:block;align-self:end;font:800 clamp(30px,2.9vw,42px)/1.04 var(--titre);letter-spacing:-.035em;text-wrap:balance}

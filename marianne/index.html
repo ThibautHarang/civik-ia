@@ -7,19 +7,19 @@
      se mesure a 980 px, prend le mode grand ecran, puis la page saute quand marianne.js corrige. -->
 <!-- Mode d'affichage du hero, decide avant le premier rendu : "scrub" = grand ecran, animations acceptees.
      Sans ce script (ou si marianne.js ne charge pas), la page garde sa version statique, complete et lisible. -->
-<script>(function(d){var c=d.documentElement.classList;c.add('js');try{if(matchMedia('(prefers-reduced-motion:reduce)').matches||localStorage.getItem('marianne-anim')==='non')c.add('anim-non');else if(matchMedia('(min-width:900px) and (min-height:560px)').matches&&window.CSS&&CSS.supports('color','color-mix(in srgb, red 50%, blue)'))c.add('scrub');else c.add('aube')}catch(e){}})(document)</script>
+<script>(function(d){var c=d.documentElement.classList;c.add('js');if(location.hash.length>1)c.add('cv-plein');try{if(matchMedia('(prefers-reduced-motion:reduce)').matches||localStorage.getItem('marianne-anim')==='non')c.add('anim-non');else if(matchMedia('(min-width:900px) and (min-height:560px)').matches&&window.CSS&&CSS.supports('color','color-mix(in srgb, red 50%, blue)'))c.add('scrub');else c.add('aube')}catch(e){}})(document)</script>
 <!-- Mesure d'audience (Google Analytics) chargee uniquement apres consentement, CNIL art. 82 -->
 <script src="/cookie-consent.js" defer></script>
 
 <title>Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia</title>
-<meta name="description" content="Chatbot IA souverain pour mairies : Marianne répond aux administrés 24h/24, sans inscription, conforme RGPD. Modèle français Mistral, dès 49 €/mois HT.">
+<meta name="description" content="Chatbot IA souverain pour mairies : Marianne répond aux administrés 24h/24, sans inscription, conforme RGPD. Modèle français Mistral.">
 <meta name="author" content="Civik-ia">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://civik-ia.fr/marianne/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="Marianne, le chatbot IA des mairies disponible 24h/24 · Civik-ia">
-<meta property="og:description" content="Marianne, l'IA souveraine des mairies : elle répond aux administrés 24h/24 sur le PLU, les déchets, l'état civil. Sans inscription, RGPD natif, cloud souverain OVH UE. Dès 49 €/mois HT.">
+<meta property="og:description" content="Marianne, l'IA souveraine des mairies : elle répond aux administrés 24h/24 sur le PLU, les déchets, l'état civil. Sans inscription, RGPD natif, cloud souverain OVH UE.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://civik-ia.fr/marianne/">
 <meta property="og:locale" content="fr_FR">
@@ -27,14 +27,14 @@
 <meta property="og:image" content="https://civik-ia.fr/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Civik-ia, la Plateforme d'Intelligence Citoyenne, votre mairie disponible 24h/24">
+<meta property="og:image:alt" content="Marianne par Civik-ia, votre mairie disponible 24h/24">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marianne, le chatbot IA des mairies · Civik-ia">
-<meta name="twitter:description" content="L'IA souveraine des mairies répond aux administrés 24h/24, formée sur votre PLU. Sans inscription, RGPD natif. Dès 49 €/mois HT.">
+<meta name="twitter:description" content="L'IA souveraine des mairies répond aux administrés 24h/24, formée sur votre PLU. Sans inscription, RGPD natif.">
 <meta name="twitter:image" content="https://civik-ia.fr/assets/og-image.png">
-<meta name="twitter:image:alt" content="Civik-ia, la Plateforme d'Intelligence Citoyenne">
+<meta name="twitter:image:alt" content="Marianne par Civik-ia, votre mairie disponible 24h/24">
 
 <!-- Donnees structurees : Organization -->
 <script type="application/ld+json">
@@ -69,7 +69,7 @@
 }
 </script>
 
-<!-- Donnees structurees : SoftwareApplication (les trois offres publiques) -->
+<!-- Donnees structurees : SoftwareApplication (sans prix d'abonnement depuis le 14/10/2026 : abonnement sur devis, selon la taille de la commune) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,25 +81,13 @@
   "applicationCategory": "GovernmentApplication",
   "applicationSubCategory": "Chatbot IA pour collectivités territoriales",
   "operatingSystem": "Web",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "49",
-    "highPrice": "199",
-    "priceCurrency": "EUR",
-    "offerCount": "3",
-    "offers": [
-      { "@type": "Offer", "name": "Essentiel", "price": "49", "priceCurrency": "EUR", "description": "Communes de moins de 5 000 habitants, par mois, hors taxes" },
-      { "@type": "Offer", "name": "Engagement", "price": "99", "priceCurrency": "EUR", "description": "Communes de 5 000 à 20 000 habitants, par mois, hors taxes" },
-      { "@type": "Offer", "name": "Pilotage", "price": "199", "priceCurrency": "EUR", "description": "Communes de 20 000 à 50 000 habitants, par mois, hors taxes" }
-    ]
-  },
   "creator": {
     "@type": "Organization",
     "name": "Civik-ia",
     "url": "https://civik-ia.fr"
   },
   "description": "Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24 h/24 à partir du site officiel de la commune et des documents transmis par la mairie, et cite la source de chaque réponse. Hébergement en Europe (OVHcloud), moteur Mistral AI.",
-  "featureList": ["Réponses 24 h/24 avec la source citée", "Formée sur le site officiel de la commune et sur les documents transmis (PLU, arrêtés, délibérations)", "Sur le site de la mairie, en application installable sur smartphone et par QR code (WhatsApp et Messenger à venir)", "Mise en service en six étapes avant l'ouverture aux habitants", "Espace mairie : tableau de bord de la commune, en cours de construction", "Hébergement en Europe (OVHcloud), moteur Mistral AI"]
+  "featureList": ["Réponses 24 h/24 avec la source citée", "Formée sur le site officiel de la commune et sur les documents transmis (PLU, arrêtés, délibérations)", "Sur le site de la mairie, en application installable sur smartphone et par QR code (WhatsApp et Messenger à venir)", "Mise en service en six étapes avant l'ouverture aux habitants", "Espace mairie : tableau de bord de la commune, adapté aux besoins de chaque commune", "Hébergement en Europe (OVHcloud), moteur Mistral AI"]
 }
 </script>
 
@@ -130,19 +118,7 @@
   "name": "Marianne, chatbot IA pour mairies et collectivités",
   "provider": { "@type": "Organization", "name": "Civik-ia", "url": "https://civik-ia.fr" },
   "areaServed": { "@type": "Country", "name": "France" },
-  "audience": { "@type": "Audience", "audienceType": "Mairies, EPCI, collectivités territoriales" },
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "EUR",
-    "price": "49",
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": "49",
-      "priceCurrency": "EUR",
-      "unitText": "MOIS",
-      "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "MON" }
-    }
-  }
+  "audience": { "@type": "Audience", "audienceType": "Mairies, EPCI, collectivités territoriales" }
 }
 </script>
 
@@ -153,15 +129,15 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Qu'est-ce que Marianne ?", "acceptedAnswer": {"@type": "Answer", "text": "Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24 h/24 à partir du site officiel de la commune et des documents que la mairie lui transmet (PLU, arrêtés, délibérations), et cite la source de chaque réponse. Hébergement en Europe, tarifs dès 49 € HT par mois"}},
+    {"@type": "Question", "name": "Qu'est-ce que Marianne ?", "acceptedAnswer": {"@type": "Answer", "text": "Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24 h/24 à partir du site officiel de la commune et des documents que la mairie lui transmet (PLU, arrêtés, délibérations), et cite la source de chaque réponse. Ses données sont hébergées en Europe"}},
     {"@type": "Question", "name": "Est-ce que le chatbot remplace nos agents ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, au contraire. Marianne absorbe les 70 à 80 % de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes : les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent"}},
     {"@type": "Question", "name": "Et si l'IA se trompe ou « hallucine » ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations"}},
-    {"@type": "Question", "name": "Marianne est-elle vraiment formée sur tout notre site ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit : une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, l'espace mairie, en cours de construction, permettra de publier une information du moment, connue de Marianne aussitôt"}},
-    {"@type": "Question", "name": "Nous n'avons pas de site internet. Est-ce un problème ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Civik-ia peut aussi concevoir le site de votre commune, avec Marianne intégrée. Cette offre est nouvelle : parlons-en lors de votre démonstration"}},
+    {"@type": "Question", "name": "Marianne est-elle vraiment formée sur tout notre site ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit : une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, l'espace mairie permettra de publier une information du moment, connue de Marianne aussitôt"}},
+    {"@type": "Question", "name": "Nous n'avons pas de site internet. Est-ce un problème ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Votre mairie a déjà ses documents, ceux où elle consigne tout ce qui fait la vie de la commune : délibérations, bulletins, guides pratiques, horaires, démarches. Nous construisons la base de connaissances de Marianne à partir de ces documents. Civik-ia peut aussi concevoir le site de votre commune, avec Marianne intégrée : c'est l'Atelier"}},
     {"@type": "Question", "name": "Nos données restent-elles en Europe ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. Seule particularité, détaillée plus bas : sur WhatsApp et Messenger, quand ils ouvriront, les messages transiteront par Meta"}},
     {"@type": "Question", "name": "WhatsApp et Messenger : où vont les données ?", "acceptedAnswer": {"@type": "Answer", "text": "Sur WhatsApp et Messenger, canaux à venir, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta"}},
     {"@type": "Question", "name": "Faut-il télécharger une application ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, rien n'est imposé : Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran d'accueil"}},
-    {"@type": "Question", "name": "Combien de temps pour déployer ?", "acceptedAnswer": {"@type": "Answer", "text": "Avant l'ouverture aux habitants, la mise en service passe par six étapes, une seule fois : inventaire de votre site, cadre écrit, base de connaissances, mesure sur 300 questions de test, validation par vos agents, version de référence que vous validez par écrit. Comptez quelques semaines, selon votre site et la disponibilité de vos agents. Le détail est sur notre page prix"}},
+    {"@type": "Question", "name": "Combien de temps pour déployer ?", "acceptedAnswer": {"@type": "Answer", "text": "Avant l'ouverture aux habitants, la mise en service passe par six étapes, une seule fois : inventaire de votre site, cadre écrit, base de connaissances, mesure sur plusieurs centaines de questions de test, validation par vos agents, version de référence que vous validez par écrit. Comptez quelques semaines, selon votre site et la disponibilité de vos agents. Le détail est sur notre page prix"}},
     {"@type": "Question", "name": "Comment cela se passe côté marchés publics ?", "acceptedAnswer": {"@type": "Answer", "text": "Même en offre Pilotage, quatre ans d'abonnement et la mise en service restent très en dessous du seuil sous lequel une commune peut acheter sans publicité ni mise en concurrence (article R2122-8 du code de la commande publique). Aucun cahier des charges n'est imposé : un devis signé, avec nos conditions générales et l'accord sur les données personnelles, suffit ; votre commune applique ses propres règles d'achat. Au-delà de 50 000 habitants, nous établissons un devis sur mesure"}},
     {"@type": "Question", "name": "Et si nos citoyens n'ont pas Internet ?", "acceptedAnswer": {"@type": "Answer", "text": "L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un proche"}}
   ]
@@ -246,9 +222,11 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 .sur{display:inline-flex;align-items:center;gap:10px;font:600 15px/1.3 var(--sans);color:var(--teal-txt)}
 .tete>.h2:first-child,.stack h2:first-child{margin-top:0}
 .nuit .sur{color:#9db9ff}
+/* 14/10/2026 (Thibaut) : jamais un mot seul sur la dernière ligne d'un paragraphe */
+p,li,summary,.faq details>div{text-wrap:pretty}
 .h2{font:700 clamp(32px,4.3vw,60px)/1.04 var(--titre);letter-spacing:-.03em;color:var(--bleu);text-wrap:balance;margin-top:18px}
 .nuit .h2{color:#fff}
-.h3{font:700 clamp(21px,2.1vw,27px)/1.18 var(--titre);letter-spacing:-.02em;color:var(--bleu)}
+.h3{font:700 clamp(21px,2.1vw,27px)/1.18 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:balance}
 .chapo{font-size:clamp(17px,1.45vw,20px);line-height:1.6;color:var(--encre-2);max-width:62ch;margin-top:22px}
 .nuit .chapo{color:var(--nuit-txt2)}
 .chapo strong{color:var(--encre);font-weight:600}
@@ -262,6 +240,14 @@ html.anim-non *,html.anim-non *::before,html.anim-non *::after{animation:none !i
 /* grand ecran seulement : sur telephone les sections sont bien plus hautes que l'estimation, et l'outil de controle
    des contrastes (axe) s'y trompe de fond */
 @media (min-width:900px){.sec,.chiffres,.stack,.pied{content-visibility:auto;contain-intrinsic-size:auto 900px}}
+/* 14/10/2026 : une ancre lointaine (#pricing, #faq, #contact...) tombait des milliers de pixels trop bas : la course du navigateur se calculait
+   sur les hauteurs estimées (900 px) des sections pas encore rendues. Dès qu'on vise une ancre (arrivée par une adresse avec #, clic sur un
+   lien interne), toute la page est mise en page (base.js, bloc « Ancres ») : la course est juste, le défilement doux reste.
+   La marge haute suit l'en-tête fixe : la barre compacte (68 px, 74 px sous 560 px) et, s'il est affiché, le bandeau d'annonce (44 px). */
+html.cv-plein .sec,html.cv-plein .chiffres,html.cv-plein .stack,html.cv-plein .pied{content-visibility:visible}
+html{scroll-padding-top:84px}
+html.a-bandeau{scroll-padding-top:128px}
+@media (max-width:560px){html{scroll-padding-top:88px}html.a-bandeau{scroll-padding-top:132px}}
 .wrap{max-width:1200px;margin-inline:auto}
 .tete{max-width:840px;margin-bottom:clamp(40px,5.5vw,76px)}
 .tete--c{text-align:center;margin-inline:auto}
@@ -661,10 +647,15 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .canal.allume{border-color:rgba(120,165,255,.5);background:rgba(90,130,255,.075);box-shadow:0 0 0 1px rgba(43,111,214,.18),0 24px 60px rgba(0,10,80,.5)}
 .canal__ecran{height:196px;border-radius:14px;overflow:hidden;position:relative;background:var(--creme);color:var(--encre)}
 .canal__tete{display:flex;flex-direction:column-reverse;align-items:flex-start;gap:10px;margin-top:16px}
-.canal h3{font:700 18px/1.2 var(--titre);color:#fff;letter-spacing:-.015em}
+.canal h3{font:700 18px/1.2 var(--titre);color:#fff;letter-spacing:-.015em;text-wrap:balance}
 .canal p{font-size:14.5px;line-height:1.55;color:var(--nuit-txt2);margin-top:10px}
 .canal__meta{font-size:12.5px !important;color:#aab3d6 !important;margin-top:auto !important;padding-top:12px}
 .canal__lien{color:#fff;font-size:13.5px;margin-top:8px;align-self:flex-start}
+/* 14/10/2026 : l'icône du canal dessinée à la plume, au dessin, à la taille, à la couleur et au survol des réseaux du pied (/marianne/pied.css) */
+.canal__lien{display:inline-flex;align-items:center;gap:2px;margin-top:4px;white-space:nowrap}
+.canal__ic{display:inline-flex;width:44px;height:44px;flex:none;align-items:center;justify-content:center;border-radius:12px;color:#fff;margin-left:-9px}
+@media (hover:hover){.canal__lien:hover .canal__ic{color:#9db9ff;background:rgba(255,255,255,.07)}}
+.ecr-msg__t .plume-ic{width:16px;height:16px}
 .canaux__fleches{display:flex;gap:10px;justify-content:center;margin-top:6px}
 .canaux__fleches button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);color:#fff;display:grid;place-items:center;transition:background .25s,border-color .25s}
 .canaux__fleches button:hover{background:rgba(255,255,255,.1);border-color:#fff}
@@ -749,7 +740,7 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
    ===================================================================== */
 .camp__haut{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,64px);align-items:end;margin-bottom:clamp(40px,5vw,68px)}
 @media (min-width:900px){.camp__haut{grid-template-columns:1.1fr 1fr}}
-.camp__points{display:grid;gap:16px}
+.camp__points{display:grid;gap:16px;grid-auto-rows:1fr}
 .camp__point{display:flex;gap:14px;align-items:flex-start}
 .camp__ic{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;background:var(--papier);border:1px solid rgba(120,100,60,.26);color:var(--bleu)}
 .camp__point b{display:block;font:700 15.5px/1.3 var(--sans);color:var(--bleu)}
@@ -762,11 +753,6 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 /* =====================================================================
    6.8 Chiffres
    ===================================================================== */
-.chiffres{background:linear-gradient(150deg,#000091,#0a0f5c);color:#fff;padding:clamp(56px,7vw,92px) var(--gut)}
-.chiffres ul{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:36px 28px}
-@media (min-width:900px){.chiffres ul{grid-template-columns:repeat(4,1fr);gap:40px}}
-.chiffre__n{display:block;font:800 clamp(44px,5.6vw,76px)/1 var(--titre);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.chiffre__l{display:block;font-size:15px;line-height:1.5;color:rgba(255,255,255,.84);margin-top:12px;max-width:26ch}
 
 /* =====================================================================
    6.9 Pour qui
@@ -872,8 +858,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .ci-form label{font:600 13.5px/1.3 var(--sans);color:var(--encre)}
 .ci-form label span{color:var(--encre-2);font-weight:500}
 .ci-form__note{font-size:13px;color:var(--encre-2)}
-.pied__anim{color:inherit;font:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
-.pied__anim:hover{color:#fff}
 .ci-form input,.ci-form select,.ci-form textarea{width:100%;font:400 16px/1.4 var(--sans);color:var(--encre);background:var(--creme);border:1.5px solid rgba(120,100,60,.34);border-radius:var(--r-s);padding:13px 14px;transition:border-color .2s,box-shadow .2s,background .2s}
 .ci-form textarea{resize:vertical;min-height:96px}
 .ci-form input:hover,.ci-form select:hover,.ci-form textarea:hover{border-color:rgba(0,0,145,.45)}
@@ -901,8 +885,9 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .fin .sur{color:#a9c4ff}
 .fin .h2{color:#fff;font-size:clamp(32px,3.8vw,54px)}
 .fin__texte p{color:#d5dbf2;font-size:clamp(17px,1.4vw,19.5px);max-width:52ch;margin:20px auto 0}
-.fin__tel .tel{--tel-l:min(230px,62vw)}
-.fin__tel .tel{aspect-ratio:300/470}
+/* 14/10/2026 (Thibaut) : le téléphone final à la taille et aux proportions de celui du haut de page (300/584), plus le 300/470 écrasé */
+.fin__tel .tel{--tel-l:min(300px,78vw)}
+@media (min-width:900px){.fin__tel .tel{--tel-l:min(310px,38vh,23vw)}}
 @media (min-width:900px){
   .fin{--ha:max(100vh,680px);min-height:var(--ha);display:grid;align-items:center}
   .fin__art{bottom:0;height:auto;-webkit-mask-image:none;mask-image:none}
@@ -925,19 +910,6 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .ress__c strong{display:block;font:700 18px/1.3 var(--titre);color:var(--bleu);letter-spacing:-.01em;margin-bottom:8px}
 .ress__c span{color:var(--encre-2);font-size:14.5px;line-height:1.55}
 .ress__maj{margin-top:14px;font-size:13px;color:var(--encre-2)}
-.pied{background:#070b22;color:#c9cfe8;padding:clamp(52px,6vw,80px) var(--gut) 28px}
-.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1fr;gap:34px}
-@media (min-width:700px){.pied__in{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1100px){.pied__in{grid-template-columns:1.5fr repeat(4,1fr);gap:40px}}
-.pied__marque img{width:110px;height:auto;background:var(--creme);border-radius:14px;padding:8px}
-.pied__marque p{font-size:14px;line-height:1.6;margin-top:16px;max-width:34ch}
-.pied h3{font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:16px}
-.pied li+li{margin-top:2px}
-.pied li a{display:inline-block;padding:6px 0;font-size:14.5px;transition:color .2s}
-.pied li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
-.pied__bas{max-width:1200px;margin:40px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font-size:12.5px;line-height:1.6;color:#aeb6d6}
-.pied__bas a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
-.pied__bas a:hover{color:#fff}
 
 /* =====================================================================
    Assistant du site (bulle en bas a droite)
@@ -970,6 +942,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 </style>
 <!-- intégration du 13/10/2026 : la section « Le cerveau de Marianne » (#connaissance) -->
 <link rel="stylesheet" href="/marianne/base.css">
+<link rel="stylesheet" href="/marianne/pied.css">
 </head>
 <body id="top">
 <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -1130,15 +1103,14 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <!-- La liste des canaux est recomposee par marianne.js selon MARIANNE_CHANNELS. -->
         <p class="hero__sous" id="heroSous">Marianne est le chatbot IA de votre mairie ou de votre collectivité. Elle répond à chaque citoyen, jour et nuit&nbsp;: sur votre site ou sur smartphone, et bientôt sur WhatsApp et Messenger. Formée sur les données de votre commune, elle cite toujours ses sources</p>
         <div class="hero__ctas">
-          <a href="#contact" class="btn btn--clair">Réserver une démo de 20&nbsp;min <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#contact" class="btn btn--clair">Réserver une démo de 30&nbsp;min <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <a href="/demo" class="btn btn--filet">Tester la démo</a>
         </div>
         <ul class="hero__gages" aria-label="Garanties">
           <li>Cloud souverain OVH</li>
           <li>Mistral AI</li>
           <li>RGPD natif</li>
-          <li>Mise en service en quelques semaines</li>
-          <li>Dès 49&nbsp;€&nbsp;HT/mois</li>
+          <li>Sources officielles de votre commune</li>
         </ul>
       </div>
     </div>
@@ -1179,7 +1151,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec base" id="connaissance" aria-labelledby="base-titre">
   <div class="wrap">
     <div class="tete tete--c">
-      <span class="sur">Le cerveau de Marianne</span>
+      <span class="sur">Le cerveau de&nbsp;Marianne</span>
       <h2 class="h2" id="base-titre" data-mots>Une seule source&nbsp;: vos&nbsp;données&nbsp;officielles</h2>
       <!-- DAJF 08/10/2026 (1) : « et rien n'est ouvert aux habitants sans l'accord écrit de votre commune » remplace « et la base est validée de bout en bout » -->
       <p class="chapo" data-entree data-chapo>Avant que Marianne réponde à un seul habitant, nous construisons ensemble la base de connaissances de votre commune&nbsp;: une seule source, officielle et unique, la vôtre. Tout ce que la commune publie est collecté, lu, trié, vérifié et consolidé&nbsp;; chaque fiche est reliée à son document d'origine, et rien n'est ouvert aux habitants sans l'accord écrit de votre&nbsp;commune.</p>
@@ -1212,7 +1184,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             <div class="appli__dalles" data-dalles>
               <span><b>OVHcloud</b>hébergée en Europe</span>
               <span><b>Mistral</b>moteur européen</span>
-              <span><b>Vos données</b>pour votre commune seule</span>
+              <span><b>Vos données</b>pour votre commune&nbsp;seule</span>
             </div>
           </div>
           <p class="table__legende" data-legende></p>
@@ -1223,13 +1195,13 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <li class="temps" data-temps="0">
           <span class="temps__n">1</span>
           <h3 class="h3">Collecte</h3>
-          <p>Nous rassemblons tout ce que la commune publie&nbsp;: les pages de son site, ses PDF, ses actes, ses délibérations, ses comptes rendus, son bulletin, jusqu'aux scans et aux affiches. S'y ajoute ce que vous nous transmettez. Rien n'est encore trié&nbsp;: les doublons et les vieilles versions arrivent avec le reste.</p>
+          <p>Nous rassemblons tout ce que la commune publie&nbsp;: les pages de son site, ses PDF, ses actes, ses délibérations, ses comptes rendus, son bulletin, jusqu'aux scans et aux affiches. S'y ajoute ce que vous nous transmettez. Rien n'est encore trié&nbsp;: les doublons et les vieilles versions arrivent avec le&nbsp;reste.</p>
         </li>
         <li class="temps" data-temps="1">
           <span class="temps__n">2</span>
           <h3 class="h3">Lecture</h3>
           <!-- DAJF 08/10/2026 (2) : « que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait foi » remplace « que la Marianne de votre commune peut citer officiellement » -->
-          <p>Le texte de chaque document est extrait, les scans compris, par reconnaissance de caractères. Un arrêté photographié devient un texte que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait&nbsp;foi. Chaque document est daté et classé.</p>
+          <p>Le texte de chaque document est extrait, les scans compris, par reconnaissance de caractères. Un arrêté photographié devient un texte que Marianne peut citer, avec le lien vers l'acte publié, qui seul fait&nbsp;foi. Chaque document est daté et&nbsp;classé.</p>
         </li>
         <li class="temps" data-temps="2">
           <span class="temps__n">3</span>
@@ -1246,12 +1218,12 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
         <li class="temps" data-temps="4">
           <span class="temps__n">5</span>
           <h3 class="h3">Sourçage</h3>
-          <p>Chaque fiche garde sa source et sa date, et chaque réponse la cite. Indexée, la fiche est retrouvée au moment où l'habitant pose sa question. D'un clic, il ouvre le document d'origine&nbsp;: il peut vérifier l'information, ou la compléter par une autre recherche.</p>
+          <p>Chaque fiche garde sa source et sa date, et chaque réponse la cite. Indexée, la fiche est retrouvée au moment où l'habitant pose sa question. D'un clic, il ouvre le document d'origine&nbsp;: il peut vérifier l'information, ou la compléter par une autre&nbsp;recherche.</p>
         </li>
         <li class="temps" data-temps="5">
           <span class="temps__n">6</span>
           <h3 class="h3">L'application</h3>
-          <p>Toutes les fiches rejoignent l'application Marianne, à portée de chaque habitant, de jour comme de nuit. Marianne répond désormais à partir de cette base de connaissances officielle, hébergée en Europe chez OVHcloud, avec le moteur de Mistral&nbsp;; les données de votre commune ne servent qu'à votre commune.</p>
+          <p>Toutes les fiches rejoignent l'application Marianne, à portée de chaque habitant, de jour comme de nuit. Marianne répond désormais à partir de cette base de connaissances officielle, hébergée en Europe chez OVHcloud, avec le moteur de Mistral&nbsp;; les données de votre commune ne servent qu'à votre&nbsp;commune.</p>
         </li>
       </ol>
     </div>
@@ -1263,21 +1235,23 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <h2 class="sr" id="chiffres-titre">La base en chiffres, sur un déploiement de test</h2>
     <ul>
       <!-- DAJF 08/10/2026 (5) : « d'une commune de test » remplace « de votre commune » -->
-      <li data-entree data-releve="site"><span class="chiffres-b__n">Plusieurs milliers</span><span class="chiffres-b__l">de fiches créées à partir du site officiel d'une commune de test, pages, PDF et actes compris, chacune reliée à sa source</span></li>
-      <li data-entree data-releve="curees" style="--d:90ms"><span class="chiffres-b__n">Des dizaines</span><span class="chiffres-b__l">de fiches consolidées, nettoyées et organisées, une par sujet, actes réglementaires compris</span></li>
-      <li data-entree data-releve="nuit" style="--d:180ms"><span class="chiffres-b__n">Chaque nuit</span><span class="chiffres-b__l">le site officiel est parcouru et relu&nbsp;: ce que la mairie publie aujourd'hui, Marianne le saura cette nuit</span></li>
+      <li data-entree data-releve="site"><span class="chiffres-b__n">Plusieurs milliers</span><span class="chiffres-b__l">de fiches créées à partir du site officiel d'une commune de test, pages, PDF et actes compris, chacune reliée à sa&nbsp;source</span></li>
+      <li data-entree data-releve="curees" style="--d:90ms"><span class="chiffres-b__n">Des dizaines</span><span class="chiffres-b__l">de fiches consolidées, nettoyées et organisées, une par sujet, actes réglementaires&nbsp;compris</span></li>
+      <li data-entree data-releve="nuit" style="--d:180ms"><span class="chiffres-b__n">Chaque nuit</span><span class="chiffres-b__l">le site officiel est parcouru et relu&nbsp;: ce que la mairie publie aujourd'hui, Marianne le saura cette&nbsp;nuit</span></li>
+      <!-- Thibaut 14/10/2026 : un seul bandeau de chiffres sur la page ; « 100 % » repris de l'ancienne section « Chiffres clés », retirée -->
+      <li data-entree data-releve="sources" style="--d:270ms"><span class="chiffres-b__n">100&nbsp;%</span><span class="chiffres-b__l">des réponses adossées aux documents de votre&nbsp;commune</span></li>
     </ul>
-    <p class="chiffres-b__note" data-entree data-releve="date">Ordres de grandeur relevés les 25 et 28 septembre 2026 sur un déploiement de test&nbsp;; le nombre dépend de ce que votre commune publie.</p>
+    <p class="chiffres-b__note" data-entree data-releve="date">Ordres de grandeur relevés les 25 et 28 septembre 2026 sur un déploiement de test&nbsp;; le nombre dépend de ce que votre commune&nbsp;publie.</p>
   </div>
 </section>
 
 <section class="sec difference" aria-labelledby="difference-titre">
   <div class="wrap difference__in">
     <h2 class="difference__titre" id="difference-titre" data-mots>Un travail rare, unique et dédié à&nbsp;votre&nbsp;commune</h2>
-    <p class="chapo" data-entree data-difference>Un assistant IA n'est compétent que si ses informations sont vérifiées. Lire un site et s'arrêter là, beaucoup le font. Collecter, lire, nettoyer, consolider et sourcer chaque document de la commune, avec ses agents, puis tenir la base à jour chaque nuit&nbsp;: c'est un travail rare, et c'est le nôtre.</p>
+    <p class="chapo" data-entree data-difference>Un assistant IA n'est compétent que si ses informations sont vérifiées. Lire un site et s'arrêter là, beaucoup le font. Collecter, lire, nettoyer, consolider et sourcer chaque document de la commune, avec ses agents, puis tenir la base à jour chaque nuit&nbsp;: c'est un travail rare, et c'est le&nbsp;nôtre.</p>
     <!-- intégration du 13/10/2026 : le bouton mène à la démonstration de la page (#demo) -->
     <a class="btn btn--plein" href="#demo" data-entree style="--d:200ms"><span>Tester Marianne sur <span class="nb">Villeneuve-les-Ormes</span></span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <p class="difference__note">Villeneuve-les-Ormes est notre commune de démonstration, fictive.</p>
+    <p class="difference__note">Villeneuve-les-Ormes est notre commune de démonstration,&nbsp;fictive.</p>
   </div>
 </section>
 
@@ -1289,8 +1263,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     <!-- Creation de site : offre sur devis, aucun prix affiche -->
     <aside class="creer" aria-labelledby="creerTitre">
       <div>
-        <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? <br>Nous pouvons vous en créer un</h3>
-        <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia peut concevoir le vôtre&nbsp;: simple, lisible sur téléphone, avec Marianne intégrée. Cette offre est nouvelle&nbsp;: nous la construisons avec les premières communes qui la demandent</p>
+        <h3 class="h3" id="creerTitre">Pas de site internet&nbsp;? <br>Nous pouvons vous en créer&nbsp;un</h3>
+        <p style="margin-top:14px">Beaucoup de communes n'ont pas de site, ou un site qui n'est plus à jour. Civik-ia conçoit le vôtre&nbsp;: un site qui vous ressemble, pensé pour la façon dont vos habitants cherchent aujourd'hui, sur leur téléphone comme avec les assistants d'IA, avec Marianne&nbsp;intégrée.</p>
       </div>
       <div class="site" aria-hidden="true">
         <div class="site__barre"><i></i><i></i><i></i><span>www.villeneuve-les-ormes.fr</span></div>
@@ -1313,9 +1287,9 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       <!-- Thibaut 13/10/2026 : renvoi vers l'Atelier (« Parler de mon site » et « Communes rurales : notre offre » remplacés) -->
       <div class="creer__actions">
         <a href="/atelier/#contact" class="btn btn--clair">Demander un devis</a>
-        <a href="/atelier/" class="creer__lien">Découvrir l'atelier</a>
+        <a href="/atelier/" class="creer__lien">Découvrir&nbsp;l'Atelier</a>
       </div>
-      <p class="creer__note">Sur devis, après un premier échange</p>
+      <p class="creer__note">Sur devis, après un premier&nbsp;échange</p>
     </aside>
   </div>
 </section>
@@ -1327,18 +1301,18 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete">
       <h2 class="h2">Une réponse, une source <br>Toujours</h2>
-      <p class="chapo">Chaque réponse de Marianne cite le document officiel dont elle vient&nbsp;: une page de votre site, un arrêté, un article du PLU. D'un clic, le citoyen vérifie par lui-même. C'est ce qui fait la différence entre une réponse et une rumeur</p>
+      <p class="chapo">Chaque réponse de Marianne cite le document officiel dont elle vient&nbsp;: une page de votre site, un arrêté, un article du PLU. D'un clic, le citoyen vérifie par lui-même. C'est ce qui fait la différence entre une réponse et une&nbsp;rumeur</p>
     </div>
 
     <div class="preuves">
       <div class="preuve">
         <p class="preuve__q">Quel jour sortir le bac jaune&nbsp;?</p>
-        <div class="preuve__r">Le bac jaune est collecté <strong>le mercredi matin</strong>, une semaine sur deux. Sortez-le la veille au soir.
-          <div><button type="button" class="source source--btn" aria-expanded="false" aria-controls="apercu1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span><span class="sr">Voir la source&nbsp;: </span>Site de la mairie, page Déchets</span><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+        <div class="preuve__r">Le bac jaune est collecté <strong>le mercredi&nbsp;matin</strong>, une semaine sur deux. Sortez-le la veille au soir.
+          <div><button type="button" class="source source--btn" aria-expanded="false" aria-controls="apercu1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span><span class="sr">Voir la source&nbsp;: </span>Site de la mairie, page&nbsp;Déchets</span><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></div>
           <div class="apercu" id="apercu1">
-            <span class="apercu__t">villeneuve-les-ormes.fr · Vie pratique</span>
-            <span class="apercu__n">Collecte des déchets</span>
-            Ordures ménagères&nbsp;: le lundi. <mark>Bac jaune&nbsp;: le mercredi matin, semaines paires.</mark> Verre&nbsp;: points d'apport volontaire.
+            <span class="apercu__t">villeneuve-les-ormes.fr · Vie&nbsp;pratique</span>
+            <span class="apercu__n">Collecte des&nbsp;déchets</span>
+            Ordures ménagères&nbsp;: le lundi. <mark>Bac jaune&nbsp;: le mercredi matin, semaines paires.</mark> Verre&nbsp;: points d'apport&nbsp;volontaire.
             <span class="apercu__lig" aria-hidden="true"><i></i><i></i></span>
           </div>
         </div>
@@ -1349,7 +1323,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <div><button type="button" class="source source--btn" aria-expanded="false" aria-controls="apercu2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span><span class="sr">Voir la source&nbsp;: </span>Arrêté municipal n°&nbsp;2026-014</span><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></div>
           <div class="apercu" id="apercu2">
             <span class="apercu__t">Arrêté municipal n°&nbsp;2026-014</span>
-            <span class="apercu__n">Lutte contre les bruits de voisinage</span>
+            <span class="apercu__n">Lutte contre les bruits de&nbsp;voisinage</span>
             Article 3. Les travaux de jardinage utilisant des appareils à moteur sont autorisés <mark>les dimanches et jours fériés de 10&nbsp;h à 12&nbsp;h</mark>.
             <span class="apercu__lig" aria-hidden="true"><i></i><i></i></span>
           </div>
@@ -1357,28 +1331,28 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
       </div>
       <div class="preuve">
         <p class="preuve__q">De quelle couleur puis-je repeindre mes volets&nbsp;?</p>
-        <div class="preuve__r">En zone UA, les volets se peignent dans <strong>les teintes du nuancier communal</strong>. Le blanc pur et les teintes vives ne sont pas admis.
+        <div class="preuve__r">En zone UA, les volets se peignent dans <strong>les teintes du nuancier&nbsp;communal</strong>. Le blanc pur et les teintes vives ne sont pas admis.
           <div><button type="button" class="source source--btn" aria-expanded="false" aria-controls="apercu3"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><span><span class="sr">Voir la source&nbsp;: </span>PLU, article UA&nbsp;11</span><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></div>
           <div class="apercu" id="apercu3">
-            <span class="apercu__t">Plan local d'urbanisme · Règlement</span>
-            <span class="apercu__n">Article UA&nbsp;11, aspect extérieur</span>
-            Les menuiseries et volets sont peints <mark>dans les teintes du nuancier annexé au présent règlement</mark>. Le blanc pur et les couleurs vives sont proscrits.
+            <span class="apercu__t">Plan local d'urbanisme ·&nbsp;Règlement</span>
+            <span class="apercu__n">Article UA&nbsp;11, aspect&nbsp;extérieur</span>
+            Les menuiseries et volets sont peints <mark>dans les teintes du nuancier annexé au présent règlement</mark>. Le blanc pur et les couleurs vives sont&nbsp;proscrits.
             <span class="apercu__lig" aria-hidden="true"><i></i><i></i></span>
           </div>
         </div>
       </div>
     </div>
-    <p class="preuves__note">Exemples sur Villeneuve-les-Ormes, notre commune de démonstration</p>
+    <p class="preuves__note">Exemples sur Villeneuve-les-Ormes, notre commune de&nbsp;démonstration</p>
 
     <div class="doute">
       <div class="doute__texte">
         <h3 class="h3">Et quand elle ne sait pas&nbsp;?</h3>
-        <p><strong style="color:var(--encre)">Elle le dit.</strong> Marianne n'invente jamais&nbsp;: si l'information n'est pas dans vos documents, elle oriente vers le bon service, vos horaires ou votre formulaire de contact. La question est notée, pour que vous complétiez votre site&nbsp;; l'espace mairie, en cours de construction, vous la montrera</p>
+        <p><strong style="color:var(--encre)">Elle le&nbsp;dit.</strong> Marianne n'invente jamais&nbsp;: si l'information n'est pas dans vos documents, elle oriente vers le bon service, vos horaires ou votre formulaire de contact. La question est notée, pour que vous complétiez votre site&nbsp;; l'espace mairie vous la&nbsp;montrera</p>
       </div>
       <div class="preuve">
         <p class="preuve__q">Le prochain conseil municipal, c'est quel jour&nbsp;?</p>
         <div class="preuve__r">Je n'ai pas cette information dans les documents de la mairie. Le secrétariat pourra vous répondre au 02&nbsp;61&nbsp;91&nbsp;40&nbsp;00, du lundi au vendredi, de 9&nbsp;h à 12&nbsp;h et de 14&nbsp;h à 17&nbsp;h&nbsp;30</div>
-        <span class="doute__suivi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 5h13l-2.5 4L17 13H4"/></svg>Question notée pour la mairie</span>
+        <span class="doute__suivi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 5h13l-2.5 4L17 13H4"/></svg>Question notée pour la&nbsp;mairie</span>
       </div>
     </div>
   </div>
@@ -1392,8 +1366,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec nuit canaux" id="canaux">
   <div class="wrap">
     <div class="tete tete--c" style="margin-bottom:0">
-      <h2 class="h2">Une seule Marianne <br>Partout où sont vos citoyens</h2>
-      <p class="chapo">Même cerveau, mêmes sources, même ton, quel que soit le canal. Vous mettez à jour une information une fois&nbsp;: elle est juste partout</p>
+      <h2 class="h2">Une seule Marianne <br>Partout où sont vos&nbsp;citoyens</h2>
+      <p class="chapo">Même cerveau, mêmes sources, même ton, quel que soit le canal. Vous mettez à jour une information une fois&nbsp;: elle est juste&nbsp;partout</p>
     </div>
 
     <div class="canaux__zone" id="canauxZone">
@@ -1418,8 +1392,8 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
               </div>
             </div>
           </div>
-          <div class="canal__tete"><h3 data-canal-titre>Sur votre site</h3><span class="etat" data-canal-badge data-etat="disponible">Disponible</span></div>
-          <p>Un bouton «&nbsp;Une question&nbsp;?&nbsp;» sur chaque page et un onglet dans votre menu. Un clic, Marianne s'ouvre et répond. Nous fournissons le code, votre webmaster le colle en deux minutes</p>
+          <div class="canal__tete"><h3 data-canal-titre>Sur votre&nbsp;site</h3><span class="etat" data-canal-badge data-etat="disponible">Disponible</span></div>
+          <p>Un bouton «&nbsp;Une question&nbsp;?&nbsp;» sur chaque page et un onglet dans votre menu. Un clic, Marianne s'ouvre et répond. Nous fournissons le code, votre webmaster le colle en deux&nbsp;minutes</p>
         </li>
 
         <!-- Sur smartphone : l'application web de la commune (PWA), installee sous le nom « Marianne - {Ville} ». -->
@@ -1431,37 +1405,37 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
               <i></i><i></i><i></i><i></i>
             </div>
           </div>
-          <div class="canal__tete"><h3 data-canal-titre>Sur votre smartphone</h3><span class="etat" data-canal-badge data-etat="disponible">Disponible</span></div>
-          <p>Une application dédiée, installée en un geste depuis votre site ou un QR code. Vos citoyens gardent la Marianne de leur ville dans la poche, tous les jours</p>
+          <div class="canal__tete"><h3 data-canal-titre>Sur votre&nbsp;smartphone</h3><span class="etat" data-canal-badge data-etat="disponible">Disponible</span></div>
+          <p>Une application dédiée, installée en un geste depuis votre site ou un QR code. Vos citoyens gardent la Marianne de leur ville dans la poche, tous les&nbsp;jours</p>
         </li>
 
         <li class="canal" data-canal="whatsapp">
           <div class="canal__ecran" aria-hidden="true">
             <div class="ecr-msg ecr-msg--w">
-              <div class="ecr-msg__t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2e6b2a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Mairie de Villeneuve-les-Ormes</div>
+              <div class="ecr-msg__t"><svg class="plume-ic plume-ic--fixe" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:#2e6b2a"><path d="M5.17 16.42C3.05 12.6 4.12 7.31 8.27 4.68C12.43 2.06 18.21 3.12 20.57 7.55C22.62 11.52 21.05 16.66 16.92 18.83C14.03 20.36 10.45 20.24 7.73 18.62L3.36 20.66L5.02 16.06"/><path d="M9.06 8.27C8.36 8.78 8.23 9.93 8.96 11.33C9.88 13.12 11.47 14.62 13.28 15.33C14.47 15.79 15.42 15.52 15.92 14.87L16.06 14.18L14.52 13.31L13.62 14.02C12.42 13.55 11.17 12.38 10.6 11.21L11.31 10.33L10.52 8.62L9.68 8.12"/></svg>Mairie de Villeneuve-les-Ormes</div>
               <div class="b b--moi">Bonjour, c'est quand les encombrants&nbsp;?</div>
-              <div class="b b--m">Le premier jeudi du mois, sur inscription en mairie.<small>Source&nbsp;: calendrier des déchets</small></div>
+              <div class="b b--m">Le premier jeudi du mois, sur inscription en mairie.<small>Source&nbsp;: calendrier des&nbsp;déchets</small></div>
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>WhatsApp</h3><span class="etat" data-canal-badge data-etat="bientot">Bientôt</span></div>
           <!-- La phrase au present vit dans marianne.js (AU_PRESENT) : un robot qui lit le HTML ne doit pas croire le canal ouvert -->
-          <p data-canal-phrase>Vos citoyens écriront à leur mairie comme à un proche. Marianne arrive dans la conversation</p>
-          <p class="canal__meta">Messages acheminés par les serveurs de Meta</p>
-          <a class="lien canal__lien" href="/marianne-whatsapp.html">Marianne sur WhatsApp</a>
+          <p data-canal-phrase>Vos citoyens écriront à leur mairie comme à un proche. Marianne arrive dans la&nbsp;conversation</p>
+          <p class="canal__meta">Messages acheminés par les serveurs&nbsp;de&nbsp;Meta</p>
+          <a class="lien canal__lien" href="/marianne-whatsapp.html"><span class="canal__ic"><svg class="plume-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.17 16.42C3.05 12.6 4.12 7.31 8.27 4.68C12.43 2.06 18.21 3.12 20.57 7.55C22.62 11.52 21.05 16.66 16.92 18.83C14.03 20.36 10.45 20.24 7.73 18.62L3.36 20.66L5.02 16.06"/><path d="M9.06 8.27C8.36 8.78 8.23 9.93 8.96 11.33C9.88 13.12 11.47 14.62 13.28 15.33C14.47 15.79 15.42 15.52 15.92 14.87L16.06 14.18L14.52 13.31L13.62 14.02C12.42 13.55 11.17 12.38 10.6 11.21L11.31 10.33L10.52 8.62L9.68 8.12"/></svg></span>Marianne sur&nbsp;WhatsApp</a>
         </li>
 
         <li class="canal" data-canal="messenger">
           <div class="canal__ecran" aria-hidden="true">
             <div class="ecr-msg ecr-msg--f">
-              <div class="ecr-msg__t"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a63e0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/><polyline points="8 13 11 10 13 12 16 9"/></svg>Commune de Villeneuve-les-Ormes</div>
+              <div class="ecr-msg__t"><svg class="plume-ic plume-ic--fixe" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:#3a63e0"><path d="M12.08 3.41C17.13 3.28 20.92 6.93 20.83 11.48C20.74 16.12 16.88 19.42 12.03 19.33C11.02 19.31 10.08 19.17 9.18 18.88L5.92 20.71L5.83 17.31C4.02 15.82 3.11 13.79 3.19 11.42C3.31 6.91 7.02 3.49 12.62 3.46"/><path d="M7.42 13.58L10.68 10.12L13.21 12.38L16.62 9.08"/></svg>Commune de Villeneuve-les-Ormes</div>
               <div class="b b--moi">La médiathèque est ouverte demain&nbsp;?</div>
-              <div class="b b--m">Non, elle est fermée le dimanche. Elle rouvre mardi à 14&nbsp;h.<small>Source&nbsp;: page Médiathèque</small></div>
+              <div class="b b--m">Non, elle est fermée le dimanche. Elle rouvre mardi à 14&nbsp;h.<small>Source&nbsp;: page&nbsp;Médiathèque</small></div>
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>Messenger</h3><span class="etat" data-canal-badge data-etat="bientot">Bientôt</span></div>
-          <p data-canal-phrase>Les messages privés de la page Facebook de la commune recevront enfin une réponse, même le week-end</p>
-          <p class="canal__meta">Messages acheminés par les serveurs de Meta</p>
-          <a class="lien canal__lien" href="/marianne-messenger.html">Marianne sur Messenger</a>
+          <p data-canal-phrase>Les messages privés de la page Facebook de la commune recevront enfin une réponse, même le&nbsp;week-end</p>
+          <p class="canal__meta">Messages acheminés par les serveurs&nbsp;de&nbsp;Meta</p>
+          <a class="lien canal__lien" href="/marianne-messenger.html"><span class="canal__ic"><svg class="plume-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.08 3.41C17.13 3.28 20.92 6.93 20.83 11.48C20.74 16.12 16.88 19.42 12.03 19.33C11.02 19.31 10.08 19.17 9.18 18.88L5.92 20.71L5.83 17.31C4.02 15.82 3.11 13.79 3.19 11.42C3.31 6.91 7.02 3.49 12.62 3.46"/><path d="M7.42 13.58L10.68 10.12L13.21 12.38L16.62 9.08"/></svg></span>Marianne sur&nbsp;Messenger</a>
         </li>
 
         <li class="canal" data-canal="qr">
@@ -1475,7 +1449,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             </div>
           </div>
           <div class="canal__tete"><h3 data-canal-titre>QR code &amp; affichage</h3><span class="etat" data-canal-badge data-etat="disponible">Disponible</span></div>
-          <p>À l'accueil, sur le bulletin municipal, sur les panneaux&nbsp;: un scan, et la conversation commence</p>
+          <p>À l'accueil, sur le bulletin municipal, sur les panneaux&nbsp;: un scan, et la conversation&nbsp;commence</p>
         </li>
       </ul>
       <div class="canaux__fleches">
@@ -1485,7 +1459,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
     </div>
 
     <!-- Mention Meta : affichee tant que WhatsApp ou Messenger est annonce -->
-    <p class="canaux__note" id="noteMeta" data-meta>Sur WhatsApp et Messenger, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta</p>
+    <p class="canaux__note" id="noteMeta" data-meta>Sur WhatsApp et Messenger, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par&nbsp;Meta</p>
   </div>
 </section>
 
@@ -1495,27 +1469,27 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec" id="how">
   <div class="wrap">
     <div class="tete tete--c">
-      <h2 class="h2">Une mise en service <br>en quelques semaines, pas en sept mois</h2>
+      <h2 class="h2">Une mise en service <br>en quelques semaines, pas en sept&nbsp;mois</h2>
     </div>
     <div class="frise" id="frise">
       <div class="frise__rail" aria-hidden="true"></div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">01</div>
-        <h3 class="h3">On cadre le projet ensemble</h3>
-        <p>Nous cadrons ensemble votre projet et réunissons vos sources&nbsp;: l'intégralité de votre site internet (si vous n'en avez pas, nous pouvons en concevoir un) et les documents disponibles, PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du reste</p>
-        <p class="etape__detail"><strong>Pas de pré-requis technique.</strong> Word, PDF, scan&nbsp;: tout est digéré par notre moteur</p>
+        <h3 class="h3">On cadre le projet&nbsp;ensemble</h3>
+        <p>Nous cadrons ensemble votre projet et réunissons vos sources&nbsp;: l'intégralité de votre site internet (si vous n'en avez pas, nous pouvons en concevoir un) et les documents disponibles, PLU, arrêtés, horaires, contacts, délibérations, calendrier des déchets. Un simple dossier partagé, on se charge du&nbsp;reste</p>
+        <p class="etape__detail"><strong>Pas de pré-requis&nbsp;technique.</strong> Word, PDF, scan&nbsp;: tout est digéré par notre&nbsp;moteur</p>
       </div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">02</div>
-        <h3 class="h3">On entraîne votre IA souveraine</h3>
-        <p>Un assistant virtuel formé <strong>uniquement</strong> sur vos données, hébergé en Europe chez OVHcloud, propulsé par Mistral AI</p>
-        <p class="etape__detail"><strong>Vos données restent en Europe.</strong> Jamais réutilisées pour entraîner d'autres modèles</p>
+        <h3 class="h3">On entraîne votre IA&nbsp;souveraine</h3>
+        <p>Un assistant virtuel formé <strong>uniquement</strong> sur vos données, hébergé en Europe chez OVHcloud, propulsé par Mistral&nbsp;AI</p>
+        <p class="etape__detail"><strong>Vos données restent en&nbsp;Europe.</strong> Jamais réutilisées pour entraîner d'autres&nbsp;modèles</p>
       </div>
       <div class="etape">
         <div class="etape__num" aria-hidden="true">03</div>
-        <h3 class="h3">Vos citoyens obtiennent des réponses</h3>
-        <p><span id="howCanaux">Depuis votre site, leur smartphone ou un QR code en mairie. Bientôt sur WhatsApp et Messenger.</span> Avec le ton, la signature et les sources de votre commune</p>
-        <p class="etape__detail"><strong>Mise en ligne en quelques semaines.</strong> Sous le seuil de mise en concurrence</p>
+        <h3 class="h3">Vos citoyens obtiennent des&nbsp;réponses</h3>
+        <p><span id="howCanaux">Depuis votre site, leur smartphone ou un QR code en mairie. Bientôt sur WhatsApp et&nbsp;Messenger.</span> Avec le ton, la signature et les sources de votre&nbsp;commune</p>
+        <p class="etape__detail"><strong>Mise en ligne en quelques&nbsp;semaines.</strong> Sous le seuil de mise en&nbsp;concurrence</p>
       </div>
     </div>
   </div>
@@ -1527,18 +1501,18 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec sec--2" id="demo">
   <div class="wrap demo__grille">
     <div>
-      <h2 class="h2">Posez-lui <br>une question</h2>
-      <p class="chapo">Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez&nbsp;: Marianne répond avec les données d'une commune de démonstration</p>
+      <h2 class="h2">Posez-lui <br>une&nbsp;question</h2>
+      <p class="chapo">Voici quelques questions que votre secrétariat reçoit vraiment. Cliquez&nbsp;: Marianne répond avec les données d'une commune de&nbsp;démonstration</p>
       <div class="puces" id="demoPuces" role="group" aria-label="Questions d'exemple">
         <button type="button" class="puce" data-q="1" aria-pressed="true">Un abri de jardin de 12&nbsp;m², il me faut un permis&nbsp;?</button>
         <button type="button" class="puce" data-q="2" aria-pressed="false">J'emménage le mois prochain, que dois-je faire&nbsp;?</button>
         <button type="button" class="puce" data-q="3" aria-pressed="false">La collecte tombe un jour férié, elle est maintenue&nbsp;?</button>
         <button type="button" class="puce" data-q="4" aria-pressed="false">La coupure d'eau de mardi, c'est toujours prévu&nbsp;?</button>
-        <button type="button" class="puce" data-q="5" aria-pressed="false">Un lampadaire est en panne rue du Moulin</button>
+        <button type="button" class="puce" data-q="5" aria-pressed="false">Un lampadaire est en panne rue du&nbsp;Moulin</button>
       </div>
       <div class="demo__suite">
         <a href="/demo" class="btn btn--plein">Tester la démo complète <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <small>Marianne pour les habitants, sur une commune fictive et sans inscription</small>
+        <small>Marianne pour les habitants, sur une commune fictive et sans&nbsp;inscription</small>
       </div>
     </div>
     <div class="demo__tel">
@@ -1547,13 +1521,13 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <div class="tel__barre" aria-hidden="true"><span>22:47</span><span class="tel__encoche"></span><span class="tel__reseau"><i></i><i></i><i></i></span></div>
           <div class="tel__tete">
             <img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32" loading="lazy">
-            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
+            <div><strong>Mairie de&nbsp;Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
           </div>
           <ol class="tel__fil" id="demoFil" aria-live="polite">
             <li class="msg msg--moi"><div class="bulle">Je veux installer un abri de jardin de 12&nbsp;m². Il me faut un permis de construire&nbsp;?</div></li>
-            <li class="msg msg--m"><div class="bulle">Non. Entre 5 et 20&nbsp;m², une <strong>déclaration préalable</strong> suffit, à déposer en mairie ou en ligne. Dans votre zone (UB), l'abri doit rester à 3&nbsp;m des limites séparatives et ne pas dépasser 3,50&nbsp;m de haut<span class="source"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Source&nbsp;: PLU, articles UB 7 et UB 10, et service-public.fr</span></div></li>
+            <li class="msg msg--m"><div class="bulle">Non. Entre 5 et 20&nbsp;m², une <strong>déclaration&nbsp;préalable</strong> suffit, à déposer en mairie ou en ligne. Dans votre zone (UB), l'abri doit rester à 3&nbsp;m des limites séparatives et ne pas dépasser 3,50&nbsp;m de haut<span class="source"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>Source&nbsp;: PLU, articles UB 7 et UB 10, et&nbsp;service-public.fr</span></div></li>
           </ol>
-          <div class="tel__champ" aria-hidden="true"><span>Posez votre question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
+          <div class="tel__champ" aria-hidden="true"><span>Posez votre&nbsp;question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
         </div>
       </figure>
     </div>
@@ -1561,54 +1535,42 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 </section>
 
 <!-- =====================================================================
-     6.7 L'ESPACE MAIRIE (D97 du 09/10/2026 : produit a deux faces ; l'espace mairie
-     est en cours de construction)
+     6.7 L'ESPACE MAIRIE (D97 du 09/10/2026 : produit a deux faces ; le tableau de bord
+     sera adapte aux besoins de chaque commune, Thibaut 14/10/2026)
      ===================================================================== -->
 <section class="sec" id="espace-mairie">
   <div class="wrap">
     <div class="camp__haut">
       <div>
-        <span class="sur">L'espace mairie</span>
-        <h2 class="h2">Le tableau de bord <br>de la commune</h2>
-        <p class="chapo">Les questions de vos habitants, les sujets qui reviennent, les réponses justes et les erreurs connues, ce que votre site ne dit pas, et les sources de Marianne&nbsp;: au même endroit, pour la mairie</p>
-        <p class="espace__etat"><span class="etat" data-etat="bientot">En cours de construction</span><span>Il ouvrira après les réglages de sécurité</span></p>
+        <span class="sur">L'espace&nbsp;mairie</span>
+        <h2 class="h2">Le tableau de bord <br>de la&nbsp;commune</h2>
+        <p class="chapo">Les questions de vos habitants, les sujets qui reviennent, les réponses justes et les erreurs connues, ce que votre site ne dit pas, et les sources de Marianne&nbsp;: au même endroit, pour la&nbsp;mairie</p>
+        <p class="espace__etat">Ce tableau de bord sera adapté aux besoins de chaque&nbsp;commune.</p>
       </div>
       <div class="camp__points">
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
-          <div><b>Ce que les habitants demandent</b><p>Les questions posées à Marianne et les sujets qui reviennent</p></div>
+          <div><b>Ce que les habitants&nbsp;demandent</b><p>Les questions posées à Marianne et les sujets qui&nbsp;reviennent</p></div>
         </div>
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
-          <div><b>Où Marianne se trompe</b><p>La justesse mesurée sur des questions de test, et chaque erreur connue, corrigée puis remesurée</p></div>
+          <div><b>Où Marianne se&nbsp;trompe</b><p>La justesse mesurée sur des questions de test, et chaque erreur connue, corrigée puis&nbsp;remesurée</p></div>
         </div>
         <div class="camp__point">
           <span class="camp__ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9.5 13.5a2.5 2.5 0 1 1 3.2 2.4c-.5.2-.7.5-.7 1"/></svg></span>
-          <div><b>Ce que votre site ne dit pas</b><p>Les questions restées sans réponse, pour compléter vos pages</p></div>
+          <div><b>Ce que votre site ne dit&nbsp;pas</b><p>Les questions restées sans réponse, pour compléter vos&nbsp;pages</p></div>
         </div>
       </div>
     </div>
 
     <div class="camp__vs">
       <div>
-        <h3 class="h3">Diffuser n'est pas répondre</h3>
-        <p>Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent&nbsp;; un seul crée le dialogue</p>
+        <h3 class="h3">Diffuser n'est pas&nbsp;répondre</h3>
+        <p>Les panneaux d'affichage numériques diffusent l'information dans un seul sens. Marianne, elle, répond à la question de chaque citoyen, à l'heure où il la pose. Les deux se complètent&nbsp;; un seul crée le&nbsp;dialogue</p>
       </div>
-      <a href="/comparatif-chatbot-mairie-2026.html" class="btn btn--filet">Voir le comparatif 2026</a>
+      <a href="/comparatif-chatbot-mairie-2026.html" class="btn btn--filet">Voir le comparatif&nbsp;2026</a>
     </div>
   </div>
-</section>
-
-<!-- =====================================================================
-     6.8 CHIFFRES CLES
-     ===================================================================== -->
-<section class="chiffres" aria-label="Marianne en quatre chiffres">
-  <ul id="chiffres">
-    <li><span class="chiffre__n" data-compte="3" data-suffixe="&nbsp;s">3&nbsp;s</span><span class="chiffre__l">pour répondre, jour et nuit, avec la source citée</span></li>
-    <li><span class="chiffre__n" data-compte="100" data-suffixe="&nbsp;%">100&nbsp;%</span><span class="chiffre__l">des réponses adossées aux documents de votre commune. Zéro poste supprimé</span></li>
-    <li><span class="chiffre__n" data-compte="24" data-suffixe="/7">24/7</span><span class="chiffre__l">disponible. Dimanche, férié, 3 h du matin</span></li>
-    <li><span class="chiffre__n" data-compte="300">300</span><span class="chiffre__l">questions de test pour mesurer Marianne avant l'ouverture. Sans cahier des charges à 40 pages</span></li>
-  </ul>
 </section>
 
 <!-- =====================================================================
@@ -1617,32 +1579,32 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec" id="pour-qui">
   <div class="wrap">
     <div class="tete tete--c">
-      <h2 class="h2">Côté citoyen, côté mairie&nbsp;: <br>un seul outil</h2>
+      <h2 class="h2">Côté citoyen, côté mairie&nbsp;: <br>un seul&nbsp;outil</h2>
     </div>
     <div class="qui">
       <div class="profil rv">
         <div>
-          <div class="profil__tag">Pour le citoyen</div>
-          <h3>Une réponse, pas un répondeur</h3>
-          <p>Fini les allers-retours en mairie. Une question, une réponse claire, avec la source de l'information</p>
+          <div class="profil__tag">Pour le&nbsp;citoyen</div>
+          <h3>Une réponse, pas un&nbsp;répondeur</h3>
+          <p>Fini les allers-retours en mairie. Une question, une réponse claire, avec la source de&nbsp;l'information</p>
         </div>
         <ul class="coches">
-          <li>Disponible 24&nbsp;h/24, même dimanche et jours fériés</li>
-          <li>Réponses signées avec la source officielle (PLU, arrêté…)</li>
-          <li>Vouvoiement, ton institutionnel, rien de robotique</li>
-          <li id="quiCanaux">Sur le site, sur smartphone ou par QR code en mairie, et bientôt sur WhatsApp et Messenger</li>
+          <li>Disponible 24&nbsp;h/24, même dimanche et jours&nbsp;fériés</li>
+          <li>Réponses signées avec la source officielle (PLU,&nbsp;arrêté…)</li>
+          <li>Vouvoiement, ton institutionnel, rien de&nbsp;robotique</li>
+          <li id="quiCanaux">Sur le site, sur smartphone ou par QR code en mairie, et bientôt sur WhatsApp et&nbsp;Messenger</li>
         </ul>
       </div>
       <div class="profil rv" style="--o:1">
         <div>
-          <div class="profil__tag">Pour le maire &amp; le DGS</div>
-          <h3>Recentrez vos agents sur ce qui compte</h3>
-          <p>70 à 80&nbsp;% des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la différence</p>
+          <div class="profil__tag">Pour le maire &amp; le&nbsp;DGS</div>
+          <h3>Recentrez vos agents sur ce qui&nbsp;compte</h3>
+          <p>70 à 80&nbsp;% des questions se répètent. Laissez-les à Marianne. Gardez vos équipes pour l'accueil humain qui fait la&nbsp;différence</p>
         </div>
         <ul class="coches">
-          <li>L'espace mairie&nbsp;: questions des habitants, sujets, erreurs connues (en construction)</li>
-          <li>Une mise en service mesurée, validée par vos agents avant l'ouverture</li>
-          <li>Budget maîtrisé, sous le seuil de mise en concurrence</li>
+          <li>L'espace mairie&nbsp;: questions des habitants, sujets, erreurs&nbsp;connues</li>
+          <li>Une mise en service mesurée, validée par vos agents avant&nbsp;l'ouverture</li>
+          <li>Budget maîtrisé, sous le seuil de mise en&nbsp;concurrence</li>
         </ul>
       </div>
     </div>
@@ -1655,33 +1617,33 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec sec--2 vs" id="comparer">
   <div class="wrap">
     <div class="tete tete--c">
-      <h2 class="h2">Trois familles d'outils, <br>trois usages</h2>
-      <p class="chapo">Panneaux de diffusion, chatbots génériques, plateforme citoyenne&nbsp;: voici ce que chaque famille sait faire, pour choisir en connaissance de cause</p>
+      <h2 class="h2">Trois familles d'outils, <br>trois&nbsp;usages</h2>
+      <p class="chapo">Panneaux de diffusion, chatbots génériques, plateforme citoyenne&nbsp;: voici ce que chaque famille sait faire, pour choisir en connaissance de&nbsp;cause</p>
     </div>
     <div class="vs__cadre" role="region" aria-label="Comparaison par familles d'outils" tabindex="0">
       <table>
         <caption class="sr">Ce que savent faire Marianne, les outils de diffusion et les chatbots génériques</caption>
         <thead>
           <tr>
-            <th scope="col">Ce dont votre commune a besoin</th>
+            <th scope="col">Ce dont votre commune a&nbsp;besoin</th>
             <th scope="col" class="col-m">Marianne</th>
-            <th scope="col">Outils de diffusion</th>
-            <th scope="col">Chatbots génériques</th>
+            <th scope="col">Outils de&nbsp;diffusion</th>
+            <th scope="col">Chatbots&nbsp;génériques</th>
           </tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Répondre aux questions de chaque citoyen, 24&nbsp;h/24</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td></tr>
-          <tr><th scope="row">Diffuser une information sur plusieurs canaux</th><td class="col-m"><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td></tr>
-          <tr><th scope="row">Réponses sourcées sur vos documents (PLU, arrêtés, délibérations)</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
-          <tr><th scope="row">Formé sur l'intégralité du site de la commune</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
-          <tr><th scope="row">Multicanal&nbsp;: site, application mobile, QR code</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
-          <tr><th scope="row">IA souveraine affichée&nbsp;: modèle français, hébergement UE</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
-          <tr><th scope="row">Aucun compte ni application imposés au citoyen</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">Répondre aux questions de chaque citoyen, 24&nbsp;h/24</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td><td><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td></tr>
+          <tr><th scope="row">Diffuser une information sur plusieurs&nbsp;canaux</th><td class="col-m"><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td><td><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td></tr>
+          <tr><th scope="row">Réponses sourcées sur vos documents (PLU, arrêtés,&nbsp;délibérations)</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">Formé sur l'intégralité du site de la&nbsp;commune</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">Multicanal&nbsp;: site, application mobile, QR&nbsp;code</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">IA souveraine affichée&nbsp;: modèle français, hébergement&nbsp;UE</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
+          <tr><th scope="row">Aucun compte ni application imposés au&nbsp;citoyen</th><td class="col-m"><span class="sym sym--oui" aria-hidden="true">✓</span><span class="sr">Inclus</span></td><td><span class="sym sym--non" aria-hidden="true">✗</span><span class="sr">Pas prévu pour&nbsp;cela</span></td><td><span class="sym sym--pm" aria-hidden="true">±</span><span class="sr">Partiel</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="vs__leg"><span><span class="sym sym--oui" aria-hidden="true">✓</span>inclus</span><span><span class="sym sym--pm" aria-hidden="true">±</span>partiel, en option ou selon éditeur</span><span><span class="sym sym--non" aria-hidden="true">✗</span>pas prévu pour cela</span><span>Lecture par grandes familles d'outils du marché 2026</span></p>
-    <p class="vs__plus"><a class="lien" href="/comparatif-chatbot-mairie-2026.html">Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket, Generia)</a></p>
+    <p class="vs__leg"><span><span class="sym sym--oui" aria-hidden="true">✓</span>inclus</span><span><span class="sym sym--pm" aria-hidden="true">±</span>partiel, en option ou selon&nbsp;éditeur</span><span><span class="sym sym--non" aria-hidden="true">✗</span>pas prévu pour&nbsp;cela</span><span>Lecture par grandes familles d'outils du marché&nbsp;2026</span></p>
+    <p class="vs__plus"><a class="lien" href="/comparatif-chatbot-mairie-2026.html">Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket,&nbsp;Generia)</a></p>
   </div>
 </section>
 
@@ -1691,13 +1653,13 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="stack" aria-labelledby="stackTitre">
   <div class="stack__in">
     <div>
-      <h2 id="stackTitre">Le cerveau de Marianne est 100&nbsp;% européen</h2>
-      <p class="stack__sous">Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres modèles</p>
+      <h2 id="stackTitre">Le cerveau de Marianne est 100&nbsp;%&nbsp;européen</h2>
+      <p class="stack__sous">Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres&nbsp;modèles</p>
     </div>
     <div class="stack__logos">
-      <div class="stack__logo"><b>OVHcloud</b><span>Hébergement en Europe</span></div>
-      <div class="stack__logo"><b>Mistral AI</b><span>Moteur IA européen</span></div>
-      <div class="stack__logo"><b>BAN Gouv.</b><span>Adresses officielles</span></div>
+      <div class="stack__logo"><b>OVHcloud</b><span>Hébergement en&nbsp;Europe</span></div>
+      <div class="stack__logo"><b>Mistral&nbsp;AI</b><span>Moteur IA&nbsp;européen</span></div>
+      <div class="stack__logo"><b>BAN&nbsp;Gouv.</b><span>Adresses&nbsp;officielles</span></div>
     </div>
   </div>
 </section>
@@ -1708,69 +1670,69 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec" id="pricing">
   <div class="wrap">
     <div class="tete tete--c">
-      <span class="sur">Tarifs transparents, hors taxes</span>
-      <h2 class="h2">Taillé pour <br>votre commune</h2>
-      <p class="chapo">Sans engagement. Sans frais d'installation cachés. Toujours sous le seuil de mise en concurrence</p>
+      <span class="sur">Tarifs transparents, hors&nbsp;taxes</span>
+      <h2 class="h2">Taillé pour <br>votre&nbsp;commune</h2>
+      <p class="chapo">Le prix convenu au devis est celui que vous payez&nbsp;: aucun frais d'installation caché, aucun coût&nbsp;additionnel.</p>
     </div>
 
     <div class="plans">
       <div class="plan rv">
-        <div class="plan__tag">Pour démarrer</div>
+        <div class="plan__tag">Pour&nbsp;démarrer</div>
         <h3>Essentiel</h3>
-        <p class="plan__taille">Communes &lt; 5&nbsp;000 habitants</p>
-        <div class="plan__prix"><span class="n">49</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
-        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule fois</div>
+        <p class="plan__taille">Communes &lt; 5&nbsp;000&nbsp;habitants</p>
+        <div class="plan__prix"><span class="n n--devis">Sur devis</span><span class="ht">selon la taille de votre commune</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule&nbsp;fois</div>
         <ul class="plan__liste">
-          <li>Marianne pour les habitants, 24&nbsp;h sur 24</li>
-          <li>Pilotage avec vos équipes, compris dans l'abonnement&nbsp;: l'espace mairie (en construction), la relecture, avec vos agents, des questions types et des corrections, la formation à distance</li>
-          <li>Support par courriel</li>
+          <li>Marianne pour les habitants, 24&nbsp;h sur&nbsp;24</li>
+          <li>Pilotage avec vos équipes, compris dans l'abonnement&nbsp;: l'espace mairie, la relecture, avec vos agents, des questions types et des corrections, la formation à&nbsp;distance</li>
+          <li>Support par&nbsp;courriel</li>
         </ul>
-        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre Essentiel</span></a>
+        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre&nbsp;Essentiel</span></a>
       </div>
       <div class="plan plan--choisi rv" style="--o:1">
         <div class="plan__tag">Recommandé</div>
         <h3>Engagement</h3>
-        <p class="plan__taille">Communes 5&nbsp;000 à 20&nbsp;000 hab.</p>
-        <div class="plan__prix"><span class="n">99</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
-        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule fois</div>
+        <p class="plan__taille">Communes 5&nbsp;000 à 20&nbsp;000&nbsp;hab.</p>
+        <div class="plan__prix"><span class="n n--devis">Sur devis</span><span class="ht">selon la taille de votre commune</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule&nbsp;fois</div>
         <ul class="plan__liste">
-          <li>Tout Essentiel, à l'identique</li>
-          <li>Support prioritaire</li>
-          <li>Le prix suit la taille de la commune</li>
+          <li>Tout Essentiel, à&nbsp;l'identique</li>
+          <li>Support&nbsp;prioritaire</li>
+          <li>Le prix suit la taille de la&nbsp;commune</li>
         </ul>
-        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre Engagement</span></a>
+        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre&nbsp;Engagement</span></a>
       </div>
       <div class="plan rv" style="--o:2">
         <div class="plan__tag">Communes-villes</div>
         <h3>Pilotage</h3>
-        <p class="plan__taille">Communes 20&nbsp;000 à 50&nbsp;000 hab.</p>
-        <div class="plan__prix"><span class="n">199</span><span class="par">€/mois</span><span class="ht">HT, sans engagement</span></div>
-        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule fois</div>
+        <p class="plan__taille">Communes 20&nbsp;000 à 50&nbsp;000&nbsp;hab.</p>
+        <div class="plan__prix"><span class="n n--devis">Sur devis</span><span class="ht">selon la taille de votre commune</span></div>
+        <div class="plan__mes">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis, une seule&nbsp;fois</div>
         <ul class="plan__liste">
-          <li>Tout Engagement, à l'identique</li>
-          <li>Pas de module en plus</li>
-          <li>Le prix suit la taille de la commune</li>
+          <li>Tout Engagement, à&nbsp;l'identique</li>
+          <li>Pas de module en&nbsp;plus</li>
+          <li>Le prix suit la taille de la&nbsp;commune</li>
         </ul>
-        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre Pilotage</span></a>
+        <a href="#contact" class="plan__cta">Commencer<span class="sr"> avec l'offre&nbsp;Pilotage</span></a>
       </div>
       <div class="plan rv" style="--o:3">
-        <div class="plan__tag">Sur mesure</div>
-        <h3>Sur devis</h3>
-        <p class="plan__taille">&gt; 50&nbsp;000 hab. &amp; intercommunalités</p>
+        <div class="plan__tag">Sur&nbsp;mesure</div>
+        <h3>Sur&nbsp;devis</h3>
+        <p class="plan__taille">&gt; 50&nbsp;000 hab. &amp;&nbsp;intercommunalités</p>
         <div class="plan__prix"><span class="n n--devis">Devis</span><span class="ht">Départements · Régions</span></div>
         <ul class="plan__liste">
-          <li>Plusieurs communes, un seul contrat</li>
-          <li>Architecture dédiée</li>
-          <li>SLA renforcé</li>
-          <li>Chef de projet dédié</li>
+          <li>Plusieurs communes, un seul&nbsp;contrat</li>
+          <li>Architecture&nbsp;dédiée</li>
+          <li>SLA&nbsp;renforcé</li>
+          <li>Chef de projet&nbsp;dédié</li>
         </ul>
-        <a href="#contact" class="plan__cta">Parler à un humain</a>
+        <a href="#contact" class="plan__cta">Parler à un&nbsp;humain</a>
       </div>
     </div>
 
     <p class="tarifs__site">Pas de site internet&nbsp;? Nous pouvons vous en créer un. <a class="lien" href="#contact">Parlons-en <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
-    <p class="tarifs__site" style="margin-top:12px">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite, avant l'ouverture aux habitants&nbsp;: <a class="lien" href="/chatbot-mairie-prix.html#mise-en-service">le détail des six étapes</a></p>
-    <p class="tarifs__site" style="margin-top:12px">Vous cherchez comment financer l'abonnement&nbsp;? <a class="lien" href="/financement-ia-collectivite.html">Les aides et cofinancements à connaître</a></p>
+    <p class="tarifs__site" style="margin-top:12px">Mise en service&nbsp;: à partir de 999&nbsp;€ HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite, avant l'ouverture aux habitants&nbsp;: <a class="lien" href="/chatbot-mairie-prix.html#mise-en-service">le détail des six&nbsp;étapes</a></p>
+    <p class="tarifs__site" style="margin-top:12px">Vous cherchez comment financer l'abonnement&nbsp;? <a class="lien" href="/financement-ia-collectivite.html">Les aides et cofinancements à&nbsp;connaître</a></p>
   </div>
 </section>
 
@@ -1780,54 +1742,54 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 <section class="sec sec--2 faq" id="faq">
   <div class="wrap">
     <div class="tete tete--c">
-      <h2 class="h2">Vos questions, <br>sans langue de bois</h2>
+      <h2 class="h2">Vos questions, <br>sans langue de&nbsp;bois</h2>
     </div>
     <div class="faq__liste" id="faqListe">
       <details open>
         <summary>Qu'est-ce que Marianne&nbsp;?</summary>
-        <div>Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24&nbsp;h/24 à partir du site officiel de la commune et des documents que la mairie lui transmet (PLU, arrêtés, délibérations), et cite la source de chaque réponse. Hébergement en Europe, tarifs dès 49&nbsp;€ HT par mois</div>
+        <div>Marianne est le chatbot IA des mairies et des collectivités, édité par Civik-ia. Elle répond aux habitants 24&nbsp;h/24 à partir du site officiel de la commune et des documents que la mairie lui transmet (PLU, arrêtés, délibérations), et cite la source de chaque réponse. Ses données sont hébergées en&nbsp;Europe</div>
       </details>
       <details>
         <summary>Est-ce que le chatbot remplace nos agents&nbsp;?</summary>
-        <div><strong>Non, au contraire.</strong> Marianne absorbe les 70 à 80&nbsp;% de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes&nbsp;: les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui comptent</div>
+        <div><strong>Non, au&nbsp;contraire.</strong> Marianne absorbe les 70 à 80&nbsp;% de questions répétitives (horaires, procédures, PLU de base) et rend au secrétariat les heures que ces questions dévoraient. L'objectif n'est jamais de supprimer des postes&nbsp;: les agents retrouvent du temps pour l'accueil complexe, la médiation, et les dossiers qui&nbsp;comptent</div>
       </details>
       <details>
         <summary>Et si l'IA se trompe ou « hallucine »&nbsp;?</summary>
-        <div>Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les approximations</div>
+        <div>Chaque réponse cite sa source (article du PLU, arrêté, page du site). Si l'IA n'a pas la réponse dans vos documents, elle le dit clairement et renvoie vers le secrétariat. Nous refusons les&nbsp;approximations</div>
       </details>
       
       <details>
         <summary>Marianne est-elle vraiment formée sur tout notre site&nbsp;?</summary>
-        <div>Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit&nbsp;: une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, l'espace mairie, en cours de construction, permettra de publier une information du moment, connue de Marianne aussitôt</div>
+        <div>Oui. Nous indexons l'ensemble des pages publiques de votre site, puis vos documents transmis. Marianne relit votre site chaque nuit&nbsp;: une page modifiée aujourd'hui est prise en compte dès le lendemain matin. Pour une urgence, l'espace mairie permettra de publier une information du moment, connue de Marianne&nbsp;aussitôt</div>
       </details>
       <details>
         <summary>Nous n'avons pas de site internet. Est-ce un problème&nbsp;?</summary>
-        <div>Non. Civik-ia peut aussi concevoir le site de votre commune, avec Marianne intégrée. Cette offre est nouvelle&nbsp;: parlons-en lors de votre démonstration</div>
+        <div>Non. Votre mairie a déjà ses documents, ceux où elle consigne tout ce qui fait la vie de la commune&nbsp;: délibérations, bulletins, guides pratiques, horaires, démarches. Nous construisons la base de connaissances de Marianne à partir de ces documents. Civik-ia peut aussi concevoir le site de votre commune, avec Marianne intégrée&nbsp;: c'est <a class="lien" href="/atelier/">l'Atelier</a></div>
       </details>
       <details>
         <summary>Nos données restent-elles en Europe&nbsp;?</summary>
-        <div>Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. <span data-meta>Seule particularité, détaillée plus bas&nbsp;: sur WhatsApp et Messenger, quand ils ouvriront, les messages transiteront par Meta</span></div>
+        <div>Oui. Le cerveau de Marianne et les données de votre commune sont hébergés en Europe, chez OVHcloud. Moteur IA Mistral AI (Paris). Données des adresses via la BAN du gouvernement. Aucune donnée n'est jamais utilisée pour entraîner d'autres modèles. <span data-meta>Seule particularité, détaillée plus bas&nbsp;: sur WhatsApp et Messenger, quand ils ouvriront, les messages transiteront par&nbsp;Meta</span></div>
       </details>
       <details data-meta>
         <summary>WhatsApp et Messenger&nbsp;: où vont les données&nbsp;?</summary>
-        <div>Sur WhatsApp et Messenger, canaux à venir, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par Meta</div>
+        <div>Sur WhatsApp et Messenger, canaux à venir, les messages transiteront par les serveurs de Meta, selon les conditions de ces applications. Le cerveau de Marianne et les données de votre commune restent hébergés en Europe. Sur le site de la mairie et via le QR code, rien ne passe par&nbsp;Meta</div>
       </details>
       <details>
         <summary>Faut-il télécharger une application&nbsp;?</summary>
-        <div>Non, rien n'est imposé&nbsp;: Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran d'accueil</div>
+        <div>Non, rien n'est imposé&nbsp;: Marianne répond depuis le site de la mairie, sans compte ni inscription. Ceux qui le souhaitent l'installent en un geste sur leur smartphone, sans passer par un magasin d'applications, et retrouvent la Marianne de leur ville sur leur écran&nbsp;d'accueil</div>
       </details>
       <details>
         <summary>Combien de temps pour déployer&nbsp;?</summary>
-        <div>Avant l'ouverture aux habitants, la mise en service passe par six étapes, une seule fois&nbsp;: inventaire de votre site, cadre écrit, base de connaissances, mesure sur 300 questions de test, validation par vos agents, version de référence que vous validez par écrit. Comptez quelques semaines, selon votre site et la disponibilité de vos agents. Le détail est sur notre <a class="lien" href="/chatbot-mairie-prix.html#mise-en-service">page prix</a></div>
+        <div>Avant l'ouverture aux habitants, la mise en service passe par six étapes, une seule fois&nbsp;: inventaire de votre site, cadre écrit, base de connaissances, mesure sur plusieurs centaines de questions de test, validation par vos agents, version de référence que vous validez par écrit. Comptez quelques semaines, selon votre site et la disponibilité de vos agents. Le détail est sur notre <a class="lien" href="/chatbot-mairie-prix.html#mise-en-service">page&nbsp;prix</a></div>
       </details>
       
       <details>
         <summary>Comment cela se passe côté marchés publics&nbsp;?</summary>
-        <div>Même en offre Pilotage, quatre ans d'abonnement et la mise en service restent très en dessous du seuil sous lequel une commune peut acheter sans publicité ni mise en concurrence (article R2122-8 du code de la commande publique). Aucun cahier des charges n'est imposé&nbsp;: un devis signé, avec nos conditions générales et l'accord sur les données personnelles, suffit&nbsp;; votre commune applique ses propres règles d'achat. Au-delà de 50&nbsp;000 habitants, nous établissons un devis sur mesure</div>
+        <div>Même en offre Pilotage, quatre ans d'abonnement et la mise en service restent très en dessous du seuil sous lequel une commune peut acheter sans publicité ni mise en concurrence (article R2122-8 du code de la commande publique). Aucun cahier des charges n'est imposé&nbsp;: un devis signé, avec nos conditions générales et l'accord sur les données personnelles, suffit&nbsp;; votre commune applique ses propres règles d'achat. Au-delà de 50&nbsp;000 habitants, nous établissons un devis sur&nbsp;mesure</div>
       </details>
       <details>
         <summary>Et si nos citoyens n'ont pas Internet&nbsp;?</summary>
-        <div>L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un proche</div>
+        <div>L'accueil de la mairie reste leur premier recours, et vos agents y gagnent du temps pour les recevoir. Des QR codes imprimables, posés à l'accueil et sur les panneaux municipaux, ouvrent la conversation depuis n'importe quel smartphone, y compris celui d'un&nbsp;proche</div>
       </details>
     </div>
   </div>
@@ -1840,7 +1802,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="wrap">
     <div class="tete tete--c">
       <h2 class="h2">Alors, une mairie ouverte 24&nbsp;h/24, <br>ça vous tente&nbsp;?</h2>
-      <p class="chapo">Une question&nbsp;? Une idée&nbsp;? Prêt pour une démo personnalisée&nbsp;? Nous répondons sous 24h</p>
+      <p class="chapo">Une question&nbsp;? Une idée&nbsp;? Prêt pour une démo personnalisée&nbsp;? Nous répondons sous&nbsp;24h</p>
     </div>
     <div class="contact__wrap">
       <form id="contactForm" class="ci-form" action="https://formspree.io/f/mnjogblz" method="POST" onsubmit="handleFormSubmit(event)">
@@ -1857,7 +1819,7 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           </div>
         </div>
         <div class="ci-form__group">
-          <label for="contact-poste">Poste / Fonction</label>
+          <label for="contact-poste">Poste /&nbsp;Fonction</label>
           <select name="poste" id="contact-poste" autocomplete="organization-title">
             <option value="">Choisir</option>
             <option>Maire</option>
@@ -1883,22 +1845,22 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
             <input type="text" name="city" id="contact-city" required>
           </div>
           <div class="ci-form__group">
-            <label for="contact-population">Nombre d'habitants</label>
+            <label for="contact-population">Nombre&nbsp;d'habitants</label>
             <input type="number" name="population" id="contact-population" min="0" placeholder="Ex : 5000">
           </div>
         </div>
         <div class="ci-form__group">
-          <label for="contact-message">Votre message</label>
+          <label for="contact-message">Votre&nbsp;message</label>
           <textarea name="message" id="contact-message" rows="4" placeholder="Comment pouvons-nous vous aider ?"></textarea>
         </div>
-        <p class="ci-form__note">* champs obligatoires</p>
+        <p class="ci-form__note">* champs&nbsp;obligatoires</p>
         <button type="submit" class="ci-form__submit">Envoyer</button>
         <div id="formSuccess" class="ci-form__success" style="display:none" role="status">
           <strong>Votre message a bien été envoyé&nbsp;!</strong>
-          <p>Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration personnalisée</p>
+          <p>Notre équipe prendra contact avec vous sous 24h pour organiser une démonstration&nbsp;personnalisée</p>
         </div>
       </form>
-      <p class="contact__plus">Vous préférez lire avant d'échanger&nbsp;? Téléchargez notre <a class="lien" href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download>Livre Blanc Civik-ia 2026</a>&nbsp;: 12&nbsp;pages pour savoir ce qu'un assistant IA de mairie doit faire, ce qu'il coûte, et ce qu'il faut exiger avant de signer. Ou écrivez-nous sur <a class="lien" href="https://wa.me/33631558796?text=Bonjour%20!%20Je%20souhaite%20en%20savoir%20plus%20sur%20Civik-ia%20pour%20ma%20collectivit%C3%A9." target="_blank" rel="noopener">WhatsApp<span class="sr"> (nouvelle fenêtre)</span></a></p>
+      <p class="contact__plus">Vous préférez lire avant d'échanger&nbsp;? Téléchargez notre <a class="lien" href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download>Livre Blanc Civik-ia 2026</a>&nbsp;: 12&nbsp;pages pour savoir ce qu'un assistant IA de mairie doit faire, ce qu'il coûte, et ce qu'il faut exiger avant de signer. Ou écrivez-nous sur&nbsp;<a class="lien" href="https://wa.me/33631558796?text=Bonjour%20!%20Je%20souhaite%20en%20savoir%20plus%20sur%20Civik-ia%20pour%20ma%20collectivit%C3%A9." target="_blank" rel="noopener">WhatsApp<span class="sr"> (nouvelle&nbsp;fenêtre)</span></a></p>
     </div>
   </div>
 </section>
@@ -1919,11 +1881,11 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
   <div class="fin__in">
     <div class="fin__texte">
       <span class="sur">Prêt&nbsp;? Il est <span id="finHeure">22&nbsp;h&nbsp;47</span></span>
-      <h2 class="h2" id="finTitre">Votre mairie, <br>disponible dès lundi</h2>
-      <p>Démo personnalisée en 20 minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous voulez</p>
+      <h2 class="h2" id="finTitre">Votre mairie, disponible 24&nbsp;h&nbsp;sur&nbsp;24 dès&nbsp;lundi. <br>On en&nbsp;parle&nbsp;?</h2>
+      <p>Démo personnalisée en 30&nbsp;minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous&nbsp;voulez</p>
       <div class="fin__ctas">
         <a href="#contact" class="btn btn--clair">Demander une démo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download class="btn btn--filet">Télécharger le livre blanc</a>
+        <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download class="btn btn--filet">Télécharger le livre&nbsp;blanc</a>
       </div>
     </div>
     <div class="fin__tel">
@@ -1932,12 +1894,12 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
           <div class="tel__barre" aria-hidden="true"><span>22:47</span><span class="tel__encoche"></span><span class="tel__reseau"><i></i><i></i><i></i></span></div>
           <div class="tel__tete">
             <img src="/marianne/assets/ui/sceau-96.webp" alt="" width="32" height="32" loading="lazy">
-            <div><strong>Mairie de Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
+            <div><strong>Mairie de&nbsp;Villeneuve-les-Ormes</strong><span>En ligne, 24&nbsp;h/24</span></div>
           </div>
           <ol class="tel__fil">
             <li class="msg msg--m"><div class="bulle">Bonsoir. La mairie est fermée, mais je suis là. Quelle est votre question&nbsp;?</div></li>
           </ol>
-          <div class="tel__champ" aria-hidden="true"><span>Posez votre question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
+          <div class="tel__champ" aria-hidden="true"><span>Posez votre&nbsp;question</span><i><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></i></div>
         </div>
       </figure>
     </div>
@@ -1949,80 +1911,40 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
      ===================================================================== -->
 <section class="sec" id="ressources">
   <div class="wrap">
-    <h2 class="h2" style="font-size:clamp(28px,3vw,38px);margin-top:0">Aller plus loin</h2>
-    <p class="chapo" style="margin-bottom:32px;font-size:16.5px">Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse adaptée</p>
+    <h2 class="h2" style="font-size:clamp(28px,3vw,38px);margin-top:0">Aller plus&nbsp;loin</h2>
+    <p class="chapo" style="margin-bottom:32px;font-size:16.5px">Les ressources clés pour comprendre comment fonctionne un chatbot IA pour mairie, combien il coûte, et pourquoi les communes rurales y trouvent une réponse&nbsp;adaptée</p>
     <div class="ress__grille">
-      <a class="ress__c" href="/chatbot-mairie.html"><strong>Chatbot pour mairie&nbsp;: guide complet</strong><span>Comment ça marche, ce que ça change pour vos agents, et pourquoi 24&nbsp;h/24 fait la différence sur le service rendu aux citoyens</span></a>
-      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Mise en service facturée une seule fois</span></a>
-      <a class="ress__c" href="/chatbot-commune-rurale.html"><strong>Chatbot commune rurale</strong><span>Pensé pour les communes de moins de 5&nbsp;000 habitants. Pas de site web&nbsp;? Pas de problème&nbsp;: la plateforme se substitue ou se greffe à l'existant</span></a>
-      <a class="ress__c" href="/demo"><strong>Démo interactive</strong><span>Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements&nbsp;: toutes les questions citoyennes typiques</span></a>
-      <a class="ress__c" href="/22h47.html"><strong>Campagne 22h47</strong><span>L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la plateforme</span></a>
-      <a class="ress__c" href="/financement-ia-collectivite.html"><strong>Financer l'IA de sa commune</strong><span>Cofinancement et aides 2026 pour l'IA d'une commune&nbsp;: ce qui s'applique, et ce qui ne s'applique pas</span></a>
-      <a class="ress__c" href="/comment-communiquer-avec-ses-citoyens.html"><strong>Communiquer avec ses citoyens</strong><span>Panorama 2026 des canaux d'une mairie&nbsp;: site, application, panneau, chatbot IA</span></a>
-      <a class="ress__c" href="/demarches-en-ligne-commune.html"><strong>Démarches en ligne d'une commune</strong><span>Par où commencer pour proposer des démarches en ligne dans une petite commune</span></a>
+      <a class="ress__c" href="/chatbot-mairie.html"><strong>Chatbot pour mairie&nbsp;: guide&nbsp;complet</strong><span>Comment ça marche, ce que ça change pour vos agents, et pourquoi 24&nbsp;h/24 fait la différence sur le service rendu aux&nbsp;citoyens</span></a>
+      <a class="ress__c" href="/chatbot-mairie-prix.html"><strong>Combien coûte un chatbot mairie&nbsp;?</strong><span>Tarifs publics par strate de population, comparatif marché, ROI calculé sur le temps agent économisé. Mise en service facturée une seule&nbsp;fois</span></a>
+      <a class="ress__c" href="/chatbot-commune-rurale.html"><strong>Chatbot commune&nbsp;rurale</strong><span>Pensé pour les communes de moins de 5&nbsp;000 habitants. Pas de site web&nbsp;? Pas de problème&nbsp;: la plateforme se substitue ou se greffe à&nbsp;l'existant</span></a>
+      <a class="ress__c" href="/demo"><strong>Démo&nbsp;interactive</strong><span>Testez Marianne en direct sur une commune fictive. PLU, déchets, état civil, événements&nbsp;: toutes les questions citoyennes&nbsp;typiques</span></a>
+      <a class="ress__c" href="/22h47.html"><strong>Campagne&nbsp;22h47</strong><span>L'heure à laquelle votre mairie est fermée mais vos citoyens ont besoin d'une réponse. Le manifeste qui a inspiré la&nbsp;plateforme</span></a>
+      <a class="ress__c" href="/financement-ia-collectivite.html"><strong>Financer l'IA de sa&nbsp;commune</strong><span>Cofinancement et aides 2026 pour l'IA d'une commune&nbsp;: ce qui s'applique, et ce qui ne s'applique&nbsp;pas</span></a>
+      <a class="ress__c" href="/comment-communiquer-avec-ses-citoyens.html"><strong>Communiquer avec ses&nbsp;citoyens</strong><span>Panorama 2026 des canaux d'une mairie&nbsp;: site, application, panneau, chatbot&nbsp;IA</span></a>
+      <a class="ress__c" href="/demarches-en-ligne-commune.html"><strong>Démarches en ligne d'une&nbsp;commune</strong><span>Par où commencer pour proposer des démarches en ligne dans une petite&nbsp;commune</span></a>
     </div>
-    <p class="ress__maj">Page mise à jour le 9 octobre 2026</p>
+    <p class="ress__maj">Page mise à jour le 9 octobre&nbsp;2026</p>
   </div>
 </section>
 
 </div><!-- /.feuille -->
 </main>
 
-<!-- PIED DE PAGE -->
+<!-- PIED DE PAGE : le pied commun de la page d'accueil (Thibaut, 14/10/2026) ; ses règles dans /marianne/pied.css -->
 <footer class="pied">
   <div class="pied__in">
-    <div class="pied__marque">
-      <img src="/assets/logo-civik-ia.png" alt="Civik-ia" width="120" height="96" loading="lazy">
-      <p>La Plateforme d'Intelligence Citoyenne pour les mairies françaises. Souveraine, RGPD native, disponible 24h/24. Marianne est une marque de la maison Civik-ia</p>
-    </div>
     <div>
-      <h3>Produit</h3>
-      <ul>
-        <li><a href="/">La maison Civik-ia</a></li>
-        <li><a href="#how">Comment ça marche</a></li>
-        <li><a href="/demo">Démo interactive</a></li>
-        <li><a href="#pricing">Tarifs</a></li>
-        <li><a href="/livre-blanc.html">Livre blanc 2026</a></li>
-      </ul>
+      <p class="pied__marque"><img src="/commun/img/logo-civik-ia.svg#svgView(viewBox(720,150,720,600))" alt="" width="46" height="39" loading="lazy" decoding="async"><span>Civik-<b>ia</b></span></p>
+      <p>Civik-ia, au service des territoires&nbsp;: un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et&nbsp;d'applications.</p>
+      <ul class="pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul>
     </div>
-    <div>
-      <h3>Ressources</h3>
-      <ul>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="/22h47.html">Campagne 22h47</a></li>
-        <li><a href="/chatbot-mairie.html">Chatbot mairie</a></li>
-        <li><a href="/chatbot-commune-rurale.html">Commune rurale</a></li>
-        <li><a href="/chatbot-mairie-prix.html">Prix chatbot</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3>Guides &amp; comparatifs</h3>
-      <ul>
-        <li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif chatbots mairie 2026</a></li>
-        <li><a href="/guide-rgpd-ia-collectivites.html">RGPD &amp; IA collectivités</a></li>
-        <li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine Mistral</a></li>
-        <li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li>
-        <li><a href="/chatbot-mairie-loir-et-cher.html">Chatbot mairie en Loir-et-Cher</a></li>
-        <li><a href="/chatbot-mairie-herault.html">Chatbot mairie en Hérault</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3>Contact</h3>
-      <ul>
-        <li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li>
-        <li><a href="https://wa.me/33631558796" target="_blank" rel="noopener">WhatsApp<span class="sr"> (nouvelle fenêtre)</span></a></li>
-        <li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener">LinkedIn<span class="sr"> (nouvelle fenêtre)</span></a></li>
-        <li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener">Instagram<span class="sr"> (nouvelle fenêtre)</span></a></li>
-        <li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener">X (Twitter)<span class="sr"> (nouvelle fenêtre)</span></a></li>
-        <li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener">Facebook<span class="sr"> (nouvelle fenêtre)</span></a></li>
-        <li><a href="#contact">Prendre RDV</a></li>
-      </ul>
-    </div>
+    <nav aria-labelledby="pied-1"><h2 id="pied-1">Les trois activités</h2><ul><li><a href="/marianne/">Marianne, pour les collectivités&nbsp;territoriales</a></li><li><a href="/conseil/">Le conseil, pour tous</a></li><li><a href="/atelier/">L'atelier, pour vos besoins</a></li></ul></nav>
+    <nav aria-labelledby="pied-2"><h2 id="pied-2">Nous joindre</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li></ul></nav>
+    <nav aria-labelledby="pied-3" class="pied__guides"><h2 id="pied-3">Guides pour les mairies</h2><ul><li><a href="https://civik-ia.fr/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-prix.html">Prix d'un chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="https://civik-ia.fr/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="https://civik-ia.fr/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="https://civik-ia.fr/financement-ia-collectivite.html">Financer l'IA de sa commune</a></li><li><a href="https://civik-ia.fr/livre-blanc.html">Livre blanc</a></li><li><a href="https://civik-ia.fr/aide.html">Centre d'aide</a></li><li><a href="https://civik-ia.fr/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li></ul></nav>
   </div>
-  <div class="pied__bas">
-    <span>© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · Hébergement OVHcloud (UE)</span>
-    <span><a href="/legal/conditions-utilisation.html">Mentions légales</a> · <a href="/legal/conditions-generales-vente.html">CGV</a> · <a href="/legal/politique-confidentialite.html">Confidentialité</a> · <a href="/legal/conformite-rgpd.html">RGPD</a> · <a href="/legal/accessibilite-rgaa.html">Accessibilité</a> · <button type="button" class="pied__anim" id="couperAnim2">Arrêter les animations</button></span>
-  </div>
+  <p class="pied__bas">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · Hébergement OVHcloud&nbsp;(UE)</p>
+  <ul class="pied__legal" aria-label="Informations légales"><li><a href="https://civik-ia.fr/legal/conditions-utilisation.html">Mentions&nbsp;légales</a></li><li><a href="https://civik-ia.fr/legal/conditions-generales-vente.html">CGV</a></li><li><a href="https://civik-ia.fr/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="https://civik-ia.fr/legal/conformite-rgpd.html">RGPD</a></li><li><a href="https://civik-ia.fr/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" class="pied__anim" id="couperAnim2">Arrêter les&nbsp;animations</button></li></ul>
+  <p class="pied__maquette" style="color:#8f99c4">Villeneuve-les-Ormes est une commune&nbsp;fictive.</p>
 </footer>
 
 <!-- Assistant du site (questions commerciales sur Civik-ia) -->

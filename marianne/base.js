@@ -792,3 +792,49 @@ document.addEventListener('marianne:statique', () => {
   lacher(true);
   ZONES.forEach(z => { const r = $(z); if (r) $$('[data-mots], [data-entree]', r).forEach(el => el.classList.add('vu')); });
 });
+
+/* =====================================================================
+   Ancres (14/10/2026) : une ancre lointaine tombe juste sous l'en-tête fixe
+   Au-dessus de 900 px, les sections hors de l'écran ne sont pas mises en page (content-visibility: auto, hauteur estimée 900 px,
+   index.html) : la course vers #pricing se calculait sur ces estimations et dépassait sa cible (2 704 px mesurés le 13/10). Dès qu'on
+   vise une ancre, html.cv-plein met toute la page en page avant que le navigateur calcule la course (le script de tête la pose déjà
+   à l'arrivée par une adresse avec #) ; à cette arrivée, la position est vérifiée après le chargement (polices, bandeau d'annonce)
+   et remise juste, sauf si le lecteur a déjà bougé. Une ancre plus bas que la section lève la butée pour la page (comme une arrivée
+   déjà au-delà) : sans cela, la butée pouvait se reposer avant que la course commence et bloquer la page en haut (mesuré sous charge,
+   Chrome, 1280 et 375). Le défilement doux ne change pas.
+   ===================================================================== */
+{
+  const racine = document.documentElement;
+  const cibleDe = h => { try { return h && h.length > 1 ? document.getElementById(decodeURIComponent(h.slice(1))) : null; } catch (e) { return null; } };
+  const plein = () => racine.classList.add('cv-plein');
+  const auDela = t => !!recit && docY(t) > docY(recit) + recit.offsetHeight - 2;
+  document.addEventListener('click', ev => {
+    const a = ev.target.closest && ev.target.closest('a[href^="#"]');
+    const t = a && cibleDe(a.getAttribute('href'));
+    if (!t) return;
+    plein();
+    if (auDela(t)) lacher(true);
+  }, true);
+  const el = cibleDe(location.hash);
+  if (el) {
+    plein();
+    if (auDela(el)) lacher(true);
+    /* le lecteur a la main dès son premier geste (molette, doigt, clavier, clic) : on cesse de corriger ; le navigateur, lui, peut
+       reposer l'ancre de lui-même (WebKit le fait après ce script) sans que cela compte pour un geste */
+    let bouge = false;
+    const GESTES_A = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+    const geste = () => { bouge = true; GESTES_A.forEach(g => removeEventListener(g, geste, true)); };
+    GESTES_A.forEach(g => addEventListener(g, geste, { capture: true, passive: true }));
+    const viser = () => Math.round(el.getBoundingClientRect().top + scrollY - (parseFloat(getComputedStyle(racine).scrollPaddingTop) || 0));
+    const corriger = () => {
+      if (bouge) return;
+      const y = viser();
+      if (Math.abs(scrollY - y) > 2) scrollTo({ top: y, behavior: 'instant' });
+    };
+    /* WebKit pose l'ancre dès l'analyse du document, avant les polices et les images, et ne la repose pas ; son événement load peut
+       tarder (vidéo du hero) : la vérification commence tout de suite, puis reprend au chargement */
+    const serie = ts => ts.forEach(t => setTimeout(() => requestAnimationFrame(corriger), t));
+    serie([0, 150, 400, 800, 1400, 2200, 3200]);
+    if (document.readyState !== 'complete') addEventListener('load', () => serie([0, 300]), { once: true });
+  }
+}

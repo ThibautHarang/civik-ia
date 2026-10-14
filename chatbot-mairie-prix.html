@@ -83,7 +83,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Accueil",
-          "item": "https://civik-ia.fr"
+          "item": "https://civik-ia.fr/"
         },
         {
           "@type": "ListItem",
@@ -371,6 +371,8 @@
 
         nav a:hover { color: var(--accent-teal); }
         nav a:hover::after { width: 100%; }
+        nav a.logo { justify-self: start; }
+        nav a.logo::after { display: none; }
 
         .nav-cta {
             display: flex;
@@ -1587,9 +1589,9 @@
 
     <!-- NAVIGATION -->
     <nav aria-label="Navigation principale" role="navigation">
-        <div class="logo" onclick="window.location.href='site-civik-ia.html'">
+        <a class="logo" href="/">
             <img src="logo-civik-ia.png" alt="Civik-ia" width="140" height="40">
-        </div>
+        </a>
         <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -1614,7 +1616,7 @@
     <section class="hero-seo" id="hero">
         <div class="hero-inner">
             <div class="breadcrumb" aria-label="Fil d'Ariane">
-                <a href="/marianne/">Accueil</a>
+                <a href="/">Accueil</a>
                 <span aria-hidden="true">/</span>
                 <a href="chatbot-mairie.html">Chatbot Mairie</a>
                 <span aria-hidden="true">/</span>

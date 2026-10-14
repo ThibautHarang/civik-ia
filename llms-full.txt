@@ -962,7 +962,7 @@ Aller au contenu principal
 Le Constat
 La Solution
 Tarifs
-Prix
+Guide des prix
 Communes Rurales
 Contact
 ☀️
@@ -1401,7 +1401,7 @@ Resume : Commune rurale : un accueil numérique 24h/24 qui répond à partir du 
 
 Chatbot IA pour commune rurale : accueil 24h/24 · Civik-ia
 Guide Chatbot
-Prix
+Guide des prix
 La Solution
 Tarifs
 Contact

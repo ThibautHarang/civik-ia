@@ -119,7 +119,7 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Accueil",
-          "item": "https://civik-ia.fr"
+          "item": "https://civik-ia.fr/"
         },
         {
           "@type": "ListItem",
@@ -425,6 +425,14 @@
 
         nav a:hover::after {
             width: 100%;
+        }
+
+        nav a.logo {
+            justify-self: start;
+        }
+
+        nav a.logo::after {
+            display: none;
         }
 
         .nav-cta {
@@ -1313,9 +1321,9 @@
 
     <!-- NAVIGATION -->
     <nav aria-label="Navigation principale" role="navigation">
-        <div class="logo" onclick="window.location.href='site-civik-ia.html'">
+        <a class="logo" href="/">
             <img src="logo-civik-ia.png" alt="Civik-ia : Chatbot IA pour mairies et collectivités" width="140" height="40">
-        </div>
+        </a>
         <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
@@ -1323,7 +1331,7 @@
             <a href="/marianne/#how" onclick="closeMobileMenu()">Le Constat</a>
             <a href="/marianne/#how" onclick="closeMobileMenu()">La Solution</a>
             <a href="/marianne/#pricing" onclick="closeMobileMenu()">Tarifs</a>
-            <a href="chatbot-mairie-prix.html" onclick="closeMobileMenu()">Prix</a>
+            <a href="chatbot-mairie-prix.html" onclick="closeMobileMenu()">Guide des prix</a>
             <a href="chatbot-commune-rurale.html" onclick="closeMobileMenu()">Communes Rurales</a>
             <a href="/marianne/#contact" onclick="closeMobileMenu()">Contact</a>
         </div>
@@ -1346,7 +1354,7 @@
     <section class="hero-pillar" id="hero">
         <div class="hero-pillar-content">
             <div class="hero-breadcrumb" aria-label="Fil d'Ariane">
-                <a href="/marianne/">Accueil</a>
+                <a href="/">Accueil</a>
                 <span aria-hidden="true">/</span>
                 <span class="current">Chatbot Mairie</span>
             </div>

@@ -143,11 +143,14 @@
 .pm-etape__nom:focus-visible { outline: 3px solid var(--pm-anneau); outline-offset: 2px; border-radius: 4px; }
 .pm-bulle { position: absolute; top: 100%; left: 50%; z-index: 6; width: max-content; max-width: 200px; transform: translateX(-50%); padding: 7px 10px; background: #fffdf8; border: 1px solid #60637B; border-radius: 6px; font-size: .84rem; line-height: 1.35; color: #1b1e33; opacity: 0; visibility: hidden; transition: opacity .2s; pointer-events: none; }
 .pm-etape:hover .pm-bulle, .pm-etape__nom:focus-visible + .pm-bulle, .pm-etape__nom[aria-expanded="true"] + .pm-bulle { opacity: 1; visibility: visible; }
-.pm-fin { flex: 1.9 1 0; display: flex; justify-content: center; }
+.pm-fin { flex: 1.9 1 0; display: flex; flex-direction: column; align-items: center; }
+.pm-fin__dont { margin-top: 8px; font-size: .8rem; color: var(--pm-doux); white-space: nowrap; }
+.pm-fin__dont[hidden] { display: none; }
 .pm-fin__borne { position: relative; width: 200px; height: 108px; margin-top: -44px; display: block; }
 .pm-fin__borne > svg { display: block; width: 100%; height: 100%; overflow: visible; opacity: 0; }
-.pm-etape--collecte { flex: 1.5 1 0; justify-content: center; }
-.pm-etape--collecte > svg { display: block; width: 150px; height: 81px; margin-top: -24px; overflow: visible; }
+.pm-etape--collecte { flex: 1.4 1 0; }
+.pm-etape__frais { margin-top: 2px; max-width: 170px; font-size: .76rem; line-height: 1.35; color: var(--pm-doux); }
+.pm-etape__frais b { white-space: nowrap; color: var(--pm-texte); }
 .pm-route__regle { margin: 18px 0 0; font-size: .9rem; line-height: 1.5; color: var(--pm-doux); }
 
 /* scène 5 : la feuille d'estimation, posée */
@@ -186,6 +189,18 @@
 .pm-copie { margin: 10px 0 0; min-height: 1.3em; text-align: center; font-size: .92rem; color: var(--pm-doux); }
 .pm-note { margin: 32px auto 0; max-width: 720px; text-align: center; font-size: .8rem; line-height: 1.5; color: var(--pm-doux); }
 .pm-note[hidden] { display: none; }
+/* lignes de suite sous les boutons (page principale de Marianne) : question, puis lien, alignés d'une ligne à l'autre */
+.pm-suite { list-style: none; margin: 30px auto 0; padding: 0; max-width: 760px; }
+.pm-suite li { display: grid; grid-template-columns: minmax(0, 1fr) 18.5em; gap: 4px 24px; align-items: baseline; padding: 11px 2px; border-top: 1px solid var(--pm-filet); font-size: .97rem; line-height: 1.45; color: var(--pm-texte); }
+.pm-suite li:last-child { border-bottom: 1px solid var(--pm-filet); }
+.pm-suite a { color: var(--pm-titre); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.pm-suite a:hover { text-decoration-thickness: 2px; }
+@media (min-width: 641px) { .pm-suite a { white-space: nowrap; } }
+.pm-suite a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }
+@media (max-width: 640px) { .pm-suite li { grid-template-columns: 1fr; padding: 10px 2px; } }
+.pm-entete { margin-bottom: clamp(14px, 2vw, 24px); }
+.pm-entete > h2 { margin: 0; }
+.pm-entete + .prix-marianne { margin-top: 0; }
 
 .pm-form { margin-top: 16px; border-bottom: 1px solid rgba(96, 99, 123, .3); padding-bottom: 6px; }
 .pm-form[hidden] { display: none; }
@@ -197,6 +212,7 @@
 .pm-form__champ input:focus, .pm-form__champ textarea:focus { outline: 3px solid #000091; outline-offset: 1px; border-color: #000091; }
 .pm-erreur { display: block; margin-top: 4px; font-size: .88rem; color: #b3261e; }
 .pm-erreur:empty { display: none; }
+.pm-form__tete { margin: 0 0 14px; font-family: Inter, system-ui, sans-serif; font-size: .97rem; line-height: 1.45; font-weight: 500; color: var(--pm-texte); }
 .pm-form__note { margin: 0 0 14px; font-size: .85rem; line-height: 1.5; color: #5d6072; }
 .pm-form__note a, .pm-envoi a { color: #000091; }
 .pm-form__note a:focus-visible, .pm-envoi a:focus-visible { outline: 3px solid #000091; outline-offset: 2px; border-radius: 2px; }
@@ -217,7 +233,7 @@
 .pm-grille thead th { font-family: Poppins, Inter, sans-serif; font-weight: 700; font-size: .88rem; color: var(--pm-doux); }
 .pm-grille tbody th { font-weight: 600; }
 .pm-grille p { margin: 10px 0 0; font-size: .92rem; line-height: 1.55; color: var(--pm-doux); }
-.pm-grille .pm-chapo { color: var(--pm-texte); font-size: 1rem; }
+.pm-grille .pm-chapo { color: var(--pm-texte); font-size: 1rem; margin: 0 auto 6px; max-width: 640px; text-align: center; }
 
 /* ---------- les écrans moyens et petits : les scènes s'empilent ---------- */
 @media (max-width: 860px) {
@@ -237,7 +253,9 @@
   .pm-bulle { top: 50%; left: auto; right: 0; transform: translateY(-50%); max-width: 170px; }
   .pm-fin { justify-content: flex-start; margin-top: 10px; }
   .pm-fin__borne { margin-top: 0; width: 180px; height: 97px; }
-  .pm-etape--collecte > svg { margin: 0 0 6px; width: 140px; height: 76px; }
+  .pm-etape--collecte { flex-wrap: wrap; }
+  .pm-etape__frais { flex-basis: 100%; max-width: none; padding-left: 52px; margin-top: -6px; }
+  .pm-fin { align-items: flex-start; }
   .pm-feuille { padding: 22px 18px 20px; }
   .pm-ligne { grid-template-columns: minmax(0, 1fr); }
   .pm-ligne dd { text-align: left; white-space: normal; }

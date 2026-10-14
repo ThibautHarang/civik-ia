@@ -11,8 +11,8 @@
    Scène 3 : deux petites plaques d'options et la question du site,
    accrochées au poteau. Scène 4 : le chemin des six étapes de la mise
    en service, et la borne de son montant. Scène 5 : la feuille
-   d'estimation, et deux sorties : « Recevoir cette estimation » (la
-   feuille devient la lettre de pages.js et lettre.js, envoi Formspree)
+   d'estimation, et deux sorties : « Demander un devis » (la feuille
+   devient la lettre de pages.js et lettre.js, envoi Formspree)
    et « Partager cette estimation » (un lien qui rouvre le même état).
    Données : ../donnees/communes.json (34 969 communes, population
    municipale INSEE servie par geo.api.gouv.fr), chargé au premier geste
@@ -284,7 +284,8 @@ function tamponRect(svg, o) {
   svgEl('path', { d: bord(12, 12, W - 24, H - 24, 7, 1), 'stroke-width': 1.3, 'stroke-dasharray': lacunes(rnd, 560) }, g);
   const ecrire = (y, t, px, poids, espace) => { const e = svgEl('text', { x: W / 2, y, fill: ENCRE_TAMPON, 'font-family': poids > 600 ? 'Poppins, Inter, sans-serif' : 'Inter, sans-serif', 'font-weight': poids, 'font-size': px.toFixed(1), 'text-anchor': 'middle', 'letter-spacing': espace || '0' }, svg); e.textContent = t; };
   const pxC = Math.min(27, 150 / Math.max(1, mesureTexte(o.centre, 1, 800)));
-  ecrire(34, String(o.haut).toUpperCase(), 11, 700, '.14em'); ecrire(67, o.centre, pxC, 800); ecrire(88, o.bas, 11.5, 600, '.03em');
+  const haut = String(o.haut).toUpperCase(), pxH = Math.min(11, 158 / Math.max(1, mesureTexte(haut, 1, 700) + .14 * haut.length));   /* espacement de .14em compris */
+  ecrire(34, haut, pxH, 700, '.14em'); ecrire(67, o.centre, pxC, 800); ecrire(88, o.bas, 11.5, 600, '.03em');
 }
 /* le tampon s'abat (0,22 s) ou se retampe (0,3 s) ; posé sans mouvement sous mouvement réduit */
 function frapper(e, retampe) {
@@ -293,12 +294,12 @@ function frapper(e, retampe) {
 }
 
 /* ---------- scène 4 : le chemin, les bornes des étapes, le tampon du montant ---------- */
-async function dessinerChemin(route, anime) {
+async function dessinerChemin(route, anime, seulementGauche) {
   const P = await plume();
   const svg = route.querySelector(':scope > svg'), R = route.getBoundingClientRect();
   const lieux = Array.from(route.querySelectorAll('.pm-etape:not([hidden]) .pm-etape__borne'));
   const fin = route.querySelector('.pm-fin__borne'), tampon = fin && fin.querySelector('.pm-tampon');
-  const col = route.querySelector('.pm-etape--collecte:not([hidden])');
+  const col = route.querySelector('.pm-etape--collecte:not([hidden])'), iA = col ? 1 : 0;
   if (!R.width || !lieux.length || !fin) return;
   taille(svg, R.width, R.height);
   const B = lieux.map(l => { const q = l.getBoundingClientRect(); return { cx: q.left - R.left + q.width / 2, haut: q.top - R.top + 2, bas: q.bottom - R.top - 1, l: q.width / 2 - 2 }; });
@@ -306,7 +307,7 @@ async function dessinerChemin(route, anime) {
   const enLigne = Math.abs(F.bas - B[0].bas) < 40;
   const rnd = P.rng(5), pts = [], T = B.concat([F]);
   if (enLigne) {
-    pts.push([col ? col.getBoundingClientRect().right - R.left + 6 : 0, B[0].bas - 6]);
+    pts.push([0, B[0].bas - 6]);
     B.forEach((b, i) => { pts.push([b.cx, b.bas - 7]); pts.push([(b.cx + (B[i + 1] || { cx: F.cx - F.l }).cx) / 2, b.bas - 7 + (rnd() - .5) * 8]); });
     pts.push([F.cx - F.l - 6, B[0].bas - 7]);
   } else {
@@ -315,9 +316,12 @@ async function dessinerChemin(route, anime) {
     pts.push([B[B.length - 1].cx, F.haut - 4]);
   }
   const chemin = new P.Dessin(svg, ENCRE);
-  const c1 = P.catmull(pts, 10);
-  chemin.trait(c1, Object.assign({ phase: 'c', graine: 3 }, FIN, { wMax: 1.5 }));
-  chemin.trait(c1.map(([a, b]) => (enLigne ? [a, b + 6] : [a + 6, b])), Object.assign({ phase: 'c', graine: 4 }, FIN, { wMax: .9, op: .4 }));
+  /* deux morceaux : de la borne A vers le départ (tracé de droite à gauche, il s'allonge quand la collecte apparaît), puis de
+     la borne A jusqu'au tampon */
+  const kA = 1 + 2 * iA, gauche = P.catmull(pts.slice(0, kA + 1).reverse(), 10), droite = P.catmull(pts.slice(kA), 10);
+  const decale = c => c.map(([a, b]) => (enLigne ? [a, b + 6] : [a + 6, b]));
+  chemin.trait(gauche, Object.assign({ phase: 'g', graine: 2 }, FIN, { wMax: 1.5 })); chemin.trait(decale(gauche), Object.assign({ phase: 'g', graine: 5 }, FIN, { wMax: .9, op: .4 }));
+  chemin.trait(droite, Object.assign({ phase: 'c', graine: 3 }, FIN, { wMax: 1.5 })); chemin.trait(decale(droite), Object.assign({ phase: 'c', graine: 4 }, FIN, { wMax: .9, op: .4 }));
   chemin.monter();
   const pierres = B.map(b => {
     const e = document.createElementNS(NS, 'path'), r = Math.min(b.l, (b.bas - b.haut) * .45);
@@ -342,10 +346,12 @@ async function dessinerChemin(route, anime) {
     B.forEach((b, i) => { const v = p['b' + i] || 0; pierres[i].style.opacity = String(Math.min(1, v * 2.5)); const o = String(Math.min(1, Math.max(0, v * 2 - .9))); if (textes[i]) textes[i].style.opacity = o; if (noms[i]) noms[i].style.opacity = o; });
   };
   const pas = Math.min(240, 1300 / B.length);
-  const phases = [['c', 0, 1400], ...B.map((b, i) => ['b' + i, 100 + i * pas, 460 + i * pas])];
-  if (anime && !reduit()) { rendre({}); if (tampon) { tampon.classList.remove('pm-tampon--frappe', 'pm-tampon--retampe'); tampon.style.opacity = '0'; } }
-  await jouerPhases(rendre, phases, phases[phases.length - 1][2] + 40, anime);
-  if (tampon) { if (anime) frapper(tampon); else tampon.style.opacity = '1'; }
+  /* seulementGauche : la collecte vient d'apparaître ; le reste est posé, seuls le départ et sa borne se tracent */
+  const phases = seulementGauche ? [['g', 0, 520], ['c', 0, 1], ...B.map((b, i) => ['b' + i, i === 0 ? 380 : 0, i === 0 ? 760 : 1])]
+    : [['g', 0, 600], ['c', 0, 1400], ...B.map((b, i) => ['b' + i, 100 + i * pas, 460 + i * pas])];
+  if (anime && !reduit()) { rendre(seulementGauche ? { c: 1 } : {}); if (tampon && !seulementGauche) { tampon.classList.remove('pm-tampon--frappe', 'pm-tampon--retampe'); tampon.style.opacity = '0'; } }
+  await jouerPhases(rendre, phases, Math.max(...phases.map(x => x[2])) + 40, anime);
+  if (tampon) { if (anime && !seulementGauche) frapper(tampon); else tampon.style.opacity = '1'; }
 }
 
 /* ---------- le bloc ---------- */
@@ -392,7 +398,7 @@ function gabarit(id) {
             <label class="pm-radio"><input type="radio" name="${i('site')}" value="non"><span class="pm-rond" aria-hidden="true"></span>Non</label>
             <label class="pm-radio"><input type="radio" name="${i('site')}" value="aucun"><span class="pm-rond" aria-hidden="true"></span>Pas de site</label>
           </div>
-          <p class="pm-collecte-ligne" data-collecte-ligne hidden>Collecte des informations&nbsp;: <b data-collecte-q></b>, une seule fois</p>
+          <p class="pm-collecte-ligne" data-collecte-ligne hidden>Collecte des informations&nbsp;: <b data-collecte-q></b>, ajoutée à la mise en service</p>
         </fieldset>
       </div>
     </div>
@@ -415,9 +421,9 @@ function gabarit(id) {
   <div class="pm-route">
     <svg aria-hidden="true" focusable="false"></svg>
     <ol class="pm-etapes-route">
-      <li class="pm-etape pm-etape--collecte" data-borne-collecte hidden><svg class="pm-tampon pm-tampon--rect pm-tampon--petit" data-tampon-collecte aria-hidden="true" focusable="false"></svg><span class="pm-sr">Collecte des informations, une seule fois&nbsp;: <b data-collecte-montant></b>&nbsp;HT</span></li>
+      <li class="pm-etape pm-etape--collecte" data-borne-collecte hidden><span class="pm-etape__borne" aria-hidden="true"><span></span></span><span class="pm-etape__nom pm-etape__nom--texte">Collecte</span><span class="pm-etape__frais">Frais additionnels de collecte pour constituer la base documentaire&nbsp;: <b data-collecte-montant></b>&nbsp;HT</span></li>
       ${etapes}
-      <li class="pm-fin"><span class="pm-fin__borne"><svg class="pm-tampon pm-tampon--rect" data-tampon-mise aria-hidden="true" focusable="false"></svg><span class="pm-sr">${MISE}, une seule fois&nbsp;: <b data-mise-montant></b>&nbsp;HT</span></span></li>
+      <li class="pm-fin"><span class="pm-fin__borne"><svg class="pm-tampon pm-tampon--rect" data-tampon-mise aria-hidden="true" focusable="false"></svg><span class="pm-sr">${MISE}, une seule fois&nbsp;: <b data-mise-montant></b>&nbsp;HT<span data-fin-total></span></span></span><span class="pm-fin__dont" data-fin-dont aria-hidden="true" hidden></span></li>
     </ol>
   </div>
   <p class="pm-route__regle" data-mise-regle></p>
@@ -427,6 +433,7 @@ function gabarit(id) {
     <div class="pm-feuille__tete"><h4 data-feuille-titre></h4><span>${AUJOURDHUI}</span></div>
     <form class="pm-form" id="${i('form')}" data-envoi="${ENVOI}" data-voix="nous" novalidate hidden>
       <div class="pm-form__corps">
+        <p class="pm-form__tete" data-form-tete>Transmettez cette estimation, nous revenons vers vous avec un devis.</p>
         <div class="pm-form__rang">
           <div class="pm-form__champ"><label for="${i('nom')}">Nom et prénom</label><input id="${i('nom')}" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="${i('nom-err')}"><span class="pm-erreur" id="${i('nom-err')}" aria-live="polite"></span></div>
           <div class="pm-form__champ"><label for="${i('mel')}">Courriel</label><input id="${i('mel')}" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="${i('mel-err')}"><span class="pm-erreur" id="${i('mel-err')}" aria-live="polite"></span></div>
@@ -434,7 +441,7 @@ function gabarit(id) {
         <div class="pm-form__champ"><label for="${i('mot')}">Un mot pour nous (facultatif)</label><textarea id="${i('mot')}" name="mot" rows="3" maxlength="2000"></textarea></div>
         <div class="pm-pot" aria-hidden="true"><label for="${i('pot')}">Ne pas remplir</label><input id="${i('pot')}" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
         <p class="pm-form__note">L’estimation ci-dessous part avec votre message. Votre courriel sert à vous répondre&nbsp;: <a href="/legal/politique-confidentialite.html">politique de confidentialité</a>.</p>
-        <button type="submit" class="pm-action pm-action--plein">Envoyer l’estimation</button>
+        <button type="submit" class="pm-action pm-action--plein">Envoyer la demande de devis</button>
       </div>
       <div class="pm-envoi" data-bloc hidden></div>
     </form>
@@ -452,7 +459,7 @@ function gabarit(id) {
     <p class="pm-mention">Le devis retient la population municipale INSEE en vigueur à la date de la commande.</p>
   </div>
   <div class="pm-sorties">
-    <button type="button" class="pm-action pm-action--plein" data-recevoir aria-expanded="false" aria-controls="${i('form')}">Recevoir cette estimation</button>
+    <button type="button" class="pm-action pm-action--plein" data-recevoir aria-expanded="false" aria-controls="${i('form')}">Demander un devis</button>
     <button type="button" class="pm-action" data-partager>Partager cette estimation</button>
   </div>
   <p class="pm-copie" data-copie role="status"></p>
@@ -493,6 +500,9 @@ export function monter(racine) {
   const colBorne = q('[data-col-borne]'), scene = q('.pm-scene'), mqTel = matchMedia('(max-width: 860px)');
   const placer = () => { if (mqTel.matches) { if (colBorne.previousElementSibling !== pop) pop.after(colBorne); } else if (colBorne.parentElement !== scene) scene.appendChild(colBorne); };
   placer(); if (mqTel.addEventListener) mqTel.addEventListener('change', placer); else if (mqTel.addListener) mqTel.addListener(placer);
+  /* lignes de suite posées par la page ([data-pm-suite], HTML de la page) : rangées sous les deux boutons, avant la note */
+  const suite = racine.querySelector(':scope > [data-pm-suite]');
+  if (suite) note.before(suite);
   const etat = { commune: null, saisie: null, whatsapp: false, messenger: false, site: 'oui' };
   let options = [], actif = -1, annonceT = 0, generation = 0, dejaVu = false, cheminFait = '', feuillePosee = false;
   note.textContent = SOURCE_POPULATION;
@@ -627,20 +637,16 @@ export function monter(racine) {
     return `${location.origin}${location.pathname}?${p.toString()}#prix`;
   }
   function texteEstimation(c) {
-    const h = habitants(), nom = etat.commune ? `${nomCommune(etat.commune)}, code INSEE ${etat.commune[1]}` : 'commune non nommée';
-    const l = [`Estimation Marianne du ${AUJOURDHUI} : ${nom}`, `Population : ${habitantsTexte(h)} (${indiquee() ? 'indiquée par la mairie' : 'INSEE 2023'})`];
-    if (c.devis) l.push(`Au-delà de ${nombre(GRILLE.plafond)} habitants : prix sur devis, demande de rendez-vous de trente minutes.`);
+    const h = habitants(), nom = etat.commune ? `${nomCommune(etat.commune)}, INSEE ${etat.commune[1]}` : 'non nommée';
+    const l = ['Demande de devis sur estimation.', `Commune : ${nom}`, `Population : ${habitantsTexte(h)} (${indiquee() ? 'indiquée par la mairie' : 'INSEE 2023'})`];
+    if (c.devis) l.push(`Prix : sur devis, au-delà de ${nombre(GRILLE.plafond)} habitants`);
     else {
-      l.push(`Abonnement : ${ht(c.mensuel)} par mois, soit ${ht(c.annuel)} par an, abonnement annuel`);
       l.push(`Options : ${texteOptions(c)}`);
-      l.push(`Site internet de la mairie : ${{ oui: 'à jour', non: 'pas à jour', aucun: 'pas de site' }[etat.site]}`);
-      l.push(`${MISE}, une seule fois : ${ht(c.mise)} (${ETAPES.map(([a, t]) => `${a}. ${t}`).join(' ; ')})`);
-      if (c.collecte) l.push(`Collecte des informations, une seule fois : ${ht(c.collecte)}`);
-      l.push(`Première année : ${ht(c.premiere)}. Ensuite : ${ht(c.ensuite)} par an.`);
-      l.push('Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.');
+      l.push(`Abonnement : ${ht(c.mensuel)} par mois`);
+      l.push(`${MISE} : ${ht(c.mise)}`);
+      l.push(`Collecte : ${c.collecte ? ht(c.collecte) : 'aucune, site à jour'}`);
     }
-    l.push('Le devis retient la population municipale INSEE en vigueur à la date de la commande.');
-    l.push(`Lien de l’estimation : ${lienPartage()}`);
+    l.push(`Lien : ${lienPartage()}`);
     return l.join('\n');
   }
   /* les lignes écrites à la main pendant la scène de la lettre (dd invisibles, sur toute la largeur de la ligne) */
@@ -688,7 +694,7 @@ export function monter(racine) {
     if (anime) { await dessinerPoteau(zonePoteau, true).catch(() => {}); if (!encore()) return; }
     else dessinerPoteau(zonePoteau, false).catch(() => {});
     const cleChemin = c.devis ? '' : `${c.collecte ? 1 : 0}`;
-    if (cleChemin && cheminFait !== cleChemin) { const avant = cheminFait; cheminFait = cleChemin; if (avant) dessinerChemin(route, true).catch(montrerChemin); else quandVisible(route, () => dessinerChemin(route, true).catch(montrerChemin)); }
+    if (cleChemin && cheminFait !== cleChemin) { const avant = cheminFait; cheminFait = cleChemin; if (avant) dessinerChemin(route, cleChemin === '1', cleChemin === '1').catch(montrerChemin); else quandVisible(route, () => dessinerChemin(route, true).catch(montrerChemin)); }
     if (!feuillePosee) { feuillePosee = true; quandVisible(feuille, () => feuille.classList.add('pm-feuille--posee'), .12); }
   }
   /* si le dessin du chemin échoue (plume.js introuvable), les lettres et les noms des étapes restent lisibles */
@@ -729,7 +735,8 @@ export function monter(racine) {
     q('[data-feuille-titre]').textContent = `Estimation pour ${nomBloc()}`;
     q('[data-f="commune"]').textContent = `${etat.commune ? nomCommune(etat.commune) + ', ' : ''}${habitantsTexte(h)}`;
     q('[data-f="pop-source"]').textContent = indiquee() ? 'population indiquée par vous' : 'population municipale INSEE 2023*';
-    recevoir.textContent = c.devis ? 'Prendre rendez-vous, trente minutes' : 'Recevoir cette estimation';
+    recevoir.textContent = c.devis ? 'Prendre rendez-vous, trente minutes' : 'Demander un devis';
+    q('[data-form-tete]').textContent = c.devis ? 'Transmettez votre demande, nous revenons vers vous pour fixer une réunion de trente minutes.' : 'Transmettez cette estimation, nous revenons vers vous avec un devis.';
     q('[data-mention]').textContent = c.devis ? 'Une première réunion de trente minutes établit le devis, hors taxes.' : 'Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.';
     if (!c.devis) {
       q('[data-annuel]').textContent = euros(c.annuel);
@@ -739,14 +746,18 @@ export function monter(racine) {
         if (c.comprises) { box.checked = true; box.disabled = true; b.textContent = 'comprise'; lab.classList.add('pm-option--comprise'); }
         else { box.disabled = false; box.checked = !!etat[box.dataset.opt]; b.textContent = `${euros(cts(G.option))} par mois`; lab.classList.remove('pm-option--comprise'); }
       });
-      const colLi = q('[data-borne-collecte]'), colAvant = !colLi.hidden;
+      const colLi = q('[data-borne-collecte]');
       colLi.hidden = !c.collecte; q('[data-collecte-montant]').textContent = c.collecte ? euros(c.collecte) : '';
       q('[data-collecte-ligne]').hidden = !c.collecte; q('[data-collecte-q]').textContent = c.collecte ? ht(c.collecte) : '';
-      if (c.collecte) { const tc = q('[data-tampon-collecte]'), avant = tc.dataset.cle; tc.dataset.cle = String(c.collecte); tamponRect(tc, { haut: 'Collecte', centre: ht(c.collecte), bas: 'une seule fois' }); if (!colAvant || avant !== tc.dataset.cle) frapper(tc, colAvant); }
+
       q('[data-mise-montant]').textContent = euros(c.mise);
-      { const tm = q('[data-tampon-mise]'), avant = tm.dataset.cle; tm.dataset.cle = String(c.mise); tamponRect(tm, { haut: MISE, centre: ht(c.mise), bas: 'une seule fois' }); if (avant && avant !== tm.dataset.cle && cheminFait) frapper(tm, true); }
+      { const tm = q('[data-tampon-mise]'), avant = tm.dataset.cle, total = c.mise + c.collecte; tm.dataset.cle = `${total}|${c.collecte ? 1 : 0}`;
+        tamponRect(tm, { haut: c.collecte ? `${MISE} et collecte` : MISE, centre: ht(total), bas: 'une seule fois' });
+        const dont = q('[data-fin-dont]'); dont.hidden = !c.collecte; dont.textContent = c.collecte ? `dont collecte ${ht(c.collecte)}` : '';
+        q('[data-fin-total]').textContent = c.collecte ? `. Avec la collecte des informations : ${ht(total)}` : '';
+        if (avant && avant !== tm.dataset.cle && cheminFait) frapper(tm, true); }
       const maj = t => t[0].toUpperCase() + t.slice(1);
-      q('[data-mise-regle]').textContent = `${maj(regle(G.miseEnService, false))} Facturée une seule fois, à votre validation écrite de la version de référence.` + (c.collecte ? ` Collecte des informations, puisque le site n’est pas à jour ou n’existe pas : ${regle(G.collecte, false)}` : '');
+      q('[data-mise-regle]').textContent = `${maj(regle(G.miseEnService, false))} Facturée une seule fois, à votre validation écrite de la version de référence. Si le site n’est pas à jour ou n’existe pas, la collecte des informations s’ajoute à la mise en service : ${regle(G.collecte, false)}`;
       q('[data-f="abo"]').textContent = `${ht(c.mensuel)} par mois`;
       q('[data-f="abo-an"]').textContent = `soit ${ht(c.annuel)} par an, abonnement annuel`;
       q('[data-f="options"]').textContent = texteOptions(c);
@@ -799,7 +810,7 @@ export function monter(racine) {
     copieTxt.textContent = ok ? 'Lien copié.' : `Copiez ce lien : ${lien}`;
   });
 
-  /* --- « Recevoir cette estimation » : la feuille part, et devient la lettre --- */
+  /* --- « Demander un devis » : la feuille part, et devient la lettre --- */
   recevoir.addEventListener('click', () => {
     const ouvert = !form.hidden;
     form.hidden = ouvert; recevoir.setAttribute('aria-expanded', String(!ouvert));
@@ -807,7 +818,7 @@ export function monter(racine) {
   });
   const verifier = c => {
     const err = c.parentElement.querySelector('.pm-erreur'); let m = '';
-    if (!c.value.trim()) m = c.type === 'email' ? 'Indiquez votre courriel, pour recevoir l’estimation.' : 'Indiquez votre nom.';
+    if (!c.value.trim()) m = c.type === 'email' ? 'Indiquez votre courriel, pour que nous puissions vous répondre.' : 'Indiquez votre nom.';
     else if (c.type === 'email' && !COURRIEL.test(c.value.trim())) m = 'Cette adresse ne semble pas complète, par exemple prenom.nom@mairie.fr.';
     c.setAttribute('aria-invalid', m ? 'true' : 'false'); if (err) err.textContent = m; return !m;
   };
@@ -820,7 +831,7 @@ export function monter(racine) {
     const h = habitants(); if (h === null) return;
     const c = calculer(h, etat);
     const texte = texteEstimation(c) + (motC.value.trim() ? `\n\nMessage : ${motC.value.trim()}` : '');
-    const sujet = `Estimation Marianne, ${etat.commune ? nomCommune(etat.commune) : nombre(h) + ' habitants'}`;
+    const sujet = `Demande de devis : ${etat.commune ? nomCommune(etat.commune) : nombre(h) + ' habitants'}`;
     const donnees = new FormData();
     donnees.set('name', nomC.value.trim()); donnees.set('email', melC.value.trim()); donnees.set('message', texte);
     donnees.set('city', etat.commune ? nomCommune(etat.commune) : ''); donnees.set('population', String(h)); if (etat.commune) donnees.set('insee', etat.commune[1]);
@@ -841,9 +852,9 @@ export function monter(racine) {
     if (ok) {
       form.classList.add('envoye'); recevoir.hidden = true;
       if (m && typeof m.signalerDemande === 'function') try { m.signalerDemande(form, 'estimation'); } catch (err) { /* rien */ }
-      etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Merci, votre estimation est partie.', texte: 'Nous revenons vers vous pour fixer une première réunion de trente minutes.' });
+      etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Votre demande de devis est partie, nous revenons vers vous.', texte: 'Une première réunion de trente minutes fixe le devis.' });
       if (m && m.poserVignette) m.poserVignette(bloc);
-    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de rendez-vous de trente minutes. ${lienPartage()}` : `Estimation : ${ht(c.mensuel)} par mois, mise en service ${ht(c.mise)}. ${lienPartage()}` });
+    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de devis sur estimation, au-delà de ${nombre(GRILLE.plafond)} habitants. ${lienPartage()}` : `Demande de devis sur estimation : ${ht(c.mensuel)} par mois, mise en service ${ht(c.mise)}${c.collecte ? `, collecte ${ht(c.collecte)}` : ''}. ${lienPartage()}` });
   });
   [q(`#${id}-nom`), q(`#${id}-mel`)].forEach(c => {
     /* à la sortie du champ, seulement après un premier essai d'envoi : un message qui apparaît au moment du clic sur
@@ -901,5 +912,11 @@ function remplirGrille(racine) {
 }
 
 /* ---------- démarrage : chaque bloc [data-prix-marianne] de la page ---------- */
-function demarrer() { document.querySelectorAll('[data-prix-marianne]').forEach(r => { remplirGrille(r); monter(r); }); }
+/* data-sans-grille sur le conteneur : la grille en clair n'est pas montrée (page principale de Marianne) */
+function demarrer() {
+  document.querySelectorAll('[data-prix-marianne]').forEach(r => {
+    if (r.hasAttribute('data-sans-grille')) r.querySelectorAll('.pm-grille').forEach(g => g.remove()); else remplirGrille(r);
+    monter(r);
+  });
+}
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', demarrer, { once: true }); else demarrer();

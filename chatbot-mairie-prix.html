@@ -115,7 +115,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/commun/pages/prix.css?v=20261014b">
+    <link rel="stylesheet" href="/commun/pages/prix.css?v=20261014c">
 
     <!-- Prevent dark mode flash -->
     <script>
@@ -258,7 +258,7 @@
         [data-theme="dark"] .pricing-features li { color: #a0a0b8; border-bottom-color: rgba(100, 100, 255, 0.06); }
 
         [data-theme="dark"] .couts-card { color: var(--text-main); }
-        [data-theme="dark"] .couts-card .couts-icon { background: rgba(0, 0, 200, 0.15); }
+        [data-theme="dark"] .couts-card .couts-icon { color: #b0b0ff; }
         [data-theme="dark"] .couts-card h3 { color: #b0b0ff; }
         [data-theme="dark"] .couts-card p { color: #a0a0b8; }
 
@@ -1078,31 +1078,19 @@
         }
 
         .couts-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur) var(--glass-saturate);
-            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
-            border-radius: 20px;
-            padding: 32px;
-            border: var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transition: var(--transition-premium);
-        }
-
-        .couts-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--glass-shadow-hover);
+            background: var(--bg-cream);
+            border-radius: 10px;
+            padding: 28px 28px 26px;
+            border: 1px solid rgba(96, 99, 123, 0.35);
         }
 
         .couts-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            background: rgba(0, 0, 145, 0.06);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            margin-bottom: 16px;
+            justify-content: flex-start;
+            color: #16205C;
+            margin-bottom: 12px;
+            line-height: 0;
         }
 
         .couts-card h3 {
@@ -1414,9 +1402,9 @@
         .mes-chiffres {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 12px;
-            max-width: 760px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0;
         }
@@ -1444,6 +1432,16 @@
             margin-top: 4px;
             font-size: 13px;
             color: var(--text-light);
+        }
+
+        .mes-titre {
+            max-width: 900px;
+            margin: 0 auto 14px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-heading);
         }
 
         .mes-note {
@@ -1854,15 +1852,15 @@
         <h2 class="section-title section-center" id="mesTitre" style="text-align:center">La mise en service, une seule fois</h2>
         <p class="section-subtitle section-center" style="text-align:center; margin-left:auto; margin-right:auto; margin-bottom:32px;">Avant d'ouvrir Marianne à vos habitants, nous passons six étapes avec vous. C'est là que se fait l'essentiel du travail&nbsp;: consolider et fiabiliser la source sur laquelle Marianne répond.</p>
 
-        <ul class="mes-chiffres" aria-label="Repères mesurés sur un déploiement de test, au 8 octobre 2026">
-            <li><b>4&nbsp;126</b><span>fiches</span></li>
+        <p class="mes-titre">Travail préalable mesuré pour une commune de 10&nbsp;000 habitants</p>
+        <ul class="mes-chiffres" aria-label="Travail préalable mesuré pour une commune de 10 000 habitants">
+            <li><b>4&nbsp;126</b><span>fiches écrites</span></li>
             <li><b>644</b><span>pages lues</span></li>
             <li><b>272</b><span>actes lus</span></li>
-            <li><b>300</b><span>questions de test</span></li>
-            <li><b>15</b><span>rejeux</span></li>
+            <li><b>15</b><span>versions mesurées avant livraison</span></li>
             <li><b>1&nbsp;994</b><span>réponses jugées</span></li>
         </ul>
-        <p class="mes-note">Repères mesurés sur un déploiement de test, au 8 octobre 2026.</p>
+        <p class="mes-note">Repères mesurés sur un déploiement de test (une commune de 10&nbsp;893 habitants), au 8 octobre 2026.</p>
 
         <ol class="mes-etapes">
             <li class="mes-etape">
@@ -1920,37 +1918,37 @@
 
             <div class="couts-grid">
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#9881;&#65039;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M16 7.2c4.9 0 8.9 3.9 8.8 8.9-.1 4.8-4 8.7-8.9 8.6-4.8 0-8.7-4-8.6-8.9.1-4.8 3.9-8.6 8.7-8.6zM16 3.4v3.6M16.2 25.1v3.5M3.4 16.2h3.6M25 15.8h3.6M7.1 7.3l2.5 2.5M22.4 22.6l2.6 2.4M7.2 24.9l2.5-2.6M22.5 9.6l2.4-2.5M16 12.6c1.9 0 3.4 1.5 3.4 3.4s-1.6 3.4-3.5 3.3c-1.8 0-3.3-1.5-3.3-3.4.1-1.8 1.6-3.3 3.4-3.3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Frais de mise en service</h3>
                     <p>Certains prestataires facturent entre 2 000&#8364; et 5 000&#8364; rien que pour l'installation et la configuration initiale. Ces frais entrent dans le coût total sur la durée du contrat, celui qui se compare au seuil de dispense de procédure.</p>
                     <div class="civik-note">Chez Civik-ia : à partir de 999&#8364;&nbsp;HT, facturée une seule fois</div>
                 </div>
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#128260;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M7.4 13.3C8.9 9.4 12.3 6.9 16.3 7c3.6.1 6.6 2.2 8 5.3M25 7.5l-.6 4.9-4.8-.8M24.6 18.8c-1.4 3.9-4.8 6.3-8.8 6.2-3.6-.1-6.6-2.3-8-5.4M7.1 24.5l.5-4.9 4.8.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Maintenance et mises a jour</h3>
                     <p>Les mises a jour de l'IA, les corrections de bugs et l'evolution des fonctionnalites sont parfois facturees en supplement, sous forme de contrat de maintenance annuel.</p>
                     <div class="civik-note">Chez Civik-ia : incluses dans l'abonnement</div>
                 </div>
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#128172;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M6.5 8.9c0-1.4 1.1-2.6 2.5-2.5h14c1.4 0 2.6 1.1 2.5 2.5v9c0 1.4-1.1 2.5-2.5 2.5h-8.4l-5.3 4.6.6-4.6H9c-1.4 0-2.5-1.1-2.5-2.5zM10.6 11.7h10.9M10.5 15.2h7.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Cout par conversation</h3>
                     <p>Attention aux modeles qui facturent a la conversation ou au message. Plus vos citoyens utilisent le chatbot, plus la facture grimpe. Un comble pour un outil cense encourager l'usage.</p>
                     <div class="civik-note">Chez Civik-ia : zero cout par message</div>
                 </div>
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#127891;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M3.8 12.6L16 7l12.2 5.6L16 18.3zM9.2 15.2v5.4c0 1.9 3.1 3.6 6.8 3.6s6.9-1.7 6.9-3.6v-5.4M27.6 13.1v7.2M27.6 20.3c-.8.9-.9 2-.4 2.9.6-.6 1.3-.8 1.6-.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Formation des agents</h3>
                     <p>La prise en main de l'outil et la formation des équipes municipales representent un cout souvent oublie. Certains prestataires le facturent entre 500&#8364; et 1 500&#8364;.</p>
                     <div class="civik-note">Chez Civik-ia : formation incluse</div>
                 </div>
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#128274;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M8.3 14.8h15.4c.8 0 1.4.6 1.4 1.4v9.1c0 .8-.6 1.4-1.4 1.4H8.3c-.8 0-1.4-.6-1.4-1.4v-9.1c0-.8.6-1.4 1.4-1.4zM11 14.6v-3.5c0-2.9 2.2-5.2 5-5.2s5 2.3 5 5.2v3.5M16 19v3.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Verrouillage des donnees</h3>
                     <p>Si vous changez de prestataire, vos donnees (historique des conversations, knowledge base) peuvent etre difficiles a recuperer. Verifiez la clause de reversibilite avant de signer.</p>
                     <div class="civik-note">Chez Civik-ia : vos donnees restent les votres</div>
                 </div>
                 <div class="couts-card">
-                    <div class="couts-icon" aria-hidden="true">&#128200;</div>
+                    <div class="couts-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30" focusable="false"><path d="M7 9h5.2c-.7-2.6 1.1-4.3 3-4.2 1.9.1 3.4 1.8 2.6 4.2H23v5.4c2.4-.8 4.2.8 4.2 2.8s-1.8 3.5-4.2 2.7V25h-5.4c.8-2.4-.8-4-2.7-4s-3.6 1.6-2.9 4H7v-5.6c2.5.7 4.1-1 4-2.9-.1-1.8-1.7-3.4-4-2.6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3>Options et modules supplementaires</h3>
                     <p>Tableau de bord, formation, mises à jour : ces éléments sont souvent vendus en option payante chez d'autres éditeurs.</p>
                     <div class="civik-note">Chez Civik-ia : compris dans l'abonnement</div>
@@ -2124,6 +2122,6 @@
             bind('a[href^="mailto:"]', 'email');
         })();
     </script>
-    <script type="module" src="/commun/pages/prix.js?v=20261014b"></script>
+    <script type="module" src="/commun/pages/prix.js?v=20261014c"></script>
 </body>
 </html>

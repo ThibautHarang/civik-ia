@@ -65,6 +65,11 @@
              data-reussite-titre="Merci, votre projet est parti."
              data-reussite="Gardez votre croquis, nous vous le demanderons si besoin.">
    ===================================================================== */
+/* La lettre qui part (14/10/2026) : pendant l’envoi d’une fiche ou d’un formulaire court, une petite scène à la plume
+   (commun/pages/lettre.js, chargé au premier envoi seulement). Interrupteur unique : pour la retirer, mettre LETTRE à ''
+   (cette ligne seule) ; envoyerAvecLettre redevient alors envoyerFormulaire et poserVignette ne fait plus rien, rien d’autre
+   à changer (lettre.js et lettre.css peuvent rester sur le serveur, plus rien ne les charge). */
+export const LETTRE = './lettre.js';
 export const clamp = (v, a = 0, b = 1) => v < a ? a : v > b ? b : v;
 export const lerp = (a, b, t) => a + (b - a) * t;
 export const reduit = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -204,6 +209,32 @@ export async function envoyerFormulaire(url, donnees, delai = 15000) {
     return r.ok;
   } catch (e) { return false; } finally { clearTimeout(minuteur); }
 }
+/* La lettre qui part (14/10/2026, seconde version) : la requête part d’abord, sans attendre le module ; la carte du
+   formulaire se transforme pendant l’attente (point d’attente à 1,8 s, puis 1,24 s pour poster la lettre) et la scène rend
+   la main après ; même valeur rendue qu’envoyerFormulaire. Filets : sans LETTRE, comportement d’avant ; module introuvable
+   ou scène en erreur : rien n’est montré ; délai de garde : 4 s après la réponse tant que la scène n’a pas démarré, porté à
+   3,5 s après son démarrage s’il est plus tard (le module appelle o.demarre quand la couche est posée : un module arrivé
+   tard joue sa scène entière) ; à l’expiration, la scène est coupée (le formulaire est rendu tel quel), l’état s’affiche
+   quand même, et un module arrivé après ne joue plus rien (o.annule) ; mouvement réduit : pas de scène, le module est
+   attendu 500 ms au plus pour la vignette fixe. data-en-cours et aria-busy pendant la scène. */
+let lettre = null;
+export async function envoyerAvecLettre(form, url, donnees, o = {}) {
+  const envoi = envoyerFormulaire(url, donnees);
+  if (!LETTRE) return envoi;
+  const charger = () => import(LETTRE).then(m => (lettre = m));
+  if (reduit()) { const pret = Promise.race([charger().catch(() => {}), dort(500)]); const ok = await envoi; await pret; return ok; }
+  let fini = false, depart = 0;   /* fini : le délai de garde a sonné, un module qui arrive après ne joue plus rien */
+  const jeu = charger().then(m => (fini ? null : m.jouer(form, envoi, Object.assign({}, o, { annule: () => fini, demarre: () => { depart = Date.now(); } })))).then(() => true, () => true);
+  const ok = await envoi;
+  const reponse = Date.now(); let garde = 0;
+  const veiller = r => { const reste = Math.max(reponse + 4000, depart ? depart + 3500 : 0) - Date.now(); if (reste <= 0) r(false); else garde = setTimeout(() => veiller(r), reste); };
+  const rendu = await Promise.race([jeu, new Promise(veiller)]);
+  clearTimeout(garde); fini = true;
+  if (!rendu) try { if (lettre) lettre.couper(); } catch (e) { /* rien */ }
+  return ok;
+}
+/* la vignette finale (la boîte aux lettres, l’enveloppe dans la fente), à gauche du remerciement, après etatEnvoi */
+export function poserVignette(bloc) { if (!LETTRE || !lettre) return; try { lettre.vignette(bloc); } catch (e) { /* rien */ } }
 /* Déploiement (08/10/2026) : l’événement generate_lead pour Google Tag Manager, poussé au succès d’un envoi réel (le service
    a accepté). Rien de personnel : la page (lead_source : conseil, atelier) et le formulaire (form_name : fiche, contact),
    jamais le nom, le courriel ni le message. Installation du 13/10/2026 (avis DAJF du 13/10/2026, condition 2, même contrat
@@ -264,11 +295,12 @@ export async function envoyerFiche(form, o = {}) {
   donnees.set('message', (o.texte || '').split('\n').map(l => TITRES_ENVOI.get(l) || l).join('\n'));
   donnees.set('_subject', sujet); donnees.set('_replyto', courriel);
   if (v('_gotcha')) donnees.set('_gotcha', v('_gotcha'));
-  const ok = await envoyerFormulaire(form.dataset.envoi, donnees);
+  const ok = await envoyerAvecLettre(form, form.dataset.envoi, donnees, o);
   delete form.dataset.enCours; form.removeAttribute('aria-busy');
   const voix = voixDe(form);
   if (ok) { remettre(true); signalerDemande(form, 'fiche'); etatEnvoi(o.bloc, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite }); }
   else { remettre(false); etatEnvoi(o.bloc, 'echec', { voix, sujet, corps: o.texte || '' }); }
+  if (ok) poserVignette(o.bloc);
   return ok;
 }
 
@@ -307,10 +339,11 @@ export function formulaireCourt(form, activite) {
       const bouton = form.querySelector('[type="submit"]'), remettre = boutonEnCours(bouton);
       const sujet = sujetDe(form, `Contact ${activite}`), voix = voixDe(form);
       const donnees = new FormData(form); donnees.set('_replyto', courriel); donnees.set('_subject', sujet);
-      const ok = await envoyerFormulaire(form.dataset.envoi, donnees);
+      const ok = await envoyerAvecLettre(form, form.dataset.envoi, donnees, { bloc: envoi, bouton });
       delete form.dataset.enCours; form.removeAttribute('aria-busy');
       if (ok) { remettre(true); signalerDemande(form, 'contact'); form.classList.add('envoye'); etatEnvoi(envoi, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite }); }
       else { remettre(false); etatEnvoi(envoi, 'echec', { voix, sujet, corps: texte }); }
+      if (ok) poserVignette(envoi);
       return;
     }
     /* Maquette (sans data-envoi) : rien n’est transmis, les données restent dans le navigateur. */

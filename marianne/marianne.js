@@ -672,6 +672,65 @@ securise(function demo() {
 /* =====================================================================
    8. Formulaires (traitement inchange : Formspree + dataLayer)
    ===================================================================== */
+/* La lettre qui part (14/10/2026, seconde version) : pendant l'envoi du formulaire de contact, la carte du formulaire
+   se transforme (/commun/pages/lettre.js, le meme module que sur les pages Atelier et Conseil, charge au premier envoi
+   seulement) : les champs deviennent une lettre ecrite a la main, pliee, mise sous enveloppe, cachetee et postee.
+   La requete Formspree part d'abord, au clic, exactement comme avant ; la scene se joue pendant l'attente (point
+   d'attente a 1,8 s, puis 1,24 s pour poster la lettre) ; le remerciement ou l'alerte d'avant s'affichent quand elle a
+   rendu la main, puis la boite vole se poser en vignette a gauche du remerciement.
+   Interrupteur unique : pour la retirer, mettre LETTRE_MARIANNE a '' (cette ligne seule) ; le formulaire se comporte
+   alors comme avant, rien d'autre a changer (lettre.js peut rester en ligne).
+   Filets : module introuvable ou en erreur, rien n'est montre ; delai de garde : 4 s apres la reponse tant que la
+   scene n'a pas demarre, porte a 3,5 s apres son demarrage s'il est plus tard (le module appelle o.demarre quand la
+   couche est posee), puis la scene est coupee (le formulaire est rendu tel quel) et la suite s'affiche quand meme ;
+   mouvement reduit ou animations arretees par le visiteur (html.anim-non) : pas de scene, le module est attendu
+   500 ms au plus pour la vignette fixe. */
+var LETTRE_MARIANNE = '/commun/pages/lettre.js';
+let lettreMarianne = null;   // le module, garde pour la vignette du remerciement
+
+function chargerLettre() {
+  try { return import(LETTRE_MARIANNE).then(m => (lettreMarianne = m)); }
+  catch (e) { return Promise.reject(e); }
+}
+
+// Rend une promesse (jamais rejetee) resolue quand la suite peut s'afficher : tout de suite sans scene,
+// sinon quand la scene a rendu la main, au plus tard 4 s apres la reponse.
+function lettrePendantEnvoi(form, envoi) {
+  if (!LETTRE_MARIANNE) return Promise.resolve();
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || racine.classList.contains('anim-non')) {
+      // pour la vignette fixe seulement : attendu 500 ms au plus (depuis le clic), comme pages.js
+      return Promise.race([chargerLettre().catch(() => {}), new Promise(r => setTimeout(r, 500))]).then(() => {});
+    }
+    let fini = false, depart = 0;
+    const promesseOk = envoi.then(r => r.ok, () => false);
+    const jeu = chargerLettre().then(m => {
+      if (fini) return;   // module arrive apres le delai de garde : pas de scene en retard
+      // la carte (le formulaire) se transforme ; sa colonne garde sa hauteur jusqu'au depart (le formulaire est
+      // cache et le remerciement pose avant lui, la page ne saute pas)
+      return m.jouer(form, promesseOk, { bloc: document.getElementById('formSuccess'), carte: form, tenir: form.parentNode, annule: () => fini, demarre: () => { depart = Date.now(); } });
+    }).then(() => true, () => true);
+    return promesseOk.then(() => new Promise(suite => {
+      const reponse = Date.now();
+      let garde = 0;
+      const veiller = () => {
+        const reste = Math.max(reponse + 4000, depart ? depart + 3500 : 0) - Date.now();
+        if (reste > 0) { garde = setTimeout(veiller, reste); return; }
+        fini = true;
+        try { if (lettreMarianne) lettreMarianne.couper(); } catch (e) {}
+        suite();
+      };
+      veiller();
+      jeu.then(() => { fini = true; clearTimeout(garde); suite(); });
+    }));
+  } catch (e) { return Promise.resolve(); }
+}
+
+function poserVignetteMarianne(bloc) {
+  if (!LETTRE_MARIANNE || !lettreMarianne) return;
+  try { lettreMarianne.vignette(bloc); } catch (e) {}
+}
+
 function sendToGoogleSheet(data) {
   // Best-effort silencieux (endpoint optionnel, Formspree reste la source principale)
   const endpoint = window.GSHEET_ENDPOINT || '';
@@ -682,6 +741,8 @@ function sendToGoogleSheet(data) {
 function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
+  if (form.dataset.envoiEnCours) return;   // un second appel pendant l'envoi ne relance rien
+  form.dataset.envoiEnCours = '1';
   const fd = new FormData(form);
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalText = submitBtn.textContent;
@@ -706,7 +767,14 @@ function handleFormSubmit(e) {
     source: 'contact'
   });
 
-  fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+  // 15 s au plus, comme envoyerFormulaire de pages.js : un abandon se comporte comme une panne (meme alerte)
+  const ctl = 'AbortController' in window ? new AbortController() : null;
+  const minuteur = ctl ? setTimeout(() => ctl.abort(), 15000) : 0;
+  const envoi = fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined });
+  envoi.then(() => clearTimeout(minuteur), () => clearTimeout(minuteur));
+  const scene = lettrePendantEnvoi(form, envoi);
+  envoi
+    .then(r => scene.then(() => r), err => scene.then(() => { throw err; }))
     .then(r => {
       if (r.ok) {
         form.style.display = 'none';
@@ -714,13 +782,16 @@ function handleFormSubmit(e) {
         form.parentNode.insertBefore(ok, form);
         ok.style.display = 'block';
         ok.tabIndex = -1; ok.focus();
+        poserVignetteMarianne(ok);
       } else {
+        delete form.dataset.envoiEnCours;
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         alert('Une erreur est survenue. Merci de nous contacter à contact@civik-ia.fr');
       }
     })
     .catch(() => {
+      delete form.dataset.envoiEnCours;
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
       alert('Erreur de connexion. Merci de nous contacter à contact@civik-ia.fr');

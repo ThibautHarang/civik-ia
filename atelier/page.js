@@ -209,7 +209,19 @@ async function entree() {
     }
   }
   placer();
-  addEventListener('resize', () => { clearTimeout(placer._t); placer._t = setTimeout(placer, 100); });
+  /* AT-35 (15/10/2026, vidéo de Thibaut depuis l'application LinkedIn) : dans le navigateur d'une application (LinkedIn, et tout
+     navigateur dont la barre se replie au défilement), la hauteur de la fenêtre change après l'ouverture ; 100svh suivait, la section
+     changeait de hauteur, et la table était reposée à une autre taille : un va-et-vient d'agrandissement et de rétrécissement, qui
+     se lit comme un bogue. Sans pointeur (téléphone, tablette), la hauteur de l'entrée est figée en pixels à la première pose, celle
+     que le visiteur voit en ouvrant la page, et seule une vraie variation de largeur (rotation, fenêtre redimensionnée) repose la
+     scène : une variation de hauteur seule ne fait plus rien (même règle que le film, main.js, poser). À la souris, rien ne change. */
+  if (tactile()) {
+    const figerHauteur = () => { sec.style.height = ''; sec.style.height = Math.round(sec.getBoundingClientRect().height) + 'px'; };
+    figerHauteur();
+    let largeurPosee = innerWidth;
+    addEventListener('resize', () => { if (innerWidth === largeurPosee) return; largeurPosee = innerWidth; clearTimeout(placer._t); placer._t = setTimeout(() => { figerHauteur(); placer(); }, 100); });
+  }
+  else addEventListener('resize', () => { clearTimeout(placer._t); placer._t = setTimeout(placer, 100); });
   /* ---- AT-1 : le fil ---- */
   let allumee = false, balance = null, tirage = null;
   const balancer = (A, tau, P) => {

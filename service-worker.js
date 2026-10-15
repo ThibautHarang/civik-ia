@@ -7,7 +7,7 @@
 // v171 (refonte du 08/10/2026) : la home (/), le film (/c-film/), /commun/, /conseil/ et /atelier/ passent par le reseau,
 // jamais par ce cache (ni precache, ni mise en cache a la volee) : le film change encore et ses fichiers ne portent pas de
 // numero de version. Le navigateur les garde selon les en-tetes de nginx (voir maquettes/seo/nginx-DIFF.conf).
-const CACHE_NAME = 'civik-ia-v178-prix-devis-2026-10-14';
+const CACHE_NAME = 'civik-ia-v179-atelier-hauteur-2026-10-15';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

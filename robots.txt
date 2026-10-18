@@ -45,7 +45,7 @@ Disallow: /api/
 
 # SEO (08/10/2026) : fichier inchange pour la refonte en trois branches, sauf la ligne 1 (un tiret cadratin dans le
 # commentaire, regle 7b, releve par l'audit technique du 30/09/2026). /conseil/ et /atelier/ heritent de « Allow: / » ;
-# /lauria/ ne doit JAMAIS etre interdit ici (un noindex ne se lit que si le crawl est permis, ADR 0045).
+# une page en veille servie en noindex ne doit JAMAIS etre interdite ici (un noindex ne se lit que si le crawl est permis, ADR 0045).
 # Resume structure du site a l'usage des assistants : https://civik-ia.fr/llms.txt
 # Version longue, contenu integral extractible : https://civik-ia.fr/llms-full.txt
 

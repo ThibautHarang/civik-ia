@@ -822,8 +822,8 @@ securise(function () {
 const cbKnowledge = [
   { keywords: ['aide', 'aider', 'bonjour', 'hello', 'salut', 'hey'], response: "Bonjour\u00A0! Je suis l'assistant du site Civik-ia. Je peux vous présenter <strong>Marianne</strong>, vous orienter vers la démo, ou répondre à vos questions sur nos offres" },
   { keywords: ['démo', 'demo', 'démonstration', 'essayer', 'tester'], response: "Testez la <a href='/demo'>démo interactive</a> avec une commune fictive, ou remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> pour une démo personnalisée sur votre propre commune" },
-  { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Réponse sous 24h" },
-  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "Abonnement sur devis, selon la taille de la commune. Mise en service\u00A0: à partir de 999\u00A0€ HT, sur devis selon le travail à réaliser, facturée une seule fois. <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
+  { keywords: ['contact', 'joindre', 'appeler', 'email', 'téléphone', 'rdv', 'rendez-vous'], response: "Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire</a>, écrivez à <strong>contact@civik-ia.fr</strong>, ou passez par WhatsApp (lien en pied de page). Nous lisons chaque message, puis nous vous répondons." },
+  { keywords: ['prix', 'tarif', 'coût', 'combien', 'budget'], response: "Abonnement à partir de 69\u00A0€ HT par mois, selon la taille de la commune. Mise en service\u00A0: à partir de 999\u00A0€ HT, sur devis selon le travail à réaliser, facturée une seule fois. <a href='#pricing' onclick=\"toggleChatbot();return true;\">Voir les tarifs</a>" },
   { keywords: ['pic', 'plateforme', 'intelligence', 'citoyenne', 'cest quoi', 'quoi', 'quest'], response: "<strong>Marianne</strong> est un assistant IA souverain qui répond 24h/24 aux habitants à partir du site officiel de la commune, et cite la page de chaque réponse. L'espace mairie, le tableau de bord de la commune, sera adapté aux besoins de chaque commune" },
   { keywords: ['sécurité', 'securite', 'rgpd', 'données', 'donnees', 'souverain', 'france', 'français', 'europe'], response: "Le cerveau de Marianne est européen\u00A0: hébergement <strong>OVHcloud</strong> en Europe, IA <strong>Mistral AI</strong> (Paris), <strong>RGPD</strong> natif. Les données de votre commune ne servent jamais à entraîner d'autres modèles" },
   { keywords: ['déploiement', 'deploiement', 'deploie', 'déployer', 'deployer', 'délai', 'installation', 'combien de temps', 'temps', 'durée', 'mise en place'], response: "Avant l'ouverture aux habitants, une <strong>mise en service en six étapes</strong>, une seule fois\u00A0: inventaire de votre site, cadre écrit, base de connaissances, mesure, validation par vos agents, version de référence. <a href='/chatbot-mairie-prix.html#mise-en-service'>Le détail</a>" },
@@ -885,7 +885,7 @@ function findCbAnswer(q) {
     if (score > bestScore) { bestScore = score; best = e; }
   }
   if (best && bestScore >= 3) return best.response;
-  return "Je n'ai pas la réponse exacte. Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> ou écrivez à <strong>contact@civik-ia.fr</strong> : nous répondons sous 24h";
+  return "Je n'ai pas la réponse exacte. Remplissez le <a href='#contact' onclick=\"toggleChatbot();return true;\">formulaire de contact</a> ou écrivez à <strong>contact@civik-ia.fr</strong>\u00A0: nous lisons chaque message, puis nous vous répondons.";
 }
 
 function sendCbMessage() {

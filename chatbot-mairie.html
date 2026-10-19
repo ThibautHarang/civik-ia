@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-couche="ancienne">
 <head>
-    <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement : CNIL art. 82 -->
-    <script src="/cookie-consent.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot mairie, le guide · Civik-ia</title>
@@ -133,23 +131,11 @@
     </script>
 
     <!-- Favicon & PWA -->
-    <link rel="icon" type="image/svg+xml" href="logo-civik-ia.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#000091">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Civik-ia">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Prevent dark mode flash: apply saved theme before CSS renders -->
-    <script>
-        (function(){var t=localStorage.getItem('civik-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();
-    </script>
 
     <style>
         /* ============================================
@@ -158,7 +144,7 @@
         :root {
             --primary-gov: #000091;
             --primary-light: #1a1a6e;
-            --secondary-innov: #007bff;
+            --secondary-innov: #2b6fd6;
             --accent-teal: #2EC4B6;
             --accent-gold: #F4A261;
             --text-main: #1E1E1E;
@@ -181,113 +167,59 @@
         /* ============================================
            DARK MODE
            ============================================ */
-        .theme-toggle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid rgba(140, 120, 80, 0.12);
-            background: rgba(247, 244, 237, 0.88);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: var(--transition-premium);
-        }
 
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 16px rgba(0, 0, 70, 0.12);
-        }
 
-        .theme-icon-dark { display: none; }
-        .theme-icon-light { display: inline; }
 
-        [data-theme="dark"] .theme-icon-dark { display: inline; }
-        [data-theme="dark"] .theme-icon-light { display: none; }
 
-        [data-theme="dark"] .logo img { filter: invert(1) hue-rotate(180deg) brightness(1.5); }
 
-        [data-theme="dark"] .theme-toggle {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
 
-        [data-theme="dark"] {
-            --text-main: #e0e0e8;
-            --text-light: #a0a0b4;
-            --text-heading: #8080ff;
-            --bg-warm: #0d0d1a;
-            --bg-section: #111122;
-            --bg-cream: #0a0a1e;
-            --glass-bg: rgba(20, 20, 50, 0.55);
-            --glass-bg-hover: rgba(30, 30, 70, 0.7);
-            --glass-border: 1px solid rgba(100, 100, 255, 0.12);
-            --glass-border-color: rgba(100, 100, 255, 0.08);
-            --glass-shadow: 0 15px 35px rgba(0, 0, 20, 0.3);
-            --glass-shadow-hover: 0 25px 60px rgba(0, 0, 30, 0.4);
-        }
 
-        [data-theme="dark"] body {
-            background: #08081a;
-            color: var(--text-main);
-            background-image:
-                radial-gradient(circle at 10% 10%, rgba(0, 0, 200, 0.08) 0%, transparent 30%),
-                radial-gradient(circle at 90% 85%, rgba(0, 0, 91, 0.04) 0%, transparent 30%),
-                radial-gradient(circle at 50% 50%, rgba(46, 196, 182, 0.04) 0%, transparent 40%);
-        }
 
-        [data-theme="dark"] nav {
-            background: rgba(10, 10, 30, 0.92);
-            border-bottom-color: rgba(100, 100, 255, 0.12);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        }
 
-        [data-theme="dark"] nav a { color: #c0c0e0; }
-        [data-theme="dark"] nav a:hover { color: var(--accent-teal); }
 
-        [data-theme="dark"] .section-title { color: #a0a0ff; }
 
-        [data-theme="dark"] .hero-pillar { background: linear-gradient(160deg, #06063a 0%, #0a0a50 50%, #080845 100%); }
-        [data-theme="dark"] .hero-pillar .hero-breadcrumb a { color: rgba(200, 200, 255, 0.7); }
 
-        [data-theme="dark"] .section-pourquoi { background: var(--bg-cream); }
 
-        [data-theme="dark"] .section-criteres { background: var(--bg-section); }
 
-        [data-theme="dark"] .section-comparatif { background: var(--bg-warm); }
-        [data-theme="dark"] .comparatif-table th { background: rgba(0, 0, 145, 0.3); color: #c0c0ff; }
-        [data-theme="dark"] .comparatif-table td { background: var(--glass-bg); color: var(--text-main); border-color: rgba(100, 100, 255, 0.08); }
-        [data-theme="dark"] .comparatif-table tr:hover td { background: var(--glass-bg-hover); }
-        [data-theme="dark"] .col-civik td { background: rgba(0, 0, 145, 0.15); }
-        [data-theme="dark"] .col-civik th { background: rgba(0, 0, 200, 0.4); }
 
-        [data-theme="dark"] .section-differenciateurs { background: linear-gradient(135deg, #06063a 0%, #0a0a50 100%); }
 
-        [data-theme="dark"] .section-faq { background: var(--bg-cream); }
-        [data-theme="dark"] .faq-item { border-color: rgba(100, 100, 255, 0.1); }
-        [data-theme="dark"] .faq-question { color: #a0a0ff; }
 
-        [data-theme="dark"] .section-cta-final { background: linear-gradient(135deg, #06063a 0%, #0a0a50 100%); }
 
-        [data-theme="dark"] footer {
-            background: linear-gradient(135deg, #040420 0%, #060630 100%);
-        }
 
-        [data-theme="dark"] .glass-card {
-            color: var(--text-main);
-        }
 
-        [data-theme="dark"] .btn-secondary-outline {
-            color: #c0c0e0;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        [data-theme="dark"] .btn-secondary-outline:hover {
-            background: var(--accent-teal);
-            color: white;
-            border-color: var(--accent-teal);
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /* ============================================
            BASE
@@ -310,9 +242,7 @@
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            background-image:
-                radial-gradient(circle at 20% 20%, rgba(0, 0, 145, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(46, 196, 182, 0.02) 0%, transparent 40%);
+            background-image: none;
         }
 
         a {
@@ -356,141 +286,40 @@
         /* ============================================
            NAVIGATION
            ============================================ */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 0 30px;
-            background: rgba(247, 244, 237, 0.92);
-            border-bottom: 1px solid rgba(200, 190, 170, 0.2);
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(40, 30, 10, 0.04),
-                        inset 0 1px 0 rgba(255, 252, 245, 0.5);
-        }
 
-        .logo {
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
 
-        .logo img {
-            height: 54px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
 
-        .logo:hover {
-            opacity: 0.85;
-        }
 
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-            align-items: center;
-            justify-content: center;
-        }
 
-        nav a {
-            text-decoration: none;
-            color: var(--primary-gov);
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            position: relative;
-            letter-spacing: -0.2px;
-            white-space: nowrap;
-        }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-teal);
-            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
 
-        nav a:hover {
-            color: var(--accent-teal);
-        }
 
-        nav a:hover::after {
-            width: 100%;
-        }
 
-        nav a.logo {
-            justify-self: start;
-        }
 
-        nav a.logo::after {
-            display: none;
-        }
 
-        .nav-cta {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-self: end;
-        }
 
-        .btn-demo {
-            padding: 9px 22px;
-            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 16px rgba(0, 0, 145, 0.25);
-            white-space: nowrap;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-        }
 
-        .btn-demo:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 145, 0.35);
-            color: white;
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /* ============================================
            HAMBURGER MENU (Mobile)
            ============================================ */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1002;
-            background: none;
-            border: none;
-        }
-        .hamburger span {
-            width: 24px;
-            height: 2.5px;
-            background: var(--primary-gov);
-            border-radius: 2px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        [data-theme="dark"] .hamburger span {
-            background: #b0b0d0;
-        }
+
+
+
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -501,77 +330,33 @@
             transform: rotate(-45deg) translate(5px, -5px);
         }
 
-        .mobile-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+
         .mobile-overlay.active {
             opacity: 1;
         }
 
         @media (max-width: 1100px) {
-            nav {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0 16px;
-            }
 
-            .hamburger {
-                display: flex;
-            }
 
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: rgba(247, 244, 237, 0.95);
-                padding: 20px 30px;
-                gap: 0;
-                box-shadow: 0 8px 30px rgba(40, 30, 10, 0.08);
-                border-bottom: 1px solid rgba(0, 0, 145, 0.08);
-                z-index: 1001;
-            }
+
+
+
 
             .nav-links.active {
                 display: flex;
             }
 
-            .nav-links a {
-                padding: 14px 0;
-                font-size: 16px;
-                border-bottom: 1px solid rgba(0, 0, 145, 0.06);
-            }
 
-            .nav-links a:last-child {
-                border-bottom: none;
-            }
 
-            [data-theme="dark"] .nav-links {
-                background: rgba(15, 15, 35, 0.95);
-            }
 
-            .nav-cta {
-                gap: 6px;
-            }
 
-            .btn-demo {
-                font-size: 12px;
-                padding: 8px 16px;
-            }
 
-            .mobile-overlay {
-                display: block;
-                pointer-events: none;
-            }
+
+
+
+
+
+
             .mobile-overlay.active {
                 pointer-events: auto;
             }
@@ -582,7 +367,7 @@
            ============================================ */
         .hero-pillar {
             padding: 160px 60px 100px;
-            background: linear-gradient(160deg, #000091 0%, #00006e 50%, #000050 100%);
+            background: #000091;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -592,7 +377,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+            background-image: none;
             background-size: 40px 40px;
             pointer-events: none;
             z-index: 1;
@@ -605,7 +390,7 @@
             right: -10%;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(46, 196, 182, 0.1) 0%, transparent 60%);
+            background: transparent;
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
@@ -671,7 +456,7 @@
 
         .btn-primary {
             padding: 18px 52px;
-            background: linear-gradient(135deg, var(--accent-teal), #25a89c);
+            background: var(--accent-teal);
             color: white;
             border: none;
             border-radius: 9999px;
@@ -732,8 +517,6 @@
 
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur) var(--glass-saturate);
-            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
             border: var(--glass-border);
             border-radius: 20px;
             padding: 36px 28px;
@@ -756,10 +539,7 @@
             letter-spacing: -1.5px;
             line-height: 1;
             margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--primary-gov), var(--secondary-innov));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color:var(--primary-gov);
         }
 
         .stat-label {
@@ -804,8 +584,6 @@
 
         .critere-card {
             background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur) var(--glass-saturate);
-            -webkit-backdrop-filter: var(--glass-blur) var(--glass-saturate);
             border: var(--glass-border);
             border-radius: 20px;
             padding: 36px 28px;
@@ -914,7 +692,7 @@
         }
 
         .col-civik th {
-            background: linear-gradient(135deg, #000091, #0000c0);
+            background: #000091;
         }
 
         .comparatif-table .col-civik td {
@@ -935,7 +713,7 @@
            ============================================ */
         .section-differenciateurs {
             padding: 100px 60px;
-            background: linear-gradient(160deg, #000091 0%, #00006e 50%, #000050 100%);
+            background: #000091;
             position: relative;
             overflow: hidden;
         }
@@ -944,7 +722,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-image: none;
             background-size: 40px 40px;
             pointer-events: none;
         }
@@ -972,8 +750,6 @@
 
         .diff-card {
             background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px) saturate(120%);
-            -webkit-backdrop-filter: blur(12px) saturate(120%);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 40px 32px;
@@ -1078,7 +854,7 @@
            ============================================ */
         .section-cta-final {
             padding: 100px 60px;
-            background: linear-gradient(160deg, #000091 0%, #00006e 50%, #000050 100%);
+            background: #000091;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -1091,7 +867,7 @@
             left: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(46, 196, 182, 0.08) 0%, transparent 60%);
+            background: transparent;
             border-radius: 50%;
             pointer-events: none;
         }
@@ -1130,56 +906,19 @@
         /* ============================================
            FOOTER
            ============================================ */
-        footer {
-            padding: 60px;
-            background: linear-gradient(135deg, #00005c 0%, #000040 100%);
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-        }
 
-        footer p {
-            font-size: 13px;
-            margin-bottom: 16px;
-        }
 
-        footer a {
-            color: var(--accent-teal);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
 
-        footer a:hover {
-            color: var(--accent-teal);
-        }
 
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0;
-        }
 
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
-            color: rgba(255,255,255,0.7);
-        }
 
-        .footer-social a:hover {
-            background: rgba(46,196,182,0.2);
-            border-color: rgba(46,196,182,0.4);
-            color: #2EC4B6;
-            transform: translateY(-2px);
-        }
+
+
+
+
+
+
+
 
         /* ============================================
            ANIMATIONS : fade-in
@@ -1301,9 +1040,7 @@
                 font-size: 17px;
             }
 
-            footer {
-                padding: 40px 20px;
-            }
+
         }
 
         @media (max-width: 480px) {
@@ -1316,6 +1053,19 @@
             }
         }
     </style>
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261019">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019">
+<script src="/js/cookies.js?v=20261019" defer></script>
+<!-- /tete-commune -->
 </head>
 <body>
 
@@ -1323,30 +1073,18 @@
     <a href="#contenu-principal" style="position:absolute;left:-9999px;top:0;padding:8px;background:var(--primary-gov);color:white;z-index:9999;font-size:14px;" onfocus="this.style.left='0';" onblur="this.style.left='-9999px';">Aller au contenu principal</a>
 
     <!-- NAVIGATION -->
-    <nav aria-label="Navigation principale" role="navigation">
-        <a class="logo" href="/">
-            <img src="logo-civik-ia.png" alt="Civik-ia : Chatbot IA pour mairies et collectivités" width="140" height="40">
-        </a>
-        <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
-            <a href="/marianne/#how" onclick="closeMobileMenu()">Le Constat</a>
-            <a href="/marianne/#how" onclick="closeMobileMenu()">La Solution</a>
-            <a href="/marianne/#pricing" onclick="closeMobileMenu()">Tarifs</a>
-            <a href="chatbot-mairie-prix.html" onclick="closeMobileMenu()">Guide des prix</a>
-            <a href="chatbot-commune-rurale.html" onclick="closeMobileMenu()">Communes Rurales</a>
-            <a href="/marianne/#contact" onclick="closeMobileMenu()">Contact</a>
-        </div>
-        <div class="nav-cta">
-            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Mode sombre/clair">
-                <span class="theme-icon-light">&#9728;&#65039;</span>
-                <span class="theme-icon-dark">&#127769;</span>
-            </button>
-            <a href="demo.html" class="btn-demo">Tester la demo</a>
-        </div>
-    </nav>
-    <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/marianne/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/marianne/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<!-- /barre-commune -->
 
     <!-- CONTENU PRINCIPAL -->
     <main id="contenu-principal" role="main">
@@ -1418,32 +1156,26 @@
 
             <div class="criteres-grid">
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x1F6E1;</span>
                     <h3>Souverainete et RGPD</h3>
                     <p>Les donnees des citoyens doivent rester en Union Europeenne. Aucune information ne doit transiter par des serveurs americains soumis au Cloud Act. Privilegiez un hebergement sur infrastructure souveraine europeenne (OVHcloud, Scaleway) avec un moteur IA europeen.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x1F4B6;</span>
                     <h3>Prix sous le seuil des marches publics</h3>
                     <p>En dessous de 60&nbsp;000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considerablement la decision.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x1F3AF;</span>
                     <h3>Personnalisation communale</h3>
                     <p>Un chatbot generique qui repond a cote detruit la confiance des citoyens. L’IA doit etre formee sur les donnees specifiques de votre commune&nbsp;: arrets municipaux, PLU, horaires d’ouverture, associations locales, calendrier des evenements.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x26A1;</span>
                     <h3>Facilite d’integration</h3>
                     <p>Votre prestataire web ne devrait pas facturer une journee de developpement pour brancher le chatbot. Une page dediee cle en main, mise en ligne par nos soins avec un simple lien a poser, ou demain un widget a copier-coller sur le site existant&nbsp;: c’est le standard a exiger. Comptez 5 minutes, pas 5 semaines.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x1F91D;</span>
                     <h3>Support et accompagnement</h3>
                     <p>La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement a l’onboarding, pas juste un lien de documentation.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <span class="critere-icon" aria-hidden="true">&#x1F4CA;</span>
                     <h3>Une justesse mesurée</h3>
                     <p>Demandez comment les réponses sont vérifiées avant l’ouverture&nbsp;: sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe.</p>
                 </div>
@@ -1487,38 +1219,38 @@
                         </tr>
                         <tr>
                             <td>Chatbot citoyen 24&nbsp;h/24</td>
-                            <td>&#x2705;</td>
-                            <td>&#x2705;</td>
-                            <td>&#x274C; (usage interne)</td>
-                            <td class="col-civik">&#x2705;</td>
+                            <td>Oui</td>
+                            <td>Oui</td>
+                            <td>Non (usage interne)</td>
+                            <td class="col-civik">Oui</td>
                         </tr>
                         <tr>
                             <td>Hebergement souverain UE</td>
-                            <td>&#x26A0;&#xFE0F; Non precise</td>
-                            <td>&#x26A0;&#xFE0F; Non precise</td>
-                            <td>&#x26A0;&#xFE0F; Non precise</td>
-                            <td class="col-civik">&#x2705; OVHcloud UE</td>
+                            <td>Non precise</td>
+                            <td>Non precise</td>
+                            <td>Non precise</td>
+                            <td class="col-civik">Oui, OVHcloud UE</td>
                         </tr>
                         <tr>
                             <td>Sans inscription citoyen</td>
-                            <td>&#x26A0;&#xFE0F;</td>
-                            <td>&#x26A0;&#xFE0F;</td>
+                            <td>Partiel</td>
+                            <td>Partiel</td>
                             <td>N/A</td>
-                            <td class="col-civik">&#x2705;</td>
+                            <td class="col-civik">Oui</td>
                         </tr>
                         <tr>
                             <td>Integration en 5 min</td>
-                            <td>&#x274C;</td>
-                            <td>&#x26A0;&#xFE0F;</td>
+                            <td>Non</td>
+                            <td>Partiel</td>
                             <td>N/A</td>
-                            <td class="col-civik">&#x2705; (lien ou QR code&nbsp;; widget en construction)</td>
+                            <td class="col-civik">Oui (lien ou QR code&nbsp;; widget en construction)</td>
                         </tr>
                         <tr>
                             <td>Sous seuil marches publics</td>
                             <td>À vérifier sur la durée du contrat</td>
-                            <td>&#x2705;</td>
-                            <td>&#x2705;</td>
-                            <td class="col-civik">&#x2705; conçu pour y rester</td>
+                            <td>Oui</td>
+                            <td>Oui</td>
+                            <td class="col-civik">Oui, conçu pour y rester</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1538,17 +1270,14 @@
 
             <div class="diff-grid">
                 <div class="diff-card fade-in">
-                    <span class="diff-icon" aria-hidden="true">&#x1F4C4;</span>
                     <h3>Une source, une page citée</h3>
                     <p>Marianne répond à partir du <span class="accent">site officiel de la commune</span>, relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer.</p>
                 </div>
                 <div class="diff-card fade-in">
-                    <span class="diff-icon" aria-hidden="true">&#x1F4C8;</span>
                     <h3>Une mise en service mesurée</h3>
                     <p>Avant l’ouverture aux habitants&nbsp;: inventaire du site, base de connaissances, <span class="accent">300 questions de test</span> jugées contre leur page source, validation par vos agents. Une seule fois&nbsp;; le détail des six étapes est sur notre <a href="chatbot-mairie-prix.html#mise-en-service">page prix</a>.</p>
                 </div>
                 <div class="diff-card fade-in">
-                    <span class="diff-icon" aria-hidden="true">&#x1F513;</span>
                     <h3>Zero friction citoyen</h3>
                     <p>Pas d’inscription. Pas de compte. Pas de cookie de suivi. Le citoyen arrive sur le chatbot, pose sa question, obtient sa reponse. <span class="accent">Point.</span> C’est une decision strategique fondamentale&nbsp;: chaque obstacle a l’entree fait perdre des utilisateurs. Un chatbot que personne n’utilise ne sert a rien. L’accessibilite universelle est la condition de la reussite du projet.</p>
                 </div>
@@ -1658,75 +1387,20 @@
     <!-- ============================================
          FOOTER
          ============================================ -->
-    <footer>
-        <p style="font-weight: 600; font-size: 15px; margin-bottom: 12px;">Civik-ia, au service des territoires&nbsp;: <a href="/marianne/">Marianne</a> · <a href="/conseil/">Conseil</a> · <a href="/atelier/">Atelier</a></p>
-        <p style="max-width: 600px; margin: 0 auto 16px; font-size: 12px; opacity: 0.7; line-height: 1.6;">Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.</p>
-        <!-- Reseaux sociaux -->
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur LinkedIn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://x.com/Civik_ia" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur X">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener noreferrer" aria-label="Suivre Civik-ia sur Facebook">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-        </div>
-        <p>&copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).</p>
-        <p><a href="/legal/politique-confidentialite.html">Confidentialite</a> · <a href="/legal/conditions-utilisation.html">Mentions legales & CGU</a> · <a href="/legal/conformite-rgpd.html">RGPD</a> · <a href="/legal/accessibilite-rgaa.html">Accessibilite</a> · <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></p>
-        <p style="margin-top: 12px; font-size: 11px; opacity: 0.5;">Chatbot mairie · IA collectivites · Assistant virtuel commune · Digitalisation service public</p>
-    </footer>
+    <!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/marianne/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/chatbot-mairie.html" aria-current="page">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul></div>
+</footer>
+<!-- /pied-commun -->
 
     <script>
-        // ============================================
-        // DARK MODE TOGGLE
-        // ============================================
-        function toggleTheme() {
-            var html = document.documentElement;
-            var isDark = html.getAttribute('data-theme') === 'dark';
-            html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('civik-theme', isDark ? 'light' : 'dark');
-        }
 
-        // Apply saved theme on load (also in <head> to prevent flash)
-        (function() {
-            var saved = localStorage.getItem('civik-theme');
-            if (saved === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            }
-        })();
-
-        // ============================================
-        // MOBILE HAMBURGER MENU
-        // ============================================
-        function toggleMobileMenu() {
-            var hamburger = document.querySelector('.hamburger');
-            var navLinks = document.getElementById('navLinks');
-            var overlay = document.getElementById('mobileOverlay');
-            var isOpen = navLinks.classList.contains('active');
-
-            hamburger.classList.toggle('active', !isOpen);
-            navLinks.classList.toggle('active', !isOpen);
-            overlay.classList.toggle('active', !isOpen);
-            hamburger.setAttribute('aria-expanded', !isOpen);
-            document.body.style.overflow = !isOpen ? 'hidden' : '';
-        }
-
-        function closeMobileMenu() {
-            var hamburger = document.querySelector('.hamburger');
-            var navLinks = document.getElementById('navLinks');
-            var overlay = document.getElementById('mobileOverlay');
-
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
 
         // ============================================
         // FAQ TOGGLE

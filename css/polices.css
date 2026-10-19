@@ -1,0 +1,16 @@
+/* =====================================================================
+   Polices servies par civik-ia.fr (couche commune des pages anciennes, passe P2 du 19/10/2026).
+   Aucun appel à fonts.googleapis.com ni à fonts.gstatic.com : les fichiers sont ceux de la maison
+   (sous-ensemble latin, qui couvre tout le français, œ, €, guillemets et espaces insécables compris ;
+   aucun caractère du sous-ensemble latin-ext n'est écrit sur les pages, relevé du 19/10/2026).
+   Poppins ne sert qu'en 700 et 800 (titres), Inter de 100 à 900 (fichier variable, texte),
+   Caveat de 400 à 700 (fichier variable, écriture à la main ; licence OFL à côté du fichier).
+   Les deux polices de repli calibrées sur Arial sont celles de /marianne/ (mêmes valeurs), pour que
+   le texte ne saute pas quand la police arrive.
+   ===================================================================== */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/poppins-latin-700.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:800;font-display:swap;src:url('/assets/fonts/poppins-latin-800.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('/assets/fonts/inter-latin-var.woff2') format('woff2')}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url('/assets/fonts/caveat-latin-var.woff2') format('woff2')}
+@font-face{font-family:'Poppins Fallback';src:local('Arial');size-adjust:112%;ascent-override:93.6%;descent-override:31.2%;line-gap-override:8.9%}
+@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:107.4%;ascent-override:90%;descent-override:22.4%;line-gap-override:0%}

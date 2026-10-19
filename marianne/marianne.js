@@ -455,17 +455,21 @@ securise(function hero() {
    ===================================================================== */
 securise(function navigation() {
   const nav = $('#nav'), burger = $('#navBurger'), menu = $('#navMobile');
-  const compacter = () => nav.classList.toggle('nav--compacte', scrollY > 40);
-  addEventListener('scroll', compacter, { passive: true }); requestAnimationFrame(compacter);
-
-  const fermer = () => { menu.classList.remove('ouvert'); burger.setAttribute('aria-expanded', 'false'); };
-  burger.addEventListener('click', () => burger.setAttribute('aria-expanded', String(menu.classList.toggle('ouvert'))));
-  $$('a', menu).forEach(a => a.addEventListener('click', fermer));
-  document.addEventListener('click', e => { if (!burger.contains(e.target) && !menu.contains(e.target)) fermer(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('ouvert')) { fermer(); burger.focus(); } });
+  /* passe P2 (19/10/2026) : la barre commune remplace la barre propre à la page ; sans elle, rien à compacter ni à ouvrir */
+  if (nav) {
+    const compacter = () => nav.classList.toggle('nav--compacte', scrollY > 40);
+    addEventListener('scroll', compacter, { passive: true }); requestAnimationFrame(compacter);
+  }
+  if (burger && menu) {
+    const fermer = () => { menu.classList.remove('ouvert'); burger.setAttribute('aria-expanded', 'false'); };
+    burger.addEventListener('click', () => burger.setAttribute('aria-expanded', String(menu.classList.toggle('ouvert'))));
+    $$('a', menu).forEach(a => a.addEventListener('click', fermer));
+    document.addEventListener('click', e => { if (!burger.contains(e.target) && !menu.contains(e.target)) fermer(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('ouvert')) { fermer(); burger.focus(); } });
+  }
 
   // Section courante : toutes les sections sont observees, pour que le lien s'eteigne hors des sections du menu
-  const liens = $$('.nav__liens a');
+  const liens = $$('.nav__liens a, .cc-sousbarre a');
   if ('IntersectionObserver' in window) {
     const espion = new IntersectionObserver(entrees => entrees.forEach(e => {
       if (e.isIntersecting) liens.forEach(l => {

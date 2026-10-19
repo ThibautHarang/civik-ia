@@ -499,9 +499,13 @@ Resume : Chatbot IA souverain pour mairies : Marianne répond aux administrés 2
 Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia
 Aller au contenu
 Arrêter les animations
-Nouveau
-×
-Mar ia nne par Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Fonctionnement
 Canaux
 Démo
@@ -509,15 +513,7 @@ Espace mairie
 Tarifs
 FAQ
 Contact
-Tester la démo
-Fonctionnement
-Canaux
-Démo
-Espace mairie
-Tarifs
-FAQ
-Contact
-Tester la démo
+Bientôt sur WhatsApp
 Marianne en ligne
 22:47
 Votre mairie ferme à 17 h 30 ?
@@ -809,30 +805,43 @@ Communiquer avec ses citoyens Panorama 2026 des canaux d'une mairie : site, appl
 Démarches en ligne d'une commune Par où commencer pour proposer des démarches en ligne dans une petite commune
 Page mise à jour le 9 octobre 2026
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
-Les trois activités
-Marianne, pour les collectivités territoriales
-Le conseil, pour tous
-L'atelier, pour vos besoins
-Nous joindre
-contact@civik-ia.fr
-LinkedIn de Thibaut Harang
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
 Guides pour les mairies
 Le guide du chatbot de mairie
-Prix d'un chatbot de mairie
+Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
+Chatbot de commune rurale
 Callbot ou chatbot
-Financer l'IA de sa commune
-Livre blanc
-Centre d'aide
-22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
-CGV
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
 Confidentialité
+CGV
 RGPD
 Accessibilité
+Gérer les cookies
 Arrêter les animations
 Villeneuve-les-Ormes est une commune fictive.
 Assistant Civik-ia En ligne · répond tout de suite
@@ -844,10 +853,13 @@ URL : https://civik-ia.fr/demo
 Resume : Posez une vraie question de citoyen, l'IA répond en direct. Testez Marianne, l'accueil 24h/24 des mairies, sans inscription. Abonnement à partir de 69 € HT par mois, selon la taille de la commune.
 
 Tester Marianne en direct · Civik-ia
-La solution
-Tarifs
+Civik-ia
+Marianne
+Conseil
+Atelier
 Contact
-Recevoir ma démonstration
+Réserver une démonstration
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Démonstration en direct · Sans inscription
 Testez Marianne, l’accueil 24 h/24 de votre mairie
 Marianne répond aux citoyens au nom de la mairie, jour et nuit. Posez-lui une vraie question ci-dessous : la réponse est générée en direct par l’intelligence artificielle.
@@ -913,14 +925,44 @@ Laissez votre adresse email : nous revenons vers vous avec une démonstration au
 Recevoir ma démonstration
 Sans engagement. Vos coordonnées servent uniquement à vous répondre.
 Merci. Votre demande est bien envoyée : nous revenons vers vous avec la démonstration au nom de votre commune.
-Marianne pour les mairies
-Tarifs
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
 Conseil
 Atelier
-Livre Blanc
-Mentions légales
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
 Confidentialité
-Civik-ia · Au service des territoires · Narbonne, France
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
 
 ## Chatbot mairie, le guide · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie.html
@@ -928,15 +970,13 @@ Resume : Choisir un chatbot pour une mairie, une ville ou une collectivité : à
 
 Chatbot mairie, le guide · Civik-ia
 Aller au contenu principal
-Le Constat
-La Solution
-Tarifs
-Guide des prix
-Communes Rurales
+Civik-ia
+Marianne
+Conseil
+Atelier
 Contact
-☀️
-
-Tester la demo
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil
 /
 Chatbot Mairie
@@ -962,22 +1002,16 @@ Pour une commune rurale de 1 500 habitants avec une secretaire de mairie a mi-te
 Un chatbot ne remplace pas l’agent de mairie. Il absorbe le flux de questions repetitives pour que l’humain se concentre sur ce qui compte : le lien social, l’ecoute, le conseil personnalise. Et il le fait 24 heures sur 24, 7 jours sur 7, y compris a 22h47, quand un citoyen se demande comment obtenir un permis de construire modificatif.
 Les criteres essentiels pour choisir un chatbot mairie
 Six points de vigilance pour les DGS et secretaires de mairie. Chaque critere a un impact direct sur la reussite du projet.
-
 Souverainete et RGPD
 Les donnees des citoyens doivent rester en Union Europeenne. Aucune information ne doit transiter par des serveurs americains soumis au Cloud Act. Privilegiez un hebergement sur infrastructure souveraine europeenne (OVHcloud, Scaleway) avec un moteur IA europeen.
-
 Prix sous le seuil des marches publics
 En dessous de 60 000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considerablement la decision.
-
 Personnalisation communale
 Un chatbot generique qui repond a cote detruit la confiance des citoyens. L’IA doit etre formee sur les donnees specifiques de votre commune : arrets municipaux, PLU, horaires d’ouverture, associations locales, calendrier des evenements.
-⚡
 Facilite d’integration
 Votre prestataire web ne devrait pas facturer une journee de developpement pour brancher le chatbot. Une page dediee cle en main, mise en ligne par nos soins avec un simple lien a poser, ou demain un widget a copier-coller sur le site existant : c’est le standard a exiger. Comptez 5 minutes, pas 5 semaines.
-欄
 Support et accompagnement
 La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement a l’onboarding, pas juste un lien de documentation.
-
 Une justesse mesurée
 Demandez comment les réponses sont vérifiées avant l’ouverture : sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe.
 Les principales offres du marche en un coup d’oeil
@@ -998,40 +1032,37 @@ Prix (commune rurale)
 1 licence gratuite (secretaire de mairie), puis sur devis
 69 € HT par mois, soit 828 € HT par an
 Chatbot citoyen 24 h/24
-✅
-✅
-❌ (usage interne)
-✅
+Oui
+Oui
+Non (usage interne)
+Oui
 Hebergement souverain UE
-⚠️ Non precise
-⚠️ Non precise
-⚠️ Non precise
-✅ OVHcloud UE
+Non precise
+Non precise
+Non precise
+Oui, OVHcloud UE
 Sans inscription citoyen
-⚠️
-⚠️
+Partiel
+Partiel
 N/A
-✅
+Oui
 Integration en 5 min
-❌
-⚠️
+Non
+Partiel
 N/A
-✅ (lien ou QR code ; widget en construction)
+Oui (lien ou QR code ; widget en construction)
 Sous seuil marches publics
 À vérifier sur la durée du contrat
-✅
-✅
-✅ conçu pour y rester
+Oui
+Oui
+Oui, conçu pour y rester
 Ce tableau reflète les informations publiquement disponibles en avril 2026. Chaque projet de collectivite est unique : nous vous recommandons de demander une demonstration personnalisee avant toute decision. Pour l’analyse detaillee solution par solution, voir le comparatif chatbot mairie 2026 .
 Ce qui differencie Civik-ia
 Trois choix qui comptent pour une mairie : une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant.
-
 Une source, une page citée
 Marianne répond à partir du site officiel de la commune , relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer.
-
 Une mise en service mesurée
 Avant l’ouverture aux habitants : inventaire du site, base de connaissances, 300 questions de test jugées contre leur page source, validation par vos agents. Une seule fois ; le détail des six étapes est sur notre page prix .
-
 Zero friction citoyen
 Pas d’inscription. Pas de compte. Pas de cookie de suivi. Le citoyen arrive sur le chatbot, pose sa question, obtient sa reponse. Point. C’est une decision strategique fondamentale : chaque obstacle a l’entree fait perdre des utilisateurs. Un chatbot que personne n’utilise ne sert a rien. L’accessibilite universelle est la condition de la reussite du projet.
 Un chatbot pour le site de sa mairie
@@ -1063,24 +1094,57 @@ Pret a moderniser l’accueil de votre mairie ?
 Decouvrez en 3 minutes comment Civik-ia repond aux questions de vos citoyens, 24 heures sur 24. Demonstration interactive, sans engagement.
 Tester la demo gratuite
 Demander un devis
-Civik-ia, au service des territoires : Marianne · Conseil · Atelier
-Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
-&copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
-Confidentialite · Mentions legales & CGU · RGPD · Accessibilite · contact@civik-ia.fr
-Chatbot mairie · IA collectivites · Assistant virtuel commune · Digitalisation service public
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
 
 ## Prix d’un chatbot mairie · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie-prix.html
 Resume : Chatbot de mairie en 2026 : ce qui fait le prix, la mise en service, les coûts cachés à vérifier, le seuil de dispense et le comparatif face à dydu, Citia et Delibia.
 
 Prix d’un chatbot mairie · Civik-ia
-Guide Chatbot
-La Solution
-Nos Tarifs
-Communes Rurales
+Civik-ia
+Marianne
+Conseil
+Atelier
 Contact
-☀️ 
-Tester la demo
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil
 /
 Chatbot Mairie
@@ -1163,21 +1227,13 @@ une seule fois
 Et si une partie de cette dépense était cofinancée ? Depuis mai 2026, le guichet du programme Territoires d’IA, porté par la Banque des Territoires, couvre 30 à 50 % de l’achat de licences ou d’abonnements de solutions d’IA souveraine, en continu et sans date limite de dépôt. L’éligibilité est instruite par la Banque des Territoires, jamais promise par un éditeur : le détail des taux, des bonifications et de ce qui n’est pas accessible à une commune figure sur notre page financer l’IA de sa commune .
 Ce que comprend l’abonnement
 Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes : la taille de la commune fait le prix.
-✓
 Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse
-✓
 Sans compte ni inscription pour les habitants
-✓
 L’espace mairie dès son ouverture : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), adapté aux besoins de chaque commune
-✓
 Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance
-✓
 Hebergement souverain OVHcloud Union Europeenne
-✓
 Page dediee prete a partager, widget a integrer en construction
-✓
 Support par courriel
-✓
 Conformite RGPD native , sans compte pour les habitants
 Combien coûte Marianne pour votre commune ?
 Écrivez le nom de votre commune sur le panneau.
@@ -1259,20 +1315,57 @@ Demandez votre devis en 2 minutes
 Decouvrez comment Marianne peut transformer la relation entre votre mairie et vos citoyens.
 Tester la demo
 Demander un devis
-Civik-ia, au service des territoires : Marianne · Conseil · Atelier
-Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
-&copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
-Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
-Chatbot mairie prix &middot; Chatbot mairie gratuit &middot; Chatbot mairie tarif &middot; Chatbot collectivite cout &middot; Budget chatbot commune
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
 
 ## Chatbot mairie gratuit · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie-gratuit.html
 Resume : Du gratuit existe pour une commune, mais pas pour le même besoin : Delibia pour les secrétaires de mairie, PanneauPocket sous 100 habitants. Vérifié le 24/08/2026.
 
 Chatbot mairie gratuit · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Chatbot mairie gratuit
 Comparatif · 24 août 2026
 Existe-t-il un chatbot gratuit pour une mairie ?
@@ -1322,28 +1415,57 @@ Sources et fraîcheur. Les offres décrites sur cette page ont été relevées d
 Jugez sur une vraie question
 Testez Marianne depuis votre téléphone, sans inscription : posez la question qu’un habitant poserait un dimanche soir, et regardez la réponse.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Tarifs
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Chatbot commune rurale · Civik-ia
 URL : https://civik-ia.fr/chatbot-commune-rurale.html
 Resume : Commune rurale : un accueil numérique 24h/24 qui répond à partir du site officiel de la commune, page citée à chaque réponse. Chatbot IA souverain UE, RGPD natif, sans inscription. Abonnement à partir de 69 € HT par mois, selon la taille de la commune.
 
 Chatbot commune rurale · Civik-ia
-Guide Chatbot
-Guide des prix
-La Solution
-Tarifs
+Civik-ia
+Marianne
+Conseil
+Atelier
 Contact
-☼ ☾
-Tester la demo
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil
 /
 Communes Rurales
@@ -1442,21 +1564,57 @@ Votre commune merite un accueil 24 h/24
 Rejoignez les premieres communes rurales a offrir un accueil numerique intelligent et une democratie participative a leurs habitants.
 Tester la demo
 Demander un devis
-Civik-ia, au service des territoires : Marianne · Conseil · Atelier
-Chatbot IA souverain pour collectivites territoriales. Communes rurales, villes moyennes, intercommunalites et regions. Cloud souverain europeen OVH. Conforme RGPD et RGAA.
-&copy; 2026 Civik-ia. Concu en France. Heberge en Europe (OVH).
-Confidentialite &middot; Mentions legales & CGU &middot; RGPD &middot; Accessibilite &middot; contact@civik-ia.fr
-Chatbot commune rurale &middot; Chatbot petite commune &middot; Consultation citoyenne numerique &middot; Digitalisation mairie 2026 &middot; Democratie participative
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
 
 ## Comparatif chatbot mairie · Civik-ia
 URL : https://civik-ia.fr/comparatif-chatbot-mairie-2026.html
 Resume : Delibia est-il gratuit ? Oui pour les secrétaires de mairie, mais l'éditeur le présente comme un outil pour les agents. Comparatif 2026 des chatbots mairie : prix, RGPD, souveraineté, tableau objectif.
 
 Comparatif chatbot mairie · Civik-ia
-C
 Civik-ia
-Au service des territoires
-Voir la démo
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Chatbots mairie › Comparatif 2026
 Mis à jour le 8 juin 2026
 Comparatif chatbot mairie 2026 : 5 solutions IA passées au crible
@@ -1504,37 +1662,37 @@ Mairies multilingues, zones touristiques
 Grandes collectivités, multi-secteur
 Toutes communes (diffusion d’infos)
 IA générative
-✓ Mistral AI souverain
-✓ moteur propriétaire
-✓ moteur propriétaire
-✓ moteur propriétaire
-✗ non concerné
+Oui , Mistral AI souverain
+Oui , moteur propriétaire
+Oui , moteur propriétaire
+Oui , moteur propriétaire
+Non concerné
 Hébergement
-✓ en Europe, chez OVHcloud
+Oui , en Europe, chez OVHcloud
 Hébergement France (variable selon offre)
 France
 Variable
 France
 RGPD natif
 (zéro compte citoyen requis)
-✓ sans inscription
+Oui , sans inscription
 ± partiel
-✓
+Oui
 ± partiel
-✓
+Oui
 Conformité urbanisme
 (Cerfa 13703 etc.)
-✓ 5 Cerfa V1, +5 en V2
+Oui , 5 Cerfa V1, +5 en V2
 ± générique
 ± générique
 ± générique
-✗
+Non
 Co-design DGS
 (30 min, sans dev)
-✓ via outil web
-✗ intégration sur mesure
-✗ intégration sur mesure
-✗ intégration sur mesure
+Oui , via outil web
+Non , intégration sur mesure
+Non , intégration sur mesure
+Non , intégration sur mesure
 Sans objet
 Délai déploiement
 quelques semaines (mise en service en six étapes)
@@ -1543,18 +1701,18 @@ quelques semaines (mise en service en six étapes)
 6 à 12 semaines
 2-3 jours
 Référencement UGAP
-✗ non éligible (jeune)
-✓
-✗
+Non éligible (jeune)
+Oui
+Non
 ± partiel
-✓
+Oui
 Sous le seuil de dispense
 (60 000 € HT, R. 2122-8)
-✓ conçu pour y rester
+Oui , conçu pour y rester
 ± selon volume
-✓
-✗ souvent dessus
-✓
+Oui
+Non , souvent dessus
+Oui
 Sources : sites officiels des éditeurs, témoignages clients publics, plateforme UGAP, comptes annuels disponibles via pappers.fr (consulté le 16 mai 2026). Offre Civik-ia à jour au 14 octobre 2026. ± : partiel ou selon offre.
 Vous comparez pour votre commune ? Le Livre Blanc 2026 reprend ce comparatif avec le calcul de ROI par strate de commune, la checklist RGPD et la grille de décision, en PDF à garder.
 Recevoir le Livre Blanc
@@ -1626,24 +1784,57 @@ Existe-t-il un chatbot gratuit pour une mairie ? : ce qui est réellement gratui
 Voir Civik-ia en action sur une vraie commune
 Marianne, notre assistante IA, répond aux questions de la vie courante d’un administré : horaires, démarches, urbanisme, déchets. Testez le chat depuis votre téléphone, comme un habitant.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Démo
-Mentions légales
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Communiquer avec ses citoyens · Civik-ia
 URL : https://civik-ia.fr/comment-communiquer-avec-ses-citoyens.html
 Resume : Quel outil pour créer du lien avec ses citoyens ? Panorama 2026 des canaux d'une mairie : site, app, panneau, chatbot IA. Guide pour maires et DGS.
 
 Communiquer avec ses citoyens · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Communiquer avec ses citoyens
 Maire / Élu · 8 juin 2026
 Comment mieux communiquer avec ses citoyens en 2026 ?
@@ -1712,24 +1903,57 @@ Combien coûte un chatbot pour mairie ?
 Voir le dialogue mairie-citoyen en vrai
 Marianne, l’assistante Civik-ia, répond aux questions des habitants 24 h/24 : horaires, démarches, vie locale. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## RGPD et IA en collectivité · Civik-ia
 URL : https://civik-ia.fr/guide-rgpd-ia-collectivites.html
 Resume : Votre mairie utilise ou envisage une IA ? Base légale, AIPD, hébergement des données : les 7 points que la CNIL vérifie, expliqués simplement, avec la checklist prête à l'emploi.
 
 RGPD et IA en collectivité · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guide RGPD IA collectivités
 Conformité · 8 juin 2026
 RGPD et IA pour collectivités : guide complet 2026
@@ -1860,25 +2084,57 @@ Politique RGPD de Civik-ia : notre approche détaillée
 Une solution RGPD-native, conçue pour les mairies françaises
 Marianne, l’assistante Civik-ia, fonctionne sans inscription citoyenne, sans collecte nominative. Conforme dès la conception.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
-Démo
-Mentions légales
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## IA souveraine en mairie · Civik-ia
 URL : https://civik-ia.fr/ia-souveraine-mairie-mistral.html
 Resume : Pourquoi votre mairie devrait utiliser Mistral AI plutôt qu'OpenAI ou Google pour son chatbot citoyen. Souveraineté, RGPD, Cloud Act, coûts, performances.
 
 IA souveraine en mairie · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › IA souveraine pour mairie
 Souveraineté · 8 juin 2026
 IA souveraine pour mairie : pourquoi Mistral AI plutôt qu’OpenAI ?
@@ -1970,24 +2226,57 @@ Guide complet du chatbot mairie
 Voir Mistral AI au service de votre commune
 Marianne, l’assistante Civik-ia, fonctionne avec Mistral Small et un hébergement OVH UE. Conforme par construction.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Réduire les appels en mairie · Civik-ia
 URL : https://civik-ia.fr/reduire-appels-mairie-chatbot-ia.html
 Resume : Comment un chatbot IA peut libérer le secrétariat de mairie : ordres de grandeur, calcul de ROI et objectif chiffré. Guide pour DGS et maires en 2026.
 
 Réduire les appels en mairie · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Réduire les appels en mairie
 DGS / Secrétariat · 8 juin 2026
 Réduire les appels en mairie avec un chatbot IA : objectif 40 %
@@ -2074,24 +2363,57 @@ Conformité RGPD pour l’IA en mairie
 Voir l’IA libérer une vraie mairie
 Marianne, l’assistante Civik-ia, répond aux questions répétitives à la place du secrétariat, 24 h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Logiciel de petite commune · Civik-ia
 URL : https://civik-ia.fr/logiciel-mairie-petite-commune.html
 Resume : Quel logiciel pour une petite mairie rurale ? Critères de choix, budget réaliste, souveraineté et RGPD. Guide pour maires et secrétaires de mairie en 2026.
 
 Logiciel de petite commune · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Logiciel pour petite commune
 Maire / Secrétaire de mairie · 24 juin 2026
 Logiciel pour petite commune : bien choisir en 2026
@@ -2154,24 +2476,57 @@ Outils IA pour secrétaire de mairie : le guide 2026
 Voir l’outil sur une vraie commune
 Marianne, l’assistante Civik-ia, répond aux questions des citoyens 24 h/24, sans inscription. Testez le chat depuis votre téléphone.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Outils IA pour secrétaire de mairie · Civik-ia
 URL : https://civik-ia.fr/outils-ia-secretaire-de-mairie.html
 Resume : Quels outils d'IA une secrétaire de mairie peut-elle utiliser en 2026 ? Répondre aux citoyens, rédiger, chercher dans la réglementation : le panorama, les prix et les règles RGPD.
 
 Outils IA pour secrétaire de mairie · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Outils IA pour secrétaire de mairie
 Secrétaire de mairie · 5 juillet 2026
 Outils IA pour secrétaire de mairie : le guide 2026
@@ -2234,24 +2589,57 @@ Logiciel pour petite commune : bien choisir
 Voir ce que vos citoyens verraient
 Marianne répond aux questions des citoyens 24 h/24 et décharge le secrétariat des questions répétitives. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Callbot mairie ou chatbot · Civik-ia
 URL : https://civik-ia.fr/callbot-mairie.html
 Resume : Callbot téléphonique ou chatbot écrit pour votre mairie ? Différences, coûts, limites et cas d'usage : le guide pour choisir le bon canal en 2026.
 
 Callbot mairie ou chatbot · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Callbot mairie ou chatbot
 Guide de choix · 19 juillet 2026
 Callbot mairie ou chatbot : que choisir en 2026
@@ -2296,24 +2684,57 @@ Réduire les appels en mairie grâce à l’IA
 Voir ce que vos citoyens verraient
 Testez Marianne depuis votre téléphone, sans inscription : posez une vraie question de citoyen et jugez la réponse.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Financer l’IA de sa commune · Civik-ia
 URL : https://civik-ia.fr/financement-ia-collectivite.html
 Resume : Le guichet Territoires d'IA cofinance 30 à 50 % d'un abonnement d'IA souveraine, en continu. Ce qui s'applique à une commune rurale, et ce qui n'est pas pour elle.
 
 Financer l’IA de sa commune · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Financer l’IA de sa commune
 Guide de financement · 3 août 2026
 Financer l’IA de sa commune : cofinancement et aides 2026
@@ -2392,24 +2813,57 @@ Comparatif 2026 des solutions pour mairies
 Voir l’outil avant de monter un dossier
 Testez Marianne depuis votre téléphone, sans inscription : posez une vraie question de citoyen et jugez la réponse.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Tarifs
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Démarches en ligne d’une commune · Civik-ia
 URL : https://civik-ia.fr/demarches-en-ligne-commune.html
 Resume : Comment proposer des démarches en ligne dans une petite commune ? Service-Public, France Connect, formulaires Cerfa et assistant citoyen. Guide pratique pour mairies en 2026.
 
 Démarches en ligne d’une commune · Civik-ia
-C
-Civik-ia Au service des territoires
-Voir la démo
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Démarches en ligne pour une commune
 Maire / Secrétaire de mairie · 24 juin 2026
 Démarches en ligne pour une commune : par où commencer
@@ -2477,23 +2931,57 @@ Comment communiquer avec ses citoyens
 Voir l’orientation des démarches en action
 Marianne, l’assistante Civik-ia, guide les citoyens vers la bonne démarche et le bon Cerfa, 24 h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Livre blanc, IA en mairie · Civik-ia
 URL : https://civik-ia.fr/livre-blanc.html
 Resume : Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pour mairies. Sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser.
 
 Livre blanc, IA en mairie · Civik-ia
-C
-Civik-ia Au service des territoires
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Livre Blanc · Édition 2026
 Le guide du chatbot IA pour mairies françaises
 Douze pages pour savoir ce qu’un assistant IA de mairie doit faire, ce qu’il coûte, et ce qu’il faut exiger avant de signer. Sans témoignage ni chiffre invérifiable : des exigences, une check-list et des questions à poser
@@ -2527,7 +3015,7 @@ Autre
 Commune / EPCI
 Télécharger le PDF (12 pages)
 En cliquant, vous acceptez que vos coordonnées soient utilisées par Civik-ia pour vous transmettre le Livre Blanc et, occasionnellement, vous informer de nos nouveautés. Vous pouvez vous désinscrire à tout moment. Politique de confidentialité .
-✓ Merci !
+Merci !
 Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par email.
 Cliquez ici si le téléchargement n’a pas démarré
 Ce que vous allez lire
@@ -2549,26 +3037,60 @@ Un scénario construit sur une commune de démonstration. Aucun retour de commun
 À poser à tout fournisseur, Civik-ia compris, et trois questions pour décider
 9. Marianne en bref
 Fonctionnement, canaux disponibles et à venir, tarifs
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
 Accueil
 Marianne
 Conseil
 Atelier
-Chatbot mairie
-Comparatif
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
 RGPD
-Démo
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · contact@civik-ia.fr
+Accessibilité
+Gérer les cookies
 
 ## Marianne sur WhatsApp · Civik-ia
 URL : https://civik-ia.fr/marianne-whatsapp.html
 Resume : Bientôt, l'IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, orientation vers le bon service, bascule vers vos agents. Canal à venir, moteur souverain déjà disponible en démonstration. RGPD natif.
 
 Marianne sur WhatsApp · Civik-ia
-WhatsApp
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Aperçu
 Tarifs
 Fonctionnalités
-Demander une démo
 Bientôt disponible
 →
 Votre mairie est sur WhatsApp ?
@@ -2576,10 +3098,10 @@ Connectez-la à Civik-ia
 Nous préparons le canal WhatsApp de Civik-ia pour les mairies. Bientôt, vos citoyens écriront à leur commune sur WhatsApp et Marianne répondra, sourcée sur vos arrêtés et votre PLU, avec orientation vers le bon service et basculement vers vos agents. Le moteur souverain est déjà disponible en démonstration sur nos autres canaux.
 Voir la démonstration ↓
 Comment ça marche
-✓ Aucune app à installer
-✓ RGPD natif · OVH
-✓ Sources officielles de votre commune
-✦ Bientôt
+Aucune app à installer
+RGPD natif · OVH
+Sources officielles de votre commune
+Bientôt
 ‹
 Mairie de Saint‑Rémy
 Compte professionnel
@@ -2647,30 +3169,43 @@ Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
-Les trois activités
-Marianne, pour les collectivités territoriales
-Le conseil, pour tous
-L’atelier, pour vos besoins
-Nous joindre
-contact@civik-ia.fr
-LinkedIn de Thibaut Harang
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
 Guides pour les mairies
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
+Chatbot de commune rurale
 Callbot ou chatbot
 Financer l’IA de sa commune
-Livre blanc
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
 Centre d’aide
-22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
-CGV
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
 Confidentialité
+CGV
 RGPD
 Accessibilité
+Gérer les cookies
 Le canal WhatsApp de Civik-ia est en préparation ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d’illustration ; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; WhatsApp serait un canal de transport choisi par la mairie.
 
 ## Marianne sur Messenger · Civik-ia
@@ -2678,11 +3213,16 @@ URL : https://civik-ia.fr/marianne-messenger.html
 Resume : Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal à venir, moteur souverain déjà disponible en démonstration. RGPD natif.
 
 Marianne sur Messenger · Civik-ia
-Messenger
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Aperçu
 Tarifs
 Fonctionnalités
-Demander une démo
 Bientôt disponible
 →
 Vos citoyens écrivent
@@ -2691,10 +3231,10 @@ Marianne leur répondra
 Nous préparons le canal Messenger de Civik-ia pour les mairies. Bientôt, les messages reçus par votre page Facebook seront traités par Marianne, sourcée sur vos documents officiels, 24 h/24. Et vos agents garderont toujours la main : dès qu’un agent répond, Marianne se retire du fil. Le moteur souverain est déjà disponible en démonstration sur nos autres canaux.
 Voir la démonstration ↓
 Comment ça marche
-✓ Vos agents gardent la main
-✓ RGPD natif · OVH
-✓ Sources officielles de votre commune
-✦ Bientôt
+Vos agents gardent la main
+RGPD natif · OVH
+Sources officielles de votre commune
+Bientôt
 ‹
 Mairie de Saint‑Rémy
 Répond instantanément
@@ -2761,30 +3301,43 @@ Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
-Les trois activités
-Marianne, pour les collectivités territoriales
-Le conseil, pour tous
-L’atelier, pour vos besoins
-Nous joindre
-contact@civik-ia.fr
-LinkedIn de Thibaut Harang
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
 Guides pour les mairies
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
+Chatbot de commune rurale
 Callbot ou chatbot
 Financer l’IA de sa commune
-Livre blanc
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
 Centre d’aide
-22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
-CGV
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
 Confidentialité
+CGV
 RGPD
 Accessibilité
+Gérer les cookies
 Le canal Messenger de Civik-ia est en préparation ; son ouverture est prévue prochainement et les conversations présentées sont illustratives. Ce canal répond aux messages reçus ; il ne permet pas d’envoi massif sortant, par politique de la plateforme. Messenger est une marque de Meta Platforms, Inc., citée à des fins d’illustration ; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux ; Messenger serait un canal de transport choisi par la mairie, la conversation y transitant par Meta comme c’est déjà le cas de la messagerie de votre page aujourd’hui.
 
 ## Centre d’aide et FAQ · Civik-ia
@@ -2793,6 +3346,13 @@ Resume : Centre d'aide Civik-ia : questions fréquentes par profil (citoyen, age
 
 Centre d’aide et FAQ · Civik-ia
 Aller au contenu
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Civik-ia · Centre d’aide
 Comment pouvons-nous vous aider ?
 Trouvez des réponses claires à vos questions, organisées par profil. Si vous ne trouvez pas, écrivez-nous : nous lisons chaque demande et vous répondons par écrit.
@@ -2820,13 +3380,57 @@ contact@civik-ia.fr
 WhatsApp professionnel
 Civik-ia , au service des territoires · civik-ia.fr
 Dernière mise à jour du centre d’aide : 18 octobre 2026
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
 
 ## 22h47, mairie fermée · Civik-ia
 URL : https://civik-ia.fr/22h47.html
 Resume : 22h47. Un citoyen a une question. Votre mairie est fermée. Découvrez Marianne, le chatbot IA des mairies, par Civik-ia.
 
 22h47, mairie fermée · Civik-ia
-C ">
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 22:47
 Un citoyen a une question.
 Votre mairie est fermee.
@@ -2846,4 +3450,41 @@ Pr&ecirc;t a ouvrir votre mairie 24 h/24 ?
 Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, selon la taille de la commune. Cloud souverain UE.
 Tester la demo complete
 Demander une demo personnalisee
-civik-ia.fr : Marianne, l’assistant IA des collectivités territoriales
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies

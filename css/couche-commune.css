@@ -1,0 +1,148 @@
+/* =====================================================================
+   Couche commune des pages anciennes (passe P2 du 19/10/2026) : barre, tiroir, sous-barre de /marianne/,
+   pied, bandeau de cookies, 404, et la typographie de corps des pages anciennes.
+   Lue après les styles propres de chaque page (fin de <head>, bloc « tete-commune » posé par
+   tools/couche-commune/poser.mjs). Jetons : /css/jetons.css. Polices : /css/polices.css.
+
+   Les pages anciennes portent des règles larges (« nav a », « footer », « header », « h2 », « ul »...) qui
+   atteindraient la barre et le pied : chaque élément de la couche repart des styles du navigateur (all: revert,
+   classe doublée .cc.cc, sans toucher l'intérieur des SVG), puis reçoit ses propres règles, toutes préfixées
+   par .cc pour passer devant les règles des pages.
+   ===================================================================== */
+.cc.cc,.cc.cc :where(a,nav,ul,ol,li,p,span,div,h2,button,b,strong,small,summary,details,label,input,section){all:revert;box-sizing:border-box}
+.cc :where(svg){display:block;flex:none}
+.cc :focus-visible{outline:var(--focus-anneau);outline-offset:var(--focus-ecart);border-radius:8px}
+.cc.cc-pied :focus-visible{outline:var(--focus-anneau-nuit)}
+
+/* ---------- typographie de corps des pages anciennes et des pages légales ---------- */
+html[data-couche="ancienne"] body,html[data-couche="legale"] body{font-family:var(--f-texte)}
+html[data-couche="ancienne"] :is(h1,h2,h3),html[data-couche="legale"] :is(h1,h2,h3){font-family:var(--f-titre)}
+html[data-couche="ancienne"],html[data-couche="legale"]{scroll-padding-top:96px}
+/* fin du verre dépoli : filet de sécurité derrière le retrait des déclarations dans chaque page */
+html[data-couche="ancienne"] *{-webkit-backdrop-filter:none !important;backdrop-filter:none !important}
+
+/* ---------- la barre ---------- */
+.cc.cc-barre{position:fixed;z-index:1000;top:16px;left:0;right:0;margin:0 auto;width:min(calc(100% - 32px),1240px);font:600 14px/1 var(--f-texte);color:var(--encre);text-align:left;letter-spacing:0;text-transform:none}
+.cc .cc-barre__nav{display:flex;align-items:center;gap:10px;height:58px;margin:0;padding:0 8px 0 17px;background:rgba(247,244,237,.97);border-radius:var(--r-pilule);box-shadow:0 0 0 1px rgba(200,190,170,.45),var(--o-leve)}
+.cc .cc-barre__signe{display:flex;align-items:center;gap:8px;flex:none;color:var(--bleu);font:800 20px/1 var(--f-titre);letter-spacing:-.02em;text-decoration:none;border-radius:12px}
+.cc .cc-barre__signe b{font-weight:800;color:var(--trait)}
+.cc .cc-signe{width:40px;height:35px}
+.cc .cc-signe__arc{fill:#010442}
+.cc .cc-signe__fleche{fill:#0C7BF6}
+.cc .cc-barre__liens{display:flex;gap:4px;flex:1;margin:0 0 0 12px;padding:0;list-style:none}
+.cc .cc-barre__liens li{margin:0;padding:0}
+.cc .cc-barre__liens a{display:inline-flex;align-items:center;height:34px;padding:0 12px;border-radius:var(--r-pilule);font:600 14px/1 var(--f-texte);color:var(--encre);text-decoration:none;transition:background var(--d-etat) var(--c-doux),color var(--d-etat) var(--c-doux)}
+.cc .cc-barre__liens a[aria-current]{color:var(--bleu);background:rgba(0,0,145,.08)}
+@media (hover:hover){.cc .cc-barre__liens a:hover{color:var(--bleu);background:rgba(0,0,145,.05)}}
+.cc .cc-barre__action{display:inline-flex;align-items:center;flex:none;height:42px;margin:0 0 0 auto;padding:0 18px;border-radius:var(--r-pilule);background:var(--bleu);color:#fff;font:700 14px/1 var(--f-texte);white-space:nowrap;text-decoration:none;box-shadow:0 1px 2px rgba(0,0,80,.18),0 4px 10px rgba(0,0,80,.12);transition:background var(--d-etat) var(--c-doux),transform var(--d-appui) var(--c-doux)}
+.cc .cc-barre__action:active{transform:scale(.97)}
+@media (hover:hover){.cc .cc-barre__action:hover{background:var(--teal-txt)}}
+.cc .cc-barre__menu{display:none;margin:0;padding:0}
+.cc .cc-barre__ouvrir{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;padding:0;border-radius:50%;color:var(--bleu);background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(120,100,60,.3);list-style:none;cursor:pointer}
+.cc .cc-barre__ouvrir::-webkit-details-marker{display:none}
+.cc .cc-barre__ouvrir::marker{content:""}
+.cc .cc-barre__ouvrir svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.cc .cc-tiroir{position:fixed;top:78px;left:0;right:0;margin:0 auto;width:min(calc(100% - 32px),480px);display:grid;gap:2px;padding:10px;background:rgba(247,244,237,.99);border-radius:var(--r-carte);box-shadow:0 0 0 1px rgba(200,190,170,.5),var(--o-flottant);animation:cc-tiroir var(--d-ouvre) var(--c-entree)}
+@keyframes cc-tiroir{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.cc .cc-tiroir a,.cc .cc-tiroir button{display:flex;align-items:center;min-height:48px;margin:0;padding:10px 16px;border:0;border-radius:var(--r-champ);background:none;font:600 17px/1.2 var(--f-texte);color:var(--encre);text-align:left;text-decoration:none;cursor:pointer}
+.cc .cc-tiroir a[aria-current]{color:var(--bleu);background:rgba(0,0,145,.07)}
+.cc .cc-tiroir button{font-size:15px;color:var(--encre-2);border-top:1px solid var(--filet);border-radius:0 0 var(--r-champ) var(--r-champ);margin-top:4px}
+@media (hover:hover){.cc .cc-tiroir a:hover,.cc .cc-tiroir button:hover{color:var(--bleu);background:rgba(0,0,145,.05)}}
+@media (max-width:880px){
+  .cc .cc-barre__liens{display:none}
+  .cc .cc-barre__menu{display:block}
+  .cc .cc-barre__nav{height:56px;gap:8px;padding:0 6px 0 12px}
+  .cc .cc-barre__action{height:40px;padding:0 15px;font-size:13px}
+}
+@media (max-width:480px){.cc .cc-barre__signe{font-size:17px;gap:6px}.cc .cc-signe{width:34px;height:30px}}
+@media (max-width:359px){.cc .cc-barre__nom{display:none}}
+/* bouton d'action long (la démo : « Réserver une démonstration ») : au téléphone, le signe seul tient la place du nom */
+@media (max-width:480px){.cc.cc-barre--longue .cc-barre__nom{display:none}}
+/* place de la barre dans le flux, sur les pages dont l'ancienne barre occupait le haut de page */
+.cc.cc-place{display:block;height:90px;margin:0;padding:0}
+
+/* ---------- sous-barre de /marianne/ (les ancres de la page) ---------- */
+.cc.cc-sousbarre{position:absolute;z-index:999;top:82px;left:0;right:0;margin:0 auto;width:min(calc(100% - 32px),1240px);display:flex;align-items:center;gap:16px;min-height:44px;padding:0 17px;background:rgba(247,244,237,.92);border-bottom:1px solid var(--filet);border-radius:0 0 var(--r-champ) var(--r-champ);font:600 14px/1 var(--f-texte);color:var(--encre-2)}
+.cc .cc-sousbarre__liens{display:flex;flex-wrap:nowrap;gap:22px;margin:0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none}
+.cc .cc-sousbarre__liens::-webkit-scrollbar{display:none}
+.cc .cc-sousbarre__liens li{flex:none;margin:0;padding:0}
+.cc.cc-sousbarre a{display:inline-flex;align-items:center;min-height:44px;color:var(--encre-2);font:600 14px/1 var(--f-texte);text-decoration:none;white-space:nowrap}
+@media (hover:hover){.cc.cc-sousbarre a:hover{color:var(--bleu)}}
+.cc .cc-sousbarre__annonce{margin-left:auto;color:var(--bleu)}
+@media (max-width:880px){
+  .cc.cc-sousbarre{top:80px;padding:0 6px;background:transparent;border:0}
+  .cc .cc-sousbarre__liens{gap:8px;padding:0 2px}
+  .cc.cc-sousbarre a{min-height:44px;padding:0 14px;border-radius:var(--r-pilule);background:rgba(247,244,237,.95);box-shadow:inset 0 0 0 1px var(--filet)}
+  .cc.cc-sousbarre .cc-sousbarre__annonce{display:none}
+}
+
+/* ---------- le pied ---------- */
+.cc.cc-pied{display:block;margin:0;padding:64px clamp(20px,5vw,72px) 40px;background:var(--nuit);color:var(--nuit-txt2);font:400 14.5px/1.55 var(--f-texte);text-align:left;letter-spacing:0;text-transform:none}
+.cc .cc-pied__in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr .9fr 2fr 1.1fr;gap:40px 32px}
+.cc .cc-pied__nom{display:flex;align-items:center;gap:10px;margin:0;font:800 20px/1 var(--f-titre);color:#fff;letter-spacing:-.02em}
+.cc .cc-pied__nom b{font-weight:800;color:#9db9ff}
+.cc .cc-pied__cartouche{display:inline-flex;align-items:center;justify-content:center;width:46px;height:40px;border-radius:10px;background:var(--creme)}
+.cc .cc-pied__cartouche .cc-signe{width:36px;height:32px}
+.cc .cc-pied__devise{max-width:34ch;margin:14px 0 0;font:400 14.5px/1.55 var(--f-texte);color:var(--nuit-txt2)}
+.cc .cc-pied__reseaux{display:flex;gap:4px;margin:12px 0 0 -10px;padding:0;list-style:none}
+.cc .cc-pied__reseaux li{margin:0;padding:0}
+.cc .cc-pied__reseaux a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--r-champ);color:#fff;text-decoration:none}
+.cc .cc-pied__reseaux svg{width:24px;height:24px}
+.cc .cc-pied__reseaux path{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+@media (hover:hover){.cc .cc-pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07)}}
+.cc.cc-pied h2{margin:0;font:700 12px/1.3 var(--f-texte);letter-spacing:.08em;text-transform:uppercase;color:#8f99c4}
+.cc .cc-pied__col{display:block;margin:0;padding:0}
+.cc .cc-pied__col ul{display:grid;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.cc .cc-pied__col li{margin:0;padding:0}
+.cc .cc-pied__col a{display:inline-flex;align-items:center;min-height:30px;font:600 14.5px/1.3 var(--f-texte);color:#fff;text-decoration:none}
+.cc .cc-pied__col a[aria-current]{color:#9db9ff}
+@media (hover:hover){.cc .cc-pied__col a:hover{color:#9db9ff;text-decoration:underline;text-underline-offset:4px}}
+.cc .cc-pied__guides ul{display:block;column-count:2;column-gap:28px}
+.cc .cc-pied__guides li{break-inside:avoid;margin:0 0 6px}
+.cc .cc-pied__guides a{font-size:14px}
+.cc .cc-pied__bande{max-width:1200px;margin:40px auto 0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 24px;font:500 13px/1.5 var(--f-texte);color:#8f99c4}
+.cc .cc-pied__officiel{margin:0}
+.cc .cc-pied__legal{display:flex;flex-wrap:wrap;gap:0 16px;margin:0;padding:0;list-style:none}
+.cc .cc-pied__legal li{margin:0;padding:0}
+.cc .cc-pied__legal a,.cc .cc-pied__legal button{display:inline-flex;align-items:center;min-height:36px;margin:0;padding:0;border:0;background:none;font:600 13px/1.3 var(--f-texte);color:#b9c1e0;text-decoration:none;cursor:pointer}
+@media (hover:hover){.cc .cc-pied__legal a:hover,.cc .cc-pied__legal button:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.cc .cc-pied__mention{flex-basis:100%;margin:6px 0 0;font:500 13px/1.5 var(--f-texte);color:#8f99c4}
+@media (max-width:1023px){.cc .cc-pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:767px){
+  .cc.cc-pied{padding:48px 20px 40px}
+  .cc .cc-pied__in{grid-template-columns:1fr;gap:32px}
+  .cc .cc-pied__guides ul{column-count:1}
+  .cc .cc-pied__legal a,.cc .cc-pied__legal button{min-height:44px}
+}
+
+/* ---------- le bandeau de cookies (js/cookies.js) ---------- */
+.cc.cc-cookies{position:fixed;z-index:990;left:16px;right:16px;bottom:16px;margin:0 auto;max-width:560px;padding:20px 22px;background:var(--papier);color:var(--encre);border-radius:var(--r-carte);box-shadow:0 0 0 1px rgba(120,100,60,.32),var(--o-flottant);font:500 14px/1.5 var(--f-texte);text-align:left;letter-spacing:0;opacity:0;transform:translateY(8px);transition:opacity var(--d-ouvre) var(--c-doux),transform var(--d-ouvre) var(--c-doux)}
+.cc.cc-cookies.cc-cookies--vue{opacity:1;transform:none}
+.cc .cc-cookies__texte{margin:0}
+.cc .cc-cookies__texte strong{font-weight:700;color:var(--bleu)}
+.cc.cc-cookies a{color:var(--bleu);font-weight:600;text-decoration:underline;text-decoration-color:rgba(0,0,145,.45);text-underline-offset:3px}
+.cc .cc-cookies__choix{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--filet)}
+.cc .cc-cookies__choix[hidden]{display:none}
+.cc .cc-cookies__case{display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px/1.3 var(--f-texte);cursor:pointer}
+.cc .cc-cookies__case input{width:20px;height:20px;margin:0;accent-color:var(--bleu)}
+.cc .cc-cookies__actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:14px 0 0}
+.cc .cc-cookies__btn{flex:1 1 140px;min-height:44px;margin:0;padding:0 18px;border:0;border-radius:var(--r-pilule);background:transparent;box-shadow:inset 0 0 0 1.5px rgba(0,0,145,.5);color:var(--bleu);font:600 14.5px/1 var(--f-texte);cursor:pointer}
+.cc .cc-cookies__choix .cc-cookies__btn{flex:0 1 auto}
+@media (hover:hover){.cc .cc-cookies__btn:hover{background:rgba(0,0,145,.05)}}
+.cc .cc-cookies__choisir{min-height:44px;margin:0;padding:0 6px;border:0;background:none;color:var(--bleu);font:600 14px/1 var(--f-texte);text-decoration:underline;text-decoration-color:rgba(0,0,145,.45);text-underline-offset:3px;cursor:pointer}
+@media (max-width:480px){.cc.cc-cookies{left:10px;right:10px;bottom:10px;padding:16px}}
+
+/* ---------- la 404 de la maison ---------- */
+.cc-404{max-width:720px;margin:0 auto;padding:48px clamp(20px,5vw,40px) 96px}
+.cc-404__plume{margin:0;font:600 clamp(26px,3vw,34px)/1.1 var(--f-plume);color:var(--plume)}
+.cc-404 h1{margin:10px 0 0;font:700 clamp(30px,3.9vw,52px)/1.08 var(--f-titre);letter-spacing:-.025em;color:var(--bleu);text-wrap:balance}
+.cc-404__phrase{margin:20px 0 0;font:400 17px/1.6 var(--f-texte);color:var(--encre-2);max-width:62ch}
+.cc-404__liens{display:grid;gap:10px;margin:28px 0 0;padding:0;list-style:none}
+.cc-404__liens a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:12px 20px;border-radius:var(--r-carte);background:var(--papier);box-shadow:var(--o-pose);font:600 16px/1.3 var(--f-texte);color:var(--bleu);text-decoration:none}
+.cc-404__liens a::after{content:"";flex:none;width:9px;height:9px;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg)}
+@media (hover:hover){.cc-404__liens a:hover{box-shadow:var(--o-leve)}}
+
+/* ---------- impression : ni barre, ni bandeau, ni pied ---------- */
+@media print{
+  .cc.cc-barre,.cc.cc-place,.cc.cc-sousbarre,.cc.cc-cookies,.cc.cc-pied{display:none !important}
+}

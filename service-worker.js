@@ -7,7 +7,11 @@
 // v171 (refonte du 08/10/2026) : la home (/), le film (/c-film/), /commun/, /conseil/ et /atelier/ passent par le reseau,
 // jamais par ce cache (ni precache, ni mise en cache a la volee) : le film change encore et ses fichiers ne portent pas de
 // numero de version. Le navigateur les garde selon les en-tetes de nginx (voir maquettes/seo/nginx-DIFF.conf).
-const CACHE_NAME = 'civik-ia-v185-coherence-2026-10-18';
+// v186 (passe P2, 19/10/2026, couche commune des pages anciennes) : polices servies par le site (/assets/fonts/*.woff2),
+// feuilles /css/polices.css, /css/jetons.css, /css/couche-commune.css et script /js/cookies.js, appelés avec ?v=AAAAMMJJ.
+// Pas de règle contraire au Cache-Control : nginx les sert « public » sept jours (bloc des fichiers statiques), ce cache les garde
+// jusqu'au prochain changement de CACHE_NAME (fichiers immuables à adresse donnée, une nouvelle version change de ?v=).
+const CACHE_NAME = 'civik-ia-v186-couche-commune-2026-10-19';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

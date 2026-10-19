@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-couche="ancienne">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<script src="/cookie-consent.js" defer></script>
 <title>22h47, mairie fermée · Civik-ia</title>
 <meta name="description" content="22h47. Un citoyen a une question. Votre mairie est fermée. Découvrez Marianne, le chatbot IA des mairies, par Civik-ia.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -22,7 +21,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://civik-ia.fr/assets/partage/marianne.jpg">
 <meta name="twitter:image:alt" content="Marianne, l’assistant IA des collectivités territoriales : un téléphone montre la réponse de la mairie et sa source">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000091'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='white'>C</text></svg>">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 /* Accessibilité : prefers-reduced-motion (WCAG 2.3.3) */
@@ -47,16 +45,14 @@ body{
 }
 .s-noir::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(46,196,182,.06),transparent 70%);
+  background:transparent;
   pointer-events:none;
 }
 .time{
   font-size:clamp(72px,18vw,120px);font-weight:900;letter-spacing:-4px;
   line-height:1;
-  background:linear-gradient(180deg,#ffffff 15%,rgba(200,210,220,.7) 55%,rgba(150,160,170,.4) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
   opacity:0;animation:fadeUp .8s .3s forwards;
+  color:#ffffff;
 }
 .s-noir .sub{
   font-size:clamp(16px,4vw,21px);font-weight:400;
@@ -84,7 +80,7 @@ body{
 .s-transition{
   min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:80px 24px;
-  background:linear-gradient(to bottom,var(--noir) 0%,#0a0a2e 30%,var(--creme) 100%);
+  background:linear-gradient(to bottom,var(--nuit) 0%,var(--nuit) 30%,var(--creme) 100%);
   position:relative;
 }
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
@@ -128,7 +124,7 @@ body{
 }
 .chat-avatar{
   width:32px;height:32px;border-radius:50%;
-  background:linear-gradient(135deg,var(--teal),#007bff);
+  background:var(--teal);
   display:flex;align-items:center;justify-content:center;
   font-size:14px;font-weight:700;flex-shrink:0;
 }
@@ -183,11 +179,8 @@ body{
 .btn-secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
 
 /* ═══ FOOTER MINIMAL ═══ */
-.s-footer{
-  background:var(--noir);padding:24px;text-align:center;
-  font-size:12px;color:rgba(255,255,255,.35);
-}
-.s-footer a{color:var(--teal);text-decoration:none}
+
+
 
 /* ═══ ANIMATIONS ═══ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -199,9 +192,33 @@ body{
   .s-demo{padding:80px 40px 100px}
 }
 </style>
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0A0F2C">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261019">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019">
+<script src="/js/cookies.js?v=20261019" defer></script>
+<!-- /tete-commune -->
 </head>
 <body>
-
+<!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/marianne/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/marianne/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<!-- /barre-commune -->
 <!-- ═══ SECTION 1 : OUVERTURE NOIRE ═══ -->
 <section class="s-noir">
   <div class="time">22:47</div>
@@ -252,9 +269,17 @@ body{
 </section>
 
 <!-- ═══ FOOTER ═══ -->
-<footer class="s-footer">
-  <a href="https://civik-ia.fr">civik-ia.fr</a>&nbsp;: Marianne, l’assistant IA des collectivités territoriales
+<!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html" aria-current="page">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/marianne/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul></div>
 </footer>
+<!-- /pied-commun -->
 
 <script>
 /* ── IntersectionObserver : reveal on scroll ── */

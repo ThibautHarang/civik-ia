@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-couche="ancienne">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/cookie-consent.js" defer></script>
 <title>Marianne sur WhatsApp · Civik-ia</title>
 <meta name="description" content="Bientôt, l'IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, orientation vers le bon service, bascule vers vos agents. Canal à venir, moteur souverain déjà disponible en démonstration. RGPD natif.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -22,9 +21,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://civik-ia.fr/assets/partage/marianne.jpg">
 <meta name="twitter:image:alt" content="Marianne, l’assistant IA des collectivités territoriales : un téléphone montre la réponse de la mairie et sa source">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;}
   body{margin:0;}
@@ -32,17 +28,17 @@
   @keyframes ciPulse{0%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.8);}100%{opacity:1;transform:scale(1);}}
   @keyframes ciTyping{0%,60%,100%{transform:translateY(0);opacity:.4;}30%{transform:translateY(-5px);opacity:1;}}
   @keyframes ciMsgIn{from{opacity:0;transform:translateY(10px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
-  @keyframes ciBadgePulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,145,0.42),0 0 0 0 rgba(0,123,255,0.4);}50%{box-shadow:0 16px 38px rgba(0,0,145,0.5),0 0 0 12px rgba(0,123,255,0);}}
+  @keyframes ciBadgePulse{0%,100%{box-shadow:0 12px 30px rgba(0,0,145,0.42),0 0 0 0 rgba(43,111,214,0.4);}50%{box-shadow:0 16px 38px rgba(0,0,145,0.5),0 0 0 12px rgba(43,111,214,0);}}
   @keyframes ciBadgeFloat{0%,100%{transform:rotate(-4deg) translateY(0);}50%{transform:rotate(-4deg) translateY(-3px);}}
   a{text-decoration:none;}
-  .lnk{transition:color .2s;}
-  .lnk:hover{color:#2EC4B6;}
+
+
   .btn-pri{transition:transform .2s, box-shadow .2s;}
   .btn-pri:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(0,0,145,0.38);}
   .btn-out{transition:all .2s;}
   .btn-out:hover{background:#2EC4B6;border-color:#2EC4B6;color:#fff;transform:translateY(-3px);}
-  .navcta{transition:transform .2s, box-shadow .2s;}
-  .navcta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,145,0.36);}
+
+
   .replay{transition:color .2s;}
   .replay:hover{color:#000091;}
   .sc-btn{transition:all .3s cubic-bezier(0.34,1.56,0.64,1);}
@@ -60,10 +56,10 @@
     h2[style*="font-size:44px"]{font-size:27px !important;letter-spacing:-0.8px !important;}
     h2[style*="font-size:34px"]{font-size:24px !important;letter-spacing:-0.6px !important;}
     /* nav : masquer liens + badge WhatsApp, compacter le CTA */
-    nav [style*="gap:34px"]{display:none !important;}
-    nav [style*="color:#075E54"]{display:none !important;}
-    nav [style*="height:26px"]{display:none !important;}
-    .navcta{padding:9px 15px !important;font-size:13px !important;}
+
+
+
+
     /* sections : paddings verticaux resserrés */
     [style*="188px 0 110px"]{padding:118px 0 64px !important;}
     [style*="108px 0"]{padding:68px 0 !important;}
@@ -78,33 +74,41 @@
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 </style>
 <link rel="stylesheet" href="/marianne/pied.css">
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261019">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019">
+<script src="/js/cookies.js?v=20261019" defer></script>
+<!-- /tete-commune -->
 </head>
 <body>
-<div style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;background-image:radial-gradient(circle at 2px 2px, rgba(0,0,91,0.04) 1px, transparent 0);background-size:42px 42px;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;">
+<div style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;background-image:none;background-size:42px 42px;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;">
 
   <!-- ============ NAV ============ -->
-  <nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;background:rgba(247,244,237,0.86);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);border-bottom:1px solid rgba(200,190,170,0.28);">
-    <div style="max-width:1240px;margin:0 auto;padding:0 40px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;">
-      <div style="display:flex;align-items:center;gap:14px;">
-        <a href="/" style="display:flex;"><img src="assets/wa-logo.png" alt="Civik-ia" style="height:40px;width:auto;display:block;mix-blend-mode:multiply;"></a>
-        <span style="width:1px;height:26px;background:rgba(0,0,91,0.16);display:block;"></span>
-        <span style="display:inline-flex;align-items:center;gap:7px;font:600 14px 'Inter';color:#075E54;">
-          <svg class="plume-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.17 16.42C3.05 12.6 4.12 7.31 8.27 4.68C12.43 2.06 18.21 3.12 20.57 7.55C22.62 11.52 21.05 16.66 16.92 18.83C14.03 20.36 10.45 20.24 7.73 18.62L3.36 20.66L5.02 16.06"/><path d="M9.06 8.27C8.36 8.78 8.23 9.93 8.96 11.33C9.88 13.12 11.47 14.62 13.28 15.33C14.47 15.79 15.42 15.52 15.92 14.87L16.06 14.18L14.52 13.31L13.62 14.02C12.42 13.55 11.17 12.38 10.6 11.21L11.31 10.33L10.52 8.62L9.68 8.12"/></svg>
-          WhatsApp
-        </span>
-      </div>
-      <div style="display:flex;align-items:center;gap:34px;font:500 15px 'Inter';color:#1E1E1E;">
-        <a class="lnk" href="#demo" style="color:inherit;">Aperçu</a>
-        <a class="lnk" href="#tarifs" style="color:inherit;">Tarifs</a>
-        <a class="lnk" href="#capacites" style="color:inherit;">Fonctionnalités</a>
-      </div>
-      <a class="navcta" href="/marianne/#contact" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 14px 'Inter';white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,145,0.28);">Demander une démo</a>
-    </div>
-  </nav>
+  <!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/" aria-current="true">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/marianne/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/" aria-current="true">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/marianne/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<nav class="cc cc-sousbarre" aria-label="Sur cette page"><ul class="cc-sousbarre__liens"><li><a href="#demo">Aperçu</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#capacites">Fonctionnalités</a></li></ul></nav>
+<!-- /barre-commune -->
 
   <!-- ============ HERO ============ -->
   <section style="position:relative;padding:188px 0 110px;overflow:hidden;">
-    <div style="position:absolute;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle, rgba(0,123,255,0.12) 0%, rgba(247,244,237,0) 70%);top:-220px;right:-260px;z-index:0;"></div>
+    <div style="position:absolute;width:820px;height:820px;border-radius:50%;background:transparent;top:-220px;right:-260px;z-index:0;"></div>
     <img src="assets/wa-logo-seul.png" alt="" style="position:absolute;left:-120px;bottom:-80px;width:420px;opacity:0.05;mix-blend-mode:multiply;z-index:0;pointer-events:none;">
     <div class="hero-grid" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.06fr 0.94fr;gap:56px;align-items:center;">
       <div>
@@ -118,26 +122,26 @@
           </span>
         </div>
         <h1 style="font-family:'Poppins';font-weight:900;font-size:62px;letter-spacing:-2.4px;line-height:1.04;color:#000091;margin:0 0 22px;">
-          Votre mairie est sur WhatsApp&#8239;?<br><span style="background:linear-gradient(120deg,#007bff,#2EC4B6);-webkit-background-clip:text;background-clip:text;color:transparent;">Connectez-la à&nbsp;<span style="white-space:nowrap">Civik-ia</span></span>
+          Votre mairie est sur WhatsApp&#8239;?<br><span style="color:#2b6fd6;">Connectez-la à&nbsp;<span style="white-space:nowrap">Civik-ia</span></span>
         </h1>
         <p style="font-size:20px;color:#5a5a5a;max-width:560px;margin:0 0 34px;text-wrap:pretty;">
           Nous préparons le canal WhatsApp de Civik-ia pour les mairies. Bientôt, vos citoyens écriront à leur commune sur WhatsApp et Marianne répondra, sourcée sur vos arrêtés et votre PLU, avec orientation vers le bon service et basculement vers vos agents. Le moteur souverain est déjà disponible en démonstration sur nos autres canaux.
         </p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;">
-          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Voir la démonstration ↓</a>
+          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:9999px;background:#000091;color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Voir la démonstration ↓</a>
           <a class="btn-out" href="#fonctionnement" style="display:inline-flex;align-items:center;padding:16px 30px;border-radius:9999px;border:1.5px solid #000091;color:#000091;background:transparent;font:600 16px 'Inter';">Comment ça marche</a>
         </div>
         <div style="display:flex;align-items:center;gap:22px;font:500 14px 'Inter';color:#5a5a5a;flex-wrap:wrap;">
-          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> Aucune app à installer</span>
-          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> RGPD natif · OVH</span>
-          <span style="display:inline-flex;align-items:center;gap:7px;"><span style="color:#2EC4B6;font-weight:700;">✓</span> Sources officielles de votre commune</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;">Aucune app à installer</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;">RGPD natif · OVH</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;">Sources officielles de votre commune</span>
         </div>
       </div>
       <div class="hero-phone-wrap" style="position:relative;display:flex;justify-content:center;">
         <div style="width:316px;animation:ciFloat 6s ease-in-out infinite;position:relative;">
           <div style="position:absolute;top:-20px;right:-22px;z-index:30;transform:rotate(-4deg);animation:ciBadgeFloat 4s ease-in-out infinite;">
-            <div style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:linear-gradient(135deg,#000091,#0a5bff 58%,#2EC4B6);border-radius:9999px;font:800 13px 'Inter';letter-spacing:0.9px;text-transform:uppercase;color:#faf6eb;animation:ciBadgePulse 2.6s ease-in-out infinite;">
-              <span style="font-size:14px;line-height:1;">✦</span>Bientôt
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:#000091;border-radius:9999px;font:800 13px 'Inter';letter-spacing:0.9px;text-transform:uppercase;color:#faf6eb;animation:ciBadgePulse 2.6s ease-in-out infinite;">
+              Bientôt
             </div>
           </div>
           <div style="border:13px solid #0b141a;border-radius:46px;background:#efeae2;overflow:hidden;box-shadow:0 50px 100px -22px rgba(10,10,30,0.32),0 30px 60px -30px rgba(0,0,0,0.4);aspect-ratio:9/19.2;position:relative;">
@@ -172,7 +176,7 @@
   </section>
 
   <!-- ============ DEMO ============ -->
-  <section id="demo" style="position:relative;padding:108px 0;background:#f5f2eb;background-image:radial-gradient(circle at 2px 2px, rgba(0,0,91,0.04) 1px, transparent 0);background-size:42px 42px;border-top:1px solid rgba(200,190,170,0.3);">
+  <section id="demo" style="position:relative;padding:108px 0;background:#f5f2eb;background-image:none;background-size:42px 42px;border-top:1px solid rgba(200,190,170,0.3);">
     <div style="max-width:1240px;margin:0 auto;padding:0 40px;">
       <div style="text-align:center;max-width:680px;margin:0 auto 56px;">
         <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(46,196,182,0.12);color:#2EC4B6;border-radius:9999px;font:600 13px 'Inter';margin-bottom:18px;"><span style="width:7px;height:7px;border-radius:50%;background:#2EC4B6;animation:ciPulse 1.5s infinite;display:block;"></span>Aperçu&nbsp;interactif</div>
@@ -183,8 +187,8 @@
         <div>
           <div style="font:600 13px 'Inter';letter-spacing:1.5px;text-transform:uppercase;color:#5a5a5a;margin-bottom:16px;">Scénarios</div>
           <div id="sc-list" style="display:flex;flex-direction:column;gap:12px;margin-bottom:34px;"></div>
-          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:rgba(247,244,237,0.6);backdrop-filter:blur(10px) saturate(150%);-webkit-backdrop-filter:blur(10px) saturate(150%);border:1px solid rgba(200,190,170,0.3);border-radius:18px;box-shadow:0 12px 30px rgba(40,30,10,0.06);">
-            <span style="width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;background:linear-gradient(135deg,#000091,#007bff);">
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:20px 22px;background:rgba(247,244,237,0.6);border:1px solid rgba(200,190,170,0.3);border-radius:18px;box-shadow:0 12px 30px rgba(40,30,10,0.06);">
+            <span style="width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;background:#000091;">
               <img src="assets/wa-logo-seul.png" style="width:24px;filter:brightness(0) invert(1);" alt="">
             </span>
             <div>
@@ -231,19 +235,19 @@
       </div>
       <div class="steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;">
         <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
-          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="height:4px;width:54px;border-radius:9999px;background:#000091;margin-bottom:22px;"></div>
           <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE&nbsp;01</div>
           <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Nous connecterons votre&nbsp;numéro</h3>
           <p style="font-size:15.5px;color:#5a5a5a;margin:0;">On reliera votre WhatsApp Business à Marianne. Mise en service accompagnée, zéro ligne de code de votre&nbsp;côté.</p>
         </div>
         <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
-          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="height:4px;width:54px;border-radius:9999px;background:#000091;margin-bottom:22px;"></div>
           <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE&nbsp;02</div>
           <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Marianne apprendra votre&nbsp;commune</h3>
           <p style="font-size:15.5px;color:#5a5a5a;margin:0;">PLU, arrêtés municipaux, horaires, démarches d’état civil, élus. Tout sera ingéré et vérifié, source par&nbsp;source.</p>
         </div>
         <div style="position:relative;padding:34px 30px;background:#fff;border:1px solid rgba(200,190,170,0.3);border-radius:24px;box-shadow:0 15px 35px rgba(40,30,10,0.06);">
-          <div style="height:4px;width:54px;border-radius:9999px;background:linear-gradient(90deg,#000091,#007bff);margin-bottom:22px;"></div>
+          <div style="height:4px;width:54px;border-radius:9999px;background:#000091;margin-bottom:22px;"></div>
           <div style="font:800 15px 'Poppins';color:#2EC4B6;margin-bottom:10px;">ÉTAPE&nbsp;03</div>
           <h3 style="font-family:'Poppins';font-weight:800;font-size:22px;letter-spacing:-0.5px;color:#000091;margin:0 0 12px;">Vos citoyens&nbsp;écriront</h3>
           <p style="font-size:15.5px;color:#5a5a5a;margin:0;">Ils enverront un message comme à un proche. Marianne répondra en français, à toute heure, et passera la main à un agent si&nbsp;besoin.</p>
@@ -297,17 +301,17 @@
   <section id="tarifs" style="padding:96px 0 24px;">
     <div style="max-width:1040px;margin:0 auto;padding:0 40px;">
       <div class="offer-grid" style="position:relative;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;padding:46px 48px;background:#efeae1;border:1px solid rgba(244,162,97,0.4);border-radius:28px;box-shadow:0 24px 60px rgba(40,30,10,0.1);overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#F4A261,#f7c08a,#F4A261);"></div>
-        <div style="position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(244,162,97,0.16) 0%,rgba(239,234,225,0) 70%);top:-120px;right:-80px;pointer-events:none;"></div>
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:#F4A261;"></div>
+        <div style="position:absolute;width:360px;height:360px;border-radius:50%;background:transparent;top:-120px;right:-80px;pointer-events:none;"></div>
         <div style="position:relative;z-index:1;">
           <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(244,162,97,0.16);color:#cf7d35;border-radius:9999px;font:700 13px 'Inter';margin-bottom:18px;">10&nbsp;€ HT par mois · À l’ouverture du&nbsp;canal</div>
           <h2 style="font-family:'Poppins';font-weight:900;font-size:34px;letter-spacing:-1.1px;line-height:1.12;color:#000091;margin:0 0 12px;">Soyez informé de l’ouverture du canal&nbsp;WhatsApp</h2>
           <p style="font-size:16.5px;color:#5a5a5a;margin:0 0 22px;text-wrap:pretty;">Le canal WhatsApp est en préparation. À son ouverture, il sera proposé en option de l’abonnement Marianne, à 10&nbsp;€ HT par mois, compris à partir de 35&nbsp;000&nbsp;habitants.</p>
-          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Être informé du lancement →</a>
+          <a class="btn-pri" href="#demo" style="display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:9999px;background:#000091;color:#faf6eb;font:600 16px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Être informé du lancement →</a>
         </div>
         <div style="position:relative;z-index:1;text-align:center;background:#faf6eb;border:1px solid rgba(200,190,170,0.4);border-radius:22px;padding:30px 26px;box-shadow:0 12px 30px rgba(40,30,10,0.06);">
           <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;">
-            <span style="font-family:'Poppins';font-weight:900;font-size:46px;letter-spacing:-1.8px;line-height:1.05;background:linear-gradient(120deg,#000091,#2EC4B6);-webkit-background-clip:text;background-clip:text;color:transparent;">10&nbsp;€</span>
+            <span style="font-family:'Poppins';font-weight:900;font-size:46px;letter-spacing:-1.8px;line-height:1.05;color:#000091;">10&nbsp;€</span>
           </div>
           <div style="font:600 14px 'Inter';color:#1E1E1E;margin-top:6px;">HT par mois, en option de l’abonnement</div>
           <div style="height:1px;background:rgba(200,190,170,0.4);margin:18px 0;"></div>
@@ -328,28 +332,24 @@
       <h2 style="font-family:'Poppins';font-weight:900;font-size:44px;letter-spacing:-1.8px;line-height:1.08;color:#000091;margin:0 0 20px;text-wrap:balance;">Rapprochez la mairie de ses citoyens<br>grâce à Civik-ia sur&nbsp;WhatsApp</h2>
       <p style="font-size:20px;color:#5a5a5a;margin:0 0 38px;text-wrap:pretty;">Une démo sur votre propre commune,&nbsp;rapidement</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn-pri" href="/marianne/#contact" style="display:inline-flex;align-items:center;gap:9px;padding:17px 36px;border-radius:9999px;background:linear-gradient(135deg,#000091,#007bff);color:#faf6eb;font:600 17px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Demander une démo →</a>
+        <a class="btn-pri" href="/marianne/#contact" style="display:inline-flex;align-items:center;gap:9px;padding:17px 36px;border-radius:9999px;background:#000091;color:#faf6eb;font:600 17px 'Inter';box-shadow:0 8px 24px rgba(0,0,145,0.25);">Demander une démo →</a>
         <a class="btn-out" href="livre-blanc.html" style="display:inline-flex;align-items:center;padding:17px 36px;border-radius:9999px;border:1.5px solid #000091;color:#000091;background:transparent;font:600 17px 'Inter';">Télécharger le livre&nbsp;blanc</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ PIED DE PAGE : le pied commun de la page d'accueil (Thibaut, 14/10/2026), règles dans /marianne/pied.css ============ -->
-  <footer class="pied">
-  <div class="pied__in">
-    <div>
-      <p class="pied__marque"><img src="/commun/img/logo-civik-ia.svg#svgView(viewBox(720,150,720,600))" alt="" width="46" height="39" loading="lazy" decoding="async"><span>Civik-<b>ia</b></span></p>
-      <p>Civik-ia, au service des territoires&nbsp;: un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et&nbsp;d’applications.</p>
-      <ul class="pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul>
-    </div>
-    <nav aria-labelledby="pied-1"><h2 id="pied-1">Les trois activités</h2><ul><li><a href="/marianne/">Marianne, pour les collectivités&nbsp;territoriales</a></li><li><a href="/conseil/">Le conseil, pour tous</a></li><li><a href="/atelier/">L’atelier, pour vos besoins</a></li></ul></nav>
-    <nav aria-labelledby="pied-2"><h2 id="pied-2">Nous joindre</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li></ul></nav>
-    <nav aria-labelledby="pied-3" class="pied__guides"><h2 id="pied-3">Guides pour les mairies</h2><ul><li><a href="https://civik-ia.fr/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="https://civik-ia.fr/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="https://civik-ia.fr/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="https://civik-ia.fr/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="https://civik-ia.fr/livre-blanc.html">Livre blanc</a></li><li><a href="https://civik-ia.fr/aide.html">Centre d’aide</a></li><li><a href="https://civik-ia.fr/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li></ul></nav>
-  </div>
-  <p class="pied__bas">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · Hébergement OVHcloud&nbsp;(UE)</p>
-  <ul class="pied__legal" aria-label="Informations légales"><li><a href="https://civik-ia.fr/legal/conditions-utilisation.html">Mentions&nbsp;légales</a></li><li><a href="https://civik-ia.fr/legal/conditions-generales-vente.html">CGV</a></li><li><a href="https://civik-ia.fr/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="https://civik-ia.fr/legal/conformite-rgpd.html">RGPD</a></li><li><a href="https://civik-ia.fr/legal/accessibilite-rgaa.html">Accessibilité</a></li></ul>
-  <p class="pied__maquette" style="color:#8f99c4">Le canal WhatsApp de Civik-ia est en préparation&nbsp;; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d’illustration&nbsp;; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux&nbsp;; WhatsApp serait un canal de transport choisi par la&nbsp;mairie.</p>
+  <!-- ============ PIED DE PAGE : le pied commun des pages anciennes (passe P2, 19/10/2026), règles dans /css/couche-commune.css ; /marianne/pied.css reste chargé pour l'icône du canal (.plume-ic) ============ -->
+  <!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/marianne/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul><p class="cc-pied__mention">Le canal WhatsApp de Civik-ia est en préparation&nbsp;; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d’illustration&nbsp;; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux&nbsp;; WhatsApp serait un canal de transport choisi par la&nbsp;mairie.</p></div>
 </footer>
+<!-- /pied-commun -->
 
 </div>
 
@@ -357,21 +357,21 @@
 (function(){
   function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
   var SCENARIOS = [
-    { id:'urba', label:'Urbanisme', sub:'Permis, clôtures, PLU', glyph:'🏛️', accent:'#000091',
+    { id:'urba', label:'Urbanisme', sub:'Permis, clôtures, PLU', glyph:'', accent:'#000091',
       note:"Marianne s'appuie sur votre PLU et le Code de l'urbanisme pour qualifier la démarche exacte, et propose le bon Cerfa.",
       script:[
         {sender:'user',text:"Bonjour, ai-je besoin d'un permis pour une clôture de 1,80 m ?",time:'22:47'},
         {sender:'bot',text:"Bonjour 👋 Pour une clôture, une simple déclaration préalable suffit dans notre commune (art. R.421‑12 du PLU).",time:'22:47'},
         {sender:'bot',text:"Je peux vous transmettre le formulaire Cerfa n° 13703. Souhaitez‑vous le recevoir ici ? 📄",time:'22:47'}
       ]},
-    { id:'etat', label:'État civil', sub:'Actes, démarches', glyph:'📋', accent:'#007bff',
+    { id:'etat', label:'État civil', sub:'Actes, démarches', glyph:'', accent:'#007bff',
       note:"Les démarches d'état civil sont guidées étape par étape, avec les délais réels et les pièces à fournir.",
       script:[
         {sender:'user',text:"Comment obtenir un acte de naissance ?",time:'22:48'},
         {sender:'bot',text:"La demande est gratuite. Pour un acte né à Saint‑Rémy, indiquez‑moi votre nom de naissance et votre date de naissance.",time:'22:48'},
         {sender:'bot',text:"Délai habituel : 3 à 5 jours ouvrés, par voie postale. 📬",time:'22:48'}
       ]},
-    { id:'signal', label:'Signalement', sub:'Orientation vers le service', glyph:'📍', accent:'#2EC4B6',
+    { id:'signal', label:'Signalement', sub:'Orientation vers le service', glyph:'', accent:'#2EC4B6',
       note:"Pour un problème dans la rue, Marianne indique le service compétent et ses coordonnées, tirés du site officiel de la commune.",
       script:[
         {sender:'user',text:"Il y a un lampadaire cassé rue des Lilas",time:'22:50'},
@@ -379,7 +379,7 @@
         {sender:'bot',text:"Leurs coordonnées figurent sur le site de la commune, page Services techniques.",time:'22:50'},
         {sender:'user',text:"Parfait, merci !",time:'22:51'}
       ]},
-    { id:'agent', label:'Parler à un agent', sub:'Basculement intelligent', glyph:'🧑‍💼', accent:'#cf7d35',
+    { id:'agent', label:'Parler à un agent', sub:'Basculement intelligent', glyph:'', accent:'#cf7d35',
       note:"Quand une demande nécessite un humain, Marianne ne bricole pas : elle transmet la conversation au bon service, avec tout le contexte.",
       script:[
         {sender:'user',text:"Bonjour, je voudrais réserver la salle des fêtes pour un anniversaire",time:'09:12'},
@@ -400,7 +400,6 @@
     var html = SCENARIOS.map(function(s){
       var on = s.id===state.activeId;
       return '<button class="sc-btn" data-id="'+s.id+'" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:18px;border:1px solid '+(on?s.accent:'rgba(200,190,170,0.4)')+';background:'+(on?'#ffffff':'rgba(255,255,255,0.5)')+';box-shadow:'+(on?'0 16px 38px rgba(0,0,145,0.12)':'0 6px 16px rgba(40,30,10,0.04)')+';">'+
-        '<span style="width:38px;height:38px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;background:'+(on?s.accent:'rgba(0,0,91,0.06)')+';color:'+(on?'#ffffff':'#1E1E1E')+';font-size:18px;">'+s.glyph+'</span>'+
         '<span style="flex:1;"><span style="display:block;font:700 16px \'Poppins\';color:'+(on?'#000091':'#1E1E1E')+';letter-spacing:-0.3px;">'+esc(s.label)+'</span>'+
         '<span style="display:block;font:400 13px \'Inter\';color:'+(on?'#5a5a5a':'#8a8377')+';margin-top:1px;">'+esc(s.sub)+'</span></span>'+
         '<span style="font-size:18px;color:'+(on?s.accent:'rgba(0,0,91,0.2)')+';">→</span></button>';

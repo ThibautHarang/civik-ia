@@ -1,28 +1,56 @@
 # Civik-ia
 
-> Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales (Marianne), une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
+> Civik-ia, au service des territoires : Marianne, un guichet citoyen IA pour les mairies et les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier qui conçoit des sites, des logiciels et des applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
+
+## Définitions
+
+Les mêmes mots sont employés sur tout le site.
+
+- Guichet citoyen IA : un guichet citoyen IA répond aux habitants d'une commune à partir des sources officielles de la mairie, cite la page d'où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l'a en service. (https://civik-ia.fr/guichet-citoyen-ia.html)
+- Base de connaissances municipale : la base de connaissances d'une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. (https://civik-ia.fr/base-de-connaissances-mairie.html)
+- RAG appliqué à une commune : le RAG fait chercher l'IA dans des documents choisis avant qu'elle rédige : la réponse s'appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l'habitant. (https://civik-ia.fr/rag-collectivites.html)
+- Source validée : document que la mairie publie ou approuve et que l'assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents.
+- Fraîcheur des données : écart entre ce que la mairie publie et ce que l'assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain.
+- Agent municipal IA : programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l'agent du guichet. Dans une mairie, « agent municipal » désigne d'abord un fonctionnaire ou un contractuel de la commune.
+- Souveraineté de Marianne : Marianne est hébergée chez OVHcloud, hébergeur français, et s'appuie sur Mistral AI, société française. Le lieu de calcul du modèle n'est pas fixé par contrat.
 
 ## Les trois activités
 
-- [Marianne, l'assistant IA des collectivités territoriales](https://civik-ia.fr/marianne/) : répond aux habitants 24h/24 à partir des sources officielles de la commune, et cite sa source à chaque réponse. Sur le site de la mairie ou en application installée sur smartphone ; WhatsApp et Messenger à venir. Hébergement en Europe chez OVHcloud, moteur Mistral AI. Abonnement à partir de 69 € HT par mois, selon la taille de la commune (69 € jusqu'à 4 999 habitants, puis un centime par habitant et par mois au-delà de 5 000, 500 € par mois au plus) ; WhatsApp et Messenger, à leur ouverture, 10 € HT par mois chacun.
+- [Marianne, le guichet citoyen IA des mairies](https://civik-ia.fr/marianne/) : répond aux habitants 24 h sur 24 à partir des sources officielles de la commune et cite la page de chaque réponse. Sur le site de la mairie (lien, bouton, cadre sur demande), par QR code ou en application installée sur le téléphone ; WhatsApp et Messenger à venir. Hébergement chez OVHcloud, serveur à Francfort ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
 - [Thibaut Harang, conseil en santé, numérique et intelligence artificielle](https://civik-ia.fr/conseil/) : directeur d'établissements de santé pendant près de quinze ans, il aide les entreprises du secteur de la santé, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s'organiser et à conduire leur plan d'action : diagnostic, schéma directeur ou projet médical, accompagnement, formation à l'intelligence artificielle. Proposition écrite après un premier échange de trente minutes, gratuit et sans engagement.
-- [L'atelier Civik-ia : sites, applications, logiciels sur mesure](https://civik-ia.fr/atelier/) : dessine puis construit des sites, des applications et des logiciels pour les mairies, les acteurs de santé, les entreprises et les associations, sur devis. Marianne a été conçue et construite dans cet atelier.
+- [L'atelier Civik-ia : sites, applications et logiciels, sur devis](https://civik-ia.fr/atelier/) : dessine puis construit des sites, des applications et des logiciels pour les mairies, les acteurs de santé, les entreprises et les associations, sur devis. Marianne a été conçue dans cet atelier.
 
-## Marianne : deux faces et mise en service
+## Marianne : ce qu'elle fait
 
 Marianne est un produit à deux faces :
 
-- Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel de la commune, page citée à chaque réponse (horaires, état civil, déchets, urbanisme, démarches), sans création de compte.
-- L'espace mairie, dès son ouverture : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), adapté aux besoins de chaque commune.
+- Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel de la commune, page citée à chaque réponse (horaires, état civil, déchets, urbanisme, démarches), sans création de compte. Quand le site ne publie pas l'information, elle est conçue pour le dire et indiquer comment joindre la mairie. L'orientation vers une information nationale (service-public.fr, numéros d'urgence), signalée comme ne venant pas du site, se décide avec chaque mairie.
+- L'espace mairie, dès son ouverture : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), réservé aux agents et aux élus que la mairie désigne. Il n'est pas encore ouvert.
 
-Avant l'ouverture aux habitants, une mise en service unique en six étapes : inventaire du site officiel et des documents, cadre écrit avec la mairie, constitution de la base de connaissances (site relu chaque nuit, fiches écrites à la main pour ce que le site ne tranche pas), mesure sur 300 questions de test jugées contre leur page source, validation par les agents de la mairie, version de référence validée par la mairie. Elle coûte à partir de 999 € HT, sur devis selon le travail à réaliser (taille du site, documents à intégrer, fiches à écrire, ateliers avec les agents), et se facture une seule fois, à la validation écrite de la version de référence, avant l'ouverture aux habitants. Ensuite, la base vit avec l'usage : site relu chaque nuit, vraies questions relues chaque semaine, réponses non justes corrigées puis remesurées. Détail : https://civik-ia.fr/chatbot-mairie-prix.html#mise-en-service
+Avant l'ouverture aux habitants, une mise en service unique en six étapes : inventaire des sources, cadre écrit avec la mairie, constitution de la base de connaissances (site relu chaque nuit, documents publiés, actes relus sous une règle de masquage des noms de particuliers, fiches écrites à la main pour ce que le site ne tranche pas), mesure sur 300 questions de test jugées contre leur page source, validation par les agents de la mairie, version de référence validée par écrit par la mairie. Ensuite, la base vit avec l'usage : site relu chaque nuit, réponses jugées fausses ou incomplètes corrigées puis remesurées. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
+
+## Prix de Marianne (grille du 14 octobre 2026, hors taxes)
+
+- Abonnement : 69 € HT par mois jusqu'à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus. Affiché par mois, facturé à l'année.
+- Mise en service, une seule fois : à partir de 999 € HT (999 € jusqu'à 4 999 habitants, puis 30 centimes par habitant au-delà de 5 000), sur devis selon le travail à réaliser, facturée à la validation écrite de la version de référence.
+- Collecte des informations, une seule fois, si le site de la mairie n'est pas à jour ou n'existe pas : 10 centimes par habitant, 499 € HT au minimum.
+- WhatsApp et Messenger, à leur ouverture : 10 € HT par mois chacun, compris à partir de 35 000 habitants.
+- Population de référence : population municipale INSEE, arrondie à la centaine inférieure. Au-delà de 49 999 habitants, intercommunalités et départements : sur devis. Prix estimatifs, fixés en première réunion. Calculateur : https://civik-ia.fr/chatbot-mairie-prix.html#prix
+- Cofinancement possible : le guichet Territoires d'IA de la Banque des Territoires couvre de 30 à 50 % des dépenses éligibles d'achat de solutions d'IA souveraine, après instruction par la Banque des Territoires. Civik-ia n'est ni labellisée ni partenaire de ce programme.
+
+## État au 19 octobre 2026
+
+Marianne est en test sur des communes de test. Aucune commune n'est cliente ni ne l'a en service. Aucune commune n'est citée comme référence.
 
 ## Marianne : les pages de référence
 
+- [Guichet citoyen IA : ce que c'est et ce qu'il doit prouver](https://civik-ia.fr/guichet-citoyen-ia.html) : définition, six critères vérifiables (sources de la mairie, page citée, refus quand l'information manque, mise à jour, validation par la mairie, mesure avant ouverture), intégration au site, souveraineté critère par critère, RGPD et article 50 du règlement européen sur l'IA, prix.
+- [Base de connaissances d'une mairie](https://civik-ia.fr/base-de-connaissances-mairie.html) : ce qu'elle contient, qui valide les sources, comment elle se tient à jour chaque nuit, ce qu'elle ne garantit pas.
+- [RAG pour une mairie](https://civik-ia.fr/rag-collectivites.html) : une IA qui cherche dans les documents de la mairie avant de répondre ; ce que la méthode ne garantit pas, comment la mesurer, cinq questions à poser à un fournisseur.
 - [Tester Marianne](https://civik-ia.fr/demo) : la démonstration en direct, sur une commune fictive, sans inscription.
-- [Chatbot mairie, le guide](https://civik-ia.fr/chatbot-mairie.html) : à quoi sert un chatbot municipal, ce qu'il traite, ce qu'il ne traite pas.
-- [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : ce qui fait le prix d'un assistant virtuel pour une commune, la mise en service et le seuil de dispense de procédure.
-- [Existe-t-il un chatbot gratuit pour une mairie ?](https://civik-ia.fr/chatbot-mairie-gratuit.html) : les offres gratuites réellement disponibles en 2026, à qui chacune s'adresse et ce qu'elle ne couvre pas. Relevé sur les sites des éditeurs le 24 août 2026.
+- [Chatbot mairie, le guide](https://civik-ia.fr/chatbot-mairie.html) : à quoi sert un chatbot municipal, comment l'intégrer au site de la mairie, agent conversationnel et assistant virtuel.
+- [Prix d'un chatbot de mairie](https://civik-ia.fr/chatbot-mairie-prix.html) : ce qui fait le prix d'un assistant virtuel pour une commune, la mise en service en six étapes et le seuil de dispense de procédure.
+- [Existe-t-il un chatbot gratuit pour une mairie ?](https://civik-ia.fr/chatbot-mairie-gratuit.html) : les offres gratuites disponibles en 2026, à qui chacune s'adresse et ce qu'elle ne couvre pas. Relevé sur les sites des éditeurs le 24 août 2026.
 - [Chatbot pour commune rurale](https://civik-ia.fr/chatbot-commune-rurale.html) : un assistant pour les petites communes (moins de 5 000 habitants).
 - [Comparatif chatbot mairie 2026](https://civik-ia.fr/comparatif-chatbot-mairie-2026.html) : comparaison datée des solutions du marché français.
 - [Callbot mairie ou chatbot](https://civik-ia.fr/callbot-mairie.html) : répondre au téléphone ou par écrit quand le secrétariat est fermé, coûts et limites de chaque voie.
@@ -32,26 +60,30 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 - [Comment mieux communiquer avec ses citoyens](https://civik-ia.fr/comment-communiquer-avec-ses-citoyens.html) : panorama des canaux de communication d'une mairie (site, application, panneau, chatbot IA) et critères de choix.
 - [Démarches en ligne d'une commune](https://civik-ia.fr/demarches-en-ligne-commune.html) : quelles démarches une commune peut ouvrir en ligne, et lesquelles restent en préfecture.
 - [Financer l'IA de sa commune](https://civik-ia.fr/financement-ia-collectivite.html) : le guichet de cofinancement Territoires d'IA (Banque des Territoires) couvre 30 à 50 % de l'achat de licences ou abonnements d'IA souveraine, en continu depuis mai 2026 ; les appels à projets France 2030 sur l'IA, eux, sont hors de portée d'une commune (assiette minimale de 600 000 € pour l'AAP démonstrateurs, clos depuis le 01/12/2023). Civik-ia n'est ni labellisée ni partenaire de ces programmes.
-- [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, checklist pour le délégué à la protection des données.
-- [IA souveraine pour mairie](https://civik-ia.fr/ia-souveraine-mairie-mistral.html) : pourquoi un modèle français (Mistral AI) plutôt qu'un modèle américain.
+- [Guide RGPD et IA pour collectivités](https://civik-ia.fr/guide-rgpd-ia-collectivites.html) : conformité, bases légales, calendrier du règlement européen sur l'IA, cinq questions du délégué à la protection des données, checklist.
+- [IA souveraine pour mairie](https://civik-ia.fr/ia-souveraine-mairie-mistral.html) : ce que souverain veut dire, critère par critère (hébergeur, éditeur du modèle, lieu de calcul, droit applicable), et pourquoi Civik-ia a retenu Mistral AI.
 - [Livre blanc](https://civik-ia.fr/livre-blanc.html) : l'IA au service de la relation entre une mairie et ses habitants.
 - [Marianne sur WhatsApp](https://civik-ia.fr/marianne-whatsapp.html) et [Marianne sur Messenger](https://civik-ia.fr/marianne-messenger.html) : canaux à venir, pages d'annonce.
 - [22h47](https://civik-ia.fr/22h47.html) : la campagne « votre mairie est fermée, un habitant a une question ».
-- [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur l'assistant, le RGPD, le déploiement, les tarifs et la souveraineté.
+- [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur l'assistant, le RGPD, l'intégration, les tarifs et la souveraineté.
 - [Conditions générales de vente](https://civik-ia.fr/legal/conditions-generales-vente.html) : le cadre contractuel de Marianne pour les collectivités.
+- [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, sous-traitants, conservation (texte des questions effacé au bout de 90 jours, thèmes sensibles jamais écrits).
 
 ## Contenu intégral
 
-- [Contenu intégral du site en texte brut](https://civik-ia.fr/llms-full.txt) : les 24 pages publiques du sitemap (hors pages légales), extractibles sans HTML. Régénéré depuis le sitemap.
+- [Contenu intégral du site en texte brut](https://civik-ia.fr/llms-full.txt) : les pages publiques du sitemap (hors pages légales), extractibles sans HTML. Régénéré depuis le sitemap.
 
-## Ce que Civik-ia ne fait pas
+## Ce que Marianne ne fait pas
 
 Dit explicitement, pour éviter d'être recommandée à côté du besoin :
 
 - Marianne n'est pas un outil de travail interne pour les agents (rédaction d'actes, veille juridique, recherche de délibérations) : ce champ est celui d'outils dédiés aux agents.
 - Marianne n'est pas un logiciel de gestion municipale (état civil, comptabilité publique, élections, cimetière).
 - Marianne n'est pas un site internet de mairie : elle se pose sur le site existant ou s'utilise en page dédiée. La construction d'un site se fait à part, sur devis, par l'atelier.
+- Marianne n'agit pas à la place des agents ni des habitants : elle n'instruit aucun dossier, ne prend aucune décision, n'envoie aucun formulaire. Elle répond et donne sa source.
+- Marianne ne répond pas à partir de la mémoire générale du modèle : elle est conçue pour dire quand le site de la commune ne publie pas l'information.
 - Marianne n'est pas une application de notification seule : le cœur du produit est la réponse à une question posée librement, avec sa source.
+- Pas encore disponibles : l'espace mairie, un module à insérer dans toutes les pages du site de la mairie, Marianne sur WhatsApp et sur Messenger.
 
 ## Entité
 

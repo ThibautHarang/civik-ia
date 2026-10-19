@@ -82,6 +82,10 @@ const PAGES = [
     legalEnPlus: '<li><button type="button" id="couperAnim2">Arrêter les&nbsp;animations</button></li>',
     barre: { ouverture: /<header>\n<!-- BANDEAU D'ANNONCE/ }, pied: { ouverture: /<footer class="pied">/ } }],
   ['404.html', { couche: 'ancienne', place: true, contact: '/#contact' }],
+  // P9 (19/10/2026) : les trois pages neuves du référencement, de la famille des guides ; elles naissent avec les marqueurs vides
+  ['guichet-citoyen-ia.html', { couche: 'ancienne', place: true }],
+  ['base-de-connaissances-mairie.html', { couche: 'ancienne', place: true }],
+  ['rag-collectivites.html', { couche: 'ancienne', place: true }],
 ];
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -97,6 +101,9 @@ const RESEAUX = [
   ['https://www.facebook.com/61576248676403/', 'Facebook', 'M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26'],
 ];
 // tous les guides pour les mairies (les cibles des anciens pieds y restent : chatbot, comparatif, RGPD, prix)
+// P9 (19/10/2026, maillage du plan de la DDC) : la page pilier en tête de la colonne des guides, sauf sur /marianne/ (D72, rien ne
+// change sur la page avant le verdict du 28/10/2026 : elle la recevra au passage suivant de l'outil, ce jour-là)
+const PILIER = ['/guichet-citoyen-ia.html', 'Guichet citoyen IA, la définition'];
 const GUIDES = [
   ['/chatbot-mairie.html', 'Le guide du chatbot de mairie'],
   ['/chatbot-mairie-prix.html', 'Prix d’un chatbot de mairie'],
@@ -172,7 +179,7 @@ function pied(f, c) {
     + '<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul>'
     + site.map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
     + '<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul>'
-    + GUIDES.map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
+    + (c.couche === 'marianne' ? GUIDES : [PILIER, ...GUIDES]).map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
     + '<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul>' + ecrire + '</ul></nav>\n'
     + '</div>\n'
     + '<div class="cc-pied__bande">'

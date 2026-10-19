@@ -2,27 +2,51 @@
 # Genere par « node tools/llms-full/build.mjs » a partir de 01-Site-Web/sitemap.xml.
 # NE PAS EDITER A LA MAIN : il serait faux au premier changement de page.
 #
-# Civik-ia, au service des territoires : Marianne (assistant IA des collectivites territoriales),
+# Civik-ia, au service des territoires : Marianne (guichet citoyen IA des mairies et des collectivites territoriales),
 # conseil en sante, numerique et intelligence artificielle, atelier de sites, d'applications et de logiciels.
 # Editeur : Civik-ia (SASU), SIREN 103 568 416, Narbonne, France.
 # Registre public : https://annuaire-entreprises.data.gouv.fr/entreprise/103568416
 # Resume court : https://civik-ia.fr/llms.txt
 #
-# 24 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# Définitions employées sur tout le site :
+#   Guichet citoyen IA : répond aux habitants d'une commune à partir des sources officielles de la mairie,
+#     cite la page d'où vient chaque réponse et dit quand il ne sait pas.
+#   Base de connaissances municipale : fiches courtes et datées de ce que la commune publie et que son assistant
+#     a le droit de citer (pages du site officiel, documents, actes, fiches écrites à la main).
+#   RAG appliqué à une commune : l'IA cherche dans les documents de la mairie avant de rédiger, et donne la page source.
+#   Fraîcheur des données : chez Marianne, le site officiel est relu chaque nuit.
+#   Souveraineté : Marianne est hébergée chez OVHcloud, hébergeur français, et s'appuie sur Mistral AI,
+#     société française. Le lieu de calcul du modèle n'est pas fixé par contrat.
+# État : Marianne est en test ; aucune commune n'est cliente ni ne l'a en service.
+# Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
+#   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
+#
+# 27 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
-## Civik-ia&nbsp;: Marianne, Conseil, Atelier
+## Civik-ia : Marianne, Conseil, Atelier
 URL : https://civik-ia.fr/
 Resume : Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.
 
 Civik-ia : Marianne, Conseil, Atelier
 Passer le film
+Arrêter les animations
 Civik-ia : communiquer, conseiller, créer
 Civik-ia
 Marianne Conseil Atelier Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact
-Touchez pour avancer
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Le film en mots, arrêt par arrêt.
+Communiquer. La nuit, devant la mairie gravée de Villeneuve-les-Ormes, une commune fictive. Sur un téléphone, un habitant écrit à Marianne, l’assistant de la mairie, qui lui répond en citant sa source.
+Un habitant : « Bonsoir, comment inscrire mon fils à la cantine pour septembre ? »
+Marianne : « Bonsoir. Les inscriptions se font sur le portail famille jusqu’au 10 août. Il vous faut un justificatif de domicile et l’attestation CAF. » Source : site de la mairie, page Périscolaire.
+L’habitant : « Connaissez-vous Thibaut Harang ? »
+Marianne : « Oui. Quinze ans dans la santé : il a dirigé des établissements, puis la stratégie d’une entreprise de télémédecine. Il a créé Civik-ia en 2026, la société qui m’a conçue. Je peux vous guider jusqu’à lui. » Source : civik-ia.fr.
+Conseiller. Le chemin à pied jusqu’à un croisement. Un poteau de bois porte deux flèches et une plaque Civik-ia ; une feuille y est clouée : le CV de Thibaut Harang.
+Créer. La feuille est prise ; le chemin mène à l’atelier, une pièce aux poutres et au mur de pierre. Une main dessine au crayon un site de mairie, à partir du téléphone et du CV.
+Le dessin est fini : le croquis du site de Villeneuve-les-Ormes, sur la table à dessin.
+Une feuille blanche se rabat. La main y écrit « Vous avez un projet ? Contactez-moi ! », signé T.H. Trois chemins sont proposés : Marianne, le conseil, l’atelier, et une bulle : « Parler de mon projet ».
+Touchez ou faites glisser
 Communiquer
 Une mairie qui répond 24 h/24
 Découvrir Marianne
@@ -33,39 +57,55 @@ Créer
 Des solutions sur mesure adaptées à vos besoins
 Découvrez Civik-ia :
 Communiquer
-Marianne, l'assistant IA des collectivités territoriales, répond aux habitants 24h/24 à partir des sources officielles, vérifiées et consolidées de la commune, et les cite toutes, à chaque réponse.
+Marianne, l’assistant IA des collectivités territoriales, répond aux habitants 24 h/24 à partir des sources officielles, vérifiées et consolidées de la commune, et les cite toutes, à chaque réponse.
 Découvrir Marianne
 Conseiller
-Je vous aide à prendre le bon chemin face aux problèmes que vous rencontrez en santé, en numérique et en intelligence artificielle. J'audite vos besoins, je recueille les usages et je vous propose un plan d'action.
+Je vous aide à prendre le bon chemin face aux problèmes que vous rencontrez en santé, en numérique et en intelligence artificielle. J’audite vos besoins, je recueille les usages et je vous propose un plan d’action.
 Découvrir le conseil
 Créer
-L'atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.
-Découvrir l'atelier
+L’atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.
+Découvrir l’atelier
+Nous écrire
+Quatre lignes suffisent. Dites-nous pour quoi vous écrivez, nous revenons vers vous.
+contact@civik-ia.fr
+Vous préférez détailler ? La fiche de demande du conseil , ou la page blanche de l’atelier pour un devis.
+C’est pour
+Marianne pour ma commune
+Le conseil
+L’atelier
+Autre chose
+Nom *
+Courriel *
+Votre message *
+Envoyer mon message
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Le conseil, pour tous
-L'atelier, pour vos besoins
+L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
 LinkedIn de Thibaut Harang
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
-Prix d'un chatbot de mairie
+Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
 Callbot ou chatbot
-Financer l'IA de sa commune
+Financer l’IA de sa commune
 Livre blanc
-Centre d'aide
+Centre d’aide
 22h47, votre mairie est fermée
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
+Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
 RGPD
 Accessibilité
+Gérer les cookies
 Villeneuve-les-Ormes est une commune fictive.
 Communiquer
 Conseiller
@@ -84,7 +124,7 @@ Aller au contenu
 Civik-ia
 Marianne Conseil Atelier Contact
 Prendre contact avec moi Me contacter
-Accueil Marianne Conseil Atelier Contact
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Thibaut Harang, conseil dédié au secteur de la santé, du numérique et de l’intelligence artificielle
 Quinze ans dans la santé, dont plus de dix à la direction d’établissements, j’aide les entreprises du secteur, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s’organiser et à conduire leur plan d’action.
 Trente minutes pour en parler
@@ -240,7 +280,7 @@ Suivant
 Copier ma fiche
 Fiche de demande N° provisoire
 Structure à préciser
-Étape 1 sur 5 Relire la fiche
+Étape 1 sur 5 Relire ma fiche
 Fiche de demande
 Conseil, à l’attention de Thibaut Harang
 N° provisoire
@@ -272,36 +312,38 @@ Nom *
 Structure
 Courriel *
 Votre besoin, en une phrase *
-Envoyer
+Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
-Page mise à jour le 7 octobre 2026, par Thibaut Harang.
+Page mise à jour le 19 octobre 2026, par Thibaut Harang.
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Le conseil, pour tous
-L'atelier, pour vos besoins
+L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
 LinkedIn de Thibaut Harang
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
-Prix d'un chatbot de mairie
+Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
 Callbot ou chatbot
-Financer l'IA de sa commune
+Financer l’IA de sa commune
 Livre blanc
-Centre d'aide
+Centre d’aide
 22h47, votre mairie est fermée
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
+Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
 RGPD
 Accessibilité
+Gérer les cookies
 
-## L'atelier&nbsp;: sites, applications, logiciels sur mesure · Civik-ia
+## L'atelier : sites, applications, logiciels sur mesure · Civik-ia
 URL : https://civik-ia.fr/atelier/
 Resume : L'atelier Civik-ia construit votre site, votre application ou votre logiciel sur mesure : mairies, acteurs de santé, entreprises, associations. Sur devis.
 
@@ -310,14 +352,14 @@ Aller au contenu
 Civik-ia
 Marianne Conseil Atelier Contact
 Parler de mon projet Mon projet
-Accueil Marianne Conseil Atelier Contact
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
 tirez
 Créer
 L'atelier Civik-ia : sites, applications, logiciels sur mesure
-L'atelier Civik-ia vous aide à construire votre propre projet, site web, application ou logiciel, pour les mairies, les acteurs de santé, les entreprises et les associations.
-Construire mon projet
+L’atelier Civik-ia vous aide à construire votre propre projet, site web, application ou logiciel, pour les mairies, les acteurs de santé, les entreprises et les associations.
+Dessiner mon projet
 Ouvrez un tiroir
-Chaque tiroir range un type de projet : ce qu'il peut contenir, pour qui, comment nous travaillons. Le dernier laisse libre cours à votre imagination.
+Chaque tiroir range un type de projet : ce qu’il peut contenir, pour qui, comment nous travaillons. Le dernier laisse libre cours à votre imagination.
 Site web
 Application
 Logiciel sur mesure
@@ -325,49 +367,49 @@ Autre projet
 ouvrez-en un
 Site web
 Pour qui Mairies, établissements de santé, entreprises, associations.
-Ce qu'il peut contenir Des pages claires, des actualités, un agenda, des formulaires, le paiement en ligne, un espace réservé aux adhérents ; pour une mairie, Marianne, l'assistant IA des collectivités territoriales, y est intégrée.
-Comment nous travaillons Un croquis d'abord, puis une maquette que vous validez, puis la construction. Vous gardez la main sur vos contenus et sur votre design system.
-Un exemple Ce site, civik-ia.fr ; d'autres sites sont en passe d'être mis en ligne.
-Demander un devis sur mesure
+Ce qu’il peut contenir Des pages claires, des actualités, un agenda, des formulaires, le paiement en ligne, un espace réservé aux adhérents ; pour une mairie, Marianne, l’assistant IA des collectivités territoriales, y est intégrée.
+Comment nous travaillons Un croquis d’abord, puis une maquette que vous validez, puis la construction. Vous gardez la main sur vos contenus et sur votre design system.
+Un exemple Ce site, civik-ia.fr ; d’autres sites sont en passe d’être mis en ligne.
+Demander un devis
 Application
 Pour qui Les associations et les clubs, de la plus modeste amicale au plus grand club ; les collectivités ; les entreprises.
-Ce qu'elle peut contenir Pour une association : de quoi réunir les membres autour d'un fil commun, informer, organiser les sorties, les tournois et les assemblées, décider ensemble avec l'ordre du jour et les votes. Elle porte vos couleurs et votre nom.
-Comment nous travaillons Nous la construisons avec quelques membres, sur vos besoins réels. Elle s'installe sur le téléphone depuis un simple lien.
+Ce qu’elle peut contenir Pour une association : de quoi réunir les membres autour d’un fil commun, informer, organiser les sorties, les tournois et les assemblées, décider ensemble avec l’ordre du jour et les votes. Elle porte vos couleurs et votre nom.
+Comment nous travaillons Nous la construisons avec quelques membres, sur vos besoins réels. Elle s’installe sur le téléphone depuis un simple lien.
 Un exemple Une application pour un club de golf, en service depuis juillet 2026, environ 270 adhérents.
-Demander un devis sur mesure
+Demander un devis
 Logiciel sur mesure
 Pour qui Établissements de santé, collectivités et entreprises dont le métier ne rentre dans aucun outil du marché.
-Ce qu'il peut contenir Un tableau de bord, le suivi des dossiers, un planning, un outil de recrutement, des automatisations, un assistant d'intelligence artificielle, et bien d'autres idées encore qui répondent à vos besoins, à partir de vos documents et de votre façon de travailler.
-Comment nous travaillons Un cadrage d'abord, qui dit ce que l'outil fera et ce qu'il ne fera pas ; puis un devis ; puis la construction par étapes, que vous testez à chaque fois.
-Un exemple Marianne, l'assistant IA des collectivités territoriales, a été conçue et construite dans cet atelier. Découvrir Marianne
-Demander un devis sur mesure
+Ce qu’il peut contenir Un tableau de bord, le suivi des dossiers, un planning, un outil de recrutement, des automatisations, un assistant d’intelligence artificielle, et bien d’autres idées encore qui répondent à vos besoins, à partir de vos documents et de votre façon de travailler.
+Comment nous travaillons Un cadrage d’abord, qui dit ce que l’outil fera et ce qu’il ne fera pas ; puis un devis ; puis la construction par étapes, que vous testez à chaque fois.
+Un exemple Marianne, l’assistant IA des collectivités territoriales, a été conçue et construite dans cet atelier. Découvrir Marianne
+Demander un devis
 Autre projet
 Laissez libre cours à votre imagination.
 Un outil pour un service, une idée pour vos usagers, un projet qui ne rentre dans aucune case : racontez-le, ou dessinez-le.
-Partir d'une page blanche
-Ce qui est déjà sorti de l'atelier
+Dessiner mon projet
+Ce qui est déjà sorti de l’atelier
 Sites internet
 civik-ia.fr
 Le site vitrine, socle de toute notre activité.
 Voir le site
 Un site et une boutique pour un métallier
 La vitrine du métallier, et ses pièces en vente en ligne.
-Sur demande
-Fiche 1 / sur 1
+Présenté sur demande
+1 sur 1
 Applications
 Une application pour un club de golf
 En service depuis juillet 2026, environ 270 adhérents.
-Sur demande
-Fiche 1 / sur 1
+Présenté sur demande
+1 sur 1
 Chatbot IA
-Marianne, l'assistant IA des collectivités territoriales
-Un chatbot d'intelligence artificielle qui répond aux habitants 24h/24 à partir des documents officiels de la commune, et cite toutes ses sources. Conçue et construite dans cet atelier.
+Marianne, l’assistant IA des collectivités territoriales
+Un chatbot d’intelligence artificielle qui répond aux habitants 24 h/24 à partir des documents officiels de la commune, et cite toutes ses sources. Conçue et construite dans cet atelier.
 Découvrir Marianne
-Fiche 1 / sur 1
-Construire mon projet
-Partez d'une page blanche
-Vous avez déjà un projet ? N'hésitez pas : commencez à le dessiner ici, à la plume, au fil de vos choix, ou prenez le crayon. À la fin, envoyez-nous votre projet. Vous pouvez même en garder le croquis, pour le souvenir.
-Feuille blanche : rien n'est encore choisi.
+1 sur 1
+Dessiner mon projet
+Partez d’une page blanche
+Vous avez déjà un projet ? N’hésitez pas : commencez à le dessiner ici, à la plume, au fil de vos choix, ou prenez le crayon. À la fin, envoyez-nous votre projet. Vous pouvez même en garder le croquis, pour le souvenir.
+Feuille blanche : rien n’est encore choisi.
 Prendre le crayon
 Effacer mon dessin
 Télécharger le croquis
@@ -387,8 +429,8 @@ Chaque brique se dessine sur la feuille. Plusieurs choix possibles.
 Les contraintes
 Le délai
 Dans le mois
-D'ici trois mois
-Dans l'année
+D’ici trois mois
+Dans l’année
 Pas pressé
 Le budget envisagé, hors taxes
 Moins de 3 000 €
@@ -396,30 +438,30 @@ Moins de 3 000 €
 10 000 à 30 000 €
 Plus de 30 000 €
 À définir ensemble
-L'hébergement
+L’hébergement
 En France
 En Europe
 Pas de préférence
-L'accessibilité
+L’accessibilité
 Exigée (RGAA)
 Souhaitée
 À voir ensemble
-Un mot sur l'idée
-L'idée, en quelques phrases
+Un mot sur l’idée
+L’idée, en quelques phrases
 Nom *
 Structure
 Courriel *
-Champs marqués d'un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité . Votre croquis reste dans votre navigateur.
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité . Votre croquis reste dans votre navigateur.
 Retour
 Suivant
 Fiche de projet
-À l'attention de l'atelier Civik-ia
+À l’attention de l’atelier Civik-ia
 N° provisoire
 1 Le projet
 Type à préciser Pour qui à préciser Briques à préciser
 2 Les contraintes
 Délai à préciser Budget à préciser Hébergement à préciser Accessibilité à préciser
-3 L'idée
+3 L’idée
 En quelques mots à préciser Croquis gardé par vous
 4 Pour vous joindre
 Nom à préciser Structure à préciser Courriel à préciser
@@ -430,32 +472,32 @@ Du croquis à la mise en ligne
 Six étapes, toujours dans le même ordre. Le calendrier de chacune est écrit dans le devis.
 1
 Écoute
-Un premier échange pour comprendre votre projet, vos besoins, et à qui il s'adresse.
+Un premier échange pour comprendre votre projet, vos besoins, et à qui il s’adresse.
 Mettre en pause
-Exemple sur Villeneuve-les-Ormes, notre commune de démonstration
+Exemple sur Villeneuve-les-Ormes (commune fictive), notre commune de démonstration
 1 Écoute
-Un premier échange pour comprendre votre projet, vos besoins, et à qui il s'adresse.
+Un premier échange pour comprendre votre projet, vos besoins, et à qui il s’adresse.
 2 Croquis
-Un dessin rapide de l'idée, pour se mettre d'accord avant de construire.
+Un dessin rapide de l’idée, pour se mettre d’accord avant de construire.
 3 Maquette
 Les écrans principaux, hiérarchisés et dessinés au propre, que vous validez.
 4 Construction
-Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l'atelier.
+Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l’atelier.
 5 Mise en ligne
-À la date et selon le calendrier décidés ensemble, à l'adresse de votre choix. Hébergée en Europe.
+À la date et selon le calendrier décidés ensemble, à l’adresse de votre choix. Hébergée en Europe.
 6 Suivi
-Corrections, mises à jour, adaptations : l'outil continue de vivre selon vos besoins (compris dans l'abonnement).
+Corrections, mises à jour, adaptations : l’outil continue de vivre selon vos besoins (compris dans l’abonnement).
 Demander un devis
 Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit.
 Demander un devis
 Questions fréquentes
-Combien coûte un site ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l'est aussi.
+Combien coûte un site ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l’est aussi.
 Combien de temps faut-il pour construire un projet ? Cela dépend du projet. Le calendrier est écrit dans le devis et tenu à jour avec vous pendant la construction ; les premiers livrables arrivent en général au bout de quelques semaines.
-Faut-il un cahier des charges ? Non. Un échange et un croquis suffisent pour commencer ; ce qu'il faut écrire, nous l'écrivons ensemble, au fur et à mesure.
-Où sont hébergés vos sites et vos applications ? En Europe, chez OVHcloud , comme Marianne, l'assistant IA des collectivités territoriales.
-Pouvez-vous intégrer Marianne, l'assistant IA des collectivités territoriales, au site d'une mairie ? Oui. Marianne s'intègre au site de la mairie et répond aux habitants à partir des sources officielles de la commune. Elle reste une offre à part, avec ses propres conditions : découvrir Marianne .
+Faut-il un cahier des charges ? Non. Un échange et un croquis suffisent pour commencer ; ce qu’il faut écrire, nous l’écrivons ensemble, au fur et à mesure.
+Où sont hébergés vos sites et vos applications ? En Europe, chez OVHcloud , comme Marianne, l’assistant IA des collectivités territoriales.
+Pouvez-vous intégrer Marianne, l’assistant IA des collectivités territoriales, au site d’une mairie ? Oui. Marianne s’intègre au site de la mairie et répond aux habitants à partir des sources officielles de la commune. Elle reste une offre à part, avec ses propres conditions : découvrir Marianne .
 Construisez-vous des applications pour les associations ? Oui : réunir les membres, informer, organiser les sorties et les assemblées, préparer les votes. Une application est en service pour un club de golf depuis juillet 2026, avec environ 270 adhérents.
-Que devient le croquis que je dessine sur cette page ? Il reste dans votre navigateur. Vous pouvez le télécharger en image et nous l'envoyer avec votre projet.
+Que devient le croquis que je dessine sur cette page ? Il reste dans votre navigateur. Vous pouvez le télécharger en image et nous l’envoyer avec votre projet.
 Parlons de votre projet
 Quatre lignes suffisent pour commencer. Nous revenons vers vous pour fixer un premier échange.
 contact@civik-ia.fr
@@ -464,33 +506,35 @@ Nom *
 Structure
 Courriel *
 Votre besoin, en une phrase *
-Envoyer
-Champs marqués d'un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
-Page mise à jour le 7 octobre 2026.
+Envoyer mon message
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Page mise à jour le 19 octobre 2026.
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.
+Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Le conseil, pour tous
-L'atelier, pour vos besoins
+L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
-Prix d'un chatbot de mairie
+Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
 Comparatif 2026
 Callbot ou chatbot
-Financer l'IA de sa commune
+Financer l’IA de sa commune
 Livre blanc
-Centre d'aide
+Centre d’aide
 22h47, votre mairie est fermée
 © 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
-Mentions légales
+Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
 RGPD
 Accessibilité
+Gérer les cookies
 
 ## Marianne, chatbot IA pour mairies et collectivités 24h/24 · Civik-ia
 URL : https://civik-ia.fr/marianne/
@@ -727,7 +771,7 @@ Aucun compte ni application imposés au citoyen ✓ Inclus ✗ Pas prévu pour c
 ✓ inclus ± partiel, en option ou selon éditeur ✗ pas prévu pour cela Lecture par grandes familles d'outils du marché 2026
 Voir le comparatif nominatif détaillé (dydu, Citia, PanneauPocket, Generia)
 Le cerveau de Marianne est européen
-Le moteur, l'hébergement et la base de connaissances de votre commune restent en Europe. Vos données ne servent jamais à entraîner d'autres modèles
+Hébergement chez OVHcloud, dans l'Union européenne, et moteur de Mistral AI, société française. Le lieu de calcul du modèle n'est pas fixé par contrat
 OVHcloud Hébergement en Europe
 Mistral AI Moteur IA européen
 BAN Gouv. Adresses officielles
@@ -936,6 +980,341 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Guichet citoyen IA pour mairie · Civik-ia
+URL : https://civik-ia.fr/guichet-citoyen-ia.html
+Resume : Un guichet citoyen IA répond aux habitants avec les sources officielles de la mairie et les cite. Définition, critères, limites, conformité.
+
+Guichet citoyen IA pour mairie · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Guichet citoyen IA
+Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
+Un guichet citoyen IA répond aux habitants d’une commune à partir des sources officielles de la mairie, cite la page d’où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l’a en service.
+Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Le guichet citoyen IA prend en charge, par écrit et à toute heure, les questions d’information que reçoit l’accueil d’une mairie : horaires, pièces à fournir, collecte des déchets, inscriptions scolaires, règles d’urbanisme. Les demandes qui engagent la commune, comme un dossier, une réclamation ou une situation personnelle, restent traitées par les agents.
+L’expression est récente et aucun texte officiel ne la définit. Cette page en propose une définition et six critères qu’une mairie peut vérifier elle-même, sur l’outil de Civik-ia comme sur un autre.
+Définition et limites
+Ce qu’il fait
+Un habitant pose une question en français courant. L’outil cherche dans la base de connaissances de la mairie, rédige une réponse courte avec ce qu’il y trouve et donne le lien de la page officielle. Si la base ne contient rien sur le sujet, il le dit et indique comment joindre la mairie.
+Ce qu’il n’est pas
+Quatre confusions reviennent :
+un moteur de recherche : il rédige une réponse et donne sa source, au lieu d’une liste de liens ;
+un outil de travail des agents : la rédaction d’actes ou la veille juridique relèvent d’outils conçus pour eux ;
+un logiciel de gestion municipale : il ne tient ni l’état civil, ni la comptabilité, ni les listes électorales ;
+le site de la mairie : il lit le site existant, dont la refonte reste un chantier distinct.
+Assistant virtuel, agent conversationnel, agent municipal IA
+Ces mots désignent souvent le même outil. Un assistant virtuel, ou agent conversationnel, est un programme qui dialogue par écrit. Dans une mairie, « agent municipal » désigne d’abord un fonctionnaire ou un contractuel de la commune ; un agent municipal IA est un programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l’agent du guichet. Le guichet citoyen IA est la forme de ces outils qui s’engage sur ses sources. Le guide du chatbot de mairie détaille ces termes.
+Six critères à vérifier
+Chaque critère se vérifie avant de signer, sur une démonstration ou par une question écrite au fournisseur.
+1. Il ne répond qu’à partir des sources de la mairie
+Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents. Ce qui n’en fait pas partie n’entre pas dans la base. Voir la base de connaissances d’une mairie .
+2. Chaque réponse donne sa page source
+L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une réponse sans source ne se vérifie pas, ni par l’habitant ni par la mairie. C’est le principe du RAG, expliqué sur la page RAG pour une mairie .
+3. Il dit quand il ne sait pas
+Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme service-public.fr ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.
+4. Il se tient à jour sans ressaisie
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
+5. La mairie valide avant l’ouverture
+Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des six étapes de la mise en service .
+6. La justesse est mesurée avant l’ouverture
+Une mesure sérieuse pose des centaines de questions de test et juge chaque réponse contre sa page source. Chez Civik-ia, la base est mesurée sur 300 questions de test avant l’ouverture, et le résultat est remis à la mairie. Ce que cette mesure prouve, et ce qu’elle ne prouve pas, est expliqué sur la page RAG pour une mairie .
+Vu par l’habitant, vu par la mairie
+Côté habitant
+L’habitant ouvre Marianne depuis le site de la mairie, un QR code ou l’écran d’accueil de son téléphone. Il pose sa question sans créer de compte. La réponse tient en quelques lignes et se termine par le lien de la page officielle. Les visiteurs sont comptés par un identifiant aléatoire enregistré dans le navigateur, sans nom ni adresse.
+Côté mairie
+Avant l’ouverture, la mairie participe à la mise en service : inventaire de ses sources, cadre écrit, relecture par les agents, validation de la version de référence. L’espace mairie, tableau de bord de la commune (questions des habitants, réponses justes et erreurs connues, ce que le site ne dit pas), n’est pas encore ouvert ; il le sera après les réglages de sécurité, pour les agents et les élus que la mairie désigne.
+Sur le site de la mairie
+Quatre façons de proposer Marianne existent aujourd’hui :
+une page dédiée, à l’adresse civik-ia.fr/nom-de-la-commune, vers laquelle le site de la mairie renvoie par un lien ou un bouton ;
+un QR code, pour le bulletin municipal, les panneaux d’affichage ou l’accueil ;
+une application que l’habitant installe sur l’écran d’accueil de son téléphone ou de son ordinateur ;
+un cadre (iframe) dans une page du site municipal, sur demande.
+Un module à insérer dans toutes les pages du site n’est pas encore disponible, et Marianne sur WhatsApp et sur Messenger est à venir. La mise en service est faite par Civik-ia : la commune n’a rien à installer. Le détail est dans le guide du chatbot de mairie .
+Souveraineté, critère par critère
+« Souverain » n’a pas de définition légale. Voici ce qui est vrai pour Marianne au 19 octobre 2026.
+Critère Marianne
+Hébergement OVHcloud (OVH SAS, société française), serveur situé à Francfort, en Allemagne
+Sauvegardes chez OVHcloud
+Modèle de langage Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia
+Lieu de calcul du modèle non fixé par contrat
+Ce qui part chez Mistral AI la question, telle que l’habitant l’a écrite, sans compte ni identifiant, avec les fiches publiques retrouvées dans la base
+Accès au serveur administration par clé cryptographique, réservée au président de Civik-ia
+Marianne est hébergée chez OVHcloud, hébergeur français, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat. Mistral AI propose plusieurs points d’accès et ne s’engage sur aucun lieu de calcul pour son point d’accès général ( documentation de Mistral AI , consultée le 19 octobre 2026). Le détail est sur la page IA souveraine pour mairie .
+RGPD et règlement européen sur l’IA
+La mairie est responsable du traitement des données de ses habitants ; Civik-ia agit comme sous-traitant (article 28 du RGPD) et remet à la collectivité un accord sur le traitement des données. Aucun compte n’est demandé aux habitants. Les questions qui portent sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont jamais écrites dans la base, et le texte des autres questions est effacé au bout de 90 jours ( Conformité RGPD , mise à jour le 16 octobre 2026). Les questions du délégué à la protection des données sont traitées dans le guide RGPD et IA en collectivité .
+Le règlement européen sur l’IA ( règlement (UE) 2024/1689 ) impose depuis le 2 août 2026 qu’un système d’IA qui dialogue avec le public informe la personne qu’elle échange avec une IA (article 50). Le règlement (UE) 2026/1744 du 8 juillet 2026 a reporté au 2 décembre 2027 les obligations des systèmes dits à haut risque de l’annexe III ; il laisse en place cette obligation d’information. Un guichet citoyen IA doit donc l’afficher dès son premier message.
+Prix et financement
+Chez Civik-ia, l’abonnement à Marianne coûte 69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, et 500 € HT par mois au plus. La mise en service, facturée une seule fois, coûte à partir de 999 € HT. Si le site de la mairie n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. Ces prix sont estimatifs, hors taxes, et fixés en première réunion ; le calculateur de la page prix donne celui de votre commune.
+Le plancher de 69 € vaut pour 32 683 communes sur 34 969 (population municipale INSEE 2023, relevée le 14 octobre 2026).
+Le guichet du programme Territoires d’IA de la Banque des Territoires cofinance de 30 à 50 % des dépenses éligibles, dont l’achat de licences et l’abonnement à une solution d’IA souveraine, hors jetons. Il est ouvert en continu aux collectivités territoriales et aux EPCI ( page des offres de Territoires d’IA , consultée le 19 octobre 2026). L’éligibilité est instruite par la Banque des Territoires, et un éditeur ne peut pas la promettre : voir financer l’IA de sa commune .
+Voir Marianne répondre
+La démonstration tourne sur une commune fictive, sans inscription : vous posez vos questions et vous ouvrez les sources citées.
+Tester Marianne
+Pour parler de votre commune, un échange de trente minutes suffit à fixer le périmètre et le prix ( nous écrire ). Le produit est présenté sur la page Marianne .
+Questions fréquentes
+Qu’est-ce qu’un guichet citoyen IA ?
+Un guichet citoyen IA répond aux habitants d’une commune à partir des sources officielles de la mairie, cite la page d’où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l’a en service.
+Quelle différence avec un chatbot de mairie ?
+Un chatbot de mairie peut répondre à partir de n’importe quel texte, y compris la mémoire générale du modèle d’IA. Le guichet citoyen IA s’engage sur trois points vérifiables : il répond à partir des sources de la mairie, cite la page de chaque réponse et dit quand il ne sait pas.
+D’où vient une réponse de Marianne ?
+De la base de connaissances de la commune : pages du site officiel, documents publiés, actes relus, et fiches écrites à la main pour ce que le site ne tranche pas, vérifiées avant l’ouverture. La page source est donnée sous chaque réponse.
+Que se passe-t-il quand l’information n’existe pas ?
+Marianne est conçue pour dire que le site ne publie pas l’information et pour indiquer comment joindre la mairie, sans compléter avec la mémoire générale du modèle.
+Comment les informations restent-elles à jour ?
+Le site officiel de la commune est relu chaque nuit. Une page publiée dans la journée est prise en compte le lendemain. Pour les sites qui ne sont pas sous WordPress, le lecteur est en test.
+Un guichet citoyen IA est-il conforme au RGPD ?
+La conformité se juge traitement par traitement, par la mairie et son délégué à la protection des données. Pour Marianne : la mairie est responsable du traitement, Civik-ia est sous-traitant avec un accord écrit, aucun compte n’est demandé, les thèmes sensibles ne sont jamais écrits et le texte des autres questions est effacé au bout de 90 jours.
+Combien coûte un guichet citoyen IA pour une petite commune ?
+Chez Civik-ia, une commune de moins de 5 000 habitants paie 69 € HT par mois d’abonnement et une mise en service à partir de 999 € HT, facturée une seule fois.
+Une commune utilise-t-elle déjà Marianne ?
+Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d’environ 10 000 à 43 000 habitants. Aucune commune n’est cliente et aucune ne l’a en service.
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Base de connaissances de mairie · Civik-ia
+URL : https://civik-ia.fr/base-de-connaissances-mairie.html
+Resume : Ce que contient la base de connaissances d&#x27;une mairie, qui valide ses sources et comment elle reste à jour : la méthode de mise en service de Marianne.
+
+Base de connaissances de mairie · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Guichet citoyen IA › Base de connaissances
+Base de connaissances d’une mairie : sources validées et mise à jour
+La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est relue chaque nuit et validée par la mairie avant l’ouverture.
+Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Un assistant municipal ne répond pas mieux que sa base. Cette page décrit ce que contient celle de Marianne, qui en valide les sources, comment elle se tient à jour et ce qu’elle ne garantit pas.
+Ce que contient la base
+Une fiche est un extrait d’une page ou d’un document, avec l’adresse et la date de sa source. Sur une commune de test d’environ 11 000 habitants, la base comptait au 8 octobre 2026 4 126 fiches, dont 89 écrites et vérifiées à la main, tirées de 644 pages et de 272 actes (relevé de Civik-ia).
+Les pages du site officiel
+Toutes les pages publiques du site de la commune sont lues : horaires, démarches, services, équipements, associations, agenda. Chaque fiche garde le lien de sa page, et c’est ce lien que l’habitant reçoit sous la réponse.
+Les documents publiés
+Les documents mis en ligne par la mairie entrent aussi dans la base : bulletin municipal, règlement de collecte, compte rendu du conseil, plan local d’urbanisme quand il est publié. Une information absente des pages se trouve souvent dans l’un d’eux.
+Les actes administratifs
+Les arrêtés et les délibérations suivent une règle à part. Les noms et les adresses de particuliers y sont masqués avant toute réponse, puis un témoin relit chaque acte en fin de passage : un acte où il reconnaît un nom de particulier est mis à l’écart et n’est pas servi. Un acte que la règle en vigueur n’a pas encore relu reste lu sans être servi.
+Les fiches écrites à la main
+Certaines questions n’ont pas de réponse nette sur le site : quel service appeler, quelle page fait foi quand deux pages se contredisent. Civik-ia écrit alors une fiche courte, avec sa source, et les agents la relisent pendant la mise en service.
+Ce qui n’y entre pas
+Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés n’entrent pas dans la base, ni les pages d’autres sites, sauf ceux que la mairie désigne, comme le site d’un équipement municipal. Les questions posées par les habitants sont conservées à part et ne deviennent pas des fiches. L’orientation vers une information nationale, comme service-public.fr , se décide avec la mairie et reste signalée comme ne venant pas de son site.
+Qui valide les sources
+Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents. La validation se fait pendant la mise en service, en six étapes, avant toute ouverture aux habitants :
+l’inventaire des sources : site officiel, documents, actes, sites liés que la mairie veut voir lus ;
+le cadre écrit, qui fixe avec la mairie ce que Marianne lit, ce qu’elle cite et ce qu’elle laisse de côté ;
+la constitution de la base de connaissances ;
+la mesure sur 300 questions de test, chaque réponse étant jugée contre sa page source ;
+la validation par les agents de la mairie, qui relisent les réponses et corrigent les fiches ;
+la version de référence, validée par écrit par la mairie.
+Rien n’est ouvert aux habitants avant la sixième étape. Le détail et le prix de chaque étape sont sur la page prix .
+Comment la base reste à jour
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée entre dans la base le lendemain, sans ressaisie par les agents.
+Des contrôles se jouent avant toute écriture. Si la relecture de la nuit constate une suppression massive de fiches ou un effondrement du volume lu, rien n’est écrit et la base de la veille reste servie, le temps qu’une personne regarde.
+Le lecteur des sites WordPress est en place. Celui des autres outils de publication, dont TYPO3, est en test. Après l’ouverture, les réponses jugées fausses ou incomplètes sont corrigées dans la base, puis remesurées.
+Ce que la base ne garantit pas
+La base ne vaut que sa source. Si le site publie une information périmée, la réponse le sera aussi : la mise en service relève ces écarts et les signale à la mairie, et une collecte des informations peut être commandée quand le site n’est pas à jour.
+Une fiche juste ne suffit pas toujours. Le modèle qui rédige peut prendre un chiffre dans une fiche voisine de la bonne. Ce risque, et la façon de le mesurer, sont décrits sur la page RAG pour une mairie .
+Ce que coûte la constitution de la base
+Chez Civik-ia, la mise en service, qui comprend la constitution de la base, coûte à partir de 999 € HT : 999 € jusqu’à 4 999 habitants, puis 30 centimes par habitant au-delà de 5 000. Elle est facturée une seule fois, à la validation écrite de la version de référence. Si le site n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. L’abonnement, qui comprend la relecture de chaque nuit, coûte 69 € HT par mois jusqu’à 4 999 habitants. Prix estimatifs, hors taxes, fixés en première réunion.
+Pour voir une base en action, la démonstration tourne sur une commune fictive, sans inscription.
+Tester Marianne
+La définition complète du guichet citoyen IA et ses six critères sont sur la page dédiée ; le produit est présenté sur la page Marianne .
+Questions fréquentes
+Qu’est-ce qu’une base de connaissances municipale ?
+La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas.
+Qui écrit les fiches ?
+La plupart viennent de la lecture automatique du site et des documents de la mairie. Civik-ia écrit à la main les fiches qui manquent, avec leur source, et les agents de la mairie les relisent pendant la mise en service.
+Que se passe-t-il quand le site de la mairie change ?
+Le site est relu chaque nuit. Une page publiée ou modifiée dans la journée entre dans la base le lendemain. Si la relecture constate une anomalie de volume, la base de la veille reste servie.
+Et si la réponse n’est pas dans la base ?
+Marianne est conçue pour dire que le site ne publie pas l’information et pour indiquer comment joindre la mairie. La question sans réponse est un signal utile : elle montre ce que le site de la commune ne dit pas.
+Combien de temps prend la mise en service ?
+La durée dépend de la taille du site, du nombre de documents et de la disponibilité des agents pour la relecture. Elle se fixe au devis, et l’ouverture aux habitants n’a lieu qu’après la validation écrite de la mairie.
+Combien coûte la constitution de la base ?
+Elle fait partie de la mise en service, facturée une seule fois à partir de 999 € HT. La collecte des informations, quand le site n’est pas à jour, s’ajoute à partir de 499 € HT.
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## RAG pour une mairie · Civik-ia
+URL : https://civik-ia.fr/rag-collectivites.html
+Resume : Le RAG fait chercher l&#x27;IA dans les documents de la mairie avant de répondre. Ce que cela change, ce que cela ne garantit pas, comment le vérifier.
+
+RAG pour une mairie · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Guichet citoyen IA › RAG
+RAG pour une mairie : une IA qui cherche avant de répondre
+Le RAG fait chercher l’IA dans des documents choisis avant qu’elle rédige : la réponse s’appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l’habitant sous la réponse.
+Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+RAG est le sigle anglais de « retrieval-augmented generation », en français génération augmentée par récupération. La méthode a été décrite en 2020 par des chercheurs de Facebook AI Research, d’University College London et de New York University ( Lewis et al., arXiv 2005.11401 ). La CNIL la cite parmi les façons de déployer une IA générative dans une organisation.
+Pourquoi une IA sans recherche invente
+Un modèle de langage écrit le texte le plus probable à partir de ce qu’il a lu pendant son entraînement. Il ne connaît ni les horaires de votre mairie, ni la date de la prochaine collecte des encombrants, ni le tarif de la cantine de cette année. Interrogé sans document, il peut produire une réponse plausible et fausse, sur le même ton qu’une réponse juste. La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « Ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
+Pour une mairie, le risque est concret : un habitant qui suit une mauvaise information sur une démarche ou un délai peut perdre du temps, ou se présenter avec le mauvais dossier. Le RAG réduit ce risque en donnant au modèle les textes de la mairie et en lui demandant de s’y tenir.
+Comment cela marche chez Marianne
+L’habitant pose sa question en français courant.
+La question est comparée aux fiches de la base de connaissances de la mairie : pages du site officiel, documents publiés, actes relus, fiches écrites à la main.
+Les six fiches les plus proches sont remises au modèle de langage, Mistral Small de Mistral AI.
+Le modèle rédige une réponse courte à partir de ces fiches seulement, avec la consigne de dire quand elles ne portent pas la réponse.
+La réponse part avec le lien de la page source.
+Le modèle ne reçoit ni le nom ni le compte de l’habitant : seulement la question, telle qu’elle a été écrite, et les fiches publiques retrouvées.
+Ce que le RAG ne garantit pas
+La bonne fiche retrouvée ne fait pas une réponse juste
+Deux mesures distinctes comptent. La première dit si la fiche qui porte la réponse figure parmi celles remises au modèle. La seconde dit si la réponse rédigée est juste. La première peut être bonne quand la seconde ne l’est pas.
+Sur nos communes de test, les réponses fausses que nous relevons viennent le plus souvent de la rédaction, alors que la bonne fiche avait été retrouvée : le modèle prend un tarif d’une autre année, ou le téléphone d’un autre service. Le zéro réponse fausse est notre objectif, et chaque erreur relevée est corrigée puis remesurée.
+La base ne vaut que sa source
+Si le site de la mairie publie une information périmée, la réponse le sera aussi. Le RAG cite fidèlement une page fausse. La mise en service relève ces écarts et les signale à la mairie.
+Une question hors de la base doit recevoir un refus
+Quand aucune fiche ne porte la réponse, la bonne réponse dit que le site ne publie pas l’information et indique comment joindre la mairie. Les banques de test de Civik-ia contiennent des questions pièges de ce type, dont la seule réponse juste est ce refus.
+Comment le mesurer avant d’ouvrir
+Avant l’ouverture aux habitants, Civik-ia pose 300 questions de test et juge chaque réponse contre sa page source : juste, partielle, fausse, ou refus. Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues. Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence. Le détail des six étapes est sur la page prix .
+Cinq questions à poser à un fournisseur
+Quels documents l’IA lit-elle, et qui les choisit ?
+La réponse donne-t-elle la page source, et l’habitant peut-il l’ouvrir ?
+Combien de fiches sont remises au modèle, et que répond-il quand aucune ne porte la réponse ?
+Sur combien de questions de test la justesse est-elle mesurée, jugée contre quelle source, et la mesure est-elle remise à la mairie ?
+Quel modèle rédige, dans quelle version datée, et où calcule-t-il ?
+Pour Marianne, les réponses sont sur cette page, sur la page IA souveraine pour mairie et sur la page du guichet citoyen IA . La démonstration permet de les vérifier sur une commune fictive, sans inscription.
+Tester Marianne
+Questions fréquentes
+Qu’est-ce que le RAG ?
+Le RAG fait chercher l’IA dans des documents choisis avant qu’elle rédige : la réponse s’appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l’habitant.
+Quelle différence avec ChatGPT ?
+Un assistant généraliste répond à partir de ce que son modèle a appris, sauf s’il va chercher des pages au moment de la question, et il ne sait pas quelles pages font foi pour votre commune. Un RAG municipal ne lit que les sources de la mairie, choisies et validées avant l’ouverture, et cite la page de chaque réponse.
+Un RAG peut-il encore se tromper ?
+Oui. Le modèle peut mal lire une fiche juste, par exemple prendre le tarif d’une autre année dans une fiche voisine. C’est pourquoi la justesse se mesure question par question avant l’ouverture, puis après chaque correction.
+Le RAG convient-il à une petite commune ?
+Oui, à condition que le site ou les documents de la commune contiennent les informations. Quand le site est mince ou ancien, une collecte des informations auprès de la mairie complète la base avant l’ouverture.
+Que mesurer avant d’ouvrir un assistant aux habitants ?
+Deux choses : la part des questions pour lesquelles la bonne fiche est retrouvée, et la part des réponses justes, jugées contre la page source. Les questions pièges, dont la réponse n’est pas sur le site, doivent recevoir un refus.
+Quel modèle d’IA utilise Marianne ?
+Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia. Le serveur de Marianne est chez OVHcloud ; le lieu de calcul du modèle n’est pas fixé par contrat.
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1003,13 +1382,13 @@ Un chatbot ne remplace pas l’agent de mairie. Il absorbe le flux de questions 
 Les criteres essentiels pour choisir un chatbot mairie
 Six points de vigilance pour les DGS et secretaires de mairie. Chaque critere a un impact direct sur la reussite du projet.
 Souverainete et RGPD
-Les donnees des citoyens doivent rester en Union Europeenne. Aucune information ne doit transiter par des serveurs americains soumis au Cloud Act. Privilegiez un hebergement sur infrastructure souveraine europeenne (OVHcloud, Scaleway) avec un moteur IA europeen.
+Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Chez Civik-ia : serveur chez OVHcloud, à Francfort ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
 Prix sous le seuil des marches publics
 En dessous de 60 000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considerablement la decision.
 Personnalisation communale
 Un chatbot generique qui repond a cote detruit la confiance des citoyens. L’IA doit etre formee sur les donnees specifiques de votre commune : arrets municipaux, PLU, horaires d’ouverture, associations locales, calendrier des evenements.
 Facilite d’integration
-Votre prestataire web ne devrait pas facturer une journee de developpement pour brancher le chatbot. Une page dediee cle en main, mise en ligne par nos soins avec un simple lien a poser, ou demain un widget a copier-coller sur le site existant : c’est le standard a exiger. Comptez 5 minutes, pas 5 semaines.
+Votre prestataire web ne devrait pas facturer une journee de developpement pour brancher le chatbot. Une page dediee cle en main, mise en ligne par nos soins avec un simple lien a poser, ou demain un widget a copier-coller sur le site existant : c’est le standard a exiger. Chez Civik-ia, la mise en service est faite par nos soins : sur le site de la mairie, il reste un lien ou un QR code à poser.
 Support et accompagnement
 La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement a l’onboarding, pas juste un lien de documentation.
 Une justesse mesurée
@@ -1036,17 +1415,17 @@ Oui
 Oui
 Non (usage interne)
 Oui
-Hebergement souverain UE
+Hébergement
 Non precise
 Non precise
 Non precise
-Oui, OVHcloud UE
+OVHcloud, serveur à Francfort
 Sans inscription citoyen
 Partiel
 Partiel
 N/A
 Oui
-Integration en 5 min
+Intégration sans développement
 Non
 Partiel
 N/A
@@ -1060,21 +1439,35 @@ Ce tableau reflète les informations publiquement disponibles en avril 2026. Cha
 Ce qui differencie Civik-ia
 Trois choix qui comptent pour une mairie : une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant.
 Une source, une page citée
-Marianne répond à partir du site officiel de la commune , relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer.
+Marianne répond à partir du site officiel de la commune , relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer. Ce que contient cette base, et qui la valide, est détaillé sur notre page sur la base de connaissances d’une mairie .
 Une mise en service mesurée
 Avant l’ouverture aux habitants : inventaire du site, base de connaissances, 300 questions de test jugées contre leur page source, validation par vos agents. Une seule fois ; le détail des six étapes est sur notre page prix .
 Zero friction citoyen
 Pas d’inscription. Pas de compte. Pas de cookie de suivi. Le citoyen arrive sur le chatbot, pose sa question, obtient sa reponse. Point. C’est une decision strategique fondamentale : chaque obstacle a l’entree fait perdre des utilisateurs. Un chatbot que personne n’utilise ne sert a rien. L’accessibilite universelle est la condition de la reussite du projet.
-Un chatbot pour le site de sa mairie
+Un chatbot sur le site de la mairie : comment l’intégrer
 Avec ou sans site internet communal, le deploiement s’adapte a votre situation.
-Si votre commune dispose deja d’un site internet, le chatbot s’y raccorde simplement : une page dediee est mise en ligne a l’adresse civik-ia.fr/nom-de-la-commune, et un lien ou un bouton place sur le site de la mairie y conduit vos administres en un clic. Une integration en cadre (iframe) directement dans une page du site municipal est possible sur demande. Aucune intervention technique n’est demandee a la commune : la mise en service est realisee par Civik-ia.
-Si votre commune n’a pas de site internet, la page dediee joue ce role : elle se partage par QR code dans le bulletin municipal, sur les panneaux d’affichage ou les reseaux sociaux de la commune. C’est souvent le premier service en ligne de la mairie, disponible 24 h/24, pour un tarif de chatbot qui est conçu pour rester sous le seuil des marches publics. Et si votre question porte plutot sur le telephone, voir callbot mairie ou chatbot : que choisir .
+Marianne se propose aux habitants de cinq façons, toutes mises en place par Civik-ia. La commune n’a rien à développer ni à installer.
+Une page dédiée , à l’adresse civik-ia.fr/nom-de-la-commune : c’est l’adresse que la mairie partage.
+Un lien ou un bouton sur le site de la mairie, qui mène à cette page. Il fonctionne avec tous les outils de publication, WordPress, Joomla ou un site fait à la main.
+Un QR code , pour le bulletin municipal, les panneaux d’affichage, l’accueil de la mairie ou les réseaux sociaux de la commune.
+Une application que l’habitant installe sur l’écran d’accueil de son téléphone ou de son ordinateur, depuis la page dédiée.
+Un cadre (iframe) dans une page du site municipal, sur demande.
+Un module à insérer dans toutes les pages du site, sous forme de bouton flottant, n’est pas encore disponible. Marianne sur WhatsApp et sur Messenger est à venir.
+Si votre commune n’a pas de site internet, la page dédiée en tient lieu : elle se partage par QR code et devient souvent le premier service en ligne de la mairie, disponible 24 h/24. Le prix d’un chatbot de mairie est conçu pour rester sous le seuil de dispense de procédure. Si votre question porte sur le téléphone, voir callbot mairie ou chatbot : que choisir .
 Chatbot pour une ville : quelles differences avec une petite commune
 Le meme moteur souverain, dimensionne selon la population et l’organisation des services.
 Pour une ville de 5 000 a 20 000 habitants, le volume de sollicitations change d’echelle : plusieurs services municipaux (etat civil, urbanisme, scolaire, technique) recoivent chacun leurs demandes. Marianne répond pour tous ces services à partir du même site officiel, et la mise en service associe les agents de chaque service à la validation des réponses.
-Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune. Ce qui fait le prix d’un chatbot de mairie est détaillé sur notre page dédiée. Dans tous les cas, le socle est identique : IA souveraine francaise, hebergement en Union Europeenne, conformite RGPD, et zero friction pour le citoyen.
+Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune. Ce qui fait le prix d’un chatbot de mairie est détaillé sur notre page dédiée. Dans tous les cas, le socle est identique : modèle de Mistral AI, société française, hébergement chez OVHcloud, aucun compte demandé à l’habitant.
+Agent conversationnel, assistant virtuel : de quoi parle-t-on ?
+Les mots changent d’un fournisseur à l’autre pour désigner des outils proches. Un chatbot, un agent conversationnel ou un assistant virtuel est un programme qui dialogue par écrit avec une personne. Ce qui les distingue tient moins au nom qu’à trois choses : d’où viennent les réponses, si la source est donnée, et ce que l’outil fait quand il ne sait pas.
+Dans une mairie, « agent municipal » désigne d’abord un fonctionnaire ou un contractuel de la commune. Un agent municipal IA est un programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l’agent du guichet. Il n’instruit aucun dossier et ne délivre aucun acte.
+Un guichet citoyen IA est la forme de ces outils qui s’engage sur ses sources : il répond à partir des sources officielles de la mairie, cite la page de chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi, pour les habitants. L’espace mairie, réservé aux agents et aux élus, n’est pas encore ouvert.
+Le mot « agent » a aussi pris un sens technique : un programme d’IA qui enchaîne des actions seul, comme remplir un formulaire ou envoyer un courriel. Marianne n’agit pas ainsi : elle répond et donne sa source, et les démarches restent faites par l’habitant ou par la mairie.
 Questions frequentes
 Les reponses aux questions que se posent les DGS et secretaires de mairie avant de deployer un chatbot.
+Qu’est-ce qu’un agent conversationnel pour une mairie ?
++
+Un agent conversationnel pour une mairie est un programme qui répond par écrit aux questions des habitants, au nom de la mairie, sans prendre de décision et sans remplacer les agents. Celui qui répond à partir des sources officielles de la commune, cite la page de chaque réponse et dit quand il ne sait pas correspond à la définition d’un guichet citoyen IA.
 Qu’est-ce qu’un chatbot IA pour mairie ?
 +
 Un chatbot IA pour mairie est un assistant virtuel intelligent, accessible 24 h/24 sur le site internet de la commune ou via une page dediee. Il repond automatiquement aux questions les plus frequentes des citoyens (horaires d’ouverture, collecte des dechets, etat civil, urbanisme) en s’appuyant sur une base de connaissances personnalisee. Contrairement a un chatbot generique, il est forme sur les donnees specifiques de votre commune (arretes municipaux, PLU, deliberations) pour fournir des reponses precises et a jour.
@@ -1086,12 +1479,12 @@ Le chatbot remplace-t-il les agents de mairie ?
 Non, et c’est un point fondamental. Le chatbot prend en charge les questions repetitives qui representent environ 70 % des sollicitations : horaires, dechets, urbanisme, pieces a fournir. Les agents sont ainsi liberes pour se concentrer sur l’accueil social, l’accompagnement des personnes fragiles et les dossiers complexes qui necessitent un contact humain. C’est un outil de soutien, pas de remplacement. Aucun poste n’est supprime : les agents recuperent chaque semaine les heures que ces questions repetitives dévoraient.
 Comment installer le chatbot sur le site de la mairie ?
 +
-Le deploiement standard se fait par une page dediee a l’adresse civik-ia.fr/nom-de-la-commune, mise en ligne par nos soins et immediatement partageable depuis le site de la mairie (lien ou bouton), par QR code ou dans le bulletin municipal. Une integration en cadre (iframe) dans une page du site municipal est possible sur demande. Aucune competence technique n’est requise cote mairie : la mise en service est realisee par Civik-ia. Un widget a inserer directement dans les pages du site est en construction.
+Le deploiement standard se fait par une page dediee a l’adresse civik-ia.fr/nom-de-la-commune, mise en ligne par nos soins et immediatement partageable depuis le site de la mairie (lien ou bouton), par QR code ou dans le bulletin municipal. Une integration en cadre (iframe) dans une page du site municipal est possible sur demande. Aucune competence technique n’est requise cote mairie : la mise en service est realisee par Civik-ia. Les habitants peuvent aussi installer Marianne sur l’écran d’accueil de leur téléphone. Un module à insérer dans toutes les pages du site n’est pas encore disponible.
 Le chatbot est-il conforme RGPD ?
 +
-Oui, la conformite RGPD est integree des la conception (privacy by design). Toutes les donnees sont hebergees en Union Europeenne sur des serveurs OVHcloud. Le chatbot ne collecte aucune donnee personnelle : pas d’inscription, pas de compte utilisateur, pas de cookie de suivi.
+La mairie, responsable du traitement, en juge avec son délégué à la protection des données ; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom ; les questions qui portent sur un thème sensible ne sont jamais écrites, et le texte des autres questions est effacé au bout de 90 jours. Le serveur est chez OVHcloud, à Francfort ; les réponses sont rédigées par Mistral AI, société française. Le détail est dans notre guide RGPD et IA en collectivité .
 Pret a moderniser l’accueil de votre mairie ?
-Decouvrez en 3 minutes comment Civik-ia repond aux questions de vos citoyens, 24 heures sur 24. Demonstration interactive, sans engagement.
+Posez vos questions à Marianne sur une commune fictive et ouvrez les sources de ses réponses. Demonstration interactive, sans engagement.
 Tester la demo gratuite
 Demander un devis
 Civik-ia
@@ -1105,6 +1498,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1152,7 +1546,7 @@ Chatbot Mairie
 Prix
 Chatbot mairie : quel prix en 2026 ?
 De gratuit a 1 750 €/an : le vrai cout d’un assistant virtuel pour votre commune. Et comment rester sous le seuil des marches publics.
-Voir l’offre détaillée
+Voir la grille de prix
 Demander un devis
 En bref
 En 2026, un chatbot de mairie coute de 0 € (solutions gratuites limitees) a environ 1 750 €/an pour les offres haut de gamme. Chez Civik-ia, solution française souveraine, l’abonnement suit la taille de la commune (69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus, abonnement annuel), et la mise en service, facturée une seule fois, se chiffre à partir de 999 € HT ; l’ensemble est conçu pour rester sous le seuil des marchés publics. Le prix depend de la population, des fonctionnalites et du niveau de souverainete. Calculez le prix pour votre commune .
@@ -1226,7 +1620,7 @@ Mise en service
 une seule fois
 Et si une partie de cette dépense était cofinancée ? Depuis mai 2026, le guichet du programme Territoires d’IA, porté par la Banque des Territoires, couvre 30 à 50 % de l’achat de licences ou d’abonnements de solutions d’IA souveraine, en continu et sans date limite de dépôt. L’éligibilité est instruite par la Banque des Territoires, jamais promise par un éditeur : le détail des taux, des bonifications et de ce qui n’est pas accessible à une commune figure sur notre page financer l’IA de sa commune .
 Ce que comprend l’abonnement
-Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes : la taille de la commune fait le prix.
+Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes : la taille de la commune fait le prix. Marianne est un guichet citoyen IA : elle répond à partir de vos sources officielles et cite sa page.
 Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse
 Sans compte ni inscription pour les habitants
 L’espace mairie dès son ouverture : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), adapté aux besoins de chaque commune
@@ -1264,7 +1658,7 @@ Civik-ia rédige le cadre : périmètre des sources, règle sur les personnes no
 Étape C
 La base de connaissances
 La mairie admet, un par un, les sites complémentaires à lire (théâtre, intercommunalité, office de tourisme).
-Civik-ia lit le site chaque nuit et écrit à la main, page source à l’appui, les fiches sur ce que le site ne tranche pas.
+Civik-ia lit le site chaque nuit et écrit à la main, page source à l’appui, les fiches sur ce que le site ne tranche pas. Ce qu’elle contient : voir la base de connaissances d’une mairie .
 Étape D
 La mesure avant ouverture
 La mairie reçoit un rapport de mesure daté, lisible par la direction générale.
@@ -1326,6 +1720,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1426,6 +1821,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1519,7 +1915,7 @@ Ma&icirc;trise du budget
 Des solutions abordables, concues pour rester sous le seuil des marches publics (60 000 € HT, dispense de procedure, R. 2122-8, depuis le 01/04/2026). Pas de co&ucirc;ts caches, pas de mauvaises surprises.
 4
 Souverainete numerique
-RGPD natif, hebergement en Union Europeenne (OVHcloud). Zero dependance a des acteurs extra-europeens.
+Hébergement dans l’Union européenne, chez OVHcloud ; modèle de Mistral AI, société française ; aucun compte demandé à l’habitant.
 Civik-ia repond a ces 4 priorites dans un seul outil, avec un abonnement à partir de 69 € HT par mois, selon la taille de la commune.
 Comment ca marche concretement ?
 Une mise en service unique, en six etapes, avant l’ouverture aux habitants. En voici l’essentiel.
@@ -1575,6 +1971,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1623,7 +2020,7 @@ Auteur : Thibaut Harang, fondateur Civik-ia
 Lecture : 9 minutes
 Mis à jour : 08/06/2026
 En bref
-En 2026, cinq solutions équipent les mairies françaises : Civik-ia, dydu, Citia.io, Generia et PanneauPocket. Pour une commune de moins de 5 000 habitants, un chatbot IA souverain (modèle français Mistral, hébergement en Europe, chez OVHcloud, abonnement à partir de 69 € HT par mois selon la taille de la commune) répond aux citoyens 24 h/24 sans inscription ; PanneauPocket, lui, diffuse des alertes sans dialoguer. Le bon choix dépend du besoin : répondre aux questions ou informer.
+En 2026, cinq solutions se présentent aux mairies françaises : Civik-ia, dydu, Citia.io, Generia et PanneauPocket. Pour une commune de moins de 5 000 habitants, un chatbot IA souverain (modèle français Mistral, hébergement en Europe, chez OVHcloud, abonnement à partir de 69 € HT par mois selon la taille de la commune) répond aux citoyens 24 h/24 sans inscription ; PanneauPocket, lui, diffuse des alertes sans dialoguer. Le bon choix dépend du besoin : répondre aux questions ou informer.
 Avertissement de transparence : nous éditons Civik-ia, l’une des solutions présentées dans cet article. Nous nous engageons à exposer factuellement les forces et les limites de chacun, y compris les nôtres. Toutes les informations sont vérifiables depuis les sites publics des éditeurs et sources publiques (UGAP, comptes annuels, témoignages clients) au 16 mai 2026.
 Aller directement au tableau comparatif
 Pourquoi équiper sa mairie d’un chatbot IA en 2026 ?
@@ -1662,7 +2059,7 @@ Mairies multilingues, zones touristiques
 Grandes collectivités, multi-secteur
 Toutes communes (diffusion d’infos)
 IA générative
-Oui , Mistral AI souverain
+Mistral AI, société française
 Oui , moteur propriétaire
 Oui , moteur propriétaire
 Oui , moteur propriétaire
@@ -1673,8 +2070,7 @@ Hébergement France (variable selon offre)
 France
 Variable
 France
-RGPD natif
-(zéro compte citoyen requis)
+Aucun compte demandé à l’habitant
 Oui , sans inscription
 ± partiel
 Oui
@@ -1748,7 +2144,7 @@ Moins de 5 000 habitants : Civik-ia (abonnement de 69 € HT par mois) ou Citia.
 20 000 à 50 000 habitants : Civik-ia, ou dydu / Generia selon la complexité de votre système d’information.
 Plus de 50 000 habitants : Generia ou dydu, avec mise en concurrence formelle (marché public).
 Question 2 : avez-vous des contraintes de souveraineté ?
-Si vous êtes une mairie qui souhaite afficher publiquement l’usage d’une IA souveraine française (Mistral AI), avec un hébergement en Europe, chez OVHcloud, et zéro dépendance à OpenAI / Google / Microsoft, Civik-ia est aujourd’hui la seule option qui le revendique explicitement. Les autres acteurs n’exposent pas clairement leur stack technique.
+Si votre mairie veut un modèle d’IA édité par une société française (Mistral AI) et un hébergement chez OVHcloud, sans modèle d’OpenAI, de Google ou de Microsoft pour rédiger les réponses, Civik-ia l’écrit sur son site ; le lieu de calcul du modèle n’y est pas fixé par contrat. Les autres acteurs comparés ne publiaient pas leur architecture technique au relevé du 16 mai 2026.
 Question 3 : qui va paramétrer la solution ?
 Si vous n’avez pas de service informatique interne et que vous voulez que votre DGS puisse adapter le chatbot lui-même → Civik-ia (outil de co-design en 30 min).
 Si vous avez un service informatique structuré et un budget pour une intégration projet → dydu ou Generia.
@@ -1767,7 +2163,7 @@ Les tarifs 2026 vont d’environ 70 € HT/mois (Citia.io) à plus de 1 750 € 
 Quelle est la différence entre Civik-ia et PanneauPocket ?
 PanneauPocket est un outil de diffusion : la mairie pousse des alertes (travaux, fermetures, événements) vers les smartphones, mais le citoyen ne pose pas de question. Civik-ia est un chatbot conversationnel : le citoyen interroge l’assistante (horaires, état civil, urbanisme, Cerfa…) et reçoit une réponse personnalisée 24 h/24. Les deux sont complémentaires plutôt que concurrents : on diffuse avec PanneauPocket, on répond avec Civik-ia.
 Quel chatbot de mairie est souverain et conforme RGPD ?
-La souveraineté dépend du modèle d’IA et de l’hébergement. Civik-ia revendique explicitement une IA souveraine française (Mistral AI) avec un hébergement en Europe, chez OVHcloud, et un accès citoyen sans inscription (RGPD natif). Les autres éditeurs n’exposent pas toujours clairement leur stack technique. Pour vérifier, demandez à chaque éditeur quel modèle d’IA il utilise et où transitent les conversations.
+La souveraineté se juge sur l’hébergeur, l’éditeur du modèle d’IA, le lieu de calcul et le droit applicable. Civik-ia s’appuie sur Mistral AI, société française, et sur un hébergement chez OVHcloud, sans compte demandé à l’habitant ; le lieu de calcul du modèle n’est pas fixé par contrat. Les autres éditeurs n’exposent pas toujours leur architecture technique : demandez à chacun quel modèle il utilise, où il calcule et où transitent les conversations.
 En combien de temps déploie-t-on un chatbot de mairie ?
 Les délais varient fortement : 2-3 jours pour PanneauPocket (diffusion), quelques semaines pour Civik-ia (mise en service en six étapes, mesurée avant l’ouverture), 2 à 4 semaines pour Citia.io, 4 à 8 semaines pour dydu et 6 à 12 semaines pour Generia. Plus la solution est généraliste et nécessite un paramétrage projet par projet, plus le délai est long.
 Delibia est-il gratuit ? Quelle différence avec un chatbot citoyen ?
@@ -1795,6 +2191,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1872,7 +2269,7 @@ Si vous voulez surtout prévenir (alerte météo, travaux, événement), un pann
 2. Mes administrés vont-ils vraiment l’utiliser ?
 Le frein numéro un de l’adoption, c’est l' obligation d’installer une application ou de créer un compte . Dans une commune rurale avec une population âgée, ce frein est rédhibitoire. Un outil accessible par un simple lien web, sans inscription, lève cette barrière.
 3. L’outil respecte-t-il le RGPD et la souveraineté des données ?
-Communiquer avec ses citoyens, c’est traiter leurs données. Privilégiez les solutions qui hébergent les données en Union européenne et qui ne reposent pas sur des modèles d’IA américains. Une IA souveraine française (modèle Mistral, hébergement OVH) évite les transferts hors UE et simplifie la conformité RGPD .
+Communiquer avec ses citoyens, c’est traiter leurs données. Demandez à chaque fournisseur, par écrit, où est le serveur, quelle société édite le modèle d’IA et où ce modèle calcule. Chez Civik-ia : serveur chez OVHcloud, modèle de Mistral AI, société française ; le lieu de calcul du modèle n’est pas fixé par contrat. Le détail est dans notre guide RGPD et IA en collectivité .
 4. Quel budget pour quelle valeur ?
 Un panneau d’affichage numérique coûte plusieurs milliers d’euros à l’achat. Une application municipale se facture de quelques dizaines à plusieurs centaines d’euros par mois selon la taille (ordres de grandeur). Pour un chatbot IA pour mairie , l’abonnement Civik-ia coûte à partir de 69 € HT par mois, selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics : la commune peut alors le commander directement.
 Créer du lien, ce n’est pas seulement répondre
@@ -1884,7 +2281,7 @@ En pratique : par où commencer ?
 Identifiez votre besoin dominant (informer vs répondre) en regardant ce qui sature aujourd’hui : le standard, ou la diffusion d’infos ?
 Cartographiez vos canaux actuels (site, Facebook, bulletin) et leurs angles morts.
 Testez un outil de dialogue sur les 10 questions les plus fréquentes de votre commune.
-Vérifiez la souveraineté : hébergement UE, modèle d’IA européen, accès sans inscription.
+Vérifiez par écrit l’hébergeur, l’éditeur du modèle d’IA, le lieu où il calcule, et l’accès sans inscription.
 Mesurez : nombre de questions traitées, part hors horaires, satisfaction. Ajustez la base de connaissances.
 Questions fréquentes
 Quel outil pour mieux communiquer avec ses citoyens ?
@@ -1914,6 +2311,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -1955,20 +2353,20 @@ Contact
 Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guide RGPD IA collectivités
-Conformité · 8 juin 2026
+Conformité · 19 octobre 2026
 RGPD et IA pour collectivités : guide complet 2026
-Vous voulez équiper votre mairie d’un chatbot ou d’un assistant IA en 2026 ? Voici ce que vous devez savoir pour rester conforme au RGPD, au Code de la sécurité intérieure et aux recommandations CNIL. Avec checklist actionnable pour votre DPO.
-Auteur : Civik-ia, éditeur SaaS souverain
+Vous voulez équiper votre mairie d’un chatbot ou d’un assistant IA en 2026 ? Voici ce que vous devez savoir pour rester conforme au RGPD, au règlement européen sur l’IA et aux recommandations de la CNIL. Avec checklist actionnable pour votre DPO.
+Auteur : Thibaut Harang , fondateur de Civik-ia
 Lecture : 11 minutes
-Mis à jour : 08/06/2026
+Mis à jour : 19/10/2026
 En bref
-Pour déployer une IA conforme au RGPD en mairie : héberger les données dans l’Union européenne, choisir un sous-traitant avec contrat (art. 28), informer les citoyens, ne collecter aucune donnée inutile (minimisation) et permettre un usage sans création de compte. Une IA souveraine française simplifie cette conformité en évitant les transferts hors UE.
+Au 19 octobre 2026, un chatbot de mairie relève du RGPD dès qu’il reçoit des questions d’habitants, et doit dire qu’il est une IA depuis le 2 août 2026 (article 50 du règlement européen sur l’IA). La mairie est responsable du traitement, l’éditeur sous-traitant. Un contrat, une information claire, une collecte minimale et des lieux de traitement écrits au contrat en sont la base.
 Le cadre juridique applicable en 2026
 L’usage de l’intelligence artificielle dans une collectivité territoriale française est encadré par trois textes principaux qui s’appliquent en cascade :
 Le RGPD (Règlement européen 2016/679) : protection des données à caractère personnel des administrés.
 La Loi Informatique et Libertés modifiée 2018 : transposition française du RGPD, avec les pouvoirs de contrôle de la CNIL.
-L' AI Act européen (Règlement 2024/1689) : applicable progressivement depuis février 2025, avec les obligations pour les IA à « haut risque » entrant en vigueur en août 2026.
-À cela s’ajoutent les recommandations CNIL spécifiques aux collectivités (mises à jour en novembre 2025) et le référentiel d’archivage des associations de DPO de collectivités.
+Le règlement européen sur l’IA ( règlement (UE) 2024/1689 ) : pratiques interdites depuis le 2 février 2025 ; obligation de dire à la personne qu’elle échange avec une IA (article 50) depuis le 2 août 2026 ; obligations des systèmes à haut risque de l’annexe III reportées au 2 décembre 2027 par le règlement (UE) 2026/1744 du 8 juillet 2026.
+À cela s’ajoutent les questions-réponses de la CNIL sur l’utilisation d’un système d’IA générative (18 juillet 2024) et le bilan de son accompagnement de trois projets d’IA dans les services publics, publié en avril 2025 ( Localtis, Banque des Territoires, 14 avril 2025 ).
 Les 7 obligations RGPD à respecter pour un chatbot mairie
 1. Déterminer la base légale du traitement
 Avant tout déploiement, votre DPO doit identifier sous quelle base légale (article 6 RGPD) votre chatbot collecte et traite les données :
@@ -1981,8 +2379,8 @@ Toute mairie doit tenir un registre des activités de traitement (art. 30 RGPD),
 La finalité (ex : « répondre aux questions courantes des administrés 24 h/24 »)
 Les catégories de données collectées (ex : « questions textuelles, horodatage, adresse IP anonymisée »)
 La durée de conservation (ex : « 90 jours, anonymisation au-delà »)
-Les destinataires (ex : « éditeur Civik-ia, hébergeur OVH UE »)
-Les transferts hors UE (à éviter, ou justifier si nécessaire)
+Les destinataires (ex : « éditeur Civik-ia ; hébergeur OVH SAS ; éditeur du modèle Mistral AI »)
+Les transferts hors de l’Union européenne et le lieu de traitement de chaque sous-traitant, tels que l’accord de sous-traitance les décrit
 3. Réaliser une AIPD si nécessaire
 L' Analyse d’Impact relative à la Protection des Données (AIPD) est obligatoire dès lors que le traitement présente un « risque élevé » pour les droits et libertés des personnes (art. 35 RGPD). Pour un chatbot mairie classique (questions sur horaires, démarches), l’AIPD n’est généralement pas obligatoire , car aucune décision automatique impactante n’est prise et aucune donnée sensible n’est traitée systématiquement.
 Elle devient obligatoire si le chatbot :
@@ -2006,7 +2404,7 @@ Pour faciliter ces demandes, prévoyez un point de contact unique (email DPO) et
 6. Sécuriser les données (art. 32)
 Mesures techniques et organisationnelles attendues :
 Hébergement dans l’Union européenne (idéalement France ou Allemagne)
-Chiffrement HTTPS obligatoire (TLS 1.3)
+Chiffrement des échanges (HTTPS)
 Authentification forte des agents municipaux (mot de passe complexe + idéalement 2FA)
 Journaux d’accès traçables (qui a fait quoi, quand)
 Sauvegardes chiffrées
@@ -2017,15 +2415,28 @@ Le nom, prénom, adresse exacte de l’administré (sauf si la démarche le requ
 Le numéro de téléphone, sauf opt-in explicite pour rappel
 Des données sensibles (religion, opinion politique, orientation sexuelle, santé)
 Des informations sur des tiers (enfants, voisins, conjoint)
-Le principe de zéro-friction citoyenne (pas de création de compte) protège mécaniquement la mairie : pas de données = pas de risque.
+L’usage sans création de compte réduit les données collectées. Il reste les questions elles-mêmes, qui peuvent contenir des informations personnelles et se traitent comme telles.
+Chatbot de mairie : les cinq questions du DPO
+Avant de donner son avis sur un chatbot de mairie, le délégué à la protection des données pose cinq questions à l’éditeur. Pour chacune, voici la réponse attendue et celle de Marianne, l’assistante de Civik-ia, au 19 octobre 2026.
+1. Qui est responsable du traitement, et quel contrat lie la mairie à l’éditeur ?
+La mairie est responsable du traitement ; l’éditeur est sous-traitant et signe un accord conforme à l’article 28 du RGPD, qui liste ses propres sous-traitants. Pour Marianne, l’accord sur le traitement des données est remis à chaque collectivité ; il désigne OVH (hébergement), Mistral AI (rédaction des réponses) et, à l’ouverture de l’espace mairie, Brevo (envoi des codes de connexion).
+2. Quelles données sont collectées, et combien de temps sont-elles gardées ?
+Le texte des questions et leur date, le plus souvent. Aucun compte ne devrait être demandé à l’habitant. Pour Marianne : aucun compte, aucun nom ni courriel demandé ; les questions qui portent sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont jamais écrites ; le texte des autres questions est effacé au bout de 90 jours ( page Conformité RGPD , 16 octobre 2026).
+3. Où les données sont-elles traitées, et par qui ?
+La réponse doit nommer l’hébergeur, le pays du serveur, l’éditeur du modèle et le lieu où le modèle calcule, tels que le contrat les fixe. Pour Marianne : serveur chez OVHcloud, à Francfort ; sauvegardes chez OVHcloud ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat, ce que l’accord dit. Le détail est sur la page guichet citoyen IA , section « Souveraineté ».
+4. L’habitant sait-il qu’il parle à une IA, et qui répond de l’outil ?
+Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). L’information prévue par l’article 13 du RGPD nomme la mairie, son délégué à la protection des données et les droits des habitants. Pour Marianne, cette information se rédige avec la mairie pendant la mise en service.
+5. Faut-il une analyse d’impact (AIPD) ?
+Pour un assistant qui informe sur les horaires et les démarches, elle n’est en général pas obligatoire ; elle le devient si l’outil traite des données sensibles de façon systématique, croise des fichiers ou profile les habitants. La mairie en décide. Pour Marianne, Civik-ia remet avant l’ouverture les éléments de cette analyse : description du traitement, mesures de sécurité, risques identifiés.
+La différence entre un chatbot généraliste et un outil qui répond à partir des seules sources de la mairie est décrite sur la page guichet citoyen IA .
 Les pièges spécifiques de l’IA générative
-Attention : la plupart des chatbots IA grand public (ChatGPT, Claude, Gemini) ne sont pas conformes au RGPD pour un usage en collectivité française par défaut. Hébergement hors UE, finalités opaques, transferts internationaux non encadrés. L’utilisation directe d’OpenAI ou de Google sur les données citoyennes expose la mairie à une procédure CNIL.
+Attention : un assistant grand public utilisé tel quel (ChatGPT, Claude, Gemini) n’est pas conçu pour répondre au nom d’une mairie. Ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne s’examinent avant tout usage sur des données d’habitants ; la CNIL demande des garanties supplémentaires pour tout transfert hors de l’Union (questions-réponses du 18 juillet 2024).
 Souveraineté technologique : le choix structurant
 Trois familles d’IA générative coexistent en 2026 :
-IA américaines (OpenAI GPT, Anthropic Claude, Google Gemini) : performantes mais soumises au Cloud Act et au FISA américain. À éviter pour les collectivités françaises.
+IA américaines (OpenAI GPT, Anthropic Claude, Google Gemini) : performantes mais soumises au Cloud Act et au FISA américain. À examiner avec le délégué à la protection des données avant tout usage sur des données d’habitants.
 IA chinoises (Qwen, DeepSeek) : hors-jeu pour le secteur public français.
-IA souveraines européennes (Mistral AI principalement) : hébergées en France ou en UE, sous droit européen, sans transfert hors UE. C’est l’option à privilégier.
-Civik-ia utilise Mistral AI via un proxy hébergé chez OVH, garantissant l’absence de transfert vers les États-Unis.
+Éditeurs européens (Mistral AI, en France) : sociétés de droit européen ; le lieu de calcul dépend du point d’accès employé et doit être écrit au contrat.
+Marianne, de Civik-ia, est hébergée chez OVHcloud (serveur à Francfort) et fait rédiger ses réponses par Mistral AI, société française ; le lieu de calcul du modèle n’est pas fixé par contrat.
 Le piège de la « réponse hallucinée »
 Une IA générative peut inventer des informations fausses (numéros de Cerfa, articles de loi, montants) avec une apparente assurance. Pour une mairie, c’est un risque juridique majeur : un administré pourrait engager la responsabilité de la commune si une réponse fausse lui cause un préjudice.
 Garde-fous obligatoires :
@@ -2040,8 +2451,8 @@ Inscrire le traitement au registre des activités
 Évaluer si une AIPD est nécessaire (rare pour un chatbot mairie standard)
 Rédiger les mentions RGPD à afficher (mentions légales du chatbot)
 Vérifier le contrat de sous-traitance avec l’éditeur (clauses art. 28 RGPD)
-Vérifier le pays d’hébergement (UE obligatoire)
-Vérifier la conformité de l’IA générative utilisée (souveraineté)
+Vérifier le pays du serveur et le lieu de calcul du modèle, écrits au contrat
+Vérifier l’éditeur du modèle d’IA, sa version datée, et que l’outil dit qu’il est une IA (article 50)
 Pendant l’exploitation
 Mettre à disposition un point de contact unique pour les droits des personnes
 Répondre aux demandes d’accès / effacement sous 30 jours maximum
@@ -2052,37 +2463,40 @@ Fiche du registre des activités de traitement
 AIPD si réalisée
 Mentions RGPD publiées
 Contrat de sous-traitance signé avec l’éditeur
-Certificats d’hébergement (ex : attestation OVH SecNumCloud si applicable)
+Contrat ou attestation de l’hébergeur
 Journal des demandes d’exercice de droits
 Comment Civik-ia répond à ces obligations
 Civik-ia a conçu sa plateforme avec le RGPD comme contrainte de design dès l’origine :
-Zéro friction citoyenne : aucun compte ni inscription requis pour utiliser Marianne. Aucune donnée nominative collectée par défaut.
-Hébergement OVH UE : tous les traitements ont lieu sur des serveurs européens, sous droit français.
-IA souveraine Mistral AI : modèle français hébergé via proxy OVH, zéro transfert vers les États-Unis ou la Chine.
-Anonymisation automatique : le texte des conversations est effacé de façon irréversible au bout de 90 jours, les codes de connexion des agents au bout de 7 jours.
-Export CSV mensuel : la mairie reçoit la preuve de traitement pour son archivage RGPD.
-Disclaimer juridique automatique : chaque réponse sur une démarche se termine par « Information indicative : l’agent municipal valide votre dossier ».
-À retenir : le RGPD n’est pas un frein à l’IA en collectivité, c’est un cadre qui structure la confiance. Un chatbot mairie conforme dès la conception (privacy by design) protège à la fois les administrés et la responsabilité juridique de la commune.
+Zéro friction citoyenne : aucun compte ni inscription requis pour utiliser Marianne. Aucun nom ni courriel n’est demandé.
+Hébergement chez OVHcloud : serveur situé à Francfort, en Allemagne ; sauvegardes chez OVHcloud.
+Modèle de Mistral AI, société française : la question est transmise telle que l’habitant l’a écrite, sans compte ni identifiant ; le lieu de calcul n’est pas fixé par contrat.
+Effacement automatique : le texte des questions est effacé au bout de 90 jours, et les questions qui portent sur un thème sensible ne sont jamais écrites.
+Accord sur le traitement des données : remis à chaque collectivité, il liste les sous-traitants (OVH, Mistral AI, et Brevo à l’ouverture de l’espace mairie).
+Source citée : chaque réponse donne la page officielle d’où elle vient.
+À retenir : le RGPD fixe ce qu’une mairie doit savoir de son outil avant de l’ouvrir. Un outil qui répond sans compte, cite ses sources et dit par écrit où il traite les données se contrôle plus facilement.
 Questions fréquentes
+Que change le règlement européen sur l’IA pour un chatbot de mairie ?
+Depuis le 2 août 2026, un système d’IA qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). Les obligations des systèmes à haut risque de l’annexe III s’appliqueront à partir du 2 décembre 2027 (règlement (UE) 2026/1744). Un assistant qui informe les habitants doit donc le dire dès son premier message.
 Un chatbot IA en mairie est-il conforme au RGPD ?
-Oui, à condition de respecter cinq exigences : héberger les données dans l’Union européenne, signer un contrat de sous-traitance avec l’éditeur (article 28 RGPD), informer les citoyens (article 13), limiter la collecte au strict nécessaire (minimisation) et permettre un usage sans création de compte. Un chatbot conçu « privacy by design », sans collecte nominative par défaut, est conforme dès l’origine.
+Il peut l’être, et la mairie, responsable du traitement, en juge avec son délégué à la protection des données. Cinq points comptent : un contrat de sous-traitance avec l’éditeur (article 28 du RGPD), une information claire des habitants (article 13), une collecte limitée au nécessaire, un usage sans création de compte, et des lieux de traitement écrits au contrat, calcul du modèle compris. Depuis le 2 août 2026, l’outil doit aussi dire qu’il est une IA (article 50 du règlement européen sur l’IA).
 Une AIPD est-elle obligatoire pour un chatbot de mairie ?
 Pour un chatbot mairie standard (horaires, démarches, information citoyenne), l’analyse d’impact (AIPD, article 35 RGPD) n’est généralement pas obligatoire, car aucune décision automatique impactante n’est prise et aucune donnée sensible n’est traitée. Elle devient obligatoire si le chatbot traite des données de santé, croise plusieurs fichiers (électoral, cadastre, état civil) ou réalise un profilage individuel.
 Quelle base légale pour un chatbot municipal ?
 La mission d’intérêt public (article 6.1.e du RGPD) est la base la plus appropriée pour une mairie : elle couvre les démarches administratives et l’information citoyenne. Le consentement (article 6.1.a) s’applique aux fonctionnalités optionnelles comme les notifications email, et l’obligation légale (article 6.1.c) aux démarches obligatoires telles que le recensement ou l’inscription électorale.
 Peut-on utiliser ChatGPT pour le chatbot d’une mairie ?
-C’est déconseillé. Les IA grand public comme ChatGPT (OpenAI) ou Gemini (Google) sont hébergées hors UE et soumises au Cloud Act et au FISA américains : leur usage direct sur des données citoyennes expose la commune à une procédure CNIL. Il faut privilégier une IA souveraine européenne hébergée dans l’Union, comme Mistral AI.
+C’est déconseillé sans examen préalable. Un assistant grand public n’est pas conçu pour répondre au nom d’une mairie, et ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne doivent être examinés avec le délégué à la protection des données. Un outil qui répond à partir des seules sources de la mairie, sous un contrat de sous-traitance, se contrôle plus facilement.
 Combien de temps conserver les données d’un chatbot mairie ?
-La durée de conservation doit être définie dans le registre des traitements et limitée à ce qui est nécessaire. À titre d’exemple, Civik-ia efface de façon irréversible le texte des conversations au bout de 90 jours et supprime les codes de connexion des agents au bout de 7 jours ; seules des statistiques anonymes sont conservées au-delà.
+La durée de conservation doit être définie dans le registre des traitements et limitée à ce qui est nécessaire. À titre d’exemple, Civik-ia efface le texte des questions au bout de 90 jours et n’écrit jamais celles qui portent sur un thème sensible ; seules des statistiques sont conservées au-delà.
 Pour aller plus loin
+Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Recommandations CNIL sur l’intelligence artificielle
 Financer l’IA de sa commune : cofinancement Territoires d’IA, dotations, ce qui existe vraiment
 Comparatif chatbot mairie 2026 : quelle solution choisir
 Guide complet du chatbot mairie : fonctionnement et ROI
 Politique RGPD de Civik-ia : notre approche détaillée
-Une solution RGPD-native, conçue pour les mairies françaises
-Marianne, l’assistante Civik-ia, fonctionne sans inscription citoyenne, sans collecte nominative. Conforme dès la conception.
+Une solution conçue pour les mairies françaises
+Marianne, l’assistante Civik-ia, fonctionne sans inscription et cite la source de chaque réponse.
 Tester la démo →
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -2095,6 +2509,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2136,14 +2551,14 @@ Contact
 Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › IA souveraine pour mairie
-Souveraineté · 8 juin 2026
+Souveraineté · 19 octobre 2026
 IA souveraine pour mairie : pourquoi Mistral AI plutôt qu’OpenAI ?
 L’intelligence artificielle générative est de plus en plus présente dans les collectivités françaises. Mais derrière le mot « IA », les choix techniques engagent durablement la souveraineté de la commune. Voici pourquoi nous avons fait le choix de Mistral AI.
-Auteur : Thibaut Harang, fondateur Civik-ia
+Auteur : Thibaut Harang , fondateur Civik-ia
 Lecture : 8 minutes
-Mis à jour : 08/06/2026
+Mis à jour : 19/10/2026
 En bref
-Une IA souveraine pour mairie traite les données sur des serveurs européens, sans dépendance aux géants américains. En 2026, cela passe par un modèle français comme Mistral AI et un hébergement en Union européenne (ex. OVH). C’est la condition pour rester conforme au RGPD et garder la maîtrise des données des administrés.
+Une IA souveraine pour mairie se juge critère par critère : qui héberge le service, qui édite le modèle, où le modèle calcule, quel droit s’applique. Marianne est hébergée chez OVHcloud, hébergeur français, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat.
 Le contexte : la guerre des modèles d’IA en 2026
 Trois familles d’IA générative dominent le marché mondial en 2026 :
 Les modèles américains : OpenAI (GPT-4, GPT-5), Anthropic (Claude), Google (Gemini), Meta (Llama). Performance de pointe, infrastructures massives, plus de 70 % du marché mondial.
@@ -2152,11 +2567,11 @@ Les modèles européens souverains : Mistral AI (français), Aleph Alpha (allema
 Pour une mairie française, le choix n’est pas neutre. Il engage les données de vos administrés, votre conformité juridique, et le message politique que vous envoyez à votre territoire.
 Pourquoi le choix d’OpenAI ou Google pose problème pour une mairie
 1. Le Cloud Act américain
-Le Cloud Act (Clarifying Lawful Overseas Use of Data Act), promulgué en 2018 sous Trump et toujours en vigueur, permet aux autorités américaines (FBI, NSA, DOJ) de requérir n’importe quelle donnée stockée par une entreprise américaine , même si les serveurs physiques sont en Europe. Une simple ordonnance judiciaire américaine suffit. La société visée a interdiction d’informer la personne concernée.
+Le Cloud Act (Clarifying Lawful Overseas Use of Data Act), promulgué en 2018 sous Trump et toujours en vigueur, permet aux autorités judiciaires et de police américaines d’exiger d’un fournisseur soumis au droit américain les données qu’il contrôle, même stockées hors des États-Unis, par un mandat ou une injonction. Une ordonnance de non-divulgation peut interdire au fournisseur d’en informer la personne concernée.
 Concrètement : si vous utilisez ChatGPT (OpenAI), Claude (Anthropic) ou Gemini (Google) pour répondre aux questions de vos administrés, les conversations peuvent légalement être transmises aux autorités américaines sans que vous le sachiez. C’est incompatible avec les obligations de confidentialité d’une administration française.
 2. L’inadéquation au RGPD
 La Cour de justice de l’Union européenne, dans son arrêt Schrems II (juillet 2020), a invalidé le Privacy Shield qui encadrait les transferts de données vers les États-Unis. Depuis, tout transfert nécessite des clauses contractuelles types renforcées par des mesures supplémentaires (chiffrement, pseudonymisation, audit régulier), qui sont rarement réunies en pratique.
-La CNIL a confirmé en 2024 que l’usage par défaut de ChatGPT, Claude ou Gemini par une collectivité expose celle-ci à un risque de sanction , sauf à mettre en œuvre une architecture spécifique (reverse proxy européen, anonymisation pré-envoi, contractualisation BCR), ce qui dépasse les capacités techniques de la plupart des mairies.
+Dans ses questions-réponses du 18 juillet 2024 sur l’IA générative, la CNIL demande d’encadrer les usages et d’entourer de garanties supplémentaires tout transfert de données hors de l’Union européenne ( CNIL ).
 3. La dépendance économique et géopolitique
 Au-delà du droit, c’est une question de cohérence politique. Une mairie qui équipe son service public avec une IA américaine envoie un signal : l’État local français ne maîtrise plus les outils qui parlent en son nom à ses propres citoyens . Pour les administrés sensibles à ces enjeux (et ils sont nombreux), c’est un message contradictoire avec les valeurs républicaines de service public.
 Mistral AI : le candidat naturel pour le service public français
@@ -2172,9 +2587,9 @@ Droit américain (Cloud Act, FISA)
 Hébergement possible
 OVH France, Scaleway, IBM Cloud Paris
 AWS, GCP, Azure (UE souvent, mais propriété US)
-Conformité Schrems II
-Native
-Nécessite architecture spécifique
+Éditeur soumis au droit américain
+Non
+Oui
 Performance modèle moyen
 Mistral Small ~ GPT-4o mini
 Référence du marché
@@ -2182,49 +2597,72 @@ Coût par requête (ordre de grandeur)
 ~0,003 € (Mistral Small)
 ~0,005-0,010 € (GPT-4o mini)
 Langue française
-Excellente (entraînement majoritairement européen)
+Excellente
 Très bonne
 Disponibilité on-premise
 Oui (modèles open-weight)
 Non
 « Souverain », vraiment ?
 Soyons honnêtes : aucune IA n’est totalement « pure » au regard de la souveraineté. Mistral utilise du matériel NVIDIA (américain) pour entraîner ses modèles, son tour de table inclut des investisseurs internationaux (dont Microsoft à hauteur de 15 millions d’euros en 2024), et certaines briques techniques sont open-source d’origine américaine.
-Mais sur les critères qui comptent pour une mairie (droit applicable, gouvernance, hébergement, contractualisation), Mistral AI est l’option européenne la plus crédible aujourd’hui . C’est ce que confirment les choix récents de la DINUM (Direction interministérielle du numérique), de Bpifrance, du ministère de l’Économie, qui ont tous structuré leurs déploiements IA autour de Mistral.
+Mais sur les critères qui comptent pour une mairie (droit applicable, gouvernance, hébergement, contractualisation), Mistral AI est l’option européenne la plus crédible aujourd’hui . Le 21 mai 2026, la Banque des Territoires a lancé le programme Territoires d’IA avec Mistral AI comme partenaire technique, et l’État (DINUM, ANCT) parmi ses partenaires ( Banque des Territoires, 22 mai 2026 ).
+Ce que souverain veut dire, critère par critère
+« Souverain » n’a pas de définition légale. Un fournisseur peut l’écrire sans rien préciser ; une mairie peut demander une réponse écrite sur cinq critères.
+Critère La question à poser Pour Marianne, au 19 octobre 2026
+Hébergeur
+Quelle société héberge le service, et dans quel pays est le serveur ?
+OVHcloud (OVH SAS, société française), serveur situé à Francfort, en Allemagne ; sauvegardes chez OVHcloud
+Éditeur du modèle
+Quelle société édite le modèle qui rédige les réponses, et quelle version ?
+Mistral AI, société française ; Mistral Small, dans une version datée choisie par Civik-ia
+Lieu de calcul
+Où le modèle calcule-t-il, et est-ce écrit au contrat ?
+non fixé par contrat ; Mistral AI ne s’engage sur aucun lieu de calcul pour son point d’accès général et propose un point d’accès européen distinct
+Droit applicable
+De quel droit relèvent l’éditeur du service, l’hébergeur et l’éditeur du modèle ?
+Civik-ia, OVH SAS et Mistral AI sont des sociétés de droit français
+Accès et données
+Qui accède au serveur, et que reçoit l’éditeur du modèle ?
+administration du serveur par clé cryptographique, réservée au président de Civik-ia ; Mistral AI reçoit la question telle que l’habitant l’a écrite, sans compte ni identifiant, avec les fiches publiques retrouvées
+Sur le lieu de calcul, Mistral AI décrit deux voies dans sa documentation : un point d’accès européen, où le calcul se fait dans des centres de données de l’Union européenne et de l’AELE, et un point d’accès général, pour lequel elle « ne s’engage pas sur un lieu de calcul précis » (traduction de Civik-ia ; documentation de Mistral AI, « Regional inference » , consultée le 19 octobre 2026). Le contrat d’un fournisseur dit laquelle il emploie, ou ne le dit pas.
+Le programme public le plus proche du sujet est Territoires d’IA : la Banque des Territoires l’a lancé le 21 mai 2026 avec Mistral AI comme partenaire technique, pour former 100 000 agents publics locaux d’ici 2030 ( Banque des Territoires, 22 mai 2026 ). Son guichet cofinance de 30 à 50 % des dépenses éligibles d’achat de solutions d’IA souveraine ( offres de Territoires d’IA , consultées le 19 octobre 2026) ; le détail est sur la page financer l’IA de sa commune .
 Pourquoi nous l’avons choisi pour Civik-ia
-Notre plateforme Civik-ia utilise Mistral Small comme moteur de génération principal, accédé via un proxy hébergé en Europe, chez OVHcloud. Ce choix nous donne :
-Conformité RGPD native : un modèle d’un éditeur français, soumis au droit européen.
-Performance suffisante : pour un chatbot mairie qui répond à 80 % via la base de connaissances locale et 20 % via le LLM, Mistral Small est largement dimensionné.
-Coût marginal très bas : environ 0,003 € par requête fallback (ordre de grandeur, à confirmer). Sur 1 000 questions/mois, le coût IA est de 3 € contre 5-10 € avec OpenAI.
-Discours commercial cohérent , nous pouvons regarder un maire en face et lui dire : « cette IA est française, hébergée en Europe, sans dépendance américaine. »
-Notre conviction : Le service public français doit utiliser des outils qui respectent le service public français. Pas par patriotisme aveugle, mais par cohérence juridique, technique et politique. Mistral AI rend ce choix possible en 2026, sans compromis majeur sur la performance.
+Marianne utilise Mistral Small, de Mistral AI, pour rédiger ses réponses. Le serveur de Marianne, chez OVHcloud à Francfort, envoie à Mistral AI la question de l’habitant et les fiches retrouvées dans la base de la commune ; le lieu de calcul du modèle n’est pas fixé par contrat. Ce choix nous donne :
+Un éditeur de droit français : Mistral AI traite les questions selon son accord de traitement des données, désigné dans l’accord que Civik-ia remet à chaque collectivité.
+Une tâche à sa taille : chaque réponse est rédigée à partir de six fiches de la base de la commune, et sa justesse se mesure question par question ( RAG pour une mairie ).
+Un coût par réponse de l’ordre de quelques millièmes d’euro (ordre de grandeur, à confirmer), compris dans l’abonnement : la mairie ne paie aucun coût par message.
+Un discours vérifiable : nous pouvons dire à un maire où est le serveur, qui édite le modèle et ce que le contrat ne fixe pas.
+Notre conviction : Une mairie doit pouvoir dire à ses habitants qui traite leurs questions, où, et sous quel droit. En 2026, Mistral AI, société française, le permet pour la rédaction des réponses ; le lieu de calcul reste à écrire au contrat.
 Et les autres acteurs européens ?
 Aleph Alpha (Allemagne) propose le modèle Luminous, performant mais plus orienté entreprise B2B. Tarification élevée, peu adaptée à des budgets de mairie rurale.
 LightOn (France) propose Alfred, un modèle plus petit mais spécialisé sur certaines tâches juridiques/administratives. Encore jeune commercialement.
 Pleias (France) : startup naissante avec un focus open-source sur les contenus du domaine public. Prometteur mais pas encore en production.
-En 2026, Mistral AI reste donc la seule option mature pour un chatbot mairie professionnel en France.
+C’est l’éditeur que Civik-ia a retenu en 2026 pour Marianne.
 Comment le vérifier vous-même
 Si vous évaluez un éditeur de chatbot pour votre mairie, posez ces trois questions :
 « Quel modèle d’IA utilisez-vous pour générer les réponses ? » : si la réponse contient « OpenAI », « ChatGPT », « Claude » ou « Gemini » sans précision sur l’architecture, c’est un signal d’alerte.
-« Les conversations transitent-elles par des serveurs aux États-Unis ? » : un « non » clair et étayé par un schéma technique est attendu.
-« Avez-vous une attestation d’hébergement européen ? » : l’éditeur doit pouvoir produire le contrat OVH, Scaleway ou équivalent.
+« Où est le serveur, et chez quel hébergeur ? » : la réponse attendue nomme l’hébergeur, le pays et le contrat.
+« Où le modèle calcule-t-il, et est-ce écrit au contrat ? » : la réponse attendue dit quel point d’accès est employé et ce que le contrat fixe, ou ne fixe pas.
 Si vous voulez voir comment Civik-ia répond à ces questions, demandez-nous une démo. Nous vous montrerons la chaîne technique complète sans langue de bois.
 Questions fréquentes
 Qu’est-ce qu’une IA souveraine pour une mairie ?
-Une IA souveraine désigne une intelligence artificielle dont le modèle, l’hébergement et le traitement des données restent sous juridiction européenne, sans transfert vers des serveurs soumis à des lois extraterritoriales (comme le Cloud Act américain). Pour une mairie, cela signifie que les questions des citoyens et les données traitées par le chatbot ne quittent jamais l’Union européenne. Concrètement, cela repose sur trois piliers : un modèle de langage européen (ex. Mistral AI), un hébergement chez un fournisseur européen (ex. OVH, Scaleway) et un contrat de sous-traitance conforme à l’article 28 du RGPD.
+Pour une mairie, une IA souveraine est un service d’intelligence artificielle dont l’hébergeur, l’éditeur du modèle et le droit applicable sont connus, et dont le lieu de calcul est dit. Le mot n’a pas de définition légale : il se vérifie critère par critère (hébergeur, éditeur du modèle, lieu de calcul, droit applicable, accès). Pour Marianne : hébergement chez OVHcloud, hébergeur français ; modèle de Mistral AI, société française ; lieu de calcul non fixé par contrat.
 Pourquoi ne pas utiliser ChatGPT ou OpenAI dans une mairie ?
 OpenAI (ChatGPT) est une société américaine soumise au Cloud Act et au FISA, qui autorisent les autorités américaines à demander l’accès à des données hébergées par des entreprises américaines, y compris hors des États-Unis. Pour une collectivité qui traite des demandes de citoyens, cela crée un risque juridique au regard du RGPD (arrêt Schrems II de la CJUE) et un signal politique discutable. Préférer un modèle européen comme Mistral AI permet de garder la maîtrise de la chaîne technique et d’éviter ces transferts.
 Mistral AI est-il vraiment souverain ?
-Mistral AI est une société française, et ses modèles peuvent être déployés sur une infrastructure entièrement européenne. La souveraineté ne tient pas qu’au modèle : elle dépend de l’ensemble de la chaîne (hébergement, journalisation, sauvegardes). Un éditeur honnête doit pouvoir vous montrer que les conversations transitent uniquement par des serveurs européens et produire l’attestation d’hébergement correspondante. C’est ce que permet de vérifier le fait de poser directement la question à l’éditeur.
+Mistral AI est une société française. Ses modèles s’appellent par un point d’accès européen, où le calcul se fait dans des centres de données de l’Union européenne et de l’AELE, ou par un point d’accès général, sans lieu de calcul promis (documentation de Mistral AI, consultée le 19 octobre 2026). La souveraineté d’un service dépend aussi de l’hébergeur, des sauvegardes et des accès : demandez au fournisseur ce que son contrat écrit sur chacun.
 Quel modèle d’IA Civik-ia utilise-t-il ?
-Civik-ia s’appuie sur Mistral AI (Mistral Small) avec un hébergement OVH en Union européenne. Le coût par requête générée par le grand modèle reste de l’ordre de 0,003 €, la majorité des questions étant traitées en amont par une recherche locale sans appel au modèle, ce qui maîtrise à la fois le coût et l’empreinte.
+Civik-ia s’appuie sur Mistral Small, de Mistral AI, dans une version datée. Le serveur de Marianne est chez OVHcloud, à Francfort ; le lieu de calcul du modèle n’est pas fixé par contrat. Chaque réponse est rédigée par le modèle à partir des fiches de la base de la commune, et cite sa page source.
 Pour aller plus loin
+Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
+RAG pour une mairie : une IA qui cherche avant de répondre
+Base de connaissances d’une mairie : sources validées et mise à jour
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Financer l’IA de sa commune : le guichet Territoires d’IA cofinance 30 à 50 % de l’abonnement à une solution souveraine
 Guide RGPD pour l’IA en collectivité
 Comparatif chatbot mairie 2026
 Guide complet du chatbot mairie
 Voir Mistral AI au service de votre commune
-Marianne, l’assistante Civik-ia, fonctionne avec Mistral Small et un hébergement OVH UE. Conforme par construction.
+Marianne, l’assistante Civik-ia, fonctionne avec Mistral Small et un hébergement chez OVHcloud. Chaque réponse cite sa source.
 Tester la démo →
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -2237,6 +2675,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2374,6 +2813,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2487,6 +2927,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2542,7 +2983,7 @@ C’est exactement le type de charge que l’IA sait absorber : les questions r�
 Les trois familles d’outils d’IA pour un secrétariat
 1. Les assistants citoyens : répondre aux habitants de la commune 24 h/24
 C’est la famille qui soulage le plus directement le téléphone et l’accueil. Un assistant citoyen est installé sur le site de la commune et répond aux questions des citoyens à toute heure : horaires, collecte des déchets, état civil, salle des fêtes, urbanisme. Le secrétariat ne voit plus passer les questions dont la réponse est déjà publique.
-Marianne, l’assistante de Civik-ia , est conçue pour cela : elle répond sans inscription, en citant les documents officiels de la commune, et signale au secrétariat ce qui mérite une intervention humaine. Le secrétariat garde la main et peut corriger une information lui-même en quelques minutes, sans compétence technique. Pour comprendre cette famille d’outils en détail, voir le guide complet du chatbot mairie .
+Marianne, l’assistante de Civik-ia , est conçue pour cela : elle répond sans inscription, en citant les documents officiels de la commune, et signale au secrétariat ce qui mérite une intervention humaine. Le secrétariat garde la main et peut corriger une information lui-même en quelques minutes, sans compétence technique. Pour comprendre cette famille d’outils en détail, voir le guide complet du chatbot mairie . Les six critères qui distinguent un guichet citoyen IA d’un chatbot généraliste sont sur notre page dédiée.
 2. Les assistants internes : outiller l’agent dans son travail quotidien
 Deuxième famille, tournée vers l’intérieur : des IA qui aident l’agent à chercher dans la réglementation, analyser une délibération, préparer un courrier ou une note. Delibia est l’acteur le plus visible de cette catégorie : créé par d’anciens agents territoriaux, il propose un moteur de recherche sur les données publiques et des assistants de rédaction et d’analyse. Une licence gratuite est offerte aux secrétaires de mairie (constaté sur delibia.fr en juillet 2026), les formules complètes sont sur devis.
 Ces outils ne parlent pas aux citoyens : ils travaillent pour l’agent, à l’intérieur de la mairie. Ils sont donc complémentaires d’un assistant citoyen, pas concurrents.
@@ -2600,6 +3041,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2695,6 +3137,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2824,6 +3267,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2942,6 +3386,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -2999,7 +3444,7 @@ Téléchargez votre exemplaire
 Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).
 Prénom *
 Nom *
-Email professionnel *
+Courriel professionnel *
 Fonction *
 Sélectionnez…
 Maire
@@ -3016,7 +3461,7 @@ Commune / EPCI
 Télécharger le PDF (12 pages)
 En cliquant, vous acceptez que vos coordonnées soient utilisées par Civik-ia pour vous transmettre le Livre Blanc et, occasionnellement, vous informer de nos nouveautés. Vous pouvez vous désinscrire à tout moment. Politique de confidentialité .
 Merci !
-Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par email.
+Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par courriel.
 Cliquez ici si le téléchargement n’a pas démarré
 Ce que vous allez lire
 1. La question de 22 h 47
@@ -3048,6 +3493,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -3089,7 +3535,7 @@ Contact
 Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Aperçu
-Tarifs
+Prix
 Fonctionnalités
 Bientôt disponible
 →
@@ -3108,13 +3554,13 @@ Compte professionnel
 ⋮
 Compte professionnel · réponses automatisées de la mairie
 Bonjour, la déchèterie est ouverte demain ? 22:47 ✓✓
-Bonsoir 👋 Oui, la déchèterie de Saint‑Rémy est ouverte demain (samedi) de 9 h à 12 h et de 14 h à 17 h. 22:47
-Souhaitez‑vous la liste des déchets acceptés ? ♻️ 22:47
+Bonsoir. Oui, la déchèterie de Saint‑Rémy est ouverte demain (samedi) de 9 h à 12 h et de 14 h à 17 h. 22:47
+Souhaitez‑vous la liste des déchets acceptés ? 22:47
 Oui volontiers 🙏 22:48 ✓✓
 Acceptés : gravats, déchets verts, encombrants, ferraille, cartons et déchets électroniques. 22:48
-⚠️ Pensez à votre badge d’accès. Besoin de l’adresse exacte ou d’un itinéraire ? 22:48
+Attention : pensez à votre badge d’accès. Besoin de l’adresse exacte ou d’un itinéraire ? 22:48
 Parfait, merci beaucoup ! 22:49 ✓✓
-Avec plaisir, belle soirée 🌙 22:49
+Avec plaisir, belle soirée. 22:49
 Conversation propulsée par Civik-ia
 Aperçu interactif
 Posez une question,
@@ -3126,9 +3572,8 @@ Scénarios
 ‹
 Mairie de Saint‑Rémy
 Compte professionnel
-📞 ⋮
+⋮
 Écrivez à votre mairie…
-➤
 Pensé pour votre WhatsApp,
 sans service informatique
 Civik-ia se connectera à votre numéro WhatsApp Business existant. Vous garderez votre numéro, votre nom de mairie, vos horaires
@@ -3179,6 +3624,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -3221,7 +3667,7 @@ Contact
 Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Aperçu
-Tarifs
+Prix
 Fonctionnalités
 Bientôt disponible
 →
@@ -3257,9 +3703,8 @@ Scénarios
 ‹
 Mairie de Saint‑Rémy
 Répond instantanément
-📞 ⋮
+⋮
 Écrivez à votre mairie…
-➤
 Pensé pour votre page Facebook,
 sans service informatique
 Civik-ia se connectera à la page Facebook que votre mairie anime déjà. Vous garderez votre page, votre nom, vos publications, votre messagerie habituelle
@@ -3311,6 +3756,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -3369,7 +3815,7 @@ Tester Marianne (démo)
 Posez vos questions à Marianne, sans inscription
 Statut des services
 Vérification des services au moment où vous ouvrez la page
-Contacter le support
+Écrire à Civik-ia
 Chaque demande est lue et reçoit une réponse écrite
 Foire aux questions
 Aucune réponse trouvée
@@ -3391,6 +3837,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?
@@ -3461,6 +3908,7 @@ Tester Marianne
 22h47, votre mairie est fermée
 Contact
 Guides pour les mairies
+Guichet citoyen IA, la définition
 Le guide du chatbot de mairie
 Prix d’un chatbot de mairie
 Existe-t-il un chatbot gratuit ?

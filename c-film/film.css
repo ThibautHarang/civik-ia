@@ -58,7 +58,7 @@ i{font-style:normal}
    laisse passer, par exemple vers la page retournée qui relance le film, sur les écrans bas) */
 .nav{pointer-events:none}
 .nav a,.nav button,.nav [tabindex]{pointer-events:auto}
-.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:0 10px 28px rgba(0,0,40,.12)}
+.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 8px 7px 16px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:var(--o-leve,0 10px 28px rgba(0,0,40,.12))}   /* P3 : signe à 17 px du bord de la barre (filet de 1 px et 16 px de marge : le bord gauche commun), ombre levée */
 .nav__logo{display:flex;align-items:center;gap:8px;font:800 18px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu);flex:none}
 .nav__logo img{width:44px;height:37px;mix-blend-mode:multiply}
 .nav__logo b{font-weight:800;color:var(--trait)}
@@ -512,51 +512,65 @@ html:not(.film-pret) .continuer{display:none}
 .etiquette{transition:opacity .6s ease}
 .etiquette.effacee{opacity:0}
 
-/* ---------- le bloc en clair ---------- */
-.clair{position:relative;z-index:2;background:var(--creme);padding:clamp(72px,9vw,128px) max(20px,5vw) clamp(96px,10vw,140px)}
-.clair__in{max-width:1180px;margin:0 auto}
+/* ---------- le bloc en clair ----------
+   P3 (19/10/2026, revue Claude Design, parties 2, 3 et 12) : hors du film, la page suit les jetons de la maison
+   (commun/pages/jetons.css, lu avant cette feuille) : un seul bord gauche, celui du signe de la barre (--bord-page) ;
+   cartes au rayon 18, 32 px de marge (24 au téléphone), ombre de contact (--o-pose) au lieu de l'ombre bleue large ;
+   titre, texte et bouton à la même hauteur d'une carte à l'autre (sous-grille, trois colonnes dès 1 024) ; boutons plein
+   à l'ombre levée ; le pied au pas unique de 36 px, bande officielle en 13 px, « Gérer les cookies » dans la bande.
+   Les blocs du film (légendes, boutons des arrêts, rail, commandes) ne changent pas ici : passe P5. */
+.clair{position:relative;z-index:2;background:var(--creme);padding:clamp(72px,9vw,128px) var(--bord-page) clamp(96px,10vw,140px)}
+.clair__in{max-width:1206px}
 .clair__titre{font:700 clamp(30px,3.6vw,48px)/1.08 var(--titre);letter-spacing:-.03em;color:var(--bleu);max-width:20ch}
-.clair__grille{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px);margin-top:clamp(36px,4.5vw,60px)}
-.prop{background:var(--papier);border:1px solid rgba(120,100,60,.18);border-radius:var(--r-l);padding:34px 32px 32px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 6px 18px rgba(0,0,80,.05)}
+.clair__grille{display:grid;grid-template-columns:1fr;gap:var(--esp-carte);margin-top:clamp(36px,4.5vw,60px)}
+.prop{background:var(--papier);border-radius:var(--r-carte);padding:var(--esp-carte);display:flex;flex-direction:column;align-items:flex-start;box-shadow:var(--o-pose)}
 .prop h3{font:800 clamp(30px,2.8vw,40px)/1 var(--titre);letter-spacing:-.035em;color:var(--bleu)}
-.prop p{font-size:17px;line-height:1.6;color:#3f3f3f;margin:16px 0 28px;flex:1}
-@media (max-width:900px){.clair__grille{grid-template-columns:1fr}}
-.pied{padding:28px max(20px,5vw) 72px;font:500 13px/1.5 var(--sans);color:var(--encre-2);text-align:center;background:var(--creme)}
-/* Q4 (dix-septième passe, 07/10/2026) : le pied de page commun, recopié de commun/pages/pages.css (les règles du pied, la
-   gouttière et la couleur de texte des pages) ; le contour de focus y est blanc, comme sur les pages */
-.pied{position:relative;z-index:2;text-align:left;background:var(--nuit);color:#b9c1e0;font:inherit;padding:56px clamp(20px,5vw,72px) 92px}
-.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+.prop p{font-size:17px;line-height:1.6;color:var(--encre);margin:16px 0 28px;flex:1}
+@media (min-width:1024px){
+  .clair__grille{grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr auto;column-gap:var(--esp-carte);row-gap:0}
+  .prop{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0;justify-items:start}
+  .prop .btn{align-self:end}
+}
+@media (max-width:767.98px){.prop{padding:var(--esp-bloc)}}
+.clair .btn--plein{box-shadow:var(--o-leve)}
+.clair .btn:active{transform:scale(.97)}
+.clair .btn:focus-visible{border-radius:var(--r-pilule)}
+@media (hover:hover){.clair .btn--plein:hover{background:var(--teal-txt)}}
+.pied{position:relative;z-index:2;text-align:left;background:var(--nuit);color:var(--nuit-txt2,#b9c1e0);font:inherit;padding:var(--esp-palier) var(--bord-page) 96px}
+.pied__in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.15fr;gap:var(--esp-carte)}
 .pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre);color:#fff;letter-spacing:-.02em}
 .pied__marque img{width:46px;height:39px;padding:3px 4px;border-radius:10px;background:var(--creme);mix-blend-mode:normal}
 .pied__marque b{color:#9db9ff;font-weight:800}
-/* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque, dessinés à la plume comme le logo LinkedIn du CV ; cibles de 44 px */
-.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-9px}
-.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:12px;color:#fff}
-.pied .pied__reseaux svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque ; cibles de 44 px */
+.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-10px}
+.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:var(--r-champ);color:#fff}
+.pied .pied__reseaux svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover){.pied .pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07);text-decoration:none}}
 .pied p{font-size:14px;line-height:1.6;margin-top:14px;max-width:44ch}
-.pied h2{font:700 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#8f99c4}
-.pied ul{margin-top:12px;display:grid;gap:4px}
-.pied ul a{display:inline-flex;min-height:36px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
-@media (hover:hover){.pied ul a:hover{text-decoration:underline;text-underline-offset:4px}}
-.pied__bas{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f99c4}
-/* bandeau de fin (07/10/2026, soir) : la ligne officielle, les liens légaux, la mention de maquette */
-.pied .pied__legal{max-width:1200px;margin:6px auto 0;display:flex;flex-wrap:wrap;gap:0 18px;font-size:12.5px}
-.pied .pied__legal a{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans);color:#b9c1e0}
-@media (hover:hover){.pied .pied__legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
-.pied .pied__maquette{max-width:1200px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#6f7aa6}
-/* .pied p (44ch) l’emportait sur .pied__bas : la ligne officielle prend toute la largeur, comme les liens légaux */
-.pied .pied__bas{max-width:1200px;line-height:1.5}
-/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes (la règle .pied p
-   poussait la marque de 14 px ; mesuré : centre des titres à 12 px au-dessus du centre de la marque une fois la marge retirée) */
+.pied h2{font:var(--t-repere);letter-spacing:var(--ls-repere);text-transform:uppercase;color:#8f99c4}
+.pied ul{margin-top:12px;display:grid;gap:6px}
+.pied ul a{display:inline-flex;min-height:30px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
+@media (hover:hover){.pied ul a:hover{color:#9db9ff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__guides ul a{font-size:14px}
+/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes */
 .pied .pied__marque{margin-top:-12px}
-/* guides (08/10/2026, nuit) : quatrième colonne du pied, liens plus serrés ; deux colonnes sous 1024, une sous 760 */
-.pied .pied__in{grid-template-columns:1.3fr 1fr 1fr 1.15fr}
-.pied .pied__guides ul a{min-height:30px;font-size:14px}
-@media (max-width:1024px){.pied .pied__in{grid-template-columns:1fr 1fr}}
-@media (max-width:760px){.pied .pied__in{grid-template-columns:1fr}}
+/* bandeau de fin : la ligne officielle, les liens légaux, la mention de la commune fictive ; P3 : 13 px, au bord gauche commun */
+.pied .pied__bas{margin:40px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font:var(--t-mention);color:#8f99c4;max-width:none}
+.pied .pied__legal{margin:6px 0 0;display:flex;flex-wrap:wrap;gap:0 18px}
+.pied .pied__legal a,.pied .pied__legal button{display:inline-flex;min-height:36px;align-items:center;font:600 13px/1.3 var(--sans);color:#b9c1e0}
+@media (hover:hover){.pied .pied__legal a:hover,.pied .pied__legal button:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__maquette{margin:10px 0 0;font:var(--t-mention);color:#8f99c4;max-width:none}
 .pied :focus-visible{outline-color:#fff}
-@media (max-width:760px){.pied__in{grid-template-columns:1fr}}
+.pied :where(a,button):focus-visible{border-radius:4px}
+.pied .pied__reseaux a:focus-visible{border-radius:var(--r-champ)}
+@media (max-width:1023.98px){.pied .pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:767.98px){.pied .pied__in{grid-template-columns:1fr}.pied .pied__legal a,.pied .pied__legal button{min-height:44px}}
+/* P3 : « Gérer les cookies », dernier geste du tiroir du menu (comme sur Conseil et l'Atelier) */
+.nav__tiroir button{display:flex;align-items:center;width:100%;min-height:48px;padding:10px 16px;margin-top:4px;border-top:1px solid rgba(120,100,60,.24);border-radius:0 0 12px 12px;font:600 15px/1.2 var(--sans);color:var(--encre-2);text-align:left}
+@media (hover:hover){.nav__tiroir button:hover{color:var(--bleu);background:rgba(0,0,145,.05)}}
+/* P3 : le bandeau de cookies de la maison (js/cookies.js, carte .cc-cookies) se pose au-dessus du rail du film tant que le film
+   est à l'écran (jamais par-dessus une commande) ; sous le film, il reprend sa place, à 16 px du bas */
+html:not(.hors-film) .cc.cc-cookies{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 
 /* ---------- petit écran : la conversation se loge en bas, le monde défile derrière ---------- */
 @media (max-width:767.98px){

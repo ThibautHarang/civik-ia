@@ -80,20 +80,20 @@ body{
 .s-transition{
   min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:80px 24px;
-  background:linear-gradient(to bottom,var(--nuit) 0%,var(--nuit) 30%,var(--creme) 100%);
+  background:var(--creme);   /* passe P3 : aplat de la palette, plus de dégradé de la nuit vers la crème */
   position:relative;
 }
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .s-transition .hook{
   font-size:clamp(32px,8vw,56px);font-weight:800;letter-spacing:-2px;
-  line-height:1.08;color:var(--blanc);
+  line-height:1.08;color:var(--bleu);
   transition:color 1s;
 }
 .s-transition .hook.dark{color:var(--bleu)}
 .s-transition .sub2{
   font-size:clamp(17px,4vw,22px);margin-top:20px;
-  color:rgba(255,255,255,.75);font-weight:500;
+  color:var(--navy-text);font-weight:500;
   line-height:1.4;max-width:480px;
   transition:color 1s;
 }

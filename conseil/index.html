@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement, CNIL art. 82 -->
-<script src="/cookie-consent.js" defer></script>
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019b">
+<script src="/js/cookies.js?v=20261019b" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script src="../commun/essais.js"></script>
@@ -42,6 +43,7 @@
 <link rel="preload" href="../commun/fonts/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/fonts/caveat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/img/c/poteau-planche.webp" as="image">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019b">
 <link rel="stylesheet" href="../commun/pages/pages.css">
 <link rel="stylesheet" href="page.css">
 <script type="application/ld+json">
@@ -258,7 +260,7 @@
   <button class="nav__menu" type="button" aria-expanded="false" aria-controls="tiroir-nav" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </header>
 <nav class="nav__tiroir" id="tiroir-nav" aria-label="Menu">
-  <a href="/">Accueil</a><a href="/marianne/" data-lien="marianne">Marianne</a><a href="/conseil/" data-lien="conseil">Conseil</a><a href="/atelier/" data-lien="atelier">Atelier</a><a href="#contact">Contact</a>
+  <a href="/">Accueil</a><a href="/marianne/" data-lien="marianne">Marianne</a><a href="/conseil/" data-lien="conseil">Conseil</a><a href="/atelier/" data-lien="atelier">Atelier</a><a href="#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button>
 </nav>
 
 <main id="contenu">
@@ -305,7 +307,7 @@
       <div class="cv" data-cv>
         <button type="button" class="cv__feuille" data-cv-lire aria-label="Lire le CV de Thibaut Harang en grand"><canvas data-cv-canvas aria-hidden="true"></canvas><span class="cv__loupe"><svg class="loupe-plume" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 3.6c-3.7-.2-6.6 2.6-6.7 6.2-.1 3.7 2.8 6.6 6.4 6.6 3.6.1 6.5-2.8 6.5-6.4.1-3.4-2.6-6.2-5.9-6.4" stroke-width="1.9" opacity=".92"/><path d="M15 15.2l5.6 5.7" stroke-width="2.6" opacity=".92"/><path d="M10.5 4c-3.4 0-6.1 2.6-6.1 6" stroke-width="1" opacity=".35" transform="translate(.4 .6)"/><path d="M15.4 15.9l5 5" stroke-width="1.2" opacity=".35" transform="translate(.5 .3)"/></svg></span></button>
         <img class="cv__clou" src="../commun/img/c/clou.webp" alt="" width="256" height="257" decoding="async">
-        <a class="cv__lien" data-cv-lien href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener" aria-label="Mon parcours : le profil LinkedIn de Thibaut Harang (nouvel onglet)"></a>
+        <a class="cv__lien" data-cv-lien href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener" aria-label="Mon parcours&nbsp;: le profil LinkedIn de Thibaut Harang (nouvel onglet)"></a>
       </div>
     </div>
   </div>
@@ -327,7 +329,7 @@
   <div class="cv-grand__fond" data-cv-fermer></div>
   <figure class="cv-grand__feuille" data-cv-grand-feuille>
     <canvas data-cv-grand-canvas aria-hidden="true"></canvas>
-    <a class="cv__lien cv__lien--grand" data-cv-grand-lien href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener" aria-label="Mon parcours : le profil LinkedIn de Thibaut Harang (nouvel onglet)"></a>
+    <a class="cv__lien cv__lien--grand" data-cv-grand-lien href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener" aria-label="Mon parcours&nbsp;: le profil LinkedIn de Thibaut Harang (nouvel onglet)"></a>
   </figure>
   <button type="button" class="cv-grand__fermer" data-cv-fermer aria-label="Reposer le CV sur le poteau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </div>
@@ -489,14 +491,14 @@
     </div>
 
     <div class="atelier-demande" data-demande>
-      <form class="pas" id="demande-form" data-pas-form data-envoi="https://formspree.io/f/mnjogblz" data-voix="je" data-sujet="Fiche de demande, conseil" data-reussite-titre="Merci, votre fiche est partie." data-reussite="Je vous réponds pour fixer nos trente minutes." novalidate aria-describedby="demande-etat">
+      <form class="pas" id="demande-form" data-pas-form data-envoi="https://formspree.io/f/mnjogblz" data-voix="je" data-sujet="Fiche de demande, conseil" data-reussite-titre="Merci, votre fiche est partie." data-reussite="Je l’aurai lue avant notre échange." novalidate aria-describedby="demande-etat">
         <div class="pas__barre" aria-hidden="true"><i data-pas-barre></i></div>
         <p class="pas__etat" id="demande-etat" aria-live="polite" data-pas-etat>Étape 1 sur 5</p>
 
         <fieldset class="pas__etape" data-etape-n="1">
           <legend class="pas__titre">Qui êtes-vous&nbsp;?</legend>
           <p class="lab" id="q-type">Votre structure</p>
-          <div class="puces" role="radiogroup" aria-labelledby="q-type" data-requis="type" data-manque="Choisissez le type de votre structure.">
+          <div class="puces" role="radiogroup" aria-labelledby="q-type" data-requis="type" data-manque="Choisissez votre structure pour continuer.">
             <label class="puce"><input type="radio" name="type" value="Établissement de santé"><span>Établissement de santé</span></label>
             <label class="puce"><input type="radio" name="type" value="Collectivité"><span>Collectivité</span></label>
             <label class="puce"><input type="radio" name="type" value="Entreprise"><span>Entreprise</span></label>
@@ -507,8 +509,8 @@
           <div class="puces" role="radiogroup" aria-labelledby="q-taille">
             <label class="puce"><input type="radio" name="taille" value="moins de 50 personnes"><span>Moins de 50 personnes</span></label>
             <label class="puce"><input type="radio" name="taille" value="50 à 250 personnes"><span>50 à 250</span></label>
-            <label class="puce"><input type="radio" name="taille" value="250 à 1 000 personnes"><span>250 à 1 000</span></label>
-            <label class="puce"><input type="radio" name="taille" value="plus de 1 000 personnes"><span>Plus de 1 000</span></label>
+            <label class="puce"><input type="radio" name="taille" value="250 à 1 000 personnes"><span>250 à 1&nbsp;000</span></label>
+            <label class="puce"><input type="radio" name="taille" value="plus de 1 000 personnes"><span>Plus de 1&nbsp;000</span></label>
           </div>
           <div class="champ"><label for="d-role">Votre fonction</label><input id="d-role" name="role" type="text" autocomplete="organization-title" placeholder="Par exemple&nbsp;: directrice, DGS, président"></div>
           <p class="erreur" data-erreur role="alert"></p>
@@ -580,10 +582,10 @@
           </div>
           <p class="lab" id="q-budget">Le budget envisagé, hors taxes <span class="aide">(facultatif)</span></p>
           <div class="puces" role="radiogroup" aria-labelledby="q-budget">
-            <label class="puce"><input type="radio" name="budget" value="moins de 5 000 euros HT"><span>Moins de 5 000 €</span></label>
-            <label class="puce"><input type="radio" name="budget" value="5 000 à 15 000 euros HT"><span>5 000 à 15 000 €</span></label>
-            <label class="puce"><input type="radio" name="budget" value="15 000 à 40 000 euros HT"><span>15 000 à 40 000 €</span></label>
-            <label class="puce"><input type="radio" name="budget" value="plus de 40 000 euros HT"><span>Plus de 40 000 €</span></label>
+            <label class="puce"><input type="radio" name="budget" value="moins de 5 000 euros HT"><span>Moins de 5&nbsp;000&nbsp;€</span></label>
+            <label class="puce"><input type="radio" name="budget" value="5 000 à 15 000 euros HT"><span>5&nbsp;000 à 15&nbsp;000&nbsp;€</span></label>
+            <label class="puce"><input type="radio" name="budget" value="15 000 à 40 000 euros HT"><span>15&nbsp;000 à 40&nbsp;000&nbsp;€</span></label>
+            <label class="puce"><input type="radio" name="budget" value="plus de 40 000 euros HT"><span>Plus de 40&nbsp;000&nbsp;€</span></label>
             <label class="puce"><input type="radio" name="budget" value="à définir ensemble"><span>À définir ensemble</span></label>
           </div>
         </fieldset>
@@ -595,7 +597,7 @@
             <div class="champ"><label for="d-structure">Structure</label><input id="d-structure" name="structure" type="text" autocomplete="organization"></div>
           </div>
           <div class="grille-2">
-            <div class="champ"><label for="d-courriel">Courriel <span class="oblig" aria-hidden="true">*</span></label><input id="d-courriel" name="courriel" type="email" autocomplete="email" required data-manque="Indiquez une adresse pour que je vous réponde."><p class="erreur" role="alert"></p></div>
+            <div class="champ"><label for="d-courriel">Courriel <span class="oblig" aria-hidden="true">*</span></label><input id="d-courriel" name="courriel" type="email" autocomplete="email" required data-manque="Indiquez votre courriel pour que je puisse vous répondre."><p class="erreur" role="alert"></p></div>
             <div class="champ"><label for="d-tel">Téléphone <span class="aide">(facultatif)</span></label><input id="d-tel" name="tel" type="tel" autocomplete="tel"></div>
           </div>
           <p class="mention">Champs marqués d’un astérisque&nbsp;: obligatoires. <span class="insec">Civik-ia</span> utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à <span class="insec">contact@civik-ia.fr</span>. En savoir plus&nbsp;: <a href="https://civik-ia.fr/legal/politique-confidentialite.html" target="_blank" rel="noopener" aria-label="politique de confidentialité (nouvel onglet)">politique de confidentialité</a>.</p>
@@ -616,7 +618,7 @@
         <button type="button" class="fiche-bande" data-fiche-bande aria-controls="fiche-panneau" aria-expanded="false" aria-label="Relire votre fiche de demande en entier">
           <span class="fiche-bande__tete"><span class="fiche-bande__titre">Fiche de demande</span><span class="fiche-bande__num">N° provisoire <span data-bande-num></span></span></span>
           <span class="fiche-bande__ligne" data-bande-ligne><span class="fiche-bande__dt">Structure</span><span class="fiche-bande__dd vide">à préciser</span></span>
-          <span class="fiche-bande__pied"><span data-bande-etat>Étape 1 sur 5</span><span class="fiche-bande__ouvrir">Relire la fiche<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"/></svg></span></span>
+          <span class="fiche-bande__pied"><span data-bande-etat>Étape 1 sur 5</span><span class="fiche-bande__ouvrir">Relire ma fiche<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 15 12 9 18 15"/></svg></span></span>
         </button>
         <div class="fiche-panneau" id="fiche-panneau" data-fiche-panneau aria-label="Votre fiche de demande">
           <button type="button" class="fiche-panneau__fermer" data-fiche-fermer aria-label="Refermer la fiche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
@@ -640,7 +642,7 @@
         </div>
       </div>
       <div class="fiche-fin" data-fiche-fin hidden>
-        <button type="submit" form="demande-form" class="btn btn--plein" data-fiche-envoyer>Envoyer ma fiche <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button type="submit" form="demande-form" class="btn btn--plein" data-fiche-envoyer>Envoyer ma fiche</button>
       </div>
     </div>
   </div>
@@ -648,7 +650,7 @@
 
 <section class="sec faq" id="faq" aria-labelledby="faq-titre">
   <div class="wrap">
-    <div class="tete tete--c">
+    <div class="tete">
       <h2 class="h2" id="faq-titre" data-mots>Questions fréquentes</h2>
     </div>
     <div class="faq__liste">
@@ -676,15 +678,15 @@
         <input type="hidden" name="_subject" value="Contact conseil, depuis la page Conseil">
         <div class="champ"><label for="c-nom">Nom <span class="oblig" aria-hidden="true">*</span></label><input id="c-nom" name="nom" type="text" autocomplete="name" required data-manque="Indiquez votre nom."><p class="erreur" role="alert"></p></div>
         <div class="champ"><label for="c-structure">Structure</label><input id="c-structure" name="structure" type="text" autocomplete="organization"></div>
-        <div class="champ"><label for="c-courriel">Courriel <span class="oblig" aria-hidden="true">*</span></label><input id="c-courriel" name="email" type="email" autocomplete="email" required data-manque="Indiquez une adresse pour que je vous réponde."><p class="erreur" role="alert"></p></div>
-        <div class="champ"><label for="c-besoin">Votre besoin, en une phrase <span class="oblig" aria-hidden="true">*</span></label><textarea id="c-besoin" name="message" rows="3" required data-manque="Dites-moi en une phrase ce qui vous amène."></textarea><p class="erreur" role="alert"></p></div>
+        <div class="champ"><label for="c-courriel">Courriel <span class="oblig" aria-hidden="true">*</span></label><input id="c-courriel" name="email" type="email" autocomplete="email" required data-manque="Indiquez votre courriel pour que je puisse vous répondre."><p class="erreur" role="alert"></p></div>
+        <div class="champ"><label for="c-besoin">Votre besoin, en une phrase <span class="oblig" aria-hidden="true">*</span></label><textarea id="c-besoin" name="message" rows="3" required data-manque="Écrivez votre besoin en une phrase."></textarea><p class="erreur" role="alert"></p></div>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
-        <button class="btn btn--plein" type="submit">Envoyer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        <button class="btn btn--plein" type="submit">Envoyer mon message</button>
         <p class="mention">Champs marqués d’un astérisque&nbsp;: obligatoires. <span class="insec">Civik-ia</span> utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à <span class="insec">contact@civik-ia.fr</span>. En savoir plus&nbsp;: <a href="https://civik-ia.fr/legal/politique-confidentialite.html" target="_blank" rel="noopener" aria-label="politique de confidentialité (nouvel onglet)">politique de confidentialité</a>.</p>
         <div class="envoi" hidden tabindex="-1" aria-live="polite" data-statut></div>
       </form>
     </div>
-    <p class="date-maj">Page mise à jour le 7 octobre 2026, par Thibaut Harang.</p>   
+    <p class="date-maj">Page mise à jour le 19 octobre 2026, par Thibaut Harang.</p>   
   </div>
 </section>
 </main>
@@ -693,15 +695,15 @@
   <div class="pied__in">
     <div>
       <p class="pied__marque"><img src="../commun/img/logo-civik-ia.svg#svgView(viewBox(720,150,720,600))" alt="" width="46" height="39" loading="lazy" decoding="async"><span>Civik-<b>ia</b></span></p>
-      <p>Civik-ia, au service des territoires&nbsp;: un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d'applications.</p>
+      <p>Civik-ia, au service des territoires&nbsp;: un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.</p>
       <ul class="pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul>
     </div>
-    <nav aria-labelledby="pied-1"><h2 id="pied-1">Les trois activités</h2><ul><li><a href="/marianne/">Marianne, pour les collectivités territoriales</a></li><li><a href="/conseil/">Le conseil, pour tous</a></li><li><a href="/atelier/">L'atelier, pour vos besoins</a></li></ul></nav>
+    <nav aria-labelledby="pied-1"><h2 id="pied-1">Les trois activités</h2><ul><li><a href="/marianne/">Marianne, pour les collectivités territoriales</a></li><li><a href="/conseil/">Le conseil, pour tous</a></li><li><a href="/atelier/">L’atelier, pour vos besoins</a></li></ul></nav>
     <nav aria-labelledby="pied-2"><h2 id="pied-2">Nous joindre</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li></ul></nav>
-    <nav aria-labelledby="pied-3" class="pied__guides"><h2 id="pied-3">Guides pour les mairies</h2><ul><li><a href="https://civik-ia.fr/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-prix.html">Prix d'un chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="https://civik-ia.fr/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="https://civik-ia.fr/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="https://civik-ia.fr/financement-ia-collectivite.html">Financer l'IA de sa commune</a></li><li><a href="https://civik-ia.fr/livre-blanc.html">Livre blanc</a></li><li><a href="https://civik-ia.fr/aide.html">Centre d'aide</a></li><li><a href="https://civik-ia.fr/22h47.html">22h47, votre mairie est fermée</a></li></ul></nav>
+    <nav aria-labelledby="pied-3" class="pied__guides"><h2 id="pied-3">Guides pour les mairies</h2><ul><li><a href="https://civik-ia.fr/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="https://civik-ia.fr/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="https://civik-ia.fr/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="https://civik-ia.fr/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="https://civik-ia.fr/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="https://civik-ia.fr/livre-blanc.html">Livre blanc</a></li><li><a href="https://civik-ia.fr/aide.html">Centre d’aide</a></li><li><a href="https://civik-ia.fr/22h47.html">22h47, votre mairie est fermée</a></li></ul></nav>
   </div>
   <p class="pied__bas">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · Hébergement OVHcloud (UE)</p>
-  <ul class="pied__legal" aria-label="Informations légales"><li><a href="https://civik-ia.fr/legal/conditions-utilisation.html">Mentions légales</a></li><li><a href="https://civik-ia.fr/legal/conditions-generales-vente.html">CGV</a></li><li><a href="https://civik-ia.fr/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="https://civik-ia.fr/legal/conformite-rgpd.html">RGPD</a></li><li><a href="https://civik-ia.fr/legal/accessibilite-rgaa.html">Accessibilité</a></li></ul>
+  <ul class="pied__legal" aria-label="Informations légales"><li><a href="https://civik-ia.fr/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="https://civik-ia.fr/legal/conditions-generales-vente.html">CGV</a></li><li><a href="https://civik-ia.fr/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="https://civik-ia.fr/legal/conformite-rgpd.html">RGPD</a></li><li><a href="https://civik-ia.fr/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul>
 </footer>
 
 <script type="module" src="page.js"></script>

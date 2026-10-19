@@ -3,6 +3,11 @@
    Marianne : la feuille de style commune (maquette de travail du
    06/10/2026). Jetons repris de la page Marianne en ligne et du film
    (c-film/film.css) ; aucune bibliothèque, aucune police distante.
+   Passe P3 (19/10/2026, revue Claude Design, parties 2, 3 et 5) : les composants (barre, boutons, lien, pastilles,
+   champs, parcours en étapes, fiche, encart d'envoi, FAQ, contact, pied) sont posés sur les jetons de la maison
+   (commun/pages/jetons.css, lu avant cette feuille : espacement de base 4 px, cinq rayons, trois ombres, couleurs
+   d'état) ; points de rupture 480, 768, 1024 (les scènes gardent ceux que leur script lit) ; la barre bascule par
+   requête de conteneur (820 px) ; un seul bord gauche, celui du signe de la barre (--bord-page).
    ===================================================================== */
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/inter-latin-var.woff2') format('woff2')}
 @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/poppins-latin-700.woff2') format('woff2')}
@@ -18,9 +23,10 @@
   --plume:#16205C;--gravure:#60637b;
   --rouge:#c8322b;
   --ligne:rgba(120,100,60,.2);--ligne-2:rgba(120,100,60,.32);
-  --ombre-1:0 6px 18px rgba(0,0,80,.06);--ombre-2:0 18px 48px rgba(0,0,80,.10);--ombre-3:0 40px 90px rgba(0,0,80,.18);
-  --r-s:12px;--r-m:18px;--r-l:24px;--r-xl:32px;
-  --gut:clamp(20px,5vw,72px);
+  /* P3 : les anciens noms renvoient aux jetons de la maison (jetons.css) : trois ombres, cinq rayons, un bord */
+  --ombre-1:var(--o-pose);--ombre-2:var(--o-pose);--ombre-3:var(--o-flottant);
+  --r-s:var(--r-champ);--r-m:var(--r-carte);--r-l:var(--r-scene);--r-xl:var(--r-scene);
+  --gut:var(--bord-page);
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --titre:'Poppins','Inter',sans-serif;
   --main:'Caveat',cursive;
@@ -43,48 +49,66 @@ fieldset{border:0;padding:0;min-width:0}
 legend{padding:0}
 i,em{font-style:normal}
 :focus{outline:none}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+/* P3 : l'anneau suit le rayon du composant ; un lien dans le texte prend un rayon de 4 */
+:where(.lien,.mention a,.pied a,.contact__plus a):focus-visible{border-radius:4px}
 .nuit,.bande-nuit,.pied{--focus:#ffffff}
 [hidden]{display:none !important}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .evitement{position:fixed;left:16px;top:-80px;z-index:300;background:var(--bleu);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;transition:top .2s}
 .evitement:focus{top:16px}
 
-/* ---------- navigation (celle du film, la page courante marquée) ---------- */
-.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:7px 8px 7px 14px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:9999px;box-shadow:0 10px 28px rgba(0,0,40,.12);transition:box-shadow .4s var(--doux)}
-.nav__logo{display:flex;align-items:center;gap:8px;font:800 18px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu);flex:none;border-radius:12px}
+/* ---------- navigation (celle du film, la page courante marquée) ----------
+   P3 : 58 px, à 16 px du haut, colonne de 1 240 px, signe à 17 px du bord de la barre (filet de 1 px et 16 px de marge : le bord
+   gauche commun, --bord) ;
+   liens de 34 px, 12 px de marge, 4 px d'écart ; la barre prend ses libellés courts, cache ses liens et montre le menu
+   quand elle mesure moins de 820 px (requête de conteneur), quelle que soit la fenêtre */
+.nav{position:fixed;top:16px;left:50%;z-index:100;width:min(calc(100% - 32px),1240px);min-height:58px;transform:translateX(-50%);display:flex;align-items:center;gap:var(--esp-point);padding:7px 8px 7px 16px;background:rgba(247,244,237,.97);border:1px solid rgba(200,190,170,.45);border-radius:var(--r-pilule);box-shadow:var(--o-leve);container-type:inline-size;container-name:barre}
+.nav__logo{display:flex;align-items:center;gap:8px;font:800 18px/1 var(--titre);letter-spacing:-.02em;color:var(--bleu);flex:none;border-radius:var(--r-champ)}
 .nav__logo img{width:44px;height:37px;mix-blend-mode:multiply}
 .nav__logo b{font-weight:800;color:var(--trait)}
-.nav__liens{display:flex;gap:2px;margin-left:12px}
-.nav__liens a{font:600 14px/1 var(--sans);color:var(--encre);padding:10px 12px;border-radius:9999px;transition:background .25s,color .25s}
+.nav__liens{display:flex;gap:var(--esp-trait);margin-left:var(--esp-maille)}
+.nav__liens a{display:inline-flex;align-items:center;height:34px;font:600 14px/1 var(--sans);color:var(--encre);padding:0 12px;border-radius:var(--r-pilule);transition:background var(--d-etat),color var(--d-etat)}
 .nav__liens a[aria-current="page"]{color:var(--bleu);background:rgba(0,0,145,.08)}
-@media (hover:hover){.nav__liens a:hover{color:var(--bleu);background:rgba(0,0,145,.06)}}
+@media (hover:hover){.nav__liens a:hover{color:var(--bleu);background:rgba(0,0,145,.05)}}
 .nav__esp{flex:1;min-width:4px}
-.nav__cta{min-height:42px;padding:11px 18px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 14px/1.2 var(--sans);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex:none;transition:transform .14s var(--doux),background .3s}
-.nav__cta:active{transform:scale(.96)}
+.nav__cta{min-height:42px;padding:0 18px;border-radius:var(--r-pilule);background:var(--bleu);color:#fff;font:700 14px/1.2 var(--sans);white-space:nowrap;display:inline-flex;align-items:center;gap:8px;flex:none;box-shadow:var(--o-leve);transition:transform var(--d-appui) var(--c-doux),background var(--d-etat)}
+.nav__cta:active{transform:scale(.97)}
 @media (hover:hover){.nav__cta:hover{background:var(--teal-txt)}}
-.nav__menu{display:none;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;color:var(--bleu);background:rgba(255,255,255,.6);border:1px solid rgba(200,190,170,.45);flex:none}
+.nav__cta .court{display:none}
+.nav__menu{display:none;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center;color:var(--bleu);background:rgba(255,255,255,.6);border:1px solid rgba(200,190,170,.45);flex:none}
 .nav__menu svg{width:20px;height:20px}
-.nav__tiroir{position:fixed;top:78px;left:50%;z-index:99;width:min(calc(100% - 32px),480px);transform:translate(-50%,-8px);opacity:0;visibility:hidden;background:rgba(247,244,237,.99);border:1px solid rgba(200,190,170,.5);border-radius:22px;padding:10px;box-shadow:var(--ombre-3);display:grid;gap:2px;transition:opacity .3s var(--entree),transform .4s var(--entree),visibility 0s .4s}
-.nav__tiroir.ouvert{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s var(--entree),transform .4s var(--entree)}
-.nav__tiroir a{display:flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:14px;font:600 16px/1.2 var(--sans)}
+.nav__tiroir{position:fixed;top:78px;left:50%;z-index:99;width:min(calc(100% - 32px),480px);transform:translate(-50%,-8px);opacity:0;visibility:hidden;background:rgba(247,244,237,.99);border:1px solid rgba(200,190,170,.5);border-radius:var(--r-carte);padding:10px;box-shadow:var(--o-flottant);display:grid;gap:2px;transition:opacity var(--d-etat) var(--c-doux),transform var(--d-etat) var(--c-doux),visibility 0s var(--d-etat)}
+.nav__tiroir.ouvert{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity var(--d-ouvre) var(--c-entree),transform var(--d-ouvre) var(--c-entree)}
+.nav__tiroir a,.nav__tiroir button{display:flex;align-items:center;width:100%;min-height:48px;padding:10px 16px;border-radius:var(--r-champ);font:600 17px/1.2 var(--sans);color:var(--encre);text-align:left}
 .nav__tiroir a[aria-current="page"]{color:var(--bleu);background:rgba(0,0,145,.07)}
-@media (max-width:880px){.nav__liens{display:none}.nav__menu{display:inline-flex}}
-@media (max-width:420px){.nav{padding:6px 6px 6px 10px;gap:6px}.nav__logo{font-size:16px}.nav__logo img{width:38px;height:32px}.nav__cta{padding:9px 13px;font-size:13px;min-height:40px}.nav__cta .long{display:none}}
-@media (min-width:421px){.nav__cta .court{display:none}}
+/* « Gérer les cookies » (P3) : le dernier geste du tiroir, sous un filet, en texte secondaire */
+.nav__tiroir button{font-size:15px;color:var(--encre-2);border-top:1px solid var(--filet);border-radius:0 0 var(--r-champ) var(--r-champ);margin-top:4px}
+@media (hover:hover){.nav__tiroir a:hover,.nav__tiroir button:hover{color:var(--bleu);background:rgba(0,0,145,.05)}}
+@container barre (max-width:820px){.nav__liens{display:none}.nav__menu{display:inline-flex}.nav__cta .long{display:none}.nav__cta .court{display:inline}}
+@media (max-width:479.98px){.nav{min-height:56px;padding:6px 6px 6px 10px;gap:6px}.nav__logo{font-size:16px}.nav__logo img{width:38px;height:32px}.nav__cta{padding:0 13px;font-size:13px;min-height:40px}}
 
-/* ---------- boutons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 26px;border-radius:9999px;font:600 15.5px/1.2 var(--sans);white-space:nowrap;transition:transform .14s var(--doux),box-shadow .45s var(--doux),background .3s,color .3s,border-color .3s}
-.btn svg{flex:none;width:16px;height:16px;transition:transform .25s var(--doux)}
-.btn:active{transform:scale(.96)}
-.btn--plein{background:var(--bleu);color:#fff;box-shadow:0 8px 24px rgba(0,0,145,.22)}
-.btn--clair{background:var(--creme);color:var(--nuit);box-shadow:0 10px 30px rgba(0,0,0,.28)}
-.btn--filet{border:1.5px solid rgba(0,0,145,.28);color:var(--bleu);background:transparent}
-.btn--petit{min-height:44px;padding:10px 18px;font-size:14.5px}
-.btn[disabled]{opacity:.45;cursor:not-allowed}
-@media (hover:hover){.btn--plein:not([disabled]):hover{background:var(--teal-txt)}.btn--clair:hover{background:#fff}.btn--filet:hover{border-color:var(--bleu);background:rgba(0,0,145,.04)}.btn:not([disabled]):hover svg{transform:translateX(4px)}}
-.lien{color:var(--bleu);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-color:rgba(0,0,145,.3);transition:text-decoration-color .2s}
-@media (hover:hover){.lien:hover{text-decoration-color:currentColor}}
+/* ---------- boutons (P3, partie 3 : plein, clair, filet ; repos, survol, appui, focus, désactivé, envoi) ----------
+   Plein : l'action principale de l'écran ; clair : la même sur fond sombre ; filet : l'action secondaire. La flèche dit un
+   déplacement (pas de flèche sur Envoyer, Copier, Accepter). Désactivé sans opacité ; pendant l'envoi (aria-busy), le bouton
+   garde sa couleur et un trait or se trace sous le libellé */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h-bouton);padding:0 26px;border:0;border-radius:var(--r-pilule);font:var(--t-bouton);white-space:nowrap;transition:transform var(--d-appui) var(--c-doux),box-shadow var(--d-etat) var(--c-doux),background var(--d-etat),color var(--d-etat),border-color var(--d-etat)}
+.btn svg{flex:none;width:16px;height:16px;transform:translateY(1px);transition:transform var(--d-etat) var(--c-doux)}
+.btn:active{transform:scale(.97)}
+.btn--plein{background:var(--bleu);color:#fff;box-shadow:var(--o-leve)}
+.btn--clair{background:var(--creme);color:var(--bleu)}
+.btn--filet{border:1.5px solid rgba(0,0,145,.5);color:var(--bleu);background:transparent}
+.btn--petit{min-height:var(--h-bouton-petit);padding:0 18px;font:var(--t-bouton-petit)}
+.btn[disabled]{background:var(--etat-off-fond);color:var(--etat-off);border-color:transparent;box-shadow:none;cursor:not-allowed}
+.btn[disabled]:active{transform:none}
+.btn[aria-busy="true"]{cursor:progress}
+.btn--plein[aria-busy="true"]{background:var(--bleu);color:#fff}
+.btn[aria-busy="true"]::after{content:"";position:absolute;left:26px;right:26px;bottom:11px;height:2px;border-radius:2px;background:var(--or);transform-origin:left;animation:trait-envoi 1.2s var(--c-deplacement) infinite}
+@keyframes trait-envoi{from{transform:scaleX(0)}70%{transform:scaleX(1);opacity:1}to{transform:scaleX(1);opacity:0}}
+@media (hover:hover){.btn--plein:not([disabled]):hover{background:var(--teal-txt)}.btn--clair:not([disabled]):hover{background:var(--papier)}.btn--filet:not([disabled]):hover{background:rgba(0,0,145,.05)}.btn:not([disabled]):hover svg{transform:translate(4px,1px)}}
+.lien{color:var(--bleu);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(0,0,145,.45);transition:color var(--d-etat),text-decoration-color var(--d-etat)}
+@media (hover:hover){.lien:hover{color:var(--teal-txt);text-decoration-color:currentColor}}
+@media (max-width:479.98px){.btn{min-height:48px}}
 
 /* ---------- typographie et gabarit (page Marianne) ---------- */
 .sur{display:inline-flex;align-items:center;gap:10px;font:600 15px/1.3 var(--sans);color:var(--teal-txt)}
@@ -95,10 +119,10 @@ i,em{font-style:normal}
 .h3{font:700 clamp(20px,1.9vw,25px)/1.2 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:pretty;text-wrap:balance}
 .chapo{font-size:clamp(17px,1.4vw,19.5px);line-height:1.6;color:var(--encre-2);max-width:62ch;margin-top:20px}
 .chapo strong{color:var(--encre);font-weight:600}
-.sec{position:relative;padding:clamp(80px,9.5vw,136px) var(--gut)}
+.sec{position:relative;padding:var(--esp-section) var(--bord-page)}   /* P3 : un seul bord gauche, celui du signe de la barre (--bord-page, jetons) */
 .sec--2{background:var(--creme-3)}
 .sec--papier{background:var(--papier)}
-.wrap{max-width:1200px;margin-inline:auto}
+.wrap{max-width:1206px}   /* P3 : 1 206 px au plus, ferré sur le bord commun (il n'est plus centré : le bord fait la marge) */
 .tete{max-width:820px;margin-bottom:clamp(36px,5vw,64px)}
 .tete--c{text-align:center;margin-inline:auto}
 .tete--c .chapo{margin-inline:auto}
@@ -121,85 +145,98 @@ i,em{font-style:normal}
 [data-entree].vu{opacity:1;transform:none;filter:none}
 html:not(.js) [data-entree],html:not(.js) .mots .w>i{opacity:1;transform:none;filter:none}
 
-/* ---------- puces (cases et boutons radio en pastilles) ---------- */
-.puces{display:flex;flex-wrap:wrap;gap:9px}
+/* ---------- puces (cases et boutons radio en pastilles) ----------
+   P3 : 44 px, 16 px de marge, point de 8 px à 8 px du texte, Inter 600 15, 8 px d'écart ; repos papier et filet à 3:1, survol
+   filet bleu à 50 %, cochée bleu plein et point or (sans ombre), focus anneau, désactivée en encre pâle */
+.puces{display:flex;flex-wrap:wrap;gap:var(--esp-point)}
 .puce{position:relative;display:inline-flex}
 .puce input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}
-.puce span{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 16px;border-radius:9999px;background:var(--papier);border:1px solid rgba(120,100,60,.3);font:500 14.5px/1.25 var(--sans);color:var(--encre);transition:background .25s,color .25s,border-color .25s,transform .14s var(--doux),box-shadow .25s}
-.puce span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;border:1.6px solid rgba(0,0,145,.35);transition:background .25s,border-color .25s}
-.puce input:checked+span{background:var(--bleu);border-color:var(--bleu);color:#fff;box-shadow:0 6px 16px rgba(0,0,145,.18)}
+.puce span{display:inline-flex;align-items:center;gap:8px;min-height:var(--h-pastille);padding:10px 16px;border-radius:var(--r-pilule);background:var(--papier);border:1px solid var(--filet-champ);font:600 15px/1.25 var(--sans);color:var(--encre);transition:background var(--d-etat),color var(--d-etat),border-color var(--d-etat),transform var(--d-appui) var(--c-doux)}
+.puce span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;border:1.6px solid rgba(0,0,145,.35);transition:background var(--d-etat),border-color var(--d-etat),transform var(--d-etat) var(--c-doux)}
+.puce input:checked+span{background:var(--bleu);border-color:var(--bleu);color:#fff}
 .puce input:checked+span::before{background:var(--or);border-color:var(--or)}
 .puce input:focus-visible+span{outline:3px solid var(--focus);outline-offset:3px}
-.puce input:active+span{transform:scale(.96)}
-@media (hover:hover){.puce input:not(:checked):hover+span{border-color:var(--bleu);color:var(--bleu)}}
+.puce input:active+span{transform:scale(.97)}
+.puce input:disabled+span{background:var(--etat-off-fond);color:var(--etat-off);border-color:transparent;cursor:not-allowed}
+@media (hover:hover){.puce input:not(:checked):not(:disabled):hover+span{border-color:rgba(0,0,145,.5)}}
 
-/* ---------- champs de formulaire ---------- */
-.champ{display:grid;gap:7px}
+/* ---------- champs de formulaire ----------
+   P3 : étiquette au-dessus (Inter 600 14,5), 8 px puis le champ de 50 px (rayon 12, fond papier, filet #8a8170 à 3,8:1),
+   aide ou erreur dessous (13 px) ; exemple en encre pâle, jamais à la place de l'étiquette ; 16 px entre deux champs */
+.champ{display:grid;gap:var(--esp-point)}
 .champ label,.champ .lab{font:600 14.5px/1.3 var(--sans);color:var(--encre)}
 .champ .aide{font:500 13px/1.4 var(--sans);color:var(--encre-2)}
-.champ input,.champ textarea,.champ select{width:100%;min-height:50px;padding:13px 16px;border-radius:14px;border:1px solid rgba(120,100,60,.34);background:#fff;font:500 16px/1.4 var(--sans);color:var(--encre);transition:border-color .2s,box-shadow .2s}
-.champ textarea{min-height:104px;resize:vertical}
+.champ input,.champ textarea,.champ select{width:100%;min-height:var(--h-champ);padding:13px 16px;border-radius:var(--r-champ);border:1px solid var(--filet-champ);background:var(--papier);font:500 16px/1.4 var(--sans);color:var(--encre);transition:border-color var(--d-etat),box-shadow var(--d-etat)}
+.champ textarea{min-height:112px;resize:vertical}
+.champ ::placeholder{color:var(--encre-3);opacity:1}
 .champ input:focus,.champ textarea:focus{border-color:var(--bleu);box-shadow:0 0 0 3px rgba(0,0,145,.14)}
 .champ [aria-invalid="true"]{border-color:var(--rouge);box-shadow:0 0 0 3px rgba(200,50,43,.12)}
-.erreur{font:600 13.5px/1.4 var(--sans);color:var(--rouge);min-height:0}
+.erreur{font:600 13px/1.4 var(--sans);color:var(--etat-erreur);min-height:0}
 .erreur:empty{display:none}
 .oblig{color:var(--rouge);font-weight:700}
-.grille-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:640px){.grille-2{grid-template-columns:1fr}}
+.grille-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--esp-ligne)}
+@media (max-width:479.98px){.grille-2{grid-template-columns:1fr}}
 
 /* ---------- la fiche (document qui s'écrit) ---------- */
-.fiche{position:relative;background:var(--papier);border-radius:6px;padding:clamp(26px,3vw,40px) clamp(22px,3vw,40px) clamp(26px,3vw,36px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(120,100,60,.14),0 2px 3px rgba(60,40,10,.06),0 22px 48px -18px rgba(60,40,10,.28);color:var(--encre)}
+/* P3 : le papier n'a pas de grands arrondis ni d'ombre portée : rayon 6, ombre posée et liseré clair intérieur ; 28 et 32 px de marges */
+.fiche{position:relative;background:var(--papier);border-radius:var(--r-papier);padding:clamp(22px,3vw,28px) clamp(20px,3vw,32px);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,var(--o-pose);color:var(--encre)}
 .fiche::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 100% 100%,rgba(120,90,40,.06),transparent 70%),radial-gradient(ellipse 50% 40% at 0 0,rgba(120,90,40,.04),transparent 70%)}
 .fiche__tete{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1.5px solid var(--bleu)}
-.fiche__titre{font:800 clamp(21px,2vw,26px)/1.1 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:pretty;text-wrap:balance}   /* R2 */
+.fiche__titre{font:800 22px/1.15 var(--titre);letter-spacing:-.02em;color:var(--bleu);text-wrap:pretty;text-wrap:balance}   /* R2 */
 .fiche__de{font:500 13px/1.4 var(--sans);color:var(--encre-2);margin-top:6px}
-.fiche__ref{text-align:right;font:600 11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--encre-2);white-space:nowrap}
+.fiche__ref{text-align:right;font:var(--t-fixe);color:var(--encre-2);white-space:nowrap}
 .fiche__filet{display:flex;gap:4px;margin-top:10px;justify-content:flex-end}
 .fiche__filet i{width:16px;height:3px;border-radius:2px}
 .fiche__filet i:nth-child(1){background:var(--bleu)}.fiche__filet i:nth-child(2){background:#d9d4c8}.fiche__filet i:nth-child(3){background:var(--rouge)}
 .fiche__sec{padding:15px 0 13px;border-bottom:1px dashed rgba(120,100,60,.32)}
 .fiche__sec:last-of-type{border-bottom:0}
-.fiche__h{display:flex;align-items:baseline;gap:10px;font:700 11.5px/1.3 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--or-txt)}
+.fiche__h{display:flex;align-items:baseline;gap:10px;font:var(--t-repere);letter-spacing:var(--ls-repere);text-transform:uppercase;color:var(--or-txt)}
 .fiche__h b{font:800 13px/1 var(--titre);letter-spacing:0;color:var(--bleu)}
 .fiche__l{display:grid;grid-template-columns:minmax(96px,32%) 1fr;gap:4px 14px;margin-top:8px;font:500 14.5px/1.45 var(--sans)}
 .fiche__l dt{color:var(--encre-2)}
 .fiche__l dd{color:var(--encre);min-height:1.45em;overflow-wrap:anywhere}
-.fiche__l dd.vide{color:#b4ab98}
-.fiche__resume{margin-top:16px;padding:14px 16px;border-radius:12px;background:rgba(0,0,145,.045);font:500 15px/1.55 var(--sans);color:var(--encre)}
+.fiche__l dd.vide{color:var(--encre-3)}   /* P3 : « à préciser » à 4,5:1 (#b4ab98 était à 2,1:1) */
+.fiche__resume{margin-top:16px;padding:14px 16px;border-radius:var(--r-champ);background:rgba(0,0,145,.045);font:500 15px/1.55 var(--sans);color:var(--encre)}
 .fiche__resume b{color:var(--bleu)}
 .fiche__suite{margin-top:14px;font:500 13.5px/1.5 var(--sans);color:var(--encre-2)}
 .curseur{display:inline-block;width:1.5px;height:1.05em;background:var(--bleu);vertical-align:-.17em;margin-left:1px;animation:clign 1.05s steps(1) infinite}
 @keyframes clign{50%{opacity:0}}
 .frappe{white-space:pre-wrap}
-@media (max-width:520px){.fiche__l{grid-template-columns:1fr;gap:0}.fiche__l dt{margin-top:6px;font-size:13px}.fiche__tete{flex-direction:column;gap:8px}.fiche__ref{text-align:left}.fiche__filet{justify-content:flex-start}}
+@media (max-width:479.98px){.fiche__l{grid-template-columns:1fr;gap:0}.fiche__l dt{margin-top:6px;font-size:13px}.fiche__tete{flex-direction:column;gap:8px}.fiche__ref{text-align:left}.fiche__filet{justify-content:flex-start}}
 
-/* ---------- le parcours en étapes (fiche de demande, page blanche) ---------- */
-.pas{background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(22px,2.8vw,36px);box-shadow:var(--ombre-2)}
-.pas__barre{height:4px;border-radius:4px;background:rgba(0,0,145,.1);overflow:hidden}
-.pas__barre i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--bleu),var(--trait));transform-origin:left;transform:scaleX(.2);transition:transform .6s var(--entree)}
-.pas__etat{margin-top:12px;font:600 13px/1.3 var(--sans);color:var(--encre-2)}
-.pas__etape{margin-top:14px;display:grid;gap:16px}
+/* ---------- le parcours en étapes (fiche de demande, page blanche) ----------
+   P3 : carte de rayon 24, 32 px de marge (24 au téléphone), ombre posée ; progression de 4 px, bleu plein sur crème 3 (le
+   dégradé bleu vers trait disparaît) ; « Étape 2 sur 5 » en chiffres de même largeur ; titre d'étape au jeton --t-sous ;
+   Retour à gauche, Suivant à droite sur la même ligne basse ; l'étape suivante entre de 16 px en 280 ms */
+.pas{background:var(--papier);border:0;border-radius:var(--r-scene);padding:var(--esp-carte);box-shadow:var(--o-pose)}
+.pas__barre{height:4px;border-radius:4px;background:var(--creme-3);overflow:hidden}
+.pas__barre i{display:block;height:100%;width:100%;background:var(--bleu);transform-origin:left;transform:scaleX(.2);transition:transform var(--d-ouvre) var(--c-entree)}
+.pas__etat{margin-top:12px;font:600 13px/1.3 var(--sans);color:var(--encre-2);font-variant-numeric:tabular-nums}
+.pas__etape{margin-top:14px;display:grid;gap:var(--esp-ligne)}
 .pas__etape[hidden]{display:none}
-.pas__etape.entre{animation:entre .6s var(--entree)}
-@keyframes entre{from{opacity:0;transform:translateX(14px);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
+.pas__etape.entre{animation:entre 280ms var(--c-entree)}
+@keyframes entre{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
 .pas__titre:focus{outline:none}
-.pas__titre{font:700 clamp(22px,2vw,27px)/1.2 var(--titre);color:var(--bleu);letter-spacing:-.02em;margin-bottom:2px;text-wrap:pretty;text-wrap:balance}   /* R2 */
+.pas__titre{font:var(--t-sous);color:var(--bleu);letter-spacing:var(--ls-sous);margin-bottom:2px;text-wrap:pretty;text-wrap:balance}   /* R2 */
 .pas .lab{font:600 14.5px/1.3 var(--sans);color:var(--encre);margin-bottom:-6px}
-.pas__actions{display:flex;align-items:center;gap:12px;margin-top:24px}
+.pas__actions{display:flex;align-items:center;gap:12px;margin-top:var(--esp-bloc)}
 .pas.fini .pas__actions{display:none}
 .pas__aide{font-size:14.5px;color:var(--encre-2);margin-top:-6px}
+@media (max-width:767.98px){.pas{padding:var(--esp-bloc)}}
 
-/* ---------- l'encart « maquette : rien n'est transmis » ---------- */
-.envoi{margin-top:18px;padding:18px 20px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,145,.18);box-shadow:var(--ombre-1)}
+/* ---------- l'encart d'envoi (états : envoi, réussite, échec) ----------
+   P3 : papier, rayon 12, filet bleu à 18 %, 20 et 24 px de marges ; réussite : titre Poppins 700 20 bleu, une phrase ;
+   échec : filet et titre rouges, le courriel de secours prérempli en lien */
+.envoi{margin-top:18px;padding:20px 24px;border-radius:var(--r-champ);background:var(--papier);border:1px solid rgba(0,0,145,.18)}
 .envoi[hidden]{display:none}
 .envoi p{font-size:15px;line-height:1.55;color:var(--encre-2);margin-top:6px}
-.envoi .envoi__t{font:700 17px/1.35 var(--titre);color:var(--bleu);margin-top:0}
+.envoi .envoi__t{font:700 20px/1.3 var(--titre);color:var(--bleu);margin-top:0}
 .envoi__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.copie-ok{font:600 13.5px/1.3 var(--sans);color:var(--teal-txt);align-self:center}
+.copie-ok{font:600 13.5px/1.3 var(--sans);color:var(--etat-reussite);align-self:center}
 /* CO-13 (première passe Conseil, 06/10/2026) : les états de l'envoi réel, seulement là où un formulaire porte data-envoi
    (ces classes ne sont posées nulle part ailleurs : la page Atelier ne change pas) */
-.envoi--echec{border-color:rgba(200,50,43,.38)}
-.envoi--echec .envoi__t{color:var(--rouge)}
+.envoi--echec{border-color:var(--etat-erreur);background:var(--papier)}
+.envoi--echec .envoi__t{color:var(--etat-erreur)}
 .contact__formu.envoye>.champ,.contact__formu.envoye>button[type="submit"],.contact__formu.envoye>.mention{display:none}
 .contact__formu.envoye>.envoi{margin:0;padding:2px 0;border:0;box-shadow:none;background:none}
 
@@ -208,23 +245,29 @@ html:not(.js) [data-entree],html:not(.js) .mots .w>i{opacity:1;transform:none;fi
 .prix-provisoire b{font:700 18px/1.2 var(--titre);color:#8d8676;letter-spacing:-.01em}
 .prix-provisoire small{font:600 11px/1.3 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#9a9282}
 
-/* ---------- questions fréquentes (page Marianne) ---------- */
-.faq__liste{max-width:860px;margin-inline:auto;display:grid;gap:12px}
-.faq details{background:var(--papier);border:1px solid rgba(120,100,60,.24);border-radius:var(--r-m);transition:box-shadow .3s,border-color .3s}
-.faq details[open]{box-shadow:var(--ombre-2);border-color:rgba(0,0,145,.26)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;font:700 17px/1.35 var(--titre);color:var(--bleu);letter-spacing:-.01em;border-radius:var(--r-m);min-height:44px}
+/* ---------- questions fréquentes ----------
+   P3 : volets natifs (details, summary) au rayon des cartes, ferrés à gauche comme les autres sections ; fermé : ombre posée ;
+   survol : filet bleu à 20 % ; ouvert : ombre levée et chevron tourné en 240 ms ; 56 px au moins, 8 px entre volets ;
+   le texte reste dans la page fermée (recherche du navigateur, référencement) */
+.faq__liste{max-width:860px;display:grid;gap:var(--esp-point)}
+.faq details{background:var(--papier);border-radius:var(--r-carte);box-shadow:var(--o-pose);transition:box-shadow var(--d-ouvre) var(--c-doux)}
+@media (hover:hover){.faq details:not([open]):hover{box-shadow:0 0 0 1px rgba(0,0,145,.2),0 1px 2px rgba(60,40,10,.08)}}
+.faq details[open]{box-shadow:0 0 0 1px rgba(0,0,145,.2),var(--o-leve)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;font:700 17px/1.35 var(--titre);color:var(--bleu);letter-spacing:-.01em;border-radius:var(--r-carte);min-height:56px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-3px,-3px);transition:transform .35s var(--doux)}
+.faq summary::after{content:"";width:11px;height:11px;flex:none;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translate(-3px,-3px);transition:transform var(--d-ouvre) var(--c-doux)}
 .faq details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
-.faq details>div{padding:0 22px 22px;color:var(--encre-2);font-size:16px;line-height:1.65;max-width:72ch}
+.faq details>div{padding:0 22px 22px;color:var(--encre-2);font-size:16px;line-height:1.6;max-width:72ch}
 .faq details strong{color:var(--encre);font-weight:600}
 
-/* ---------- contact court ---------- */
-.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:start}
-.contact__formu{background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(22px,3vw,36px);box-shadow:var(--ombre-2);display:grid;gap:16px}
+/* ---------- contact court ----------
+   P3 : colonnes 0,9 et 1,1, écart de 64 px, une seule colonne sous 1 024 ; la carte du formulaire au rayon 24, 32 px de marge,
+   ombre posée ; la mention de la direction juridique en --t-mention (13 px) */
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--esp-palier);align-items:start}
+.contact__formu{background:var(--papier);border:0;border-radius:var(--r-scene);padding:var(--esp-carte);box-shadow:var(--o-pose);display:grid;gap:var(--esp-ligne)}
 .contact__plus{margin-top:22px;font-size:15.5px;color:var(--encre-2)}
 .contact__mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font:700 17px/1.2 var(--sans);color:var(--bleu)}
-.mention{font:500 12.5px/1.5 var(--sans);color:var(--encre-2)}
+.mention{font:var(--t-mention);color:var(--encre-2)}
 /* DJ-5 (avis DAJF du 08/10/2026) : la mention des formulaires garde sa taille ; le lien vers la politique de confidentialité
    prend la couleur du texte courant, souligné ; sa zone de toucher grandit par un rembourrage vertical, qui ne change pas la
    hauteur de la ligne (élément en ligne) ; le lien ne se coupe pas (à 375, dans la fiche de projet, « confidentialité. » restait
@@ -232,43 +275,41 @@ html:not(.js) [data-entree],html:not(.js) .mots .w>i{opacity:1;transform:none;fi
 .mention{text-wrap:pretty}
 /* DJ-5 : « contact@civik-ia.fr » se coupait au trait d’union à 375 (« contact@civik- » puis « ia.fr ») ; « Civik-ia » non plus */
 .mention .insec{white-space:nowrap}
-.mention a{white-space:nowrap;color:var(--encre);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,30,30,.45);padding-block:12px;transition:text-decoration-color .2s}
+.mention a{white-space:nowrap;color:var(--encre);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,30,30,.45);padding-block:12px;transition:text-decoration-color var(--d-etat)}
 @media (hover:hover){.mention a:hover{color:var(--bleu);text-decoration-color:currentColor}}
-@media (max-width:900px){.contact{grid-template-columns:1fr}}
+@media (max-width:1023.98px){.contact{grid-template-columns:1fr;gap:var(--esp-groupe)}}
+@media (max-width:767.98px){.contact__formu{padding:var(--esp-bloc)}}
 
-/* ---------- pied de page ---------- */
-.pied{background:var(--nuit);color:var(--nuit-txt2);padding:56px var(--gut) 92px}
-.pied__in{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+/* ---------- pied de page ----------
+   P3 : nuit, marges 64 et 96, bord gauche commun ; quatre colonnes dès 1 024, deux de 768 à 1 023, une dessous, écart 32 ;
+   liens au pas unique de 36 px (30 px et 6 px d'écart) ; titres de colonne au jeton --t-repere ; bande officielle en 13 px ;
+   réseaux de 44 x 44 au rayon des champs ; liens légaux de 44 px au téléphone ; « Gérer les cookies » dans la bande */
+.pied{background:var(--nuit);color:var(--nuit-txt2);padding:var(--esp-palier) var(--bord-page) 96px}
+.pied__in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.15fr;gap:var(--esp-carte)}
 .pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre);color:#fff;letter-spacing:-.02em}
 .pied__marque img{width:46px;height:39px;padding:3px 4px;border-radius:10px;background:var(--creme);mix-blend-mode:normal}
 .pied__marque b{color:#9db9ff;font-weight:800}
 /* pied, réseaux (07/10/2026, soir) : les quatre réseaux de Civik-ia sous la marque, dessinés à la plume comme le logo LinkedIn du CV ; cibles de 44 px */
-.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-9px}
-.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:12px;color:#fff}
-.pied .pied__reseaux svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pied .pied__reseaux{display:flex;gap:4px;margin-top:12px;margin-left:-10px}
+.pied .pied__reseaux a{display:inline-flex;width:44px;height:44px;min-height:0;align-items:center;justify-content:center;border-radius:var(--r-champ);color:#fff}
+.pied .pied__reseaux svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover){.pied .pied__reseaux a:hover{color:#9db9ff;background:rgba(255,255,255,.07);text-decoration:none}}
 .pied p{font-size:14px;line-height:1.6;margin-top:14px;max-width:44ch}
-.pied h2{font:700 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#8f99c4}
-.pied ul{margin-top:12px;display:grid;gap:4px}
-.pied ul a{display:inline-flex;min-height:36px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
-@media (hover:hover){.pied ul a:hover{text-decoration:underline;text-underline-offset:4px}}
-.pied__bas{max-width:1200px;margin:36px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#8f99c4}
-/* bandeau de fin (07/10/2026, soir) : la ligne officielle, les liens légaux, la mention de maquette */
-.pied .pied__legal{max-width:1200px;margin:6px auto 0;display:flex;flex-wrap:wrap;gap:0 18px;font-size:12.5px}
-.pied .pied__legal a{display:inline-flex;min-height:36px;align-items:center;font:600 12.5px/1.3 var(--sans);color:#b9c1e0}
-@media (hover:hover){.pied .pied__legal a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
-.pied .pied__maquette{max-width:1200px;margin:10px auto 0;font-size:12px;line-height:1.5;color:#6f7aa6}
-/* .pied p (44ch) l’emportait sur .pied__bas : la ligne officielle prend toute la largeur, comme les liens légaux */
-.pied .pied__bas{max-width:1200px;line-height:1.5}
-/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes (la règle .pied p
-   poussait la marque de 14 px ; mesuré : centre des titres à 12 px au-dessus du centre de la marque une fois la marge retirée) */
+.pied h2{font:var(--t-repere);letter-spacing:var(--ls-repere);text-transform:uppercase;color:#8f99c4}
+.pied ul{margin-top:12px;display:grid;gap:6px}
+.pied ul a{display:inline-flex;min-height:30px;align-items:center;font:600 14.5px/1.3 var(--sans);color:#fff}
+@media (hover:hover){.pied ul a:hover{color:#9db9ff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__guides ul a{font-size:14px}
+/* pied, alignement (08/10/2026, Thibaut) : le mot « Civik-ia » et le logo à la hauteur des titres de colonnes */
 .pied .pied__marque{margin-top:-12px}
-/* guides (08/10/2026, nuit) : quatrième colonne du pied, liens plus serrés ; deux colonnes sous 1024, une sous 760 */
-.pied .pied__in{grid-template-columns:1.3fr 1fr 1fr 1.15fr}
-.pied .pied__guides ul a{min-height:30px;font-size:14px}
-@media (max-width:1024px){.pied .pied__in{grid-template-columns:1fr 1fr}}
-@media (max-width:760px){.pied .pied__in{grid-template-columns:1fr}}
-@media (max-width:760px){.pied__in{grid-template-columns:1fr}}
+/* bandeau de fin (07/10/2026, soir) : la ligne officielle, les liens légaux ; P3 : 13 px, au bord gauche commun */
+.pied .pied__bas{margin:40px 0 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font:var(--t-mention);color:#8f99c4;max-width:none}
+.pied .pied__legal{margin:6px 0 0;display:flex;flex-wrap:wrap;gap:0 18px}
+.pied .pied__legal a,.pied .pied__legal button{display:inline-flex;min-height:36px;align-items:center;font:600 13px/1.3 var(--sans);color:#b9c1e0}
+@media (hover:hover){.pied .pied__legal a:hover,.pied .pied__legal button:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}}
+.pied .pied__maquette{margin:10px 0 0;font:var(--t-mention);color:#8f99c4}
+@media (max-width:1023.98px){.pied .pied__in{grid-template-columns:1fr 1fr}}
+@media (max-width:767.98px){.pied .pied__in{grid-template-columns:1fr}.pied .pied__legal a,.pied .pied__legal button{min-height:44px}}
 
 /* ---------- étiquette de travail ---------- */
 .etiquette{position:fixed;left:20px;bottom:20px;z-index:90;font:600 12px/1 var(--sans);color:#5a5446;background:rgba(247,244,237,.92);border:1px solid rgba(200,190,170,.5);border-radius:9999px;padding:9px 13px;pointer-events:none;box-shadow:0 4px 14px rgba(0,0,40,.08)}

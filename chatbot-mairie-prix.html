@@ -453,7 +453,8 @@
 
         .price-scale-bar {
             height: 12px;
-            background: linear-gradient(90deg, var(--accent-teal) 0%, var(--accent-gold) 50%, var(--rouge) 100%);
+            background: var(--creme-3);   /* passe P3 : aplat et filet de la maison, plus de dégradé */
+            box-shadow: inset 0 0 0 1px var(--filet-fort);
             border-radius: 6px;
             position: relative;
             margin-bottom: 60px;
@@ -1400,7 +1401,7 @@
             <h1>Chatbot mairie&nbsp;: quel prix en 2026&nbsp;?</h1>
             <p class="hero-subtitle">De gratuit a 1&nbsp;750&nbsp;€/an&nbsp;: le vrai cout d’un assistant virtuel pour votre commune. Et comment rester sous le seuil des marches publics.</p>
             <div class="hero-cta-row">
-                <a href="#tarifs" class="btn-primary" onclick="dataLayer.push({'event':'cta_click','cta_name':'hero_voir_tarifs'})">Voir l’offre détaillée</a>
+                <a href="#tarifs" class="btn-primary" onclick="dataLayer.push({'event':'cta_click','cta_name':'hero_voir_tarifs'})">Voir la grille de prix</a>
                 <a href="/marianne/#contact" class="btn-secondary" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'cta_click','cta_name':'hero_demander_devis'})">Demander un devis</a>
             </div>
         </div>
@@ -1830,6 +1831,6 @@
             bind('a[href^="mailto:"]', 'email');
         })();
     </script>
-    <script type="module" src="/commun/pages/prix.js?v=20261014c"></script>
+    <script type="module" src="/commun/pages/prix.js?v=20261019"></script>
 </body>
 </html>

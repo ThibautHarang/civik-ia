@@ -13,7 +13,7 @@
    en service, et la borne de son montant. Scène 5 : la feuille
    d'estimation, et deux sorties : « Demander un devis » (la feuille
    devient la lettre de pages.js et lettre.js, envoi Formspree)
-   et « Partager cette estimation » (un lien qui rouvre le même état).
+   et « Copier le lien de l’estimation » (un lien qui rouvre le même état ; libellé du 19/10/2026, partie 5).
    Données : ../donnees/communes.json (34 969 communes, population
    municipale INSEE servie par geo.api.gouv.fr), chargé au premier geste
    dans le champ, ou tout de suite si l'adresse porte ?commune=.
@@ -380,7 +380,7 @@ function gabarit(id) {
         <div class="pm-pop" data-pop hidden>
           <p class="pm-pop__ligne"><span class="pm-pop__n" data-habitants></span><span class="pm-pop__ast" data-ast aria-hidden="true">*</span></p>
           <p class="pm-pop__source" data-source>population municipale INSEE</p>
-          <button type="button" class="pm-lien" data-corriger aria-controls="${i('saisie')}">Ce n’est pas le bon chiffre&nbsp;? Corrigez-le</button>
+          <button type="button" class="pm-lien" data-corriger aria-controls="${i('saisie')}">Corriger la population</button>
         </div>
         <div class="pm-repli">
           <button type="button" class="pm-lien" data-bascule aria-expanded="false" aria-controls="${i('saisie')}">ou saisissez le nombre d’habitants</button>
@@ -460,7 +460,7 @@ function gabarit(id) {
   </div>
   <div class="pm-sorties">
     <button type="button" class="pm-action pm-action--plein" data-recevoir aria-expanded="false" aria-controls="${i('form')}">Demander un devis</button>
-    <button type="button" class="pm-action" data-partager>Partager cette estimation</button>
+    <button type="button" class="pm-action" data-partager>Copier le lien de l’estimation</button>
   </div>
   <p class="pm-copie" data-copie role="status"></p>
 </div>
@@ -545,7 +545,7 @@ export function monter(racine) {
     options = chercher(v);
     liste.textContent = '';
     if (!v.trim()) { fermer(); etatTxt.textContent = ''; return; }
-    if (!options.length) { fermer(); etatTxt.textContent = /^\s*\d/.test(v) ? 'Écrivez le nom de la commune : les codes postaux ne sont pas reconnus.' : 'Aucune commune de ce nom dans la liste. Vérifiez l’orthographe, ou saisissez le nombre d’habitants.'; return; }
+    if (!options.length) { fermer(); etatTxt.textContent = /^\s*\d/.test(v) ? 'Écrivez le nom de la commune\u00a0: les codes postaux ne sont pas reconnus.' : 'Aucune commune de ce nom. Vérifiez l’orthographe, ou indiquez la population.'; return; }
     options.forEach((c, j) => {
       const li = el('li', 'pm-fleche'); li.id = `${id}-opt-${j}`; li.setAttribute('role', 'option'); li.setAttribute('aria-selected', 'false');
       const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('class', 'pm-fleche__forme'); svg.setAttribute('viewBox', '0 0 100 40'); svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
@@ -807,7 +807,7 @@ export function monter(racine) {
     try { await navigator.clipboard.writeText(lien); ok = true; } catch (e) {
       try { const t = document.createElement('textarea'); t.value = lien; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); t.remove(); } catch (e2) { ok = false; }
     }
-    copieTxt.textContent = ok ? 'Lien copié.' : `Copiez ce lien : ${lien}`;
+    copieTxt.textContent = ok ? 'Lien copié.' : `Copiez ce lien\u00a0: ${lien}`;
   });
 
   /* --- « Demander un devis » : la feuille part, et devient la lettre --- */
@@ -852,7 +852,7 @@ export function monter(racine) {
     if (ok) {
       form.classList.add('envoye'); recevoir.hidden = true;
       if (m && typeof m.signalerDemande === 'function') try { m.signalerDemande(form, 'estimation'); } catch (err) { /* rien */ }
-      etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Votre demande de devis est partie, nous revenons vers vous.', texte: 'Une première réunion de trente minutes fixe le devis.' });
+      etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Merci, votre demande de devis est partie.', texte: 'Une première réunion de trente minutes fixe le devis.' });
       if (m && m.poserVignette) m.poserVignette(bloc);
     } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de devis sur estimation, au-delà de ${nombre(GRILLE.plafond)} habitants. ${lienPartage()}` : `Demande de devis sur estimation : ${ht(c.mensuel)} par mois, mise en service ${ht(c.mise)}${c.collecte ? `, collecte ${ht(c.collecte)}` : ''}. ${lienPartage()}` });
   });
@@ -893,9 +893,10 @@ function etatSimple(bloc, etat, o = {}) {
   const p1 = el('p', 'envoi__t'), p2 = el('p');
   if (etat === 'reussite') { p1.textContent = o.titre || ''; p2.textContent = o.texte || ''; }
   else {
-    p1.textContent = 'L’envoi n’a pas abouti.';
-    const a = el('a', '', 'contact@civik-ia.fr'); a.href = `mailto:contact@civik-ia.fr?subject=${encodeURIComponent(o.sujet || '')}&body=${encodeURIComponent(o.corps || '')}`;
-    p2.append('Écrivez-nous directement à ', a);
+    /* P3 (partie 5) : la même phrase d'échec que les formulaires des pages (commun/pages/pages.js) */
+    p1.textContent = 'Le message n’est pas parti.';
+    const a = el('a', 'lien', 'Envoyer par courriel à contact@civik-ia.fr'); a.href = `mailto:contact@civik-ia.fr?subject=${encodeURIComponent(o.sujet || '')}&body=${encodeURIComponent(o.corps || '')}`;
+    p2.append('Vérifiez votre connexion et réessayez, ou envoyez-le par courriel\u00a0: il est déjà écrit. ', a);
   }
   bloc.replaceChildren(p1, p2); bloc.hidden = false; bloc.setAttribute('tabindex', '-1'); bloc.focus();
 }

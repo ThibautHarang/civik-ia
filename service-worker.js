@@ -11,7 +11,11 @@
 // feuilles /css/polices.css, /css/jetons.css, /css/couche-commune.css et script /js/cookies.js, appelés avec ?v=AAAAMMJJ.
 // Pas de règle contraire au Cache-Control : nginx les sert « public » sept jours (bloc des fichiers statiques), ce cache les garde
 // jusqu'au prochain changement de CACHE_NAME (fichiers immuables à adresse donnée, une nouvelle version change de ?v=).
-const CACHE_NAME = 'civik-ia-v186-couche-commune-2026-10-19';
+// v187 (passe P3, 19/10/2026, composants et mots de la maison nouvelle) : l'accueil, Conseil et l'Atelier lisent /css/jetons.css,
+// /css/couche-commune.css et /js/cookies.js avec ?v=20261019b (le bandeau de cookies de la maison remplace /cookie-consent.js
+// sur ces trois pages) ; js/cookies.js, les deux pages des canaux, 22h47, la page prix, le livre blanc, le guide RGPD et les pages
+// légales changent : le cache est vidé une fois de plus.
+const CACHE_NAME = 'civik-ia-v187-composants-mots-2026-10-19';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

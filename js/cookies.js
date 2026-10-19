@@ -1,17 +1,17 @@
 /* =====================================================================
    Civik-ia, bandeau de consentement (CNIL, article 82 de la loi Informatique et Libertés).
-   Couche commune des pages anciennes, passe P2 du 19/10/2026. Un seul script, une seule carte, posée sur
+   Couche commune des pages anciennes, passe P2 du 19/10/2026 ; depuis la passe P3 (19/10/2026), le même script sert aussi
+   l'accueil, Conseil et l'Atelier (l'ancien /cookie-consent.js n'y est plus appelé). Un seul script, une seule carte, posée sur
    papier ; ses styles sont dans /css/couche-commune.css (.cc-cookies).
 
-   Logique gardée telle quelle depuis /cookie-consent.js (qui sert encore l'accueil, Conseil et l'Atelier
-   jusqu'à la passe P3) :
+   Logique gardée telle quelle depuis /cookie-consent.js :
    - Google Tag Manager (GTM-55JF49WB), donc Google Analytics 4, ne se charge qu'après un accord explicite ;
      rien n'est chargé ni déposé avant ;
    - le choix est gardé dans le navigateur sous la même clé (« civik-cookie-consent » : granted ou denied,
      et sa date) : un choix fait sur une page vaut sur toutes, nouvelle maison comprise ;
    - window.__civikGtmLoaded est posé au chargement de GTM : le film et les formulaires le lisent avant de
      pousser un événement.
-   Ce qui change : « Tout refuser » et « Tout accepter » ont le même poids ; « Choisir » ouvre la finalité,
+   Ce qui change : « Refuser » et « Accepter » ont le même poids (libellés de la revue, partie 5, posés par la passe P3) ; « Choisir » ouvre la finalité,
    cochée ou non ; plus de pilule flottante : on revient sur son choix par « Gérer les cookies » (pied et menu).
    Le compteur des choix (passe P7, côté serveur, sans cookie) est prévu et éteint : COMPTEUR_ACTIF.
    Le même fichier ferme aussi le tiroir du menu de la barre commune (Échap, clic au dehors, choix d'un lien),
@@ -87,8 +87,8 @@
       + '<button type="button" class="cc-cookies__btn" data-choix="enregistrer">Enregistrer mon choix</button>'
       + '</div>'
       + '<div class="cc-cookies__actions">'
-      + '<button type="button" class="cc-cookies__btn" data-choix="refuser">Tout refuser</button>'
-      + '<button type="button" class="cc-cookies__btn" data-choix="accepter">Tout accepter</button>'
+      + '<button type="button" class="cc-cookies__btn" data-choix="refuser">Refuser</button>'
+      + '<button type="button" class="cc-cookies__btn" data-choix="accepter">Accepter</button>'
       + '<button type="button" class="cc-cookies__choisir" data-choix="choisir" aria-expanded="false">Choisir</button>'
       + '</div>';
     document.body.appendChild(carte);

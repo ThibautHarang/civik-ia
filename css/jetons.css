@@ -1,10 +1,16 @@
 /* =====================================================================
-   Jetons de la maison Civik-ia (couche commune, passe P2 du 19/10/2026).
+   Jetons de la maison Civik-ia : une seule feuille pour tout le site.
+   Posée par la passe P2 (19/10/2026, couche commune des pages anciennes), complétée par la passe P3 (19/10/2026,
+   composants de la maison nouvelle) : elle sert désormais aussi l'accueil, Conseil et l'Atelier.
+   Source unique : maquettes/commun/pages/jetons.css ; seo/outils/installe-refonte.mjs la recopie, à l'identique, en
+   css/jetons.css du site (liste blanche du déploiement). Ne pas la retoucher dans le dépôt : la retouche serait refusée
+   par liste-blanche.mjs et perdue à la prochaine installation.
    Source : revue Claude Design du 17/10/2026, partie 3, « le bloc prêt à poser ». La palette est celle
    de l'annexe B, sans ajout. Un seul écart de nom : l'anneau de focus s'appelle --focus-anneau (et non
    --focus), parce que --focus est déjà une couleur dans commun/pages/pages.css et dans /marianne/ ; le
    redéfinir ici en raccourci de bordure casserait leurs contours de focus.
-   Points de rupture de la maison : 480, 768, 1024, 1280, 1920.
+   Points de rupture de la maison : 480, 768, 1024, 1280, 1920 (les bascules propres à un composant passent
+   en requêtes de conteneur : la barre de la maison nouvelle prend ses libellés courts sous 820 px de barre).
    Plus bas : la correspondance des couleurs des pages anciennes, posée seulement sur les pages qui
    portent html[data-couche="ancienne"] (outil tools/couche-commune/poser.mjs).
    ===================================================================== */
@@ -36,6 +42,12 @@
   --o-pose:0 0 0 1px rgba(120,100,60,.20),0 1px 2px rgba(60,40,10,.08);
   --o-leve:0 1px 2px rgba(0,0,80,.10),0 6px 16px -6px rgba(0,0,80,.18);
   --o-flottant:0 2px 4px rgba(0,0,40,.10),0 16px 32px -12px rgba(0,0,40,.28);
+  /* passe P3 : le filet des champs à 3:1 sur le papier (#8a8170, 3,8:1, critère 1.4.11, partie 11 de la revue) ;
+     l'état désactivé sans opacité ; les hauteurs des composants qu'on touche (44 px au moins) */
+  --filet-champ:#8a8170;
+  --h-bouton:52px;--h-bouton-petit:44px;--h-champ:50px;--h-pastille:44px;--cible:44px;
+  /* le bord des pages : la gouttière au téléphone, puis, dès 768, le bord gauche commun aligné sur le signe de la barre */
+  --gouttiere:20px;--bord-page:var(--gouttiere);
   /* typographie : graisse, taille / interligne, famille */
   --f-titre:"Poppins","Poppins Fallback",Arial,sans-serif;
   --f-texte:"Inter","Inter Fallback",Arial,sans-serif;
@@ -59,6 +71,7 @@
   --c-doux:cubic-bezier(.2,.8,.2,1);--c-entree:cubic-bezier(.16,1,.3,1);--c-deplacement:cubic-bezier(.65,0,.35,1);
   --d-etat:160ms;--d-ouvre:240ms;--d-lieu:400ms;--d-appui:120ms;
 }
+@media (min-width:768px){:root{--bord-page:var(--bord)}}
 
 /* ---------- règles communes, légères ---------- */
 ::selection{background:rgba(0,0,145,.14);color:inherit}

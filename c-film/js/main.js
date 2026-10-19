@@ -86,7 +86,7 @@ if (LEGER) document.documentElement.classList.add('leger');
   if (!bouton || !tiroir) return;
   const basculer = ouvrir => { tiroir.classList.toggle('ouvert', ouvrir); bouton.setAttribute('aria-expanded', String(ouvrir)); bouton.setAttribute('aria-label', ouvrir ? 'Fermer le menu' : 'Ouvrir le menu'); };
   bouton.addEventListener('click', e => { e.stopPropagation(); basculer(bouton.getAttribute('aria-expanded') !== 'true'); });
-  tiroir.addEventListener('click', e => { e.stopPropagation(); if (e.target.closest('a')) basculer(false); });
+  tiroir.addEventListener('click', e => { e.stopPropagation(); if (e.target.closest('a,[data-cookies-gerer]')) basculer(false); });   /* P3 : « Gérer les cookies » ferme aussi le tiroir */
   addEventListener('keydown', e => { if (e.key === 'Escape' && tiroir.classList.contains('ouvert')) { e.stopPropagation(); basculer(false); bouton.focus(); } }, true);
 })();
 /* N1 (quatorzième passe) : avec ?mesure=1, le compte des canevas et des textures WebGL vivants (avant tout canevas) */

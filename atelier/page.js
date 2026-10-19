@@ -1135,7 +1135,9 @@ function pageBlanche() {
   const afficher = (k, focus = true) => {
     etapes.forEach((f, i) => { f.hidden = i !== k - 1; f.classList.toggle('entre', i === k - 1 && !reduit()); });
     n_ = k; barre.style.transform = `scaleX(${k / 5})`; etatTxt.textContent = `Étape ${k} sur 5`; retour.hidden = k === 1;
-    suite.firstChild.textContent = k === 5 ? 'Envoyer mon projet ' : 'Suivant ';
+    suite.firstChild.textContent = k === 5 ? 'Envoyer mon projet' : 'Suivant ';
+    /* P3 (partie 3) : la flèche dit un déplacement ; pas de flèche sur l'envoi */
+    { const f = suite.querySelector('svg'); if (f) f.style.display = k === 5 ? 'none' : ''; }
     if (focus) { const l = $('legend', etapes[k - 1]); l.setAttribute('tabindex', '-1'); l.focus({ preventScroll: true }); }
   };
   const valide = () => {
@@ -1152,7 +1154,7 @@ function pageBlanche() {
      après un échec, on peut corriger son courriel et renvoyer. Site final : événement generate_lead « atelier ». */
   const texteFiche = () => fiche.texte(`Fiche de projet, atelier (civik-ia.fr), ${AUJOURDHUI}, n° provisoire ${num}`);
   /* S6 : insécable avant les deux-points (« La copie a échoué : … ») */
-  $('[data-copier-fiche]', form).addEventListener('click', async () => { $('[data-copie-ok]', form).textContent = (await copier(texteFiche())) ? 'Fiche copiée.' : 'La copie a échoué\u00a0: sélectionnez la fiche à la main.'; });
+  $('[data-copier-fiche]', form).addEventListener('click', async () => { $('[data-copie-ok]', form).textContent = (await copier(texteFiche())) ? 'Fiche copiée. Collez-la où vous voulez.' : 'La copie a échoué\u00a0: sélectionnez la fiche à la main.'; });
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (form.dataset.enCours) return;   /* S1 : un envoi est déjà en cours */

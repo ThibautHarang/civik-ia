@@ -22,12 +22,12 @@
        Les textes d’envoi :
        « je »   réussite : « Merci, votre message est parti. »
                           « Je vous réponds au plus vite. »
-                échec    : « L’envoi n’a pas abouti. »
-                          « Écrivez-moi directement à contact@civik-ia.fr »
+                échec    : « Le message n’est pas parti. » (P3, les deux voix)
+                          « Vérifiez votre connexion et réessayez, ou envoyez-le par
+                          courriel : il est déjà écrit. » et « Envoyer par courriel à … »
        « nous » réussite : « Merci, votre message est parti. »
                           « Nous revenons vers vous pour fixer un premier échange. »
-                échec    : « L’envoi n’a pas abouti. »
-                          « Écrivez-nous directement à contact@civik-ia.fr »
+                échec    : le même que « je » (P3)
        (l’adresse est celle du lien .contact__mail de la page, sinon
        contact@civik-ia.fr ; c’est un lien mailto qui reprend l’objet et
        le message saisi : le visiteur ne perd rien).
@@ -93,7 +93,7 @@ function navigation() {
     bouton.setAttribute('aria-label', ouvrir ? 'Fermer le menu' : 'Ouvrir le menu');
   };
   bouton.addEventListener('click', () => basculer(bouton.getAttribute('aria-expanded') !== 'true'));
-  tiroir.addEventListener('click', e => { if (e.target.closest('a')) basculer(false); });
+  tiroir.addEventListener('click', e => { if (e.target.closest('a,[data-cookies-gerer]')) basculer(false); });   /* P3 : « Gérer les cookies » ferme aussi le tiroir */
   addEventListener('keydown', e => { if (e.key === 'Escape' && tiroir.classList.contains('ouvert')) { basculer(false); bouton.focus(); } });
 }
 
@@ -239,7 +239,7 @@ export function poserVignette(bloc) { if (!LETTRE || !lettre) return; try { lett
    a accepté). Rien de personnel : la page (lead_source : conseil, atelier) et le formulaire (form_name : fiche, contact),
    jamais le nom, le courriel ni le message. Installation du 13/10/2026 (avis DAJF du 13/10/2026, condition 2, même contrat
    que les événements du film) : rien n’est poussé tant que GTM n’est pas chargé (window.__civikGtmLoaded, posé par
-   cookie-consent.js après « Accepter ») ; pas de file d’attente, rien n’est rejoué à l’accord. Le déclencheur (événement
+   js/cookies.js depuis la passe P3, cookie-consent.js avant, après « Accepter ») ; pas de file d’attente, rien n’est rejoué à l’accord. Le déclencheur (événement
    personnalisé generate_lead) se crée dans GTM. */
 export function signalerDemande(form, type) {
   try { if (!window.__civikGtmLoaded) return; (window.dataLayer = window.dataLayer || []).push({ event: 'generate_lead', lead_source: document.body.dataset.page || '', form_name: type }); } catch (e) { /* rien */ }
@@ -265,7 +265,9 @@ export function etatEnvoi(bloc, etat, o = {}) {
   const t = TEXTES_ENVOI[o.voix === 'nous' ? 'nous' : 'je'];
   bloc.classList.toggle('envoi--echec', etat === 'echec');
   if (etat === 'reussite') bloc.innerHTML = `<p class="envoi__t">${echapper(o.titre || t.titre)}</p><p>${echapper(o.texte || t.texte)}</p>`;
-  else bloc.innerHTML = `<p class="envoi__t">L’envoi n’a pas abouti.</p><p>${echapper(o.texte || t.ecrire)} <a class="lien" href="${echapper(lienCourriel(o.sujet || 'Contact', o.corps || ''))}">${echapper(courrielPage())}</a></p>${o.plus || ''}`;
+  /* P3 (partie 5, proposition de la revue) : l'échec dit ce qui s'est passé et comment réparer ; le courriel de secours reprend le
+     message (il est déjà écrit) ; « Réessayer » en bouton est pour la passe P4 */
+  else bloc.innerHTML = `<p class="envoi__t">Le message n’est pas parti.</p><p>Vérifiez votre connexion et réessayez, ou envoyez-le par courriel\u00a0: il est déjà écrit.</p><p><a class="lien" href="${echapper(lienCourriel(o.sujet || 'Contact', o.corps || ''))}">Envoyer par courriel à ${echapper(courrielPage())}</a></p>${o.plus || ''}`;
   bloc.hidden = false;
   if (!bloc.hasAttribute('tabindex')) bloc.setAttribute('tabindex', '-1');
   bloc.focus({ preventScroll: false });
@@ -273,8 +275,9 @@ export function etatEnvoi(bloc, etat, o = {}) {
 /* le bouton pendant l’envoi : désactivé, « Envoi… » ; rend une fonction qui le remet comme avant */
 export function boutonEnCours(bouton) {
   const avant = bouton.innerHTML;
-  bouton.disabled = true; bouton.textContent = 'Envoi…';
-  return (garderDesactive) => { bouton.innerHTML = avant; bouton.disabled = !!garderDesactive; };
+  /* P3 (partie 3) : pendant l’envoi, le bouton garde sa couleur, aria-busy, et un trait or se trace sous « Envoi… » (pages.css) */
+  bouton.disabled = true; bouton.textContent = 'Envoi…'; bouton.setAttribute('aria-busy', 'true');
+  return (garderDesactive) => { bouton.innerHTML = avant; bouton.disabled = !!garderDesactive; bouton.removeAttribute('aria-busy'); };
 }
 /* R7 : l’envoi d’une fiche (Conseil : fiche de demande ; Atelier : fiche de projet), par le même mécanisme que le
    formulaire court : data-envoi, data-voix, data-sujet (et data-reussite-titre, data-reussite) ; la fiche entière dans
@@ -310,7 +313,8 @@ export function verifierChamp(c) {
   const err = c.closest('.champ')?.querySelector('.erreur');
   let m = '';
   if (c.required && !c.value.trim()) m = c.dataset.manque || 'Ce champ est à remplir.';
-  else if (c.type === 'email' && c.value.trim() && !COURRIEL.test(c.value.trim())) m = 'Cette adresse ne semble pas complète, par exemple prenom.nom@structure.fr.';
+  /* P3 (partie 5) : l'erreur dit où regarder */
+  else if (c.type === 'email' && c.value.trim() && !COURRIEL.test(c.value.trim())) m = 'Ce courriel semble incomplet\u00a0: vérifiez la partie après «\u00a0@\u00a0».';
   c.setAttribute('aria-invalid', m ? 'true' : 'false');
   if (err) err.textContent = m;
   return !m;

@@ -15,7 +15,7 @@
 .croisement[data-etat="d"] .lavis-chemin{opacity:1;transition-delay:.25s}
 /* CO-29 (cinquième passe, 07/10/2026) : la colonne passe de 540 à 560 px (39vw) pour que le rôle, plus long, tienne en deux
    lignes à 1440 avec de la marge (la plus longue fait 535 px) ; le chapô, lui, garde ses 540 px */
-.croisement__texte{position:absolute;z-index:4;left:max(5vw,calc(50vw - 640px));top:clamp(118px,16vh,168px);width:min(560px,39vw)}
+.croisement__texte{position:absolute;z-index:4;left:var(--bord);top:clamp(118px,16vh,168px);width:min(560px,39vw)}   /* P3 : le bord gauche commun, celui du signe de la barre (117 px à 1 440 ; 80 avant) */
 .croisement__texte::before{content:"";position:absolute;z-index:-1;left:-14%;top:-18%;width:132%;height:136%;background:radial-gradient(ellipse 50% 50% at 46% 50%,rgba(247,244,237,.94),rgba(247,244,237,.78) 46%,rgba(247,244,237,0) 100%);pointer-events:none}
 .croisement__h1{font-family:var(--titre);letter-spacing:-.03em;color:var(--bleu);text-wrap:balance}
 .croisement__h1 .nom{display:block;font:800 clamp(44px,4.7vw,68px)/1.02 var(--titre);letter-spacing:-.04em}
@@ -75,16 +75,16 @@
 .fleche.en-avant .fleche__soleil{opacity:1}
 .fleche.en-avant .fleche__soleil::after{transform:translateX(270%)}
 /* CO-24 : les deux boutons sous la scène ; celui de l'état en cours est plein */
-.choix__btn[aria-pressed="true"]{background:var(--bleu);border-color:var(--bleu);color:#fff;box-shadow:0 8px 20px rgba(0,0,145,.18)}
+.choix__btn[aria-pressed="true"]{background:var(--bleu);border-color:var(--bleu);color:#fff;box-shadow:none}   /* P3 : l'état joué est le plein, sans ombre */
 @media (hover:hover){.choix__btn[aria-pressed="true"]:hover{background:var(--bleu);color:#fff}}
 html:not(.js) .choix__btn{display:none}
 /* CO-24 : côte à côte jusqu'à 375 px de large */
-@media (max-width:440px){.choix{padding-inline:14px;column-gap:8px}.choix__btn{padding:10px 13px;gap:7px}}
+@media (max-width:479.98px){.choix{padding-inline:14px;column-gap:8px}.choix__btn{padding:10px 13px;gap:7px}}
 /* CO-27 (quatrième passe, 07/10/2026) : sur téléphone, les deux boutons sont à l'écran dès l'arrivée : une bande de papier
    translucide (85 %), collée au bas de l'écran pendant toute la traversée de la scène, qui se pose sous elle à la fin ; le
    poteau et le CV ne bougent pas (CO-23) ; la démonstration (CO-24) continue, le bouton joué se remplit avec son panneau */
 @media (max-width:767.98px){
-  .choix{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:95;width:max-content;max-width:calc(100% - 16px);margin:0 auto;padding:6px;column-gap:8px;border-radius:9999px;background:rgba(255,253,248,.85);box-shadow:0 0 0 1px rgba(120,100,60,.2),0 12px 26px -12px rgba(40,30,10,.38)}
+  .choix{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:95;width:max-content;max-width:calc(100% - 16px);margin:0 auto;padding:6px;column-gap:8px;border-radius:9999px;background:rgba(255,253,248,.85);box-shadow:0 0 0 1px rgba(120,100,60,.2),var(--o-flottant)}   /* P3 : la bande flotte au-dessus de la scène */
   .choix__btn:not([aria-pressed="true"]){background:var(--papier)}
 }
 
@@ -187,7 +187,7 @@ html:not(.js) .choix__btn{display:none}
 .cv.en-grand .cv__clou,.cv__feuille.en-grand .cv__loupe{opacity:0;transition:none}
 .cv__feuille.en-grand,.cv__feuille.au-repos{animation-play-state:paused}
 .cv-grand__feuille canvas{display:block;width:100%;height:auto}
-.cv-grand__fermer{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--creme);color:var(--bleu);box-shadow:0 8px 24px rgba(0,0,40,.25);opacity:0;transition:opacity .3s}
+.cv-grand__fermer{position:absolute;top:18px;right:18px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--creme);color:var(--bleu);box-shadow:var(--o-flottant);opacity:0;transition:opacity .3s}
 .cv-grand.ouvert .cv-grand__fermer{opacity:1}
 .cv-grand__fermer svg{width:20px;height:20px}
 
@@ -230,7 +230,7 @@ html:not(.js) .apport__portrait img{clip-path:none}
 /* CO-37 (cinquième passe, 07/10/2026) : pas de mot seul en dernière ligne là où le navigateur sait l'éviter (les insécables du
    HTML font le reste) */
 .qualites span,.etape p,.etape dd,.croisement__def,.sec .chapo{text-wrap:pretty}
-@media (max-width:900px){.apport__in{grid-template-columns:1fr}.apport__portrait{max-width:300px;margin-inline:auto}}
+@media (max-width:1023.98px){.apport__in{grid-template-columns:1fr}.apport__portrait{max-width:300px;margin-inline:auto}}
 
 /* ---------- 3. trois domaines, un seul besoin (CO-31, cinquième passe, 07/10/2026 ; d'abord deux domaines) ----------
    Trois blocs de cinq points, même dessin qu'avant. À 1020 px et plus (l’iPad en largeur compris), trois colonnes dont les lignes se répondent (règle du
@@ -238,7 +238,7 @@ html:not(.js) .apport__portrait img{clip-path:none}
    sept rangées : numéro, titre, cinq points ; la liste est elle-même une sous-grille) ; « Pour qui » reste dessous, en trois
    colonnes. Au-dessous de 1020 px, les blocs s'empilent. Repli sans sous-grille : les blocs gardent leur flux. */
 .domaines__grille{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.4vw,32px)}
-.domaine{position:relative;background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(26px,3vw,40px);box-shadow:var(--ombre-1);background-image:repeating-linear-gradient(180deg,transparent 0 41px,rgba(43,111,214,.07) 41px 42px);background-position:0 108px}
+.domaine{position:relative;background:var(--papier);border:0;border-radius:var(--r-carte);padding:clamp(26px,3vw,40px);box-shadow:var(--o-pose);background-image:repeating-linear-gradient(180deg,transparent 0 41px,rgba(43,111,214,.07) 41px 42px);background-position:0 108px}
 .domaine__num{font-size:34px;color:var(--or-txt)}
 .domaine .h3{margin-top:4px}
 .domaine ul{margin-top:18px;display:grid;gap:0}
@@ -252,7 +252,7 @@ html:not(.js) .apport__portrait img{clip-path:none}
 .domaine .h3::after,.domaine li::after{content:"";position:absolute;left:calc(-1 * var(--pad));right:calc(-1 * var(--pad));height:1px;background:rgba(43,111,214,.07);pointer-events:none}
 .domaine .h3::after{bottom:-10px}
 .domaine li::after{bottom:0}
-@media (min-width:1020px){
+@media (min-width:1024px){
   /* CO-41 (08/10/2026, matin, Thibaut) : plus de rangées partagées entre les trois blocs (elles laissaient de grands blancs sous les
      points courts) : chaque bloc espace ses cinq points de la même façon, régulièrement */
   .domaines__grille{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
@@ -264,7 +264,7 @@ html:not(.js) .apport__portrait img{clip-path:none}
 .terrains{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,32px);margin-top:clamp(34px,4vw,52px);padding-top:28px;border-top:1.5px solid rgba(0,0,145,.18)}
 .terrains b{display:block;font:700 18px/1.3 var(--titre);color:var(--bleu)}
 .terrains span{display:block;margin-top:6px;font-size:15.5px;color:var(--encre-2);line-height:1.5}
-@media (max-width:860px){.terrains{grid-template-columns:1fr}}   /* CO-31 : les blocs, eux, s’empilent sous 1020 px */
+@media (max-width:767.98px){.terrains{grid-template-columns:1fr}}   /* CO-31 : les blocs, eux, s’empilent sous 1 024 px (P3 : points de rupture de la maison) */
 
 /* ---------- 4. le déroulé : une route tracée à la plume, six bornes ----------
    CO-9 (06/10/2026) : les chiffres sont dessinés au centre de la face des bornes (dans le SVG de la route) ; les six
@@ -289,6 +289,7 @@ html:not(.js) .etape{opacity:1;transform:none}
 .frise.finie .frise__but{opacity:.9;transform:none}
 .frise__but.deux-lignes{white-space:normal;width:6.2em;text-align:right;line-height:1.02}
 html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top:22px;text-align:right}
+/* P3 : 1 100 gardé, la route de la frise est tracée par le script sur cette mise en page (bascule propre à la scène) */
 @media (max-width:1100px){
   .frise__etapes{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(6,auto) 150px repeat(6,auto)}
   .etape:nth-child(n+4){grid-row:8 / span 6}
@@ -303,7 +304,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
 
 /* ---------- 5. le parcours ---------- */
 .annees{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-top:34px}
-.annees::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:linear-gradient(90deg,var(--bleu),var(--trait));opacity:.22;border-radius:2px}
+.annees::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--bleu);opacity:.22;border-radius:2px}   /* P3 : aplat, plus de dégradé */
 .annees li{position:relative}
 .annees li::before{content:"";position:absolute;left:0;top:-31px;width:12px;height:12px;border-radius:50%;background:var(--creme-3);border:2px solid var(--bleu)}
 .annees li:last-child::before{background:var(--bleu);box-shadow:0 0 0 5px rgba(0,0,145,.12)}
@@ -317,10 +318,10 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
 .logo-plume{flex:none;width:1.3em;height:1.3em;overflow:visible}
 .logo-plume path{fill:none;stroke:var(--plume);stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover){.lien-linkedin:hover .lien{text-decoration-color:currentColor}}
-@media (max-width:980px){.annees{grid-template-columns:repeat(3,1fr);row-gap:44px}}
-@media (max-width:600px){
+@media (max-width:1023.98px){.annees{grid-template-columns:repeat(3,1fr);row-gap:44px}}
+@media (max-width:767.98px){
   .annees{grid-template-columns:1fr;padding-top:0;padding-left:28px;row-gap:22px}
-  .annees::before{left:5px;right:auto;top:4px;bottom:4px;width:2px;height:auto;background:linear-gradient(180deg,var(--bleu),var(--trait))}
+  .annees::before{left:5px;right:auto;top:4px;bottom:4px;width:2px;height:auto;background:var(--bleu)}
   .annees li::before{left:-28px;top:6px}
 }
 
@@ -367,6 +368,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
 .pas .lab .aide{font:500 13px/1.4 var(--sans);color:var(--encre-2)}
 .fiche dd.ecrit{animation:surligne 1.2s var(--entree)}
 @keyframes surligne{from{background:rgba(244,162,97,.28)}to{background:transparent}}
+/* P3 : 900 gardé, la page lit le même seuil (page.js, fiche qui suit la saisie) : bascule propre au composant */
 @media (max-width:900px){
   .atelier-demande{display:flex;flex-direction:column;gap:18px}
   .fiche-zone{order:-1;top:74px;z-index:3;max-height:36vh;max-height:36svh;overflow:hidden;border-radius:8px;transition:max-height .6s var(--entree)}
@@ -385,10 +387,10 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
 .fiche-bande,.fiche-panneau__fermer{display:none}
 #fiche-titre:focus{outline:none}   /* CO-26 : le titre de la fiche reçoit le focus à la relecture (lecteurs d'écran), sans contour */
 @media (max-width:767.98px){
-  .fiche-zone{align-self:stretch;top:78px;max-height:none;overflow:visible;border-radius:14px;transition:none}
+  .fiche-zone{align-self:stretch;top:78px;max-height:none;overflow:visible;border-radius:var(--r-champ);transition:none}
   .fiche-zone::after{display:none}
   .fiche-zone.panneau-ouvert{z-index:180}
-  .fiche-bande{display:grid;gap:5px;width:100%;text-align:left;padding:10px 14px 9px;border-radius:14px;background:var(--papier);color:var(--encre);box-shadow:0 0 0 1px rgba(120,100,60,.18),0 12px 26px -14px rgba(60,40,10,.4);-webkit-tap-highlight-color:transparent}
+  .fiche-bande{display:grid;gap:5px;width:100%;text-align:left;padding:10px 14px 9px;border-radius:var(--r-champ);background:var(--papier);color:var(--encre);box-shadow:var(--o-leve);-webkit-tap-highlight-color:transparent}
   .fiche-bande:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
   .fiche-bande__tete{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;padding-bottom:6px;border-bottom:1.5px solid var(--bleu)}
   .fiche-bande__titre{font:800 15.5px/1.15 var(--titre);letter-spacing:-.02em;color:var(--bleu);white-space:nowrap}
@@ -398,7 +400,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
   .fiche-bande__dt{color:var(--encre-2)}
   .fiche-bande__dt::after{content:"\00a0:"}
   .fiche-bande__dd{color:var(--encre);font-weight:600;overflow-wrap:anywhere}
-  .fiche-bande__dd.vide{color:#b4ab98;font-weight:500}
+  .fiche-bande__dd.vide{color:var(--encre-3);font-weight:500}   /* P3 : « à préciser » lisible (4,5:1) */
   .fiche-bande__pied{display:flex;align-items:center;justify-content:space-between;gap:10px;font:600 12.5px/1.3 var(--sans);color:var(--encre-2)}
   .fiche-bande__ouvrir{display:inline-flex;align-items:center;gap:4px;color:var(--bleu)}
   .fiche-bande__ouvrir svg{width:15px;height:15px}
@@ -408,7 +410,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
   .fiche-panneau.glisse{transition:none}
   .fiche-zone .fiche-panneau .fiche{transform:none;box-shadow:none;padding:4px 4px 16px;background:none}
   .fiche-panneau .fiche::before{display:none}
-  .fiche-panneau__fermer{display:grid;place-items:center;position:fixed;z-index:3;top:14px;right:14px;width:48px;height:48px;border-radius:50%;background:var(--creme);color:var(--bleu);box-shadow:0 6px 18px rgba(0,0,40,.18)}
+  .fiche-panneau__fermer{display:grid;place-items:center;position:fixed;z-index:3;top:14px;right:14px;width:48px;height:48px;border-radius:50%;background:var(--creme);color:var(--bleu);box-shadow:var(--o-flottant)}
   .fiche-panneau__fermer svg{width:20px;height:20px}
   .fiche-panneau::before{content:"";position:fixed;z-index:3;top:10px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:5px;background:rgba(120,100,60,.3)}
   html.fiche-ouverte,html.fiche-ouverte body{overflow:hidden}
@@ -417,7 +419,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
   .fiche-zone.complete .fiche-bande{display:none}
   .fiche-zone.complete .fiche-panneau{position:static;transform:none;visibility:visible;overflow:visible;padding:0;background:none;transition:none}
   .fiche-zone.complete .fiche-panneau::before,.fiche-zone.complete .fiche-panneau__fermer{display:none}
-  .fiche-zone.complete .fiche-panneau .fiche{padding:18px 18px 26px;background:var(--papier);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 0 0 1px rgba(120,100,60,.14),0 2px 3px rgba(60,40,10,.06),0 22px 48px -18px rgba(60,40,10,.28)}
+  .fiche-zone.complete .fiche-panneau .fiche{padding:18px 18px 26px;background:var(--papier);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,var(--o-pose)}
   .fiche-zone.complete .fiche-panneau .fiche::before{display:block}
   .fiche-fin{order:2;align-self:stretch;display:grid;gap:12px}
   .fiche-fin .btn{width:100%}
@@ -439,7 +441,7 @@ html:not(.js) .frise__but{position:relative;opacity:.9;transform:none;margin-top
    de 768 px */
 /* DJ-9 (08/10/2026, soir), contrôle de largeur : de 421 à 466 px, « Prendre contact avec moi » poussait le bouton du menu hors de
    la barre et hors de l'écran (de 46 px à 421, 12 px hors de l'écran à 430) ; la forme courte « Me contacter » jusqu'à 479 px */
-@media (min-width:421px) and (max-width:479.98px){.nav__cta .long{display:none}.nav__cta .court{display:inline}}
+/* P3 : la barre prend ses libellés courts par requête de conteneur (commun/pages/pages.css) */
 /* DJ-9, même contrôle : à l'étape 5 sur téléphone, « Retour » et « Voir ma fiche » (292 px) élargissaient la carte de la fiche
    au-delà de sa colonne (18 px à 360, 3 px à 375). Même traitement que la fiche de projet de l'Atelier : le bouton passe dessous,
    à la largeur de la colonne, quand il ne tient pas ; les étapes 1 à 4 et l'ordinateur ne changent pas */

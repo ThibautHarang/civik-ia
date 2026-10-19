@@ -45,7 +45,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 .lede{font-size:19px;color:var(--tx-soft);line-height:1.55;margin-bottom:24px}
 .bullets{margin-bottom:24px}
 .bullets li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px;color:var(--tx);font-size:16px}
-.bullets li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:900;font-size:18px}
+.bullets li::before{content:"";position:absolute;left:4px;top:.78em;width:14px;height:2px;border-radius:2px;background:var(--teal-txt)}   /* passe P3 : un trait de 14 px au lieu de la coche-émoji */
 .author{display:flex;align-items:center;gap:12px;padding:16px 18px;background:#fff;border:1px solid var(--border);border-radius:var(--r-md);margin-top:24px;box-shadow:var(--shadow-sm)}
 .author-avatar{width:48px;height:48px;background:var(--p);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px;font-family:Georgia,serif;flex-shrink:0}
 .author-text{font-size:14px;color:var(--tx-soft);line-height:1.4}
@@ -151,7 +151,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
       <p class="sub">Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).</p>
 
       <form id="lead-form" action="https://formspree.io/f/mnjogblz" method="POST">
-        <input type="hidden" name="_subject" value="📥 Téléchargement Livre Blanc 2026">
+        <input type="hidden" name="_subject" value="Téléchargement Livre Blanc 2026">
         <input type="hidden" name="_replyto" id="form-email-hidden">
 
         <div class="field">
@@ -163,7 +163,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
           <input type="text" id="nom" name="nom" required autocomplete="family-name">
         </div>
         <div class="field">
-          <label for="email">Email professionnel *</label>
+          <label for="email">Courriel professionnel *</label>
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="prenom.nom@mairie-xxx.fr">
         </div>
         <div class="field">
@@ -194,7 +194,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 
       <div id="success">
         <h2>Merci&nbsp;!</h2>
-        <p>Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par email.</p>
+        <p>Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par courriel.</p>
         <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download id="manual-download">Cliquez ici si le téléchargement n’a pas démarré</a>
       </div>
     </div>

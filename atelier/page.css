@@ -37,7 +37,7 @@
 .allume .entree__nuit{opacity:0;transition:opacity 1.8s cubic-bezier(.3,.1,.3,1) .35s}
 .allume .entree__piece{animation:avance 11s cubic-bezier(.2,.6,.3,1) .6s forwards}
 @keyframes avance{from{transform:scale(1)}to{transform:scale(1.05)}}
-.entree__texte{position:absolute;z-index:3;left:max(5vw,calc(50vw - 640px));top:50%;transform:translateY(-44%);width:min(600px,44vw);color:#fff}
+.entree__texte{position:absolute;z-index:3;left:var(--bord);top:50%;transform:translateY(-44%);width:min(600px,44vw);color:#fff}
 .entree__verbe{font-size:clamp(34px,2.8vw,42px);color:var(--or);transform:rotate(-3deg);transform-origin:left;margin-bottom:6px}
 .entree__h1{font:800 clamp(36px,3.7vw,54px)/1.08 var(--titre);letter-spacing:-.035em;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(10,6,2,.35)}
 .entree__feuille{overflow:visible}
@@ -55,6 +55,7 @@
 /* S4 (finitions du 07/10/2026) : une tablette en portrait prend la composition du téléphone (texte en haut, table dessous, même règle
    dans page.js), à la taille d'une tablette : à 768, le paragraphe ne se pose plus sur la feuille et la pierre, et le titre,
    sur toute la largeur, ne laisse plus « logiciels » seul sur sa ligne */
+/* P3 : 1 100 gardé, la page lit le même seuil pour composer la scène (page.js, mob) : bascule propre à la scène */
 @media (min-width:768px) and (max-width:1099.98px) and (orientation:portrait){
   .entree{height:max(720px,100svh)}
   .entree__voile{background:linear-gradient(180deg,rgba(18,12,7,.8) 0%,rgba(18,12,7,.62) 40%,rgba(18,12,7,.05) 58%,rgba(18,12,7,0) 68%)}
@@ -212,16 +213,17 @@
 .meuble.dessine .meuble__invite{opacity:.8}
 .meuble.ouvert .meuble__invite{opacity:0}
 .contenus{position:relative;min-height:420px}
-.contenu{background:var(--papier);border:1px solid rgba(120,100,60,.2);border-radius:var(--r-l);padding:clamp(24px,3vw,38px);box-shadow:var(--ombre-2)}
+.contenu{background:var(--papier);border:0;border-radius:var(--r-carte);padding:clamp(24px,3vw,32px);box-shadow:var(--o-pose)}   /* P3 : une carte (rayon 18, 32 px, ombre posée) */
 .contenu.entre{animation:sort .7s var(--entree)}
 @keyframes sort{from{opacity:0;transform:translateY(-14px) scale(.985);filter:blur(2px)}to{opacity:1;transform:none;filter:none}}
 .contenu__titre{font:800 clamp(26px,2.4vw,34px)/1.1 var(--titre);color:var(--bleu);letter-spacing:-.03em}
 .contenu dl{margin-top:14px}
-.contenu dt{margin-top:16px;font:700 11px/1.3 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--or-txt)}
+.contenu dt{margin-top:16px;font:var(--t-repere);letter-spacing:var(--ls-repere);text-transform:uppercase;color:var(--or-txt)}
 .contenu dd{margin-top:4px;font-size:16px;line-height:1.55;color:var(--encre)}
 .contenu .btn{margin-top:26px}
 .contenu__grand{margin-top:16px;font:700 clamp(22px,2vw,28px)/1.25 var(--titre);color:var(--bleu-2);letter-spacing:-.02em}
 .contenu>p:not([class]){margin-top:14px;font-size:16.5px;color:var(--encre-2);line-height:1.6}
+/* P3 : 900 gardé, la page lit le même seuil (page.js, hauteur des contenus) : bascule propre au composant */
 @media (max-width:900px){.meuble{grid-template-columns:1fr}.contenus{min-height:0}.meuble__tiroirs{padding:50px 20px 66px}}
 /* AT-16 (quatrième passe) : sur téléphone, la fiche sort du tiroir ouvert et se place juste sous sa façade ; la place lui est faite par une
    marge sous le tiroir (--fiche-place, calculée par la page), les tiroirs suivants descendent d'autant. La fiche déborde un peu le meuble
@@ -243,7 +245,7 @@
   .contenu__fermer:active{transform:scale(.92)}
 }
 /* AT-29 : la fiche rentre dans son tiroir sans fondu (l'opacité de 1 à 0 laissait voir le meuble au travers) : la découpe suffit */
-@keyframes fiche-rentre{from{clip-path:inset(0 0 0 0 round var(--r-l));transform:none}to{clip-path:inset(0 0 100% 0 round var(--r-l));transform:translateY(-26px)}}
+@keyframes fiche-rentre{from{clip-path:inset(0 0 0 0 round var(--r-carte));transform:none}to{clip-path:inset(0 0 100% 0 round var(--r-carte));transform:translateY(-26px)}}
 
 /* ---------- 3. ce qui est sorti de l'atelier ----------
    AT-2 : trois piles de fiches, par type. Les colonnes partagent leurs
@@ -255,7 +257,7 @@
 .pile.vole{z-index:4}
 .pile__titre{display:flex;align-items:baseline;gap:10px;margin:0 4px 16px;font:700 clamp(19px,1.6vw,22px)/1.2 var(--titre);letter-spacing:-.015em;color:var(--bleu)}
 .pile__titre::after{content:"";flex:1;height:1px;align-self:center;background:linear-gradient(90deg,rgba(120,100,60,.32),rgba(120,100,60,0))}
-.pile__paquet{position:relative;padding:8px 10px 22px;border-radius:14px;-webkit-tap-highlight-color:transparent}
+.pile__paquet{position:relative;padding:8px 10px 22px;border-radius:var(--r-champ);-webkit-tap-highlight-color:transparent}
 .pile__paquet[tabindex]{cursor:pointer}
 .pile__paquet:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .pile__fiches{display:grid;height:100%}
@@ -264,19 +266,20 @@
 .fiche-r::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 100% 100%,rgba(120,90,40,.07),transparent 70%),radial-gradient(ellipse 50% 40% at 0 0,rgba(120,90,40,.05),transparent 70%)}
 /* les fiches de dessous : un peu plus sombres, comme dans l'ombre de celle du dessus */
 .fiche-r::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:rgba(90,70,40,.07);opacity:var(--sous,0);transition:opacity .4s var(--doux)}
-.fiche-r__croquis{display:block;width:100%;aspect-ratio:4/3;border-radius:10px;background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.12) inset}
+.fiche-r__croquis{display:block;width:100%;aspect-ratio:4/3;border-radius:2px;background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.12) inset}
 .fiche-r__titre{margin:16px 6px 0;min-height:2.5em;font:700 18.5px/1.25 var(--titre);letter-spacing:-.01em;color:var(--bleu);text-wrap:balance}
 .fiche-r p{margin:6px 6px 0;font-size:15px;line-height:1.5;color:var(--encre-2);flex:1}
 .fiche-r__geste{margin:16px 6px 0;font-size:15px}
-.oeuvre__demande{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:9999px;background:rgba(120,100,60,.1);font:600 13px/1.2 var(--sans);color:#6b6455}
+/* P3 : « Présenté sur demande » est une mention, pas un bouton : plus de pilule (la pilule veut dire « touchez-moi ») */
+.oeuvre__demande{display:inline-flex;align-items:center;gap:7px;padding:0;font:600 14px/1.3 var(--sans);color:var(--encre-2)}
 .pile__commandes{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}
-.pile__fleche{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;color:var(--bleu);background:var(--papier);box-shadow:0 0 0 1px rgba(120,100,60,.24),0 4px 10px rgba(60,40,10,.08);transition:transform .14s var(--doux),background .25s}
+.pile__fleche{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;color:var(--bleu);background:var(--papier);box-shadow:var(--o-pose);transition:transform .14s var(--doux),background .25s}
 .pile__fleche svg{width:18px;height:18px}
 .pile__fleche:active{transform:scale(.92)}
-@media (hover:hover){.pile__fleche:hover{background:#fff;box-shadow:0 0 0 1px rgba(0,0,145,.35),0 4px 10px rgba(60,40,10,.1)}}
+@media (hover:hover){.pile__fleche:hover{box-shadow:0 0 0 1px rgba(0,0,145,.5),0 1px 2px rgba(60,40,10,.08)}}
 .pile__repere{min-width:52px;text-align:center;font:600 14px/1 var(--sans);color:var(--encre-2);font-variant-numeric:tabular-nums}
 .pile__repere b{color:var(--bleu);font-weight:700}
-@media (max-width:900px){
+@media (max-width:1023.98px){
   .piles{grid-template-columns:minmax(0,1fr);grid-template-rows:none;row-gap:44px}
   .pile{grid-row:auto;grid-template-rows:none}
   .fiche-r__titre{min-height:0}
@@ -285,7 +288,7 @@
 /* ---------- 4. la page blanche ---------- */
 .blanche{padding-bottom:clamp(60px,7vw,110px)}
 .blanche>.wrap>.tete{margin-bottom:clamp(28px,3.4vw,44px)}
-.planche{position:relative;margin:0 auto;max-width:1400px;border-radius:28px;isolation:isolate;box-shadow:0 30px 70px -20px rgba(40,24,8,.45);overflow:clip}   /* AT-4 : le bras de la main s'arrête au bord de la planche (clip : la feuille reste collante) */
+.planche{position:relative;margin:0 auto;max-width:1400px;border-radius:var(--r-scene);isolation:isolate;box-shadow:0 30px 70px -20px rgba(40,24,8,.45);overflow:clip}   /* AT-4 : le bras de la main s'arrête au bord de la planche (clip : la feuille reste collante) */
 .planche__bois{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;background:#7a5634 url(../commun/img/c/atelier-planche.webp) 50% 40%/cover no-repeat}
 .planche__bois::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 40% 45%,rgba(255,214,150,.12),rgba(30,18,8,.28) 100%)}
 .planche__in{display:grid;grid-template-columns:minmax(0,1.42fr) minmax(0,1fr);gap:clamp(22px,2.6vw,40px);align-items:start;padding:clamp(28px,4vw,64px) clamp(20px,3.6vw,56px)}
@@ -306,18 +309,18 @@
 .main-crayon__prise{position:absolute;left:41%;top:27%;width:30%;height:31%;border-radius:45%;pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .main-crayon.suit .main-crayon__prise{pointer-events:none}
 .feuille__outils{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.outil{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 15px 9px 12px;border-radius:9999px;background:rgba(247,244,237,.95);border:1px solid rgba(200,190,170,.55);box-shadow:0 6px 18px rgba(20,10,0,.18);font:600 13.5px/1 var(--sans);color:var(--bleu);transition:transform .14s var(--doux),background .25s,color .25s}
+.outil{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 15px 9px 12px;border-radius:9999px;background:rgba(247,244,237,.95);border:1px solid rgba(200,190,170,.55);box-shadow:var(--o-leve);font:600 13.5px/1 var(--sans);color:var(--bleu);transition:transform .14s var(--doux),background .25s,color .25s}
 .outil svg{width:18px;height:18px}
-.outil:active{transform:scale(.96)}
+.outil:active{transform:scale(.97)}
 .outil[aria-pressed="true"]{background:var(--bleu);color:#fff;border-color:var(--bleu)}
-.pas--atelier{position:relative;z-index:5;box-shadow:0 24px 50px -16px rgba(20,10,0,.5)}   /* AT-4 : la fiche des étapes passe au-dessus de la main posée */
+.pas--atelier{position:relative;z-index:5;box-shadow:var(--o-flottant)}   /* AT-4 : la fiche des étapes passe au-dessus de la main posée */
 .puces--grandes .puce span{min-height:50px;padding:12px 18px;font-size:15.5px}
 .fin-projet{margin-top:6px}
 .fiche--projet{margin-top:4px;padding:24px 22px 22px}
 .fiche--projet .fiche__titre{font-size:21px}
 /* S1 (finitions du 07/10/2026) : sous la fiche envoyée, le second geste (télécharger le croquis, copier la fiche) */
 .fin-projet__second{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px}
-@media (max-width:980px){
+@media (max-width:1023.98px){
   .planche{border-radius:0}
   .planche__in{display:flex;flex-direction:column;gap:18px;padding:16px}
   .feuille-zone{top:80px;z-index:3;width:100%;padding:8px 0 10px;background:linear-gradient(180deg,rgba(90,62,36,.0),rgba(90,62,36,0));clip-path:inset(-40px -40px 0 -40px)}   /* AT-4 : la main posée ne déborde pas sur les étapes */
@@ -326,13 +329,13 @@
   .outil span{white-space:nowrap}
   .pas--atelier{width:100%}
 }
-@media (max-width:420px){.outil[data-telecharger] span{display:none}.outil[data-telecharger]{padding:8px 10px}}
+@media (max-width:479.98px){.outil[data-telecharger] span{display:none}.outil[data-telecharger]{padding:8px 10px}}
 
 /* ---------- 5. méthode ----------
    AT-3 : la grande scène (l'état courant, à taille lisible) et, dessous,
    la rangée des six vignettes (la lecture d'un coup d'œil). */
 .scene{position:relative;display:grid;grid-template-columns:minmax(0,2.3fr) minmax(0,1fr);gap:clamp(24px,3.2vw,48px);align-items:center;margin-bottom:clamp(36px,4vw,56px)}
-.scene__fenetre{position:relative;aspect-ratio:1000/625;border-radius:14px;background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.16),0 30px 60px -28px rgba(40,26,10,.45),0 2px 4px rgba(60,40,10,.06);cursor:default;-webkit-tap-highlight-color:transparent}
+.scene__fenetre{position:relative;aspect-ratio:1000/625;border-radius:var(--r-champ);background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.16),0 30px 60px -28px rgba(40,26,10,.45),0 2px 4px rgba(60,40,10,.06);cursor:default;-webkit-tap-highlight-color:transparent}
 .scene__etat{position:absolute;inset:0;opacity:0;transition:opacity .38s var(--doux);pointer-events:none}
 /* AT-15 : pendant la retenue, les états se succèdent vite : chacun est peint d'avance sur son calque (opacité 0,001, invisible), pour
    que le premier passage d'un état ne coûte pas une image longue (vu une fois à 150 ms, téléphone, densité 3) */
@@ -392,8 +395,8 @@ html.methode-borne,html.methode-borne body{overscroll-behavior-y:none}
 /* les vignettes : un bouton par état ; la courante est soulignée */
 .methode__liste{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.6vw,22px)}
 .methode__liste li{display:flex;flex-direction:column;min-width:0}
-.vignette{display:block;width:100%;border-radius:10px;-webkit-tap-highlight-color:transparent;transition:transform .2s var(--doux)}
-.vignette__visuel{position:relative;display:block;width:100%;aspect-ratio:1000/625;border-radius:10px;overflow:hidden;background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.16),var(--ombre-1);transition:box-shadow .3s}
+.vignette{display:block;width:100%;border-radius:var(--r-champ);-webkit-tap-highlight-color:transparent;transition:transform .2s var(--doux)}
+.vignette__visuel{position:relative;display:block;width:100%;aspect-ratio:1000/625;border-radius:var(--r-champ);overflow:hidden;background:#fdfbf5;box-shadow:0 0 0 1px rgba(120,100,60,.16),var(--ombre-1);transition:box-shadow .3s}
 .vignette__visuel .etat-svg{position:absolute;inset:0;width:100%;height:100%}
 .vignette[aria-current] .vignette__visuel{box-shadow:0 0 0 2px var(--bleu),0 10px 22px -10px rgba(0,0,145,.4)}
 .vignette:active{transform:scale(.97)}
@@ -401,7 +404,8 @@ html.methode-borne,html.methode-borne body{overscroll-behavior-y:none}
 .methode__liste h3{margin-top:14px;display:flex;align-items:baseline;gap:8px;font:700 17px/1.25 var(--titre);color:var(--bleu)}
 .methode__liste h3 span{font:600 24px/1 var(--main);color:var(--or-txt)}
 .methode__liste p{margin-top:6px;font-size:14.5px;line-height:1.5;color:var(--encre-2)}
-@media (max-width:1100px){.scene{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)}}
+@media (max-width:1279.98px){.scene{grid-template-columns:minmax(0,1.9fr) minmax(0,1fr)}}
+/* P3 : 900 gardé pour la scène de la méthode (piste collée, défilement des états par la page) : bascule propre à la scène */
 @media (max-width:900px){
   .scene{grid-template-columns:minmax(0,1fr);gap:18px}
   .scene__texte{max-width:none;min-height:0}
@@ -544,6 +548,5 @@ html.methode-borne,html.methode-borne body{overscroll-behavior-y:none}
   .pas--atelier .pas__actions .nav__esp{flex:1000 1 0}
   .pas--atelier [data-pas-suite]{flex:1 1 auto}
 }
-/* DJ-9, même contrôle de largeur : de 421 à 427 px, « Parler de mon projet » poussait le bouton du menu hors de la barre (jusqu'à
-   10 px) ; la forme courte « Mon projet » jusqu'à 439 px (la longue tient dès 429) */
-@media (min-width:421px) and (max-width:439.98px){.nav__cta .long{display:none}.nav__cta .court{display:inline}}
+/* DJ-9 : « Parler de mon projet » poussait le bouton du menu hors de la barre de 421 à 427 px ; P3 : la barre prend ses libellés
+   courts sous 820 px de barre (requête de conteneur, commun/pages/pages.css) */

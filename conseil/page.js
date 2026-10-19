@@ -1269,7 +1269,9 @@ function demande() {
     retour.hidden = k === 1;
     /* CO-14 : « Envoyer ma fiche » à la dernière étape, et « Copier ma fiche » en second geste */
     /* CO-26 : sur téléphone, la dernière étape mène d'abord à la relecture de la fiche, en place ; l'envoi est dessous */
-    suite.innerHTML = (k === 5 ? (telephone() ? 'Voir ma fiche ' : 'Envoyer ma fiche ') : 'Suivant ') + FLECHE;
+    /* P3 (partie 5) : « Relire ma fiche » au téléphone (le même verbe que la bande), puis « Envoyer ma fiche » ; la flèche dit un
+       déplacement : pas de flèche sur l'envoi */
+    suite.innerHTML = k === 5 ? (telephone() ? 'Relire ma fiche ' + FLECHE : 'Envoyer ma fiche') : 'Suivant ' + FLECHE;
     second.hidden = k !== 5 || (telephone() && !relecture);
     const hautLibre = telephone() ? 90 + bande.offsetHeight : 70;
     if (focus) { const l = $('legend', etapes[k - 1]); l.setAttribute('tabindex', '-1'); l.focus({ preventScroll: true }); if (form.getBoundingClientRect().top < hautLibre) form.scrollIntoView({ block: 'start', behavior: reduit() ? 'auto' : 'smooth' }); }
@@ -1299,7 +1301,7 @@ function demande() {
     FACULTATIFS.forEach(cle => { if (fiche.valeurs[cle]) return; const dt = $(`[data-l="${cle}"]`, fiche.racine).previousElementSibling.textContent; t = t.replace(new RegExp(`^${dt} : à préciser$`, 'm'), `${dt} : ${NON_PRECISE}`); });
     return t;
   };
-  $('[data-copier-fiche]').addEventListener('click', async () => { majFiche(null, true); resumer(); $('[data-copie-ok]').textContent = (await copier(texteFiche())) ? 'Fiche copiée.' : 'La copie a échoué\u00a0: sélectionnez la fiche à la main.'; });   /* R2 : insécable */
+  $('[data-copier-fiche]').addEventListener('click', async () => { majFiche(null, true); resumer(); $('[data-copie-ok]').textContent = (await copier(texteFiche())) ? 'Fiche copiée. Collez-la où vous voulez.' : 'La copie a échoué\u00a0: sélectionnez la fiche à la main.'; });   /* R2 : insécable */
   retour.addEventListener('click', () => { quitterRelecture(); afficher(Math.max(1, n - 1)); garder(); });   /* CO-26 : le retour quitte la relecture */
   form.addEventListener('submit', async e => {
     e.preventDefault();

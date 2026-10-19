@@ -5,7 +5,9 @@ connaissances, puis un visuel de contact pour déployer Marianne dans une collec
 des captures de l'animation réelle du site (`/marianne/base.js`), à chacun de ses six états ; les titres sont ceux de
 la page, les textes en sont une synthèse en deux phrases. L'heure 22 h 47 de la page n'est pas reprise (écran du
 téléphone à 14 h 05, sans heure de message). Le septième visuel reprend la section de fin de la page (nuit, sceau,
-bouton clair) avec les coordonnées de contact.
+bouton clair) avec les coordonnées de contact, le bloc centré entre l'en-tête et le pied. L'étape 6 ajoute sous son texte
+la rangée des canaux de la page (Sur votre site, Sur votre smartphone, QR code & affichage, WhatsApp et Messenger
+« Bientôt »), statuts à aligner sur `MARIANNE_CHANNELS` dans `/marianne/marianne.js`.
 
 Rendu en 2x (chaque image fait le double des dimensions nominales du réseau).
 
@@ -19,6 +21,8 @@ Rendu en 2x (chaque image fait le double des dimensions nominales du réseau).
 
 Sur LinkedIn, publier le PDF `linkedin/carrousel-cerveau-marianne-linkedin.pdf` comme document : c'est lui qui donne
 le carrousel à faire défiler.
+
+`PROMPT-CLAUDE-DESIGN.md` : le brief complet à coller dans Claude Design pour pousser plus loin ces visuels.
 
 ## Regénérer
 

@@ -2,6 +2,8 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const SIZES = JSON.parse(process.argv[2] || '{"carre":[900,860]}');
+/* troisième argument : les états à capturer (1 à 6), par exemple "6" pour la seule étape 6 ; tous par défaut */
+const ETATS = process.argv[3] ? process.argv[3].split(',').map(n => +n - 1) : [0, 1, 2, 3, 4, 5];
 (async () => {
   const b = await chromium.launch();
   const ctx = await b.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 3 });
@@ -28,7 +30,7 @@ const SIZES = JSON.parse(process.argv[2] || '{"carre":[900,860]}');
       mb.calculer();
     }, [W, H]);
     await page.waitForTimeout(300);
-    for (let e = 0; e <= 5; e++) {
+    for (const e of ETATS) {
       await page.evaluate(e => { window.__mb.arreter(); window.__mb.appliquer(e); }, e);
       await page.waitForTimeout(400);
       await page.locator('.recit__scene .table').screenshot({ path: `scenes3/${nom}-etat-${e + 1}.png`, omitBackground: true });

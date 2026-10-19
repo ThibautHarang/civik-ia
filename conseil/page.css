@@ -87,6 +87,9 @@ html:not(.js) .choix__btn{display:none}
   .choix{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:95;width:max-content;max-width:calc(100% - 16px);margin:0 auto;padding:6px;column-gap:8px;border-radius:9999px;background:rgba(255,253,248,.85);box-shadow:0 0 0 1px rgba(120,100,60,.2),var(--o-flottant)}   /* P3 : la bande flotte au-dessus de la scène */
   .choix__btn:not([aria-pressed="true"]){background:var(--papier)}
 }
+/* P4 (19/10/2026, revue, partie 9, friction 11) : au téléphone, tant que la bande des deux choix est collée au bas de l'écran, la
+   carte des cookies (js/cookies.js) se pose au-dessus d'elle, jamais sur ses boutons */
+@media (max-width:767.98px){html .cc.cc-cookies{bottom:calc(78px + env(safe-area-inset-bottom,0px))}}
 
 /* CO-17 (deuxième passe, 06/10/2026) : le ciel et le paysage répondent aux deux flèches. Tout est en calques posés une fois
    (dégradés fixes, le soleil du film peint une fois, les nuages et le cairn en traits de plume) ; les transitions ne

@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement, CNIL art. 82 -->
-<link rel="stylesheet" href="/css/couche-commune.css?v=20261019b">
-<script src="/js/cookies.js?v=20261019b" defer></script>
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019c">
+<script src="/js/cookies.js?v=20261019c" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script src="../commun/essais.js"></script>
@@ -43,7 +43,7 @@
 <link rel="preload" href="../commun/fonts/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/fonts/caveat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/img/c/poteau-planche.webp" as="image">
-<link rel="stylesheet" href="/css/jetons.css?v=20261019b">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019c">
 <link rel="stylesheet" href="../commun/pages/pages.css">
 <link rel="stylesheet" href="page.css">
 <script type="application/ld+json">
@@ -598,7 +598,7 @@
           </div>
           <div class="grille-2">
             <div class="champ"><label for="d-courriel">Courriel <span class="oblig" aria-hidden="true">*</span></label><input id="d-courriel" name="courriel" type="email" autocomplete="email" required data-manque="Indiquez votre courriel pour que je puisse vous répondre."><p class="erreur" role="alert"></p></div>
-            <div class="champ"><label for="d-tel">Téléphone <span class="aide">(facultatif)</span></label><input id="d-tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="champ"><label for="d-tel">Téléphone <span class="aide">(facultatif)</span></label><input id="d-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel"><p class="erreur" role="alert"></p></div>
           </div>
           <p class="mention">Champs marqués d’un astérisque&nbsp;: obligatoires. <span class="insec">Civik-ia</span> utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à <span class="insec">contact@civik-ia.fr</span>. En savoir plus&nbsp;: <a href="https://civik-ia.fr/legal/politique-confidentialite.html" target="_blank" rel="noopener" aria-label="politique de confidentialité (nouvel onglet)">politique de confidentialité</a>.</p>
         </fieldset>
@@ -674,7 +674,7 @@
         <a class="contact__mail" href="mailto:thibaut.harang@civik-ia.fr" data-entree><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>thibaut.harang@civik-ia.fr</a>
         <p class="contact__plus" data-entree>Vous préférez détailler votre situation&nbsp;? <a class="lien" href="#demande">Préparez votre fiche de&nbsp;demande</a>.</p>
       </div>
-      <form class="contact__formu" data-court action="https://formspree.io/f/mnjogblz" method="POST" data-envoi="https://formspree.io/f/mnjogblz" data-voix="je" data-sujet="Contact conseil, depuis la page Conseil" data-reussite-titre="Merci, votre message est parti." data-reussite="Je vous réponds pour fixer nos trente minutes." novalidate>
+      <form class="contact__formu" data-court action="https://formspree.io/f/mnjogblz" method="POST" data-envoi="https://formspree.io/f/mnjogblz" data-voix="je" data-sujet="Contact conseil, depuis la page Conseil" data-reussite-titre="Merci, votre message est parti." data-reussite="Je vous réponds pour fixer nos trente minutes." data-suite-href="#deroule" data-suite-texte="En attendant&nbsp;: le déroulé d’un conseil" novalidate>
         <input type="hidden" name="_subject" value="Contact conseil, depuis la page Conseil">
         <div class="champ"><label for="c-nom">Nom <span class="oblig" aria-hidden="true">*</span></label><input id="c-nom" name="nom" type="text" autocomplete="name" required data-manque="Indiquez votre nom."><p class="erreur" role="alert"></p></div>
         <div class="champ"><label for="c-structure">Structure</label><input id="c-structure" name="structure" type="text" autocomplete="organization"></div>

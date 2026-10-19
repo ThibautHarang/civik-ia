@@ -131,6 +131,21 @@ html[data-couche="ancienne"] *{-webkit-backdrop-filter:none !important;backdrop-
 @media (hover:hover){.cc .cc-cookies__btn:hover{background:rgba(0,0,145,.05)}}
 .cc .cc-cookies__choisir{min-height:44px;margin:0;padding:0 6px;border:0;background:none;color:var(--bleu);font:600 14px/1 var(--f-texte);text-decoration:underline;text-decoration-color:rgba(0,0,145,.45);text-underline-offset:3px;cursor:pointer}
 @media (max-width:480px){.cc.cc-cookies{left:10px;right:10px;bottom:10px;padding:16px}}
+/* P4 (19/10/2026, revue Claude Design, parties 3 et 9, friction 17) : sur ordinateur (1 024 px et plus), la carte devient
+   compacte, en bas à gauche, 420 px au plus ; sur un écran haut (860 px et plus), plus étroite tant que la largeur l'exige (la
+   moitié de l'écran moins 232 px) : elle ne couvre ni les deux boutons centrés du premier écran de Conseil (« Décider seul »,
+   « Être accompagné », visibles au premier écran quand la fenêtre est haute), ni son bouton « Trente minutes pour en parler »
+   (fenêtre basse : la carte reste large, donc basse), ni le rail et les commandes du film (centre et droite) ; les deux boutons
+   gardent le même poids, « Choisir » passe dessous si la place manque. Mesuré le 19/10/2026 de 1 024 x 768 à 1 440 x 900.
+   Au téléphone, elle reste en bas, sur toute la largeur. Plus de pilule flottante : « Gérer les cookies » vit dans le pied et
+   le tiroir du menu */
+@media (min-width:1024px){
+  .cc.cc-cookies{left:16px;right:auto;margin:0;width:420px;max-width:none;padding:18px 20px;container-type:inline-size}
+  .cc .cc-cookies__btn{flex:1 1 0;min-width:0;padding:0 12px}
+}
+@media (min-width:1024px) and (min-height:860px){.cc.cc-cookies{width:min(420px,calc(50vw - 232px))}}
+/* carte étroite (moins de 360 px) : « Choisir » passe sous les deux boutons, qui gardent toute la largeur et le même poids */
+@container (max-width:359.98px){.cc .cc-cookies__choisir{flex:1 1 100%;text-align:left;padding:0}}
 
 /* ---------- la 404 de la maison ---------- */
 .cc-404{max-width:720px;margin:0 auto;padding:48px clamp(20px,5vw,40px) 96px}

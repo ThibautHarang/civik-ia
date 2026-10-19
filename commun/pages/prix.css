@@ -223,7 +223,28 @@
 .pm-envoi .envoi__t { font-family: Poppins, Inter, sans-serif; font-weight: 700; color: #16205C; margin: 0 0 4px; }
 .pm-envoi p { margin: 0; }
 .pm-envoi::after { content: ""; display: table; clear: both; }
-.pm-envoi:focus { outline: none; }
+.pm-envoi:focus, .pm-envoi:focus-visible { outline: none; }
+/* P4 (19/10/2026, revue, partie 9, friction 2) : la demande déjà écrite, lisible avant l'envoi ; les champs obligatoires marqués */
+.pm-form__champ .pm-demande { min-height: 210px; font: 400 .95rem/1.55 Inter, system-ui, sans-serif; background: #fffdf8; }
+.pm-aide { display: block; margin-top: 4px; font-size: .85rem; color: #5d6072; }
+.pm-oblig { color: #b3261e; font-weight: 700; }
+.pm-facultatif { font-weight: 500; color: #5d6072; }
+.pm-insec { white-space: nowrap; }
+.pm-action[aria-busy="true"] { position: relative; cursor: progress; opacity: 1; }
+.pm-action--plein[aria-busy="true"]::after { content: ""; position: absolute; left: 22px; right: 22px; bottom: 9px; height: 2px; border-radius: 2px; background: #F4A261; transform-origin: left; animation: pm-trait-envoi 1.2s cubic-bezier(.65, 0, .35, 1) infinite; }
+@keyframes pm-trait-envoi { from { transform: scaleX(0); } 70% { transform: scaleX(1); opacity: 1; } to { transform: scaleX(1); opacity: 0; } }
+/* P4 (partie 9, friction 15) : l'échec en trois sorties (pages.js, etatEnvoi) dans la main du calculateur ; l'adresse en clair */
+.pm-envoi.envoi--echec .envoi__t { color: #b3261e; }
+.pm-envoi .envoi__actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 0; }
+.pm-envoi .envoi__actions .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 20px; border-radius: 8px; border: 1.6px solid #16205C; background: transparent; color: #16205C; font: 600 1rem/1.25 Inter, system-ui, sans-serif; text-decoration: none; box-shadow: none; transform: none; cursor: pointer; }
+.pm-envoi .envoi__actions .btn--plein { background: #16205C; color: #fffdf8; }
+.pm-envoi .envoi__actions .btn:hover { background: rgba(22, 32, 92, .07); transform: none; }
+.pm-envoi .envoi__actions .btn--plein:hover { background: #232c70; }
+.pm-envoi .envoi__actions .btn:focus-visible { outline: 3px solid #000091; outline-offset: 3px; }
+.pm-envoi .envoi__adresse { margin-top: 12px; font-size: .92rem; color: #5d6072; }
+.pm-envoi .envoi__mel { font-weight: 700; color: #1E1E1E; white-space: nowrap; user-select: all; -webkit-user-select: all; }
+.pm-envoi .envoi__copie { margin-top: 8px; font-size: .9rem; font-weight: 600; color: #176b43; }
+.pm-envoi .envoi__copie:empty { display: none; }
 
 /* ---------- la grille, en clair (lue sans script, et par les moteurs) ---------- */
 .pm-grille { margin: 56px auto 0; max-width: 860px; }
@@ -262,6 +283,7 @@
   .pm-etapes { columns: 1; }
   .pm-form__rang { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .pm-sorties .pm-action { width: 100%; }
+  .pm-envoi .envoi__actions .btn { flex: 1 1 100%; }
   .pm-grille table, .pm-grille thead, .pm-grille tbody, .pm-grille tr, .pm-grille th, .pm-grille td { display: block; }
   .pm-grille thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .pm-grille tr { border-bottom: 1px solid var(--pm-filet); padding: 8px 0; }

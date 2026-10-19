@@ -11,8 +11,13 @@
    Scène 3 : deux petites plaques d'options et la question du site,
    accrochées au poteau. Scène 4 : le chemin des six étapes de la mise
    en service, et la borne de son montant. Scène 5 : la feuille
-   d'estimation, et deux sorties : « Demander un devis » (la feuille
-   devient la lettre de pages.js et lettre.js, envoi Formspree)
+   d'estimation, et deux sorties : « Demander un devis » (P4, 19/10/2026,
+   revue, partie 9, friction 2 : ouvre un contact prérempli et lisible,
+   la demande déjà écrite d'après l'estimation, que le visiteur relit,
+   corrige s'il veut et complète de son nom, de son courriel et, s'il le
+   veut, de sa commune, avant « Envoyer ma demande de devis » ; puis la
+   feuille devient la lettre de pages.js et lettre.js, envoi Formspree,
+   après la réponse du service seulement)
    et « Copier le lien de l’estimation » (un lien qui rouvre le même état ; libellé du 19/10/2026, partie 5).
    Données : ../donnees/communes.json (34 969 communes, population
    municipale INSEE servie par geo.api.gouv.fr), chargé au premier geste
@@ -20,9 +25,14 @@
    Sécurité : aucune valeur venue de l'adresse, de la saisie ou du
    fichier n'entre par innerHTML ; textContent et setAttribute partout ;
    la commune se retrouve par son code INSEE, le nom vient du fichier.
-   Aucun service extérieur, aucun cookie, rien dans le stockage du
-   navigateur. Sous prefers-reduced-motion, tout apparaît posé.
+   Aucun service extérieur, aucun cookie. P4 : le brouillon de la demande
+   (nom, courriel, commune, texte) est gardé dans sessionStorage le temps
+   de la session, oublié après la réussite ; mesures en valeurs fermées
+   (./mesures.js : une tranche de population, jamais la commune). Sous
+   prefers-reduced-motion, tout apparaît posé.
    ===================================================================== */
+
+import { mesurer, tranchePopulation } from './mesures.js';   /* P4 : calculateur, formulaire_erreur (valeurs fermées) */
 
 /* la source des populations, mot pour mot comme l'en-tête « source » de commun/donnees/communes.json (Thibaut, 16 h 40) */
 export const SOURCE_POPULATION = '* Population municipale, populations légales INSEE 2023 en vigueur au 1er janvier 2026, relevées le 14 octobre 2026 sur geo.api.gouv.fr.';
@@ -431,17 +441,18 @@ function gabarit(id) {
 <div class="pm-feuille-zone" data-feuille-zone hidden>
   <div class="pm-feuille" data-feuille>
     <div class="pm-feuille__tete"><h4 data-feuille-titre></h4><span>${AUJOURDHUI}</span></div>
-    <form class="pm-form" id="${i('form')}" data-envoi="${ENVOI}" data-voix="nous" novalidate hidden>
+    <form class="pm-form" id="${i('form')}" data-envoi="${ENVOI}" data-voix="nous" data-formulaire="devis" novalidate hidden>
       <div class="pm-form__corps">
-        <p class="pm-form__tete" data-form-tete>Transmettez cette estimation, nous revenons vers vous avec un devis.</p>
+        <p class="pm-form__tete" data-form-tete>Votre demande est déjà écrite d’après l’estimation&nbsp;: relisez-la, complétez-la, puis envoyez-la. Nous revenons vers vous avec un devis.</p>
+        <div class="pm-form__champ"><label for="${i('demande')}">Votre demande</label><textarea id="${i('demande')}" name="message" class="pm-demande" rows="9" maxlength="4000" aria-describedby="${i('demande-aide')}" data-demande></textarea><span class="pm-aide" id="${i('demande-aide')}">Vous pouvez la corriger ou y ajouter un mot.</span></div>
         <div class="pm-form__rang">
-          <div class="pm-form__champ"><label for="${i('nom')}">Nom et prénom</label><input id="${i('nom')}" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="${i('nom-err')}"><span class="pm-erreur" id="${i('nom-err')}" aria-live="polite"></span></div>
-          <div class="pm-form__champ"><label for="${i('mel')}">Courriel</label><input id="${i('mel')}" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="${i('mel-err')}"><span class="pm-erreur" id="${i('mel-err')}" aria-live="polite"></span></div>
+          <div class="pm-form__champ"><label for="${i('nom')}">Nom et prénom <span class="pm-oblig" aria-hidden="true">*</span></label><input id="${i('nom')}" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="${i('nom-err')}"><span class="pm-erreur" id="${i('nom-err')}" aria-live="polite"></span></div>
+          <div class="pm-form__champ"><label for="${i('mel')}">Courriel <span class="pm-oblig" aria-hidden="true">*</span></label><input id="${i('mel')}" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="${i('mel-err')}"><span class="pm-erreur" id="${i('mel-err')}" aria-live="polite"></span></div>
         </div>
-        <div class="pm-form__champ"><label for="${i('mot')}">Un mot pour nous (facultatif)</label><textarea id="${i('mot')}" name="mot" rows="3" maxlength="2000"></textarea></div>
+        <div class="pm-form__champ"><label for="${i('com')}">Commune <span class="pm-facultatif">(facultatif)</span></label><input id="${i('com')}" name="city" type="text" autocomplete="address-level2" maxlength="120"></div>
         <div class="pm-pot" aria-hidden="true"><label for="${i('pot')}">Ne pas remplir</label><input id="${i('pot')}" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
-        <p class="pm-form__note">L’estimation ci-dessous part avec votre message. Votre courriel sert à vous répondre&nbsp;: <a href="/legal/politique-confidentialite.html">politique de confidentialité</a>.</p>
-        <button type="submit" class="pm-action pm-action--plein">Envoyer la demande de devis</button>
+        <p class="pm-form__note">Champs marqués d’un astérisque&nbsp;: obligatoires. Votre demande part à Civik-ia (<span class="pm-insec">contact@civik-ia.fr</span>), avec le lien de cette estimation. Votre courriel sert à vous répondre&nbsp;: <a href="/legal/politique-confidentialite.html">politique de confidentialité</a>.</p>
+        <button type="submit" class="pm-action pm-action--plein" data-envoyer>Envoyer ma demande de devis</button>
       </div>
       <div class="pm-envoi" data-bloc hidden></div>
     </form>
@@ -496,6 +507,9 @@ export function monter(racine) {
   const pop = q('[data-pop]'), sceau = q('[data-pm-sceau]'), sceauVide = q('.pm-sceau__vide'), sousBorne = q('[data-sous-borne]');
   const zoneMise = q('[data-mise]'), route = q('.pm-route'), zoneFeuille = q('[data-feuille-zone]'), feuille = q('[data-feuille]'), note = q('[data-note]');
   const form = q('form'), bloc = q('[data-bloc]'), recevoir = q('[data-recevoir]'), partager = q('[data-partager]'), copieTxt = q('[data-copie]');
+  /* P4 : la demande déjà écrite, la commune facultative, le bouton d'envoi ; la mesure du calculateur (une fois par réglage) */
+  const demandeC = q('[data-demande]'), communeC = q(`#${id}-com`), envoyerB = q('[data-envoyer]');
+  let mesureT = 0, derniereMesure = '';
   /* sur téléphone (860 px et moins), le sceau se place sous la population, dans la colonne des plaques ; ailleurs, à droite */
   const colBorne = q('[data-col-borne]'), scene = q('.pm-scene'), mqTel = matchMedia('(max-width: 860px)');
   const placer = () => { if (mqTel.matches) { if (colBorne.previousElementSibling !== pop) pop.after(colBorne); } else if (colBorne.parentElement !== scene) scene.appendChild(colBorne); };
@@ -649,6 +663,25 @@ export function monter(racine) {
     l.push(`Lien : ${lienPartage()}`);
     return l.join('\n');
   }
+  /* P4 (partie 9, friction 2) : la demande, déjà écrite d'après l'estimation, que le visiteur relit et complète avant l'envoi ;
+     les mêmes lignes que la feuille, en texte (le lien de l'estimation part en plus, à la fin du message envoyé) */
+  function texteDemande(c) {
+    const h = habitants();
+    const l = [`Demande de devis pour Marianne, d’après l’estimation du calculateur de civik-ia.fr (${AUJOURDHUI}).`, ''];
+    l.push(`Commune : ${etat.commune ? nomCommune(etat.commune) : 'à préciser'}`);
+    l.push(`Population : ${habitantsTexte(h)} (${indiquee() ? 'indiquée par la mairie' : 'population municipale INSEE 2023'})`);
+    if (c.devis) l.push(`Prix : sur devis, au-delà de ${nombre(GRILLE.plafond)} habitants ; une réunion de trente minutes l’établit.`);
+    else {
+      l.push(`Abonnement : ${ht(c.mensuel)} par mois, soit ${ht(c.annuel)} par an (abonnement annuel)`);
+      l.push(`Options : ${texteOptions(c)}`);
+      l.push(`${MISE}, une seule fois : ${ht(c.mise)}`);
+      l.push(`Collecte des informations : ${c.collecte ? ht(c.collecte) + ', une seule fois' : 'aucune, site à jour'}`);
+      l.push(`Première année : ${ht(c.premiere)}`);
+      l.push(`Ensuite : ${ht(c.ensuite)} par an`);
+      l.push('', 'Prix estimatifs, hors taxes.');
+    }
+    return l.join('\n');
+  }
   /* les lignes écrites à la main pendant la scène de la lettre (dd invisibles, sur toute la largeur de la ligne) */
   function ecrireMain(c) {
     const m = (k, t) => { const e = q(`[data-main="${k}"]`); if (e) e.textContent = t; };
@@ -720,7 +753,12 @@ export function monter(racine) {
       /* une estimation déjà partie : la feuille se réarme pour la nouvelle */
       form.classList.remove('envoye'); form.hidden = true; bloc.hidden = true; bloc.replaceChildren(); bloc.classList.remove('envoi--echec', 'lettre-pose');
       recevoir.hidden = false; recevoir.setAttribute('aria-expanded', 'false'); form.querySelector('[type="submit"]').disabled = false;
+      delete demandeC.dataset.modifie;
     }
+    /* P4 : la mesure (une tranche de population, la population corrigée ou non, le nombre d'options ; jamais la commune), une
+       fois le réglage posé depuis 1,2 s, et seulement s'il a changé */
+    { const tr = tranchePopulation(h), cleM = `${tr}|${indiquee()}|${c.devis ? 0 : c.choisies}`;
+      clearTimeout(mesureT); mesureT = setTimeout(() => { if (cleM === derniereMesure) return; derniereMesure = cleM; mesurer('calculateur', { tranche: tr, population_corrigee: indiquee() ? 'oui' : 'non', options: c.devis ? 0 : c.choisies }); }, 1200); }
     q('[data-habitants]').textContent = habitantsTexte(h);
     q('[data-ast]').hidden = indiquee();
     q('[data-source]').textContent = indiquee() ? 'population indiquée par vous' : 'population municipale INSEE';
@@ -736,7 +774,9 @@ export function monter(racine) {
     q('[data-f="commune"]').textContent = `${etat.commune ? nomCommune(etat.commune) + ', ' : ''}${habitantsTexte(h)}`;
     q('[data-f="pop-source"]').textContent = indiquee() ? 'population indiquée par vous' : 'population municipale INSEE 2023*';
     recevoir.textContent = c.devis ? 'Prendre rendez-vous, trente minutes' : 'Demander un devis';
-    q('[data-form-tete]').textContent = c.devis ? 'Transmettez votre demande, nous revenons vers vous pour fixer une réunion de trente minutes.' : 'Transmettez cette estimation, nous revenons vers vous avec un devis.';
+    envoyerB.textContent = c.devis ? 'Envoyer ma demande' : 'Envoyer ma demande de devis';
+    if (!form.hidden && !form.classList.contains('envoye')) remplirDemande(c);   /* P4 : la demande suit l'estimation tant qu'elle n'est pas retouchée */
+    q('[data-form-tete]').textContent = c.devis ? 'Votre demande est déjà écrite\u00a0: relisez-la, complétez-la, puis envoyez-la. Nous revenons vers vous pour fixer une réunion de trente minutes.' : 'Votre demande est déjà écrite d’après l’estimation\u00a0: relisez-la, complétez-la, puis envoyez-la. Nous revenons vers vous avec un devis.';
     q('[data-mention]').textContent = c.devis ? 'Une première réunion de trente minutes établit le devis, hors taxes.' : 'Prix estimatifs, hors taxes. Une première réunion de trente minutes les fixe.';
     if (!c.devis) {
       q('[data-annuel]').textContent = euros(c.annuel);
@@ -810,51 +850,97 @@ export function monter(racine) {
     copieTxt.textContent = ok ? 'Lien copié.' : `Copiez ce lien\u00a0: ${lien}`;
   });
 
-  /* --- « Demander un devis » : la feuille part, et devient la lettre --- */
+  /* --- « Demander un devis » (P4, partie 9, friction 2) : un contact prérempli et lisible s'ouvre sur la feuille ; la demande y
+     est déjà écrite d'après l'estimation (texteDemande), le visiteur la relit, la corrige s'il veut, ajoute son nom, son courriel
+     et, s'il le veut, sa commune ; rien ne part avant « Envoyer ma demande de devis ». Puis la feuille devient la lettre, après
+     la réponse du service seulement (pages.js) --- */
+  /* le brouillon (sessionStorage, le temps de la session ; oublié après la réussite) : nom, courriel, commune, et la demande
+     si le visiteur l'a retouchée pour cette même estimation */
+  const CLE_BROUILLON = 'civik-ia-brouillon:' + location.pathname + ':devis';
+  const cleEstimation = () => { const h = habitants(); return h === null ? '' : `${etat.commune ? etat.commune[1] : ''}|${h}|${etat.whatsapp ? 1 : 0}${etat.messenger ? 1 : 0}|${etat.site}`; };
+  const lireBrouillon = () => { try { return JSON.parse(sessionStorage.getItem(CLE_BROUILLON) || 'null'); } catch (e) { return null; } };
+  const oublierBrouillon = () => { try { sessionStorage.removeItem(CLE_BROUILLON); } catch (e) { /* rien */ } };
+  let brouillonT = 0;
+  const garderBrouillon = () => { clearTimeout(brouillonT); brouillonT = setTimeout(() => {
+    const v = { nom: q(`#${id}-nom`).value, mel: q(`#${id}-mel`).value, commune: communeC.dataset.auto ? '' : communeC.value, demande: demandeC.dataset.modifie ? demandeC.value : '', cle: cleEstimation() };
+    try { if (v.nom || v.mel || v.commune || v.demande) sessionStorage.setItem(CLE_BROUILLON, JSON.stringify(v)); else oublierBrouillon(); } catch (e) { /* rien */ }
+  }, 250); };
+  /* la demande se lit entière, sans barre de défilement : la zone prend la hauteur du texte */
+  const ajusterDemande = () => { if (!demandeC.offsetParent) return; demandeC.style.height = 'auto'; demandeC.style.height = (demandeC.scrollHeight + 4) + 'px'; };
+  function remplirDemande(c, force) {
+    if (force || !demandeC.dataset.modifie) { demandeC.value = texteDemande(c); requestAnimationFrame(ajusterDemande); }
+    /* la commune choisie sur le panneau, proposée dans le champ facultatif tant que le visiteur ne l'a pas écrite lui-même */
+    if (!communeC.value || communeC.dataset.auto) { communeC.value = etat.commune ? nomCommune(etat.commune) : ''; if (communeC.value) communeC.dataset.auto = '1'; else delete communeC.dataset.auto; }
+  }
+  demandeC.addEventListener('input', () => { demandeC.dataset.modifie = '1'; ajusterDemande(); });
+  communeC.addEventListener('input', () => { delete communeC.dataset.auto; });
+  form.addEventListener('input', garderBrouillon);
   recevoir.addEventListener('click', () => {
     const ouvert = !form.hidden;
     form.hidden = ouvert; recevoir.setAttribute('aria-expanded', String(!ouvert));
-    if (!ouvert) { pages().catch(() => {}); q(`#${id}-nom`).focus(); }
+    if (ouvert) return;
+    pages().catch(() => {});
+    const h = habitants();
+    if (h !== null) {
+      const g = lireBrouillon(), c = calculer(h, etat);
+      if (g) {
+        const nomC = q(`#${id}-nom`), melC = q(`#${id}-mel`);
+        if (!nomC.value && g.nom) nomC.value = g.nom;
+        if (!melC.value && g.mel) melC.value = g.mel;
+        if (g.commune && (!communeC.value || communeC.dataset.auto)) { communeC.value = g.commune; delete communeC.dataset.auto; }
+        if (g.demande && g.cle === cleEstimation() && !demandeC.dataset.modifie) { demandeC.value = g.demande; demandeC.dataset.modifie = '1'; }
+      }
+      remplirDemande(c);
+      requestAnimationFrame(ajusterDemande);
+    }
+    q(`#${id}-nom`).focus();
   });
   const verifier = c => {
-    const err = c.parentElement.querySelector('.pm-erreur'); let m = '';
-    if (!c.value.trim()) m = c.type === 'email' ? 'Indiquez votre courriel, pour que nous puissions vous répondre.' : 'Indiquez votre nom.';
-    else if (c.type === 'email' && !COURRIEL.test(c.value.trim())) m = 'Cette adresse ne semble pas complète, par exemple prenom.nom@mairie.fr.';
+    const err = c.parentElement.querySelector('.pm-erreur'); let m = '', type = '';
+    if (!c.value.trim()) { m = c.type === 'email' ? 'Indiquez votre courriel pour que nous puissions vous répondre.' : 'Indiquez votre nom.'; type = 'vide'; }
+    else if (c.type === 'email' && !COURRIEL.test(c.value.trim())) { m = 'Ce courriel semble incomplet\u00a0: vérifiez la partie après «\u00a0@\u00a0».'; type = 'format'; }
+    /* P4 : la mesure de l'erreur, au passage à l'erreur seulement (le champ et le type, jamais la valeur) */
+    if (m && c.getAttribute('aria-invalid') !== 'true') mesurer('formulaire_erreur', { formulaire: 'devis', champ: c.type === 'email' ? 'courriel' : 'nom', type });
     c.setAttribute('aria-invalid', m ? 'true' : 'false'); if (err) err.textContent = m; return !m;
   };
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (form.dataset.enCours) return;
-    const nomC = q(`#${id}-nom`), melC = q(`#${id}-mel`), motC = q(`#${id}-mot`), potC = q(`#${id}-pot`);
+    const nomC = q(`#${id}-nom`), melC = q(`#${id}-mel`), potC = q(`#${id}-pot`);
     form.dataset.tente = '1';
     const ko = [nomC, melC].filter(c => !verifier(c)); if (ko.length) { ko[0].focus(); return; }
     const h = habitants(); if (h === null) return;
     const c = calculer(h, etat);
-    const texte = texteEstimation(c) + (motC.value.trim() ? `\n\nMessage : ${motC.value.trim()}` : '');
-    const sujet = `Demande de devis : ${etat.commune ? nomCommune(etat.commune) : nombre(h) + ' habitants'}`;
+    if (!demandeC.value.trim()) remplirDemande(c, true);
+    const communeTxt = communeC.value.trim();
+    /* ce qui part : la demande telle que le visiteur l'a relue, puis le lien qui rouvre la même estimation */
+    const texte = `${demandeC.value.trim()}\n\nLien de l’estimation : ${lienPartage()}`;
+    const sujet = `Demande de devis : ${communeTxt || (etat.commune ? nomCommune(etat.commune) : nombre(h) + ' habitants')}`;
     const donnees = new FormData();
     donnees.set('name', nomC.value.trim()); donnees.set('email', melC.value.trim()); donnees.set('message', texte);
-    donnees.set('city', etat.commune ? nomCommune(etat.commune) : ''); donnees.set('population', String(h)); if (etat.commune) donnees.set('insee', etat.commune[1]);
+    donnees.set('city', communeTxt); donnees.set('population', String(h)); if (etat.commune) donnees.set('insee', etat.commune[1]);
     donnees.set('_subject', sujet); donnees.set('_replyto', melC.value.trim());
     if (potC.value) donnees.set('_gotcha', potC.value);
     form.dataset.enCours = '1'; form.setAttribute('aria-busy', 'true');
-    const bouton = form.querySelector('[type="submit"]'), avant = bouton.textContent; bouton.disabled = true; bouton.textContent = 'Envoi…';
+    /* la séquence de la partie 9 : le bouton dit « Envoi… », désactivé, son trait or se trace (aria-busy) */
+    const avant = envoyerB.textContent; envoyerB.disabled = true; envoyerB.textContent = 'Envoi…'; envoyerB.setAttribute('aria-busy', 'true');
+    bloc.hidden = true;
     let m = null; try { m = await Promise.race([pages(), new Promise(ok => setTimeout(() => ok(null), 4000))]); } catch (err) { m = null; }
     ecrireMain(c);
     const champs = ['commune', 'abo', 'mise', 'collecte', 'premiere', 'devis'].map(k => q(`[data-main="${k}"]`)).filter(d => d && d.textContent.trim() && !d.closest('[hidden]'));
-    champs.push(nomC, melC); if (motC.value.trim()) champs.push(motC);
+    champs.push(nomC, melC); if (communeTxt) champs.push(communeC);
     let ok;
     if (m && m.envoyerAvecLettre) ok = await m.envoyerAvecLettre(form, ENVOI, donnees, { bloc, carte: feuille, tenir: feuille, champs });
     else ok = await envoyerSeul(ENVOI, donnees);
     delete form.dataset.enCours; form.removeAttribute('aria-busy');
-    bouton.textContent = avant; bouton.disabled = !!ok;
+    envoyerB.textContent = avant; envoyerB.disabled = !!ok; envoyerB.removeAttribute('aria-busy');
     const etatEnvoi = m && m.etatEnvoi ? m.etatEnvoi : etatSimple;
     if (ok) {
-      form.classList.add('envoye'); recevoir.hidden = true;
+      form.classList.add('envoye'); recevoir.hidden = true; oublierBrouillon();
       if (m && typeof m.signalerDemande === 'function') try { m.signalerDemande(form, 'estimation'); } catch (err) { /* rien */ }
       etatEnvoi(bloc, 'reussite', { voix: 'nous', titre: 'Merci, votre demande de devis est partie.', texte: 'Une première réunion de trente minutes fixe le devis.' });
       if (m && m.poserVignette) m.poserVignette(bloc);
-    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: c.devis ? `Demande de devis sur estimation, au-delà de ${nombre(GRILLE.plafond)} habitants. ${lienPartage()}` : `Demande de devis sur estimation : ${ht(c.mensuel)} par mois, mise en service ${ht(c.mise)}${c.collecte ? `, collecte ${ht(c.collecte)}` : ''}. ${lienPartage()}` });
+    } else etatEnvoi(bloc, 'echec', { voix: 'nous', sujet, corps: texte, courriel: 'contact@civik-ia.fr', formulaire: 'devis', reessayer: () => { try { if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true })); } catch (err) { /* rien */ } } });
   });
   [q(`#${id}-nom`), q(`#${id}-mel`)].forEach(c => {
     /* à la sortie du champ, seulement après un premier essai d'envoi : un message qui apparaît au moment du clic sur
@@ -883,9 +969,9 @@ export function monter(racine) {
   } else if (habOk !== null) { etat.saisie = habOk; habIn.value = String(habOk); ouvrirSaisie(false); entrer(); requestAnimationFrame(() => rendre(true)); }
 }
 
-/* l'envoi sans la lettre (pages.js introuvable) : même requête, même délai de 15 s */
+/* l'envoi sans la lettre (pages.js introuvable) : même requête, même délai (10 s depuis P4, partie 9) */
 async function envoyerSeul(url, donnees) {
-  const ctl = 'AbortController' in window ? new AbortController() : null, t = ctl ? setTimeout(() => ctl.abort(), 15000) : 0;
+  const ctl = 'AbortController' in window ? new AbortController() : null, t = ctl ? setTimeout(() => ctl.abort(), 10000) : 0;
   try { const r = await fetch(url, { method: 'POST', body: donnees, headers: { Accept: 'application/json' }, signal: ctl ? ctl.signal : undefined }); return r.ok; }
   catch (e) { return false; } finally { clearTimeout(t); }
 }

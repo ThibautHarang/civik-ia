@@ -59,6 +59,21 @@
        Rend true (parti), false (échec, le bloc dit quoi faire) ou null
        (pas de data-envoi, ou un envoi déjà en cours : rien n’est fait).
        Pendant l’envoi, le formulaire porte data-en-cours et aria-busy.
+   P4 (19/10/2026, revue Claude Design, partie 9, « Après Envoyer, la
+   séquence juste ») : la requête part d’abord, formulaire inerte, bouton
+   « Envoi… » désactivé, trait or ; la lettre ne se plie qu’après une
+   réponse bonne du service (10 s au plus) ; en échec, trois sorties :
+   « Réessayer », « Envoyer par courriel » (adresse écrite en clair à côté,
+   pour le navigateur de LinkedIn où le lien mailto échoue souvent) et
+   « Copier mon message ». Le brouillon du formulaire court est gardé dans
+   sessionStorage pendant la saisie (rien ne part ailleurs), rendu au
+   retour, effacé après la réussite. Téléphone facultatif vérifié en
+   format souple. Mesures en valeurs fermées (./mesures.js).
+   data-suite-href="…", data-suite-texte="…"   (facultatifs, P4)
+       Une action suivante en lien sous le remerciement (partie 9, friction 16).
+   Formulaire court avec un choix de sujet (l’accueil) : un groupe de
+       pastilles [name="sujet"] dans un [data-requis="sujet"] ; l’objet du
+       message devient « <data-sujet>, sujet : <libellé choisi> ».
    Exemple (Atelier, fiche de projet) :
        <form data-projet data-envoi="https://formspree.io/f/mnjogblz"
              data-voix="nous" data-sujet="Fiche de projet, atelier"
@@ -69,6 +84,8 @@
    (commun/pages/lettre.js, chargé au premier envoi seulement). Interrupteur unique : pour la retirer, mettre LETTRE à ''
    (cette ligne seule) ; envoyerAvecLettre redevient alors envoyerFormulaire et poserVignette ne fait plus rien, rien d’autre
    à changer (lettre.js et lettre.css peuvent rester sur le serveur, plus rien ne les charge). */
+/* P4 (19/10/2026) : les mesures en valeurs fermées (partie 9) ; le module pose ses écouteurs délégués à son chargement */
+import { mesurer, nomFormulaire, erreurChamp } from './mesures.js';
 export const LETTRE = './lettre.js';
 export const clamp = (v, a = 0, b = 1) => v < a ? a : v > b ? b : v;
 export const lerp = (a, b, t) => a + (b - a) * t;
@@ -199,35 +216,57 @@ export class Fiche {
 }
 
 /* ---------- CO-13 : l’envoi réel, sans quitter la page (Formspree, réponse en JSON) ----------
-   Activé seulement par l’attribut data-envoi du formulaire (une adresse https). Renvoie true si le service a accepté. */
+   Activé seulement par l’attribut data-envoi du formulaire (une adresse https). Renvoie true si le service a accepté.
+   P4 (19/10/2026, partie 9) : réponse mauvaise ou absente après 10 s, c’est un échec ; la cause est gardée (réseau, serveur,
+   délai) pour la mesure formulaire_echec, jamais rien d’autre. */
 export const envoiReel = form => /^https:\/\//.test((form && form.dataset.envoi) || '');
-export async function envoyerFormulaire(url, donnees, delai = 15000) {
+export const DELAI_ENVOI = 10000;
+let cause = '';
+export const causeEchec = () => cause || 'reseau';
+export async function envoyerFormulaire(url, donnees, delai = DELAI_ENVOI) {
   const ctl = 'AbortController' in window ? new AbortController() : null;
-  const minuteur = ctl ? setTimeout(() => ctl.abort(), delai) : 0;
+  let expire = false;
+  const minuteur = ctl ? setTimeout(() => { expire = true; ctl.abort(); }, delai) : 0;
   try {
     const r = await fetch(url, { method: 'POST', body: donnees, headers: { Accept: 'application/json' }, signal: ctl ? ctl.signal : undefined });
+    cause = r.ok ? '' : 'serveur';
     return r.ok;
-  } catch (e) { return false; } finally { clearTimeout(minuteur); }
+  } catch (e) { cause = expire ? 'delai' : 'reseau'; return false; } finally { clearTimeout(minuteur); }
 }
-/* La lettre qui part (14/10/2026, seconde version) : la requête part d’abord, sans attendre le module ; la carte du
-   formulaire se transforme pendant l’attente (point d’attente à 1,8 s, puis 1,24 s pour poster la lettre) et la scène rend
-   la main après ; même valeur rendue qu’envoyerFormulaire. Filets : sans LETTRE, comportement d’avant ; module introuvable
-   ou scène en erreur : rien n’est montré ; délai de garde : 4 s après la réponse tant que la scène n’a pas démarré, porté à
-   3,5 s après son démarrage s’il est plus tard (le module appelle o.demarre quand la couche est posée : un module arrivé
-   tard joue sa scène entière) ; à l’expiration, la scène est coupée (le formulaire est rendu tel quel), l’état s’affiche
-   quand même, et un module arrivé après ne joue plus rien (o.annule) ; mouvement réduit : pas de scène, le module est
-   attendu 500 ms au plus pour la vignette fixe. data-en-cours et aria-busy pendant la scène. */
+/* « Votre lettre part… » : pour les lecteurs d’écran seulement (partie 5), dans une zone lue à côté du formulaire (la carte
+   du formulaire est cachée pendant la scène) */
+function annoncer(form, texte) {
+  if (!form || !form.parentNode) return;
+  let z = form.parentNode.querySelector(':scope > [data-annonce-envoi]');
+  if (!z) { z = document.createElement('p'); z.className = 'sr'; z.setAttribute('aria-live', 'polite'); z.setAttribute('data-annonce-envoi', ''); form.after(z); }
+  z.textContent = texte;
+}
+/* La lettre qui part (14/10/2026), troisième version (P4, 19/10/2026, partie 9, séquence en six temps) : la requête part
+   d’abord, le formulaire est inerte (inert), le bouton dit « Envoi… » et son trait or se trace (boutonEnCours) ; le module
+   de la lettre se charge pendant l’attente, sans rien montrer. Réponse bonne : alors seulement la feuille se plie, l’enveloppe
+   se ferme et la lettre part (lettre.js, environ 3 s : la promesse lui est donnée déjà tenue) ; réponse mauvaise ou absente :
+   aucune scène, le formulaire reste ouvert avec ses valeurs et l’échec s’affiche (etatEnvoi). Même valeur rendue
+   qu’envoyerFormulaire. Filets : sans LETTRE, ou mouvement réduit, aucune scène ; module introuvable ou scène qui ne démarre
+   pas dans les 1,5 s : rien n’est montré ; scène démarrée qui ne rend pas la main 4,5 s après : coupée (le formulaire est
+   rendu tel quel), et l’état s’affiche quand même. data-en-cours et aria-busy pendant l’envoi (posés par l’appelant). */
 let lettre = null;
 export async function envoyerAvecLettre(form, url, donnees, o = {}) {
-  const envoi = envoyerFormulaire(url, donnees);
-  if (!LETTRE) return envoi;
-  const charger = () => import(LETTRE).then(m => (lettre = m));
-  if (reduit()) { const pret = Promise.race([charger().catch(() => {}), dort(500)]); const ok = await envoi; await pret; return ok; }
+  const inerte = !!form && 'inert' in form;
+  if (inerte) form.inert = true;
+  const module = LETTRE ? import(LETTRE).then(m => (lettre = m), () => null) : null;
+  const ok = await envoyerFormulaire(url, donnees);
+  if (inerte) form.inert = false;
+  if (!ok || !module) return ok;
+  /* mouvement réduit : pas de scène ; le module est attendu 500 ms au plus pour la vignette fixe */
+  if (reduit()) { await Promise.race([module, dort(500)]); return ok; }
+  const m = await Promise.race([module, dort(1500).then(() => null)]);
+  if (!m || !form || !form.isConnected) return ok;
+  annoncer(form, 'Votre lettre part…');
   let fini = false, depart = 0;   /* fini : le délai de garde a sonné, un module qui arrive après ne joue plus rien */
-  const jeu = charger().then(m => (fini ? null : m.jouer(form, envoi, Object.assign({}, o, { annule: () => fini, demarre: () => { depart = Date.now(); } })))).then(() => true, () => true);
-  const ok = await envoi;
-  const reponse = Date.now(); let garde = 0;
-  const veiller = r => { const reste = Math.max(reponse + 4000, depart ? depart + 3500 : 0) - Date.now(); if (reste <= 0) r(false); else garde = setTimeout(() => veiller(r), reste); };
+  const t0 = Date.now();
+  const jeu = Promise.resolve().then(() => m.jouer(form, true, Object.assign({}, o, { annule: () => fini, demarre: () => { depart = Date.now(); } }))).then(() => true, () => true);
+  let garde = 0;
+  const veiller = r => { const reste = (depart ? depart + 4500 : t0 + 1500) - Date.now(); if (reste <= 0) r(false); else garde = setTimeout(() => veiller(r), Math.min(reste, 250)); };
   const rendu = await Promise.race([jeu, new Promise(veiller)]);
   clearTimeout(garde); fini = true;
   if (!rendu) try { if (lettre) lettre.couper(); } catch (e) { /* rien */ }
@@ -253,21 +292,48 @@ export const TEXTES_ENVOI = {
 export const voixDe = form => (form && form.dataset.voix === 'nous') ? 'nous' : 'je';
 /* R7 : l’objet du message (data-sujet, puis le champ caché _subject, puis le défaut) */
 export const sujetDe = (form, defaut) => (form && form.dataset.sujet) || (form && form.elements._subject && form.elements._subject.value) || defaut;
+/* P4 : l’action suivante sous le remerciement (data-suite-href, data-suite-texte du formulaire) */
+export const suiteDe = form => (form && form.dataset.suiteHref && form.dataset.suiteTexte) ? { href: form.dataset.suiteHref, texte: form.dataset.suiteTexte } : null;
 /* le courriel de secours : l’adresse de contact affichée par la page (le lien .contact__mail, qui porte
    thibaut.harang@civik-ia.fr sur la page Conseil depuis le 07/10/2026 au soir), sinon contact@civik-ia.fr ;
    le message saisi part dans le corps */
 export const courrielPage = () => { const a = document.querySelector('a.contact__mail[href^="mailto:"]'); const m = a && a.getAttribute('href').replace(/^mailto:/, '').split('?')[0].trim(); return m || 'contact@civik-ia.fr'; };
-export const lienCourriel = (sujet, corps) => `mailto:${courrielPage()}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
+export const lienCourriel = (sujet, corps, adresse) => `mailto:${adresse || courrielPage()}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
 const echapper = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-/* les trois états d’un envoi réel, dans le bloc d’état (focus posé sur le message) ; o.voix choisit les textes par défaut (R7) */
+/* les états d’un envoi réel, dans le bloc d’état (focus posé sur lui ; role status pour la réussite, alert pour l’échec) ;
+   o.voix choisit les textes par défaut (R7) ; o.suite, l’action suivante (P4).
+   P4 (partie 9, friction 15) : l’échec dit ce qui s’est passé et donne trois sorties : « Réessayer » en plein (o.reessayer),
+   « Envoyer par courriel » (lien mailto qui reprend l’objet et le message : il est déjà écrit) avec l’adresse écrite en clair
+   à côté (dans le navigateur de LinkedIn ou d’Instagram, le lien mailto échoue souvent sans rien dire), « Copier mon message ».
+   o.formulaire : le nom fermé du formulaire, pour la mesure formulaire_echec (cause, puis la sortie choisie) */
 export function etatEnvoi(bloc, etat, o = {}) {
   if (!bloc) return;
   const t = TEXTES_ENVOI[o.voix === 'nous' ? 'nous' : 'je'];
   bloc.classList.toggle('envoi--echec', etat === 'echec');
-  if (etat === 'reussite') bloc.innerHTML = `<p class="envoi__t">${echapper(o.titre || t.titre)}</p><p>${echapper(o.texte || t.texte)}</p>`;
-  /* P3 (partie 5, proposition de la revue) : l'échec dit ce qui s'est passé et comment réparer ; le courriel de secours reprend le
-     message (il est déjà écrit) ; « Réessayer » en bouton est pour la passe P4 */
-  else bloc.innerHTML = `<p class="envoi__t">Le message n’est pas parti.</p><p>Vérifiez votre connexion et réessayez, ou envoyez-le par courriel\u00a0: il est déjà écrit.</p><p><a class="lien" href="${echapper(lienCourriel(o.sujet || 'Contact', o.corps || ''))}">Envoyer par courriel à ${echapper(courrielPage())}</a></p>${o.plus || ''}`;
+  bloc.setAttribute('role', etat === 'echec' ? 'alert' : 'status');
+  if (etat === 'reussite') {
+    const suite = o.suite ? `<p class="envoi__suite"><a class="lien" href="${echapper(o.suite.href)}">${echapper(o.suite.texte)}</a></p>` : '';
+    bloc.innerHTML = `<p class="envoi__t">${echapper(o.titre || t.titre)}</p><p>${echapper(o.texte || t.texte)}</p>${suite}`;
+  } else {
+    const adresse = o.courriel || courrielPage(), sujet = o.sujet || 'Contact', corps = o.corps || '';
+    const f = o.formulaire || null, c = causeEchec();
+    bloc.innerHTML = `<p class="envoi__t">Le message n’est pas parti.</p><p>Vérifiez votre connexion et réessayez, ou envoyez-le par courriel : il est déjà écrit.</p>`
+      + `<div class="envoi__actions">${o.reessayer ? '<button type="button" class="btn btn--plein btn--petit" data-reessayer>Réessayer</button>' : ''}`
+      + `<a class="btn btn--filet btn--petit" data-par-courriel href="${echapper(lienCourriel(sujet, corps, adresse))}">Envoyer par courriel</a>`
+      + `<button type="button" class="btn btn--filet btn--petit" data-copier-message>Copier mon message</button></div>`
+      + `<p class="envoi__adresse">L’adresse, si votre messagerie ne s’ouvre pas : <span class="envoi__mel">${echapper(adresse)}</span></p>`
+      + `<p class="envoi__copie" aria-live="polite" data-copie-message-ok></p>${o.plus || ''}`;
+    if (f) mesurer('formulaire_echec', { formulaire: f, cause: c, suite: 'aucune' });
+    const suite = s => { if (f) mesurer('formulaire_echec', { formulaire: f, cause: c, suite: s }); };
+    const r = bloc.querySelector('[data-reessayer]');
+    if (r) r.addEventListener('click', () => { suite('reessayer'); o.reessayer(); });
+    bloc.querySelector('[data-par-courriel]').addEventListener('click', () => suite('courriel'));
+    bloc.querySelector('[data-copier-message]').addEventListener('click', async () => {
+      suite('copie');
+      const ok = await copier(`À : ${adresse}\nObjet : ${sujet}\n\n${corps}`);
+      bloc.querySelector('[data-copie-message-ok]').textContent = ok ? 'Message copié. Collez-le dans votre messagerie.' : 'La copie a échoué : sélectionnez le texte à la main.';
+    });
+  }
   bloc.hidden = false;
   if (!bloc.hasAttribute('tabindex')) bloc.setAttribute('tabindex', '-1');
   bloc.focus({ preventScroll: false });
@@ -279,6 +345,8 @@ export function boutonEnCours(bouton) {
   bouton.disabled = true; bouton.textContent = 'Envoi…'; bouton.setAttribute('aria-busy', 'true');
   return (garderDesactive) => { bouton.innerHTML = avant; bouton.disabled = !!garderDesactive; bouton.removeAttribute('aria-busy'); };
 }
+/* P4 : « Réessayer » relance le même envoi, par le même chemin (la vérification des champs repasse) */
+export const relancer = form => () => { try { if (form.requestSubmit) form.requestSubmit(); else form.dispatchEvent(new Event('submit', { cancelable: true })); } catch (e) { /* rien */ } };
 /* R7 : l’envoi d’une fiche (Conseil : fiche de demande ; Atelier : fiche de projet), par le même mécanisme que le
    formulaire court : data-envoi, data-voix, data-sujet (et data-reussite-titre, data-reussite) ; la fiche entière dans
    le champ « message » (13/10/2026 : avant, « fiche » ; les champs standards passent mieux le filtre anti-spam du
@@ -301,52 +369,114 @@ export async function envoyerFiche(form, o = {}) {
   const ok = await envoyerAvecLettre(form, form.dataset.envoi, donnees, o);
   delete form.dataset.enCours; form.removeAttribute('aria-busy');
   const voix = voixDe(form);
-  if (ok) { remettre(true); signalerDemande(form, 'fiche'); etatEnvoi(o.bloc, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite }); }
-  else { remettre(false); etatEnvoi(o.bloc, 'echec', { voix, sujet, corps: o.texte || '' }); }
+  if (ok) { remettre(true); signalerDemande(form, 'fiche'); etatEnvoi(o.bloc, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite, suite: suiteDe(form) }); }
+  else { remettre(false); etatEnvoi(o.bloc, 'echec', { voix, sujet, corps: o.texte || '', reessayer: relancer(form), formulaire: nomFormulaire(form) }); }
   if (ok) poserVignette(o.bloc);
   return ok;
 }
 
+/* ---------- P4 : le brouillon, gardé le temps de la session du navigateur ----------
+   Les champs nommés du formulaire (cases cochées comprises ; ni les champs cachés, ni le pot de miel, ni ce qui commence
+   par « _ ») sont écrits dans sessionStorage pendant la saisie, rendus au retour sur la page (seulement dans un champ resté
+   vide), oubliés après la réussite. Rien ne part ailleurs ; la session du navigateur fermée, rien ne reste. */
+export function brouillon(form, cle) {
+  const k = 'civik-ia-brouillon:' + cle;
+  const lire = () => { try { return JSON.parse(sessionStorage.getItem(k) || 'null'); } catch (e) { return null; } };
+  const oublier = () => { try { sessionStorage.removeItem(k); } catch (e) { /* rien */ } };
+  const garde = c => c.name && !c.name.startsWith('_') && c.type !== 'hidden' && c.type !== 'password' && c.type !== 'file' && c.getAttribute('tabindex') !== '-1';
+  const valeurs = () => {
+    const v = {};
+    $$('input,textarea,select', form).filter(garde).forEach(c => {
+      if (c.type === 'radio' || c.type === 'checkbox') { if (c.checked) (v[c.name] = v[c.name] || []).push(c.value); }
+      else if (c.value.trim()) v[c.name] = c.value;
+    });
+    return v;
+  };
+  const garder = () => { const v = valeurs(); try { if (Object.keys(v).length) sessionStorage.setItem(k, JSON.stringify(v)); else oublier(); } catch (e) { /* rien */ } };
+  const rendre = () => {
+    const v = lire(); if (!v || typeof v !== 'object') return false;
+    let rendu = false;
+    Object.entries(v).forEach(([nom, val]) => {
+      const els = $$('input,textarea,select', form).filter(c => garde(c) && c.name === nom);
+      if (Array.isArray(val)) els.forEach(c => { if ((c.type === 'radio' || c.type === 'checkbox') && val.includes(c.value)) { c.checked = true; rendu = true; } });
+      else if (els[0] && typeof val === 'string' && !els[0].value) { els[0].value = val; rendu = true; }
+    });
+    return rendu;
+  };
+  let t = 0;
+  const suivre = () => { clearTimeout(t); t = setTimeout(garder, 250); };
+  return { garder, rendre, oublier, lire, suivre };
+}
+
 /* ---------- le formulaire court (nom, structure, courriel, besoin) ---------- */
 export const COURRIEL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+/* P4 (partie 5) : le téléphone, facultatif, en format souple (espaces, points, tirets, parenthèses acceptés) : dix chiffres
+   commençant par 0, ou +33 suivi de neuf chiffres (le 0 entre parenthèses accepté), ou un numéro étranger de 7 à 15 chiffres */
+export const telephoneValide = v => {
+  const s = String(v).replace(/[\s.\-()/]/g, '');
+  return /^0[1-9]\d{8}$/.test(s) || /^(\+33|0033)0?[1-9]\d{8}$/.test(s) || /^(\+|00)(?!33)\d{7,15}$/.test(s);
+};
 export function verifierChamp(c) {
   const err = c.closest('.champ')?.querySelector('.erreur');
-  let m = '';
-  if (c.required && !c.value.trim()) m = c.dataset.manque || 'Ce champ est à remplir.';
+  let m = '', type = '';
+  if (c.required && !c.value.trim()) { m = c.dataset.manque || 'Ce champ est à remplir.'; type = 'vide'; }
   /* P3 (partie 5) : l'erreur dit où regarder */
-  else if (c.type === 'email' && c.value.trim() && !COURRIEL.test(c.value.trim())) m = 'Ce courriel semble incomplet\u00a0: vérifiez la partie après «\u00a0@\u00a0».';
+  else if (c.type === 'email' && c.value.trim() && !COURRIEL.test(c.value.trim())) { m = 'Ce courriel semble incomplet : vérifiez la partie après « @ ».'; type = 'format'; }
+  /* P4 (partie 5) : le téléphone, facultatif ; un exemple fictif au bon format */
+  else if (c.type === 'tel' && c.value.trim() && !telephoneValide(c.value)) { m = 'Ce numéro semble incomplet : dix chiffres, par exemple 06 12 34 56 78.'; type = 'format'; }
+  /* P4 : la mesure de l’erreur, au passage à l’erreur seulement (le nom du champ et le type, jamais la valeur) */
+  if (m && c.getAttribute('aria-invalid') !== 'true') erreurChamp(c, type);
   c.setAttribute('aria-invalid', m ? 'true' : 'false');
   if (err) err.textContent = m;
   return !m;
 }
+/* P4 : un groupe de pastilles obligatoire ([data-requis], comme les fiches) ; l’erreur s’écrit dans son [data-erreur] */
+function verifierGroupe(g) {
+  const ok = $$('input', g).some(x => x.checked), err = g.parentElement && g.parentElement.querySelector('[data-erreur]');
+  if (!ok && err && !err.textContent) { const r = $('input', g); if (r && r.form) erreurChamp(r, 'vide'); }
+  if (err) err.textContent = ok ? '' : (g.dataset.manque || 'Choisissez une réponse.');
+  return ok;
+}
 export function formulaireCourt(form, activite) {
   if (!form) return;
   /* CO-13 : le champ anti-robot s'appelle « _gotcha » (Formspree) là où l'envoi est réel, « site » ailleurs */
-  const champs = $$('input,textarea', form).filter(c => c.type !== 'hidden' && c.name !== 'site' && c.name !== '_gotcha');
+  const champs = $$('input,textarea', form).filter(c => c.type !== 'hidden' && c.type !== 'radio' && c.type !== 'checkbox' && c.name !== 'site' && c.name !== '_gotcha');
+  const groupes = $$('[data-requis]', form);
   champs.forEach(c => c.addEventListener('blur', () => { if (c.value) verifierChamp(c); }));
   champs.forEach(c => c.addEventListener('input', () => { if (c.getAttribute('aria-invalid') === 'true') verifierChamp(c); }));
+  groupes.forEach(g => g.addEventListener('change', () => verifierGroupe(g)));
   const envoi = form.querySelector('.envoi');
   const reel = envoiReel(form);
+  /* P4 : le brouillon (sessionStorage), rendu au retour, oublié après la réussite */
+  const memo = brouillon(form, location.pathname + ':' + (form.id || nomFormulaire(form) || activite));
+  memo.rendre();
+  form.addEventListener('input', memo.suivre); form.addEventListener('change', memo.suivre);
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    const koG = groupes.filter(g => !verifierGroupe(g));
     const ko = champs.filter(c => !verifierChamp(c));
+    if (koG.length) { $('input', koG[0]).focus(); return; }
     if (ko.length) { ko[0].focus(); return; }
-    const v = n => (form.elements[n] ? form.elements[n].value.trim() : '');
+    const v = n => (form.elements[n] && typeof form.elements[n].value === 'string' ? form.elements[n].value.trim() : '');
     /* CO-13 : sur la page Conseil, les champs portent les noms attendus par Formspree (email, message) */
     const courriel = v('courriel') || v('email'), besoin = v('besoin') || v('message');
-    const texte = [`Demande ${activite}, depuis la page ${activite} de civik-ia.fr`, '', `Nom : ${v('nom')}`, `Structure : ${v('structure')}`, `Courriel : ${courriel}`, `Besoin : ${besoin}`].join('\n');
+    /* P4 : le sujet choisi (l’accueil), par son libellé */
+    const choisi = $('[name="sujet"]:checked', form), sujetLu = choisi ? (choisi.dataset.libelle || choisi.value) : '';
+    const texte = [`Demande ${activite}, depuis la page ${activite} de civik-ia.fr`, '', ...(sujetLu ? [`Sujet : ${sujetLu}`] : []), `Nom : ${v('nom')}`, `Structure : ${v('structure')}`, `Courriel : ${courriel}`, `Besoin : ${besoin}`].join('\n');
     if (reel) {
       /* CO-13 : l’envoi réel, sans quitter la page ; trois états (en cours, réussite, échec avec le courriel de secours) ;
          R7 : la voix (data-voix) et l’objet (data-sujet) viennent des attributs du formulaire */
       if (form.dataset.enCours) return;
       form.dataset.enCours = '1'; form.setAttribute('aria-busy', 'true');
       const bouton = form.querySelector('[type="submit"]'), remettre = boutonEnCours(bouton);
-      const sujet = sujetDe(form, `Contact ${activite}`), voix = voixDe(form);
+      const sujet = sujetDe(form, `Contact ${activite}`) + (sujetLu ? `, sujet : ${sujetLu}` : ''), voix = voixDe(form);
       const donnees = new FormData(form); donnees.set('_replyto', courriel); donnees.set('_subject', sujet);
+      if (sujetLu) donnees.set('sujet', sujetLu);
+      if (envoi) { envoi.hidden = true; envoi.classList.remove('envoi--echec'); }
       const ok = await envoyerAvecLettre(form, form.dataset.envoi, donnees, { bloc: envoi, bouton });
       delete form.dataset.enCours; form.removeAttribute('aria-busy');
-      if (ok) { remettre(true); signalerDemande(form, 'contact'); form.classList.add('envoye'); etatEnvoi(envoi, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite }); }
-      else { remettre(false); etatEnvoi(envoi, 'echec', { voix, sujet, corps: texte }); }
+      if (ok) { remettre(true); signalerDemande(form, 'contact'); form.classList.add('envoye'); memo.oublier(); etatEnvoi(envoi, 'reussite', { voix, titre: form.dataset.reussiteTitre, texte: form.dataset.reussite, suite: suiteDe(form) }); }
+      else { remettre(false); etatEnvoi(envoi, 'echec', { voix, sujet, corps: texte, reessayer: relancer(form), formulaire: nomFormulaire(form) }); }
       if (ok) poserVignette(envoi);
       return;
     }
@@ -354,7 +484,7 @@ export function formulaireCourt(form, activite) {
     envoi.hidden = false;
     const copie = envoi.querySelector('[data-copier]'), ok = envoi.querySelector('.copie-ok');
     /* R2 : l’espace insécable avant les deux-points */
-    copie.onclick = async () => { ok.textContent = (await copier(texte)) ? 'Copié. Collez-le dans votre message.' : 'La copie a échoué\u00a0: sélectionnez le texte à la main.'; };
+    copie.onclick = async () => { ok.textContent = (await copier(texte)) ? 'Copié. Collez-le dans votre message.' : 'La copie a échoué : sélectionnez le texte à la main.'; };
     envoi.querySelector('[data-titre]').focus();
   });
 }

@@ -237,7 +237,18 @@ html:not(.js) [data-entree],html:not(.js) .mots .w>i{opacity:1;transform:none;fi
    (ces classes ne sont posées nulle part ailleurs : la page Atelier ne change pas) */
 .envoi--echec{border-color:var(--etat-erreur);background:var(--papier)}
 .envoi--echec .envoi__t{color:var(--etat-erreur)}
-.contact__formu.envoye>.champ,.contact__formu.envoye>button[type="submit"],.contact__formu.envoye>.mention{display:none}
+/* P4 (19/10/2026, partie 9, friction 15) : l'échec en trois sorties (« Réessayer » en plein, « Envoyer par courriel »,
+   « Copier mon message »), l'adresse écrite en clair dessous, sélectionnable d'un geste ; la réussite, une action suivante en lien */
+.envoi[tabindex="-1"]:focus{outline:none}   /* le focus y est posé pour les lecteurs d'écran ; ce n'est pas une commande */
+.envoi .envoi__actions{margin-top:16px}
+.envoi .envoi__actions .btn{flex:0 1 auto}
+.envoi .envoi__adresse{margin-top:14px;font-size:14px}
+.envoi__mel{font-weight:700;color:var(--encre);white-space:nowrap;user-select:all;-webkit-user-select:all}
+.envoi .envoi__copie{margin-top:8px;font:600 13.5px/1.4 var(--sans);color:var(--etat-reussite)}
+.envoi .envoi__copie:empty{display:none}
+.envoi .envoi__suite{margin-top:12px}
+@media (max-width:479.98px){.envoi .envoi__actions .btn{flex:1 1 100%}}
+.contact__formu.envoye>.champ,.contact__formu.envoye>button[type="submit"],.contact__formu.envoye>.mention,.contact__formu.envoye>.sujet{display:none}
 .contact__formu.envoye>.envoi{margin:0;padding:2px 0;border:0;box-shadow:none;background:none}
 
 /* ---------- l'emplacement de prix provisoire ---------- */

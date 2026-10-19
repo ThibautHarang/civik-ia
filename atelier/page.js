@@ -14,8 +14,9 @@
    planche), AT-2 les piles de fiches, AT-3 la scène de la méthode,
    AT-4 la main au crayon, AT-5 le téléphone (vérifié, peu de code).
    ===================================================================== */
-import { $, $$, clamp, reduit, chargerImage, demarrer, observer, Fiche, verifierChamp, formulaireCourt, copier, AUJOURDHUI, dort, envoiReel, envoyerFiche } from '../commun/pages/pages.js';   /* S1 : envoiReel, envoyerFiche (contrat R7) */
+import { $, $$, clamp, reduit, chargerImage, demarrer, observer, Fiche, verifierChamp, formulaireCourt, copier, AUJOURDHUI, dort, envoiReel, envoyerFiche, brouillon } from '../commun/pages/pages.js';   /* S1 : envoiReel, envoyerFiche (contrat R7) */
 import { Dessin, ligne, arcE, perimetre, formeMain, hachures, catmull, rng, eEntree } from '../commun/pages/plume.js';
+import { mesurer } from '../commun/pages/mesures.js';   /* P4 : formulaire_etape, valeurs fermées */
 import { ENCRE, FEUILLE, BRIQUES, TYPES, QUI, ANNOT_APP, posAnnotApp, CARTOUCHE, dessinCadre, dessinBrique, dessinQui, dessinCartouche, couleurSite, couleurMarianne, realisation, ZONES, dessinEtat, MOTS_ECOUTE, NOTES_CROQUIS, MAQUETTE, GRAPHITE, GRIS, dessinPlanche } from './croquis.js';
 
 demarrer();
@@ -1133,6 +1134,8 @@ function pageBlanche() {
   /* ---- les étapes ---- */
   let n_ = 1;
   const afficher = (k, focus = true) => {
+    /* P4 : l'étape montrée (1 à 5) et le sens, sans rien de saisi ; pas à l'affichage initial ni au retour du brouillon */
+    if (focus && k !== n_) mesurer('formulaire_etape', { formulaire: 'fiche_projet', etape: k, sens: k > n_ ? 'avant' : 'arriere' });
     etapes.forEach((f, i) => { f.hidden = i !== k - 1; f.classList.toggle('entre', i === k - 1 && !reduit()); });
     n_ = k; barre.style.transform = `scaleX(${k / 5})`; etatTxt.textContent = `Étape ${k} sur 5`; retour.hidden = k === 1;
     suite.firstChild.textContent = k === 5 ? 'Envoyer mon projet' : 'Suivant ';
@@ -1181,17 +1184,44 @@ function pageBlanche() {
     if (!envoiReel(form)) { finir(); etatTxt.textContent = 'Projet complet'; return; }
     etatTxt.textContent = 'Envoi du projet';
     const ok = await envoyerFiche(form, { texte: texteFiche(), num, bouton: suite, bloc: $('[data-projet-envoi]', form) });
-    if (ok) { finir(); etatTxt.textContent = 'Projet envoyé'; montrerMerci($('[data-projet-envoi]', form)); }   /* AT-34 */
+    if (ok) { finir(); etatTxt.textContent = 'Projet envoyé'; memo.oublier(); montrerMerci($('[data-projet-envoi]', form)); }   /* AT-34 ; P4 : le brouillon est oublié */
     else if (ok === false) etatTxt.textContent = 'Projet complet';
   });
 
   afficher(1, false);
-  /* ---- depuis le tiroir « Autre projet » : « Partir d'une page blanche » (le type choisi, le crayon pris) ----
-     AT-20 (cinquième passe) : les « Demander un devis sur mesure » des trois autres tiroirs mènent au bloc de contact (#contact) et
-     ne portent plus data-devis : ils ne pré-remplissent plus la page blanche */
+  /* ---- P4 (19/10/2026) : le brouillon de la fiche de projet, gardé le temps de la session (les choix, les mots, l'étape) ----
+     pages.js, brouillon : sessionStorage seulement, rien ne part ailleurs ; oublié après la réussite. Au retour sur la page, les
+     choix reviennent dans leur ordre (le type, puis « pour qui », puis les briques, que le type fait naître), le dessin suit,
+     la fiche s'écrit sans la frappe lettre à lettre, et l'étape revient. Le croquis du crayon n'est pas gardé (une image). */
+  const memo = brouillon(form, location.pathname + ':fiche_projet');
+  const CLE_ETAPE = 'civik-ia-brouillon-etape:' + location.pathname;
+  const garderEtape = () => { try { sessionStorage.setItem(CLE_ETAPE, String(n_)); } catch (e) { /* rien */ } };
+  form.addEventListener('input', memo.suivre); form.addEventListener('change', memo.suivre);
+  const rendreBrouillon = async () => {
+    const v = memo.lire(); if (!v || typeof v !== 'object') return;
+    const cocher = (nom, val) => { const r = $(`[name="${nom}"][value="${CSS.escape(val)}"]`, form); if (r) r.checked = true; return r; };
+    if (Array.isArray(v.type) && cocher('type', v.type[0])) await changerType(v.type[0]);
+    if (Array.isArray(v.qui) && cocher('qui', v.qui[0])) changerQui(v.qui[0]);
+    if (Array.isArray(v.brique)) { v.brique.forEach(b => cocher('brique', b)); majBriques(); }
+    ['delai', 'budget', 'hebergement', 'accessibilite'].forEach(nom => { if (Array.isArray(v[nom]) && cocher(nom, v[nom][0])) { majCartouche(); fiche.ecrire(nom, val(nom).replace(/^./, c => c.toUpperCase()), true); } });
+    ['idee', 'nom', 'structure', 'courriel'].forEach(nom => { const c = form.elements[nom]; if (c && typeof v[nom] === 'string' && !c.value) { c.value = v[nom]; fiche.ecrire(nom, v[nom].trim(), true); } });
+    if (v.idee) majIdee();
+    if (Object.keys(v).length) effacer('vide');
+    let k = 1; try { k = clamp(parseInt(sessionStorage.getItem(CLE_ETAPE) || '1', 10) || 1, 1, 5); } catch (e) { /* rien */ }
+    if (!v.type) k = 1;
+    afficher(k, false);
+  };
+  /* l'étape gardée avec le brouillon (à chaque passage d'une étape à l'autre) */
+  form.addEventListener('submit', () => setTimeout(garderEtape, 0));
+  retour.addEventListener('click', () => setTimeout(garderEtape, 0));
+  /* ---- depuis un tiroir : « Demander un devis » (site web, application, logiciel sur mesure) ou « Dessiner mon projet »
+     (autre projet) mènent à la page blanche, la demande de devis de l'atelier (M3, P4), et préremplissent le type de projet : la
+     feuille se dessine, la fiche s'écrit, l'étape 2 s'ouvre. Même page, aucun rechargement (l'ancre #page-blanche fait défiler).
+     « Autre projet » prend en plus le crayon. Une fiche déjà envoyée ne change plus. */
   $$('[data-devis]').forEach(a => a.addEventListener('click', () => {
+    if (form.classList.contains('fini')) return;
     const v = a.dataset.devis, r = $(`[name="type"][value="${v}"]`, form); if (!r) return;
-    r.checked = true; changerType(v); afficher(2, false);
+    r.checked = true; changerType(v); afficher(2, false); effacer('vide'); memo.suivre(); garderEtape();
     if (v === 'autre') setTimeout(() => { const b = $('[data-crayon]'); if (b.getAttribute('aria-pressed') !== 'true') b.click(); }, 900);
   }));
   addEventListener('resize', () => { clearTimeout(pageBlanche._t); pageBlanche._t = setTimeout(() => peindre(), 120); });
@@ -1199,6 +1229,7 @@ function pageBlanche() {
   /* une invitation, la feuille vide : « une page blanche » écrite au crayon, très pâle */
   ecrire('vide', 'une page blanche', 330, 360, 46, { op: .22, graisse: 400 });
   form.addEventListener('change', () => effacer('vide'), { once: true });
+  rendreBrouillon().catch(() => {});   /* P4 : après l'invitation, qu'un brouillon rendu efface */
   return { peindre };
 }
 

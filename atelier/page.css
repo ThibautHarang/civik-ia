@@ -550,3 +550,9 @@ html.methode-borne,html.methode-borne body{overscroll-behavior-y:none}
 }
 /* DJ-9 : « Parler de mon projet » poussait le bouton du menu hors de la barre de 421 à 427 px ; P3 : la barre prend ses libellés
    courts sous 820 px de barre (requête de conteneur, commun/pages/pages.css) */
+
+/* P4 (19/10/2026, revue, parties 3 et 9) : sur ordinateur, la carte des cookies (js/cookies.js) est compacte en bas à gauche sur tout
+   le site (css/couche-commune.css) ; sur l'Atelier, le bouton du haut « Dessiner mon projet » tombe en bas à gauche du premier écran
+   dès que la fenêtre est basse (mesuré : 1 024 x 768, 1 280 x 720, 1 366 x 768) : la carte s'y pose en bas à droite, sur la table,
+   loin du fil de la lampe (jamais par-dessus une commande) */
+@media (min-width:1024px){html .cc.cc-cookies{left:auto;right:16px}}

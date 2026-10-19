@@ -30,7 +30,9 @@
 const LIBELLES = [
   { texte: 'Tester Marianne', cible: 'marianne' },
   { texte: 'Prendre contact avec moi', court: 'Me contacter', cible: 'conseil', href: '/conseil/#contact' },   /* O1 bis, Q1 */
-  { texte: 'Parler de mon projet', court: 'Mon projet', cible: 'atelier', href: '/atelier/#page-blanche' }   /* Q1, Q5 */
+  /* P4 (19/10/2026, M7) : pendant « Créer », « Parler de mon projet » mène au contact de Conseil, comme la bulle du bout du film
+     écrite sous « Contactez-moi ! T.H. » (commun/pages/accueil.js) : un libellé, une destination, sur le même écran */
+  { texte: 'Parler de mon projet', court: 'Mon projet', cible: 'atelier', href: '/conseil/#contact' }   /* Q1, Q5, P4 */
 ];
 /* O1 : durée par défaut (secondes), quand la vitesse du film n'est pas connue */
 const DUREE = .6;

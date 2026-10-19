@@ -12,7 +12,8 @@
    Ne bouge que transform et opacity, sauf la révélation de la couleur
    (un petit élément). Mouvement réduit : tout est posé, rien ne bouge.
    ===================================================================== */
-import { $, $$, clamp, lerp, reduit, chargerImage, demarrer, observer, Fiche, verifierChamp, formulaireCourt, copier, AUJOURDHUI, envoiReel, envoyerFiche } from '../commun/pages/pages.js';   /* R7 : envoyerFiche, le mécanisme commun */
+import { $, $$, clamp, lerp, reduit, chargerImage, demarrer, observer, Fiche, verifierChamp, formulaireCourt, copier, AUJOURDHUI, envoiReel, envoyerFiche } from '../commun/pages/pages.js';
+import { mesurer } from '../commun/pages/mesures.js';   /* P4 : formulaire_etape, valeurs fermées */   /* R7 : envoyerFiche, le mécanisme commun */
 import { Dessin, ligne, arcE, perimetre, formeMain, hachures, catmull, rng, eEntree, eDepl, gribouillis } from '../commun/pages/plume.js';
 import { preparerCv, LOGO_D } from './cv.js';
 import { Passerelle, peindreRuisseau, REPOS, PASS } from './passerelle.js';
@@ -1247,6 +1248,7 @@ function demande() {
     $$('input,textarea', form).forEach(c => { if (!c.name || c.name === '_gotcha') return; if (c.type === 'radio' || c.type === 'checkbox') { if (c.checked) (v[c.name] = v[c.name] || []).push(c.value); } else if (c.value) v[c.name] = c.value; });
     memoire.ecrire({ num, n, v });
   };
+  $$('input[type=tel]', form).forEach(c => { c.addEventListener('blur', () => { if (c.value) verifierChamp(c); }); c.addEventListener('input', () => { if (c.getAttribute('aria-invalid') === 'true') verifierChamp(c); }); });   /* P4 */
   form.addEventListener('change', e => { const n = e.target.name; if (n === 'domaine') $('[data-situations]').dataset.domaine = e.target.value; majFiche(n); effacerErreur(); garder(); });
   let tempo = 0;
   form.addEventListener('input', e => { if (e.target.matches('input[type=text],input[type=email],input[type=tel],textarea')) { clearTimeout(tempo); const n = e.target.name; tempo = setTimeout(() => { majFiche(n); garder(); }, 450); } });
@@ -1262,6 +1264,8 @@ function demande() {
   const effacerErreur = () => { const e = erreurEtape(); if (e) e.textContent = ''; };
   const FLECHE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
   const afficher = (k, focus = true) => {
+    /* P4 : l'étape montrée (1 à 5) et le sens, sans rien de saisi ; pas à l'affichage initial ni au retour de la fiche gardée */
+    if (focus && k !== n) mesurer('formulaire_etape', { formulaire: 'fiche_demande', etape: k, sens: k > n ? 'avant' : 'arriere' });
     etapes.forEach((f, i) => { f.hidden = i !== k - 1; f.classList.toggle('entre', i === k - 1 && !reduit()); });
     n = k;
     barre.style.transform = `scaleX(${k / 5})`;
@@ -1281,7 +1285,8 @@ function demande() {
     for (const g of $$('[data-requis]', f)) {
       if (!$$('input', g).some(x => x.checked)) { const e = erreurEtape(); e.textContent = g.dataset.manque; $('input', g).focus(); return false; }
     }
-    const req = $$('input[required],textarea[required]', f); let ok = true;
+    /* P4 (partie 5) : le téléphone, facultatif, vérifié s'il est rempli (format souple, pages.js) */
+    const req = $$('input[required],textarea[required],input[type=tel]', f); let ok = true;
     req.forEach(c => { if (!verifierChamp(c) && ok) { ok = false; c.focus(); } });
     return ok;
   };

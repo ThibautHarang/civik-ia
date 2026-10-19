@@ -26,7 +26,13 @@ import { fileURLToPath } from 'node:url';
 const SITE = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const ECRIRE = process.argv.includes('--ecrire');
 const VERIFIER = process.argv.includes('--verifier');
-const V = '20261019';   // appel versionné des feuilles et du script (nginx les garde sept jours) : à changer avec eux
+const V = '20261019c';   // appel versionné des feuilles et du script (nginx les garde sept jours) : à changer avec eux
+// P4 (19/10/2026) : 20261019c, la même version que l'accueil, Conseil et l'Atelier (installe-refonte.mjs, V_COMMUN) : js/cookies.js
+// compte les choix du bandeau et charge les mesures après l'accord ; css/couche-commune.css pose le bandeau compact sur ordinateur
+// P4 (19/10/2026, revue, parties 2 et 9, friction 6) : « Contact » de la barre et du pied mène au formulaire « Nous écrire » de
+// l'accueil (/#contact), avec le choix du sujet, sur toutes les pages anciennes ; seule /marianne/ garde son propre contact
+// (#contact de la page, D72) jusqu'au verdict du 28/10
+const CONTACT = '/#contact';
 
 // ---------------------------------------------------------------------------------------------------------------
 // 1. Les pages
@@ -120,7 +126,7 @@ const adresse = f => '/' + f.replace(/index\.html$/, '');
 const courant = (href, ici, valeur = 'page') => (href === ici ? ` aria-current="${valeur}"` : '');
 
 function barre(f, c) {
-  const contact = c.contact || '/marianne/#contact';
+  const contact = c.contact || CONTACT;
   const action = c.action || MARIANNE;
   const marianneCourant = c.courant ? ` aria-current="${c.courant}"` : '';
   const liens = [['/marianne/', 'Marianne', marianneCourant], ['/conseil/', 'Conseil', ''], ['/atelier/', 'Atelier', ''], [contact, 'Contact', '']];
@@ -148,7 +154,7 @@ function barre(f, c) {
 
 function pied(f, c) {
   const ici = adresse(f);
-  const contact = c.contact || '/marianne/#contact';
+  const contact = c.contact || CONTACT;
   const site = [['/', 'Accueil'], ['/marianne/', 'Marianne'], ['/conseil/', 'Conseil'], ['/atelier/', 'Atelier'], ['/demo', 'Tester Marianne'], ['/22h47.html', '22h47, votre mairie est&nbsp;fermée'], [contact, 'Contact']];
   const ecrire = '<li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li>'
     + '<li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li>'

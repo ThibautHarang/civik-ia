@@ -15,7 +15,11 @@
 // /css/couche-commune.css et /js/cookies.js avec ?v=20261019b (le bandeau de cookies de la maison remplace /cookie-consent.js
 // sur ces trois pages) ; js/cookies.js, les deux pages des canaux, 22h47, la page prix, le livre blanc, le guide RGPD et les pages
 // légales changent : le cache est vidé une fois de plus.
-const CACHE_NAME = 'civik-ia-v187-composants-mots-2026-10-19';
+// v188 (passe P4, 19/10/2026, le chemin jusqu'au contact) : « Contact » mène au formulaire de l'accueil depuis toutes les pages
+// anciennes (barre et pied communs) ; feuilles et script communs appelés avec ?v=20261019c (bandeau compact sur ordinateur, compteur
+// des choix du bandeau, mesures après l'accord) ; le calculateur de la page prix ouvre une demande préremplie (prix.js et prix.css
+// appelés avec ?v=20261019c).
+const CACHE_NAME = 'civik-ia-v188-contact-2026-10-19';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

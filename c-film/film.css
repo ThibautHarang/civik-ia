@@ -536,6 +536,77 @@ html:not(.film-pret) .continuer{display:none}
 .clair .btn:active{transform:scale(.97)}
 .clair .btn:focus-visible{border-radius:var(--r-pilule)}
 @media (hover:hover){.clair .btn--plein:hover{background:var(--teal-txt)}}
+/* ---------- P4 (19/10/2026, revue Claude Design, parties 2, 3, 9 et 12) : « Nous écrire », le contact de l'accueil ----------
+   Le composant contact de Conseil et de l'Atelier (commun/pages/pages.css), recopié ici sous .ecrire (l'accueil ne lit pas
+   pages.css, dont la barre, les boutons et le pied diffèrent de ceux du film) : deux colonnes 0,9 et 1,1, écart de 64 px, une
+   seule colonne sous 1 024 ; carte papier au rayon 24, 32 px de marge, ombre posée ; pastilles de 44 px, champs de 50 px au
+   filet à 3:1 ; encart d'envoi, échec en trois sorties ; même bord gauche que les cartes. Rien du film ne change ici. */
+.ecrire{position:relative;z-index:2;background:var(--creme);padding:0 var(--bord-page) clamp(96px,10vw,140px);scroll-margin-top:88px}   /* « Contact » : le titre arrive sous la barre fixe, pas dessous */
+.ecrire__in{max-width:1206px}
+.ecrire__titre{font:700 clamp(30px,3.6vw,48px)/1.08 var(--titre);letter-spacing:-.03em;color:var(--bleu)}
+.ecrire__chapo{margin-top:18px;font:var(--t-chapo);color:var(--encre-2);max-width:var(--ligne-chapo)}
+.ecrire .contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--esp-palier);align-items:start}
+.ecrire .contact__mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font:700 17px/1.2 var(--sans);color:var(--bleu)}
+.ecrire .contact__plus{margin-top:22px;font-size:15.5px;line-height:1.6;color:var(--encre-2)}
+.ecrire .contact__formu{background:var(--papier);border:0;border-radius:var(--r-scene);padding:var(--esp-carte);box-shadow:var(--o-pose);display:grid;gap:var(--esp-ligne)}
+.ecrire .lien,.ecrire .contact__plus a{color:var(--bleu);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(0,0,145,.45)}
+@media (hover:hover){.ecrire .lien:hover,.ecrire .contact__plus a:hover{color:var(--teal-txt);text-decoration-color:currentColor}}
+.ecrire :where(.lien,.contact__plus a,.mention a,.contact__mail):focus-visible{border-radius:4px}
+.ecrire [hidden]{display:none !important}
+.ecrire fieldset{margin:0;padding:0;border:0;min-width:0}
+.ecrire legend{padding:0}
+.ecrire .sujet{display:grid;gap:var(--esp-point)}
+.ecrire .sujet__lab{font:600 14.5px/1.3 var(--sans);color:var(--encre);margin-bottom:var(--esp-point)}
+.ecrire .puces{display:flex;flex-wrap:wrap;gap:var(--esp-point)}
+.ecrire .puce{position:relative;display:inline-flex}
+.ecrire .puce input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}
+.ecrire .puce span{display:inline-flex;align-items:center;gap:8px;min-height:var(--h-pastille);padding:10px 16px;border-radius:var(--r-pilule);background:var(--papier);border:1px solid var(--filet-champ);font:600 15px/1.25 var(--sans);color:var(--encre);transition:background var(--d-etat),color var(--d-etat),border-color var(--d-etat),transform var(--d-appui) var(--c-doux)}
+.ecrire .puce span::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;border:1.6px solid rgba(0,0,145,.35);transition:background var(--d-etat),border-color var(--d-etat)}
+.ecrire .puce input:checked+span{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.ecrire .puce input:checked+span::before{background:var(--or);border-color:var(--or)}
+.ecrire .puce input:focus-visible+span{outline:3px solid var(--bleu);outline-offset:3px}
+.ecrire .puce input:active+span{transform:scale(.97)}
+@media (hover:hover){.ecrire .puce input:not(:checked):hover+span{border-color:rgba(0,0,145,.5)}}
+.ecrire .champ{display:grid;gap:var(--esp-point)}
+.ecrire .champ label{font:600 14.5px/1.3 var(--sans);color:var(--encre)}
+.ecrire .champ input,.ecrire .champ textarea{width:100%;min-height:var(--h-champ);padding:13px 16px;border-radius:var(--r-champ);border:1px solid var(--filet-champ);background:var(--papier);font:500 16px/1.4 var(--sans);color:var(--encre);transition:border-color var(--d-etat),box-shadow var(--d-etat)}
+.ecrire .champ textarea{min-height:112px;resize:vertical}
+.ecrire .champ input:focus,.ecrire .champ textarea:focus{outline:none;border-color:var(--bleu);box-shadow:0 0 0 3px rgba(0,0,145,.14)}
+.ecrire .champ [aria-invalid="true"]{border-color:var(--rouge);box-shadow:0 0 0 3px rgba(200,50,43,.12)}
+.ecrire .erreur{font:600 13px/1.4 var(--sans);color:var(--etat-erreur)}
+.ecrire .erreur:empty{display:none}
+.ecrire .oblig{color:var(--rouge);font-weight:700}
+.ecrire .contact__formu>.btn{justify-self:start}
+.ecrire .btn{position:relative}
+.ecrire .btn--filet{border:1.5px solid rgba(0,0,145,.5);color:var(--bleu);background:transparent}
+.ecrire .btn--petit{min-height:var(--h-bouton-petit);padding:0 18px;font:var(--t-bouton-petit)}
+.ecrire .btn[disabled]{background:var(--etat-off-fond);color:var(--etat-off);border-color:transparent;box-shadow:none;cursor:not-allowed}
+.ecrire .btn--plein[aria-busy="true"]{background:var(--bleu);color:#fff;cursor:progress}
+.ecrire .btn[aria-busy="true"]::after{content:"";position:absolute;left:26px;right:26px;bottom:11px;height:2px;border-radius:2px;background:var(--or);transform-origin:left;animation:ecrire-trait 1.2s var(--c-deplacement) infinite}
+@keyframes ecrire-trait{from{transform:scaleX(0)}70%{transform:scaleX(1);opacity:1}to{transform:scaleX(1);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ecrire .btn[aria-busy="true"]::after{animation:none;transform:none}}
+@media (hover:hover){.ecrire .btn--plein:not([disabled]):hover{background:var(--teal-txt)}.ecrire .btn--filet:not([disabled]):hover{background:rgba(0,0,145,.05)}}
+.ecrire .btn:focus-visible{border-radius:var(--r-pilule)}
+.ecrire .mention{font:var(--t-mention);color:var(--encre-2);text-wrap:pretty}
+.ecrire .mention .insec{white-space:nowrap}
+.ecrire .mention a{white-space:nowrap;color:var(--encre);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px;text-decoration-color:rgba(30,30,30,.45);padding-block:12px}
+.ecrire .envoi{margin-top:2px;padding:20px 24px;border-radius:var(--r-champ);background:var(--papier);border:1px solid rgba(0,0,145,.18)}
+.ecrire .envoi p{font-size:15px;line-height:1.55;color:var(--encre-2);margin-top:6px}
+.ecrire .envoi .envoi__t{font:700 20px/1.3 var(--titre);color:var(--bleu);margin-top:0}
+.ecrire .envoi--echec{border-color:var(--etat-erreur)}
+.ecrire .envoi--echec .envoi__t{color:var(--etat-erreur)}
+.ecrire .envoi__actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.ecrire .envoi[tabindex="-1"]:focus{outline:none}
+.ecrire .envoi .envoi__adresse{margin-top:14px;font-size:14px}
+.ecrire .envoi__mel{font-weight:700;color:var(--encre);white-space:nowrap;user-select:all;-webkit-user-select:all}
+.ecrire .envoi .envoi__copie{margin-top:8px;font:600 13.5px/1.4 var(--sans);color:var(--etat-reussite)}
+.ecrire .envoi .envoi__copie:empty{display:none}
+.ecrire .envoi .envoi__suite{margin-top:12px}
+.ecrire .contact__formu.envoye>.champ,.ecrire .contact__formu.envoye>.sujet,.ecrire .contact__formu.envoye>button[type="submit"],.ecrire .contact__formu.envoye>.mention{display:none}
+.ecrire .contact__formu.envoye>.envoi{margin:0;padding:2px 0;border:0;box-shadow:none;background:none}
+@media (max-width:1023.98px){.ecrire .contact{grid-template-columns:1fr;gap:var(--esp-groupe)}}
+@media (max-width:767.98px){.ecrire .contact__formu{padding:var(--esp-bloc)}}
+@media (max-width:479.98px){.ecrire .btn{min-height:48px}.ecrire .envoi__actions .btn{flex:1 1 100%}}
 .pied{position:relative;z-index:2;text-align:left;background:var(--nuit);color:var(--nuit-txt2,#b9c1e0);font:inherit;padding:var(--esp-palier) var(--bord-page) 96px}
 .pied__in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.15fr;gap:var(--esp-carte)}
 .pied__marque{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--titre);color:#fff;letter-spacing:-.02em}
@@ -571,6 +642,9 @@ html:not(.film-pret) .continuer{display:none}
 /* P3 : le bandeau de cookies de la maison (js/cookies.js, carte .cc-cookies) se pose au-dessus du rail du film tant que le film
    est à l'écran (jamais par-dessus une commande) ; sous le film, il reprend sa place, à 16 px du bas */
 html:not(.hors-film) .cc.cc-cookies{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+/* P4 (19/10/2026) : sur tablette (768 à 1 023 px), la carte se range à gauche, 420 px au plus, comme sur ordinateur
+   (css/couche-commune.css) : entre 768 et 900 px, les commandes du film remontent à 82 px, à droite, et la carte centrée les couvrait */
+@media (min-width:768px) and (max-width:1023.98px){html:not(.hors-film) .cc.cc-cookies{left:16px;right:auto;margin:0;max-width:420px}}
 
 /* ---------- petit écran : la conversation se loge en bas, le monde défile derrière ---------- */
 @media (max-width:767.98px){

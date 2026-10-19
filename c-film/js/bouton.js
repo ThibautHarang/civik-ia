@@ -30,9 +30,10 @@
 const LIBELLES = [
   { texte: 'Tester Marianne', cible: 'marianne' },
   { texte: 'Prendre contact avec moi', court: 'Me contacter', cible: 'conseil', href: '/conseil/#contact' },   /* O1 bis, Q1 */
-  /* P4 (19/10/2026, M7) : pendant « Créer », « Parler de mon projet » mène au contact de Conseil, comme la bulle du bout du film
-     écrite sous « Contactez-moi ! T.H. » (commun/pages/accueil.js) : un libellé, une destination, sur le même écran */
-  { texte: 'Parler de mon projet', court: 'Mon projet', cible: 'atelier', href: '/conseil/#contact' }   /* Q1, Q5, P4 */
+  /* P4 (19/10/2026, M7) : pendant « Créer », « Parler de mon projet » menait au contact de Conseil. P5 (19/10/2026, M3) : au contact
+     de l'Atelier, comme la bulle du bout du film (atelier.js, et sa réplique du téléphone, proto3.js) et le bouton de la barre de la
+     page de l'Atelier : un libellé, une destination, partout */
+  { texte: 'Parler de mon projet', court: 'Mon projet', cible: 'atelier', href: '/atelier/#contact' }   /* Q1, Q5, P4, P5 */
 ];
 /* O1 : durée par défaut (secondes), quand la vitesse du film n'est pas connue */
 const DUREE = .6;

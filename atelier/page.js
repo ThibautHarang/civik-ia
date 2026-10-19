@@ -95,7 +95,8 @@ async function entree() {
     const c = 'cubic-bezier(.4,.05,.5,.95)', bas = `translateY(${(Lf - 12).toFixed(1)}px)`;
     const kf = [{ offset: 0, transform: 'translateY(-26px)', opacity: 0, easing: c }, { offset: .04, opacity: 1, easing: c }, { offset: .24, transform: bas, opacity: 1, easing: c }, { offset: .29, transform: bas, opacity: 0, easing: c }, { offset: 1, transform: bas, opacity: 0 }];
     if (animReflet) { animReflet.effect.setKeyframes(kf); return; }
-    animReflet = refletEl.animate(kf, { duration: 3600, delay: 2600, iterations: Infinity, easing: 'linear' });
+    /* P5 (19/10/2026, critère 2.2.2) : un seul reflet (il passait toutes les 3,6 s sans fin) ; l'éclat de la bague et de la perle aussi (page.css) */
+    animReflet = refletEl.animate(kf, { duration: 3600, delay: 2600, iterations: 1, easing: 'linear' });
     const eclat = $('[data-fil-eclat]'), a = eclat && eclat.getAnimations ? eclat.getAnimations()[0] : null;
     if (a) a.ready.then(() => { if (animReflet && a.startTime !== null) animReflet.startTime = a.startTime; }).catch(() => {});
   };
@@ -232,14 +233,15 @@ async function entree() {
     for (let i = 0; i <= n; i++) { const t = i / n * duree / 1000; kf.push({ transform: `rotate(${(A * Math.exp(-t / tau) * Math.sin(2 * Math.PI * t / P)).toFixed(3)}deg)` }); }
     balance = balancier.animate(kf, { duration: duree, easing: 'linear' });
   };
-  /* AT-13 : l'état de la lampe dit aux lecteurs d'écran (le fil est un bouton à bascule : enfoncé, la lampe est éteinte) */
-  const dire = (on) => { fil.setAttribute('aria-pressed', String(!on)); fil.setAttribute('aria-label', on ? 'Éteindre la lampe' : 'Allumer la lampe'); };
+  /* AT-13 : l'état de la lampe dit aux lecteurs d'écran. P5 (19/10/2026) : par le nom seul (« Allumer la lampe », « Éteindre la lampe ») ;
+     l'état « enfoncé » d'avant (aria-pressed, inversé : enfoncé quand la lampe est éteinte) doublait le nom et le contredisait */
+  const dire = (on) => { fil.setAttribute('aria-label', on ? 'Éteindre la lampe' : 'Allumer la lampe'); };
   const basculer = (on) => {
     allumee = on;
     sec.classList.remove('d-emblee');   /* AT-13 : allumée d'emblée (ancre, mouvement réduit), la lampe retrouve ses animations au premier tirage */
     sec.classList.toggle('eteint', !on);
     sec.classList.toggle('rallume', on);   /* l'animation de l'ampoule repart d'elle-même : son nom change (aucune à la nuit) */
-    fil.setAttribute('aria-pressed', String(!on)); fil.setAttribute('aria-label', on ? 'Éteindre la lampe' : 'Allumer la lampe');
+    dire(on);
     sec.dispatchEvent(new CustomEvent('lampe', { detail: on }));
   };
   /* tirer : le fil descend de quelques pixels et remonte ; la lampe bascule au bas du geste ; il repart en balancier */

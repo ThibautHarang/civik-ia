@@ -16,6 +16,14 @@ import { TEL, VUE, lectureReussie } from './memoire.js';   /* X2 : lectureReussi
 import { creerBoutonChapitre } from './bouton.js';
 /* P2 (seizième passe) : la fenêtre de l'ouverture des préparations de fond (lavis.js) */
 import { ouverture, finOuverture, signalerImage, geste } from './lavis.js';
+/* P5 (19/10/2026, revue Claude Design, partie 9) : film_arret (l'arrêt atteint et tenu une demi-seconde : son numéro, la forme
+   « calcule », le sens), par les listes fermées de commun/pages/mesures.js (rien ne part sans l'accord) ; le module est demandé à
+   part, le film ne l'attend jamais */
+let MESURES = null;
+const mesurerFerme = (ev, o) => { try { (MESURES || (MESURES = import('../../commun/pages/mesures.js').catch(() => null))).then(m => { if (m && m.mesurer) m.mesurer(ev, o); }).catch(() => {}); } catch (e) { /* rien */ } };
+/* P5 (critère 2.2.2) : « Arrêter les animations » (bouton d'évitement de la page, main.js) pose la classe anim-arretees sur la racine :
+   la vie lente (mains, feuille) ne se joue plus quand rien d'autre ne bouge ; la feuille du film arrête les animations de la scène */
+const animArretees = () => document.documentElement.classList.contains('anim-arretees');
 
 export function demarrerMoteur(film, opts) {
   const { filmEl, P_FIXE, ARRET, LECTURE_AUTO } = opts;
@@ -29,8 +37,10 @@ export function demarrerMoteur(film, opts) {
   const lecteur = document.querySelector('[data-lecture]'), lecteurTxt = document.querySelector('[data-lecture-txt]');
   const continuerB = document.querySelector('[data-continuer]');
   const invite = film.F.scene.querySelector('[data-invite]');
-  /* Q2 (dix-septième passe, 07/10/2026) : « Cliquez pour avancer » à la souris, « Touchez pour avancer » au doigt */
-  if (invite) invite.textContent = matchMedia('(pointer: coarse)').matches ? 'Touchez pour avancer' : 'Cliquez pour avancer';
+  /* Q2 (dix-septième passe, 07/10/2026) : « Cliquez pour avancer » à la souris, « Touchez pour avancer » au doigt. P5 (19/10/2026,
+     revue Claude Design, parties 4 et 5, laissé par P3) : au doigt, « Touchez ou faites glisser » (le geste naturel est aussi de faire
+     défiler) */
+  if (invite) invite.textContent = matchMedia('(pointer: coarse)').matches ? 'Touchez ou faites glisser' : 'Cliquez pour avancer';
   /* M7, M5 (treizième passe) : sur iPhone, les barres de Safari se replient et reviennent pendant le défilement : la hauteur
      de la fenêtre change (et un événement « resize » part). La course du film se mesure sur la grande hauteur (100lvh, la
      fenêtre barres repliées), stable : p ne saute plus quand les barres bougent. Sur ordinateur, c'est la même chose
@@ -196,7 +206,7 @@ export function demarrerMoteur(film, opts) {
       majArret(t);
       majLecteur();
     }
-    if (P_FIXE === null && (bouge || gele || chapGeste || (film.F.vivant && enVue()))) demander();
+    if (P_FIXE === null && (bouge || gele || chapGeste || (film.F.vivant && enVue() && !animArretees()))) demander();
     else dernier = 0;
   }
   let dernierRendu = 0;
@@ -217,11 +227,17 @@ export function demarrerMoteur(film, opts) {
   const demander = () => { if (!boucle) boucle = requestAnimationFrame(image); };
 
   /* ---- l'objet de l'arrêt : bouton actif, battement après 2,5 s, légende de trois mots ---- */
-  let arretCourant = -1;
+  let arretCourant = -1, arriveeMesuree = true, pArretPrec = -1;
   function appelEnAttente() { return arretCourant >= 0 && !jeu && performance.now() - attenteDepuis < 3200; }
   function majArret(t) {
     const i = jeu ? -1 : arretIci(pVue);
-    if (i !== arretCourant) { arretCourant = i; attenteDepuis = performance.now(); }
+    if (i !== arretCourant) { arretCourant = i; attenteDepuis = performance.now(); arriveeMesuree = i < 0; }
+    /* P5 : film_arret, une fois par arrivée tenue 500 ms (un passage au doigt ou à la molette ne compte pas) */
+    if (i >= 0 && !arriveeMesuree && P_FIXE === null && performance.now() - attenteDepuis > 500) {
+      arriveeMesuree = true;
+      mesurerFerme('film_arret', { arret: String(ARRETS[i].n), forme: 'calcule', sens: pVue >= pArretPrec ? 'avant' : 'arriere' });
+      pArretPrec = pVue;
+    }
     film.F.arret = i;
     const cmd = i >= 0 ? film.F.commande : null;
     const attend = i >= 0 && i < 4 && performance.now() - attenteDepuis > 2500;
@@ -337,6 +353,7 @@ export function demarrerMoteur(film, opts) {
   /* ---- les commandes ---- */
   film.F.continuer = continuer;
   film.F.demander = demander;
+  document.addEventListener('film-animations', () => demander());   /* P5 : « Relancer les animations » rend la vie lente */
   if (continuerB) continuerB.addEventListener('click', e => { e.stopPropagation(); continuer(); });
   lecteur.addEventListener('click', e => { e.stopPropagation(); premierGeste = true; if (jeu) arreter(); else if (mesure() > .995) revoirFilm(); else jouer(1, { lecture: true, lineaire: true }); });
   boutonsChap.forEach((b, i) => b.addEventListener('click', () => { premierGeste = true; arreter(); allerA(arretChapitre(i).p); demander(); }));

@@ -1,14 +1,15 @@
 /* =====================================================================
    L’accueil, hors du film (passe P4, 19/10/2026 ; revue Claude Design,
-   parties 2, 9 et 12) : le contact « Nous écrire » et les portes du bout
-   du film. Chargé par la page d’accueil à côté du film (c-film/js/main.js),
+   parties 2, 9 et 12) : le contact « Nous écrire ». Chargé par la page d’accueil à côté du film (c-film/js/main.js),
    sans rien lui demander ni rien changer dans le film ou son lecteur.
    - Le formulaire passe par le mécanisme commun des pages (pages.js,
      formulaireCourt, contrat R7) : séquence d’envoi en six temps, brouillon
      gardé dans la session, échec en trois sorties, mesures fermées.
    - L’action suivante sous le remerciement dépend du sujet choisi.
-   - Au bout du film, la bulle « Parler de mon projet » mène au contact de
-     Conseil (voir plus bas).
+   - Passe P5 (19/10/2026) : le filet qui corrigeait l’adresse de la bulle
+     « Parler de mon projet » du bout du film est retiré ; l’adresse (le
+     contact de l’Atelier, M3) est posée dans le film (c-film/js/atelier.js,
+     c-film/js/bouton.js) et dans le lecteur du téléphone (proto3.js).
    ===================================================================== */
 import { formulaireCourt } from './pages.js';
 
@@ -32,19 +33,3 @@ if (form) {
      (pages.css) ; posé ici et seulement à ce moment, pour ne rien changer aux ancres du film (« Passer le film ») */
   form.addEventListener('focusin', () => { document.documentElement.style.scrollPaddingTop = '96px'; }, { once: true });
 }
-
-/* M7 (décision de la session du 18/10/2026) et P4 : au bout du film, sous « Vous avez un projet ? Contactez-moi ! T.H. »,
-   écrit à la première personne, la bulle « Parler de mon projet » mène au contact de Conseil (au « je », celui de Thibaut), et
-   non plus à la page blanche de l’Atelier ; le bouton de la barre pendant « Créer » (c-film/js/bouton.js) mène au même endroit
-   (un libellé, une destination, sur le même écran). La bulle est posée par le film (c-film/js/atelier.js sur ordinateur ; sur
-   téléphone, sa zone cliquable est une réplique posée par le lecteur depuis la piste T3, enregistrée avec la vidéo) : le film
-   et le lecteur ne changent pas dans cette passe, l’adresse est corrigée ici, dès que la bulle paraît dans la page.
-   Passe P5 : poser l’adresse dans atelier.js et dans proto3.js (réplique de la piste), puis retirer ce filet. */
-const BULLE = '/conseil/#contact';
-const corriger = n => {
-  if (!n || n.nodeType !== 1) return;
-  const liste = n.matches('a.bulle-projet') ? [n] : n.querySelectorAll('a.bulle-projet');
-  liste.forEach(a => { if (a.getAttribute('href') !== BULLE) a.setAttribute('href', BULLE); });
-};
-corriger(document.body);
-if ('MutationObserver' in window) new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(corriger))).observe(document.body, { childList: true, subtree: true });

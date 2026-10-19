@@ -67,6 +67,12 @@ let defaire = null;
    de chaîne de codec complète, de taille d'écran exacte ni d'agent utilisateur. Les déclencheurs (événements personnalisés) se créent
    dans GTM ; dans les maquettes, GTM n'est jamais chargé : rien ne part */
 const mesurer = o => { try { if (window.__civikGtmLoaded !== true) return; (window.dataLayer = window.dataLayer || []).push(o); } catch (e) { /* rien */ } };
+/* P5 (19/10/2026, revue Claude Design, parties 9 et 10) : film_arret (l'arrêt atteint, 1 à 5 comme sur ordinateur, la forme, le sens)
+   et film_attente (l'attente d'un trajet, en tranches de 250 ms, le tronçon, la classe d'écran) passent par les listes fermées de
+   commun/pages/mesures.js (P4) : une valeur hors liste fait tomber l'événement, rien ne part sans l'accord (window.__civikGtmLoaded).
+   Le module est demandé à part (import dynamique) : le lecteur n'attend jamais la mesure */
+let MESURES = null;
+const mesurerFerme = (ev, o) => { try { (MESURES || (MESURES = import('../../commun/pages/mesures.js').catch(() => null))).then(m => { if (m && m.mesurer) m.mesurer(ev, o); }).catch(() => {}); } catch (e) { /* rien */ } };
 /* (mesureL : le nom « mesure » est pris dans installerLecteur, la position du défilement) */
 const mesureL = { classe: null, codec: null, demarre: 0, fin: false, repli: false };
 const repli = cause => {
@@ -82,6 +88,7 @@ export async function installer() {
 async function installerLecteur() {
   const racine = document.documentElement;
   racine.classList.add('proto2', 'proto3', 'film-pret');   /* film-pret : la feuille du film montre les blocs et « Continuer » */
+
   const filmEl = document.getElementById('film'), scene = filmEl.querySelector('[data-scene]');
   const rail = document.querySelector('.rail'), continuerB = rail.querySelector('[data-continuer]');
   const boutonsChap = Array.from(rail.querySelectorAll('[data-chap]')), fils = Array.from(rail.querySelectorAll('[data-fil]'));
@@ -117,7 +124,7 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
   const blocsAvant = [];
   const abandonner = defaire = m => {
     defaire = null; noter(m); etat.echec = m; repli(/codec/.test(m) ? 'codec' : 'erreur');
-    racine.classList.remove('proto2', 'proto3', 'film-pret'); st.remove();
+    racine.classList.remove('proto2', 'proto3', 'film-pret'); st.remove(); scene.style.background = '';
     if (marque) marque.remove(); if (jEl) jEl.remove();
     blocsAvant.forEach(([b, h]) => { b.innerHTML = h; });
     return false;
@@ -125,6 +132,18 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
   /* la classe la plus proche de la largeur ; la hauteur rendue : la plus grande qui ne dépasse pas la fenêtre (la plus petite sinon) */
   const classes = CLASSES.slice().sort((a, b) => Math.abs(innerWidth - a.w) - Math.abs(innerWidth - b.w));
   const choisirH = c => { const L = c.hauteurs.filter(h => h <= innerHeight + 2); return L.length ? Math.max(...L) : Math.min(...c.hauteurs); };
+  /* P5 (19/10/2026, revue Claude Design, partie 10, proposition 4) : la première image de la nuit avant la vidéo. Avant la passe, le
+     lecteur cachait l'affiche dès sa prise de main : nuit unie pendant la lecture des index, puis le canevas (opaque) en noir jusqu'à
+     la première image décodée. Désormais la gravure de nuit (l'image de l'affiche, déjà demandée par la tête de la page) reste posée
+     sur la scène, au cadrage exact de la vidéo à son début (la classe et la hauteur que le lecteur va choisir ; le cadrage du film à
+     p 0 : la gravure de toute la hauteur, son point à 79 % au milieu, film.js et fond.js) ; le canevas reste caché jusqu'à sa
+     première image, qui prend la place de l'affiche dans la même image d'écran (plus bas, au premier dessin). Rien de la vidéo ne
+     change */
+  {
+    const c0 = classes[0], H0 = choisirH(c0), k0 = scene.clientWidth / c0.w, fw0 = Math.max(c0.w, H0 * 1.8512), x0 = c0.w * .5 - .79 * fw0;
+    const nuit = scene.querySelector('[data-nuit]'), src = nuit && (nuit.currentSrc || nuit.src);
+    if (src && k0 > 0) scene.style.background = `#0b1030 url("${src}") ${(x0 * k0).toFixed(2)}px 0/${(fw0 * k0).toFixed(2)}px ${(H0 * k0).toFixed(2)}px no-repeat`;
+  }
   /* le codec */
   const forcer = Q.get('protocodec');
   let codec = null;
@@ -154,7 +173,7 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
     const nom = t.nom + (t.varie ? '-h' + H : ''), f = s => base + nom + '-' + s + codec.suf + q;
     try {
       const [av, ar, piste] = await Promise.all([lire(f('avant') + '.json'), lire(f('arriere') + '.json'), lire(base + nom + '-piste.json').catch(() => null)]);
-      return Object.assign({}, t, { nom, av: creerFlux(f('avant') + '.' + codec.ext, av), ar: creerFlux(f('arriere') + '.' + codec.ext, ar), piste, p0: av.ps[0], p1: av.ps[av.ps.length - 1] });
+      return Object.assign({}, t, { base: t.nom, nom, av: creerFlux(f('avant') + '.' + codec.ext, av), ar: creerFlux(f('arriere') + '.' + codec.ext, ar), piste, p0: av.ps[0], p1: av.ps[av.ps.length - 1] });
     } catch (e) { noter('tronçon absent ' + nom + ' : ' + e.message); return null; }
   })).then(L => L.filter(Boolean));
   let tr = await chargerIndex();
@@ -170,6 +189,8 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
 
   /* ---- le canevas et la couche des superposés, au repère de la scène fixe (ancrée en haut) ---- */
   const toile = document.createElement('canvas'); toile.className = 'p2-toile'; toile.width = CW; toile.height = CH;
+  toile.setAttribute('aria-hidden', 'true');   /* P5 : l'image du film ; son équivalent textuel est dans la page (index.html, .film-texte) */
+  toile.style.visibility = 'hidden';   /* P5 : jusqu'à la première image (l'affiche de la nuit est dessous) */
   const ctx = toile.getContext('2d', { alpha: false });
   const sup = document.createElement('div'); sup.className = 'p2-sup';
   scene.append(toile, sup);
@@ -189,6 +210,12 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
     e.removeAttribute('tabindex'); sup.appendChild(e); rep[cle] = e;
   }
   if (rep.coin) rep.coin.addEventListener('click', e => { e.stopPropagation(); continuer(); });
+  /* P5 (19/10/2026) : sur téléphone, la zone du CV est un lien vers la page Conseil (le lecteur ne joue pas le geste du film) : son nom
+     dit ce qu'elle fait, comme sur ordinateur (cv.js), au lieu du nom enregistré au rendu (« Arracher le CV et prendre le chemin de
+     l'atelier ») ; M3 : la bulle « Parler de mon projet » du bout du film mène au contact de l'Atelier (la piste T3 portait la page
+     blanche, puis le filet de P4 le contact de Conseil, retiré de commun/pages/accueil.js) */
+  if (rep.cmd) rep.cmd.setAttribute('aria-label', 'Le conseil : voir la page Conseil');
+  if (rep.bulle) rep.bulle.setAttribute('href', '/atelier/#contact');
   /* les trois boutons de la fin : leur style calculé au rendu, leur place et leur opacité par la piste */
   const T3 = (tr.find(t => t.nom === 'T3') || {}).piste, menuF = T3 && T3.figer ? T3.figer.menu : [];
   /* passe 31 (13/10/2026, relecture de livraison) : les href de la piste T3 sont ceux de la maquette (../marianne-base/, ../conseil/,
@@ -299,11 +326,93 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
      avant, chaque retour passait juste après l'aller suivant (le retour de la route, 26 Mo, avant la page). Un trajet qui a besoin d'un
      flux pas encore commencé le fait partir tout de suite, en parallèle (HTTP/2 : une connexion, plusieurs flux). &ordre=ancien : l'ordre
      d'avant, pour la mesure */
+  /* P5 (19/10/2026, mandat du 18/10, revue Claude Design, partie 10, propositions 1 et 3) : avant cette passe, les dix flux partaient
+     l'un après l'autre dès l'ouverture (96,4 Mo à 393 x 852 avant le premier geste, mesuré le 19/10 sur la copie de travail). Désormais le
+     chargement suit le visiteur, un flux prévu à la fois :
+     - un trajet mène d'un arrêt au suivant : T0 à l'arrêt 1, T1a puis T1b à l'arrêt 2, T2 à l'arrêt 3 (le dessin), T3 à la page ;
+     - l'aller d'un trajet part quand le visiteur est engagé dans le trajet d'avant (le trajet courant et le suivant, jamais l'aller d'un
+       arrêt lointain) : à l'ouverture, T0, T1a et T1b ; dès qu'il quitte l'arrêt 1, T2 ; dès qu'il quitte l'arrêt 2, T3 ;
+     - le retour d'un trajet part quand le visiteur a vu l'arrêt où ce trajet arrive, après les allers voulus (les retours en dernier) ;
+     - un trajet demandé (Continuer, un chapitre) ou le doigt qui entre dans un tronçon pas encore là le font partir tout de suite, en
+       parallèle, comme avant ;
+     - sous le film (les cartes, le contact, le pied), dans un onglet caché, ou quand le visiteur quitte la page (un lien vers une autre
+       page, la navigation, pagehide), les flux en cours s'arrêtent (AbortController) : la page suivante ne passe plus derrière
+       60 Mo ; ils reprennent où ils en étaient (requête Range ; un serveur qui renvoie le fichier entier le fait repartir du début,
+       mêmes octets) au retour sur le film ou dans la page (pageshow), et si la page est restée : un geste du visiteur après le clic
+       (toucher, molette, touche), une navigation abandonnée (API Navigation), ou 15 s sans changement de page (une page suivante
+       lente, sur le réseau d'un téléphone, ne retrouve pas les vidéos devant elle avant).
+     Aucun fichier ne change, aucun octet du film n'est différent : seul le moment où il arrive. &ordre=tout (essais) : l'ordre d'avant,
+     tout d'un coup. */
+  const TRAJET = { T0: 0, T1a: 1, T1b: 1, T2: 2, T3: 3 };
+  tr.forEach(t => { t.j = TRAJET[t.base] !== undefined ? TRAJET[t.base] : 3; t.av.tr = t; t.ar.tr = t; t.av.aller = true; });
   const ordre = [];
-  if (Q.get('ordre') === 'ancien') { tr.forEach((t, i) => { ordre.push(t.av); if (i > 0) ordre.push(tr[i - 1].ar); }); if (tr.length) ordre.push(tr[tr.length - 1].ar); }
-  else { tr.forEach(t => ordre.push(t.av)); tr.slice(1).forEach(t => ordre.push(t.ar)); if (tr.length) ordre.push(tr[0].ar); }
-  const chargerFlux = fl => fl.charger(() => etiquette()).then(() => { if (!fl.note) { fl.note = 1; noter(`chargé ${fl.nom} ${Math.round(fl.total / 1048576)} Mo en ${fl.ms} ms`); } }, e => noter('chargement raté ' + fl.nom + ' ' + e.message));
-  (async () => { for (const fl of ordre) await chargerFlux(fl); })();
+  tr.forEach(t => ordre.push(t.av)); tr.slice().reverse().forEach(t => ordre.push(t.ar));   /* les allers dans l'ordre du film, puis les retours, le plus récent d'abord */
+  const TOUT = window.ESSAIS === true && (Q.get('ordre') === 'tout' || Q.get('ordre') === 'ancien');
+  const chg = { engage: 0, vu: -1, plan: null, quitte: false, tq: 0, dernierP: -1 };
+  const horsIci = () => filmEl.getBoundingClientRect().bottom < innerHeight - 2;
+  const suspendu = () => chg.quitte || document.hidden || racine.classList.contains('hors-film');
+  const voulu = fl => TOUT || (fl.aller ? fl.tr.j <= chg.engage + 1 : fl.tr.j <= chg.vu);
+  /* le rail en deux encres : la part du chemin arrivée (bleu à 32 %), sous la part jouée (bleu plein) ; le p jusqu'où toutes les images
+     de l'aller sont là, d'un seul tenant depuis l'ouverture */
+  const pArrive = () => {
+    let p = 0;
+    for (const t of tr) {
+      const fl = t.av; if (!fl.buf) return p;
+      if (fl.complet) { p = fl.idx.ps[fl.idx.n - 1]; continue; }
+      let lo = -1, hi = fl.idx.n - 1; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (fl.dispoRang(m)) lo = m; else hi = m - 1; }
+      return lo >= 0 ? Math.max(p, fl.idx.ps[lo]) : p;
+    }
+    return p;
+  };
+  const traits = fils.map(f => f.parentNode);
+  let cDern = '';
+  const majCharge = () => {
+    const pa = pArrive(), c = [0, 1].map(i => clamp((pa - CHAPITRES[i].encre) / (CHAPITRES[i + 1].encre - CHAPITRES[i].encre)).toFixed(3));
+    const cle = c.join(); if (cle === cDern) return; cDern = cle;
+    traits.forEach((t, i) => { if (t) t.style.setProperty('--c', c[i]); });
+  };
+  const chargerFlux = fl => fl.charger(() => { etiquette(); majCharge(); }).then(() => { majCharge(); if (!fl.note) { fl.note = 1; noter(`chargé ${fl.nom} ${Math.round(fl.total / 1048576)} Mo en ${fl.ms} ms`); } }, e => { if (e && e.name === 'AbortError') noter(`arrêté ${fl.nom} à ${Math.round(100 * fl.recu / Math.max(1, fl.total))} %`); else noter('chargement raté ' + fl.nom + ' ' + (e && e.message)); });
+  function planifier() {
+    if (chg.plan || suspendu()) return;
+    const fl = ordre.find(f => !f.complet && !f.promesse && voulu(f)); if (!fl) return;
+    chg.plan = fl;
+    chargerFlux(fl).then(() => { if (chg.plan === fl) chg.plan = null; planifier(); });
+  }
+  const engager = j => { if (j > chg.engage) { chg.engage = j; planifier(); } };
+  const voir = k => { if (k > chg.vu) { chg.vu = k; planifier(); } };
+  const suspendre = cause => { let n = 0; ordre.forEach(f => { if (f.promesse && !f.complet) { f.arreter(); n++; } }); chg.plan = null; if (n) noter(`suspendu (${cause}) : ${n} flux`); };
+  const reprendre = () => { if (!suspendu()) planifier(); };
+  /* quitter la page : un lien vers une autre page (au clic, avant que la page suivante soit demandée), la navigation (API Navigation,
+     là où elle existe), pagehide ; la page restée (un geste après le clic, une navigation abandonnée, 15 s) reprend */
+  const GESTES = ['pointerdown', 'wheel', 'keydown'];
+  const rester = () => {
+    if (!chg.quitte) return; chg.quitte = false; clearTimeout(chg.tq);
+    GESTES.forEach(n => removeEventListener(n, rester, true));
+    noter('page gardée : reprise'); reprendre();
+  };
+  const quitter = cause => {
+    if (chg.quitte) return; chg.quitte = true; suspendre('quitte : ' + cause);
+    clearTimeout(chg.tq);
+    setTimeout(() => { if (chg.quitte) GESTES.forEach(n => addEventListener(n, rester, true)); }, 0);
+    chg.tq = setTimeout(() => { if (document.visibilityState === 'visible') rester(); }, 15000);
+  };
+  addEventListener('click', e => {
+    if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target && e.target.closest ? e.target.closest('a[href]') : null; if (!a) return;
+    if ((a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    let u; try { u = new URL(a.href, location.href); } catch (x) { return; }
+    if (!/^https?:$/.test(u.protocol)) return;
+    if (u.origin === location.origin && u.pathname === location.pathname && u.search === location.search) return;
+    quitter('lien ' + u.pathname);
+  }, true);
+  if (window.navigation && typeof navigation.addEventListener === 'function') {
+    navigation.addEventListener('navigate', e => { try { if (e.destination && e.destination.sameDocument === false && !e.downloadRequest) quitter('navigation'); } catch (x) { /* rien */ } });
+    navigation.addEventListener('navigateerror', () => rester());
+  }
+  addEventListener('pagehide', () => quitter('pagehide'));
+  addEventListener('pageshow', e => { if (e.persisted) rester(); });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) reprendre(); });
+  planifier();
 
   /* ---- le son (passe 28, 13/10/2026) : le bouton Son de la barre, branché sur le lecteur, comme dans le film en direct ----
      Le film (moteur.js, lignes 274 à 307 ; film.js, placerSon) : sur téléphone, le bouton vit dans la barre, juste avant le bouton
@@ -392,18 +501,35 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
       if (jusqua > de) etapes.push({ t, fl, de, jusqua });
     }
     if (!etapes.length) return;
-    etapes.forEach(x => { if (!x.fl.promesse) { noter('à la demande ' + x.fl.nom); chargerFlux(x.fl); } });   /* chargement : un flux voulu part tout de suite */
-    jeu = { etapes, e: 0, t0: 0, p1, sens };
+    etapes.forEach(x => { if (!x.fl.promesse && !x.fl.complet) { noter('à la demande ' + x.fl.nom); chargerFlux(x.fl); } });   /* chargement : un flux voulu part tout de suite */
+    if (sens > 0) etapes.forEach(x => engager(x.t.j));   /* P5 : le trajet suivant peut se préparer */
+    if (jeu) finAttente(jeu, 'repris');
+    jeu = { etapes, e: 0, t0: 0, p1, sens, att: 0, attPar: {}, attDebut: 0 };
     if (AMORCE) dernierPre = '';   /* Y16 : à l'arrêt d'arrivée, l'amorce est refaite (le lecteur a pu partir ailleurs pendant le trajet) */
     scene.classList.remove('appel'); rail.classList.remove('appel');
     noter(`trajet vers ${p1} (${etapes.map(x => x.t.nom + (sens > 0 ? '>' : '<') + (x.jusqua - x.de)).join(' ')})`);
     etat.images.push({ de: +p0.toFixed(3), vers: p1, iv: [], sautees: 0, attente: 0, t0: performance.now(), r0: etat.resets });   /* Y16 : r0 */
   }
   function continuer() { const s = arretSuivant(vue.p); if (s !== undefined) jouer(s); }
+  /* P5 (19/10/2026, revue Claude Design, partie 10, « L'attente, quand elle reste ») : « Continuer » est toujours accepté (le trajet
+     part de lui-même dès qu'il peut jouer sans s'arrêter, comme avant) ; si l'image attend plus de 800 ms, une invite « Le chemin se
+     charge » paraît au-dessus du rail (lue par les lecteurs d'écran, role status) et s'en va dès que l'image repart. La durée d'attente
+     de chaque trajet (au départ et en route) part en film_attente, en tranches de 250 ms */
+  const inviteAttente = document.createElement('p'); inviteAttente.className = 'rail__attente'; inviteAttente.setAttribute('role', 'status');
+  rail.appendChild(inviteAttente);
+  let attenteVue = false;
+  const montrerAttente = v => { if (v === attenteVue) return; attenteVue = v; inviteAttente.textContent = v ? 'Le chemin se charge' : ''; inviteAttente.classList.toggle('visible', v); };
+  const finAttente = (j, cause) => {
+    if (!j || j.mesure) return; j.mesure = true; montrerAttente(false);
+    const noms = Object.keys(j.attPar), nom = noms.length ? noms.sort((a, b) => j.attPar[b] - j.attPar[a])[0] : (j.etapes[0] && j.etapes[0].t.base);
+    if (!nom) return;
+    mesurerFerme('film_attente', { troncon: nom, duree: String(Math.min(20000, Math.floor(j.att / 250) * 250)), classe: 'telephone' });
+    if (j.att > 800) noter(`attente ${Math.round(j.att)} ms (${nom}, ${cause})`);
+  };
   continuerB.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); continuer(); }, true);
   boutonsChap.forEach((b, i) => b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); jouer(CIBLES_CHAP[i]); }, true));
   /* le doigt reprend la main : un trajet en cours s'arrête là où il en est */
-  ['touchstart', 'wheel'].forEach(n => addEventListener(n, () => { if (jeu) { noter('trajet interrompu par le doigt'); jeu = null; allerA(vue.p); vue.ptPrec = mesure(); vue.bouge = false; vue.voulue = null; } }, { passive: true }));
+  ['touchstart', 'wheel'].forEach(n => addEventListener(n, () => { if (jeu) { noter('trajet interrompu par le doigt'); finAttente(jeu, 'doigt'); jeu = null; allerA(vue.p); vue.ptPrec = mesure(); vue.bouge = false; vue.voulue = null; } }, { passive: true }));
 
   /* ---- la boucle d'image ---- */
   const vue = { p: mesure(), sens: 1, t: null, fl: null, rang: -1, ptPrec: mesure(), tArret: 0, aArret: false, pRail: -1, tRail: 0 };
@@ -423,7 +549,11 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
          premières images arrivaient en retard. &amorce=0 : comme avant (mesure) */
       if (!jeu.t0 && vue.fl === E.fl && vue.rang === E.de) { if (E.fl.pretPour(E.de, E.jusqua) && (!AMORCE || lecteur(E.fl).reserve() >= Math.min(6, E.jusqua - E.de))) jeu.t0 = now; else if (enCours) { enCours.reseauDepart = (enCours.reseauDepart || 0) + dt; if (now - (vue.tEt || 0) > 500) { vue.tEt = now; etiquette(); } } }
       /* le réseau en retard sur la lecture (les octets de l'image voulue, et de dix images après, pas encore là) : le trajet attend, sans sauter */
-      if (jeu.t0 && !E.fl.dispoRang(E.de + (jeu.k || 0) + 10) && E.fl.recu < E.fl.total) { jeu.t0 += dt; if (enCours) enCours.reseau = (enCours.reseau || 0) + 1; if (now - (vue.tEt || 0) > 500) { vue.tEt = now; etiquette(); } }
+      const enRetard = !!jeu.t0 && !E.fl.dispoRang(E.de + (jeu.k || 0) + 10) && E.fl.recu < E.fl.total;
+      if (enRetard) { jeu.t0 += dt; if (enCours) enCours.reseau = (enCours.reseau || 0) + 1; if (now - (vue.tEt || 0) > 500) { vue.tEt = now; etiquette(); } }
+      /* P5 : l'image attend (horloge pas encore partie, ou retenue par le réseau) : compté, et l'invite au-delà de 800 ms */
+      if (!jeu.t0 || enRetard) { jeu.att += dt; jeu.attPar[E.t.base] = (jeu.attPar[E.t.base] || 0) + dt; if (!jeu.attDebut) jeu.attDebut = now; } else jeu.attDebut = 0;
+      montrerAttente(!!jeu.attDebut && now - jeu.attDebut > 800);
       /* une image de plus par image d'écran tant que l'horloge suit (l'image d'écran arrive à 16,7 ms plus ou moins un peu : compter au
          temps seul faisait montrer deux fois la même image puis en sauter une) ; plus de deux images de retard sur l'horloge : rattraper */
       const hor = jeu.t0 ? Math.round((now - jeu.t0) * .06) : 0;
@@ -436,7 +566,7 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
       /* l'étape finie quand sa dernière image est à l'écran (jamais de couture : l'arrêt est la dernière image décodée) */
       if (r >= E.jusqua && vue.fl === E.fl && vue.rang >= E.jusqua) {
         if (jeu.e < jeu.etapes.length - 1) { jeu.e++; jeu.t0 = 0; jeu.k = 0; }
-        else { vue.p = E.fl.idx.ps[E.jusqua]; allerA(vue.p); vue.ptPrec = mesure(); vue.bouge = false; vue.voulue = null; if (enCours) { enCours.ms = Math.round(now - enCours.t0); noter(`arrivé ${jeu.p1} : ${resume(enCours)}`); } jeu = null; }
+        else { vue.p = E.fl.idx.ps[E.jusqua]; allerA(vue.p); vue.ptPrec = mesure(); vue.bouge = false; vue.voulue = null; if (enCours) { enCours.ms = Math.round(now - enCours.t0); noter(`arrivé ${jeu.p1} : ${resume(enCours)}`); } finAttente(jeu, 'arrivé'); jeu = null; }
       }
     } else {
       /* le doigt : p suit le défilement ; immobile (moins d'un pixel et demi), rien n'est demandé : l'image affichée reste (un arrêt,
@@ -446,6 +576,13 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
       if (vue.bouge) {
         vue.p += (pm - vue.p) * .35; if (Math.abs(pm - vue.p) < 2e-5) { vue.p = pm; vue.bouge = false; }
         const t = tronconDe(vue.p, vue.sens), fl = vue.sens > 0 ? t.av : t.ar; vue.voulue = { t, fl, rang: rangDe(fl.idx.ps, vue.p, vue.sens > 0), sens: vue.sens };
+        /* P5 : au doigt, le trajet où l'on entre prépare le suivant ; le flux voulu, s'il n'est pas encore demandé, part tout de suite. Seulement
+           quand l'image suit le doigt de près (un saut, « Passer le film » ou le retour en haut d'un coup, traverse le film sans s'y poser :
+           rien ne part pour les tronçons traversés) et jamais sous le film */
+        if (Math.abs(pm - vue.p) < .01 && !chg.quitte && !horsIci()) {
+          if (vue.sens > 0) engager(t.j);
+          if (!fl.promesse && !fl.complet) { noter('au doigt ' + fl.nom); chargerFlux(fl); }
+        }
       }
       /* l'image voulue est demandée jusqu'à ce qu'elle soit à l'écran (le décodeur met quelques images d'écran à la rendre) */
       if (vue.voulue) { if (vue.fl === vue.voulue.fl && vue.rang === vue.voulue.rang && !vue.bouge) vue.voulue = null; else cible = vue.voulue; }
@@ -464,6 +601,7 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
       const fr = l.viser(cible.rang, cible.fl === vue.fl ? vue.rang : -1, doigt);
       if (fr) {
         ctx.drawImage(fr.f, 0, 0); fr.f.close(); dessins++;   /* passe 28 : le compte des images peintes (la plaque du crayon) */
+        if (dessins === 1) { toile.style.visibility = ''; scene.style.background = ''; }   /* P5 : la première image peinte prend la place de l'affiche, dans la même image d'écran */
         if (jeu && enCours && vue.fl === cible.fl && fr.i > vue.rang + 1) enCours.sautees += fr.i - vue.rang - 1;
         vue.fl = cible.fl; vue.rang = fr.i; vue.t = cible.t;
         if (!mesureL.demarre) { mesureL.demarre = now; mesureL.classe = classeW; mesurer({ event: 'film_lecteur_demarre', lecteur_codec: codec.id, lecteur_classe: classeW }); }   /* passe 28, point 4 */
@@ -495,11 +633,19 @@ html.proto3 .p2-sup .ep,html.proto3 .p2-sup .ep *{opacity:0 !important;animation
     /* le rail et l'état hors du film : seulement quand p a bougé (pas de lecture de mise en page à chaque image) */
     if (Math.abs(vue.p - vue.pRail) > 1e-4 || !jeu && now - vue.tRail > 500) {
       vue.pRail = vue.p; vue.tRail = now; majRail(vue.p); etat.p = vue.p;
-      const hors = filmEl.getBoundingClientRect().bottom < innerHeight - 2; if (hors !== racine.classList.contains('hors-film')) racine.classList.toggle('hors-film', hors);
+      const hors = filmEl.getBoundingClientRect().bottom < innerHeight - 2; if (hors !== racine.classList.contains('hors-film')) { racine.classList.toggle('hors-film', hors); if (hors) suspendre('sous le film'); else reprendre(); }
     }
     /* à un arrêt depuis 2,5 s : l'appel (Continuer, le coin) */
     const ici = !jeu && ARRETS_TEL.some(a => Math.abs(vue.p - a) < .004);
     if (ici !== vue.aArret) { vue.aArret = ici; vue.tArret = now; }
+    if (ici && now - vue.tArret > 500 && vue.arretCompte !== vue.tArret) {
+      vue.arretCompte = vue.tArret;
+      const k = ARRETS_TEL.findIndex(a => Math.abs(vue.p - a) < .004);
+      voir(k);
+      /* P5 : film_arret, le numéro de l'arrêt du film (celui de l'ordinateur : la nuit 1, le croisement 2, le dessin 4, la page 5) */
+      mesurerFerme('film_arret', { arret: String([1, 2, 4, 5][k]), forme: 'lecteur', sens: vue.p >= chg.dernierP ? 'avant' : 'arriere' });
+      chg.dernierP = vue.p;
+    }
     const appel = ici && now - vue.tArret > 2500 && vue.p < .999;
     if (appel !== scene.classList.contains('appel')) { scene.classList.toggle('appel', appel); rail.classList.toggle('appel', appel); }
     etincelles(!jeu && vue.p > .999 && vue.t && vue.t.nom === 'T3');
@@ -549,7 +695,7 @@ function creerFlux(url, idx) {
   /* les octets qu'il faut pour montrer l'image de rang r (tous les paquets jusqu'au sien, dans l'ordre de décodage) */
   const finRang = new Array(idx.n).fill(0); idx.paquets.forEach((p, i) => { finRang[p[2]] = fin[i]; });
   for (let r = 1; r < idx.n; r++) finRang[r] = Math.max(finRang[r], finRang[r - 1]);
-  const fl = { url, nom: url.split('/').pop(), idx, n, off, fin, cles, total: o, recu: 0, buf: null, ms: 0, promesse: null,
+  const fl = { url, nom: url.split('/').pop(), idx, n, off, fin, cles, total: o, recu: 0, buf: null, ms: 0, promesse: null, complet: false, ctrl: null, recuDebut: 0,
     dispo: k => fl.buf && fin[k] <= fl.recu,
     dispoRang: r => !!fl.buf && finRang[Math.min(idx.n - 1, Math.max(0, r))] <= fl.recu,
     /* prêt à jouer de l'image de à l'image a : tout est là, ou 3 s d'images sont là et le reste arrivera avant que la lecture ne le
@@ -557,24 +703,33 @@ function creerFlux(url, idx) {
     pretPour(de, a) {
       if (!fl.buf) return false; if (fl.recu >= o) return true;
       if (!fl.dispoRang(Math.min(a, de + 180))) return false;
-      const debit = fl.recu / Math.max(1, performance.now() - fl.tDebut);   /* octets par ms */
+      const debit = (fl.recu - fl.recuDebut) / Math.max(1, performance.now() - fl.tDebut);   /* octets par ms (P5 : depuis la reprise) */
       const reste = finRang[a] - fl.recu; return reste <= 0 || reste / Math.max(debit, 1) <= (a - de) / .06 * .77;
     },
     chunk: k => { const p = idx.paquets[k]; return new EncodedVideoChunk({ type: p[1] ? 'key' : 'delta', timestamp: Math.round(p[2] * 1e6 / 60), data: fl.buf.subarray(off[k], off[k] + p[0]) }); },
+    /* P5 (19/10/2026) : un chargement s'arrête (arreter : AbortController) et reprend où il en était (Range) ; un serveur qui renvoie le
+       fichier entier (200) le fait repartir du début (les mêmes octets réécrits) */
     charger(prog) {
       if (fl.promesse) return fl.promesse;
-      fl.promesse = (async () => {
-        const t0 = performance.now(); fl.buf = new Uint8Array(o); fl.tDebut = t0;
+      const ctrl = fl.ctrl = new AbortController();
+      const promesse = fl.promesse = (async () => {
+        const t0 = performance.now(); if (!fl.buf) fl.buf = new Uint8Array(o); fl.tDebut = t0; fl.recuDebut = fl.recu;
         /* Y16 (09/10/2026, soir) : &nocache=1 (mesure seulement) : le flux est relu du réseau, comme une première visite. Essayé puis
            retiré : retenir les autres flux pendant un trajet (sur l'iPhone à 20 Mbit/s, le flux du trajet suivant arrivait trop tard :
            attente au départ de 1,4 s et 36 images d'attente en route ; sans frein, aucune) */
-        const r = await fetch(url + (/[?&]nocache=1/.test(location.search) ? '?r=' + Date.now() : '')); if (!r.ok) throw new Error('HTTP ' + r.status);
+        const depuis = fl.recu, init = { signal: ctrl.signal };
+        if (depuis > 0) init.headers = { Range: 'bytes=' + depuis + '-' };
+        const r = await fetch(url + (/[?&]nocache=1/.test(location.search) ? '?r=' + Date.now() : ''), init); if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (depuis > 0 && r.status !== 206) { fl.recu = 0; fl.recuDebut = 0; }
         const lect = r.body.getReader(); let der = 0;
         for (;;) { const { done, value } = await lect.read(); if (done) break; fl.buf.set(value, fl.recu); fl.recu += value.byteLength; if (prog && performance.now() - der > 250) { der = performance.now(); prog(); } }
-        fl.ms = Math.round(performance.now() - t0);
+        if (fl.recu < o) throw new Error('flux incomplet (' + fl.recu + ' octets sur ' + o + ')');
+        fl.complet = true; fl.ms = Math.round(performance.now() - t0);
       })();
-      return fl.promesse;
-    } };
+      promesse.catch(() => { if (fl.promesse === promesse && !fl.complet) { fl.promesse = null; fl.ctrl = null; } });
+      return promesse;
+    },
+    arreter() { if (fl.ctrl && !fl.complet) { try { fl.ctrl.abort(); } catch (e) { /* rien */ } } } };
   return fl;
 }
 
@@ -639,42 +794,41 @@ function creerLecteur(fl, etat, noter) {
   };
 }
 
-/* ---- W3 : l'étincelle des trois boutons de la fin (même dessin que telephone.js, creerEtincelles), sur les répliques ---- */
-const W3_DUREE = 1400, W3_ECART = 250, W3_PAUSE = 1600, W3_DEPART = 1000;
+/* ---- M1 (P5, 19/10/2026, décision M1 du plan des passes, revue Claude Design, parties 3 et 11) : le liseré des boutons de la fin n'est
+   plus une étincelle qui tourne sans fin (1,4 s par bouton, puis 1,6 s de pause, sans arrêt : critère 2.2.2) ; un trait de plume
+   (#16205C, 1,5 px, au milieu de la bordure) fait une fois le tour de chaque bouton visible, l'un après l'autre (900 ms chacun, courbe
+   douce, 200 ms d'écart, départ 400 ms après l'arrivée : 3,5 s en tout), puis reste tracé. Effacé quand la page s'en va, retracé au
+   retour. Même dessin que telephone.js (ordinateur). ?etincelle=0 (essais) : tracé tout de suite, sans mouvement ---- */
+const M1_DUREE = 900, M1_ECART = 200, M1_DEPART = 400;
 function creerEtincelles(liens) {
-  const actif = Q.get('etincelle') !== '0' && !matchMedia('(prefers-reduced-motion: reduce)').matches && !!Element.prototype.animate;
-  if (!actif || !liens.length) return () => {};
+  if (!liens.length) return () => {};
+  const anime = Q.get('etincelle') !== '0' && !matchMedia('(prefers-reduced-motion: reduce)').matches && !!Element.prototype.animate;
   const NS = 'http://www.w3.org/2000/svg';
   const traits = liens.map(a => {
-    const s = document.createElementNS(NS, 'svg'); s.setAttribute('class', 'etincelle'); s.setAttribute('aria-hidden', 'true');
-    const queue = document.createElementNS(NS, 'rect'), tete = document.createElementNS(NS, 'rect');
-    s.style.cssText = 'position:absolute;pointer-events:none;overflow:visible;opacity:0;will-change:transform';
-    queue.style.cssText = 'fill:none;stroke:#000091;stroke-width:1.5px;stroke-linecap:round';
-    tete.style.cssText = 'fill:none;stroke:#2b6fd6;stroke-width:2px;stroke-linecap:round';
-    s.append(queue, tete); a.appendChild(s);
-    return { a, s, queue, tete, anims: [] };
+    const s = document.createElementNS(NS, 'svg'); s.setAttribute('class', 'etincelle trace-plume'); s.setAttribute('aria-hidden', 'true'); s.setAttribute('focusable', 'false');
+    const r = document.createElementNS(NS, 'rect');
+    s.style.cssText = 'position:absolute;pointer-events:none;overflow:visible;visibility:hidden';
+    r.style.cssText = 'fill:none;stroke:#16205C;stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round';
+    s.appendChild(r); a.appendChild(s);
+    return { a, s, r, anim: null };
   });
   const mesurer = t => {
     const cs = getComputedStyle(t.a), b = parseFloat(cs.borderTopWidth) || 0, w = t.a.offsetWidth, h = t.a.offsetHeight;
     const r = Math.max(0, Math.min((parseFloat(cs.borderTopLeftRadius) || 0) - b / 2, (h - b) / 2, (w - b) / 2));
     t.s.setAttribute('width', w); t.s.setAttribute('height', h); t.s.style.left = t.s.style.top = (-b) + 'px';
-    [t.queue, t.tete].forEach(e => { e.setAttribute('x', b / 2); e.setAttribute('y', b / 2); e.setAttribute('width', Math.max(0, w - b)); e.setAttribute('height', Math.max(0, h - b)); e.setAttribute('rx', r); e.setAttribute('ry', r); });
+    t.r.setAttribute('x', b / 2); t.r.setAttribute('y', b / 2); t.r.setAttribute('width', Math.max(0, w - b)); t.r.setAttribute('height', Math.max(0, h - b)); t.r.setAttribute('rx', r); t.r.setAttribute('ry', r);
     t.per = 2 * (w - b) + 2 * (h - b) - (8 - 2 * Math.PI) * r;
-    t.lq = Math.max(16, t.per * .13); t.lt = Math.max(3, t.per * .022);
-    t.queue.style.strokeDasharray = `${t.lq.toFixed(2)} ${(t.per - t.lq).toFixed(2)}`;
-    t.tete.style.strokeDasharray = `${t.lt.toFixed(2)} ${(t.per - t.lt).toFixed(2)}`;
+    t.r.style.strokeDasharray = `${t.per.toFixed(2)} ${t.per.toFixed(2)}`; t.r.style.strokeDashoffset = '0';
   };
-  let arme = false, retenu = false, minuteur = 0, i = -1;
-  const eteindre = () => traits.forEach(t => { t.anims.forEach(x => x.cancel()); t.anims = []; });
-  const allumer = t => {
-    mesurer(t); const o = { duration: W3_DUREE, easing: 'linear', fill: 'both' };
-    t.anims = [t.queue.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: -t.per }], o), t.tete.animate([{ strokeDashoffset: -(t.lq - t.lt) }, { strokeDashoffset: -(t.lq - t.lt) - t.per }], o),
-      t.s.animate([{ opacity: 0 }, { opacity: 1, offset: .12 }, { opacity: 1, offset: .86 }, { opacity: 0 }], o)];
+  let arme = false;
+  const effacer = () => traits.forEach(t => { if (t.anim) t.anim.cancel(); t.anim = null; t.s.style.visibility = 'hidden'; });
+  return pret => {
+    if (pret === arme) return; arme = pret; effacer();
+    if (!pret) return;
+    const vus = traits.filter(t => t.a.isConnected && getComputedStyle(t.a).visibility !== 'hidden' && getComputedStyle(t.a).display !== 'none');
+    vus.forEach((t, i) => {
+      mesurer(t); t.s.style.visibility = '';
+      if (anime) t.anim = t.r.animate([{ strokeDashoffset: t.per }, { strokeDashoffset: 0 }], { duration: M1_DUREE, delay: M1_DEPART + i * (M1_DUREE + M1_ECART), easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+    });
   };
-  const suivant = () => { clearTimeout(minuteur); eteindre(); if (!arme || retenu) return; i = (i + 1) % traits.length; allumer(traits[i]); minuteur = setTimeout(() => { eteindre(); minuteur = setTimeout(suivant, i === traits.length - 1 ? W3_PAUSE : W3_ECART); }, W3_DUREE); };
-  liens.forEach(a => {
-    ['pointerenter', 'focus'].forEach(n => a.addEventListener(n, () => { retenu = true; clearTimeout(minuteur); eteindre(); }));
-    ['pointerleave', 'blur'].forEach(n => a.addEventListener(n, () => { retenu = false; if (arme) { clearTimeout(minuteur); minuteur = setTimeout(suivant, W3_DEPART); } }));
-  });
-  return pret => { if (pret === arme) return; arme = pret; clearTimeout(minuteur); eteindre(); if (pret) { i = -1; minuteur = setTimeout(suivant, W3_DEPART); } };
 }

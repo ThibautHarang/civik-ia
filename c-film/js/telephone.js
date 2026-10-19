@@ -181,65 +181,51 @@ export function pose3d(o) {
    (page de la fin, deux tours alternés de 9 s), n'est pas mesurable (52,2 et 47,4 images par seconde avec, 48,9 et 48,3 sans) ;
    ?etincelle=ordi la garde à l'ordinateur seul (essais) */
 const W3_TEL = (() => { try { return new URLSearchParams(location.search).get('etincelle') !== 'ordi'; } catch (e) { return true; } })();
-const W3_DUREE = 1400, W3_ECART = 250, W3_PAUSE = 1600, W3_DEPART = 1000;
 const W3_ACTIF = (() => { try { const Q = new URLSearchParams(location.search); return Q.get('etincelle') !== '0' && Q.get('mouvement') !== 'reduit' && !matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } })();
+/* M1 (P5, 19/10/2026, décision M1 du plan des passes du 18/10, revue Claude Design, parties 3 et 11, critère 2.2.2) : l'étincelle
+   ne tourne plus sans fin. Un trait de plume (#16205C, 1,5 px, au milieu de la bordure) fait une fois le tour de chaque bouton
+   posé, l'un après l'autre (900 ms chacun, courbe douce, 200 ms d'écart, départ 400 ms après que les boutons sont posés : 3,5 s en
+   tout pour trois boutons), puis reste tracé ; effacé quand les boutons s'en vont, retracé à leur retour. Le survol et le focus
+   gardent leur dessin. Même trait que le lecteur du téléphone (proto3.js). En mouvement réduit, ?etincelle=0 ou sans Web
+   Animations : tracé tout de suite, sans mouvement */
+const M1_DUREE = 900, M1_ECART = 200, M1_DEPART = 400;
 function creerEtincelles(liens) {
-  if (!W3_ACTIF || !liens.length || !Element.prototype.animate) return () => {};
+  if (!liens.length) return () => {};
   const NS = 'http://www.w3.org/2000/svg';
   const traits = liens.map(a => {
-    const s = document.createElementNS(NS, 'svg'); s.setAttribute('class', 'etincelle'); s.setAttribute('aria-hidden', 'true'); s.setAttribute('focusable', 'false');
-    const queue = document.createElementNS(NS, 'rect'), tete = document.createElementNS(NS, 'rect');
-    queue.setAttribute('class', 'etincelle__queue'); tete.setAttribute('class', 'etincelle__tete');
-    /* (styles posés ici : film.css n'est pas touché pour W3) */
-    s.style.cssText = 'position:absolute;pointer-events:none;overflow:visible;opacity:0;will-change:transform';
-    queue.style.cssText = 'fill:none;stroke:#000091;stroke-width:1.5px;stroke-linecap:round';
-    tete.style.cssText = 'fill:none;stroke:#2b6fd6;stroke-width:2px;stroke-linecap:round';
+    const s = document.createElementNS(NS, 'svg'); s.setAttribute('class', 'etincelle trace-plume'); s.setAttribute('aria-hidden', 'true'); s.setAttribute('focusable', 'false');
+    const r = document.createElementNS(NS, 'rect');
+    /* (styles posés ici : film.css n'est pas touché pour M1) */
+    s.style.cssText = 'position:absolute;pointer-events:none;overflow:visible;visibility:hidden';
+    r.style.cssText = 'fill:none;stroke:#16205C;stroke-width:1.5px;stroke-linecap:round;stroke-linejoin:round';
     a.style.position = 'relative';   /* (un bouton en flux : le repère du trait, rien ne bouge) */
-    s.append(queue, tete); a.appendChild(s);
-    return { a, s, queue, tete, per: 0, anims: [] };
+    s.appendChild(r); a.appendChild(s);
+    return { a, s, r, per: 0, anim: null };
   });
   /* la géométrie : le milieu de la bordure du bouton (sa taille dans la page, avant la perspective de l'écran) */
   const mesurer = t => {
     const cs = getComputedStyle(t.a), b = parseFloat(cs.borderTopWidth) || 0, w = t.a.offsetWidth, h = t.a.offsetHeight;
     const r = Math.max(0, Math.min((parseFloat(cs.borderTopLeftRadius) || 0) - b / 2, (h - b) / 2, (w - b) / 2));
     t.s.setAttribute('width', w); t.s.setAttribute('height', h); t.s.style.left = t.s.style.top = (-b) + 'px';
-    [t.queue, t.tete].forEach(e => { e.setAttribute('x', b / 2); e.setAttribute('y', b / 2); e.setAttribute('width', Math.max(0, w - b)); e.setAttribute('height', Math.max(0, h - b)); e.setAttribute('rx', r); e.setAttribute('ry', r); });
+    t.r.setAttribute('x', b / 2); t.r.setAttribute('y', b / 2); t.r.setAttribute('width', Math.max(0, w - b)); t.r.setAttribute('height', Math.max(0, h - b)); t.r.setAttribute('rx', r); t.r.setAttribute('ry', r);
     t.per = 2 * (w - b) + 2 * (h - b) - (8 - 2 * Math.PI) * r;
-    const lq = Math.max(16, t.per * .13), lt = Math.max(3, t.per * .022);
-    t.queue.style.strokeDasharray = `${lq.toFixed(2)} ${(t.per - lq).toFixed(2)}`;
-    t.tete.style.strokeDasharray = `${lt.toFixed(2)} ${(t.per - lt).toFixed(2)}`;
-    t.lq = lq; t.lt = lt;
+    t.r.style.strokeDasharray = `${t.per.toFixed(2)} ${t.per.toFixed(2)}`; t.r.style.strokeDashoffset = '0';
   };
-  let arme = false, retenu = false, minuteur = 0, i = -1;
-  const eteindre = () => traits.forEach(t => { t.anims.forEach(x => x.cancel()); t.anims = []; t.s.classList.remove('allumee'); });
-  const allumer = t => {
-    mesurer(t);
-    /* le trait part du haut, à gauche, et fait le tour dans le sens des aiguilles d'une montre ; la tête au bout de la queue */
-    const o = { duration: W3_DUREE, easing: 'linear', fill: 'both' };
-    t.anims = [t.queue.animate([{ strokeDashoffset: 0 }, { strokeDashoffset: -t.per }], o),
-      t.tete.animate([{ strokeDashoffset: -(t.lq - t.lt) }, { strokeDashoffset: -(t.lq - t.lt) - t.per }], o),
-      t.s.animate([{ opacity: 0 }, { opacity: 1, offset: .12 }, { opacity: 1, offset: .86 }, { opacity: 0 }], o)];
-    t.s.classList.add('allumee');
+  let arme = false, minuteur = 0;
+  const effacer = () => { clearTimeout(minuteur); traits.forEach(t => { if (t.anim) t.anim.cancel(); t.anim = null; t.s.style.visibility = 'hidden'; }); };
+  const tracer = () => {
+    /* le film a quitté la fin sans le dire (le plan qui pose les boutons n'est plus actif) : rien à tracer */
+    const vus = traits.filter(t => t.a.isConnected && getComputedStyle(t.a).visibility !== 'hidden' && getComputedStyle(t.a).display !== 'none');
+    vus.forEach((t, i) => {
+      mesurer(t); t.s.style.visibility = '';
+      if (W3_ACTIF && Element.prototype.animate) t.anim = t.r.animate([{ strokeDashoffset: t.per }, { strokeDashoffset: 0 }], { duration: M1_DUREE, delay: i * (M1_DUREE + M1_ECART), easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+    });
   };
-  const suivant = () => {
-    clearTimeout(minuteur); eteindre();
-    if (!arme || retenu) return;
-    /* le film a quitté la fin sans le dire (le plan qui pose les boutons n'est plus actif) : les boutons sont cachés, plus d'étincelle */
-    if (!liens[0].isConnected || getComputedStyle(liens[0]).visibility === 'hidden' || getComputedStyle(liens[0]).display === 'none') { arme = false; return; }
-    i = (i + 1) % traits.length;
-    allumer(traits[i]);
-    minuteur = setTimeout(() => { eteindre(); minuteur = setTimeout(suivant, i === traits.length - 1 ? W3_PAUSE : W3_ECART); }, W3_DUREE);
-  };
-  const occupe = () => liens.some(a => a.matches(':hover') || a === document.activeElement);
-  liens.forEach(a => {
-    ['pointerenter', 'focus'].forEach(n => a.addEventListener(n, () => { retenu = true; clearTimeout(minuteur); eteindre(); }));
-    ['pointerleave', 'blur'].forEach(n => a.addEventListener(n, () => { setTimeout(() => { if (retenu && !occupe()) { retenu = false; if (arme) { clearTimeout(minuteur); minuteur = setTimeout(suivant, W3_DEPART); } } }, 0); }));
-  });
   /* pret : les boutons sont posés (vrai), ou plus (faux) ; appelé à chaque image, n'agit qu'au changement */
   return pret => {
     if (pret === arme) return;
-    arme = pret; clearTimeout(minuteur); eteindre();
-    if (pret) { i = -1; minuteur = setTimeout(suivant, W3_DEPART); }
+    arme = pret; effacer();
+    if (pret) minuteur = setTimeout(tracer, W3_ACTIF ? M1_DEPART : 0);
   };
 }
 export function creerTelephone(ctx, v, v34) {

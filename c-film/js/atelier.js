@@ -1784,7 +1784,10 @@ export function creerAtelier(ctx, vis, F) {
   const crayon = mk(`<button type="button" class="ep crayon-dessine" style="width:${vcd.w}px;height:${vcd.h}px" aria-label="Prendre le crayon"><img src="${vcd.src}" alt="" width="${vcd.w}" height="${vcd.h}" style="width:100%;height:100%"></button>`);
   const trace = mk('<canvas class="ep trace-visiteur" aria-hidden="true"></canvas>');
   /* Q1 (dix-septième passe, 07/10/2026) : la bulle mène à la page blanche de l'Atelier (plus de lien « # » ni de clic annulé) */
-  const bulle = mk('<a class="ep bulle-projet" href="/atelier/#page-blanche" style="width:236px;height:46px">Parler de mon projet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>');
+  /* P5 (19/10/2026, M3 du plan des passes du 18/10) : « Parler de mon projet » mène au contact de l'Atelier (avant : la page blanche ;
+     P4 : le contact de Conseil, par un filet de commun/pages/accueil.js, retiré) ; le bouton de la barre pendant « Créer » (bouton.js)
+     et la réplique du téléphone (proto3.js) mènent au même endroit */
+  const bulle = mk('<a class="ep bulle-projet" href="/atelier/#contact" style="width:236px;height:46px">Parler de mon projet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>');
   const coin = mk('<button type="button" class="ep coin" style="width:120px;height:120px;z-index:19" aria-label="Soulever la feuille"><i class="pli"></i></button>');
   const ecritA11y = mk('<p class="sr">Vous avez un projet ? Contactez-moi ! T.H.</p>');
   /* H7 : la surbrillance du prompt « Poser une question à Marianne » : un halo bleu clair qui respire très lentement,

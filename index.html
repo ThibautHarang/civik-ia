@@ -19,6 +19,7 @@
 <link rel="mask-icon" href="/assets/icones/safari-pinned-tab.svg" color="#000091">
 <link rel="manifest" href="/assets/icones/site.webmanifest">
 <meta name="theme-color" content="#0A0F2C">
+<meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Civik-ia">
 <meta property="og:locale" content="fr_FR">
@@ -154,6 +155,7 @@
 </head>
 <body data-page="accueil">
 <a class="evitement" href="#clair">Passer le film</a>
+<button type="button" class="evitement" data-arret-animations>Arrêter les animations</button>
 <h1 class="sr">Civik-ia : communiquer, conseiller, créer</h1>
 
 <header class="nav" aria-label="Navigation principale">
@@ -174,6 +176,24 @@
 
 <main>
 <section class="film" id="film" aria-label="Petit film&nbsp;: la nuit, Marianne répond et vous guide jusqu’à Thibaut Harang, du croisement jusqu’à l’atelier où votre idée se dessine">
+  <div class="sr film-texte">
+    <p>Le film en mots, arrêt par arrêt.</p>
+    <ol>
+      <li>
+        <p>Communiquer. La nuit, devant la mairie gravée de Villeneuve-les-Ormes, une commune fictive. Sur un téléphone, un habitant écrit à Marianne, l’assistant de la mairie, qui lui répond en citant sa source.</p>
+        <ul>
+          <li>Un habitant&nbsp;: «&nbsp;Bonsoir, comment inscrire mon fils à la cantine pour septembre&nbsp;?&nbsp;»</li>
+          <li>Marianne&nbsp;: «&nbsp;Bonsoir. Les inscriptions se font sur le portail famille jusqu’au 10&nbsp;août. Il vous faut un justificatif de domicile et l’attestation CAF.&nbsp;» Source&nbsp;: site de la mairie, page Périscolaire.</li>
+          <li>L’habitant&nbsp;: «&nbsp;Connaissez-vous Thibaut Harang&nbsp;?&nbsp;»</li>
+          <li>Marianne&nbsp;: «&nbsp;Oui. Quinze ans dans la santé&nbsp;: il a dirigé des établissements, puis la stratégie d’une entreprise de télémédecine. Il a créé Civik-ia en 2026, la société qui m’a conçue. Je peux vous guider jusqu’à lui.&nbsp;» Source&nbsp;: civik-ia.fr.</li>
+        </ul>
+      </li>
+      <li><p>Conseiller. Le chemin à pied jusqu’à un croisement. Un poteau de bois porte deux flèches et une plaque Civik-ia&nbsp;; une feuille y est clouée&nbsp;: le CV de Thibaut Harang.</p></li>
+      <li><p>Créer. La feuille est prise&nbsp;; le chemin mène à l’atelier, une pièce aux poutres et au mur de pierre. Une main dessine au crayon un site de mairie, à partir du téléphone et du CV.</p></li>
+      <li><p>Le dessin est fini&nbsp;: le croquis du site de Villeneuve-les-Ormes, sur la table à dessin.</p></li>
+      <li><p>Une feuille blanche se rabat. La main y écrit «&nbsp;Vous avez un projet&nbsp;? Contactez-moi&nbsp;!&nbsp;», signé T.H. Trois chemins sont proposés&nbsp;: Marianne, le conseil, l’atelier, et une bulle&nbsp;: «&nbsp;Parler de mon projet&nbsp;».</p></li>
+    </ol>
+  </div>
   <div class="scene" data-scene>
 
     <div class="fond couche" aria-hidden="true" data-fond>
@@ -237,7 +257,7 @@
     <div class="voile voile--nuit" data-voile1 aria-hidden="true"></div>
     <div class="voile voile--jour" data-voile2 aria-hidden="true"></div>
 
-    <p class="invite" data-invite aria-hidden="true">Touchez pour avancer</p>
+    <p class="invite" data-invite aria-hidden="true">Touchez ou faites glisser</p>
     <div class="bloc bloc--1" data-bloc="1">
       <h2 class="verbe" data-lettres>Communiquer</h2>
       <p class="legende mots" data-mots>Une mairie qui répond <b>24&nbsp;h/24</b></p>

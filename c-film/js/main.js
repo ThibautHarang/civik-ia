@@ -89,6 +89,20 @@ if (LEGER) document.documentElement.classList.add('leger');
   tiroir.addEventListener('click', e => { e.stopPropagation(); if (e.target.closest('a,[data-cookies-gerer]')) basculer(false); });   /* P3 : « Gérer les cookies » ferme aussi le tiroir */
   addEventListener('keydown', e => { if (e.key === 'Escape' && tiroir.classList.contains('ouvert')) { e.stopPropagation(); basculer(false); bouton.focus(); } }, true);
 })();
+/* P5 (19/10/2026, revue Claude Design, partie 11, critère 2.2.2) : « Arrêter les animations », le second bouton d'évitement (au
+   clavier, juste après « Passer le film ») : tout ce qui bouge de soi-même dans la scène s'arrête (film.css, html.anim-arretees ; la
+   vie lente du film, moteur.js) ; le bouton devient « Relancer les animations ». Les appels des arrêts, « Continuer », la bulle et le
+   trait des boutons de la fin s'arrêtent d'eux-mêmes avant 5 s ; le film ne joue un trajet qu'au geste du visiteur */
+(() => {
+  const b = document.querySelector('[data-arret-animations]');
+  if (!b) return;
+  b.addEventListener('click', () => {
+    const r = document.documentElement, on = !r.classList.contains('anim-arretees');
+    r.classList.toggle('anim-arretees', on);
+    b.textContent = on ? 'Relancer les animations' : 'Arrêter les animations';
+    document.dispatchEvent(new Event('film-animations'));
+  });
+})();
 /* N1 (quatorzième passe) : avec ?mesure=1, le compte des canevas et des textures WebGL vivants (avant tout canevas) */
 if (ESSAIS && Q.get('mesure') === '1') installerCompteur();   /* G5 : essais seulement */
 const P_FIXE = Q.has('p') ? clamp(parseFloat(Q.get('p')) || 0) : null;
@@ -307,7 +321,7 @@ async function formeLegere() {
   const L = lienFilm();
   const voir = document.createElement('div'); voir.className = 'leger-voir';
   const bouton = document.createElement('a'); bouton.className = 'btn btn--plein leger-voir__btn'; bouton.href = L.href;
-  bouton.innerHTML = LIRE + '<span>Voir le film</span>';
+  bouton.innerHTML = LIRE + '<span>Voir le film dans le navigateur</span>';   /* P5 (revue Claude Design, partie 5, laissé par P3) : où le film s'ouvre */
   voir.appendChild(bouton);
   if (PLATEFORME) {
     const aide = document.createElement('p'); aide.className = 'leger-voir__aide';

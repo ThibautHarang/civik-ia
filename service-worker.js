@@ -19,7 +19,12 @@
 // anciennes (barre et pied communs) ; feuilles et script communs appelés avec ?v=20261019c (bandeau compact sur ordinateur, compteur
 // des choix du bandeau, mesures après l'accord) ; le calculateur de la page prix ouvre une demande préremplie (prix.js et prix.css
 // appelés avec ?v=20261019c).
-const CACHE_NAME = 'civik-ia-v188-contact-2026-10-19';
+// v189 (passe P5, 19/10/2026, le film) : le lecteur du téléphone charge les vidéos dans l'ordre du visiteur et les arrête quand il
+// quitte le film, la nuit reste à l'écran avant la première image, rail en deux encres et invite d'attente, « Continuer » blanc sur
+// bleu, commandes sur la colonne de la barre et effacées sous le film, équivalent textuel du film, boucles arrêtées avant 5 s, trait
+// de plume du menu final, bulle et « Parler de mon projet » vers le contact de l'Atelier (accueil et /c-film/, hors de ce cache ; la
+// version change pour vider les copies des pages anciennes une fois de plus, comme à chaque passe).
+const CACHE_NAME = 'civik-ia-v189-film-2026-10-19';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

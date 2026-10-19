@@ -272,8 +272,9 @@ html:not(.film-pret) .continuer{display:none}
 /* les objets-commandes des arrêts : un battement très lent après 2,5 s d'attente */
 @keyframes battement{0%,100%{box-shadow:0 0 0 0 rgba(244,162,97,0),0 6px 14px rgba(0,0,145,.25)}50%{box-shadow:0 0 0 .55em rgba(244,162,97,.35),0 6px 14px rgba(0,0,145,.25)}}
 @keyframes battement-objet{0%,100%{filter:drop-shadow(0 0 0 rgba(255,214,150,0))}50%{filter:drop-shadow(0 0 10px rgba(255,214,150,.95))}}
-.scene.appel .guider.cmd-actif{animation:battement 2.4s ease-in-out infinite}
-.scene.appel .crayon-dessine.cmd-actif{animation:battement-objet 2.4s ease-in-out infinite}
+/* P5 (19/10/2026, revue Claude Design, partie 11, critère 2.2.2) : chaque appel d'un arrêt bat deux fois (4,8 s), puis reste fixe */
+.scene.appel .guider.cmd-actif{animation:battement 2.4s ease-in-out 2}
+.scene.appel .crayon-dessine.cmd-actif{animation:battement-objet 2.4s ease-in-out 2}
 /* L6 (douzième passe) : ni la flèche « Atelier » ni le CV du poteau ne battent plus (le halo se lisait comme un cadre) */
 .poteau-texte.cmd-actif{pointer-events:auto;cursor:pointer}
 /* L6 (douzième passe) : la flèche « Atelier » n'a plus aucun cadre, liseré ni halo, ni au repos, ni au survol (le curseur
@@ -290,10 +291,17 @@ html:not(.film-pret) .continuer{display:none}
 @media (hover:hover){.coin:hover .pli{transform:scale(.62)}}
 .coin:focus-visible .pli{transform:scale(.62)}
 @media (max-width:767.98px){.coin .pli{transform:scale(.5)}}
-.scene.appel .coin .pli{animation:pli 2.4s ease-in-out infinite}
+.scene.appel .coin .pli{animation:pli 2.4s ease-in-out 2}
 @keyframes pli{0%,100%{transform:scale(.32)}50%{transform:scale(.5)}}
 .invite{position:absolute;left:0;top:0;z-index:47;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:9999px;background:rgba(255,253,248,.95);border:1px solid rgba(200,190,170,.6);box-shadow:0 8px 22px rgba(0,0,40,.16);font:600 13px/1 var(--sans);color:var(--bleu);pointer-events:none;opacity:0;transition:opacity .5s;white-space:nowrap}
-.continuer{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:9px 15px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 13.5px/1 var(--sans);box-shadow:0 8px 24px rgba(0,0,145,.22);transition:transform .14s var(--doux),background .3s}
+.continuer{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:9px 15px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 13.5px/1 var(--sans);box-shadow:0 1px 2px rgba(0,0,80,.18),0 4px 10px rgba(0,0,80,.12);transition:transform .14s var(--doux),background .3s}
+/* P5 (19/10/2026, revue Claude Design, parties 2, 3 et 11, critère 1.4.3) : « Continuer » blanc sur bleu à tout instant (14,9:1).
+   La règle des chapitres (.rail button, plus forte) lui donnait le gris #77705f des chapitres (relevé avant la passe : texte
+   rgb(119, 112, 95) sur bleu, à 393 comme à 1 440) et, au survol, son fond presque transparent ; l'ombre bleue large devient
+   l'ombre courte de la maison. Le battement ne joue plus que sur l'échelle (plus de halo pêche), deux fois, puis fixe */
+.rail .continuer{color:#fff}
+@media (hover:hover){.rail .continuer:hover{background:var(--teal-txt)}}
+@keyframes bat-continuer{50%{transform:scale(1.035)}}
 .continuer:active{transform:scale(.96)}
 .continuer[hidden]{display:none}
 @media (hover:hover){.continuer:hover{background:var(--teal-txt)}}
@@ -385,7 +393,7 @@ html:not(.film-pret) .continuer{display:none}
 .crayon-ombre{z-index:17;border-radius:50%;background:rgba(30,18,6,.4);filter:blur(4px)}
 /* la bulle finale : petite, comme une bulle de Marianne (retours, point 21) */
 .bulle-projet{z-index:21;display:flex;align-items:center;justify-content:center;gap:7px;border-radius:17px;border-bottom-right-radius:5px;background:var(--bleu);color:#fff;font:600 14.5px/1 var(--sans);letter-spacing:-.005em;box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25);white-space:nowrap;pointer-events:none;transition:background .3s}
-.bulle-projet.actif{pointer-events:auto;animation:respire-bulle 4.2s ease-in-out 1.2s infinite}
+.bulle-projet.actif{pointer-events:auto;animation:respire-bulle 4.2s ease-in-out 1.2s 1}   /* P5 (critère 2.2.2) : une respiration, puis fixe */
 /* cinquième passe, C5 : à la fin, seul le bouton respire (un halo très doux) */
 @keyframes respire-bulle{0%,100%{box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25),0 0 0 0 rgba(22,32,140,0)}50%{box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 4px 10px rgba(0,0,90,.22),0 1px 2px rgba(0,0,60,.25),0 0 0 7px rgba(22,32,140,.12)}}
 @media (hover:hover){.bulle-projet.actif:hover{background:var(--teal-txt)}}
@@ -469,6 +477,13 @@ html:not(.film-pret) .continuer{display:none}
 .rail button.ici .rail__pt{box-shadow:0 0 0 4px rgba(0,0,145,.12)}
 .rail__trait{width:34px;height:1.6px;background:#d8d0bd;position:relative;overflow:hidden;flex:none}
 .rail__trait i{position:absolute;inset:0;background:var(--bleu);transform-origin:left center;transform:scaleX(var(--k,0))}
+/* P5 (19/10/2026, revue Claude Design, partie 10, « L'attente, quand elle reste ») : le trait en deux encres, bleu à 32 % pour ce qui
+   est arrivé (--c, posé par le lecteur du téléphone au fil du chargement), bleu plein pour ce qui est joué (--k) ; sans --c (le film
+   calculé de l'ordinateur, qui n'a rien à charger), rien ne change. L'invite « Le chemin se charge » paraît au-dessus du rail quand
+   l'image attend plus de 800 ms (proto3.js), lue par les lecteurs d'écran */
+.rail__trait::before{content:"";position:absolute;inset:0;background:rgba(0,0,145,.32);transform-origin:left center;transform:scaleX(var(--c,0))}
+.rail__attente{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%);margin:0;padding:8px 14px;border-radius:9999px;background:rgba(255,253,248,.96);border:1px solid rgba(200,190,170,.6);box-shadow:0 1px 2px rgba(0,0,80,.1),0 6px 16px -6px rgba(0,0,80,.18);font:600 13px/1 var(--sans);color:var(--bleu);white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility 0s .2s}
+.rail__attente.visible{opacity:1;visibility:visible;transition:opacity .2s ease,visibility 0s 0s}
 .commandes{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;gap:8px;align-items:center}
 /* le bouton Son (D14), discret, à côté de « Lancer le film » */
 .son{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:10px 14px 10px 12px;border-radius:9999px;background:rgba(247,244,237,.96);border:1px solid rgba(200,190,170,.45);box-shadow:0 8px 24px rgba(0,0,40,.14);font:600 13.5px/1 var(--sans);color:#4a4537;transition:transform .14s var(--doux),color .3s}
@@ -500,12 +515,19 @@ html:not(.film-pret) .continuer{display:none}
    « Continuer » : ils se replient en icônes seules (44 px), leur nom reste lu ; sous 900 px, ils passent en plus
    au-dessus du rail. Sous 1000 px, l'étiquette passe au-dessus du rail (à 768, elle couvrait « Communiquer ») */
 .passer .ic-passer{display:none}
-@media (min-width:768px) and (max-width:1149.98px){
+@media (min-width:768px) and (max-width:1319.98px){   /* P5 : jusqu'à 1 320 px (avant : 1 150), voir plus bas */
   .son,.lecture,.passer{width:44px;height:44px;min-height:0;padding:0;justify-content:center}
   .son span,.lecture span,.passer span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
   .passer .ic-passer{display:block;width:17px;height:17px}
 }
 @media (min-width:768px) and (max-width:899.98px){.commandes{bottom:82px}}
+/* P5 (19/10/2026, revue Claude Design, parties 2, 4 et 12) : dès 900 px, les commandes sont sur l'axe du rail (rail de 52 px à 20 px
+   du bas, commandes de 44 px à 24 px : milieu commun à 46 px du bas, mesuré). Le rail ne bouge pas (la mise en page du film se
+   mesure sur lui). Ferrer les commandes sur la colonne de la barre (1 240 px) n'est pas fait : le rail centré (513 px) et les
+   commandes avec leurs noms (359 px) n'y laissent que 4,5 px entre eux, à toute largeur dès 1 272 px (mesuré : 5 px à 1 440) ;
+   voir le compte rendu de la passe. Entre 1 150 et 1 320 px, les commandes avec leurs noms chevauchaient le rail (63 px à 1 150,
+   48 à 1 180, mesuré avant la passe) : elles gardent leurs icônes seules jusqu'à 1 320 px (règle plus haut) */
+@media (min-width:900px){.commandes{bottom:24px}}
 @media (min-width:768px) and (max-width:999.98px){.etiquette{bottom:82px}}
 /* Q6 (dix-septième passe) : l'étiquette s'efface quatre secondes après le chargement ; elle revient au survol de son coin
    ou quand on revient en haut de la page (film.js) */
@@ -668,7 +690,7 @@ html:not(.hors-film) .cc.cc-cookies{bottom:calc(84px + env(safe-area-inset-botto
   .ecran.feuille-mobile.compact{bottom:var(--rail-zone,0px);left:10px;right:10px;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,40,.26)}
   .ecran.feuille-mobile.compact.final .tel__corps{height:4.7em}
   .ecran.final.feuille-mobile .menu{padding:.15em 0 0}
-  .rail.appel .continuer{animation:battement 2.4s ease-in-out infinite}
+  .rail.appel .continuer{animation:bat-continuer 1.6s cubic-bezier(.65,0,.35,1) 2}   /* P5 : l'échelle seule, deux fois, puis fixe */
   .ecran.feuille-mobile.compact .tel__corps{flex:none;height:9.4em}
   .ecran.feuille-mobile.compact .tel__champ,.ecran.feuille-mobile.compact .tel__tete{display:none}
   .ecran.feuille-mobile .menu .liens{flex-direction:row;flex-wrap:wrap}
@@ -831,11 +853,11 @@ html:not(.hors-film) .cc.cc-cookies{bottom:calc(84px + env(safe-area-inset-botto
 .rail .son span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 @media (pointer:coarse){.rail .son::before{left:50%;right:auto;width:44px;margin-left:-22px}}
 /* Q6 : sur téléphone, quand « Ce que fait Civik-ia » (ou le pied) est à l'écran, le rail et les boutons s'effacent : ils
-   couvraient les cartes (moteur.js pose la classe hors-film sur la racine) */
-@media (max-width:767.98px){
-  .rail,.commandes{transition:opacity .3s ease,visibility 0s 0s}
-  html.hors-film .rail,html.hors-film .commandes{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s ease,visibility 0s .3s}
-}
+   couvraient les cartes (moteur.js pose la classe hors-film sur la racine).
+   P5 (19/10/2026, revue Claude Design, partie 2, amélioration 3) : sur ordinateur aussi (le rail, « Son », « Lancer le film » et
+   « Passer le film » couvraient le pied et le courriel) ; fondu de 240 ms, puis hors du rendu ; retour inverse en remontant */
+.rail,.commandes{transition:opacity .24s cubic-bezier(.2,.8,.2,1),visibility 0s 0s}
+html.hors-film .rail,html.hors-film .commandes{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s cubic-bezier(.2,.8,.2,1),visibility 0s .24s}
 /* T14 ter (07/10/2026) : sur téléphone, pendant un geste rapide, un seul chapitre affiché (moteur.js, NIV_GESTE) */
 .scene.geste-monde [data-atelier]{visibility:hidden}
 .scene.geste-atelier .monde,.scene.geste-atelier .objets-0,.scene.geste-atelier .objets-1{visibility:hidden}
@@ -897,3 +919,19 @@ html.leger-pret .leger-voir{visibility:visible}
 @media (min-width:768px){html.leger .leger-voir{padding-bottom:34px}}
 /* Y6 : sans le bouton du son dans la barre, le nom du logo tient dès 350 px (la mesure de V1 moins le son et son écart : 347 px) */
 @media (min-width:350px) and (max-width:389.49px){html.leger .nav__logo span{display:inline}}
+
+/* P5 (19/10/2026, mandat du 18/10, revue Claude Design, parties 4 et 11) ----------------------------------------------------------
+   - Inversion intelligente d'iOS (et inversion des couleurs du système) : le film est une image ; la scène entière est protégée (le
+     navigateur inverse la page, la scène est inversée une seconde fois, elle reste telle qu'elle a été faite) ; ses images et ses
+     canevas ne reçoivent pas en plus la règle des jetons (img, video, canvas), qui les inverserait deux fois. L'apparence claire est
+     déclarée par les jetons (color-scheme) et par la balise de la page.
+   - « Arrêter les animations » (bouton d'évitement, au clavier, juste après « Passer le film ») : tout ce qui bouge de soi-même dans la
+     scène s'arrête (étoiles, fontaine, lumières, halo du site dessiné ; la vie lente des mains et de la feuille : moteur.js) ; le
+     bouton devient « Relancer les animations ».
+   - L'invite d'attente sans fondu en mouvement réduit. */
+@media (inverted-colors:inverted){
+  .scene{filter:invert(1) hue-rotate(180deg)}
+  .scene img,.scene video,.scene canvas{filter:none}
+}
+html.anim-arretees .scene *,html.anim-arretees .scene *::before,html.anim-arretees .scene *::after{animation-play-state:paused !important}
+@media (prefers-reduced-motion:reduce){.rail__attente,.rail__attente.visible{transition:none}}

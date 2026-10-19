@@ -22,6 +22,9 @@ const SIZES = JSON.parse(process.argv[2] || '{"carre":[900,860]}');
       const sc = document.querySelector('.recit__scene');
       sc.style.cssText = `position:fixed;left:0;top:0;width:${W}px;height:${H}px;z-index:9999;background:#f7f4ed;padding:0;margin:0`;
       document.body.style.overflow = 'hidden';
+      /* plus de 22:47 : heure neutre sur la barre, heure du message retirée */
+      document.querySelectorAll('.recit__scene .ecr__heure').forEach(x => x.textContent = '14:05');
+      document.querySelectorAll('.recit__scene .ecr__h').forEach(x => x.remove());
       mb.calculer();
     }, [W, H]);
     await page.waitForTimeout(300);

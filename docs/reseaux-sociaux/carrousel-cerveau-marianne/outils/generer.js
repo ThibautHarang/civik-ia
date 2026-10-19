@@ -6,12 +6,12 @@ const fs = require('fs'), path = require('path');
 const SIGNE = fs.readFileSync('signe.html', 'utf8').replace(/<a [^>]*>/, '<span class="signe">').replace('</a>', '</span>');
 
 const ETAPES = [
-  ['Collecte', 'Nous rassemblons tout ce que la commune publie&nbsp;: les pages de son site, ses PDF, ses actes, ses délibérations, ses comptes rendus, son bulletin, jusqu\'aux scans et aux affiches. S\'y ajoute ce que vous nous transmettez. Rien n\'est encore trié&nbsp;: les doublons et les vieilles versions arrivent avec le&nbsp;reste'],
-  ['Lecture', 'Le texte de chaque document est extrait, les scans compris, par reconnaissance de caractères. Un arrêté photographié devient un texte que Marianne peut citer, avec le lien vers l\'acte publié, qui seul fait&nbsp;foi. Chaque document est daté et&nbsp;classé'],
-  ['Nettoyage', 'Chaque document passe au contrôle, un par un&nbsp;: les doublons sont écartés, les pages périmées retirées, les contradictions repérées. Quand deux documents se contredisent, nous vous alertons, et ce sont vos agents qui&nbsp;tranchent'],
-  ['Consolidation', 'Nous écrivons une fiche par sujet, à partir de tous les documents qui en parlent&nbsp;: la cantine, les déchets, l\'état civil, l\'urbanisme. Ce que disent trois documents tient alors en une fiche claire. Une session de tests vérifie ensuite les réponses aux questions les plus fréquentes, pour limiter le risque&nbsp;d\'erreur'],
-  ['Sourçage', 'Chaque fiche garde sa source et sa date, et chaque réponse la cite. Indexée, la fiche est retrouvée au moment où l\'habitant pose sa question. D\'un clic, il ouvre le document d\'origine&nbsp;: il peut vérifier l\'information, ou la compléter par une autre&nbsp;recherche'],
-  ['L\'application', 'Toutes les fiches rejoignent l\'application Marianne, à portée de chaque habitant, de jour comme de nuit. Marianne répond désormais à partir de cette base de connaissances officielle, hébergée en Europe chez OVHcloud, avec le moteur de Mistral&nbsp;; les données de votre commune ne servent qu\'à votre&nbsp;commune']
+  ['Collecte', 'Nous rassemblons tout ce que votre commune publie&nbsp;: pages du site, PDF, arrêtés, délibérations, bulletins, jusqu\'aux scans et aux affiches. Rien n\'est encore&nbsp;trié'],
+  ['Lecture', 'Le texte de chaque document est extrait, scans compris. Un arrêté photographié devient un texte que Marianne peut citer, daté et classé, avec le lien vers l\'acte&nbsp;publié'],
+  ['Nettoyage', 'Chaque document passe au contrôle&nbsp;: doublons écartés, pages périmées retirées, contradictions repérées. Quand deux documents se contredisent, vos agents&nbsp;tranchent'],
+  ['Consolidation', 'Une fiche par sujet, écrite à partir de tous les documents qui en parlent&nbsp;: cantine, déchets, état civil, urbanisme. Une session de tests vérifie ensuite les réponses aux questions les plus&nbsp;fréquentes'],
+  ['Sourçage', 'Chaque fiche garde sa source et sa date, et chaque réponse la cite. D\'un clic, l\'habitant ouvre le document d\'origine et vérifie par&nbsp;lui-même'],
+  ['L\'application', 'Toutes les fiches rejoignent l\'application Marianne, à portée de chaque habitant, jour et nuit. Hébergée en Europe chez OVHcloud, moteur Mistral&nbsp;: les données de votre commune ne servent qu\'à&nbsp;elle']
 ];
 
 /* un format par réseau : taille en px CSS (rendu 2x), scène utilisée, classe de mise en page */
@@ -60,39 +60,39 @@ body{font-family:var(--sans);color:var(--encre);-webkit-font-smoothing:antialias
 /* 4:5, 1080 x 1350 */
 .f-post .slide{padding:52px 52px 48px;gap:0}
 .f-post .tete{height:48px}
-.f-post .scene{width:976px;height:780px;margin-top:28px}
+.f-post .scene{width:976px;height:860px;margin-top:28px}
 .f-post .texte{margin-top:34px}
 .f-post .titre{font-size:0}.f-post .num{font-size:84px}.f-post .h3{font-size:42px}
 .f-post .texte p{margin-top:16px;font-size:24px;line-height:1.5}
 .f-post .pied{height:36px}
 
 /* carré, 1080 x 1080 */
-.f-carre .slide{padding:46px 48px 44px}
-.f-carre .tete{height:44px}
-.f-carre .scene{width:984px;height:590px;margin-top:24px}
-.f-carre .texte{margin-top:28px}
-.f-carre .num{font-size:70px}.f-carre .h3{font-size:36px}
-.f-carre .texte p{margin-top:12px;font-size:21px;line-height:1.48}
-.f-carre .pied{height:32px}
+.f-carre .slide{padding:40px 48px 40px}
+.f-carre .tete{height:40px}
+.f-carre .scene{width:984px;height:700px;margin-top:20px}
+.f-carre .texte{margin-top:22px}
+.f-carre .num{font-size:66px}.f-carre .h3{font-size:34px}
+.f-carre .texte p{margin-top:10px;font-size:20px;line-height:1.48}
+.f-carre .pied{height:30px}
 
 /* story, 1080 x 1920 (zones sûres : 220 px en haut, 260 px en bas) */
 .f-story .slide{padding:200px 64px 250px}
 .f-story .tete{height:48px}
-.f-story .scene{width:952px;height:960px;margin-top:32px}
+.f-story .scene{width:952px;height:1020px;margin-top:32px}
 .f-story .texte{margin-top:40px}
 .f-story .num{font-size:100px}.f-story .h3{font-size:50px}
 .f-story .texte p{margin-top:18px;font-size:28px;line-height:1.5}
 .f-story .pied{height:36px}
 
 /* X, 1200 x 675 : la scène à gauche, le texte à droite */
-.f-x .slide{padding:40px 44px 36px}
+.f-x .slide{padding:36px 44px 32px}
 .f-x .tete{height:36px}
-.f-x .corps{display:flex;gap:40px;margin-top:16px;flex:1}
-.f-x .scene{width:560px;height:500px}
+.f-x .corps{display:flex;gap:44px;margin-top:14px;flex:1}
+.f-x .scene{width:580px;height:510px}
 .f-x .texte{flex:1;justify-content:center}
 .f-x .num{font-size:64px}.f-x .h3{font-size:32px}
 .f-x .texte p{margin-top:12px;font-size:17.5px;line-height:1.5}
-.f-x .pied{height:28px;margin-top:14px}
+.f-x .pied{height:28px;margin-top:12px}
 .f-x .signe{font-size:19px}.f-x .signe svg{width:34px;height:30px}.f-x .sur{font-size:15px}.f-x .compteur{font-size:13px}.f-x .url{font-size:14px}
 
 /* 7 : contact, sur la nuit de la page */
@@ -160,7 +160,7 @@ body{font-family:var(--sans);color:var(--encre);-webkit-font-smoothing:antialias
 
 const FLECHE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
 const points = n => '<span class="points">' + [1,2,3,4,5,6].map(k => `<i class="${k < n ? 'passe' : k === n ? 'actif' : ''}"></i>`).join('') + '</span>';
-const tete = (n, total) => `<div class="tete">${SIGNE}<span class="sur">Le cerveau de Marianne</span><span class="compteur">${n}&nbsp;/&nbsp;${total}</span></div>`;
+const tete = (n, total) => `<div class="tete">${SIGNE}<span class="compteur">${n}&nbsp;/&nbsp;${total}</span></div>`;
 const pied = n => `<div class="pied">${points(n)}<span class="url"><b>civik-ia.fr</b>/marianne</span></div>`;
 
 function etape(f, n) {
@@ -176,12 +176,12 @@ function contact(f) {
   const coord = '<div class="contact"><b>Thibaut Harang, Civik-ia</b><span class="mail">thibaut.harang@civik-ia.fr</span><span>linkedin.com/in/thibaut-harang</span></div>';
   const sceau = '<div class="sceau"><img src="build/marianne-glyph.svg" alt=""></div>';
   const h2 = '<div class="h2">Déployons Marianne dans votre&nbsp;collectivité</div>';
-  const chapo = '<p class="chapo">Démo personnalisée en 30&nbsp;minutes. On vous montre Marianne sur une vraie commune, la vôtre si vous&nbsp;voulez</p>';
+  const chapo = '<p class="chapo">Démo personnalisée en 30&nbsp;minutes, sur votre commune si vous le&nbsp;souhaitez</p>';
   const inner = f.cls === 'f-x'
     ? `<div class="corps">${sceau}<div>${h2}${chapo}<div class="actions">${btn}${coord}</div>${dalles}</div></div>`
     : `${sceau}${h2}${chapo}${btn}${coord}${dalles}`;
-  const piedFin = `<div class="pied"><span class="sur">Prêt&nbsp;? Il est 22&nbsp;h&nbsp;47</span><span class="url"><b>civik-ia.fr</b>/marianne</span></div>`;
-  return `<div class="slide fin"><div class="fin__art"><img src="build/village-nuit.webp" alt=""></div><div class="fin__in">${tete(7, 7).replace('Le cerveau de Marianne', 'Votre mairie, disponible 24&nbsp;h sur&nbsp;24')}${inner}${piedFin}</div></div>`;
+  const piedFin = `<div class="pied"><span class="sur">Marianne, le chatbot IA des mairies</span><span class="url"><b>civik-ia.fr</b>/marianne</span></div>`;
+  return `<div class="slide fin"><div class="fin__art"><img src="build/village-nuit.webp" alt=""></div><div class="fin__in">${tete(7, 7)}${inner}${piedFin}</div></div>`;
 }
 
 const NOMS = ['collecte', 'lecture', 'nettoyage', 'consolidation', 'sourcage', 'application', 'contact'];

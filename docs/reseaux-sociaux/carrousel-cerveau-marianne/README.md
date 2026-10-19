@@ -2,8 +2,10 @@
 
 Sept visuels tirés de la section « Le cerveau de Marianne » de la page `/marianne/` (les six étapes de la base de
 connaissances, puis un visuel de contact pour déployer Marianne dans une collectivité). Les scènes des six étapes sont
-des captures de l'animation réelle du site (`/marianne/base.js`), à chacun de ses six états ; les titres et les textes
-sont ceux de la page, mot pour mot. Le septième visuel reprend la section de fin de la page (nuit, sceau, bouton clair).
+des captures de l'animation réelle du site (`/marianne/base.js`), à chacun de ses six états ; les titres sont ceux de
+la page, les textes en sont une synthèse en deux phrases. L'heure 22 h 47 de la page n'est pas reprise (écran du
+téléphone à 14 h 05, sans heure de message). Le septième visuel reprend la section de fin de la page (nuit, sceau,
+bouton clair) avec les coordonnées de contact.
 
 Rendu en 2x (chaque image fait le double des dimensions nominales du réseau).
 

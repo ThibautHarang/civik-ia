@@ -195,7 +195,7 @@ function contact(f) {
   const coord = '<div class="contact"><b>Thibaut Harang, Civik-ia</b><span class="mail">thibaut.harang@civik-ia.fr</span><span>linkedin.com/in/thibaut-harang</span></div>';
   const sceau = '<div class="sceau"><img src="build/marianne-glyph.svg" alt=""></div>';
   const h2 = '<div class="h2">Déployons Marianne dans votre&nbsp;collectivité</div>';
-  const chapo = '<p class="chapo">Démo personnalisée en 30&nbsp;minutes, sur votre commune si vous le&nbsp;souhaitez</p>';
+  const chapo = '<p class="chapo">Une présentation de Marianne en 30&nbsp;minutes, en&nbsp;visio</p>';
   const inner = f.cls === 'f-x'
     ? `<div class="corps">${sceau}<div>${h2}${chapo}<div class="actions">${btn}${coord}</div>${dalles}</div></div>`
     : `${sceau}${h2}${chapo}${btn}${coord}${dalles}`;

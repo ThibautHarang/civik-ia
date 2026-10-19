@@ -16,7 +16,7 @@ Marianne répond aux habitants d'une commune, jour et nuit, à partir des docume
 source de chaque réponse. Avant qu'elle réponde à un seul habitant, Civik-ia construit la base de connaissances de la
 commune en six étapes. Ce carrousel explique ces six étapes à des maires, des directeurs généraux des services, des
 secrétaires de mairie et des élus. Il se termine par un septième visuel, commercial et sobre, qui invite à demander
-une démonstration.
+une présentation de 30 minutes en visio (jamais une démonstration personnalisée sur la commune du contact).
 
 Le carrousel sera publié sur LinkedIn (format document PDF), Instagram (publication et story), Facebook et X.
 Le public est institutionnel : il attend du sérieux, de la clarté et de la sobriété, pas d'effets. Le ton est
@@ -145,7 +145,7 @@ rejoignent l'application Marianne, à portée de chaque habitant, jour et nuit :
 **07 Contact.** Fond bleu nuit. En haut, le village de nuit de la page (collines, route, mairie éclairée) fondu dans
 la nuit sur la moitié supérieure, très discret. Au centre, le bloc est centré verticalement entre l'en-tête et le
 pied : le sceau de Marianne avec son halo, le titre « Déployons Marianne dans votre collectivité » en blanc, le
-chapeau « Démo personnalisée en 30 minutes, sur votre commune si vous le souhaitez », un bouton pilule crème
+chapeau « Une présentation de Marianne en 30 minutes, en visio », un bouton pilule crème
 « Demander une démo → », les coordonnées « Thibaut Harang, Civik-ia », « thibaut.harang@civik-ia.fr »,
 « linkedin.com/in/thibaut-harang », puis les trois dalles OVHcloud, Mistral, Vos données. Pied : « Marianne, le
 chatbot IA des mairies » à gauche, civik-ia.fr/marianne à droite. Je veux ce visuel très sobre, très beau, équilibré

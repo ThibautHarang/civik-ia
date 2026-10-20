@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr" data-couche="ancienne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base de données fiable pour l’IA d’une mairie · Civik-ia</title>
+<meta name="description" content="Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d&#x27;une commune avant une IA.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Base de données fiable pour l&#x27;IA d&#x27;une mairie : sept étapes">
+<meta property="og:description" content="Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d&#x27;une commune avant une IA.">
+<meta property="og:url" content="https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html">
+<meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+<meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+<meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village et la fontaine de sa place.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta name="twitter:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+<meta name="twitter:title" content="Base de données fiable pour l&#x27;IA d&#x27;une mairie : sept étapes">
+<meta name="twitter:description" content="Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d&#x27;une commune avant une IA.">
+<meta property="og:site_name" content="Civik-ia">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:modified_time" content="2026-10-21">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;line-height:1.65;overflow-x:hidden;max-width:100vw}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+:root{--p:#000091;--teal:#2EC4B6;--gold:#F4A261;--cream:#f7f4ed;--bg-section:#fdfbf5;--tx:#1E1E1E;--tx-soft:#4a4a4a;--tx-light:#888;--border:rgba(0,0,145,0.08);--green:#176b43;--amber:#F4A261;--red:#c8322b;--shadow-sm:0 2px 8px rgba(0,0,145,0.04);--shadow-md:0 8px 32px rgba(0,0,145,0.08);--r-md:16px;--r-lg:24px}
+main{max-width:840px;margin:0 auto;padding:48px 24px 80px}
+nav.breadcrumb{font-size:13px;color:var(--tx-light);margin-bottom:24px}
+nav.breadcrumb a{color:var(--p);text-decoration:none}
+.kicker{display:inline-block;color:var(--tx-soft);font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
+h1{font-size:clamp(32px,5vw,48px);font-weight:800;color:var(--p);letter-spacing:-0.025em;line-height:1.1;margin-bottom:18px}
+.lede{font-size:19px;color:var(--tx-soft);line-height:1.55;margin-bottom:36px}
+.meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--tx-light);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.meta strong{color:var(--p);font-weight:600}
+article h2{font-size:28px;font-weight:800;color:var(--p);letter-spacing:-0.015em;margin:48px 0 16px;line-height:1.2}
+article h3{font-size:22px;font-weight:700;color:var(--p);margin:32px 0 12px;line-height:1.3}
+article p{font-size:17px;color:var(--tx);margin-bottom:18px;line-height:1.7}
+article ul,article ol{margin:8px 0 22px 24px}
+article li{margin-bottom:8px;font-size:17px;color:var(--tx);line-height:1.65}
+article a{color:var(--p);text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:3px;font-weight:500}
+article strong{color:var(--p);font-weight:700}
+.callout{background:#fff;border:1px solid var(--border);padding:20px 24px;border-radius:12px;margin:24px 0;box-shadow:var(--shadow-sm)}
+.callout-warn{background:#fff;border:1px solid var(--border);padding:20px 24px;border-radius:12px;margin:24px 0}
+.callout-warn strong{color:var(--red)}
+.cta-block{margin:48px 0;padding:36px;background:var(--p);color:#fff;border-radius:var(--r-lg);text-align:center}
+.cta-block h2{color:#fff;margin-top:0;margin-bottom:12px}
+.cta-block p{color:rgba(255,255,255,0.9);margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--teal);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-weight:700;font-size:16px}
+.checklist{background:var(--bg-section);border:1px solid var(--border);border-radius:var(--r-md);padding:24px 28px;margin:24px 0}
+.checklist h3{margin-top:0}
+.checklist li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px}
+.checklist li::before{content:"";position:absolute;left:2px;top:.3em;width:14px;height:14px;border:1.5px solid var(--p);border-radius:3px}   /* passe P3 : la case est dessinée, plus d’émoji */
+@media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:28px}article h2{font-size:24px}article p,article li{font-size:16px}.cta-block{padding:24px}}
+.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}
+.tableau table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);font-size:15px}
+.tableau thead{background:var(--p);color:#fff}
+.tableau th{padding:12px 14px;text-align:left;font-weight:700;font-size:12px;letter-spacing:0.04em;text-transform:uppercase}
+.tableau td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--tx);vertical-align:top;line-height:1.55}
+.tableau tbody tr:nth-child(even){background:var(--bg-section)}
+.tableau td:first-child{font-weight:600;color:var(--p)}
+p.meta{margin-bottom:40px}
+p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:3px}
+.tableau table.large{min-width:640px}
+@media(max-width:640px){.tableau td,.tableau th{padding:10px}.tableau table{font-size:14px}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html#article",
+      "headline": "Constituer une base de données fiable pour l'IA d'une mairie : sept étapes",
+      "description": "Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d'une commune avant une IA.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "author": {
+        "@type": "Person",
+        "@id": "https://civik-ia.fr/conseil/#thibaut-harang",
+        "name": "Thibaut Harang",
+        "url": "https://civik-ia.fr/conseil/"
+      },
+      "publisher": {
+        "@id": "https://civik-ia.fr/#organisation"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html"
+      },
+      "image": "https://civik-ia.fr/assets/partage/home-2026-10-19.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment préparer les données d'une commune pour un chatbot ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inventoriez les sources et nommez un responsable par source, gardez ce qui est déjà public, découpez en fiches courtes qui portent l'adresse et la date de leur source, tranchez les contradictions, fixez un rythme de mise à jour et mesurez sur des questions réelles avant l'ouverture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles données ne faut-il pas mettre dans la base d'un assistant de mairie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les données personnelles des habitants et les documents internes que la mairie n'a pas publiés. Dans les actes, les noms et adresses de particuliers se masquent avant toute lecture par un outil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À quelle fréquence mettre la base à jour ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Au rythme du site : chaque nuit quand la lecture est automatique, chaque semaine pour des documents déposés à la main. Un contrôle d'anomalie évite d'écrire dans la base une lecture manifestement erronée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il numériser ou retaper les anciens documents ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un PDF numérisé qui n'est qu'une image ne se lit pas automatiquement. Une version texte des documents importants (règlement, tarifs, plan d'urbanisme) est préférable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qui est responsable de l'exactitude des données ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La commune, pour ce qu'elle publie. L'assistant cite ses sources fidèlement : une page périmée donne une réponse périmée. La mise en service relève ces écarts et les signale à la mairie."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html#fil",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://civik-ia.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Base de données fiable pour l'IA",
+          "item": "https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261019c">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019c">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019c">
+<script src="/js/cookies.js?v=20261019c" defer></script>
+<!-- /tete-commune -->
+</head>
+<body>
+<!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<div class="cc cc-place" aria-hidden="true"></div>
+<!-- /barre-commune -->
+
+<main>
+  <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a> &nbsp;›&nbsp; Base de données fiable pour l’IA</nav>
+  <h1>Constituer une base de données fiable pour l’IA d’une mairie&nbsp;: sept étapes</h1>
+  <p class="lede">Une base de données fiable pour l’IA d’une mairie se constitue en sept étapes.
+    Inventorier les sources et leur responsable, ne garder que ce qui est déjà public, découper en fiches courtes, dater chaque fiche et garder l’adresse de sa source, régler les contradictions, mettre à jour à rythme fixe, puis mesurer avant l’ouverture.</p>
+  <p class="meta"><span>Mis à jour le <time datetime="2026-10-21">21 octobre 2026</time>.</span> <span>Par <a href="/conseil/">Thibaut Harang</a>, fondateur de Civik-ia.</span></p>
+
+  <article>
+    <p>Un assistant d’IA répond avec ce qu’il trouve.
+    Si la base contient une page périmée, deux tarifs différents ou un document qui n’aurait jamais dû sortir, la réponse reprendra l’erreur sur le même ton qu’une réponse juste.
+    La commune est la seule à connaître ses sources&nbsp;: cette page décrit le travail qui lui revient, quel que soit l’outil choisi.</p>
+    <h2>Étape 1&nbsp;: inventorier les sources et nommer un responsable</h2>
+    <p>La première liste tient sur une page.
+    Elle recense le site de la commune et les documents mis en ligne (bulletin municipal, règlement de collecte, comptes rendus du conseil, plan local d’urbanisme).
+    Elle ajoute les actes (arrêtés, délibérations), les sites que la mairie veut voir lus (une salle de spectacle, une médiathèque) et les informations que seuls les agents détiennent, comme le service à appeler pour une question précise.</p>
+    <p>Chaque source reçoit un responsable dans la mairie, celui qui sait si elle est à jour.
+    Une source sans responsable n’est pas lue&nbsp;: l’ANSSI recommande, pour tout système d’IA, de cartographier les sources de données externes utilisées et d’évaluer leur niveau de confiance (recommandation R4 du guide ANSSI-PA-102, 29 avril 2024).</p>
+    <h2>Étape 2&nbsp;: ne garder que ce qui est déjà public</h2>
+    <p>Un assistant ouvert à tous les habitants n’a pas de droits d’accès par utilisateur&nbsp;: tout ce que contient sa base peut ressortir dans une réponse.
+    La base ne reçoit donc que des documents déjà publiés ou approuvés pour l’être.
+    L’ANSSI le dit autrement&nbsp;: pour les données que le système consulte en production, la gestion des droits d’accès dépend des outils employés, et le besoin d’en connaître se décide avant la conception, pas après (recommandations R7 et R8).</p>
+    <p>Trois tris évitent les erreurs les plus courantes.</p>
+    <ul>
+      <li>Un document interne que la mairie n’a pas publié reste hors de la base, même s’il contiendrait la bonne réponse.</li>
+      <li>Un acte contient parfois des noms et des adresses de particuliers.
+        La CADA rappelle que les documents ne se publient qu’après occultation des mentions protégées, et que les données personnelles s’anonymisent sauf exceptions strictes (<a href="https://www.cada.fr/administration/la-publication-des-documents-des-collectivites-territoriales-lies-lexercice-de-0">CADA</a>).
+        La même précaution vaut avant de les confier à une IA.</li>
+      <li>Les questions des habitants ne deviennent pas des sources.
+        Elles se conservent à part, pour mesurer, jamais pour répondre à la place d’une source.</li>
+    </ul>
+    <h2>Étape 3&nbsp;: découper en fiches courtes</h2>
+    <p>Une fiche porte une information et une source&nbsp;: les horaires de la déchetterie, le tarif de la cantine pour une année scolaire, les pièces d’un dossier.
+    Une fiche qui mélange trois années de tarifs provoque une erreur que Civik-ia relève sur ses communes de test&nbsp;: le modèle prend un tarif d’une autre année, ou le téléphone d’un autre service, alors que la bonne fiche a été retrouvée.
+    Cette erreur est décrite sur la page <a href="/rag-collectivites.html">RAG pour une mairie</a>.</p>
+    <p>Un document dont le texte n’est qu’une image de page, comme un PDF numérisé, ne se lit pas automatiquement.
+    La CADA l’écarte déjà pour la publication en données ouvertes&nbsp;: un format exploitable automatiquement est exigé.
+    Prévoyez une version texte de chaque document important.</p>
+    <h2>Étape 4&nbsp;: dater chaque fiche et garder l’adresse de sa source</h2>
+    <p>Une fiche utile porte sept champs.</p>
+    <div class="tableau">
+    <table>
+      <thead><tr><th scope="col">Champ</th><th scope="col">Ce qu’il contient</th></tr></thead>
+      <tbody>
+        <tr><td>Information</td><td>Le fait, en une ou deux phrases</td></tr>
+        <tr><td>Adresse de la source</td><td>Le lien direct vers la page ou le document</td></tr>
+        <tr><td>Date de la source</td><td>La date de publication ou de dernière mise à jour affichée</td></tr>
+        <tr><td>Date de lecture</td><td>Le jour où la fiche a été relevée</td></tr>
+        <tr><td>Responsable</td><td>La personne de la mairie qui répond de l’information</td></tr>
+        <tr><td>Statut</td><td>Lue automatiquement, relue par un agent, écrite à la main</td></tr>
+        <tr><td>Fin de validité</td><td>Une date, quand l’information en a une (tarif d’une année, fermeture exceptionnelle)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>La date de lecture et la date de la source disent à quel point la réponse peut être périmée.
+    L’adresse de la source permet à l’habitant d’ouvrir le texte officiel&nbsp;: c’est elle que la réponse cite.
+    La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait.</p>
+    <h2>Étape 5&nbsp;: régler les contradictions avant l’ouverture</h2>
+    <p>Deux pages du site donnent deux numéros de téléphone pour le même service.
+    Une fiche nationale et une page communale ne disent pas la même chose d’une démarche.
+    L’assistant ne sait pas laquelle fait foi.
+    La commune tranche une fois, par écrit, avec une règle simple&nbsp;: le local l’emporte pour ce qui est local, le national pour ce qui est national, la page la plus récemment datée départage le reste.
+    La page <a href="/sources-officielles-mairie-quelle-source-fait-foi.html">quelle source fait foi</a> détaille cette règle et les sources officielles à citer.</p>
+    <p>Quand l’écart ne se tranche pas, une fiche courte, écrite à la main avec sa source et relue par les agents, fixe la réponse.</p>
+    <h2>Étape 6&nbsp;: mettre à jour à rythme fixe</h2>
+    <p>Une base juste le jour de l’ouverture devient fausse dès que le site change.
+    Le rythme de relecture se fixe&nbsp;: chaque nuit pour un site qui se lit automatiquement, chaque semaine pour des documents qu’un agent dépose à la main.
+    Prévoyez que chaque relecture compare ce qui a été lu à ce que la base contient, et signale ce qui a disparu.</p>
+    <p>Un contrôle d’anomalie protège la base d’une erreur de lecture&nbsp;: si la relecture constate la disparition d’une grande partie des fiches ou un effondrement du volume lu, rien n’est écrit et la version de la veille reste servie, le temps qu’une personne regarde.
+    Après l’ouverture, une réponse jugée fausse ou incomplète se corrige dans la base, puis se mesure de nouveau.</p>
+    <h2>Étape 7&nbsp;: mesurer avant l’ouverture</h2>
+    <p>Une base se juge sur des questions, pas sur son volume.
+    La méthode (questions réelles, questions pièges, quatre verdicts, banque de contrôle écrite à part) est décrite sur la page <a href="/tester-un-chatbot-de-mairie.html">tester un chatbot de mairie</a>.
+    La mairie valide par écrit une version de référence avant tout accès des habitants.</p>
+    <h2>Une base sécurisée, et un modèle qui ne l’apprend pas</h2>
+    <p>Deux précisions complètent ces étapes.
+    La base se protège comme toute base de la commune&nbsp;: sauvegardes, comptes individuels, droits limités, journaux.
+    Les mesures sont sur la page <a href="/securiser-base-de-donnees-collectivite.html">sécuriser la base de données d’une collectivité</a>.</p>
+    <p>Et la base est consultée, pas apprise&nbsp;: avec la méthode du RAG, le modèle lit les fiches retrouvées au moment de la question, sans être entraîné sur les documents de la commune.
+    Corriger une fiche corrige donc la réponse suivante, sans nouvel entraînement.</p>
+    <h2>Chez Marianne</h2>
+    <p>Marianne est en test&nbsp;: aucune commune ne l’a en service.
+    Sa base reprend ces étapes dans la mise en service, en six étapes&nbsp;: inventaire des sources, cadre écrit avec la mairie, constitution de la base, mesure sur 300 questions de test, validation par les agents, version de référence validée par écrit.
+    Chaque fiche garde l’adresse et la date de sa source.
+    Le site officiel est relu chaque nuit pour les sites WordPress&nbsp;; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
+    Le détail est sur la page <a href="/base-de-connaissances-mairie.html">base de connaissances d’une mairie</a>&nbsp;; le cadre est sur la page <a href="/guichet-citoyen-ia.html">guichet citoyen IA</a>.</p>
+    <h2 id="faq">Questions fréquentes</h2>
+    <h3>Comment préparer les données d’une commune pour un chatbot&nbsp;?</h3>
+    <p>Inventoriez les sources et nommez un responsable par source, gardez ce qui est déjà public, découpez en fiches courtes qui portent l’adresse et la date de leur source, tranchez les contradictions, fixez un rythme de mise à jour et mesurez sur des questions réelles avant l’ouverture.</p>
+    <h3>Quelles données ne faut-il pas mettre dans la base d’un assistant de mairie&nbsp;?</h3>
+    <p>Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés.
+    Dans les actes, les noms et adresses de particuliers se masquent avant toute lecture par un outil.</p>
+    <h3>À quelle fréquence mettre la base à jour&nbsp;?</h3>
+    <p>Au rythme du site&nbsp;: chaque nuit quand la lecture est automatique, chaque semaine pour des documents déposés à la main.
+    Un contrôle d’anomalie évite d’écrire dans la base une lecture manifestement erronée.</p>
+    <h3>Faut-il numériser ou retaper les anciens documents&nbsp;?</h3>
+    <p>Un PDF numérisé qui n’est qu’une image ne se lit pas automatiquement.
+    Une version texte des documents importants (règlement, tarifs, plan d’urbanisme) est préférable.</p>
+    <h3>Qui est responsable de l’exactitude des données&nbsp;?</h3>
+    <p>La commune, pour ce qu’elle publie.
+    L’assistant cite ses sources fidèlement&nbsp;: une page périmée donne une réponse périmée.
+    La mise en service relève ces écarts et les signale à la mairie.</p>
+  </article>
+</main>
+
+<!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/guichet-citoyen-ia.html">Guichet citoyen IA, la définition</a></li><li><a href="/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul></div>
+</footer>
+<!-- /pied-commun -->
+</body>
+</html>

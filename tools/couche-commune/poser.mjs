@@ -86,6 +86,14 @@ const PAGES = [
   ['guichet-citoyen-ia.html', { couche: 'ancienne', place: true }],
   ['base-de-connaissances-mairie.html', { couche: 'ancienne', place: true }],
   ['rag-collectivites.html', { couche: 'ancienne', place: true }],
+  // grappe données (21/10/2026) : les six articles, même famille et même naissance (marqueurs vides) ; le pied des guides ne
+  // change pas (plan de la DDC du 20/10/2026, section 3 : seize lignes déjà, page de rangement à décider par Thibaut)
+  ['securiser-base-de-donnees-collectivite.html', { couche: 'ancienne', place: true }],
+  ['sources-officielles-mairie-quelle-source-fait-foi.html', { couche: 'ancienne', place: true }],
+  ['donnees-a-ne-pas-envoyer-ia-mairie.html', { couche: 'ancienne', place: true }],
+  ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true }],
+  ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true }],
+  ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true }],
 ];
 
 // ---------------------------------------------------------------------------------------------------------------

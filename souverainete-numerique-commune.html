@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr" data-couche="ancienne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Souveraineté numérique d’une commune · Civik-ia</title>
+<meta name="description" content="Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l&#x27;IA, réversibilité : les six questions pour juger la souveraineté d&#x27;un outil.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://civik-ia.fr/souverainete-numerique-commune.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Souveraineté numérique d&#x27;une commune : six questions à poser">
+<meta property="og:description" content="Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l&#x27;IA, réversibilité : les six questions pour juger la souveraineté d&#x27;un outil.">
+<meta property="og:url" content="https://civik-ia.fr/souverainete-numerique-commune.html">
+<meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+<meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+<meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village et la fontaine de sa place.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+<meta name="twitter:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+<meta name="twitter:title" content="Souveraineté numérique d&#x27;une commune : six questions à poser">
+<meta name="twitter:description" content="Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l&#x27;IA, réversibilité : les six questions pour juger la souveraineté d&#x27;un outil.">
+<meta property="og:site_name" content="Civik-ia">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:modified_time" content="2026-10-21">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#1E1E1E;background:#f7f4ed;line-height:1.65;overflow-x:hidden;max-width:100vw}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+:root{--p:#000091;--teal:#2EC4B6;--gold:#F4A261;--cream:#f7f4ed;--bg-section:#fdfbf5;--tx:#1E1E1E;--tx-soft:#4a4a4a;--tx-light:#888;--border:rgba(0,0,145,0.08);--green:#176b43;--amber:#F4A261;--red:#c8322b;--shadow-sm:0 2px 8px rgba(0,0,145,0.04);--shadow-md:0 8px 32px rgba(0,0,145,0.08);--r-md:16px;--r-lg:24px}
+main{max-width:840px;margin:0 auto;padding:48px 24px 80px}
+nav.breadcrumb{font-size:13px;color:var(--tx-light);margin-bottom:24px}
+nav.breadcrumb a{color:var(--p);text-decoration:none}
+.kicker{display:inline-block;color:var(--tx-soft);font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px}
+h1{font-size:clamp(32px,5vw,48px);font-weight:800;color:var(--p);letter-spacing:-0.025em;line-height:1.1;margin-bottom:18px}
+.lede{font-size:19px;color:var(--tx-soft);line-height:1.55;margin-bottom:36px}
+.meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--tx-light);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.meta strong{color:var(--p);font-weight:600}
+article h2{font-size:28px;font-weight:800;color:var(--p);letter-spacing:-0.015em;margin:48px 0 16px;line-height:1.2}
+article h3{font-size:22px;font-weight:700;color:var(--p);margin:32px 0 12px;line-height:1.3}
+article p{font-size:17px;color:var(--tx);margin-bottom:18px;line-height:1.7}
+article ul,article ol{margin:8px 0 22px 24px}
+article li{margin-bottom:8px;font-size:17px;color:var(--tx);line-height:1.65}
+article a{color:var(--p);text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:3px;font-weight:500}
+article strong{color:var(--p);font-weight:700}
+.callout{background:#fff;border:1px solid var(--border);padding:20px 24px;border-radius:12px;margin:24px 0;box-shadow:var(--shadow-sm)}
+.callout-warn{background:#fff;border:1px solid var(--border);padding:20px 24px;border-radius:12px;margin:24px 0}
+.callout-warn strong{color:var(--red)}
+.cta-block{margin:48px 0;padding:36px;background:var(--p);color:#fff;border-radius:var(--r-lg);text-align:center}
+.cta-block h2{color:#fff;margin-top:0;margin-bottom:12px}
+.cta-block p{color:rgba(255,255,255,0.9);margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--teal);color:#fff;padding:14px 32px;border-radius:9999px;text-decoration:none;font-weight:700;font-size:16px}
+.checklist{background:var(--bg-section);border:1px solid var(--border);border-radius:var(--r-md);padding:24px 28px;margin:24px 0}
+.checklist h3{margin-top:0}
+.checklist li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px}
+.checklist li::before{content:"";position:absolute;left:2px;top:.3em;width:14px;height:14px;border:1.5px solid var(--p);border-radius:3px}   /* passe P3 : la case est dessinée, plus d’émoji */
+@media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:28px}article h2{font-size:24px}article p,article li{font-size:16px}.cta-block{padding:24px}}
+.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}
+.tableau table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);font-size:15px}
+.tableau thead{background:var(--p);color:#fff}
+.tableau th{padding:12px 14px;text-align:left;font-weight:700;font-size:12px;letter-spacing:0.04em;text-transform:uppercase}
+.tableau td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--tx);vertical-align:top;line-height:1.55}
+.tableau tbody tr:nth-child(even){background:var(--bg-section)}
+.tableau td:first-child{font-weight:600;color:var(--p)}
+p.meta{margin-bottom:40px}
+p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:3px}
+.tableau table.large{min-width:640px}
+@media(max-width:640px){.tableau td,.tableau th{padding:10px}.tableau table{font-size:14px}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://civik-ia.fr/souverainete-numerique-commune.html#article",
+      "headline": "Souveraineté numérique d'une commune : six questions à poser à un fournisseur",
+      "description": "Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l'IA, réversibilité : les six questions pour juger la souveraineté d'un outil.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "author": {
+        "@type": "Person",
+        "@id": "https://civik-ia.fr/conseil/#thibaut-harang",
+        "name": "Thibaut Harang",
+        "url": "https://civik-ia.fr/conseil/"
+      },
+      "publisher": {
+        "@id": "https://civik-ia.fr/#organisation"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://civik-ia.fr/souverainete-numerique-commune.html"
+      },
+      "image": "https://civik-ia.fr/assets/partage/home-2026-10-19.jpg"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://civik-ia.fr/souverainete-numerique-commune.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Une commune est-elle obligée d'utiliser un hébergeur SecNumCloud ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Je n'ai trouvé aucune obligation de ce type (recherche du 20 octobre 2026). La doctrine « cloud au centre » et l'article 31 de la loi SREN visent l'État, ses opérateurs et six groupements d'intérêt public. Une proposition de loi du Sénat, non adoptée à ma connaissance, étendrait une exigence aux communes de plus de 30 000 habitants pour les données sensibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que garantit une qualification SecNumCloud ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est une qualification de l'ANSSI qui reconnaît une offre cloud et les pratiques d'exploitation de son opérateur, avec une protection contre les lois extraterritoriales. Elle ne garantit pas la sécurité des services que le client construit ou configure sur cette offre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la réversibilité d'un contrat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est la possibilité de récupérer ses données et de changer de fournisseur. Depuis le 12 septembre 2025, le règlement européen sur les données fixe un préavis de deux mois au plus, une transition de trente jours au plus et au moins trente jours pour récupérer les données."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un logiciel hébergé en Europe est-il souverain ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement. L'hébergement n'est qu'un critère. Les accès, les sous-traitants, le droit qui s'applique à chacun, le lieu de calcul d'une éventuelle IA et la sortie des données comptent autant. Le mot « souverain » n'a pas de définition légale pour une commune : il se vérifie critère par critère."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qui décide du choix de l'hébergement dans une commune ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'ANSSI écrit, pour les systèmes d'information qu'elle vise, que la décision de migrer vers le cloud relève de la plus haute autorité de l'entité, éclairée par une étude d'impact et une analyse de risques. Pour une commune, ce repère se transpose : le choix se prend au niveau du maire, avec l'avis du délégué à la protection des données, et se garde par écrit."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://civik-ia.fr/souverainete-numerique-commune.html#fil",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://civik-ia.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Souveraineté numérique d'une commune",
+          "item": "https://civik-ia.fr/souverainete-numerique-commune.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261019c">
+<link rel="stylesheet" href="/css/jetons.css?v=20261019c">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261019c">
+<script src="/js/cookies.js?v=20261019c" defer></script>
+<!-- /tete-commune -->
+</head>
+<body>
+<!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<div class="cc cc-place" aria-hidden="true"></div>
+<!-- /barre-commune -->
+
+<main>
+  <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a> &nbsp;›&nbsp; Souveraineté numérique d’une commune</nav>
+  <h1>Souveraineté numérique d’une commune&nbsp;: six questions à poser à un fournisseur</h1>
+  <p class="lede">La souveraineté numérique d’une commune se vérifie par écrit, fournisseur par fournisseur&nbsp;: l’hébergeur et le pays du serveur, les accès, les sous-traitants et le droit qui les régit, le lieu de calcul de l’IA, la sortie des données, et les preuves fournies.
+    Le mot n’a pas de définition légale pour une commune.</p>
+  <p class="meta"><span>Mis à jour le <time datetime="2026-10-21">21 octobre 2026</time>.</span> <span>Par <a href="/conseil/">Thibaut Harang</a>, fondateur de Civik-ia.</span></p>
+
+  <article>
+    <p>Une mairie utilise des logiciels de paie, d’état civil, de gestion des élections, une messagerie, un site, et de plus en plus un assistant d’IA.
+    Chacun repose sur un hébergeur, des sous-traitants et parfois un modèle d’IA.
+    Cette page dit ce que les textes demandent aujourd’hui à une commune, ce que la qualification SecNumCloud garantit, puis pose six questions qui valent pour n’importe quel outil.</p>
+    <h2>Ce que les textes demandent à une commune au 20 octobre 2026</h2>
+    <p>Je n’ai trouvé aucune obligation, pour une commune, de recourir à un hébergeur qualifié SecNumCloud.
+    Trois textes s’en approchent&nbsp;: deux visent l’État, le troisième n’est pas adopté.</p>
+    <ul>
+      <li><strong>La doctrine «&nbsp;cloud au centre&nbsp;»</strong>&nbsp;: la circulaire n°&nbsp;6282-SG du 5 juillet 2021, actualisée en 2023, fait du cloud le mode d’hébergement par défaut des services numériques de l’État.
+        Elle concerne «&nbsp;tous les nouveaux projets numériques ou refontes majeures de systèmes d’information de l’État ou des opérateurs placés sous sa tutelle&nbsp;».
+        Les services sont hébergés sur les clouds interministériels de l’État ou sur une offre commerciale qualifiée SecNumCloud (<a href="https://questions.assemblee-nationale.fr/q17/17-1692QE.htm">Assemblée nationale, question écrite n°&nbsp;1692, réponse du 3 juin 2025</a>).</li>
+      <li><strong>L’article 31 de la loi SREN du 21 mai 2024</strong> et son décret n°&nbsp;2026-272 du 14 avril 2026, publié au Journal officiel le 16 avril 2026.
+        Ils encadrent l’hébergement dans le cloud des données particulièrement sensibles des administrations de l’État, de leurs opérateurs et de six groupements d’intérêt public.
+        Aucune collectivité territoriale ne figure dans le texte (<a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053900789">Légifrance</a>).</li>
+      <li><strong>Une proposition de loi en discussion</strong>&nbsp;: la proposition de loi relative à la sécurisation des marchés publics numériques, examinée au Sénat en première lecture (rapport n°&nbsp;199 du 10 décembre 2025).
+        Dans la version de la commission, elle limite le dispositif aux données sensibles au sens de l’article 31.
+        Elle exclut les communes de moins de 30&nbsp;000 habitants et les communautés de communes.
+        Elle fixe une entrée en vigueur au 1er janvier 2030 (<a href="https://www.senat.fr/rap/l25-199/l25-199_mono.html">Sénat</a>).
+        Son état change&nbsp;: vérifiez-le avant de vous y fier.</li>
+    </ul>
+    <p>Le RGPD s’applique en revanche à toutes les communes&nbsp;: contrat de sous-traitance (article 28), encadrement des transferts hors de l’Union (articles 44 à 46).
+    La CNIL le résume dans ses questions-réponses&nbsp;: une infrastructure externe se sécurise par un contrat de sous-traitance qui définit les responsabilités et les accès.</p>
+    <h2>Ce que SecNumCloud garantit</h2>
+    <p>SecNumCloud est une qualification de sécurité délivrée par l’ANSSI.
+    Elle reconnaît des offres cloud d’opérateurs (services IaaS, PaaS ou SaaS) et apporte, selon l’agence, une confiance sur l’offre et sur les pratiques d’exploitation de l’opérateur.
+    Elle vise à protéger les données et les traitements sensibles face à la menace cybercriminelle et à l’application de lois extraterritoriales.
+    Les offres qualifiées sont listées sur le site de l’ANSSI.</p>
+    <p>Elle ne préjuge pas du niveau de sécurité des services numériques des clients portés par ces offres.
+    L’ANSSI précise aussi que tous les systèmes d’information n’ont pas vocation à recourir au cloud.
+    La décision de migrer relève de la plus haute autorité de l’entité, éclairée par une étude d’impact et une analyse de risques (<a href="https://messervices.cyber.gouv.fr/documents-guides/20240814_np_anssi_recommandations_hebergement_cloud_si_a5_v1g_fr.pdf">ANSSI, recommandations pour l’hébergement dans le cloud des systèmes d’information sensibles</a>, version 1.0, juillet 2024).</p>
+    <p>Ces recommandations s’adressent aux systèmes d’information sensibles de l’État, des opérateurs d’importance vitale et des opérateurs de services essentiels.
+    Une commune peut s’en servir comme repère, sans y être tenue.</p>
+    <h2>Six questions à poser, avec la preuve à demander</h2>
+    <h3>1. Qui héberge, et dans quel pays est le serveur&nbsp;?</h3>
+    <p>Le nom de la société qui héberge, le pays du serveur, le centre de données si le contrat le dit.
+    La preuve&nbsp;: le contrat d’hébergement ou l’accord sur le traitement des données.
+    «&nbsp;Hébergé en Europe&nbsp;» ne répond pas à la question&nbsp;: le pays, la société et le contrat se lisent.</p>
+    <h3>2. Qui peut accéder aux données&nbsp;?</h3>
+    <p>La liste des comptes d’administration, leur mode d’authentification, la séparation entre les données de chaque client.
+    L’ANSSI rappelle que le client garde la charge de configurer le filtrage et le contrôle d’accès pour que seules les personnes légitimes accèdent aux interfaces d’administration.
+    La preuve&nbsp;: une description écrite des accès, mise à jour.</p>
+    <h3>3. Quels sous-traitants, dans quels pays, avec quel préavis&nbsp;?</h3>
+    <p>Un outil repose souvent sur plusieurs sociétés&nbsp;: hébergeur, envoi des courriels, mesure d’audience, modèle d’IA.
+    L’article 28 du RGPD interdit au sous-traitant d’en engager un autre sans l’autorisation du responsable de traitement.
+    La preuve&nbsp;: la liste des sous-traitants dans l’accord, avec leur pays de traitement et le délai de préavis avant un changement.</p>
+    <h3>4. Quel droit s’applique&nbsp;?</h3>
+    <p>L’ANSSI note que certains fournisseurs de cloud peuvent être soumis à des législations extraterritoriales qui leur imposent de transmettre à leurs autorités nationales les données de leurs clients.
+    Le critère est le droit auquel le fournisseur et ses sous-traitants sont soumis, pas seulement le pays du serveur.
+    Pour les transferts vers les États-Unis, une décision d’adéquation du 10 juillet 2023 (cadre de protection des données UE-États-Unis) permet les transferts vers les entreprises qui y adhèrent.
+    Le Tribunal de l’Union a rejeté un recours contre elle le 3 septembre 2025, et un pourvoi est pendant.
+    Hors de ce cadre, l’article 46 du RGPD exige des garanties, comme les clauses contractuelles types.
+    La page <a href="/ia-souveraine-mairie-mistral.html">IA souveraine pour mairie</a> détaille le cas des modèles d’IA.</p>
+    <h3>5. Où l’IA calcule-t-elle&nbsp;?</h3>
+    <p>Si l’outil contient de l’IA, le modèle est exploité par un éditeur qui a ses propres lieux de calcul.
+    Un éditeur peut proposer plusieurs points d’accès&nbsp;: l’un calcule dans l’Union européenne, un autre ne s’engage sur aucun lieu.
+    La preuve&nbsp;: le contrat dit lequel est utilisé.
+    Sans cette ligne, le lieu de calcul n’est pas fixé.</p>
+    <h3>6. Comment la commune récupère-t-elle ses données&nbsp;?</h3>
+    <p>La réversibilité est la possibilité de récupérer ses données et de changer de fournisseur.
+    L’ANSSI recommande une clause de réversibilité pour limiter la dépendance à une seule offre.
+    Depuis le 12 septembre 2025, le règlement européen sur les données (règlement (UE) 2023/2854, article 25) encadre le changement de fournisseur de services de traitement de données.
+    Le préavis est de deux mois au plus, la période de transition de trente jours au plus, puis la commune dispose d’au moins trente jours pour récupérer ses données.
+    Les frais de changement, y compris de sortie des données, sont supprimés à partir du 12 janvier 2027 (<a href="https://digital-strategy.ec.europa.eu/en/factpages/data-act-explained">Commission européenne, Data Act</a>).
+    La preuve&nbsp;: le format de restitution, le délai et le coût, écrits au contrat.</p>
+    <h2>Un hébergeur qualifié suffit-il&nbsp;?</h2>
+    <p>Non.
+    L’ANSSI écrit que l’hébergement d’un site web sur une offre qualifiée n’enlève pas la nécessité de sécuriser le site web en lui-même, et que l’application des correctifs de sécurité relève du client.
+    Les mesures sur les comptes, les droits, les journaux et les sauvegardes sont décrites sur la page <a href="/securiser-base-de-donnees-collectivite.html">sécuriser la base de données d’une collectivité</a>.</p>
+    <h2>Chez Marianne&nbsp;: ce qu’elle est et ce qu’elle n’est pas</h2>
+    <p>Marianne est en test&nbsp;: aucune commune ne l’a en service.
+    Voici ce qu’elle répond, au 20 octobre 2026, à celles des six questions qui la concernent.</p>
+    <div class="tableau">
+    <table>
+      <thead><tr><th scope="col">Question</th><th scope="col">Marianne</th></tr></thead>
+      <tbody>
+        <tr><td>Hébergeur</td><td>OVHcloud, hébergeur français, sur un serveur situé en Allemagne</td></tr>
+        <tr><td>Sauvegardes</td><td>Quotidiennes sur le serveur, avec une copie hors site en France</td></tr>
+        <tr><td>Accès</td><td>Administration du serveur par clé cryptographique, réservée au président de Civik-ia</td></tr>
+        <tr><td>Sous-traitants</td><td>Listés dans l’accord sur le traitement des données remis à la mairie (hébergeur, éditeur du modèle d’IA et, à l’ouverture de l’espace mairie, service d’envoi des codes de connexion)</td></tr>
+        <tr><td>Modèle d’IA</td><td>Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia</td></tr>
+        <tr><td>Lieu de calcul du modèle</td><td>Non fixé par contrat</td></tr>
+        <tr><td>Fin de contrat</td><td>Civik-ia restitue ou supprime les données selon le choix de la collectivité</td></tr>
+        <tr><td>Qualification</td><td>Aucune&nbsp;: Marianne n’est pas hébergée sur une offre qualifiée SecNumCloud</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française.
+    Le lieu de calcul du modèle n’est pas fixé par contrat.
+    Les sociétés contractantes et le droit qui s’applique à chacune (question 4) se lisent dans l’accord sur le traitement des données.
+    Le détail est sur la page <a href="/guichet-citoyen-ia.html">guichet citoyen IA</a> et sur la page <a href="/legal/conformite-rgpd.html">Conformité RGPD</a>.</p>
+    <h2 id="faq">Questions fréquentes</h2>
+    <h3>Une commune est-elle obligée d’utiliser un hébergeur SecNumCloud&nbsp;?</h3>
+    <p>Je n’ai trouvé aucune obligation de ce type (recherche du 20 octobre 2026).
+    La doctrine «&nbsp;cloud au centre&nbsp;» et l’article 31 de la loi SREN visent l’État, ses opérateurs et six groupements d’intérêt public.
+    Une proposition de loi du Sénat, non adoptée à ma connaissance, étendrait une exigence aux communes de plus de 30&nbsp;000 habitants pour les données sensibles.</p>
+    <h3>Que garantit une qualification SecNumCloud&nbsp;?</h3>
+    <p>C’est une qualification de l’ANSSI qui reconnaît une offre cloud et les pratiques d’exploitation de son opérateur, avec une protection contre les lois extraterritoriales.
+    Elle ne garantit pas la sécurité des services que le client construit ou configure sur cette offre.</p>
+    <h3>Qu’est-ce que la réversibilité d’un contrat&nbsp;?</h3>
+    <p>C’est la possibilité de récupérer ses données et de changer de fournisseur.
+    Depuis le 12 septembre 2025, le règlement européen sur les données fixe un préavis de deux mois au plus, une transition de trente jours au plus et au moins trente jours pour récupérer les données.</p>
+    <h3>Un logiciel hébergé en Europe est-il souverain&nbsp;?</h3>
+    <p>Pas nécessairement.
+    L’hébergement n’est qu’un critère.
+    Les accès, les sous-traitants, le droit qui s’applique à chacun, le lieu de calcul d’une éventuelle IA et la sortie des données comptent autant.
+    Le mot «&nbsp;souverain&nbsp;» n’a pas de définition légale pour une commune&nbsp;: il se vérifie critère par critère.</p>
+    <h3>Qui décide du choix de l’hébergement dans une commune&nbsp;?</h3>
+    <p>L’ANSSI écrit, pour les systèmes d’information qu’elle vise, que la décision de migrer vers le cloud relève de la plus haute autorité de l’entité, éclairée par une étude d’impact et une analyse de risques.
+    Pour une commune, ce repère se transpose&nbsp;: le choix se prend au niveau du maire, avec l’avis du délégué à la protection des données, et se garde par écrit.</p>
+    <h2>Pour aller plus loin</h2>
+    <ul class="plus-loin">
+      <li><a href="/donnees-a-ne-pas-envoyer-ia-mairie.html">Les données qu’une mairie garde hors de portée d’un modèle d’IA</a></li>
+      <li><a href="/marianne/">Marianne, le guichet citoyen IA de Civik-ia</a></li>
+    </ul>
+  </article>
+</main>
+
+<!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/guichet-citoyen-ia.html">Guichet citoyen IA, la définition</a></li><li><a href="/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul></div>
+</footer>
+<!-- /pied-commun -->
+</body>
+</html>

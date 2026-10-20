@@ -177,7 +177,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
         {
           "@type": "Question",
           "name": "Une commune utilise-t-elle déjà Marianne ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d'environ 10 000 à 43 000 habitants. Aucune commune n'est cliente et aucune ne l'a en service." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d'environ 11 000 à 43 000 habitants. Aucune commune n'est cliente et aucune ne l'a en service." }
         }
       ]
     },
@@ -248,7 +248,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h3>1. Il ne répond qu’à partir des sources de la mairie</h3>
     <p>Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer&nbsp;: page du site officiel, document mis en ligne, fiche relue par les agents. Ce qui n’en fait pas partie n’entre pas dans la base. Voir <a href="/base-de-connaissances-mairie.html">la base de connaissances d’une mairie</a>.</p>
     <h3>2. Chaque réponse donne sa page source</h3>
-    <p>L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une réponse sans source ne se vérifie pas, ni par l’habitant ni par la mairie. C’est le principe du RAG, expliqué sur la page <a href="/rag-collectivites.html">RAG pour une mairie</a>.</p>
+    <p>L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une réponse sans source ne se vérifie pas, ni par l’habitant ni par la mairie. C’est le principe du RAG, expliqué sur la page <a href="/rag-collectivites.html">RAG pour une mairie</a>. <a href="/sources-officielles-mairie-quelle-source-fait-foi.html">Quelle source fait foi</a> selon la question, et comment la citer&nbsp;: voir la page dédiée.</p>
     <h3>3. Il dit quand il ne sait pas</h3>
     <p>Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme <a href="https://www.service-public.fr/">service-public.fr</a> ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.</p>
     <h3>4. Il se tient à jour sans ressaisie</h3>
@@ -256,7 +256,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h3>5. La mairie valide avant l’ouverture</h3>
     <p>Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des <a href="/chatbot-mairie-prix.html#mise-en-service">six étapes de la mise en service</a>.</p>
     <h3>6. La justesse est mesurée avant l’ouverture</h3>
-    <p>Une mesure sérieuse pose des centaines de questions de test et juge chaque réponse contre sa page source. Chez Civik-ia, la base est mesurée sur 300 questions de test avant l’ouverture, et le résultat est remis à la mairie. Ce que cette mesure prouve, et ce qu’elle ne prouve pas, est expliqué sur la page <a href="/rag-collectivites.html">RAG pour une mairie</a>.</p>
+    <p>Une mesure sérieuse pose des centaines de questions de test et juge chaque réponse contre sa page source. Chez Civik-ia, la base est mesurée sur 300 questions de test avant l’ouverture, et le résultat est remis à la mairie. Ce que cette mesure prouve, et ce qu’elle ne prouve pas, est expliqué sur la page <a href="/rag-collectivites.html">RAG pour une mairie</a>. Pour la conduire avec n’importe quel outil, voir <a href="/tester-un-chatbot-de-mairie.html">la méthode de test</a>.</p>
     <h2>Vu par l’habitant, vu par la mairie</h2>
     <h3>Côté habitant</h3>
     <p>L’habitant ouvre Marianne depuis le site de la mairie, un QR code ou l’écran d’accueil de son téléphone. Il pose sa question sans créer de compte. La réponse tient en quelques lignes et se termine par le lien de la page officielle. Les visiteurs sont comptés par un identifiant aléatoire enregistré dans le navigateur, sans nom ni adresse.</p>
@@ -286,7 +286,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
       </tbody>
     </table>
     </div>
-    <p>Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat. Mistral AI propose plusieurs points d’accès et ne s’engage sur aucun lieu de calcul pour son point d’accès général (<a href="https://docs.mistral.ai/studio/regional-inference">documentation de Mistral AI</a>, consultée le 19 octobre 2026). Le détail est sur la page <a href="/ia-souveraine-mairie-mistral.html">IA souveraine pour mairie</a>.</p>
+    <p>Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat. Mistral AI propose plusieurs points d’accès et ne s’engage sur aucun lieu de calcul pour son point d’accès général (<a href="https://docs.mistral.ai/studio/regional-inference">documentation de Mistral AI</a>, consultée le 19 octobre 2026). Le détail est sur la page <a href="/ia-souveraine-mairie-mistral.html">IA souveraine pour mairie</a>. Les mêmes questions, appliquées à tous les outils de la commune, sont sur la page <a href="/souverainete-numerique-commune.html">souveraineté numérique d’une commune</a>.</p>
     <h2>RGPD et règlement européen sur l’IA</h2>
     <p>Pour une commune cliente, la mairie est responsable du traitement des données de ses habitants&nbsp;; Civik-ia agit comme sous-traitant (article 28 du RGPD) et remet à la collectivité un accord sur le traitement des données. Aucun compte n’est demandé aux habitants. Les questions reconnues comme portant sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours (<a href="/legal/conformite-rgpd.html">Conformité RGPD</a>, mise à jour le 16 octobre 2026). Les questions du délégué à la protection des données sont traitées dans le <a href="/guide-rgpd-ia-collectivites.html">guide RGPD et IA en collectivité</a>.</p>
     <p>Le règlement européen sur l’IA (<a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">règlement (UE) 2024/1689</a>) impose depuis le 2 août 2026 qu’un système d’IA qui dialogue avec le public informe la personne qu’elle échange avec une IA (article 50). Le <a href="https://eur-lex.europa.eu/eli/reg/2026/1744/oj">règlement (UE) 2026/1744</a> a reporté au 2 décembre 2027 les obligations des systèmes dits à haut risque de l’annexe III&nbsp;; il laisse en place cette obligation d’information. Un guichet citoyen IA doit donc l’afficher dès son premier message.</p>
@@ -315,6 +315,15 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <p>Chez Civik-ia, une commune de moins de 5&nbsp;000 habitants paie 69&nbsp;€ HT par mois d’abonnement et une mise en service à partir de 999&nbsp;€ HT, facturée une seule fois.</p>
     <h3>Une commune utilise-t-elle déjà Marianne&nbsp;?</h3>
     <p>Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d’environ 11&nbsp;000 à 43&nbsp;000 habitants. Aucune commune n’est cliente et aucune ne l’a en service.</p>
+    <h2>Pour aller plus loin</h2>
+    <ul>
+      <li><a href="/securiser-base-de-donnees-collectivite.html">Sécuriser la base de données d’une collectivité&nbsp;: sept mesures</a></li>
+      <li><a href="/sources-officielles-mairie-quelle-source-fait-foi.html">Quelle source officielle fait foi pour répondre aux habitants</a></li>
+      <li><a href="/donnees-a-ne-pas-envoyer-ia-mairie.html">Les données qu’une mairie n’envoie jamais à un modèle d’IA</a></li>
+      <li><a href="/tester-un-chatbot-de-mairie.html">Tester un chatbot de mairie avant l’ouverture</a></li>
+      <li><a href="/preparer-base-de-donnees-fiable-ia-mairie.html">Constituer une base de données fiable pour l’IA d’une mairie</a></li>
+      <li><a href="/souverainete-numerique-commune.html">Souveraineté numérique d’une commune&nbsp;: six questions à poser</a></li>
+    </ul>
   </article>
 </main>
 

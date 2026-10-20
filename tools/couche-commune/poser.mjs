@@ -88,6 +88,16 @@ const PAGES = [
   ['guichet-citoyen-ia.html', { couche: 'ancienne', place: true }],
   ['base-de-connaissances-mairie.html', { couche: 'ancienne', place: true }],
   ['rag-collectivites.html', { couche: 'ancienne', place: true }],
+  // grappe données (21/10/2026) : les six articles, même famille et même naissance (marqueurs vides)
+  ['securiser-base-de-donnees-collectivite.html', { couche: 'ancienne', place: true }],
+  ['sources-officielles-mairie-quelle-source-fait-foi.html', { couche: 'ancienne', place: true }],
+  ['donnees-a-ne-pas-envoyer-ia-mairie.html', { couche: 'ancienne', place: true }],
+  ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true }],
+  ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true }],
+  ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true }],
+  // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
+  // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
+  ['guides.html', { couche: 'ancienne', place: true }],
 ];
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -123,6 +133,9 @@ const GUIDES = [
   ['/comment-communiquer-avec-ses-citoyens.html', 'Communiquer avec ses citoyens'],
   ['/livre-blanc.html', 'Livre blanc, l’IA en mairie'],
 ];
+// P10 (21/10/2026) : la page moyeu, dernière ligne de la colonne des guides, sauf sur /marianne/ (D72, comme le pilier : elle la
+// recevra au passage suivant de l'outil, le 28/10/2026)
+const TOUS = ['/guides.html', 'Tous les guides'];
 const LEGAL = [
   ['/legal/conditions-utilisation.html', 'Mentions légales et conditions d’utilisation'],
   ['/legal/politique-confidentialite.html', 'Confidentialité'],
@@ -181,7 +194,7 @@ function pied(f, c) {
     + '<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul>'
     + site.map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
     + '<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul>'
-    + (c.couche === 'marianne' ? GUIDES : [PILIER, ...GUIDES]).map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
+    + (c.couche === 'marianne' ? GUIDES : [PILIER, ...GUIDES, TOUS]).map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('') + '</ul></nav>\n'
     + '<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul>' + ecrire + '</ul></nav>\n'
     + '</div>\n'
     + '<div class="cc-pied__bande">'

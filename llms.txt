@@ -44,6 +44,7 @@ Marianne est en test sur des communes de test. Aucune commune n'est cliente ni n
 
 ## Marianne : les pages de référence
 
+- [Guides IA et données pour les collectivités](https://civik-ia.fr/guides.html) : tous les guides de Civik-ia pour les mairies, rangés en cinq rubriques (guichet citoyen IA et chatbot, données et sources officielles, sécurité et RGPD, souveraineté, outils, canaux et financement).
 - [Guichet citoyen IA : ce que c'est et ce qu'il doit prouver](https://civik-ia.fr/guichet-citoyen-ia.html) : définition, six critères vérifiables (sources de la mairie, page citée, refus quand l'information manque, mise à jour, validation par la mairie, mesure avant ouverture), intégration au site, souveraineté critère par critère, RGPD et article 50 du règlement européen sur l'IA, prix.
 - [Base de connaissances d'une mairie](https://civik-ia.fr/base-de-connaissances-mairie.html) : ce qu'elle contient, qui valide les sources, comment elle se tient à jour chaque nuit, ce qu'elle ne garantit pas.
 - [RAG pour une mairie](https://civik-ia.fr/rag-collectivites.html) : une IA qui cherche dans les documents de la mairie avant de répondre ; ce que la méthode ne garantit pas, comment la mesurer, cinq questions à poser à un fournisseur.

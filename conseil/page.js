@@ -776,7 +776,10 @@ function placer() {
     const cvEl = $('[data-cv]'); Object.assign(cvEl.style, { left: left + 'px', top: top + 'px', width: cw + 'px', height: chh + 'px' });
     const clou = $('.cv__clou'), dc = cw * .05;
     Object.assign(clou.style, { left: CV.clou[0] * cw - dc / 2 + 'px', top: CV.clou[1] * chh - dc / 2 + 'px', width: dc + 'px', height: dc + 'px' });
-    if (CV.lien) { const [u0, v0, u1, v1] = CV.lien; Object.assign($('[data-cv-lien]').style, { left: u0 * 100 + '%', top: v0 * 100 + '%', width: (u1 - u0) * 100 + '%', height: (v1 - v0) * 100 + '%' }); }
+    /* polissage du 20/10/2026 (critère 2.5.8, taille de cible) : sur téléphone, la zone du lien « Mon parcours » faisait 18 px de
+       haut ; elle garde sa place et sa largeur, et prend au moins 26 px de haut, autant au-dessus qu'au-dessous (le lien n'a ni
+       fond ni bord hors survol et focus : rien ne bouge à l'écran) */
+    if (CV.lien) { const [u0, v0, u1, v1] = CV.lien, hl = (v1 - v0) * chh, plus = Math.max(0, 26 - hl) / 2; Object.assign($('[data-cv-lien]').style, { left: u0 * 100 + '%', top: `calc(${v0 * 100}% - ${plus}px)`, width: (u1 - u0) * 100 + '%', height: `calc(${(v1 - v0) * 100}% + ${2 * plus}px)` }); }
   }
   peindreMonde();
   /* R4 : sur téléphone, le fondu du haut de la scène (page.css, .croisement__scene::after) part de la couleur exacte du fond
@@ -939,6 +942,9 @@ async function croisement() {
     requestAnimationFrame(pas);
   });
   setTimeout(async () => {
+    /* polissage du 20/10/2026 : l'encre du CV se prépare en tâche de fond depuis preparerCv (cv.js) ; l'écriture l'attend
+       (sur un téléphone rapide elle est prête bien avant ces 900 ms) */
+    if (CV) await CV.encre;
     await ecrire(2300);
     if (!etat) animerPont(REPOS);
     /* CO-17 : le lavis du paysage se peint pendant les temps morts, avant qu'on en ait besoin */

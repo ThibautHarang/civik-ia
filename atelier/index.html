@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 <!-- Mesure d'audience (Google Analytics) chargée uniquement après consentement, CNIL art. 82 -->
-<link rel="stylesheet" href="/css/couche-commune.css?v=20261019c">
-<script src="/js/cookies.js?v=20261019c" defer></script>
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261021">
+<script src="/js/cookies.js?v=20261021" defer></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script src="../commun/essais.js"></script>
@@ -48,8 +48,13 @@
 <link rel="preload" href="../commun/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/fonts/caveat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../commun/img/c/atelier-fond.webp" as="image">
-<link rel="preload" href="../commun/img/c/atelier-table-seule.webp" as="image">
-<link rel="stylesheet" href="/css/jetons.css?v=20261019c">
+<link rel="preload" href="../commun/img/c/atelier-table-seule.webp" as="image" fetchpriority="high">
+<link rel="preload" href="../commun/img/c/manifeste.json" as="fetch" crossorigin>
+<link rel="modulepreload" href="../commun/pages/pages.js">
+<link rel="modulepreload" href="../commun/pages/plume.js">
+<link rel="modulepreload" href="../commun/pages/mesures.js">
+<link rel="modulepreload" href="croquis.js">
+<link rel="stylesheet" href="/css/jetons.css?v=20261021">
 <link rel="stylesheet" href="../commun/pages/pages.css">
 <link rel="stylesheet" href="page.css">
 <script type="application/ld+json">
@@ -238,7 +243,7 @@
     <i class="entree__halo" data-halo></i>
     <div class="entree__table" data-table>
       <i class="entree__cable" data-cable></i>
-      <img src="../commun/img/c/atelier-table-seule.webp" alt="" width="1376" height="768" decoding="async">
+      <img src="../commun/img/c/atelier-table-seule.webp" alt="" width="1376" height="768" decoding="async" fetchpriority="high">
       <div class="entree__feuille" data-feuille-table><img src="../commun/img/c/feuille-dessin.webp" alt="" width="931" height="674" decoding="async"><svg class="entree__dessin" data-dessin-table viewBox="0 0 931 674" aria-hidden="true"></svg></div>
       <i class="entree__ampoule" data-ampoule></i>
       <img class="entree__lampe" src="../commun/img/c/atelier-table-seule.webp" alt="" width="1376" height="768" decoding="async" data-lampe>
@@ -424,7 +429,7 @@
         <div class="feuille__outils">
           <button type="button" class="outil" data-crayon aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg><span>Prendre le crayon</span></button>
           <button type="button" class="outil" data-effacer hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14M10 11v6M14 11v6M7 7l1 12h8l1-12M10 7V4h4v3"/></svg><span>Effacer mon dessin</span></button>
-          <button type="button" class="outil" data-telecharger><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Télécharger le croquis</span></button>
+          <button type="button" class="outil" data-telecharger aria-label="Télécharger le croquis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Télécharger le croquis</span></button>
         </div>
         <div class="main-crayon" data-main aria-hidden="true"><img src="../commun/img/c/main-crayon.webp" alt="" width="1024" height="1024" decoding="async" loading="lazy"><span class="main-crayon__prise" data-prise></span></div>
       </div>
@@ -560,12 +565,12 @@
     </div>
     </div>
     <ol class="methode__liste" data-vignettes>
-      <li class="etape" data-entree><button type="button" class="vignette" data-vignette="1" aria-label="Montrer l’étape 1, Écoute"><span class="vignette__visuel" data-vignette-visuel="1"></span></button><h3><span>1</span> Écoute</h3><p>Un premier échange pour comprendre votre projet, vos besoins, et à qui il&nbsp;s’adresse.</p></li>
-      <li class="etape" data-entree style="--d:70ms"><button type="button" class="vignette" data-vignette="2" aria-label="Montrer l’étape 2, Croquis"><span class="vignette__visuel" data-vignette-visuel="2"></span></button><h3><span>2</span> Croquis</h3><p>Un dessin rapide de l’idée, pour se mettre d’accord avant de&nbsp;construire.</p></li>
-      <li class="etape" data-entree style="--d:140ms"><button type="button" class="vignette" data-vignette="3" aria-label="Montrer l’étape 3, Maquette"><span class="vignette__visuel" data-vignette-visuel="3"></span></button><h3><span>3</span> Maquette</h3><p>Les écrans principaux, hiérarchisés et dessinés au propre, que vous&nbsp;validez.</p></li>
-      <li class="etape" data-entree style="--d:210ms"><button type="button" class="vignette" data-vignette="4" aria-label="Montrer l’étape 4, Construction"><span class="vignette__visuel" data-vignette-visuel="4"></span></button><h3><span>4</span> Construction</h3><p>Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par&nbsp;l’atelier.</p></li>
-      <li class="etape" data-entree style="--d:280ms"><button type="button" class="vignette" data-vignette="5" aria-label="Montrer l’étape 5, Mise en ligne"><span class="vignette__visuel" data-vignette-visuel="5"></span></button><h3><span>5</span> Mise en ligne</h3><p>À la date et selon le calendrier décidés ensemble, à l’adresse de votre choix. Hébergée en&nbsp;Europe.</p></li>
-      <li class="etape" data-entree style="--d:350ms"><button type="button" class="vignette" data-vignette="6" aria-label="Montrer l’étape 6, Suivi"><span class="vignette__visuel" data-vignette-visuel="6"></span></button><h3><span>6</span> Suivi</h3><p>Corrections, mises à jour, adaptations&nbsp;: l’outil continue de vivre selon vos besoins (compris dans&nbsp;l’abonnement).</p></li>
+      <li class="etape" data-entree><button type="button" class="vignette" data-vignette="1" aria-label="Montrer l’étape 1, Écoute"><span class="vignette__visuel" data-vignette-visuel="1" aria-hidden="true"></span></button><h3><span>1</span> Écoute</h3><p>Un premier échange pour comprendre votre projet, vos besoins, et à qui il&nbsp;s’adresse.</p></li>
+      <li class="etape" data-entree style="--d:70ms"><button type="button" class="vignette" data-vignette="2" aria-label="Montrer l’étape 2, Croquis"><span class="vignette__visuel" data-vignette-visuel="2" aria-hidden="true"></span></button><h3><span>2</span> Croquis</h3><p>Un dessin rapide de l’idée, pour se mettre d’accord avant de&nbsp;construire.</p></li>
+      <li class="etape" data-entree style="--d:140ms"><button type="button" class="vignette" data-vignette="3" aria-label="Montrer l’étape 3, Maquette"><span class="vignette__visuel" data-vignette-visuel="3" aria-hidden="true"></span></button><h3><span>3</span> Maquette</h3><p>Les écrans principaux, hiérarchisés et dessinés au propre, que vous&nbsp;validez.</p></li>
+      <li class="etape" data-entree style="--d:210ms"><button type="button" class="vignette" data-vignette="4" aria-label="Montrer l’étape 4, Construction"><span class="vignette__visuel" data-vignette-visuel="4" aria-hidden="true"></span></button><h3><span>4</span> Construction</h3><p>Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par&nbsp;l’atelier.</p></li>
+      <li class="etape" data-entree style="--d:280ms"><button type="button" class="vignette" data-vignette="5" aria-label="Montrer l’étape 5, Mise en ligne"><span class="vignette__visuel" data-vignette-visuel="5" aria-hidden="true"></span></button><h3><span>5</span> Mise en ligne</h3><p>À la date et selon le calendrier décidés ensemble, à l’adresse de votre choix. Hébergée en&nbsp;Europe.</p></li>
+      <li class="etape" data-entree style="--d:350ms"><button type="button" class="vignette" data-vignette="6" aria-label="Montrer l’étape 6, Suivi"><span class="vignette__visuel" data-vignette-visuel="6" aria-hidden="true"></span></button><h3><span>6</span> Suivi</h3><p>Corrections, mises à jour, adaptations&nbsp;: l’outil continue de vivre selon vos besoins (compris dans&nbsp;l’abonnement).</p></li>
     </ol>
   </div>
 </section>

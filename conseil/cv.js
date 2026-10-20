@@ -37,11 +37,92 @@ export const LOGO_D = (() => {
 })();
 const LOGO = typeof Path2D === 'function' ? new Path2D(LOGO_D) : null;
 
+const TREMBLE = '<feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="7" result="b"/><feDisplacementMap in="SourceGraphic" in2="b" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>';
 function filtreTremble() {
-  if (document.getElementById('tremble-cv')) return;
+  const deja = document.querySelector('[data-tremble-cv]');
+  if (deja) return deja;
   const d = document.createElement('div'); d.setAttribute('aria-hidden', 'true'); d.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
-  d.innerHTML = '<svg width="0" height="0"><filter id="tremble-cv" x="-5%" y="-20%" width="110%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="7" result="b"/><feDisplacementMap in="SourceGraphic" in2="b" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter></svg>';
+  d.innerHTML = '<svg width="0" height="0" data-tremble-cv><filter id="tremble-cv" x="-5%" y="-20%" width="110%" height="140%">' + TREMBLE + '</filter></svg>';
   document.body.appendChild(d);
+  return d.firstChild;
+}
+/* Polissage du 20/10/2026 (Conseil, fil principal sur téléphone lent) : le tremblé de l'encre coûtait 8 s sur un téléphone lent
+   émulé (Lighthouse, Moto G Power, processeur ralenti 4 fois), en une seule tâche : le filtre (turbulence et carte de
+   déplacement) était calculé, pour chacun des 47 tracés du CV, sur toute la feuille et au-delà (-5 %, -20 %, 110 %, 140 % de la
+   toile, ramenés par le navigateur à la toile entière). Deux changements, sans rien changer à ce qui se dessine :
+   1. les tracés sont relevés pendant la mise en page (un contexte de mesure tient la police et la transformation), puis rejoués
+      sur la toile un par un, dans l'ordre, avec une pause rendue au navigateur entre deux tracés : la page s'affiche et répond
+      pendant que l'encre se prépare ; l'écriture attend la fin (CV.encre, page.js) ;
+   2. quand la toile est dessinée par le processeur (téléphone lent, Lighthouse), chaque tracé garde le même filtre, mais sa zone
+      de calcul part du même coin (0, 0) que la toile et s'arrête au bas et à droite du tracé, marge comprise (le tremblé ne
+      déplace que de 0,8 px) : le bruit, calculé depuis la même origine, est le même au pixel près ; quand c'est la carte
+      graphique, le filtre d'origine est gardé (voir rejouer). Preuve : empreintes identiques des 47 images du CV, avant et
+      après, aux échelles 1,4, 1,75 et 2, dans les deux modes (compte rendu du polissage du 20/10/2026). */
+const rendre = () => (globalThis.scheduler && scheduler.yield) ? scheduler.yield() : new Promise(r => { const c = new MessageChannel(); c.port1.onmessage = () => r(); c.port2.postMessage(0); });
+let nZone = 0;
+function releveur(ge, W, H, svg) {
+  const mesure = document.createElement('canvas').getContext('2d'), ops = [];
+  mesure.setTransform(ge.getTransform());
+  const chemin = [];
+  const dev = (x, y) => { const m = mesure.getTransform(); return [m.a * x + m.c * y + m.e, m.b * x + m.d * y + m.f]; };
+  const coins = (x0, y0, x1, y1) => [dev(x0, y0), dev(x1, y0), dev(x1, y1), dev(x0, y1)];
+  const zone = (ps, marge) => {
+    let x1 = 0, y1 = 0; for (const [x, y] of ps) { if (x > x1) x1 = x; if (y > y1) y1 = y; }
+    x1 = Math.min(W, Math.ceil(x1 + marge + 8)); y1 = Math.min(H, Math.ceil(y1 + marge + 8));
+    const f = document.createElementNS('http://www.w3.org/2000/svg', 'filter'), id = 'tremble-cv-' + (++nZone);
+    f.id = id; f.setAttribute('x', 0); f.setAttribute('y', 0); f.setAttribute('width', x1 / W); f.setAttribute('height', y1 / H);
+    f.innerHTML = TREMBLE; svg.appendChild(f);
+    return `url(#${id})`;
+  };
+  const echelle = () => { const m = mesure.getTransform(); return Math.max(Math.hypot(m.a, m.b), Math.hypot(m.c, m.d)); };
+  const trace = (filtre, k, a) => { const o = { trace: true, filtre: 'url(#tremble-cv)' }; o.f = () => { ge.filter = o.filtre; ge[k](...a); }; o.zone = filtre; ops.push(o); };
+  const etat = (k, a) => { mesure[k](...a); ops.push({ f: () => ge[k](...a) }); };
+  const g = new Proxy(mesure, {
+    get(t, k) {
+      if (k === 'measureText' || k === 'getTransform') return (...a) => t[k](...a);
+      if (['save', 'restore', 'translate', 'rotate', 'scale', 'transform', 'setTransform'].includes(k)) return (...a) => etat(k, a);
+      if (k === 'beginPath') return () => { chemin.length = 0; ops.push({ f: () => ge.beginPath() }); };
+      if (k === 'clip' || k === 'closePath') return (...a) => ops.push({ f: () => ge[k](...a) });
+      if (k === 'moveTo' || k === 'lineTo') return (x, y) => { chemin.push(dev(x, y)); ops.push({ f: () => ge[k](x, y) }); };
+      if (k === 'quadraticCurveTo') return (cx, cy, x, y) => { chemin.push(dev(cx, cy), dev(x, y)); ops.push({ f: () => ge.quadraticCurveTo(cx, cy, x, y) }); };
+      if (k === 'ellipse') return (x, y, rx, ry, ...r) => { const q = Math.max(rx, ry); chemin.push(...coins(x - q, y - q, x + q, y + q)); ops.push({ f: () => ge.ellipse(x, y, rx, ry, ...r) }); };
+      if (k === 'fill' || k === 'stroke') return (...a) => {
+        /* le seul Path2D tracé est le logo LinkedIn, dans son carré unité (bords tremblés de 0,02 au plus) */
+        const ps = a.length ? coins(-.25, -.25, 1.25, 1.25) : chemin.slice();
+        trace(zone(ps, k === 'stroke' ? t.lineWidth * echelle() : 2), k, a);
+      };
+      if (k === 'fillText') return (s, x, y) => {
+        const mt = t.measureText(s), em = parseFloat(t.font.replace(/^\d+\s+/, '')) || 40;
+        trace(zone(coins(x - mt.actualBoundingBoxLeft - em * .4, y - mt.actualBoundingBoxAscent - em * .4, x + mt.actualBoundingBoxRight + em * .4, y + mt.actualBoundingBoxDescent + em * .4), 2), k, [s, x, y]);
+      };
+      if (k === 'drawImage') return (...a) => {
+        const im = a[0], r = a.length === 9 ? a.slice(5) : a.length === 5 ? a.slice(1) : [a[1], a[2], im.naturalWidth || im.width, im.naturalHeight || im.height];
+        trace(zone(coins(r[0], r[1], r[0] + r[2], r[1] + r[3]), 2), k, a);
+      };
+      const v = t[k]; return typeof v === 'function' ? v.bind(t) : v;
+    },
+    set(t, k, v) { t[k] = v; ops.push({ f: () => { ge[k] = v; } }); return true; }
+  });
+  /* le rejeu : un tracé à la fois, la toile rendue tout de suite (instantané pris par une toile d'un pixel, aussitôt vidée),
+     puis la main au navigateur dès que la tranche dépasse 8 ms. Chaque tracé part avec le filtre d'origine (toute la toile) :
+     quand la carte graphique dessine la toile, il ne coûte presque rien au fil principal (0,1 à 0,6 ms mesurés) et c'est le
+     rendu d'origine, au pixel près. Dès qu'un tracé coûte plus de 8 ms au fil principal (la toile est dessinée par le
+     processeur : 17 à 33 ms par tracé sur ce Mac, quatre fois plus sur un téléphone lent), les suivants prennent la zone
+     ancrée en (0, 0), identique au pixel près dans ce mode-là. */
+  const rejouer = async () => {
+    const un = document.createElement('canvas'); un.width = un.height = 1; let tranche = performance.now(), zones = false;
+    for (const o of ops) {
+      if (zones && o.trace) o.filtre = o.zone;
+      const a = performance.now();
+      o.f();
+      if (!o.trace) continue;
+      un.getContext('2d').drawImage(ge.canvas, 0, 0, 1, 1); un.width = 1;
+      const b = performance.now();
+      if (b - a > 8) zones = true;
+      if (b - tranche > 8) { await rendre(); tranche = performance.now(); }
+    }
+  };
+  return { g, rejouer };
 }
 function ecrireMain(g, txt, x, y, taille, graine, dessiner, graisse = 400) {
   /* CO-3 : l'espace insécable sépare les mots à l'écriture (même écart que les autres), pas à la coupure des lignes */
@@ -155,7 +236,7 @@ export async function preparerCv(echelle = 2) {
     c.cadre = { x: rep.axe_x || .514, y: (haut + bas) / 2, r: (bas - haut) / 2 };
     return c;
   })() : croquisBrut;
-  filtreTremble();
+  const svgTremble = filtreTremble();
   try { await document.fonts.load('400 40px Caveat'); await document.fonts.load('700 40px Caveat'); } catch (e) {}
   const w = feuille.naturalWidth, h = feuille.naturalHeight;
   const tw = Math.round(w * echelle * .75), th = Math.round(h * echelle * .75);
@@ -170,37 +251,48 @@ export async function preparerCv(echelle = 2) {
   const enc = document.createElement('canvas'); enc.width = tw; enc.height = th;
   const ge = enc.getContext('2d');
   ge.setTransform(ek, 0, 0, ek, tx0, ty0);
-  ge.filter = 'url(#tremble-cv)';
-  const lignes = [];
-  const boite = imprimer(ge, croquis, Ht, hautCv, initiales, lignes);
-  ge.filter = 'none'; ge.setTransform(1, 0, 0, 1, 0, 0);
+  const lignes = [], R = releveur(ge, tw, th, svgTremble);
+  const boite = imprimer(R.g, croquis, Ht, hautCv, initiales, lignes);
+  /* polissage du 20/10/2026 : l'encre se prépare en tâche de fond (voir releveur) ; à la fin, la toile revient à l'état d'avant */
+  const encre = R.rejouer().then(() => { ge.filter = 'none'; ge.setTransform(1, 0, 0, 1, 0, 0); });
   const canvas = document.createElement('canvas'); canvas.width = tw; canvas.height = th;
   const g = canvas.getContext('2d');
   /* l'ordre d'écriture : portrait et nom, titre, filet, lignes, lien ; chaque morceau a sa part du temps */
   const total = lignes.reduce((s, l) => s + (l.quoi === 'portrait' ? 120 : l.w), 0);
   let acc = 0; lignes.forEach(l => { l.t0 = acc / total; acc += l.quoi === 'portrait' ? 120 : l.w; l.t1 = acc / total; });
+  const morceau = (c, l, q) => {
+    const x = tx0 + l.x * ek, y = ty0 + l.y * ek, ww = l.w * ek, hh = l.h * ek;
+    c.save(); c.beginPath();
+    if (l.quoi === 'portrait') { c.globalAlpha = .96 * q; c.rect(x - 4, y - 4, ww + 8, hh + 8); }
+    else c.rect(x - 6, y - 2, (ww + 12) * q, hh + 6);
+    c.clip(); c.drawImage(enc, 0, 0); c.restore();
+  };
+  const part = (l, t) => Math.max(0, Math.min(1, (t - l.t0) / (l.t1 - l.t0)));
+  /* polissage du 20/10/2026 (Conseil, travail fait une fois au lieu de chaque image) : pendant l'écriture, chaque image repeignait
+     la feuille et tous les morceaux déjà écrits. Les morceaux finis (q = 1, toujours en tête de liste : leurs temps se suivent)
+     sont gardés dans une toile, posés une seule fois dans le même ordre et de la même façon ; chaque image recopie cette toile
+     au pixel près, puis peint le morceau en cours et découpe la feuille, comme avant (empreintes identiques à chaque image).
+     La toile est rendue à la fin de l'écriture. */
+  const fait = document.createElement('canvas'), gf = fait.getContext('2d');
+  let nFait = -1;
   const peindre = t => {
+    let n = 0; while (n < lignes.length && part(lignes[n], t) >= 1) n++;
+    if (nFait < 0 || n < nFait) { fait.width = tw; fait.height = th; gf.drawImage(feuille, 0, 0, tw, th); nFait = 0; }
+    if (n > nFait) { gf.save(); gf.globalCompositeOperation = 'multiply'; gf.globalAlpha = .96; for (let i = nFait; i < n; i++) morceau(gf, lignes[i], 1); gf.restore(); nFait = n; }
     g.clearRect(0, 0, tw, th);
-    g.drawImage(feuille, 0, 0, tw, th);
+    g.drawImage(fait, 0, 0);
     g.save(); g.globalCompositeOperation = 'multiply'; g.globalAlpha = .96;
-    lignes.forEach(l => {
-      const q = Math.max(0, Math.min(1, (t - l.t0) / (l.t1 - l.t0)));
-      if (q <= 0) return;
-      const x = tx0 + l.x * ek, y = ty0 + l.y * ek, ww = l.w * ek, hh = l.h * ek;
-      g.save(); g.beginPath();
-      if (l.quoi === 'portrait') { g.globalAlpha = .96 * q; g.rect(x - 4, y - 4, ww + 8, hh + 8); }
-      else g.rect(x - 6, y - 2, (ww + 12) * q, hh + 6);
-      g.clip(); g.drawImage(enc, 0, 0); g.restore();
-    });
+    for (let i = n; i < lignes.length; i++) { const q = part(lignes[i], t); if (q <= 0) continue; morceau(g, lignes[i], q); }
     g.restore();
     g.save(); g.globalCompositeOperation = 'destination-in'; g.drawImage(feuille, 0, 0, tw, th); g.restore();
+    if (n === lignes.length) { fait.width = fait.height = 0; nFait = -1; }
   };
-  peindre(1);
+  /* polissage du 20/10/2026 : plus de peindre(1) ici (il forçait toute l'encre d'un coup, et la page repeint aussitôt à 0) */
   /* la zone du lien (initiales, logo, « Mon parcours ») en fractions de la feuille */
   let lien = null;
   if (boite.initiales && boite.texte) {
     const zx0 = boite.initiales[0] - 8, zy0 = boite.initiales[1] - 10, zx1 = boite.texte[0] + boite.texte[2] + 10, zy1 = boite.initiales[1] + boite.initiales[3] + 10;
     lien = [(tx0 + zx0 * ek) / tw, (ty0 + zy0 * ek) / th, (tx0 + zx1 * ek) / tw, (ty0 + zy1 * ek) / th];
   }
-  return { canvas, peindre, lien, clou: clouUV, corps, w, h };
+  return { canvas, peindre, lien, clou: clouUV, corps, w, h, encre };
 }

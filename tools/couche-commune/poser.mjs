@@ -26,7 +26,9 @@ import { fileURLToPath } from 'node:url';
 const SITE = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const ECRIRE = process.argv.includes('--ecrire');
 const VERIFIER = process.argv.includes('--verifier');
-const V = '20261019c';   // appel versionné des feuilles et du script (nginx les garde sept jours) : à changer avec eux
+const V = '20261021';   // appel versionné des feuilles et du script (nginx les garde sept jours) : à changer avec eux
+// polissage du 20/10/2026 : 20261021, la même version que installe-refonte.mjs (V_COMMUN) : css/jetons.css (--encre-3 à 4,5:1) et
+// css/couche-commune.css (« ia » du nom de la barre à 4,5:1) changent
 // P4 (19/10/2026) : 20261019c, la même version que l'accueil, Conseil et l'Atelier (installe-refonte.mjs, V_COMMUN) : js/cookies.js
 // compte les choix du bandeau et charge les mesures après l'accord ; css/couche-commune.css pose le bandeau compact sur ordinateur
 // P4 (19/10/2026, revue, parties 2 et 9, friction 6) : « Contact » de la barre et du pied mène au formulaire « Nous écrire » de

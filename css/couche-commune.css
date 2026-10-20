@@ -25,7 +25,11 @@ html[data-couche="ancienne"] *{-webkit-backdrop-filter:none !important;backdrop-
 .cc.cc-barre{position:fixed;z-index:1000;top:16px;left:0;right:0;margin:0 auto;width:min(calc(100% - 32px),1240px);font:600 14px/1 var(--f-texte);color:var(--encre);text-align:left;letter-spacing:0;text-transform:none}
 .cc .cc-barre__nav{display:flex;align-items:center;gap:10px;height:58px;margin:0;padding:0 8px 0 17px;background:rgba(247,244,237,.97);border-radius:var(--r-pilule);box-shadow:0 0 0 1px rgba(200,190,170,.45),var(--o-leve)}
 .cc .cc-barre__signe{display:flex;align-items:center;gap:8px;flex:none;color:var(--bleu);font:800 20px/1 var(--f-titre);letter-spacing:-.02em;text-decoration:none;border-radius:12px}
-.cc .cc-barre__signe b{font-weight:800;color:var(--trait)}
+/* polissage du 20/10/2026 (critère 1.4.3) : « ia » du nom dans la barre, #2b6fd6 (4,40:1 sur la barre, 4,13:1 quand elle passe sur un
+   fond sombre, sa crème étant à 97 %) devient #2468cf, le même bleu (OKLCH h -101, chroma 0,173) un peu plus sombre (L 0,556 vers
+   0,534), le premier pas qui tient 4,5:1 sur la barre posée sur du noir (#f0ede6 : 4,54:1 ; sur la crème seule 4,83:1) ; le bleu
+   --trait reste ailleurs */
+.cc .cc-barre__signe b{font-weight:800;color:#2468cf}
 .cc .cc-signe{width:40px;height:35px}
 .cc .cc-signe__arc{fill:#010442}
 .cc .cc-signe__fleche{fill:#0C7BF6}

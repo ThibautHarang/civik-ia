@@ -12,7 +12,8 @@
    La butée (MB-10 bis) se pose sur div.feuille, le conteneur qui suit le hero.
    ===================================================================== */
 /* jetons absents de la page (valeurs de commun/pages/pages.css) */
-:root{--encre-3:#77705f;--entree:cubic-bezier(.16,1,.3,1)}
+/* polissage du 20/10/2026 : --encre-3 comme /css/jetons.css (#786f5e, 4,52:1 sur la crème au lieu de 4,48:1) */
+:root{--encre-3:#786f5e;--entree:cubic-bezier(.16,1,.3,1)}
 /* la section reste mise en page même hors de l'écran (la page pose content-visibility:auto sur .sec au-dessus de 900 px) :
    l'illustration collée et la butée mesurent la section avant d'y arriver */
 .sec.base{content-visibility:visible}

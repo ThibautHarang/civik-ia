@@ -784,7 +784,11 @@ html.scrub .hero--fin .hero__passer{visibility:hidden}
 .vs thead th:first-child{font-weight:700;color:var(--encre-2)}
 .vs .col-m{background:rgba(0,0,145,.045)}
 .vs thead .col-m{color:var(--bleu);font:800 15px/1.2 var(--titre);background:rgba(0,0,145,.08)}
-@media (max-width:700px){.vs table{min-width:0;table-layout:fixed;font-size:13px}.vs th,.vs td{padding:12px 5px}.vs thead th{font-size:10.5px;line-height:1.25;hyphens:auto;overflow-wrap:anywhere}.vs thead .col-m{font-size:10.5px;hyphens:none;overflow-wrap:normal}.vs th[scope="row"],.vs thead th:first-child{width:40%;padding-left:12px}.vs .sym{width:24px;height:24px;font-size:13px}.vs td .etat{padding:4px 6px;font-size:10px;gap:0}.vs td .etat::before{display:none}}
+/* polissage du 20/10/2026 : au téléphone, « Chatbots génériques » (lié par une espace insécable) se coupait au milieu du mot sans
+   trait d'union (« Chatbots g / énériques ») ; la colonne prend 24 % (au lieu de 20 %), « Outils de diffusion » 16 %, l'en-tête
+   4 px de marge intérieure au lieu de 5, et la césure française fait « Chatbots gé- / nériques » de 360 à 400 px, « Chatbots
+   géné- / riques » au-delà ; texte de la page inchangé (D72) */
+@media (max-width:700px){.vs table{min-width:0;table-layout:fixed;font-size:13px}.vs th,.vs td{padding:12px 5px}.vs thead th{font-size:10.5px;line-height:1.25;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:anywhere;padding-left:4px;padding-right:4px}.vs thead .col-m{font-size:10.5px;-webkit-hyphens:none;hyphens:none;overflow-wrap:normal}.vs thead th:nth-child(2){width:20%}.vs thead th:nth-child(3){width:16%}.vs th[scope="row"],.vs thead th:first-child{width:40%;padding-left:12px}.vs .sym{width:24px;height:24px;font-size:13px}.vs td .etat{padding:4px 6px;font-size:10px;gap:0}.vs td .etat::before{display:none}}
 .sym{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font:700 15px/1 var(--sans)}
 .sym--oui{background:var(--vert-fond);color:var(--vert)}
 .sym--non{background:rgba(200,50,43,.1);color:#a3261f}
@@ -946,15 +950,15 @@ html.js:not(.anim-non) .rv.vu{opacity:1;transform:none}
 .cb__saisie button{padding:0 16px;border-radius:9999px;background:var(--bleu);color:#fff;font:700 14px/1 var(--sans)}
 </style>
 <!-- intégration du 13/10/2026 : la section « Le cerveau de Marianne » (#connaissance) -->
-<link rel="stylesheet" href="/marianne/base.css">
+<link rel="stylesheet" href="/marianne/base.css?v=20261021">
 <link rel="stylesheet" href="/marianne/pied.css">
 <link rel="stylesheet" href="/commun/pages/prix.css?v=20261014c">
 <!-- tete-commune -->
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#f7f4ed">
-<link rel="stylesheet" href="/css/jetons.css?v=20261019c">
-<link rel="stylesheet" href="/css/couche-commune.css?v=20261019c">
-<script src="/js/cookies.js?v=20261019c" defer></script>
+<link rel="stylesheet" href="/css/jetons.css?v=20261021">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261021">
+<script src="/js/cookies.js?v=20261021" defer></script>
 <!-- /tete-commune -->
 </head>
 <body id="top">

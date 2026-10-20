@@ -354,7 +354,7 @@
 .scene__progres{display:flex;gap:6px}
 .scene__progres li{width:26px;height:4px;border-radius:2px;background:rgba(0,0,145,.12);transition:background .35s}
 .scene__progres li.fait{background:var(--bleu)}
-.scene__lieu{margin-top:16px;font:500 13px/1.45 var(--sans);color:var(--encre-3)}
+.scene__lieu{margin-top:16px;font:500 13px/1.45 var(--sans);color:#706959}   /* polissage du 20/10/2026 : sur le fond #efeae1 de la méthode, --encre-3 restait à 4,1:1 ; #706959, la même teinte un peu plus sombre, 4,55:1 */
 .scene__bas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:22px}
 .scene__bas .scene__progres{margin-top:0}
 .scene__pause{display:inline-flex;align-items:center;gap:7px;min-height:44px;white-space:nowrap;flex:none;padding:8px 14px 8px 11px;margin-left:auto;border-radius:9999px;background:transparent;box-shadow:0 0 0 1px rgba(0,0,145,.2);font:600 12.5px/1 var(--sans);color:var(--bleu);transition:background .25s,box-shadow .25s}

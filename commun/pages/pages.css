@@ -17,7 +17,7 @@
 :root{
   --bleu:#000091;--bleu-2:#1a1a6e;--trait:#2b6fd6;
   --teal:#2EC4B6;--teal-txt:#0b6a62;--ia:#245fc2;--or:#F4A261;--or-txt:#9A5B1E;
-  --encre:#1E1E1E;--encre-2:#5a5a5a;--encre-3:#77705f;
+  --encre:#1E1E1E;--encre-2:#5a5a5a;--encre-3:#786f5e;   /* polissage du 20/10/2026 : même valeur que jetons.css (4,52:1 sur la crème) */
   --creme:#f7f4ed;--creme-2:#f5f2eb;--creme-3:#efeae1;--papier:#fffdf8;
   --nuit:#0A0F2C;--nuit-2:#121a47;--nuit-txt:#eef1fb;--nuit-txt2:#b9c1e0;
   --plume:#16205C;--gravure:#60637b;

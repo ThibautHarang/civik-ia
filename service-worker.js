@@ -24,7 +24,7 @@
 // bleu, commandes sur la colonne de la barre et effacées sous le film, équivalent textuel du film, boucles arrêtées avant 5 s, trait
 // de plume du menu final, bulle et « Parler de mon projet » vers le contact de l'Atelier (accueil et /c-film/, hors de ce cache ; la
 // version change pour vider les copies des pages anciennes une fois de plus, comme à chaque passe).
-const CACHE_NAME = 'civik-ia-v191-relecture-livraison-2026-10-20';
+const CACHE_NAME = 'civik-ia-v192-b6-bulle-article-50-2026-10-20';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

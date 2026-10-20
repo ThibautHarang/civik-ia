@@ -24,7 +24,7 @@
 // bleu, commandes sur la colonne de la barre et effacées sous le film, équivalent textuel du film, boucles arrêtées avant 5 s, trait
 // de plume du menu final, bulle et « Parler de mon projet » vers le contact de l'Atelier (accueil et /c-film/, hors de ce cache ; la
 // version change pour vider les copies des pages anciennes une fois de plus, comme à chaque passe).
-const CACHE_NAME = 'civik-ia-v192-b6-bulle-article-50-2026-10-20';
+const CACHE_NAME = 'civik-ia-v193-route-formulaires-2026-10-20';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
@@ -84,8 +84,9 @@ self.addEventListener('fetch', (event) => {
     return; // /demo.html → redirect 302 nginx, ne pas cacher
   }
 
-  // API calls (chat, stats) → network-first, fallback cache
-  if (url.pathname.startsWith('/api/')) {
+  // API calls (chat, stats) → network-first, fallback cache ; GET seulement (P8, 20/10/2026 : un POST, comme la route
+  // des formulaires api.civik-ia.fr/api/site/contact, passe par la branche suivante, réseau seul, sans tentative de cache)
+  if (url.pathname.startsWith('/api/') && request.method === 'GET') {
     event.respondWith(networkFirst(request));
     return;
   }

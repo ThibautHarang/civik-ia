@@ -82,7 +82,7 @@
    ===================================================================== */
 /* La lettre qui part (14/10/2026) : pendant l’envoi d’une fiche ou d’un formulaire court, une petite scène à la plume
    (commun/pages/lettre.js, chargé au premier envoi seulement). Interrupteur unique : pour la retirer, mettre LETTRE à ''
-   (cette ligne seule) ; envoyerAvecLettre redevient alors envoyerFormulaire et poserVignette ne fait plus rien, rien d’autre
+   (cette ligne seule) ; envoyerAvecLettre redevient alors envoyerParRouteOuSecours (P8) et poserVignette ne fait plus rien, rien d’autre
    à changer (lettre.js et lettre.css peuvent rester sur le serveur, plus rien ne les charge). */
 /* P4 (19/10/2026) : les mesures en valeurs fermées (partie 9) ; le module pose ses écouteurs délégués à son chargement */
 import { mesurer, nomFormulaire, erreurChamp } from './mesures.js';
@@ -233,6 +233,43 @@ export async function envoyerFormulaire(url, donnees, delai = DELAI_ENVOI) {
     return r.ok;
   } catch (e) { cause = expire ? 'delai' : 'reseau'; return false; } finally { clearTimeout(minuteur); }
 }
+/* P8 (20/10/2026, décision M9) : la route d’envoi du site, sur api.civik-ia.fr, passe avant Formspree. Même requête (les
+   champs tels qu’ils partaient à Formspree), plus le nom du formulaire (mesures.js), la page et le délai écoulé depuis le
+   chargement de la page (_delai, performance.now() : la page des prix ne charge ce module qu’au clic ; la route tient un
+   délai minimal contre les robots, avec le champ piège _gotcha). Réponse
+   200 : parti par la route, et la réponse dit si l’accusé de réception au visiteur est parti (accuse) ; toute autre réponse,
+   ou aucune réponse après DELAI_ROUTE : le même envoi repart vers Formspree (data-envoi), comme avant la passe.
+   Interrupteur : ROUTE à '' remet Formspree seul. */
+export const ROUTE = 'https://api.civik-ia.fr/api/site/contact';
+export const DELAI_ROUTE = 9000;
+const T_ARME = Date.now();
+const depuisLaPage = () => Math.round(typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now() - T_ARME);
+let accuse = false;
+export const accuseParti = () => accuse;
+export async function envoyerParRoute(form, donnees, delai = DELAI_ROUTE) {
+  accuse = false;
+  if (!ROUTE) return false;
+  const d = new FormData();
+  donnees.forEach((v, k) => d.append(k, v));
+  d.set('formulaire', nomFormulaire(form) || ''); d.set('page', location.pathname); d.set('_delai', String(depuisLaPage()));
+  const ctl = 'AbortController' in window ? new AbortController() : null;
+  let expire = false;
+  const minuteur = ctl ? setTimeout(() => { expire = true; ctl.abort(); }, delai) : 0;
+  try {
+    const r = await fetch(ROUTE, { method: 'POST', body: d, credentials: 'omit', headers: { Accept: 'application/json' }, signal: ctl ? ctl.signal : undefined });
+    if (r.status !== 200) { cause = 'serveur'; return false; }
+    let j = null; try { j = await r.json(); } catch (e) { j = null; }
+    /* un 200 sans le JSON de la route (portail, mandataire) n'est pas un envoi : repli */
+    if (!j || j.ok !== true) { cause = 'serveur'; return false; }
+    accuse = !!j.accuse; cause = '';
+    return true;
+  } catch (e) { cause = expire ? 'delai' : 'reseau'; return false; } finally { clearTimeout(minuteur); }
+}
+/* la route d’abord, Formspree en secours ; rend la même valeur qu’envoyerFormulaire */
+export async function envoyerParRouteOuSecours(form, url, donnees) {
+  if (await envoyerParRoute(form, donnees)) return true;
+  return envoyerFormulaire(url, donnees);
+}
 /* « Votre lettre part… » : pour les lecteurs d’écran seulement (partie 5), dans une zone lue à côté du formulaire (la carte
    du formulaire est cachée pendant la scène) */
 function annoncer(form, texte) {
@@ -254,7 +291,7 @@ export async function envoyerAvecLettre(form, url, donnees, o = {}) {
   const inerte = !!form && 'inert' in form;
   if (inerte) form.inert = true;
   const module = LETTRE ? import(LETTRE).then(m => (lettre = m), () => null) : null;
-  const ok = await envoyerFormulaire(url, donnees);
+  const ok = await envoyerParRouteOuSecours(form, url, donnees);   /* P8 : la route du site, puis Formspree en secours */
   if (inerte) form.inert = false;
   if (!ok || !module) return ok;
   /* mouvement réduit : pas de scène ; le module est attendu 500 ms au plus pour la vignette fixe */
@@ -313,7 +350,9 @@ export function etatEnvoi(bloc, etat, o = {}) {
   bloc.setAttribute('role', etat === 'echec' ? 'alert' : 'status');
   if (etat === 'reussite') {
     const suite = o.suite ? `<p class="envoi__suite"><a class="lien" href="${echapper(o.suite.href)}">${echapper(o.suite.texte)}</a></p>` : '';
-    bloc.innerHTML = `<p class="envoi__t">${echapper(o.titre || t.titre)}</p><p>${echapper(o.texte || t.texte)}</p>${suite}`;
+    /* P8 : la phrase de l’accusé de réception, seulement quand la route dit qu’il est parti (jamais promis sinon) */
+    const recu = accuseParti() ? ' Un accusé de réception vous est envoyé par courriel.' : '';
+    bloc.innerHTML = `<p class="envoi__t">${echapper(o.titre || t.titre)}</p><p>${echapper(o.texte || t.texte)}${recu}</p>${suite}`;
   } else {
     const adresse = o.courriel || courrielPage(), sujet = o.sujet || 'Contact', corps = o.corps || '';
     const f = o.formulaire || null, c = causeEchec();

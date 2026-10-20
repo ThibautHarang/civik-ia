@@ -12,11 +12,11 @@ Les mêmes mots sont employés sur tout le site.
 - Source validée : document que la mairie publie ou approuve et que l'assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents.
 - Fraîcheur des données : écart entre ce que la mairie publie et ce que l'assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain.
 - Agent municipal IA : programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l'agent du guichet. Dans une mairie, « agent municipal » désigne d'abord un fonctionnaire ou un contractuel de la commune.
-- Souveraineté de Marianne : Marianne est hébergée chez OVHcloud, hébergeur français, et s'appuie sur Mistral AI, société française. Le lieu de calcul du modèle n'est pas fixé par contrat.
+- Souveraineté de Marianne : Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s'appuie sur Mistral AI, société française. Le lieu de calcul du modèle n'est pas fixé par contrat.
 
 ## Les trois activités
 
-- [Marianne, le guichet citoyen IA des mairies](https://civik-ia.fr/marianne/) : répond aux habitants 24 h sur 24 à partir des sources officielles de la commune et cite la page de chaque réponse. Sur le site de la mairie (lien, bouton, cadre sur demande), par QR code ou en application installée sur le téléphone ; WhatsApp et Messenger à venir. Hébergement chez OVHcloud, serveur à Francfort ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
+- [Marianne, le guichet citoyen IA des mairies](https://civik-ia.fr/marianne/) : répond aux habitants 24 h sur 24 à partir des sources officielles de la commune et cite la page de chaque réponse. Sur le site de la mairie (lien, bouton, cadre sur demande), par QR code ou en application installée sur le téléphone ; WhatsApp et Messenger à venir. Hébergement chez OVHcloud, serveur en Allemagne ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
 - [Thibaut Harang, conseil en santé, numérique et intelligence artificielle](https://civik-ia.fr/conseil/) : directeur d'établissements de santé pendant près de quinze ans, il aide les entreprises du secteur de la santé, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s'organiser et à conduire leur plan d'action : diagnostic, schéma directeur ou projet médical, accompagnement, formation à l'intelligence artificielle. Proposition écrite après un premier échange de trente minutes, gratuit et sans engagement.
 - [L'atelier Civik-ia : sites, applications et logiciels, sur devis](https://civik-ia.fr/atelier/) : dessine puis construit des sites, des applications et des logiciels pour les mairies, les acteurs de santé, les entreprises et les associations, sur devis. Marianne a été conçue dans cet atelier.
 
@@ -67,7 +67,7 @@ Marianne est en test sur des communes de test. Aucune commune n'est cliente ni n
 - [22h47](https://civik-ia.fr/22h47.html) : la campagne « votre mairie est fermée, un habitant a une question ».
 - [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur l'assistant, le RGPD, l'intégration, les tarifs et la souveraineté.
 - [Conditions générales de vente](https://civik-ia.fr/legal/conditions-generales-vente.html) : le cadre contractuel de Marianne pour les collectivités.
-- [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, sous-traitants, conservation (texte des questions effacé au bout de 90 jours, thèmes sensibles jamais écrits).
+- [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, sous-traitants, conservation (texte des questions effacé de la base au bout de 90 jours, questions reconnues comme sensibles non écrites dans la base).
 
 ## Contenu intégral
 

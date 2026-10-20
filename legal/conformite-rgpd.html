@@ -179,7 +179,7 @@
     <main class="legal-content">
 
 <div class="info-box">
-    <strong>Principe fondateur :</strong> Civik-ia a été conçu selon le principe de <em>Privacy by Design</em> (article 25 du RGPD). La protection des données personnelles n'est pas un ajout, c'est un fondement architectural de notre plateforme.
+    <strong>Principe fondateur :</strong> Civik-ia applique la protection des données dès la conception (article 25 du RGPD) et consigne dans son registre des incidents les écarts qu'elle constate.
 </div>
 
 <h2>1. Cadre juridique applicable</h2>
@@ -211,7 +211,7 @@
 <p>Le chatbot citoyen fonctionne <strong>sans aucune collecte de données d'identification</strong>. Aucune inscription, aucun login, aucune identification n'est requise pour poser une question. Les conversations ne sont rattachées à aucun compte ni à aucune identité.</p>
 
 <h3>3.2. Protection dès la conception et par défaut (article 25 RGPD)</h3>
-<p>Les questions qui portent sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont jamais écrites. Le texte des autres questions est effacé de la base au bout de quatre-vingt-dix jours. L'espace mairie, en cours de construction, sera réservé aux agents et aux élus que la collectivité désigne.</p>
+<p>Les questions reconnues comme portant sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont pas écrites dans la base. Le texte des autres questions est effacé de la base au bout de quatre-vingt-dix jours. L'espace mairie, qui n'est pas encore ouvert, sera réservé aux agents et aux élus que la collectivité désigne.</p>
 
 <h3>3.3. Limitation des finalités (article 5.1.b RGPD)</h3>
 <p>Les données sont collectées pour des finalités déterminées, explicites et légitimes, et ne sont pas traitées ultérieurement de manière incompatible avec ces finalités.</p>
@@ -245,7 +245,7 @@
     <li><strong>Chiffrement des échanges :</strong> HTTPS (TLS) entre le navigateur et la plateforme, et vers les sous-traitants</li>
     <li><strong>Accès au serveur :</strong> administration par clé cryptographique seulement, réservée au président de Civik-ia</li>
     <li><strong>Espace mairie, à son ouverture :</strong> comptes créés à la demande de la collectivité, mots de passe et codes de connexion conservés sous forme d'empreinte</li>
-    <li><strong>Conservation :</strong> texte des questions effacé de la base au bout de 90 jours, questions des thèmes sensibles jamais écrites, journal du serveur web conservé 14 jours</li>
+    <li><strong>Conservation :</strong> texte des questions effacé de la base au bout de 90 jours, questions reconnues comme portant sur un thème sensible non écrites dans la base, journal du serveur web conservé 14 jours</li>
     <li><strong>Sauvegardes :</strong> quotidiennes, conservées 14 jours sur le serveur, avec une copie hors site en France</li>
     <li><strong>Tests de sécurité :</strong> batterie d'attaques rejouée après chaque modification des consignes du modèle, de l'authentification ou du serveur web</li>
 </ul>
@@ -268,7 +268,7 @@
 <p>Civik-ia fait appel aux sous-traitants ultérieurs suivants :</p>
 <ul>
     <li><strong>OVH SAS</strong> (Roubaix, France, siège social) : hébergement, infrastructure cloud, serveurs applicatifs situés dans l'Union Européenne</li>
-    <li><strong>Mistral AI</strong> (société française) : rédaction des réponses par un modèle de langage, selon les conditions et l'accord de traitement des données de Mistral AI. La question est transmise telle que la personne l'a écrite, sans compte ni identifiant. Ce sous-traitant est désigné dans l'accord sur le traitement des données remis à chaque collectivité.</li>
+    <li><strong>Mistral AI</strong> (société française) : rédaction des réponses par un modèle de langage, selon les conditions et l'accord de traitement des données de Mistral AI. La question est transmise telle que la personne l'a écrite, avec les échanges précédents de la même conversation, sans compte ni identifiant. Ce sous-traitant est désigné dans l'accord sur le traitement des données remis à chaque collectivité.</li>
     <li><strong>Sendinblue SAS (Brevo)</strong>, à l'ouverture de l'espace mairie : envoi des codes de connexion aux agents et aux élus.</li>
     <!-- DJ-6 (08/10/2026) : entrée Formspree alignée sur la politique de confidentialité -->
     <li><strong>Formspree, Inc.</strong> (États-Unis) : réception des soumissions des quatre formulaires du site vitrine (formulaire de contact et fiche de demande de la page Conseil, formulaire de contact et fiche de projet de la page Atelier). Base légale : mesures précontractuelles prises à la demande de la personne (article 6.1.b). Transfert encadré par les clauses contractuelles types de la Commission européenne. Données : celles saisies dans ces formulaires, détaillées dans la <a href="politique-confidentialite.html" style="color: var(--secondary-innov);">Politique de Confidentialité</a>. <em>Ce sous-traitant n'a accès à aucune donnée de la Plateforme.</em></li>

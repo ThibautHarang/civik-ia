@@ -80,9 +80,10 @@ export function mesurer(evenement, parametres = {}) {
     const liste = LISTES[evenement];
     if (!liste) return false;
     const o = { event: evenement };
-    /* chaque clé de l’événement repart à vide : GTM garde les clés d’une poussée à l’autre, une valeur absente
-       ici reprendrait sinon celle d’un événement précédent (relevé du 20/10/2026, balises GA4 par événement) */
-    for (const cle of Object.keys(liste)) o[cle] = undefined;
+    /* toutes les clés de toutes les listes repartent à vide à chaque poussée : GTM garde les clés d’une poussée
+       à l’autre, et la balise GA4 unique de la version 8 du conteneur lit les vingt-quatre ; une valeur absente
+       reprendrait sinon celle d’un événement précédent (relevé du 20/10/2026) */
+    for (const l of Object.values(LISTES)) for (const cle of Object.keys(l)) o[cle] = undefined;
     for (const [cle, valeur] of Object.entries(parametres)) {
       if (valeur === undefined || valeur === null) continue;
       const v = String(valeur);

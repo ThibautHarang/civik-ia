@@ -32,7 +32,7 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 ## Prix de Marianne (grille du 14 octobre 2026, hors taxes)
 
 - Abonnement : 69 € HT par mois jusqu'à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus. Affiché par mois, facturé à l'année.
-- Mise en service, une seule fois : à partir de 999 € HT (999 € jusqu'à 4 999 habitants, puis 30 centimes par habitant au-delà de 5 000), sur devis selon le travail à réaliser, facturée à la validation écrite de la version de référence.
+- Mise en service, une seule fois : à partir de 999 € HT (999 € jusqu'à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000), sur devis selon le travail à réaliser, facturée à la validation écrite de la version de référence.
 - Collecte des informations, une seule fois, si le site de la mairie n'est pas à jour ou n'existe pas : 10 centimes par habitant, 499 € HT au minimum.
 - WhatsApp et Messenger, à leur ouverture : 10 € HT par mois chacun, compris à partir de 35 000 habitants.
 - Population de référence : population municipale INSEE, arrondie à la centaine inférieure. Au-delà de 49 999 habitants, intercommunalités et départements : sur devis. Prix estimatifs, fixés en première réunion. Calculateur : https://civik-ia.fr/chatbot-mairie-prix.html#prix

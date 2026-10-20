@@ -1047,7 +1047,7 @@ L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une répon
 3. Il dit quand il ne sait pas
 Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme service-public.fr ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.
 4. Il se tient à jour sans ressaisie
-La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
 5. La mairie valide avant l’ouverture
 Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des six étapes de la mise en service .
 6. La justesse est mesurée avant l’ouverture
@@ -1058,7 +1058,7 @@ L’habitant ouvre Marianne depuis le site de la mairie, un QR code ou l’écra
 Côté mairie
 Avant l’ouverture, la mairie participe à la mise en service : inventaire de ses sources, cadre écrit, relecture par les agents, validation de la version de référence. L’espace mairie, tableau de bord de la commune (questions des habitants, réponses justes et erreurs connues, ce que le site ne dit pas), n’est pas encore ouvert ; il le sera après les réglages de sécurité, pour les agents et les élus que la mairie désigne.
 Sur le site de la mairie
-Quatre façons de proposer Marianne existent aujourd’hui :
+Voici comment Marianne se propose aux habitants aujourd’hui :
 une page dédiée, à l’adresse civik-ia.fr/nom-de-la-commune, vers laquelle le site de la mairie renvoie par un lien ou un bouton ;
 un QR code, pour le bulletin municipal, les panneaux d’affichage ou l’accueil ;
 une application que l’habitant installe sur l’écran d’accueil de son téléphone ou de son ordinateur ;
@@ -1068,7 +1068,7 @@ Souveraineté, critère par critère
 « Souverain » n’a pas de définition légale. Voici ce qui est vrai pour Marianne au 19 octobre 2026.
 Critère Marianne
 Hébergement OVHcloud (OVH SAS, société française), serveur situé à Francfort, en Allemagne
-Sauvegardes chez OVHcloud
+Sauvegardes quotidiennes sur le serveur, avec une copie hors site en France
 Modèle de langage Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia
 Lieu de calcul du modèle non fixé par contrat
 Ce qui part chez Mistral AI la question, telle que l’habitant l’a écrite, sans compte ni identifiant, avec les fiches publiques retrouvées dans la base
@@ -1101,7 +1101,7 @@ La conformité se juge traitement par traitement, par la mairie et son délégu�
 Combien coûte un guichet citoyen IA pour une petite commune ?
 Chez Civik-ia, une commune de moins de 5 000 habitants paie 69 € HT par mois d’abonnement et une mise en service à partir de 999 € HT, facturée une seule fois.
 Une commune utilise-t-elle déjà Marianne ?
-Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d’environ 10 000 à 43 000 habitants. Aucune commune n’est cliente et aucune ne l’a en service.
+Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d’environ 11 000 à 43 000 habitants. Aucune commune n’est cliente et aucune ne l’a en service.
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -1181,14 +1181,14 @@ la validation par les agents de la mairie, qui relisent les réponses et corrige
 la version de référence, validée par écrit par la mairie.
 Rien n’est ouvert aux habitants avant la sixième étape. Le détail et le prix de chaque étape sont sur la page prix .
 Comment la base reste à jour
-La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée entre dans la base le lendemain, sans ressaisie par les agents.
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée entre en général dans la base le lendemain, sans ressaisie par les agents.
 Des contrôles se jouent avant toute écriture. Si la relecture de la nuit constate une suppression massive de fiches ou un effondrement du volume lu, rien n’est écrit et la base de la veille reste servie, le temps qu’une personne regarde.
 Le lecteur des sites WordPress est en place. Celui des autres outils de publication, dont TYPO3, est en test. Après l’ouverture, les réponses jugées fausses ou incomplètes sont corrigées dans la base, puis remesurées.
 Ce que la base ne garantit pas
 La base ne vaut que sa source. Si le site publie une information périmée, la réponse le sera aussi : la mise en service relève ces écarts et les signale à la mairie, et une collecte des informations peut être commandée quand le site n’est pas à jour.
 Une fiche juste ne suffit pas toujours. Le modèle qui rédige peut prendre un chiffre dans une fiche voisine de la bonne. Ce risque, et la façon de le mesurer, sont décrits sur la page RAG pour une mairie .
 Ce que coûte la constitution de la base
-Chez Civik-ia, la mise en service, qui comprend la constitution de la base, coûte à partir de 999 € HT : 999 € jusqu’à 4 999 habitants, puis 30 centimes par habitant au-delà de 5 000. Elle est facturée une seule fois, à la validation écrite de la version de référence. Si le site n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. L’abonnement, qui comprend la relecture de chaque nuit, coûte 69 € HT par mois jusqu’à 4 999 habitants. Prix estimatifs, hors taxes, fixés en première réunion.
+Chez Civik-ia, la mise en service, qui comprend la constitution de la base, coûte à partir de 999 € HT : 999 € jusqu’à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000. Elle est facturée une seule fois, à la validation écrite de la version de référence. Si le site n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. L’abonnement, qui comprend la relecture de chaque nuit, coûte 69 € HT par mois jusqu’à 4 999 habitants. Prix estimatifs, hors taxes, fixés en première réunion.
 Pour voir une base en action, la démonstration tourne sur une commune fictive, sans inscription.
 Tester Marianne
 La définition complète du guichet citoyen IA et ses six critères sont sur la page dédiée ; le produit est présenté sur la page Marianne .
@@ -2117,7 +2117,7 @@ Analyse détaillée par solution
 1. Civik-ia : la solution née pour les mairies rurales
 Civik-ia a construit sa plateforme spécifiquement pour les collectivités françaises , avec une attention particulière aux communes rurales (moins de 5 000 habitants), un segment moins ciblé par les éditeurs traditionnels orientés vers les grandes villes. L’abonnement, à partir de 69 € HT par mois selon la taille de la commune, est volontairement positionné sous le seuil des marchés publics formalisés.
 Son skill « cerfa-municipal » reconnaît les cinq démarches les plus fréquentes (salle communale, déclaration préalable de travaux, inscription électorale, attestation de domicile, débit de boisson temporaire) et compose des réponses structurées citant le bon numéro de Cerfa, le délai légal exact, l’article du Code de l’urbanisme applicable. Cette précision juridique fait souvent défaut aux chatbots génériques.
-L' outil de co-design permet au DGS d’adapter Marianne en 30 minutes via un formulaire web (tarifs locaux, contacts, règles spécifiques) sans aucune intervention technique. La modification est prise en compte immédiatement par l’assistante.
+L' outil de co-design , en préparation, permettra au DGS d’adapter Marianne via un formulaire web (tarifs locaux, contacts, règles spécifiques), sans intervention technique.
 Limite à connaître : Civik-ia est jeune (immatriculée en avril 2026). Pas encore référencée UGAP, l’éditeur n’a pas le track-record de dydu sur les grandes métropoles. Pour les communes de plus de 50 000 habitants ou les départements, mieux vaut interroger plusieurs prestataires.
 2. dydu : la référence des grandes mairies UGAP
 dydu équipe une centaine de grandes mairies en France via son référencement UGAP. Son moteur de chatbot est mature, son équipe support solide, et son intégration à des systèmes complexes (GED, CRM citoyen) est éprouvée. Le tarif autour de 1 750 € HT par an est cohérent pour une grande collectivité avec un volume d’interactions élevé.
@@ -2423,7 +2423,7 @@ La mairie est responsable du traitement ; l’éditeur est sous-traitant et sign
 2. Quelles données sont collectées, et combien de temps sont-elles gardées ?
 Le texte des questions et leur date, le plus souvent. Aucun compte ne devrait être demandé à l’habitant. Pour Marianne : aucun compte, aucun nom ni courriel demandé ; les questions qui portent sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont jamais écrites ; le texte des autres questions est effacé au bout de 90 jours ( page Conformité RGPD , 16 octobre 2026).
 3. Où les données sont-elles traitées, et par qui ?
-La réponse doit nommer l’hébergeur, le pays du serveur, l’éditeur du modèle et le lieu où le modèle calcule, tels que le contrat les fixe. Pour Marianne : serveur chez OVHcloud, à Francfort ; sauvegardes chez OVHcloud ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat, ce que l’accord dit. Le détail est sur la page guichet citoyen IA , section « Souveraineté ».
+La réponse doit nommer l’hébergeur, le pays du serveur, l’éditeur du modèle et le lieu où le modèle calcule, tels que le contrat les fixe. Pour Marianne : serveur chez OVHcloud, à Francfort ; sauvegardes quotidiennes sur le serveur, avec une copie hors site en France ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat, ce que l’accord dit. Le détail est sur la page guichet citoyen IA , section « Souveraineté ».
 4. L’habitant sait-il qu’il parle à une IA, et qui répond de l’outil ?
 Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). L’information prévue par l’article 13 du RGPD nomme la mairie, son délégué à la protection des données et les droits des habitants. Pour Marianne, cette information se rédige avec la mairie pendant la mise en service.
 5. Faut-il une analyse d’impact (AIPD) ?
@@ -2468,7 +2468,7 @@ Journal des demandes d’exercice de droits
 Comment Civik-ia répond à ces obligations
 Civik-ia a conçu sa plateforme avec le RGPD comme contrainte de design dès l’origine :
 Zéro friction citoyenne : aucun compte ni inscription requis pour utiliser Marianne. Aucun nom ni courriel n’est demandé.
-Hébergement chez OVHcloud : serveur situé à Francfort, en Allemagne ; sauvegardes chez OVHcloud.
+Hébergement chez OVHcloud : serveur situé à Francfort, en Allemagne ; sauvegardes quotidiennes sur le serveur, avec une copie hors site en France.
 Modèle de Mistral AI, société française : la question est transmise telle que l’habitant l’a écrite, sans compte ni identifiant ; le lieu de calcul n’est pas fixé par contrat.
 Effacement automatique : le texte des questions est effacé au bout de 90 jours, et les questions qui portent sur un thème sensible ne sont jamais écrites.
 Accord sur le traitement des données : remis à chaque collectivité, il liste les sous-traitants (OVH, Mistral AI, et Brevo à l’ouverture de l’espace mairie).
@@ -2604,13 +2604,13 @@ Oui (modèles open-weight)
 Non
 « Souverain », vraiment ?
 Soyons honnêtes : aucune IA n’est totalement « pure » au regard de la souveraineté. Mistral utilise du matériel NVIDIA (américain) pour entraîner ses modèles, son tour de table inclut des investisseurs internationaux (dont Microsoft à hauteur de 15 millions d’euros en 2024), et certaines briques techniques sont open-source d’origine américaine.
-Mais sur les critères qui comptent pour une mairie (droit applicable, gouvernance, hébergement, contractualisation), Mistral AI est l’option européenne la plus crédible aujourd’hui . Le 21 mai 2026, la Banque des Territoires a lancé le programme Territoires d’IA avec Mistral AI comme partenaire technique, et l’État (DINUM, ANCT) parmi ses partenaires ( Banque des Territoires, 22 mai 2026 ).
+Mais sur les critères qui comptent pour une mairie (droit applicable, gouvernance, hébergement, contractualisation), Mistral AI est une option européenne crédible aujourd’hui . Le 21 mai 2026, la Banque des Territoires a lancé le programme Territoires d’IA avec Mistral AI comme partenaire technique, et l’État (DINUM, ANCT) parmi ses partenaires ( Banque des Territoires, 22 mai 2026 ).
 Ce que souverain veut dire, critère par critère
 « Souverain » n’a pas de définition légale. Un fournisseur peut l’écrire sans rien préciser ; une mairie peut demander une réponse écrite sur cinq critères.
 Critère La question à poser Pour Marianne, au 19 octobre 2026
 Hébergeur
 Quelle société héberge le service, et dans quel pays est le serveur ?
-OVHcloud (OVH SAS, société française), serveur situé à Francfort, en Allemagne ; sauvegardes chez OVHcloud
+OVHcloud (OVH SAS, société française), serveur situé à Francfort, en Allemagne ; sauvegardes quotidiennes sur le serveur, avec une copie hors site en France
 Éditeur du modèle
 Quelle société édite le modèle qui rédige les réponses, et quelle version ?
 Mistral AI, société française ; Mistral Small, dans une version datée choisie par Civik-ia
@@ -2778,7 +2778,7 @@ Mise en service : à partir de 999 € HT , sur devis selon le travail à réali
 Le calcul à faire : 24 500 € d’économie estimée en temps agent, à comparer au devis de la première année (abonnement, et mise en service à partir de 999 € HT, facturée une seule fois). Le gain peut progresser d’année en année si la base de connaissances s’enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d’appels réel de votre commune.
 Le piège à éviter : sous-estimer la phase de mise en place
 Un chatbot ne fonctionne bien que s’il connaît vraiment la commune. Le piège fréquent est de signer rapidement avec un éditeur qui livre un produit générique « clé en main », et de constater que les réponses sont fausses ou imprécises pour les spécificités locales (tarifs salle, contact direct, calendrier scolaire).
-Civik-ia a résolu ce problème avec son outil de co-design : le DGS adapte le chatbot lui-même en 30 minutes via un formulaire web, sans aucune intervention technique. Les modifications sont prises en compte instantanément.
+Civik-ia prépare un outil de co-design : le DGS adaptera le chatbot lui-même via un formulaire web, sans intervention technique.
 Et les autres bénéfices, plus difficiles à chiffrer
 Image moderne de la commune : une mairie qui répond à 22h47 envoie un message politique fort sur la modernité du service public local.
 Satisfaction citoyenne : une réponse immédiate le soir ou le week-end évite d’attendre le lendemain. Civik-ia ne publie pas de note de satisfaction mesurée : Marianne est aujourd’hui présentée en démonstration et en test.

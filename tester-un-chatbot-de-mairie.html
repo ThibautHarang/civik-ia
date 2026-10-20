@@ -113,7 +113,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "name": "Combien de questions faut-il pour tester un chatbot de mairie ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Plusieurs centaines. Je n'ai trouvé aucun nombre officiel. Civik-ia en pose 300 avant l'ouverture d'une commune, plus une banque de contrôle écrite à part."
+            "text": "Plusieurs centaines. Je n'ai trouvé aucun nombre officiel. La méthode de Civik-ia en prévoit 300 avant d'ouvrir Marianne aux habitants d'une commune, plus une banque de contrôle écrite à part."
           }
         },
         {
@@ -145,7 +145,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "name": "Faut-il retester après l'ouverture ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui. L'ANSSI recommande des tests de qualité des réponses à une fréquence donnée, pas seulement au déploiement. Après chaque correction de la base, les mêmes questions se rejouent."
+            "text": "Oui. L'ANSSI recommande ces tests avant la mise en production et indique qu'ils peuvent se répéter à une fréquence donnée, pas seulement au déploiement. Après chaque correction de la base, les mêmes questions se rejouent."
           }
         },
         {
@@ -218,7 +218,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
   <article>
     <p>Un chatbot de mairie peut répondre avec assurance une information fausse&nbsp;: un délai, un tarif, une pièce à fournir.
     La CNIL le rappelle dans ses questions-réponses sur l’IA générative&nbsp;: «&nbsp;ces systèmes peuvent générer des résultats inexacts&nbsp;» (<a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">CNIL, 18 juillet 2024</a>).
-    L’ANSSI recommande des tests de performance et de qualité des réponses avant la mise en production, et leur répétition à une fréquence donnée, pas seulement lors des déploiements (recommandation R24 du guide ANSSI-PA-102, 29 avril 2024).
+    L’ANSSI recommande des tests de performance et de qualité des réponses avant la mise en production, et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement lors des déploiements (recommandation R24 du guide ANSSI-PA-102, 29 avril 2024).
     Cette page décrit comment une mairie construit ces tests, avec n’importe quel outil.</p>
     <h2>Deux mesures à ne pas confondre</h2>
     <p>La première mesure dit si la fiche qui porte la réponse figure parmi celles que l’outil a retrouvées.
@@ -291,14 +291,14 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence.
     Les banques de test contiennent des questions pièges dont la seule réponse juste est un refus.
     Une batterie d’attaques est rejouée après chaque modification des consignes du modèle, de l’authentification ou du serveur web.</p>
-    <p>Marianne se présente comme une intelligence artificielle dès son premier message.</p>
+    <p>Marianne se présente comme une intelligence artificielle dès son premier message, comme le prévoit l’article 50 du règlement européen sur l’intelligence artificielle, applicable depuis le 2 août 2026.</p>
     <p>Civik-ia ne publie pas de taux de justesse tant qu’aucune commune n’a Marianne en service&nbsp;: les mesures portent sur des communes de test.
     La page <a href="/rag-collectivites.html">RAG pour une mairie</a> décrit ce que cette mesure prouve et ce qu’elle ne prouve pas&nbsp;; le cadre est sur la page <a href="/guichet-citoyen-ia.html">guichet citoyen IA</a>.</p>
     <h2 id="faq">Questions fréquentes</h2>
     <h3>Combien de questions faut-il pour tester un chatbot de mairie&nbsp;?</h3>
     <p>Plusieurs centaines.
     Je n’ai trouvé aucun nombre officiel.
-    Civik-ia en pose 300 avant l’ouverture d’une commune, plus une banque de contrôle écrite à part.</p>
+    La méthode de Civik-ia en prévoit 300 avant d’ouvrir Marianne aux habitants d’une commune, plus une banque de contrôle écrite à part.</p>
     <h3>Quel taux de réponses justes exiger avant d’ouvrir&nbsp;?</h3>
     <p>Aucun seuil officiel n’existe à ma connaissance.
     La mairie fixe le sien avant le test et l’écrit.
@@ -312,7 +312,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     La mairie valide par écrit une version de référence.</p>
     <h3>Faut-il retester après l’ouverture&nbsp;?</h3>
     <p>Oui.
-    L’ANSSI recommande des tests de qualité des réponses à une fréquence donnée, pas seulement au déploiement.
+    L’ANSSI recommande ces tests avant la mise en production et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement au déploiement.
     Après chaque correction de la base, les mêmes questions se rejouent.</p>
     <h3>Un bon test de justesse suffit-il à garantir la sécurité de l’outil&nbsp;?</h3>
     <p>Non.

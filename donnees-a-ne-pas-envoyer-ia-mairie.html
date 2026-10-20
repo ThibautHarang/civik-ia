@@ -121,7 +121,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "name": "Qu'est-ce qu'une donnée sensible ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Au sens du RGPD, une donnée qui révèle l'origine, les opinions politiques, les convictions religieuses ou philosophiques, l'appartenance syndicale, la santé, la vie ou l'orientation sexuelle, ou une donnée génétique ou biométrique d'identification. Le RGPD en interdit le traitement par principe, avec des exceptions étroites. L'ANSSI emploie le mot plus largement."
+            "text": "Au sens du RGPD, une donnée qui révèle l'origine raciale ou ethnique, les opinions politiques, les convictions religieuses ou philosophiques, l'appartenance syndicale, la santé, la vie ou l'orientation sexuelle, ou une donnée génétique ou biométrique d'identification. Le RGPD en interdit le traitement par principe, avec des exceptions étroites. L'ANSSI emploie le mot plus largement."
           }
         },
         {
@@ -242,14 +242,14 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
         <tr><td>Publiée</td><td>Page du site, délibération ou arrêté publié, règlement de collecte</td><td>Possible</td><td>Possible</td></tr>
         <tr><td>Interne non publiée</td><td>Délibération en cours, marché non notifié, dossier disciplinaire, évaluation individuelle</td><td>Non</td><td>À décider avec le délégué à la protection des données</td></tr>
         <tr><td>Personnelle</td><td>Nom, adresse, date de naissance, téléphone, courriel, matricule, numéro de sécurité sociale</td><td>Non</td><td>Seulement sous contrat de sous-traitance, avec une base légale et l’information des personnes&nbsp;; la CNIL privilégie un déploiement sur site</td></tr>
-        <tr><td>Sensible</td><td>Santé, opinions politiques, appartenance syndicale, origine, convictions religieuses ou philosophiques, données génétiques ou biométriques, vie ou orientation sexuelle</td><td>Non</td><td>Interdiction de principe de l’article 9 du RGPD, exceptions étroites à examiner avec le délégué</td></tr>
+        <tr><td>Sensible</td><td>Santé, origine raciale ou ethnique, opinions politiques, convictions religieuses ou philosophiques, appartenance syndicale, données génétiques, données biométriques servant à identifier une personne, vie sexuelle ou orientation sexuelle</td><td>Non</td><td>Interdiction de principe de l’article 9 du RGPD, exceptions étroites à examiner avec le délégué</td></tr>
       </tbody>
     </table>
     </div>
     <p>Le mot «&nbsp;sensible&nbsp;» n’a pas le même sens partout.
-    Pour le RGPD, ce sont les catégories de l’article 9 listées dans le tableau (<a href="https://www.cnil.fr/fr/definition/donnee-sensible">CNIL, «&nbsp;Donnée sensible&nbsp;»</a>).
+    Pour le RGPD, ce sont les catégories de l’article 9 listées dans le tableau (<a href="https://www.cnil.fr/fr/definition/donnee-sensible">CNIL, «&nbsp;Donnée sensible&nbsp;»</a>)&nbsp;; les données relatives aux condamnations et aux infractions suivent un régime voisin (article 10).
     Pour l’ANSSI, la liste des données à ne pas envoyer est plus large que les catégories du RGPD&nbsp;: elle comprend aussi les données de niveau diffusion restreinte, les données contractuelles, juridiques ou financières et les secrets informatiques.</p>
-    <p>La charte d’une intercommunalité publiée en 2026 donne une liste d’interdits concrète&nbsp;: les données identifiantes (nom, adresse, date de naissance, téléphone, courriel, matricule, numéro de sécurité sociale), les données sensibles et les documents internes non publics.
+    <p>La <a href="https://www.paysdefalaise.fr/wp-content/uploads/2026/07/079-2026-CHARTE-IA.pdf">charte d’utilisation de l’intelligence artificielle du Pays de Falaise</a>, intercommunalité du Calvados (document daté de mai 2026, transmis en préfecture le 13 juillet 2026), donne une liste d’interdits concrète&nbsp;: les données identifiantes (nom, adresse, date de naissance, téléphone, courriel, matricule, numéro de sécurité sociale), les données sensibles et les documents internes non publics.
     Elle ajoute que le périmètre est plus large qu’il n’y paraît&nbsp;: l’année de naissance des habitants d’une commune peut suffire à identifier une personne précise, le doyen ou la doyenne par exemple.</p>
     <h2>Pseudonymiser, anonymiser&nbsp;: ce que cela change</h2>
     <p>La pseudonymisation remplace les identifiants directs (nom, prénom) par un alias, un numéro ou une empreinte cryptographique.
@@ -264,7 +264,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h2>Ce que l’habitant écrit lui-même</h2>
     <p>Un assistant ouvert aux habitants reçoit du texte libre.
     Un habitant y écrit son nom, une adresse, parfois un problème de santé ou une situation sociale, sans que personne le lui ait demandé.
-    Ces données restent des données personnelles même si personne ne les a demandées&nbsp;: la mairie en répond dès qu’elle les traite.</p>
+    Ces données restent des données personnelles même si personne ne les a demandées&nbsp;: la mairie, responsable du traitement, en répond dès que l’outil les reçoit, les transmet ou les conserve.</p>
     <p>Cinq choix de conception limitent le risque.
     Ne demander aucun compte ni identifiant.
     Reconnaître les thèmes sensibles pour ne pas les conserver.
@@ -286,8 +286,8 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     Les réponses se demandent par écrit.</p>
     <h2>Une charte d’usage pour les agents</h2>
     <p>La CNIL recommande de définir une charte interne qui liste les usages autorisés et interdits.
-    La charte de l’intercommunalité citée plus haut tient en cinq principes&nbsp;: responsabilité de l’agent sur ce qu’il produit, relecture de tout contenu généré, aucune donnée personnelle ou confidentielle dans un outil grand public, mention de l’usage de l’IA quand c’est pertinent ou réglementaire, usage sobre.
-    Elle désigne un référent IA, qui est aussi le délégué à la protection des données, et note qu’une interdiction générale est souvent inefficace&nbsp;: elle ne supprime pas les usages, elle les rend moins visibles et plus risqués.
+    La charte du Pays de Falaise tient en cinq principes&nbsp;: responsabilité de l’agent sur ce qu’il produit, relecture de tout contenu généré, aucune donnée personnelle ou confidentielle dans un outil grand public, mention de l’usage de l’IA quand c’est pertinent ou réglementaire, usage sobre.
+    Elle désigne un référent IA, qui est aussi le délégué à la protection des données, et note qu’«&nbsp;une interdiction générale est souvent inefficace&nbsp;: elle ne supprime pas les usages, elle les rend surtout moins visibles et plus risqués&nbsp;».
     En octobre 2025, Localtis relevait que les collectivités qui encadrent l’IA générative retiennent «&nbsp;l’interdiction absolue de saisir des données personnelles et/ou sensibles dans les IA grand public&nbsp;» (<a href="https://www.banquedesterritoires.fr/ces-collectivites-qui-tentent-de-domestiquer-lia-generative">Banque des Territoires, 21 octobre 2025</a>).</p>
     <p>Une charte utile reste courte.
     Elle dit ce qui est permis, ce qui ne l’est pas, quel outil la mairie a validé, et à qui signaler un doute ou un incident.</p>
@@ -299,10 +299,9 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
         Le lieu de calcul du modèle n’est pas fixé par contrat.</li>
       <li>Marianne ne demande ni nom ni courriel.
         Elle ne peut pas empêcher un habitant d’écrire son nom dans sa question.</li>
-      <li>La base ne contient ni les données personnelles des habitants ni les documents internes que la mairie n’a pas publiés.
+      <li>La base de connaissances, où Marianne cherche ses réponses, ne reprend que ce que la commune a publié&nbsp;: aucun fichier d’habitants, aucun document interne non publié.
         Dans les actes, les noms et adresses de particuliers sont masqués avant toute réponse, puis un témoin relit chaque acte&nbsp;: un acte où il reconnaît un nom de particulier est mis à l’écart.</li>
-      <li>Les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base.
-        Le texte des autres questions en est effacé au bout de 90 jours.</li>
+      <li>Les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base de données du service, et le texte des autres questions en est effacé au bout de 90 jours.</li>
     </ul>
     <p>Le détail est sur la page <a href="/guichet-citoyen-ia.html">guichet citoyen IA</a> et dans la <a href="/legal/conformite-rgpd.html">page Conformité RGPD</a>.
     L’accord sur le traitement des données remis à la mairie liste les sous-traitants.</p>
@@ -312,7 +311,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     Pour des données personnelles ou des documents sensibles, elle conseille un déploiement sur site, et l’ANSSI proscrit l’envoi de données sensibles à ces services.
     Le choix se fait avec le délégué à la protection des données.</p>
     <h3>Qu’est-ce qu’une donnée sensible&nbsp;?</h3>
-    <p>Au sens du RGPD, une donnée qui révèle l’origine, les opinions politiques, les convictions religieuses ou philosophiques, l’appartenance syndicale, la santé, la vie ou l’orientation sexuelle, ou une donnée génétique ou biométrique d’identification.
+    <p>Au sens du RGPD, une donnée qui révèle l’origine raciale ou ethnique, les opinions politiques, les convictions religieuses ou philosophiques, l’appartenance syndicale, la santé, la vie ou l’orientation sexuelle, ou une donnée génétique ou biométrique d’identification.
     Le RGPD en interdit le traitement par principe, avec des exceptions étroites.
     L’ANSSI emploie le mot plus largement.</p>
     <h3>La pseudonymisation suffit-elle pour envoyer des données à une IA&nbsp;?</h3>

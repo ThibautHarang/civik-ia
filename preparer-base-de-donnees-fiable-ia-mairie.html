@@ -121,7 +121,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "name": "Quelles données ne faut-il pas mettre dans la base d'un assistant de mairie ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Les données personnelles des habitants et les documents internes que la mairie n'a pas publiés. Dans les actes, les noms et adresses de particuliers se masquent avant toute lecture par un outil."
+            "text": "Les données personnelles des habitants et les documents internes que la mairie n'a pas publiés. Dans les actes, les noms et adresses de particuliers se masquent avant que l'outil puisse s'en servir dans une réponse."
           }
         },
         {
@@ -145,7 +145,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "name": "Qui est responsable de l'exactitude des données ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La commune, pour ce qu'elle publie. L'assistant cite ses sources fidèlement : une page périmée donne une réponse périmée. La mise en service relève ces écarts et les signale à la mairie."
+            "text": "La commune répond de ce qu'elle publie : une page périmée donne une réponse périmée. Le fournisseur de l'assistant répond de la façon dont l'outil reprend ces pages, dans les conditions de son contrat : un modèle peut mal lire une fiche juste, d'où la mesure avant l'ouverture. La mise en service relève les écarts entre les pages et les signale à la mairie."
           }
         }
       ]
@@ -220,12 +220,12 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h2>Étape 2&nbsp;: ne garder que ce qui est déjà public</h2>
     <p>Un assistant ouvert à tous les habitants n’a pas de droits d’accès par utilisateur&nbsp;: tout ce que contient sa base peut ressortir dans une réponse.
     La base ne reçoit donc que des documents déjà publiés ou approuvés pour l’être.
-    L’ANSSI le dit autrement&nbsp;: pour les données que le système consulte en production, la gestion des droits d’accès dépend des outils employés, et le besoin d’en connaître se décide avant la conception, pas après (recommandations R7 et R8).</p>
+    L’ANSSI rappelle que, pour les données que le système consulte en production, une gestion des droits d’accès n’est possible que si les outils employés la permettent, et que le besoin d’en connaître se règle dès la conception (recommandations R7 et R8).</p>
     <p>Trois tris évitent les erreurs les plus courantes.</p>
     <ul>
       <li>Un document interne que la mairie n’a pas publié reste hors de la base, même s’il contiendrait la bonne réponse.</li>
       <li>Un acte contient parfois des noms et des adresses de particuliers.
-        La CADA rappelle que les documents ne se publient qu’après occultation des mentions protégées, et que les données personnelles s’anonymisent sauf exceptions strictes (<a href="https://www.cada.fr/administration/la-publication-des-documents-des-collectivites-territoriales-lies-lexercice-de-0">CADA</a>).
+        Pour la publication en ligne des documents administratifs, la CADA rappelle qu’ils ne se publient qu’après occultation des mentions protégées, et que les données personnelles s’anonymisent sauf exceptions strictes (<a href="https://www.cada.fr/administration/la-publication-des-documents-des-collectivites-territoriales-lies-lexercice-de-0">CADA</a>).
         La même précaution vaut avant de les confier à une IA.</li>
       <li>Les questions des habitants ne deviennent pas des sources.
         Elles se conservent à part, pour mesurer, jamais pour répondre à la place d’une source.</li>
@@ -290,7 +290,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <p>Inventoriez les sources et nommez un responsable par source, gardez ce qui est déjà public, découpez en fiches courtes qui portent l’adresse et la date de leur source, tranchez les contradictions, fixez un rythme de mise à jour et mesurez sur des questions réelles avant l’ouverture.</p>
     <h3>Quelles données ne faut-il pas mettre dans la base d’un assistant de mairie&nbsp;?</h3>
     <p>Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés.
-    Dans les actes, les noms et adresses de particuliers se masquent avant toute lecture par un outil.</p>
+    Dans les actes, les noms et adresses de particuliers se masquent avant que l’outil puisse s’en servir dans une réponse.</p>
     <h3>À quelle fréquence mettre la base à jour&nbsp;?</h3>
     <p>Au rythme du site&nbsp;: chaque nuit quand la lecture est automatique, chaque semaine pour des documents déposés à la main.
     Un contrôle d’anomalie évite d’écrire dans la base une lecture manifestement erronée.</p>
@@ -298,9 +298,9 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <p>Un PDF numérisé qui n’est qu’une image ne se lit pas automatiquement.
     Une version texte des documents importants (règlement, tarifs, plan d’urbanisme) est préférable.</p>
     <h3>Qui est responsable de l’exactitude des données&nbsp;?</h3>
-    <p>La commune, pour ce qu’elle publie.
-    L’assistant cite ses sources fidèlement&nbsp;: une page périmée donne une réponse périmée.
-    La mise en service relève ces écarts et les signale à la mairie.</p>
+    <p>La commune répond de ce qu’elle publie&nbsp;: une page périmée donne une réponse périmée.
+    Le fournisseur de l’assistant répond de la façon dont l’outil reprend ces pages, dans les conditions de son contrat&nbsp;: un modèle peut mal lire une fiche juste, d’où la mesure avant l’ouverture.
+    La mise en service relève les écarts entre les pages et les signale à la mairie.</p>
   </article>
 </main>
 

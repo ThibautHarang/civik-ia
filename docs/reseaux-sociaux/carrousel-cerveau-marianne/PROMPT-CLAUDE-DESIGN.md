@@ -159,6 +159,8 @@ du haut en bas, sans rien de surchargé.
 - WhatsApp et Messenger sont « Bientôt », jamais « Disponible » ; la mention « (Meta) » reste.
 - « Sur votre site » désigne un bouton « Une question ? » et un onglet dans le menu, pas une bulle de conversation
   intégrée.
+- Jamais de démonstration personnalisée ni « sur votre commune » : la seule promesse est une présentation de
+  30 minutes en visio.
 - Aucun chiffre ajouté qui ne figure pas ci-dessus (pas de pourcentage, pas de prix, pas de délai).
 - Pas d'emoji, pas de superlatif.
 

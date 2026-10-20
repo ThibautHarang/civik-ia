@@ -21,7 +21,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 27 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 34 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : Marianne, Conseil, Atelier
@@ -960,7 +960,7 @@ La démonstration utilise-t-elle de vraies données ?
 Les réponses sont générées en direct par le moteur d’IA de Civik-ia, sur la base de connaissances de Villeneuve-les-Ormes, une commune fictive construite pour la démonstration. Pour votre commune, la base est constituée à partir de vos informations réelles, vérifiées avec vos services.
 Faut-il que les citoyens créent un compte ?
 Non. Marianne est accessible sans inscription, sans compte, sans adresse email. C’est un choix RGPD natif : aucun fichier nominatif côté citoyen.
-Marianne remplace-t-elle Service-Public.fr ?
+Marianne remplace-t-elle Service-Public.gouv.fr ?
 Non, et c’est un choix volontaire. Les démarches d’identité restent orientées vers les téléservices officiels. Marianne prend en charge ce qui relève de votre commune : informations pratiques, démarches municipales, vie locale.
 Que se passe-t-il quand Marianne ne sait pas répondre ?
 Elle le dit, sans inventer, et oriente vers le bon service de la mairie. La question est notée pour que la mairie complète son site ; l’espace mairie, dès son ouverture, la lui montrera. Vos agents gardent la main sur tout ce qui sort du cadre.
@@ -996,6 +996,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1043,15 +1044,15 @@ Chaque critère se vérifie avant de signer, sur une démonstration ou par une q
 1. Il ne répond qu’à partir des sources de la mairie
 Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents. Ce qui n’en fait pas partie n’entre pas dans la base. Voir la base de connaissances d’une mairie .
 2. Chaque réponse donne sa page source
-L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une réponse sans source ne se vérifie pas, ni par l’habitant ni par la mairie. C’est le principe du RAG, expliqué sur la page RAG pour une mairie .
+L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une réponse sans source ne se vérifie pas, ni par l’habitant ni par la mairie. C’est le principe du RAG, expliqué sur la page RAG pour une mairie . Quelle source fait foi selon la question, et comment la citer : voir la page dédiée.
 3. Il dit quand il ne sait pas
-Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme service-public.fr ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.
+Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme service-public.gouv.fr ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.
 4. Il se tient à jour sans ressaisie
 La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
 5. La mairie valide avant l’ouverture
 Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des six étapes de la mise en service .
 6. La justesse est mesurée avant l’ouverture
-Une mesure sérieuse pose des centaines de questions de test et juge chaque réponse contre sa page source. Chez Civik-ia, la base est mesurée sur 300 questions de test avant l’ouverture, et le résultat est remis à la mairie. Ce que cette mesure prouve, et ce qu’elle ne prouve pas, est expliqué sur la page RAG pour une mairie .
+Une mesure sérieuse pose des centaines de questions de test et juge chaque réponse contre sa page source. Chez Civik-ia, la base est mesurée sur 300 questions de test avant l’ouverture, et le résultat est remis à la mairie. Ce que cette mesure prouve, et ce qu’elle ne prouve pas, est expliqué sur la page RAG pour une mairie . Pour la conduire avec n’importe quel outil, voir la méthode de test .
 Vu par l’habitant, vu par la mairie
 Côté habitant
 L’habitant ouvre Marianne depuis le site de la mairie, un QR code ou l’écran d’accueil de son téléphone. Il pose sa question sans créer de compte. La réponse tient en quelques lignes et se termine par le lien de la page officielle. Les visiteurs sont comptés par un identifiant aléatoire enregistré dans le navigateur, sans nom ni adresse.
@@ -1073,7 +1074,7 @@ Modèle de langage Mistral Small, de Mistral AI, société française, dans une 
 Lieu de calcul du modèle non fixé par contrat
 Ce qui part chez Mistral AI la question telle que l’habitant l’a écrite et les échanges précédents de la même conversation, sans compte ni identifiant, avec les fiches publiques retrouvées dans la base
 Accès au serveur administration par clé cryptographique, réservée au président de Civik-ia
-Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat. Mistral AI propose plusieurs points d’accès et ne s’engage sur aucun lieu de calcul pour son point d’accès général ( documentation de Mistral AI , consultée le 19 octobre 2026). Le détail est sur la page IA souveraine pour mairie .
+Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat. Mistral AI propose plusieurs points d’accès et ne s’engage sur aucun lieu de calcul pour son point d’accès général ( documentation de Mistral AI , consultée le 19 octobre 2026). Le détail est sur la page IA souveraine pour mairie . Les mêmes questions, appliquées à tous les outils de la commune, sont sur la page souveraineté numérique d’une commune .
 RGPD et règlement européen sur l’IA
 Pour une commune cliente, la mairie est responsable du traitement des données de ses habitants ; Civik-ia agit comme sous-traitant (article 28 du RGPD) et remet à la collectivité un accord sur le traitement des données. Aucun compte n’est demandé aux habitants. Les questions reconnues comme portant sur un thème sensible (santé, justice, urgence, prestations sociales, emploi, situation administrative) ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours ( Conformité RGPD , mise à jour le 16 octobre 2026). Les questions du délégué à la protection des données sont traitées dans le guide RGPD et IA en collectivité .
 Le règlement européen sur l’IA ( règlement (UE) 2024/1689 ) impose depuis le 2 août 2026 qu’un système d’IA qui dialogue avec le public informe la personne qu’elle échange avec une IA (article 50). Le règlement (UE) 2026/1744 a reporté au 2 décembre 2027 les obligations des systèmes dits à haut risque de l’annexe III ; il laisse en place cette obligation d’information. Un guichet citoyen IA doit donc l’afficher dès son premier message.
@@ -1102,6 +1103,14 @@ Combien coûte un guichet citoyen IA pour une petite commune ?
 Chez Civik-ia, une commune de moins de 5 000 habitants paie 69 € HT par mois d’abonnement et une mise en service à partir de 999 € HT, facturée une seule fois.
 Une commune utilise-t-elle déjà Marianne ?
 Non. Au 19 octobre 2026, Marianne est en test sur des communes de test d’environ 11 000 à 43 000 habitants. Aucune commune n’est cliente et aucune ne l’a en service.
+Pour aller plus loin
+Sécuriser la base de données d’une collectivité : sept mesures
+Quelle source officielle fait foi pour répondre aux habitants
+Les données qu’une mairie n’envoie jamais à un modèle d’IA
+Tester un chatbot de mairie avant l’ouverture
+Constituer une base de données fiable pour l’IA d’une mairie
+Souveraineté numérique d’une commune : six questions à poser
+Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -1129,6 +1138,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1170,7 +1180,7 @@ Les arrêtés et les délibérations suivent une règle à part. Les noms et les
 Les fiches écrites à la main
 Certaines questions n’ont pas de réponse nette sur le site : quel service appeler, quelle page fait foi quand deux pages se contredisent. Civik-ia écrit alors une fiche courte, avec sa source, et les agents la relisent pendant la mise en service.
 Ce qui n’y entre pas
-Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés n’entrent pas dans la base, ni les pages d’autres sites, sauf ceux que la mairie désigne, comme le site d’un équipement municipal. Les questions posées par les habitants sont conservées à part et ne deviennent pas des fiches. L’orientation vers une information nationale, comme service-public.fr , se décide avec la mairie et reste signalée comme ne venant pas de son site.
+Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés n’entrent pas dans la base, ni les pages d’autres sites, sauf ceux que la mairie désigne, comme le site d’un équipement municipal. Les questions posées par les habitants sont conservées à part et ne deviennent pas des fiches. L’orientation vers une information nationale, comme service-public.gouv.fr , se décide avec la mairie et reste signalée comme ne venant pas de son site. La page quelle source fait foi selon la question classe six sources officielles.
 Qui valide les sources
 Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents. La validation se fait pendant la mise en service, en six étapes, avant toute ouverture aux habitants :
 l’inventaire des sources : site officiel, documents, actes, sites liés que la mairie veut voir lus ;
@@ -1179,7 +1189,7 @@ la constitution de la base de connaissances ;
 la mesure sur 300 questions de test, chaque réponse étant jugée contre sa page source ;
 la validation par les agents de la mairie, qui relisent les réponses et corrigent les fiches ;
 la version de référence, validée par écrit par la mairie.
-Rien n’est ouvert aux habitants avant la sixième étape. Le détail et le prix de chaque étape sont sur la page prix .
+Rien n’est ouvert aux habitants avant la sixième étape. Le détail et le prix de chaque étape sont sur la page prix . Pour préparer ses données avant une IA , quel que soit l’outil, une commune peut suivre sept étapes.
 Comment la base reste à jour
 La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée entre en général dans la base le lendemain, sans ressaisie par les agents.
 Des contrôles se jouent avant toute écriture. Si la relecture de la nuit constate une suppression massive de fiches ou un effondrement du volume lu, rien n’est écrit et la base de la veille reste servie, le temps qu’une personne regarde.
@@ -1205,6 +1215,11 @@ Combien de temps prend la mise en service ?
 La durée dépend de la taille du site, du nombre de documents et de la disponibilité des agents pour la relecture. Elle se fixe au devis, et l’ouverture aux habitants n’a lieu qu’après la validation écrite de la mairie.
 Combien coûte la constitution de la base ?
 Elle fait partie de la mise en service, facturée une seule fois à partir de 999 € HT. La collecte des informations, quand le site n’est pas à jour, s’ajoute à partir de 499 € HT.
+Pour aller plus loin
+Préparer les données de la commune pour une IA : sept étapes
+Quelle source fait foi, du site de la commune à Légifrance
+Tester les réponses d’un chatbot de mairie avant de l’ouvrir
+Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -1232,6 +1247,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1281,7 +1297,7 @@ Si le site de la mairie publie une information périmée, la réponse le sera au
 Une question hors de la base doit recevoir un refus
 Quand aucune fiche ne porte la réponse, la bonne réponse dit que le site ne publie pas l’information et indique comment joindre la mairie. Les banques de test de Civik-ia contiennent des questions pièges de ce type, dont la seule réponse juste est ce refus.
 Comment le mesurer avant d’ouvrir
-Avant l’ouverture aux habitants, Civik-ia pose 300 questions de test et juge chaque réponse contre sa page source : juste, partielle, fausse, ou refus. Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues. Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence. Le détail des six étapes est sur la page prix .
+Avant l’ouverture aux habitants, Civik-ia pose 300 questions de test et juge chaque réponse contre sa page source : juste, partielle, fausse, ou refus. Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues. Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence. Le détail des six étapes est sur la page prix . La méthode est détaillée sur la page tester un chatbot de mairie : constituer ses questions .
 Cinq questions à poser à un fournisseur
 Quels documents l’IA lit-elle, et qui les choisit ?
 La réponse donne-t-elle la page source, et l’habitant peut-il l’ouvrir ?
@@ -1303,6 +1319,11 @@ Que mesurer avant d’ouvrir un assistant aux habitants ?
 Deux choses : la part des questions pour lesquelles la bonne fiche est retrouvée, et la part des réponses justes, jugées contre la page source. Les questions pièges, dont la réponse n’est pas sur le site, doivent recevoir un refus.
 Quel modèle d’IA utilise Marianne ?
 Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia. Le serveur de Marianne est chez OVHcloud, en Allemagne ; le lieu de calcul du modèle n’est pas fixé par contrat.
+Pour aller plus loin
+La méthode de test d’un chatbot de mairie, question par question
+Une base de données fiable pour l’IA d’une mairie
+Les six sources officielles d’une réponse à un habitant
+Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -1330,6 +1351,1062 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Sécuriser la base de données d’une collectivité · Civik-ia
+URL : https://civik-ia.fr/securiser-base-de-donnees-collectivite.html
+Resume : Sept mesures pour sécuriser les bases de données d&#x27;une mairie : sauvegardes, comptes, droits, journaux, prestataires, attaque. Sources CNIL et ANSSI.
+
+Sécuriser la base de données d’une collectivité · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Sécuriser la base de données
+Sécuriser la base de données d’une collectivité territoriale : sept mesures
+Pour sécuriser la base de données d’une collectivité, commencez par des sauvegardes dont une copie hors ligne, testée en restauration.
+Viennent ensuite des comptes individuels avec authentification à plusieurs facteurs, des droits limités à chaque mission, des journaux conservés de six mois à un an et des mises à jour rapides.
+Ces mesures sont celles de la CNIL et de l’ANSSI.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Une mairie tient des bases très différentes : état civil, listes électorales, paie, action sociale, urbanisme, inscriptions scolaires.
+Toutes contiennent des données personnelles.
+L’article 32 du RGPD demande donc au responsable du traitement et à son sous-traitant de mettre en œuvre « les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque » ( CNIL, guide de la sécurité des données personnelles, édition du 26 mars 2024 ).
+Cette page range sept mesures, cite pour chacune sa source et indique où trouver de l’aide gratuite.
+Ce que montrent les chiffres de l’ANSSI pour 2025
+Le panorama de la cybermenace 2025 , publié par l’ANSSI le 11 mars 2026, donne quatre repères.
+128 compromissions par rançongiciel ont été portées à la connaissance de l’agence en 2025, un nombre légèrement en baisse sur 2024.
+Les collectivités territoriales représentent 11 % des victimes de rançongiciel, une part en légère baisse.
+Les rançongiciels visent « indistinctement la plupart des secteurs et des zones géographiques » : l’attaque est opportuniste, et la taille de la commune ne protège pas.
+Les incidents d’exfiltration de données, où les données sont volées sans être chiffrées, sont passés de 130 en 2024 à 196 en 2025.
+L’ANSSI n’a pu confirmer que 80 revendications parmi celles qu’elle a reçues.
+Elle juge que le chantage à la publication de données, sans rançongiciel, s’est accentué mais reste limité.
+Les ministères et les collectivités territoriales rassemblent 24 % des 1 366 incidents portés à la connaissance de l’ANSSI en 2025.
+L’agence précise que ces chiffres ne sont pas nécessairement représentatifs de l’ensemble des événements de sécurité.
+Une sauvegarde ne protège pas d’un vol de données.
+Les mesures 2 à 5 ci-dessous, qui contrôlent qui entre et ce qu’il fait, répondent à ce risque.
+Mesure 1 : sauvegarder, avec une copie hors ligne
+La CNIL recommande des sauvegardes fréquentes (par exemple des sauvegardes incrémentales chaque jour, complétées de sauvegardes complètes à intervalles réguliers), au moins une copie sur un site géographiquement distinct et au moins une copie hors ligne, sans connexion au réseau.
+Elle cite la règle 3-2-1 : trois copies des données, sur deux supports différents, dont une hors ligne ( CNIL, « Sécurité : Sauvegarder » , 14 mars 2024).
+Deux précautions complètent la règle.
+Les sauvegardes reçoivent le même niveau de sécurité que les serveurs d’exploitation : chiffrement, stockage protégé, encadrement par contrat quand elles sont confiées à un tiers.
+Et la CNIL demande de tester régulièrement leur intégrité et la capacité à les restaurer.
+Pendant une attaque, Cybermalveillance.gouv.fr demande de débrancher du réseau les sauvegardes qui y sont connectées, pour que l’attaquant ne les détruise pas.
+Mesure 2 : donner à chacun son compte, avec une authentification forte
+La CNIL demande un identifiant unique par utilisateur et proscrit les comptes partagés.
+Quand un compte générique est indispensable, les actions sont tracées et le mot de passe change dès qu’une personne n’en a plus l’usage.
+La base ne conserve que l’empreinte des mots de passe.
+L’authentification multifacteur est à privilégier, surtout pour les connexions depuis l’extérieur du réseau, et les comptes d’administrateur exigent des mots de passe plus longs, renouvelés ( CNIL, « Sécurité : Authentifier les utilisateurs » , 14 mars 2024).
+Le 22 décembre 2023, la CNIL a publié la sanction d’une commune dont les mesures de sécurité étaient insuffisantes : les précautions minimales sur la force et le stockage des mots de passe n’étaient pas respectées.
+La CNIL rappelle qu’un mot de passe ne doit jamais être stocké en clair par le responsable du traitement, et qu’une commune, autorité publique qui traite de nombreuses données dont certaines sensibles, « se doit de faire preuve d’exemplarité en matière de sécurité des données » ( CNIL, 22 décembre 2023 ).
+Mesure 3 : limiter les droits à la mission de chacun
+Chaque agent n’accède qu’aux données utiles à ses missions.
+La CNIL décrit quatre gestes.
+Définir des profils d’habilitation qui séparent les tâches.
+Faire approuver chaque demande d’accès par un responsable.
+Retirer les accès au changement de poste et à la fin du contrat.
+Revoir l’ensemble au moins une fois par an pour supprimer les comptes inutilisés ( CNIL, « Sécurité : Gérer les habilitations » , 13 mars 2024).
+Elle liste ce qui affaiblit une base : les comptes partagés sans traçabilité, les droits d’administrateur inutiles, les autorisations temporaires oubliées et les comptes de personnes parties.
+Dans une mairie, l’agent chargé des inscriptions scolaires n’a, par exemple, aucune raison de consulter la base de l’état civil.
+Mesure 4 : tracer qui consulte et qui modifie
+Pour les traces applicatives, la CNIL demande d’enregistrer la création, la consultation, le partage, la modification et la suppression de données, avec l’identifiant de l’auteur, la date, l’heure, la nature de l’opération et la référence de la donnée.
+Les interventions des administrateurs et les anomalies sont enregistrées aussi.
+Les traces se conservent sur une période glissante de six mois à un an, avec des exceptions possibles (obligation légale, contentieux, analyse après incident).
+Elles sont protégées contre les modifications non autorisées et ne contiennent jamais de mot de passe.
+Les agents sont informés que la journalisation existe, et les prestataires sont tenus par contrat de journaliser et de signaler les incidents ( CNIL, « Sécurité : Tracer les opérations » , 14 mars 2024).
+Mesure 5 : chiffrer et mettre à jour
+La CNIL cite des algorithmes reconnus, comme AES pour le chiffrement et bcrypt, scrypt, Argon2 ou PBKDF2 pour stocker les mots de passe, et proscrit DES, 3DES, MD5 et SHA-1.
+Les clés se protègent par des droits d’accès restrictifs et se gèrent selon une procédure écrite ( CNIL, « Sécurité : Chiffrement, hachage, signature » , 14 mars 2024).
+Cybermalveillance.gouv.fr demande d’appliquer vite les correctifs de sécurité, d’abord sur les équipements exposés à Internet comme les VPN et les pare-feu, et de sécuriser l’accès à distance par un VPN avec une authentification à deux facteurs, télémaintenance comprise.
+Mesure 6 : encadrer les prestataires
+La base d’une mairie est souvent hébergée ou exploitée par un éditeur, un hébergeur ou un infogérant.
+L’article 28 du RGPD impose alors un contrat de sous-traitance, qui fixe ce que le prestataire fait des données et ce qu’il doit à la mairie.
+L’ANSSI décrit, pour 2025, deux scénarios qui passent par un prestataire.
+Un attaquant compromet un prestataire, exfiltre les ressources de ses clients, puis se déplace dans le système d’information de plusieurs d’entre eux avec des identifiants volés.
+Ou bien un rançongiciel frappe un prestataire et coupe l’accès de tous ses clients à l’application qu’il fournit ( panorama 2025 , pages 48 et 49).
+Le 24 décembre 2025, la CNIL a publié une amende de 1,7 million d’euros contre un éditeur, pour la sécurité insuffisante d’un logiciel de relation avec les usagers de l’action sociale, utilisé notamment par des maisons départementales des personnes handicapées.
+La formation restreinte relève une faiblesse généralisée du système d’information et des failles déjà signalées par des audits, corrigées seulement après les fuites ( CNIL, 24 décembre 2025 ).
+Trois questions à poser par écrit à un prestataire : quels sont ses sous-traitants et dans quels pays traitent-ils les données, comment sont faites ses sauvegardes (fréquence, lieu, copie hors ligne), et sous quel délai prévient-il la mairie d’un incident.
+Mesure 7 : préparer le jour de l’attaque
+Le réseau attaqué ne donne plus accès au document qui décrit quoi faire.
+La conduite à tenir s’écrit donc avant l’incident, sur papier, avec les numéros à appeler.
+La fiche de Cybermalveillance.gouv.fr (publiée le 3 juin 2025, mise à jour le 7 mai 2026) donne les gestes suivants :
+couper les connexions Internet du réseau attaqué et isoler les machines atteintes (câble réseau, Wi-Fi) ;
+débrancher les sauvegardes connectées au réseau ;
+appeler son prestataire informatique ou le 17Cyber ;
+ne pas payer la rançon : rien ne garantit la récupération des données, et le paiement encourage d’autres attaques ;
+conserver les journaux, les copies des machines et la note de rançon, puis déposer plainte avant de réinstaller, au plus tard 72 heures après avoir eu connaissance de l’attaque si la mairie veut être indemnisée par son assurance (article L. 12-10-1 du code des assurances) ;
+prévenir son assureur ; si des données personnelles sont touchées, la mairie notifie la violation à la CNIL dans les meilleurs délais et, si possible, dans les 72 heures après en avoir pris connaissance, sauf si elle n’est pas susceptible d’engendrer un risque pour les personnes (article 33 du RGPD).
+Sur l’extinction des machines, les sources se nuancent.
+La fiche de Cybermalveillance.gouv.fr demande de ne pas éteindre les machines atteintes.
+L’ANSSI cite une entité qui, en 2025, a débranché électriquement son centre de données : l’arrêt total qui a suivi a perturbé son activité sur le long cours, et une extinction brutale peut aussi effacer des traces.
+L’agence juge indispensable un plan de continuité d’activité et un plan de reprise d’activité écrits à l’avance ( panorama 2025 , page 12).
+Ce que la loi demande à une commune
+L’article 32 du RGPD impose des mesures de sécurité adaptées au risque.
+L’article 37 impose à tout organisme public de désigner un délégué à la protection des données, qui peut être mutualisé entre plusieurs collectivités.
+La directive européenne NIS 2 est un autre sujet.
+Sa transposition française est le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité.
+Le Sénat l’a adopté le 12 mars 2025 ( Sénat, dossier législatif , page mise à jour le 17 mars 2026).
+La commission spéciale de l’Assemblée nationale l’a adopté à son tour le 10 septembre 2025.
+Le 6 octobre 2026, la conférence des présidents l’a retiré des séances des 7 et 9 octobre, sans nouvelle date au 21 octobre 2026 selon Leto Legal .
+Dans le texte de cette commission, les régions, les départements et les communes de plus de 30 000 habitants sont des entités essentielles et les communautés de communes des entités importantes ; les autres communes n’y figurent pas comme telles, mais un établissement social ou médico-social, même géré par un centre communal d’action sociale, y figure (articles 8 et 9 du texte n° 1779 ).
+Les sept mesures de cette page ne dépendent pas de ce texte.
+Où trouver de l’aide gratuite
+Le portail MesServicesCyber de l’ANSSI propose aux collectivités un diagnostic « cyberdépart » gratuit d’environ une heure avec un aidant cyber, un diagnostic guidé (MonAideCyber), un programme « Se lancer en 12 mesures » et des contacts locaux.
+Le 17Cyber aide pendant un incident (page consultée le 20 octobre 2026).
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Voici ce que Civik-ia a mis en place sur son serveur, tel que la page Conformité RGPD le décrit au 16 octobre 2026.
+Les échanges entre le navigateur et la plateforme sont chiffrés (HTTPS).
+L’accès d’administration au serveur se fait par clé cryptographique, réservée au président de Civik-ia.
+Les sauvegardes sont quotidiennes sur le serveur, avec une copie hors site en France.
+Une batterie d’attaques est rejouée après chaque modification des consignes du modèle, de l’authentification ou du serveur web.
+À l’ouverture de l’espace mairie, les mots de passe et les codes de connexion seront conservés sous forme d’empreinte.
+Civik-ia ne détient aucune certification de sécurité, et Marianne n’est pas hébergée sur une offre qualifiée SecNumCloud.
+Une mairie qui étudie Marianne reçoit l’accord sur le traitement des données avec la proposition et peut demander ce détail par écrit.
+Le produit est présenté sur la page Marianne ; le cadre de ses six critères est sur la page guichet citoyen IA .
+Questions fréquentes
+Par où commencer pour sécuriser les données d’une mairie ?
+Par les sauvegardes : trois copies sur deux supports, dont une hors ligne, restaurées à l’essai (règle 3-2-1 de la CNIL).
+Viennent ensuite un compte par agent avec authentification à plusieurs facteurs et des droits limités à chaque mission.
+Un diagnostic gratuit existe sur MesServicesCyber.
+Une petite commune est-elle une cible ?
+Oui.
+L’ANSSI constate que les attaques par rançongiciel ciblent « indistinctement la plupart des secteurs et des zones géographiques ».
+En 2025, les collectivités territoriales représentent 11 % des victimes de rançongiciel portées à sa connaissance.
+Faut-il payer la rançon ?
+Non, selon Cybermalveillance.gouv.fr : rien ne garantit la récupération des données, et le paiement encourage d’autres attaques.
+La fiche conseille de déposer plainte avant de réinstaller, et de vérifier sur le site No More Ransom si un outil de déchiffrement existe.
+Combien de temps conserver les journaux d’accès ?
+La CNIL recommande une période glissante de six mois à un an, avec des exceptions possibles pour une obligation légale, un contentieux ou une analyse après incident.
+Au-delà, les traces se suppriment : les conserver sans limite de durée est une erreur.
+Que faire en cas de fuite de données personnelles ?
+Prévenir le délégué à la protection des données, puis notifier la violation à la CNIL dans les meilleurs délais, si possible dans les 72 heures après en avoir pris connaissance, sauf si elle ne présente pas de risque pour les personnes (article 33 du RGPD).
+Les personnes concernées sont prévenues quand le risque est élevé (article 34), et la violation s’inscrit dans le registre de la mairie même sans notification.
+Déposer plainte et appeler le 17Cyber.
+Les journaux et les copies des machines se conservent comme preuves.
+Un hébergeur qualifié SecNumCloud dispense-t-il de sécuriser la base ?
+Non.
+L’ANSSI écrit que « l’hébergement d’un site web sur une offre qualifiée n’enlève pas la nécessité de sécuriser le site web en lui-même ».
+La qualification porte sur l’offre d’hébergement, pas sur le niveau de sécurité des services du client ( ANSSI, recommandations pour l’hébergement dans le cloud, juillet 2024 ).
+Pour aller plus loin
+Le guide RGPD de l’IA en collectivité, obligation par obligation
+Ce qu’un agent ne colle jamais dans un outil d’IA grand public
+Six questions pour juger la souveraineté d’un outil numérique
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Quelle source officielle fait foi en mairie · Civik-ia
+URL : https://civik-ia.fr/sources-officielles-mairie-quelle-source-fait-foi.html
+Resume : Horaires, démarches, loi, urbanisme, adresses : la source officielle qui fait foi pour chaque question d&#x27;habitant, et comment la citer avec sa date.
+
+Quelle source officielle fait foi en mairie · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Quelle source fait foi
+Quelle source officielle fait foi pour répondre aux habitants d’une commune ?
+Pour répondre à un habitant, la source qui fait foi dépend de la question.
+Le site et les actes de la commune valent pour tout ce qui est local : horaires, tarifs, arrêtés.
+Service-Public.gouv.fr vaut pour les démarches nationales, Légifrance pour le texte d’une loi, le Géoportail de l’urbanisme pour le PLU.
+Une réponse sérieuse cite la page et sa date.
+Une fiche nationale explique une démarche ; en cas de doute, c’est le texte qu’elle cite qui s’applique.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Un secrétaire de mairie répond chaque jour à des questions qui relèvent de sources différentes.
+Un assistant en ligne, qu’il soit humain ou automatique, rencontre le même problème : où se trouve la version qui fait foi, et comment la montrer à l’habitant ?
+Cette page classe six sources officielles, dit ce que chacune garantit et ce que sa licence demande de citer.
+Une source par type de question
+Question de l’habitant Source qui fait foi Ce qu’elle garantit Ce qu’il faut citer
+Horaires, tarifs, collecte, équipements, arrêtés de la commune Le site de la commune et les actes qu’elle publie La commune est l’émetteur. Depuis le 1er juillet 2022, les communes publient sous forme électronique les actes réglementaires et les décisions ni réglementaires ni individuelles (option pour les communes de moins de 3 500 habitants) L’adresse de la page et sa date
+Démarche nationale (papiers d’identité, aides, droits) Service-Public.gouv.fr , édité par la DILA Des fiches nationales, datées « Vérifié le » « Source : Service Public / DILA », suivie de « Mise à jour : » et de la date
+Coordonnées et horaires d’un guichet public (mairie, préfecture, caisse) Annuaire de l’administration Plus de 86 000 guichets publics locaux, avec adresses, téléphones, site internet, horaires et géolocalisation La DILA, le fichier et sa date de mise à jour
+Texte d’une loi, d’un décret, d’un article de code Légifrance Le droit du Journal officiel électronique n’est authentifié que sur ce site L’article, sa version et la date de consultation
+Règles d’urbanisme (PLU, SCoT) Géoportail de l’urbanisme Depuis le 1er janvier 2023, la publication sur le portail conditionne le caractère exécutoire du document Le document, sa date d’approbation, le portail
+Adresse d’une rue ou d’un équipement Base Adresse Nationale La commune est l’autorité responsable de l’adresse ; elle publie sa Base Adresse Locale dans la base nationale La commune et la date de la base
+Les sources de la commune : ce qu’elle doit publier
+Depuis le 1er juillet 2022 (ordonnance n° 2021-1310 et décret n° 2021-1311 du 7 octobre 2021), les communes publient sous forme électronique, sur leur site internet, leurs actes réglementaires et leurs décisions ni réglementaires ni individuelles.
+Les décisions individuelles, elles, sont notifiées aux personnes qui en font l’objet.
+Les communes de moins de 3 500 habitants ont une option : l’affichage, la publication papier ou la publication électronique, au choix du conseil municipal.
+Sans délibération sur ce point, la publication électronique s’applique.
+Dans tous les cas, un exemplaire papier du procès-verbal du conseil est mis à la disposition du public ( ministère chargé des collectivités, « Publicité, entrée en vigueur et conservation des actes » , consulté le 20 octobre 2026).
+Une conséquence pour un assistant : une commune qui a choisi l’affichage n’est pas tenue de mettre ses actes en ligne, même si, quand elle a un site, elle y publie le procès-verbal de ses séances et la liste des délibérations (articles L. 2121-15 et L. 2121-25 du code général des collectivités territoriales).
+L’assistant ne répond qu’à partir de ce que le site publie ; le reste se recueille auprès de la mairie avant l’ouverture.
+Les collectivités de plus de 3 500 habitants employant plus de 50 personnes en équivalents temps plein ont une obligation de publication en ligne de leurs documents administratifs, dans les cas de l’article L. 312-1-1 du code des relations entre le public et l’administration.
+Le format doit être ouvert et exploitable automatiquement : un PDF image ne convient pas.
+Les mentions protégées sont occultées avant publication, et les données personnelles sont anonymisées sauf exceptions que la CADA juge d’interprétation stricte ( CADA, publication des documents des collectivités , consulté le 20 octobre 2026).
+Les sources nationales : ce que leur licence demande
+Service-Public.gouv.fr et l’Annuaire de l’administration
+Le guide des droits et démarches de Service-Public.gouv.fr, ses actualités et l’annuaire de l’administration sont publiés sur data.gouv.fr sous Licence Ouverte.
+La réutilisation est gratuite, à condition de citer la source et la date de mise à jour.
+La DILA donne la mention attendue : « Source : Service Public / DILA », suivie de la date de mise à jour ( page « Mise à disposition des données » , vérifiée le 3 mars 2026).
+Les logos et marques de la DILA lui appartiennent : leur utilisation, notamment commerciale, demande son accord préalable et écrit.
+L’Annuaire de l’administration, base de données locales, réunit plus de 86 000 guichets publics locaux, dont des mairies.
+Chaque fiche porte l’adresse, le téléphone, le site internet, les horaires d’ouverture et la géolocalisation.
+Le jeu de données est publié par la DILA, sous Licence Ouverte (page consultée le 20 octobre 2026, jeu de données daté du 20 octobre 2026).
+Légifrance
+Le jeu de données LEGI (codes, lois et règlements consolidés) est sous Licence Ouverte, avec une API gratuite sur inscription par le portail PISTE.
+La page précise que le droit issu du Journal officiel électronique n’est valablement authentifié que sur legifrance.gouv.fr.
+Un assistant qui cite un article de loi renvoie donc vers ce site ( data.gouv.fr, LEGI , consulté le 20 octobre 2026).
+Géoportail de l’urbanisme et Base Adresse Nationale
+Depuis le 1er janvier 2020, la publication des SCoT et des PLU sur le portail national de l’urbanisme est obligatoire.
+Depuis le 1er janvier 2023, elle conditionne leur caractère exécutoire ( ministère chargé des collectivités, « La publicité des documents d’urbanisme » , page du 10 juillet 2025).
+Le PLU qu’un assistant cite doit donc être celui du portail.
+La Base Adresse Nationale référence les adresses du territoire.
+Les communes l’alimentent en construisant leur Base Adresse Locale, et la commune y est présentée comme « autorité responsable de l’adresse » ( adresse.data.gouv.fr , consulté le 20 octobre 2026).
+Quand deux sources se contredisent
+Cette règle est une règle de travail, non une règle de droit.
+Elle se fixe avec la mairie avant l’ouverture d’un assistant, par écrit.
+Le local l’emporte pour ce qui est local : un horaire, un tarif, une date de collecte viennent de la commune.
+Le national l’emporte pour ce qui est national : les pièces d’une démarche viennent de Service-Public.gouv.fr, le texte d’une loi de Légifrance.
+À niveau égal, la page la plus récemment datée l’emporte.
+Si l’écart reste entier, l’assistant le dit, renvoie vers la mairie et l’écart est signalé aux agents pour correction.
+Une page de la commune qui recopie une fiche nationale sans la dater devient fausse en silence quand la fiche change.
+La mise en service d’un assistant relève ces écarts et les signale à la mairie.
+Comment citer une source
+Une citation utile à l’habitant tient en quatre éléments : le lien direct vers la page (pas vers l’accueil du site), le nom de l’émetteur, la date de mise à jour ou de vérification, et la mention de licence quand elle est exigée.
+Sous la réponse, l’habitant ouvre la page et lit le texte officiel.
+Une réponse sans lien ne se vérifie ni par l’habitant ni par la mairie.
+Ce qui ne se cite pas : la mémoire du modèle, une copie sans date, une page d’un site tiers.
+Un modèle de langage écrit le texte le plus probable à partir de ce qu’il a lu pendant son entraînement : il ne connaît pas les horaires de votre mairie.
+La CNIL le rappelle dans ses questions-réponses : « ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Elle répond à partir des sources de la commune : pages du site officiel, documents publiés, actes relus et fiches écrites à la main, vérifiées avec les agents avant l’ouverture.
+La page d’où vient chaque réponse est donnée sous la réponse.
+L’orientation vers une information nationale, comme Service-Public.gouv.fr ou les numéros d’urgence, se décide avec chaque mairie.
+Elle est alors signalée comme ne venant pas du site de la commune.
+Le détail est sur la page base de connaissances d’une mairie ; les six critères d’un assistant qui cite ses sources sont sur la page guichet citoyen IA .
+Questions fréquentes
+Une mairie doit-elle publier ses arrêtés et ses délibérations en ligne ?
+Par défaut, oui.
+Depuis le 1er juillet 2022, les communes publient sur leur site leurs actes réglementaires et leurs décisions ni réglementaires ni individuelles.
+Les communes de moins de 3 500 habitants peuvent choisir l’affichage ou la publication papier, par délibération.
+Peut-on réutiliser librement les fiches de Service-Public.gouv.fr ?
+Oui, sous Licence Ouverte, à condition de citer la source et la date de mise à jour (« Source : Service Public / DILA »).
+Les logos et marques de la DILA restent réservés.
+Où trouver les horaires et les coordonnées officiels d’une mairie ?
+Sur le site de la commune d’abord, puis dans l’Annuaire de l’administration, qui recense plus de 86 000 guichets publics locaux avec leurs horaires et leur géolocalisation.
+Le jeu de données est publié par la DILA sur data.gouv.fr.
+Quelle source l’emporte si le site de la mairie et Service-Public.gouv.fr se contredisent ?
+Le local l’emporte pour ce qui est local, le national pour ce qui est national, et la page la plus récemment datée départage le reste.
+C’est une règle de travail à écrire avec la mairie.
+Si l’écart reste entier, l’assistant doit le dire et renvoyer vers les agents.
+Le PLU affiché sur le site de la mairie fait-il foi ?
+Depuis le 1er janvier 2023, la publication sur le Géoportail de l’urbanisme conditionne le caractère exécutoire d’un PLU.
+C’est donc la version publiée sur le portail qui s’applique : vérifiez que la version citée par un assistant est la même.
+Un assistant de mairie doit-il citer Service-Public.gouv.fr ?
+Je n’ai trouvé aucun texte qui impose de renvoyer vers Service-Public.gouv.fr (recherche du 20 octobre 2026) : c’est un choix de la mairie, qui décide avec son fournisseur si l’assistant oriente vers une information nationale et comment il le signale.
+Mais un assistant qui reprend le contenu d’une fiche doit en citer la source et la date de mise à jour : c’est la condition de la Licence Ouverte et de l’article L. 322-1 du code des relations entre le public et l’administration.
+Pour aller plus loin
+Le RAG, ou comment une IA cite la page de la mairie
+Les sept étapes d’une base de données fiable pour l’IA
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## IA en mairie : les données à ne pas envoyer · Civik-ia
+URL : https://civik-ia.fr/donnees-a-ne-pas-envoyer-ia-mairie.html
+Resume : Données personnelles, sensibles, documents internes : ce qu&#x27;une mairie n&#x27;envoie pas à un modèle d&#x27;IA, et ce que change la pseudonymisation.
+
+IA en mairie : les données à ne pas envoyer · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Données à ne pas envoyer à l’IA
+IA en mairie : quelles données ne jamais envoyer à un modèle de langage ?
+Une mairie n’envoie à un outil d’IA grand public ni donnée personnelle, ni donnée sensible, ni document interne non publié : l’ANSSI le proscrit, la CNIL le déconseille.
+Un texte déjà publié peut partir.
+Remplacer un nom par un numéro ne suffit pas : une donnée pseudonymisée reste une donnée personnelle.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Les outils d’IA générative se sont installés dans les services avant les règles.
+Un agent qui colle le courrier d’un habitant dans un outil gratuit pour le reformuler envoie des données personnelles à un tiers.
+Cette page dit quelles données ne partent pas, ce que la pseudonymisation change, et quelles questions poser à un fournisseur.
+Deux situations, une même règle
+Dans la première, un agent utilise un outil grand public pour son travail.
+Dans la seconde, un habitant écrit sa question à l’assistant de la mairie.
+Dans les deux cas, du texte quitte la mairie pour un modèle de langage hébergé par un tiers.
+Pour la première, l’ANSSI est nette.
+Envoyer des informations à un service d’IA générative grand public revient à les déposer sur un espace de stockage qui appartient à son éditeur.
+L’agence cite ChatGPT, Gemini, Copilot, DeepL et Perplexity.
+Elle rappelle que, dans la majorité des offres, les données envoyées sont collectées et utilisées par le prestataire pour améliorer ses modèles.
+Elle recommande de ne jamais y intégrer de données sensibles de l’entité.
+Sa liste comprend les données personnelles (vie privée, coordonnées), les données contractuelles, juridiques ou financières, et les secrets informatiques comme les mots de passe ( ANSSI, recommandations de sécurité pour un système d’IA générative, ANSSI-PA-102, recommandation R34 , 29 avril 2024).
+La CNIL distingue les usages.
+Pour des informations non confidentielles, un service grand public peut être envisagé avec des garanties appropriées.
+Pour des données personnelles ou des documents sensibles, « il semble généralement plus opportun et plus sécurisé de privilégier le déploiement de solutions « sur site » » ( CNIL, questions-réponses sur l’utilisation d’un système d’IA générative , 18 juillet 2024).
+La seconde situation se règle à la conception de l’outil : la mairie ne maîtrise pas ce qu’un habitant écrit dans sa question.
+Quatre classes de données
+Classe Exemples dans une mairie Outil grand public Outil sous contrat avec la mairie
+Publiée Page du site, délibération ou arrêté publié, règlement de collecte Possible Possible
+Interne non publiée Délibération en cours, marché non notifié, dossier disciplinaire, évaluation individuelle Non À décider avec le délégué à la protection des données
+Personnelle Nom, adresse, date de naissance, téléphone, courriel, matricule, numéro de sécurité sociale Non Seulement sous contrat de sous-traitance, avec une base légale et l’information des personnes ; la CNIL privilégie un déploiement sur site
+Sensible Santé, origine raciale ou ethnique, opinions politiques, convictions religieuses ou philosophiques, appartenance syndicale, données génétiques, données biométriques servant à identifier une personne, vie sexuelle ou orientation sexuelle Non Interdiction de principe de l’article 9 du RGPD, exceptions étroites à examiner avec le délégué
+Le mot « sensible » n’a pas le même sens partout.
+Pour le RGPD, ce sont les catégories de l’article 9 listées dans le tableau ( CNIL, « Donnée sensible » ) ; les données relatives aux condamnations et aux infractions suivent un régime voisin (article 10).
+Pour l’ANSSI, la liste des données à ne pas envoyer est plus large que les catégories du RGPD : elle comprend aussi les données de niveau diffusion restreinte, les données contractuelles, juridiques ou financières et les secrets informatiques.
+La charte d’utilisation de l’intelligence artificielle du Pays de Falaise , intercommunalité du Calvados (document daté de mai 2026, transmis en préfecture le 13 juillet 2026), donne une liste d’interdits concrète : les données identifiantes (nom, adresse, date de naissance, téléphone, courriel, matricule, numéro de sécurité sociale), les données sensibles et les documents internes non publics.
+Elle ajoute que le périmètre est plus large qu’il n’y paraît : l’année de naissance des habitants d’une commune peut suffire à identifier une personne précise, le doyen ou la doyenne par exemple.
+Pseudonymiser, anonymiser : ce que cela change
+La pseudonymisation remplace les identifiants directs (nom, prénom) par un alias, un numéro ou une empreinte cryptographique.
+Les informations qui permettent de retrouver la personne sont conservées à part et protégées.
+Le processus est réversible, et la CNIL précise que les données pseudonymisées restent des données personnelles, soumises au RGPD.
+L’anonymisation est irréversible, et les données anonymisées sortent du RGPD.
+Un jeu de données n’est anonyme que si l’on ne peut plus isoler une personne (individualisation), relier deux enregistrements qui la concernent (corrélation) ni déduire une information sur elle (inférence).
+La CNIL recommande de ne jamais considérer des données brutes comme anonymes par défaut ( CNIL, « Identifier les données personnelles » , 27 janvier 2020).
+Pour une mairie, cela donne une règle simple.
+Remplacer « Madame Durand » par « Mme X » réduit le risque, mais ne rend pas le texte anonyme si l’adresse, la date ou la situation décrite suffisent à reconnaître la personne.
+Avant tout envoi à un outil que la mairie ne maîtrise pas, on retire les noms, les adresses, les dates de naissance, les numéros, puis on relit : un détail rare, comme le seul bénéficiaire d’une aide dans un hameau, identifie à lui seul.
+Ce que l’habitant écrit lui-même
+Un assistant ouvert aux habitants reçoit du texte libre.
+Un habitant y écrit son nom, une adresse, parfois un problème de santé ou une situation sociale, sans que personne le lui ait demandé.
+Ces données restent des données personnelles même si personne ne les a demandées : la mairie, responsable du traitement, en répond dès que l’outil les reçoit, les transmet ou les conserve.
+Cinq choix de conception limitent le risque.
+Ne demander aucun compte ni identifiant.
+Reconnaître les thèmes sensibles pour ne pas les conserver.
+Effacer le texte des questions après une durée fixée.
+Informer les habitants de ce qui est traité.
+Écrire dans le contrat qui reçoit ces questions, et où.
+La mairie en décide avec son délégué à la protection des données avant l’ouverture, et juge avec lui si une analyse d’impact est nécessaire (voir le guide RGPD et IA en collectivité ).
+Cinq questions à poser à un fournisseur d’IA
+Qu’est-ce qui part chez l’éditeur du modèle : la question seule, l’historique de la conversation, des documents ?
+L’éditeur du modèle conserve-t-il ces données, combien de temps, et peut-il les réutiliser pour entraîner ses modèles ?
+Où le modèle calcule-t-il, et est-ce écrit au contrat ?
+Quels sous-traitants interviennent, et sous quel délai la mairie est-elle prévenue d’un changement ?
+Que devient une question qui contient une donnée sensible ?
+La CNIL demande de sécuriser le recours à une infrastructure externe par un contrat de sous-traitance qui définit les responsabilités et les accès.
+Elle demande aussi d’encadrer le traitement par le destinataire quand des données personnelles peuvent être transférées hors de l’Union européenne (questions-réponses du 18 juillet 2024).
+L’article 28 du RGPD fixe le contenu du contrat.
+Les réponses se demandent par écrit.
+Une charte d’usage pour les agents
+La CNIL recommande de définir une charte interne qui liste les usages autorisés et interdits.
+La charte du Pays de Falaise tient en cinq principes : responsabilité de l’agent sur ce qu’il produit, relecture de tout contenu généré, aucune donnée personnelle ou confidentielle dans un outil grand public, mention de l’usage de l’IA quand c’est pertinent ou réglementaire, usage sobre.
+Elle désigne un référent IA, qui est aussi le délégué à la protection des données, et note qu’« une interdiction générale est souvent inefficace : elle ne supprime pas les usages, elle les rend surtout moins visibles et plus risqués ».
+En octobre 2025, Localtis relevait que les collectivités qui encadrent l’IA générative retiennent « l’interdiction absolue de saisir des données personnelles et/ou sensibles dans les IA grand public » ( Banque des Territoires, 21 octobre 2025 ).
+Une charte utile reste courte.
+Elle dit ce qui est permis, ce qui ne l’est pas, quel outil la mairie a validé, et à qui signaler un doute ou un incident.
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Voici ce qui part chez le modèle et ce qui ne part pas, tel que les pages du site le décrivent au 20 octobre 2026.
+Mistral AI, société française, reçoit la question telle que l’habitant l’a écrite et les échanges précédents de la même conversation, sans compte ni identifiant, avec les fiches publiques retrouvées dans la base.
+Le lieu de calcul du modèle n’est pas fixé par contrat.
+Marianne ne demande ni nom ni courriel.
+Elle ne peut pas empêcher un habitant d’écrire son nom dans sa question.
+La base de connaissances, où Marianne cherche ses réponses, ne reprend que ce que la commune a publié : aucun fichier d’habitants, aucun document interne non publié.
+Dans les actes, les noms et adresses de particuliers sont masqués avant toute réponse, puis un témoin relit chaque acte : un acte où il reconnaît un nom de particulier est mis à l’écart.
+Les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base de données du service, et le texte des autres questions en est effacé au bout de 90 jours.
+Le détail est sur la page guichet citoyen IA et dans la page Conformité RGPD .
+L’accord sur le traitement des données remis à la mairie liste les sous-traitants.
+Questions fréquentes
+Peut-on utiliser ChatGPT à la mairie ?
+Pour des textes publics ou des tâches sans donnée personnelle, la CNIL admet un service grand public avec des garanties appropriées.
+Pour des données personnelles ou des documents sensibles, elle conseille un déploiement sur site, et l’ANSSI proscrit l’envoi de données sensibles à ces services.
+Le choix se fait avec le délégué à la protection des données.
+Qu’est-ce qu’une donnée sensible ?
+Au sens du RGPD, une donnée qui révèle l’origine raciale ou ethnique, les opinions politiques, les convictions religieuses ou philosophiques, l’appartenance syndicale, la santé, la vie ou l’orientation sexuelle, ou une donnée génétique ou biométrique d’identification.
+Le RGPD en interdit le traitement par principe, avec des exceptions étroites.
+L’ANSSI emploie le mot plus largement.
+La pseudonymisation suffit-elle pour envoyer des données à une IA ?
+Non.
+Selon la CNIL, une donnée pseudonymisée reste une donnée personnelle soumise au RGPD.
+Seule l’anonymisation irréversible la fait sortir du champ du règlement, et elle exige de ne plus pouvoir individualiser, relier ni déduire.
+Une charte d’usage de l’IA est-elle obligatoire pour une mairie ?
+Je n’ai trouvé aucune obligation légale à ce sujet (recherche du 20 octobre 2026).
+La CNIL recommande de définir par écrit les usages autorisés et interdits.
+Plusieurs collectivités ont adopté une charte en 2025 et 2026.
+Que devient la question d’un habitant posée à un assistant de mairie ?
+Elle part chez l’éditeur du modèle pour rédiger la réponse, et elle peut être conservée dans la base du service.
+La mairie lit dans l’accord sur le traitement des données la durée de conservation, les sous-traitants, le lieu de calcul et la réutilisation éventuelle des questions.
+Un assistant de mairie peut-il lire des documents internes ?
+Un assistant ouvert aux habitants ne doit lire que ce qui est publié ou approuvé pour l’être.
+Pour un usage interne avec des documents sensibles, la CNIL conseille de privilégier un déploiement sur site.
+Pour aller plus loin
+Sept mesures pour sécuriser les bases de données de la commune
+IA souveraine pour mairie : hébergeur, modèle, lieu de calcul
+Souveraineté numérique : les questions à poser par écrit à un fournisseur
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Tester un chatbot de mairie avant l’ouverture · Civik-ia
+URL : https://civik-ia.fr/tester-un-chatbot-de-mairie.html
+Resume : Questions réelles, questions pièges, quatre verdicts, banque de contrôle : la méthode pour tester un chatbot de mairie avant de l&#x27;ouvrir aux habitants.
+
+Tester un chatbot de mairie avant l’ouverture · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Tester un chatbot de mairie
+Tester un chatbot de mairie : constituer ses questions avant l’ouverture
+Tester un chatbot de mairie, c’est lui poser plusieurs centaines de questions prises dans la vie réelle de la mairie, écrire la réponse attendue avant le test, puis juger chaque réponse contre sa page source : juste, partielle, fausse ou refus.
+Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Un chatbot de mairie peut répondre avec assurance une information fausse : un délai, un tarif, une pièce à fournir.
+La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
+L’ANSSI recommande des tests de performance et de qualité des réponses avant la mise en production, et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement lors des déploiements (recommandation R24 du guide ANSSI-PA-102, 29 avril 2024).
+Cette page décrit comment une mairie construit ces tests, avec n’importe quel outil.
+Deux mesures à ne pas confondre
+La première mesure dit si la fiche qui porte la réponse figure parmi celles que l’outil a retrouvées.
+La seconde dit si la réponse rédigée est juste.
+La première peut être bonne quand la seconde ne l’est pas : le modèle peut mal lire une fiche juste, par exemple prendre le tarif d’une autre année dans une fiche voisine.
+Un fournisseur qui ne donne que la première mesure ne répond qu’à la moitié de la question (voir la page RAG pour une mairie ).
+Où prendre les questions
+Les meilleures questions sont celles que la mairie reçoit déjà.
+Elles viennent de quatre endroits : les appels et les passages à l’accueil, les courriels et les formulaires de contact, la foire aux questions du site, les questions des agents sur ce que les habitants demandent le plus.
+Chaque question garde la formulation de l’habitant, fautes de frappe et abréviations comprises.
+Une question réécrite proprement par un agent teste moins bien l’outil.
+Les questions ne contiennent ni nom ni coordonnée : si une question réelle en porte une, elle est réécrite sans elle avant d’entrer dans le jeu de test.
+Sept types de questions à prévoir
+Type Ce qu’il vérifie Réponse attendue
+Question courante Horaires, adresse, démarche simple La bonne information et la bonne page
+Question mal formulée Fautes, abréviations, phrases incomplètes La même information qu’avec la formulation correcte
+Question à plusieurs sources Une démarche qui dépend d’une page de la commune et d’une fiche nationale Une réponse qui ne mélange pas les deux
+Question datée Tarif d’une année, fermeture exceptionnelle La valeur de la bonne année ou de la bonne période
+Question piège Information absente du site de la mairie Un refus qui dit que le site ne la publie pas, et comment joindre la mairie
+Question sensible Santé, urgence, situation sociale L’orientation que la mairie a décidée, sans réponse improvisée
+Question détournée Demande de contourner les consignes, sujet hors commune Un refus poli qui reste dans le cadre des services municipaux
+Aucune règle officielle ne fixe la répartition entre ces sept types.
+Elle se décide avec la mairie, en tenant compte de ce qu’elle reçoit le plus.
+Le nombre de questions de chaque type compte moins que la présence des sept.
+Écrire la réponse attendue avant le test
+Pour chaque question, un agent écrit trois choses avant de lancer l’outil : la page qui contient la réponse, le fait attendu (heure, montant, pièce, numéro) et la date de la page.
+Écrire la réponse après avoir vu celle de l’outil conduit à la trouver juste.
+Pour une question piège, la réponse attendue est un refus, et la page source est « aucune ».
+Quatre verdicts
+Chaque réponse reçoit un verdict, jugé contre la page source.
+Juste : le fait demandé est exact et la page citée est la bonne.
+Partielle : le fait est exact mais incomplet, ou la page citée n’est pas la bonne alors que le fait l’est.
+Fausse : le fait est inexact, d’une autre année, d’un autre service, ou inventé.
+Refus : l’outil dit qu’il ne sait pas.
+Un refus à une question piège est un résultat juste.
+Un refus à une question dont la réponse figure sur le site est un échec de recherche.
+Une réponse fausse énoncée avec assurance pèse plus qu’une réponse partielle.
+La mairie décide avant le test de ce qui bloque l’ouverture.
+Je recommande de bloquer sur toute réponse fausse portant sur un délai, un tarif ou une démarche.
+Je n’ai trouvé aucun seuil officiel de justesse pour un assistant de mairie (recherche du 20 octobre 2026) : la mairie fixe le sien avant le test et l’écrit.
+Une banque de contrôle écrite à part
+Un outil se règle sur les questions de test : le fournisseur corrige chaque erreur relevée, puis relance.
+À la fin, le taux monte, et personne ne sait s’il tiendrait sur d’autres questions.
+Une seconde banque, écrite à part, jamais communiquée au fournisseur avant le test, mesure l’écart.
+Un taux bon sur la banque de réglage et mauvais sur la banque de contrôle signale un outil réglé pour les questions connues.
+Les agents jugent, la mairie valide
+Les agents de la mairie relisent les réponses : ils connaissent les habitants, les services et les exceptions.
+Le fournisseur n’est pas le seul juge de ses propres réponses.
+La mairie reçoit le résultat par écrit, question par question, avec les verdicts, et valide une version de référence avant que l’outil soit ouvert aux habitants.
+Après l’ouverture
+Un test ne se fait pas une fois.
+Le site de la commune change, les tarifs changent, les habitants posent d’autres questions.
+Les réponses jugées fausses ou incomplètes se corrigent dans la base, puis se mesurent de nouveau avec les mêmes questions.
+Les questions réelles des habitants alimentent le jeu de test suivant.
+Une question sans réponse est un signal utile : elle montre ce que le site de la commune ne dit pas.
+Un test de justesse ne remplace pas un test de sécurité.
+L’ANSSI recommande séparément des audits de sécurité avant la mise en production d’un système d’IA : tests d’intrusion, tests de résistance du modèle aux attaques (recommandation R23 du même guide).
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Avant l’ouverture aux habitants, Civik-ia pose 300 questions de test et juge chaque réponse contre sa page source (juste, partielle, fausse ou refus).
+Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues.
+Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence.
+Les banques de test contiennent des questions pièges dont la seule réponse juste est un refus.
+Une batterie d’attaques est rejouée après chaque modification des consignes du modèle, de l’authentification ou du serveur web.
+Marianne se présente comme une intelligence artificielle dès son premier message, comme le prévoit l’article 50 du règlement européen sur l’intelligence artificielle, applicable depuis le 2 août 2026.
+Civik-ia ne publie pas de taux de justesse tant qu’aucune commune n’a Marianne en service : les mesures portent sur des communes de test.
+La page RAG pour une mairie décrit ce que cette mesure prouve et ce qu’elle ne prouve pas ; le cadre est sur la page guichet citoyen IA .
+Questions fréquentes
+Combien de questions faut-il pour tester un chatbot de mairie ?
+Plusieurs centaines.
+Je n’ai trouvé aucun nombre officiel.
+La méthode de Civik-ia en prévoit 300 avant d’ouvrir Marianne aux habitants d’une commune, plus une banque de contrôle écrite à part.
+Quel taux de réponses justes exiger avant d’ouvrir ?
+Aucun seuil officiel n’existe à ma connaissance.
+La mairie fixe le sien avant le test et l’écrit.
+Ce qui compte d’abord : aucune réponse fausse sur un délai, un tarif ou une démarche.
+Un refus de l’assistant est-il un échec ?
+Pas quand la réponse n’est pas sur le site : le refus est alors le bon résultat.
+C’est un échec quand la réponse figure sur une page de la mairie et que l’outil ne l’a pas trouvée.
+Qui doit juger les réponses ?
+Les agents de la mairie, qui connaissent les services et les exceptions.
+Le fournisseur ne juge pas seul ses propres réponses.
+La mairie valide par écrit une version de référence.
+Faut-il retester après l’ouverture ?
+Oui.
+L’ANSSI recommande ces tests avant la mise en production et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement au déploiement.
+Après chaque correction de la base, les mêmes questions se rejouent.
+Un bon test de justesse suffit-il à garantir la sécurité de l’outil ?
+Non.
+La justesse des réponses et la sécurité de l’outil se testent séparément : l’ANSSI recommande des audits de sécurité avant la mise en production d’un système d’IA.
+Pour aller plus loin
+Ce que contient la base de connaissances d’une mairie
+Préparer une base fiable avant de tester l’assistant
+Tester Marianne sur une commune fictive, sans inscription
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Base de données fiable pour l’IA d’une mairie · Civik-ia
+URL : https://civik-ia.fr/preparer-base-de-donnees-fiable-ia-mairie.html
+Resume : Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d&#x27;une commune avant une IA.
+
+Base de données fiable pour l’IA d’une mairie · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Base de données fiable pour l’IA
+Constituer une base de données fiable pour l’IA d’une mairie : sept étapes
+Une base de données fiable pour l’IA d’une mairie se constitue en sept étapes.
+Inventorier les sources et leur responsable, ne garder que ce qui est déjà public, découper en fiches courtes, dater chaque fiche et garder l’adresse de sa source, régler les contradictions, mettre à jour à rythme fixe, puis mesurer avant l’ouverture.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Un assistant d’IA répond avec ce qu’il trouve.
+Si la base contient une page périmée, deux tarifs différents ou un document qui n’aurait jamais dû sortir, la réponse reprendra l’erreur sur le même ton qu’une réponse juste.
+La commune est la seule à connaître ses sources : cette page décrit le travail qui lui revient, quel que soit l’outil choisi.
+Étape 1 : inventorier les sources et nommer un responsable
+La première liste tient sur une page.
+Elle recense le site de la commune et les documents mis en ligne (bulletin municipal, règlement de collecte, comptes rendus du conseil, plan local d’urbanisme).
+Elle ajoute les actes (arrêtés, délibérations), les sites que la mairie veut voir lus (une salle de spectacle, une médiathèque) et les informations que seuls les agents détiennent, comme le service à appeler pour une question précise.
+Chaque source reçoit un responsable dans la mairie, celui qui sait si elle est à jour.
+Une source sans responsable n’est pas lue : l’ANSSI recommande, pour tout système d’IA, de cartographier les sources de données externes utilisées et d’évaluer leur niveau de confiance (recommandation R4 du guide ANSSI-PA-102, 29 avril 2024).
+Étape 2 : ne garder que ce qui est déjà public
+Un assistant ouvert à tous les habitants n’a pas de droits d’accès par utilisateur : tout ce que contient sa base peut ressortir dans une réponse.
+La base ne reçoit donc que des documents déjà publiés ou approuvés pour l’être.
+L’ANSSI rappelle que, pour les données que le système consulte en production, une gestion des droits d’accès n’est possible que si les outils employés la permettent, et que le besoin d’en connaître se règle dès la conception (recommandations R7 et R8).
+Trois tris évitent les erreurs les plus courantes.
+Un document interne que la mairie n’a pas publié reste hors de la base, même s’il contiendrait la bonne réponse.
+Un acte contient parfois des noms et des adresses de particuliers.
+Pour la publication en ligne des documents administratifs, la CADA rappelle qu’ils ne se publient qu’après occultation des mentions protégées, et que les données personnelles s’anonymisent sauf exceptions strictes ( CADA ).
+La même précaution vaut avant de les confier à une IA.
+Les questions des habitants ne deviennent pas des sources.
+Elles se conservent à part, pour mesurer, jamais pour répondre à la place d’une source.
+Étape 3 : découper en fiches courtes
+Une fiche porte une information et une source : les horaires de la déchetterie, le tarif de la cantine pour une année scolaire, les pièces d’un dossier.
+Une fiche qui mélange trois années de tarifs provoque une erreur que Civik-ia relève sur ses communes de test : le modèle prend un tarif d’une autre année, ou le téléphone d’un autre service, alors que la bonne fiche a été retrouvée.
+Cette erreur est décrite sur la page RAG pour une mairie .
+Un document dont le texte n’est qu’une image de page, comme un PDF numérisé, ne se lit pas automatiquement.
+La CADA l’écarte déjà pour la publication en données ouvertes : un format exploitable automatiquement est exigé.
+Prévoyez une version texte de chaque document important.
+Étape 4 : dater chaque fiche et garder l’adresse de sa source
+Une fiche utile porte sept champs.
+Champ Ce qu’il contient
+Information Le fait, en une ou deux phrases
+Adresse de la source Le lien direct vers la page ou le document
+Date de la source La date de publication ou de dernière mise à jour affichée
+Date de lecture Le jour où la fiche a été relevée
+Responsable La personne de la mairie qui répond de l’information
+Statut Lue automatiquement, relue par un agent, écrite à la main
+Fin de validité Une date, quand l’information en a une (tarif d’une année, fermeture exceptionnelle)
+La date de lecture et la date de la source disent à quel point la réponse peut être périmée.
+L’adresse de la source permet à l’habitant d’ouvrir le texte officiel : c’est elle que la réponse cite.
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait.
+Étape 5 : régler les contradictions avant l’ouverture
+Deux pages du site donnent deux numéros de téléphone pour le même service.
+Une fiche nationale et une page communale ne disent pas la même chose d’une démarche.
+L’assistant ne sait pas laquelle fait foi.
+La commune tranche une fois, par écrit, avec une règle simple : le local l’emporte pour ce qui est local, le national pour ce qui est national, la page la plus récemment datée départage le reste.
+La page quelle source fait foi détaille cette règle et les sources officielles à citer.
+Quand l’écart ne se tranche pas, une fiche courte, écrite à la main avec sa source et relue par les agents, fixe la réponse.
+Étape 6 : mettre à jour à rythme fixe
+Une base juste le jour de l’ouverture devient fausse dès que le site change.
+Le rythme de relecture se fixe : chaque nuit pour un site qui se lit automatiquement, chaque semaine pour des documents qu’un agent dépose à la main.
+Prévoyez que chaque relecture compare ce qui a été lu à ce que la base contient, et signale ce qui a disparu.
+Un contrôle d’anomalie protège la base d’une erreur de lecture : si la relecture constate la disparition d’une grande partie des fiches ou un effondrement du volume lu, rien n’est écrit et la version de la veille reste servie, le temps qu’une personne regarde.
+Après l’ouverture, une réponse jugée fausse ou incomplète se corrige dans la base, puis se mesure de nouveau.
+Étape 7 : mesurer avant l’ouverture
+Une base se juge sur des questions, pas sur son volume.
+La méthode (questions réelles, questions pièges, quatre verdicts, banque de contrôle écrite à part) est décrite sur la page tester un chatbot de mairie .
+La mairie valide par écrit une version de référence avant tout accès des habitants.
+Une base sécurisée, et un modèle qui ne l’apprend pas
+Deux précisions complètent ces étapes.
+La base se protège comme toute base de la commune : sauvegardes, comptes individuels, droits limités, journaux.
+Les mesures sont sur la page sécuriser la base de données d’une collectivité .
+Et la base est consultée, pas apprise : avec la méthode du RAG, le modèle lit les fiches retrouvées au moment de la question, sans être entraîné sur les documents de la commune.
+Corriger une fiche corrige donc la réponse suivante, sans nouvel entraînement.
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Sa base reprend ces étapes dans la mise en service, en six étapes : inventaire des sources, cadre écrit avec la mairie, constitution de la base, mesure sur 300 questions de test, validation par les agents, version de référence validée par écrit.
+Chaque fiche garde l’adresse et la date de sa source.
+Le site officiel est relu chaque nuit pour les sites WordPress ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
+Le détail est sur la page base de connaissances d’une mairie ; le cadre est sur la page guichet citoyen IA .
+Questions fréquentes
+Comment préparer les données d’une commune pour un chatbot ?
+Inventoriez les sources et nommez un responsable par source, gardez ce qui est déjà public, découpez en fiches courtes qui portent l’adresse et la date de leur source, tranchez les contradictions, fixez un rythme de mise à jour et mesurez sur des questions réelles avant l’ouverture.
+Quelles données ne faut-il pas mettre dans la base d’un assistant de mairie ?
+Les données personnelles des habitants et les documents internes que la mairie n’a pas publiés.
+Dans les actes, les noms et adresses de particuliers se masquent avant que l’outil puisse s’en servir dans une réponse.
+À quelle fréquence mettre la base à jour ?
+Au rythme du site : chaque nuit quand la lecture est automatique, chaque semaine pour des documents déposés à la main.
+Un contrôle d’anomalie évite d’écrire dans la base une lecture manifestement erronée.
+Faut-il numériser ou retaper les anciens documents ?
+Un PDF numérisé qui n’est qu’une image ne se lit pas automatiquement.
+Une version texte des documents importants (règlement, tarifs, plan d’urbanisme) est préférable.
+Qui est responsable de l’exactitude des données ?
+La commune répond de ce qu’elle publie : une page périmée donne une réponse périmée.
+Le fournisseur de l’assistant répond de la façon dont l’outil reprend ces pages, dans les conditions de son contrat : un modèle peut mal lire une fiche juste, d’où la mesure avant l’ouverture.
+La mise en service relève les écarts entre les pages et les signale à la mairie.
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Souveraineté numérique d’une commune · Civik-ia
+URL : https://civik-ia.fr/souverainete-numerique-commune.html
+Resume : Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l&#x27;IA, réversibilité : les six questions pour juger la souveraineté d&#x27;un outil.
+
+Souveraineté numérique d’une commune · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Souveraineté numérique d’une commune
+Souveraineté numérique d’une commune : six questions à poser à un fournisseur
+La souveraineté numérique d’une commune se vérifie par écrit, fournisseur par fournisseur : l’hébergeur et le pays du serveur, les accès, les sous-traitants et le droit qui les régit, le lieu de calcul de l’IA, la sortie des données, et les preuves fournies.
+Le mot n’a pas de définition légale pour une commune.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Une mairie utilise des logiciels de paie, d’état civil, de gestion des élections, une messagerie, un site, et de plus en plus un assistant d’IA.
+Chacun repose sur un hébergeur, des sous-traitants et parfois un modèle d’IA.
+Cette page dit ce que les textes demandent aujourd’hui à une commune, ce que la qualification SecNumCloud garantit, puis pose six questions qui valent pour n’importe quel outil.
+Ce que les textes demandent à une commune au 20 octobre 2026
+Je n’ai trouvé aucune obligation, pour une commune, de recourir à un hébergeur qualifié SecNumCloud.
+Trois textes s’en approchent : deux visent l’État, le troisième n’est pas définitivement adopté.
+La doctrine « cloud au centre » : la circulaire n° 6282-SG du 5 juillet 2021, actualisée en 2023, fait du cloud le mode d’hébergement par défaut des services numériques de l’État.
+Elle concerne « tous les nouveaux projets numériques ou refontes majeures de systèmes d’information de l’État ou des opérateurs placés sous sa tutelle ».
+Les administrations choisissent entre les clouds interministériels de l’État et des offres commerciales ; pour les données d’une sensibilité particulière, l’hébergement se fait dans le « cloud de confiance » : un cloud interministériel ou une offre qualifiée SecNumCloud ( Assemblée nationale, question écrite n° 1692, réponse du 3 juin 2025 ).
+L’article 31 de la loi SREN du 21 mai 2024 et son décret n° 2026-272 du 14 avril 2026, publié au Journal officiel le 16 avril 2026.
+Ils encadrent l’hébergement dans le cloud des données d’une sensibilité particulière des administrations de l’État, de leurs opérateurs et de six groupements d’intérêt public.
+Aucune collectivité territoriale ne figure dans le texte ( Légifrance ).
+Une proposition de loi en cours d’examen : la proposition de loi relative à la sécurisation des marchés publics numériques a été adoptée par le Sénat en première lecture le 17 décembre 2025, puis par la commission des lois de l’Assemblée nationale le 25 février 2026 ; l’Assemblée ne l’avait pas votée en séance au 21 octobre 2026 ( dossier du Sénat ).
+Dans le texte de la commission de l’Assemblée, l’article 31 s’appliquerait notamment aux régions, aux départements, aux communes de plus de 30 000 habitants, aux communautés de communes de plus de 30 000 habitants, aux communautés d’agglomération, aux communautés urbaines, aux métropoles et à leurs établissements publics administratifs.
+Les données nécessaires aux compétences essentielles des collectivités (prévention des risques, gestion des crises, ordre public, protection de la santé et de la vie des personnes) y deviendraient des données d’une sensibilité particulière, et une collectivité déjà engagée dans un projet de cloud pourrait déroger pendant dix-huit mois au plus ( texte n° 2522 ).
+Son état change : vérifiez-le avant de vous y fier.
+Le RGPD s’applique en revanche à toutes les communes : contrat de sous-traitance (article 28), encadrement des transferts hors de l’Union (articles 44 à 46).
+La CNIL le résume dans ses questions-réponses : une infrastructure externe se sécurise par un contrat de sous-traitance qui définit les responsabilités et les accès.
+Ce que SecNumCloud garantit
+SecNumCloud est une qualification de sécurité délivrée par l’ANSSI.
+Elle reconnaît des offres cloud d’opérateurs (services IaaS, PaaS ou SaaS) et apporte, selon l’agence, une confiance sur l’offre et sur les pratiques d’exploitation de l’opérateur.
+Elle vise à protéger les données et les traitements sensibles face à la menace cybercriminelle et à l’application de lois extraterritoriales.
+Les offres qualifiées sont listées sur le site de l’ANSSI.
+Elle ne préjuge pas du niveau de sécurité des services numériques des clients portés par ces offres.
+L’ANSSI précise aussi que tous les systèmes d’information n’ont pas vocation à recourir au cloud.
+La décision de migrer relève de la plus haute autorité de l’entité, éclairée par une étude d’impact et une analyse de risques ( ANSSI, recommandations pour l’hébergement dans le cloud des systèmes d’information sensibles , version 1.0, juillet 2024).
+Ces recommandations visent les systèmes d’information de niveau Diffusion Restreinte, les systèmes d’information sensibles des opérateurs d’importance vitale et des opérateurs de services essentiels, et les systèmes d’information d’importance vitale.
+Une commune peut s’en servir comme repère, sans y être tenue.
+Six questions à poser, avec la preuve à demander
+1. Qui héberge, et dans quel pays est le serveur ?
+Le nom de la société qui héberge, le pays du serveur, le centre de données si le contrat le dit.
+La preuve : le contrat d’hébergement ou l’accord sur le traitement des données.
+« Hébergé en Europe » ne répond pas à la question : le pays, la société et le contrat se lisent.
+2. Qui peut accéder aux données ?
+La liste des comptes d’administration, leur mode d’authentification, la séparation entre les données de chaque client.
+L’ANSSI rappelle que le client garde la charge de configurer le filtrage et le contrôle d’accès pour que seules les personnes légitimes accèdent aux interfaces d’administration.
+La preuve : une description écrite des accès, mise à jour.
+3. Quels sous-traitants, dans quels pays, avec quel préavis ?
+Un outil repose souvent sur plusieurs sociétés : hébergeur, envoi des courriels, mesure d’audience, modèle d’IA.
+L’article 28 du RGPD interdit au sous-traitant d’en engager un autre sans l’autorisation écrite préalable, spécifique ou générale, du responsable du traitement ; avec une autorisation générale, il l’informe de tout changement pour qu’il puisse s’y opposer.
+La preuve : la liste des sous-traitants dans l’accord, avec leur pays de traitement et le délai de préavis avant un changement.
+4. Quel droit s’applique ?
+L’ANSSI note que certains fournisseurs de cloud peuvent être soumis à des législations extraterritoriales qui leur imposent de transmettre à leurs autorités nationales les données de leurs clients.
+Le critère est le droit auquel le fournisseur et ses sous-traitants sont soumis, pas seulement le pays du serveur.
+Pour les transferts vers les États-Unis, une décision d’adéquation du 10 juillet 2023 (cadre de protection des données UE-États-Unis) permet les transferts vers les entreprises qui y adhèrent.
+Le Tribunal de l’Union a rejeté un recours contre elle le 3 septembre 2025, et un pourvoi a été formé devant la Cour de justice.
+Hors de ce cadre, l’article 46 du RGPD exige des garanties, comme les clauses contractuelles types.
+La page IA souveraine pour mairie détaille le cas des modèles d’IA.
+5. Où l’IA calcule-t-elle ?
+Si l’outil contient de l’IA, le modèle est exploité par un éditeur qui a ses propres lieux de calcul.
+Un éditeur peut proposer plusieurs points d’accès : l’un calcule dans l’Union européenne, un autre ne s’engage sur aucun lieu.
+La preuve : le contrat dit lequel est utilisé.
+Sans cette ligne, le lieu de calcul n’est pas fixé.
+6. Comment la commune récupère-t-elle ses données ?
+La réversibilité est la possibilité de récupérer ses données et de changer de fournisseur.
+L’ANSSI recommande une clause de réversibilité pour limiter la dépendance à une seule offre.
+Depuis le 12 septembre 2025, le règlement européen sur les données (règlement (UE) 2023/2854, article 25) encadre le changement de fournisseur de services de traitement de données.
+Le préavis est de deux mois au plus, la période de transition de trente jours au plus, puis la commune dispose d’au moins trente jours pour récupérer ses données.
+Les frais de changement, y compris de sortie des données, sont supprimés à partir du 12 janvier 2027 ( Commission européenne, Data Act ).
+La preuve : le format de restitution, le délai et le coût, écrits au contrat.
+Un hébergeur qualifié suffit-il ?
+Non.
+L’ANSSI écrit que l’hébergement d’un site web sur une offre qualifiée n’enlève pas la nécessité de sécuriser le site web en lui-même, et que l’application des correctifs de sécurité relève du client.
+Les mesures sur les comptes, les droits, les journaux et les sauvegardes sont décrites sur la page sécuriser la base de données d’une collectivité .
+Chez Marianne : ce qu’elle est et ce qu’elle n’est pas
+Marianne est en test : aucune commune ne l’a en service.
+Voici ce qu’elle répond, au 20 octobre 2026, à celles des six questions qui la concernent.
+Question Marianne
+Hébergeur OVHcloud, hébergeur français, sur un serveur situé en Allemagne
+Sauvegardes Quotidiennes sur le serveur, avec une copie hors site en France
+Accès Administration du serveur par clé cryptographique, réservée au président de Civik-ia
+Sous-traitants Listés dans l’accord sur le traitement des données remis à la mairie (hébergeur, éditeur du modèle d’IA et, à l’ouverture de l’espace mairie, service d’envoi des codes de connexion)
+Modèle d’IA Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia
+Lieu de calcul du modèle Non fixé par contrat
+Fin de contrat Sur demande, restitution des données et de la base de connaissances en CSV, JSON ou PDF dans les trente jours suivant la fin du contrat, puis suppression (accord sur le traitement des données, article 14)
+Qualification Aucune : Marianne n’est pas hébergée sur une offre qualifiée SecNumCloud
+Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française.
+Le lieu de calcul du modèle n’est pas fixé par contrat.
+L’identité de chaque sous-traitant, sa prestation et son lieu de traitement se lisent dans l’accord sur le traitement des données ; Mistral AI recourt à ses propres sous-traitants, dont elle publie la liste.
+Le détail est sur la page guichet citoyen IA et sur la page Conformité RGPD .
+Questions fréquentes
+Une commune est-elle obligée d’utiliser un hébergeur SecNumCloud ?
+Je n’ai trouvé aucune obligation de ce type (recherche du 20 octobre 2026).
+La doctrine « cloud au centre » et l’article 31 de la loi SREN visent l’État, ses opérateurs et six groupements d’intérêt public.
+Une proposition de loi adoptée par le Sénat le 17 décembre 2025, que l’Assemblée nationale n’avait pas votée au 21 octobre 2026, étendrait cette exigence aux régions, aux départements, aux communes et aux intercommunalités de plus de 30 000 habitants, pour leurs données d’une sensibilité particulière.
+Que garantit une qualification SecNumCloud ?
+C’est une qualification de l’ANSSI qui reconnaît une offre cloud et les pratiques d’exploitation de son opérateur, avec une protection contre les lois extraterritoriales.
+Elle ne garantit pas la sécurité des services que le client construit ou configure sur cette offre.
+Qu’est-ce que la réversibilité d’un contrat ?
+C’est la possibilité de récupérer ses données et de changer de fournisseur.
+Depuis le 12 septembre 2025, le règlement européen sur les données fixe un préavis de deux mois au plus, une transition de trente jours au plus et au moins trente jours pour récupérer les données.
+Un logiciel hébergé en Europe est-il souverain ?
+Pas nécessairement.
+L’hébergement n’est qu’un critère.
+Les accès, les sous-traitants, le droit qui s’applique à chacun, le lieu de calcul d’une éventuelle IA et la sortie des données comptent autant.
+Le mot « souverain » n’a pas de définition légale pour une commune : il se vérifie critère par critère.
+Qui décide du choix de l’hébergement dans une commune ?
+L’ANSSI écrit, pour les systèmes d’information qu’elle vise, que la décision de migrer vers le cloud relève de la plus haute autorité de l’entité, éclairée par une étude d’impact et une analyse de risques.
+Dans une commune, le contrat suit les règles de la commande publique et se signe par le maire, autorisé par le conseil municipal ou par délégation de celui-ci (article L. 2122-22 du code général des collectivités territoriales).
+Le délégué à la protection des données y est associé en temps utile (article 38 du RGPD), et le choix se garde par écrit.
+Pour aller plus loin
+Les données qu’une mairie garde hors de portée d’un modèle d’IA
+Marianne, le guichet citoyen IA de Civik-ia
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Guides IA et données pour les collectivités · Civik-ia
+URL : https://civik-ia.fr/guides.html
+Resume : Guichet citoyen IA, chatbot de mairie, données, sources officielles, sécurité, RGPD, souveraineté : les guides de Civik-ia pour les collectivités.
+
+Guides IA et données pour les collectivités · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Guides
+Guides IA et données pour les collectivités
+Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
+Mis à jour le 21 octobre 2026 . 26 pages, classées en 5 rubriques.
+Le guichet citoyen IA et le chatbot de mairie
+Les données et les sources officielles
+La sécurité et le RGPD
+La souveraineté
+Les outils, les canaux et le financement
+Le guichet citoyen IA et le chatbot de mairie
+Ce qu’est un guichet citoyen IA, comment choisir un chatbot de mairie, le tester avant l’ouverture et mesurer ce qu’il change au secrétariat.
+Guichet citoyen IA pour mairie Un guichet citoyen IA répond aux habitants avec les sources officielles de la mairie et les cite.
+Chatbot mairie, le guide Choisir un chatbot pour une mairie, une ville ou une collectivité : à quoi il sert, les critères qui comptent, et ce qui change selon la taille de la commune.
+Tester un chatbot de mairie avant l’ouverture Questions réelles, questions pièges, quatre verdicts, banque de contrôle : la méthode pour tester un chatbot de mairie avant de l’ouvrir aux habitants.
+Comparatif chatbot mairie Comparatif 2026 des chatbots mairie : prix, RGPD, souveraineté, tableau objectif.
+Chatbot mairie gratuit Du gratuit existe pour une commune, mais pas pour le même besoin : Delibia pour les secrétaires de mairie, PanneauPocket sous 100 habitants. Vérifié le 24/08/2026.
+Chatbot commune rurale Commune rurale : un accueil numérique 24 h/24 qui répond à partir du site officiel de la commune, page citée à chaque réponse.
+Callbot mairie ou chatbot Callbot téléphonique ou chatbot écrit pour votre mairie ? Différences, coûts, limites et cas d’usage : le guide pour choisir le bon canal en 2026.
+Réduire les appels en mairie Comment un chatbot IA peut libérer le secrétariat de mairie : ordres de grandeur, calcul de ROI et objectif chiffré.
+Livre blanc, IA en mairie Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pour mairies. Sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser.
+22h47, mairie fermée 22h47. Un citoyen a une question. Votre mairie est fermée.
+Les données et les sources officielles
+Ce que l’IA d’une mairie lit, qui valide ses sources, quelle source fait foi et comment préparer les données avant l’ouverture.
+Base de connaissances de mairie Ce que contient la base de connaissances d’une mairie, qui valide ses sources et comment elle reste à jour : la méthode de mise en service de Marianne.
+RAG pour une mairie Le RAG fait chercher l’IA dans les documents de la mairie avant de répondre. Ce que cela change, ce que cela ne garantit pas, comment le vérifier.
+Quelle source officielle fait foi en mairie Horaires, démarches, loi, urbanisme, adresses : la source officielle qui fait foi pour chaque question d’habitant, et comment la citer avec sa date.
+Base de données fiable pour l’IA d’une mairie Inventaire, tri entre public et non public, fiches datées, mise à jour, mesure : sept étapes pour préparer les données d’une commune avant une IA.
+La sécurité et le RGPD
+Protéger les bases de données de la mairie, savoir quelles données ne partent jamais vers un modèle d’IA et ce que la CNIL vérifie.
+Sécuriser la base de données d’une collectivité Sept mesures pour sécuriser les bases de données d’une mairie : sauvegardes, comptes, droits, journaux, prestataires, attaque. Sources CNIL et ANSSI.
+IA en mairie : les données à ne pas envoyer Données personnelles, sensibles, documents internes : ce qu’une mairie n’envoie pas à un modèle d’IA, et ce que change la pseudonymisation.
+RGPD et IA en collectivité Votre mairie utilise ou envisage une IA ? Base légale, AIPD, hébergement des données : les 7 points que la CNIL vérifie, expliqués simplement, avec la checklist prête à l’emploi.
+La souveraineté
+Les questions à poser à un fournisseur et ce que souverain veut dire pour l’IA d’une mairie.
+Souveraineté numérique d’une commune Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l’IA, réversibilité : les six questions pour juger la souveraineté d’un outil.
+IA souveraine en mairie Pourquoi votre mairie devrait utiliser Mistral AI plutôt qu’OpenAI ou Google pour son chatbot citoyen. Souveraineté, RGPD, Cloud Act, coûts, performances.
+Les outils, les canaux et le financement
+Les outils du secrétariat, les démarches en ligne, les canaux de communication d’une mairie et les aides au financement.
+Outils IA pour secrétaire de mairie Quels outils d’IA une secrétaire de mairie peut-elle utiliser en 2026 ? Répondre aux citoyens, rédiger, chercher dans la réglementation : le panorama, les prix et les règles RGPD.
+Logiciel de petite commune Quel logiciel pour une petite mairie rurale ? Critères de choix, budget réaliste, souveraineté et RGPD.
+Démarches en ligne d’une commune Comment proposer des démarches en ligne dans une petite commune ? Service-Public, France Connect, formulaires Cerfa et assistant citoyen. Guide pratique pour mairies en 2026.
+Communiquer avec ses citoyens Quel outil pour créer du lien avec ses citoyens ? Panorama 2026 des canaux d’une mairie : site, app, panneau, chatbot IA.
+Financer l’IA de sa commune Le guichet Territoires d’IA cofinance 30 à 50 % d’un abonnement d’IA souveraine, en continu. Ce qui s’applique à une commune rurale, et ce qui n’est pas pour elle.
+Marianne sur WhatsApp Bientôt, l’IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, orientation vers le bon service, bascule vers vos agents. Canal à venir, moteur souverain déjà disponible en démonstration.
+Marianne sur Messenger Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal à venir, moteur souverain déjà disponible en démonstration.
+La démonstration de Marianne fonctionne sur une commune fictive, sans inscription.
+Tester Marianne
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1392,7 +2469,7 @@ Votre prestataire web ne devrait pas facturer une journee de developpement pour 
 Support et accompagnement
 La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement a l’onboarding, pas juste un lien de documentation.
 Une justesse mesurée
-Demandez comment les réponses sont vérifiées avant l’ouverture : sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe.
+Demandez comment les réponses sont vérifiées avant l’ouverture : sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe. La page tester un chatbot de mairie décrit la méthode, des questions réelles aux quatre verdicts.
 Les principales offres du marche en un coup d’oeil
 Un panorama factuel des principales offres disponibles pour les collectivites territoriales en 2026.
 Critere
@@ -1514,6 +2591,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1736,6 +2814,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1837,6 +2916,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -1900,7 +2980,7 @@ Avant l’ouverture, les agents relisent les fiches ecrites a la main et jugent 
 Les habitants decouvrent un outil deja verifie par leurs agents.
 Commune de 4 800 hab.
 Completer le site la o&ugrave; il se tait
-Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notee. La mairie publie les dates sur son site, et Marianne les reprend des la nuit suivante.
+Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notee. La mairie publie les dates sur son site, et Marianne les reprend des la nuit suivante. Les sept étapes pour préparer les données d’une petite commune sont décrites sur une page à part.
 Resultat : une reponse juste des le lendemain.
 Nouveau mandat 2026 : vos priorites numeriques
 Les elections municipales de mars 2026 ont renouvele des milliers de conseils municipaux. Avec un nouveau mandat vient un nouveau projet communal.
@@ -1987,6 +3067,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2207,6 +3288,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2327,6 +3409,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2409,6 +3492,7 @@ Authentification forte des agents municipaux (mot de passe complexe + idéalemen
 Journaux d’accès traçables (qui a fait quoi, quand)
 Sauvegardes chiffrées
 Procédure de notification de violation sous 72h (art. 33)
+Les sept mesures détaillées, avec leurs sources, sont sur la page dédiée : sécuriser la base de données d’une collectivité .
 7. Limiter la collecte au strict nécessaire (minimisation)
 Un chatbot mairie ne doit jamais collecter :
 Le nom, prénom, adresse exacte de l’administré (sauf si la démarche le requiert objectivement)
@@ -2430,7 +3514,7 @@ Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la
 Pour un assistant qui informe sur les horaires et les démarches, elle n’est en général pas obligatoire ; elle le devient si l’outil traite des données sensibles de façon systématique, croise des fichiers ou profile les habitants. La mairie en décide. Pour Marianne, Civik-ia remet avant l’ouverture les éléments de cette analyse : description du traitement, mesures de sécurité, risques identifiés.
 La différence entre un chatbot généraliste et un outil qui répond à partir des seules sources de la mairie est décrite sur la page guichet citoyen IA .
 Les pièges spécifiques de l’IA générative
-Attention : un assistant grand public utilisé tel quel (ChatGPT, Claude, Gemini) n’est pas conçu pour répondre au nom d’une mairie. Ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne s’examinent avant tout usage sur des données d’habitants ; la CNIL demande des garanties supplémentaires pour tout transfert hors de l’Union (questions-réponses du 18 juillet 2024).
+Attention : un assistant grand public utilisé tel quel (ChatGPT, Claude, Gemini) n’est pas conçu pour répondre au nom d’une mairie. Ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne s’examinent avant tout usage sur des données d’habitants ; la CNIL demande des garanties supplémentaires pour tout transfert hors de l’Union (questions-réponses du 18 juillet 2024). Voir aussi quelles données ne jamais envoyer à un modèle .
 Souveraineté technologique : le choix structurant
 Trois familles d’IA générative coexistent en 2026 :
 IA américaines (OpenAI GPT, Anthropic Claude, Google Gemini) : performantes mais soumises au Cloud Act et au FISA américain. À examiner avec le délégué à la protection des données avant tout usage sur des données d’habitants.
@@ -2484,11 +3568,13 @@ Pas toujours. L’analyse d’impact (AIPD, article 35 RGPD) est présumée néc
 Quelle base légale pour un chatbot municipal ?
 La mission d’intérêt public (article 6.1.e du RGPD) est la base la plus appropriée pour une mairie : elle couvre les démarches administratives et l’information citoyenne. Le consentement (article 6.1.a) s’applique aux fonctionnalités optionnelles comme les notifications email, et l’obligation légale (article 6.1.c) aux démarches obligatoires telles que le recensement ou l’inscription électorale.
 Peut-on utiliser ChatGPT pour le chatbot d’une mairie ?
-C’est déconseillé sans examen préalable. Un assistant grand public n’est pas conçu pour répondre au nom d’une mairie, et ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne doivent être examinés avec le délégué à la protection des données. Un outil qui répond à partir des seules sources de la mairie, sous un contrat de sous-traitance, se contrôle plus facilement.
+C’est déconseillé sans examen préalable. Un assistant grand public n’est pas conçu pour répondre au nom d’une mairie, et ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne doivent être examinés avec le délégué à la protection des données. Un outil qui répond à partir des seules sources de la mairie, sous un contrat de sous-traitance, se contrôle plus facilement. La liste des données à ne jamais envoyer à un outil grand public est sur une page dédiée.
 Combien de temps conserver les données d’un chatbot mairie ?
 La durée de conservation doit être définie dans le registre des traitements et limitée à ce qui est nécessaire. À titre d’exemple, Civik-ia efface le texte des questions de sa base au bout de 90 jours et n’y écrit pas celles qu’elle reconnaît comme portant sur un thème sensible ; au-delà, il ne reste que des lignes sans texte ni nom (date, thème, identifiant de session aléatoire), qui servent aux statistiques.
 Pour aller plus loin
 Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
+Sécuriser les bases de données d’une mairie, mesure par mesure
+IA en mairie : les données à ne pas envoyer, classe par classe
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Recommandations CNIL sur l’intelligence artificielle
 Financer l’IA de sa commune : cofinancement Territoires d’IA, dotations, ce qui existe vraiment
@@ -2525,6 +3611,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2567,7 +3654,7 @@ Les modèles européens souverains : Mistral AI (français), Aleph Alpha (allema
 Pour une mairie française, le choix n’est pas neutre. Il engage les données de vos administrés, votre conformité juridique, et le message politique que vous envoyez à votre territoire.
 Pourquoi le choix d’OpenAI ou Google pose problème pour une mairie
 1. Le Cloud Act américain
-Le Cloud Act (Clarifying Lawful Overseas Use of Data Act), promulgué en 2018 sous Trump et toujours en vigueur, permet aux autorités judiciaires et de police américaines d’exiger d’un fournisseur soumis au droit américain les données qu’il contrôle, même stockées hors des États-Unis, par un mandat ou une injonction. Une ordonnance de non-divulgation peut interdire au fournisseur d’en informer la personne concernée.
+Le Cloud Act (Clarifying Lawful Overseas Use of Data Act), promulgué en 2018 sous Trump et toujours en vigueur, permet aux autorités judiciaires et de police américaines d’exiger d’un fournisseur soumis au droit américain les données qu’il contrôle, même stockées hors des États-Unis, par un mandat ou une injonction. Une ordonnance de non-divulgation peut interdire au fournisseur d’en informer la personne concernée. Ce qu’une mairie n’envoie pas à un modèle , quel qu’il soit, est détaillé sur une page dédiée.
 Concrètement : si vous utilisez ChatGPT (OpenAI), Claude (Anthropic) ou Gemini (Google) pour répondre aux questions de vos administrés, les conversations peuvent légalement être transmises aux autorités américaines sans que vous le sachiez. C’est un risque à examiner avec le délégué à la protection des données avant tout usage sur des données d’habitants.
 2. L’inadéquation au RGPD
 La Cour de justice de l’Union européenne, dans son arrêt Schrems II du 16 juillet 2020, a invalidé le Privacy Shield qui encadrait les transferts de données vers les États-Unis. Depuis le 10 juillet 2023, une nouvelle décision d’adéquation, le cadre de protection des données UE-États-Unis, permet les transferts vers les entreprises américaines qui y adhèrent ; le Tribunal de l’Union a rejeté un recours contre elle le 3 septembre 2025, et un pourvoi a été formé devant la Cour de justice. Hors de ce cadre, un transfert demande des garanties de l’article 46 du RGPD, comme les clauses contractuelles types , complétées au besoin par des mesures supplémentaires.
@@ -2625,6 +3712,7 @@ Qui accède au serveur, et que reçoit l’éditeur du modèle ?
 administration du serveur par clé cryptographique, réservée au président de Civik-ia ; Mistral AI reçoit la question telle que l’habitant l’a écrite et les échanges précédents de la même conversation, sans compte ni identifiant, avec les fiches publiques retrouvées
 Sur le lieu de calcul, Mistral AI décrit deux voies dans sa documentation : un point d’accès européen, où le calcul se fait dans des centres de données de l’Union européenne et de l’AELE, et un point d’accès général, pour lequel elle « ne s’engage pas sur un lieu de calcul précis » (traduction de Civik-ia ; documentation de Mistral AI, « Regional inference » , consultée le 19 octobre 2026). Le contrat d’un fournisseur dit laquelle il emploie, ou ne le dit pas.
 Le programme public le plus proche du sujet est Territoires d’IA : la Banque des Territoires l’a lancé le 21 mai 2026 avec Mistral AI comme partenaire technique, pour former 100 000 agents publics locaux d’ici 2030 ( Banque des Territoires, 22 mai 2026 ). Son guichet cofinance de 30 à 50 % des dépenses éligibles d’achat de solutions d’IA souveraine ( offres de Territoires d’IA , consultées le 19 octobre 2026) ; le détail est sur la page financer l’IA de sa commune .
+Ces critères valent pour l’IA. Pour les autres outils de la commune (hébergeur, accès, sous-traitants, réversibilité), voir les six questions à poser à un fournisseur .
 Pourquoi nous l’avons choisi pour Civik-ia
 Marianne utilise Mistral Small, de Mistral AI, pour rédiger ses réponses. Le serveur de Marianne, chez OVHcloud en Allemagne, envoie à Mistral AI la question de l’habitant et les fiches retrouvées dans la base de la commune ; le lieu de calcul du modèle n’est pas fixé par contrat. Ce choix nous donne :
 Un éditeur de droit français : Mistral AI traite les questions selon son accord de traitement des données, désigné dans l’accord que Civik-ia remet à chaque collectivité.
@@ -2656,6 +3744,8 @@ Pour aller plus loin
 Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
 RAG pour une mairie : une IA qui cherche avant de répondre
 Base de connaissances d’une mairie : sources validées et mise à jour
+Souveraineté numérique d’une commune : six questions
+Données personnelles et IA en mairie : ce qui ne part pas
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Financer l’IA de sa commune : le guichet Territoires d’IA cofinance 30 à 50 % de l’abonnement à une solution souveraine
 Guide RGPD pour l’IA en collectivité
@@ -2691,6 +3781,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2829,6 +3920,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2877,7 +3969,7 @@ Le secrétariat d’une petite mairie est polyvalent et souvent à temps partiel
 Coût maîtrisé et sans surprise
 Méfiez-vous des grilles tarifaires opaques et des frais de mise en service élevés. Pour une petite commune, l’objectif est un abonnement lisible, sans clause piégeuse, et idéalement sous le seuil des marchés publics (60 000 € HT de dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026, valeur calculée sur toute la durée du contrat), ce qui simplifie la procédure d’achat.
 Souveraineté et RGPD
-Une mairie traite des données personnelles. Privilégiez un logiciel hébergé dans l’Union européenne, idéalement en France , et dont le moteur d’intelligence artificielle est européen. Civik-ia s’appuie sur le modèle français Mistral AI et un hébergement en Union européenne, ce qui réduit l’exposition aux législations extra-européennes.
+Une mairie traite des données personnelles. Privilégiez un logiciel hébergé dans l’Union européenne, idéalement en France , et dont le moteur d’intelligence artificielle est européen. Civik-ia s’appuie sur le modèle français Mistral AI et un hébergement en Union européenne, ce qui réduit l’exposition aux législations extra-européennes. Avant de signer, posez au fournisseur les six questions sur la souveraineté d’un logiciel , et vérifiez les mesures de sécurité des logiciels de mairie que recommandent la CNIL et l’ANSSI.
 Capacité à fonctionner sans inscription
 Pour un usage citoyen, exiger un compte fait fuir les utilisateurs. Un assistant en ligne accessible sans inscription, directement depuis le site ou un lien partagé, obtient un usage bien plus large.
 Budget réaliste pour une commune rurale
@@ -2943,6 +4035,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -2980,6 +4073,7 @@ Trois familles d’outils d’IA servent un secrétariat de mairie en 2026 : les
 Pourquoi le secrétariat de mairie est le premier bénéficiaire de l’IA
 Dans une commune de moins de 2 000 habitants, le poste s’appelle officiellement « secrétaire de mairie » et il est souvent à temps partiel. Une même personne gère l’accueil, le téléphone, l’état civil, les délibérations, l’urbanisme et la comptabilité. Chaque appel pour un horaire de déchetterie ou un dossier de salle communale interrompt un travail de fond.
 C’est exactement le type de charge que l’IA sait absorber : les questions répétitives, la recherche dans des documents longs, les premiers jets de rédaction. Pas pour remplacer l’agent, pour lui rendre du temps sur les dossiers où son jugement compte.
+Une IA ne répond juste que si les données de la commune sont justes : la méthode pour constituer une base de données fiable pour l’IA d’une mairie tient en sept étapes.
 Les trois familles d’outils d’IA pour un secrétariat
 1. Les assistants citoyens : répondre aux habitants de la commune 24 h/24
 C’est la famille qui soulage le plus directement le téléphone et l’accueil. Un assistant citoyen est installé sur le site de la commune et répond aux questions des citoyens à toute heure : horaires, collecte des déchets, état civil, salle des fêtes, urbanisme. Le secrétariat ne voit plus passer les questions dont la réponse est déjà publique.
@@ -3009,13 +4103,14 @@ Les trois règles RGPD avant d’utiliser une IA au secrétariat
 Séparer les usages. Données personnelles de citoyens : uniquement dans des outils dédiés aux collectivités, hébergés dans l’Union européenne, avec contrat de sous-traitance. Rédaction générique : les IA généralistes suffisent.
 Vérifier l’hébergement et le modèle. Demander à chaque éditeur où sont traitées les conversations et quel modèle d’IA il utilise. Civik-ia, par exemple, s’appuie sur le modèle français Mistral AI et un hébergement OVHcloud en Union européenne.
 Informer et garder la main. Les citoyens doivent savoir qu’ils parlent à une IA, et le secrétariat doit pouvoir corriger une réponse erronée lui-même. Le détail des obligations est dans notre guide RGPD de l’IA en collectivité .
+Les mesures pour sécuriser les données de la commune (sauvegardes, comptes, droits, journaux) sont réunies sur une page à part.
 Questions fréquentes
 Quels outils d’IA pour une secrétaire de mairie en 2026 ?
 Trois familles d’outils coexistent. Les assistants internes pour l’agent, comme Delibia, qui aident à chercher dans la réglementation et à rédiger (une licence gratuite est offerte aux secrétaires de mairie). Les assistants citoyens, comme Marianne de Civik-ia, qui répondent directement aux questions des citoyens 24 h/24 et allègent le téléphone du secrétariat (abonnement à partir de 69 € HT par mois, selon la taille de la commune). Et les IA généralistes comme Le Chat de Mistral ou ChatGPT, utiles pour rédiger, à condition de ne jamais y saisir de données personnelles.
 Une IA peut-elle répondre aux citoyens à la place du secrétariat ?
 Oui, pour les questions répétitives : horaires, état civil, urbanisme, collecte des déchets, salle communale. Un assistant citoyen comme Marianne de Civik-ia répond 24 h/24, sans inscription, avec des réponses construites sur les documents officiels de la commune. Les demandes complexes ou sensibles restent orientées vers le secrétariat, qui garde la main.
 ChatGPT est-il autorisé dans une mairie ?
-Aucun texte n’interdit les IA généralistes en mairie, mais le RGPD impose des limites strictes : ne jamais saisir de données personnelles de citoyens (nom, adresse, situation familiale ou fiscale) dans un outil grand public non contractualisé, car ces données peuvent être traitées hors de l’Union européenne. Pour un usage sur les données de la commune, privilégier des outils dédiés aux collectivités, hébergés dans l’Union européenne, avec un contrat de sous-traitance RGPD.
+Aucun texte n’interdit les IA généralistes en mairie, mais le RGPD impose des limites strictes : ne jamais saisir de données personnelles de citoyens (nom, adresse, situation familiale ou fiscale) dans un outil grand public non contractualisé, car ces données peuvent être traitées hors de l’Union européenne. Pour un usage sur les données de la commune, privilégier des outils dédiés aux collectivités, hébergés dans l’Union européenne, avec un contrat de sous-traitance RGPD. Les données à ne pas envoyer à l’IA sont classées sur une page dédiée.
 Combien coûte une IA pour une mairie ?
 Les ordres de grandeur 2026 : les IA généralistes proposent des versions gratuites ou autour de 20 euros par mois par personne. Delibia offre une licence gratuite aux secrétaires de mairie pour l’usage interne, ses formules complètes sont sur devis. Chez Civik-ia, assistant citoyen souverain, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et est conçu pour rester sous le seuil des marchés publics.
 Intelligence artificielle en mairie : par où commencer
@@ -3057,6 +4152,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3153,6 +4249,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3283,6 +4380,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3316,17 +4414,18 @@ Cible : maire, secrétaire de mairie, agent d’accueil
 Lecture : 6 minutes
 Mis à jour : 24/06/2026
 En bref
-Pour une commune, proposer des démarches en ligne consiste surtout à orienter les habitants vers les bons téléservices (Service-Public.fr, plateformes d’urbanisme, inscriptions) et à répondre à leurs questions en continu. Beaucoup de démarches sont déjà nationales et dématérialisées. Le vrai gain pour une petite mairie vient d’un assistant citoyen qui guide vers le bon formulaire 24 h/24, sans inscription, et allège le secrétariat sur les questions répétitives.
+Pour une commune, proposer des démarches en ligne consiste surtout à orienter les habitants vers les bons téléservices (Service-Public.gouv.fr, plateformes d’urbanisme, inscriptions) et à répondre à leurs questions en continu. Beaucoup de démarches sont déjà nationales et dématérialisées. Le vrai gain pour une petite mairie vient d’un assistant citoyen qui guide vers le bon formulaire 24 h/24, sans inscription, et allège le secrétariat sur les questions répétitives.
 Le vrai sujet : orienter, plus que dématérialiser
 Quand un habitant cherche à « faire une démarche en ligne », son blocage est rarement le formulaire lui-même. C’est de savoir quelle démarche faire, où la faire, et avec quelles pièces justificatives . Une grande partie des appels et des passages en mairie portent sur cette orientation, pas sur un acte complexe.
 Pour une petite commune, le bon point de départ n’est donc pas de développer un portail maison coûteux, mais de s’appuyer sur les téléservices officiels existants et de bien guider les citoyens vers eux.
 Les démarches déjà disponibles en ligne
 Plusieurs démarches sont nationales et accessibles directement, sans que la commune ait à construire quoi que ce soit.
-Via Service-Public.fr
+Via Service-Public.gouv.fr
 Recensement citoyen à 16 ans
 Inscription sur les listes électorales
 Pré-demande de carte d’identité et de passeport (le rendez-vous se fait ensuite dans une mairie équipée)
 Demande d' acte d’état civil (naissance, mariage, décès)
+Entre une fiche de Service-Public.gouv.fr et une page de la commune, voir quelle source officielle fait foi selon la question.
 Via des plateformes dédiées
 Urbanisme : dépôt des déclarations préalables et permis de construire par voie dématérialisée
 Inscriptions scolaires et périscolaires , selon l’organisation de la commune
@@ -3359,9 +4458,9 @@ Confiez les questions répétitives à un assistant en ligne disponible en conti
 Mesurez les questions reçues pour ajuster vos informations dans le temps.
 Questions fréquentes
 Quelles démarches une commune peut-elle proposer en ligne ?
-Une commune peut orienter en ligne les démarches d’état civil (acte de naissance, mariage, décès), le recensement citoyen, l’inscription sur les listes électorales, l’inscription scolaire et périscolaire, la réservation de salle, les demandes d’urbanisme (déclaration préalable, permis) et les signalements de voirie. Beaucoup de ces démarches passent par des téléservices nationaux comme Service-Public.fr ou des plateformes dédiées, le rôle de la commune étant surtout de bien orienter le citoyen vers le bon formulaire.
+Une commune peut orienter en ligne les démarches d’état civil (acte de naissance, mariage, décès), le recensement citoyen, l’inscription sur les listes électorales, l’inscription scolaire et périscolaire, la réservation de salle, les demandes d’urbanisme (déclaration préalable, permis) et les signalements de voirie. Beaucoup de ces démarches passent par des téléservices nationaux comme Service-Public.gouv.fr ou des plateformes dédiées, le rôle de la commune étant surtout de bien orienter le citoyen vers le bon formulaire.
 Une petite mairie est-elle obligée de dématérialiser ses démarches ?
-Il n’existe pas d’obligation générale de tout dématérialiser pour une petite commune. Certaines démarches sont déjà nationales et en ligne par défaut, comme la pré-demande de carte d’identité ou le recensement citoyen via Service-Public.fr. Pour le reste, la commune reste libre de son organisation. L’enjeu est moins l’obligation que le service rendu : proposer une orientation claire en ligne évite des déplacements inutiles aux habitants et des appels répétés au secrétariat.
+Il n’existe pas d’obligation générale de tout dématérialiser pour une petite commune. Certaines démarches sont déjà nationales et en ligne par défaut, comme la pré-demande de carte d’identité ou le recensement citoyen via Service-Public.gouv.fr. Pour le reste, la commune reste libre de son organisation. L’enjeu est moins l’obligation que le service rendu : proposer une orientation claire en ligne évite des déplacements inutiles aux habitants et des appels répétés au secrétariat.
 Comment guider les citoyens dans leurs démarches sans alourdir le secrétariat ?
 La difficulté n’est pas le formulaire mais l’orientation : savoir quelle démarche faire, où, avec quelles pièces. Un assistant en ligne accessible 24 h/24, qui répond aux questions courantes et renvoie vers le bon téléservice officiel, traite la majeure partie des sollicitations répétitives. Le secrétariat se concentre alors sur les cas particuliers. C’est le principe de l’assistant citoyen Civik-ia, qui s’appuie sur les informations vérifiées de la commune.
 Faut-il France Connect pour les démarches d’une commune ?
@@ -3402,6 +4501,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3509,6 +4609,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3640,6 +4741,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3772,6 +4874,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3853,6 +4956,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
@@ -3924,6 +5028,7 @@ Logiciel de petite commune
 Démarches en ligne d’une commune
 Communiquer avec ses citoyens
 Livre blanc, l’IA en mairie
+Tous les guides
 Nous écrire
 contact@civik-ia.fr
 thibaut.harang@civik-ia.fr

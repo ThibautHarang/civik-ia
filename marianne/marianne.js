@@ -735,13 +735,6 @@ function poserVignetteMarianne(bloc) {
   try { lettreMarianne.vignette(bloc); } catch (e) {}
 }
 
-function sendToGoogleSheet(data) {
-  // Best-effort silencieux (endpoint optionnel, Formspree reste la source principale)
-  const endpoint = window.GSHEET_ENDPOINT || '';
-  if (!endpoint) return;
-  try { fetch(endpoint, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) }); } catch (e) {}
-}
-
 function handleFormSubmit(e) {
   e.preventDefault();
   const form = e.target;
@@ -758,17 +751,7 @@ function handleFormSubmit(e) {
   window.dataLayer.push({
     event: 'generate_lead',
     lead_source: 'contact_form',
-    lead_poste: fd.get('poste') || '',
-    lead_city: fd.get('city') || '',
-    lead_population: fd.get('population') || ''
-  });
-
-  sendToGoogleSheet({
-    nom: fd.get('lastname'), prenom: fd.get('firstname'),
-    poste: fd.get('poste'), email: fd.get('email'),
-    phone: fd.get('phone'), city: fd.get('city'),
-    population: fd.get('population'), message: fd.get('message'),
-    source: 'contact'
+    lead_population: fd.get('population') || ''   // fonction et commune retirées (avis DAJF du 20/10/2026) : jamais lues par GTM
   });
 
   // 15 s au plus, comme envoyerFormulaire de pages.js : un abandon se comporte comme une panne (meme alerte)

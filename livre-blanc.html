@@ -211,7 +211,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 
       <div id="success">
         <h2>Merci&nbsp;!</h2>
-        <p>Votre Livre Blanc se télécharge automatiquement.</p>
+        <p>Votre Livre Blanc se télécharge automatiquement.<span id="lien-par-courriel"></span></p>
         <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download id="manual-download">Cliquez ici si le téléchargement n’a pas démarré</a>
       </div>
     </div>
@@ -273,6 +273,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 </footer>
 <!-- /pied-commun -->
 
+<script src="/js/envoi-route.js?v=20261021"></script>
 <script>
 document.getElementById('lead-form').addEventListener('submit', async function(e){
   e.preventDefault();
@@ -288,13 +289,15 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
     const formData = new FormData(form);
     // la case cochée envoie « refusées » ; laissée vide, le courriel le dit aussi
     if (!formData.has('nouveautes')) formData.set('nouveautes', 'non refusées (case laissée vide)');
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
+    // route api.civik-ia.fr d'abord, Formspree en secours (/js/envoi-route.js, D185) ; sans le module, Formspree seul
+    const envoi = window.civikEnvoyer
+      ? await window.civikEnvoyer('livre_blanc', formData, form.action)
+      : await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+          .then(r => ({ ok: r.ok, accuse: false }));
 
-    if (response.ok) {
+    if (envoi.ok) {
+      // la phrase du courriel ne s'affiche que si l'accusé de la route est parti
+      if (envoi.accuse) document.getElementById('lien-par-courriel').textContent = ' Le lien vous est aussi envoyé par courriel.';
       // Cacher form, montrer success
       form.style.display = 'none';
       document.querySelector('.form-card .sub').style.display = 'none';

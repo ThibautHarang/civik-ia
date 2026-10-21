@@ -458,7 +458,7 @@ img { max-width: 100%; height: auto; display: block; }
 <section class="capture" id="capture">
   <div class="capture-inner">
     <h2 id="capture-title">Recevez la démonstration pour votre commune</h2>
-    <p class="sub" id="capture-sub">Laissez votre adresse email&nbsp;: nous revenons vers vous avec une démonstration au nom de votre commune et un dossier à présenter à votre conseil municipal.</p>
+    <p class="sub" id="capture-sub">Laissez votre adresse email&nbsp;: nous revenons vers vous avec une démonstration au nom de votre commune.</p>
     <form id="capture-form" novalidate>
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <input type="email" name="email" id="capture-email" required placeholder="votre.email@mairie.fr" aria-label="Votre adresse email">
@@ -466,7 +466,7 @@ img { max-width: 100%; height: auto; display: block; }
       <button type="submit">Recevoir ma démonstration</button>
     </form>
     <p class="fine">Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. <a href="/legal/politique-confidentialite.html">Politique de confidentialité</a>.</p>
-    <div class="ok-panel" id="capture-ok" role="status">Merci. Votre demande est bien envoyée&nbsp;: nous revenons vers vous avec la démonstration au nom de votre commune.</div>
+    <div class="ok-panel" id="capture-ok" role="status">Merci. Votre demande est bien envoyée&nbsp;: nous revenons vers vous avec la démonstration au nom de votre commune.<span id="capture-accuse"></span></div>
   </div>
 </section>
 
@@ -482,6 +482,7 @@ img { max-width: 100%; height: auto; display: block; }
 </footer>
 <!-- /pied-commun -->
 
+<script src="/js/envoi-route.js?v=20261021"></script>
 <script>
 (function () {
   'use strict';
@@ -731,16 +732,14 @@ img { max-width: 100%; height: auto; display: block; }
     if (gateAffichee) return;
     gateAffichee = true;
     verrouiller(true);
-    var nomCommune = chosenCommune ? chosenCommune.nom : '';
     var card = document.createElement('div');
     card.className = 'gate-card' + (mouvementReduit ? '' : ' enter');
     card.innerHTML =
       '<div class="gate-tete">Vous avez utilisé vos 3 questions de démonstration</div>' +
       '<div class="gate-corps">' +
-      '<p>Pour continuer à tester Marianne, laissez votre adresse email. Vous recevrez aussi le dossier de présentation pour votre conseil municipal' +
-      (nomCommune ? ', préparé pour ' + esc(nomCommune) : '') + '.</p>' +
+      '<p>Pour continuer à tester Marianne, laissez votre adresse email.</p>' +
       '<form novalidate><input type="email" required placeholder="votre.email@mairie.fr" aria-label="Votre adresse email"><button type="submit">Continuer la démonstration</button></form>' +
-      '<p class="gate-note">Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. <a href="/legal/politique-confidentialite.html" target="_blank" rel="noopener">Politique de confidentialité</a>.</p>' +
+      '<p class="gate-note">Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à revenir vers vous au sujet de Marianne. Vous pourrez refuser nos messages à tout moment en répondant à l’un d’eux. <a href="/legal/politique-confidentialite.html" target="_blank" rel="noopener">Politique de confidentialité</a>.</p>' +
       '</div>';
     chatBody.appendChild(card);
     chatBody.scrollTop = chatBody.scrollHeight;
@@ -791,10 +790,8 @@ img { max-width: 100%; height: auto; display: block; }
 
   function debloquerSuite(corps, email) {
     track('generate_lead', { lead_source: 'demo_gate' });
-    var nomCommune = chosenCommune ? chosenCommune.nom : '';
     corps.innerHTML =
-      '<p class="gate-ok">Merci. Vous recevrez le dossier' +
-      (nomCommune ? ', préparé pour ' + esc(nomCommune) : '') + '. La démonstration continue : 5 questions de plus.</p>' +
+      '<p class="gate-ok">Merci. La démonstration continue : 5 questions de plus.</p>' +
       '<div class="fonction-ligne"><input type="text" id="gate-fonction" placeholder="Votre fonction à la mairie (facultatif)" aria-label="Votre fonction à la mairie">' +
       '<button type="button" id="gate-fonction-ok">Préciser</button></div>';
     verrouiller(false);
@@ -816,7 +813,7 @@ img { max-width: 100%; height: auto; display: block; }
     if (finAffichee) return;
     finAffichee = true;
     verrouiller(true, 'Démonstration terminée. Poursuivons de vive voix.');
-    /* 21/10/2026 : seules les questions partent chez Formspree, et seulement avec une adresse laissée */
+    /* 21/10/2026 : seules les questions partent avec une adresse laissée (route api.civik-ia.fr, Formspree en secours) */
     addMsg('bot', 'Nous avons bien échangé : vous avez fait le tour de la démonstration publique. ' +
       (etat.email ? 'Nous revenons vers vous à l\'adresse que vous avez laissée. ' : '') +
       'Pour une présentation complète de Marianne, <a href="#capture">demandez votre démonstration personnalisée</a>.');
@@ -942,8 +939,10 @@ img { max-width: 100%; height: auto; display: block; }
     }, 3600);
   }
 
-  /* ============ Capture de lead (Formspree, envoi sans quitter la page) ============ */
-  /* 21/10/2026 (avis DAJF du 20/10) : les questions seules, sans les réponses de la commune fictive */
+  /* ============ Capture de lead (envoi sans quitter la page) ============ */
+  /* 21/10/2026 (avis DAJF du 20/10) : les questions seules, sans les réponses de la commune fictive ; D185 : la route
+     api.civik-ia.fr d'abord, Formspree en secours (/js/envoi-route.js), Formspree seul si le module manque */
+  var FORMULAIRE_ROUTE = { demo_gate: 'demo_porte', demo_gate_fonction: 'demo_fonction', formulaire: 'demo_formulaire' };
   function envoyerLead(infos, done) {
     var contenu = {
       _subject: 'Lead démo en ligne (' + (infos.source || 'formulaire') + ')',
@@ -953,13 +952,16 @@ img { max-width: 100%; height: auto; display: block; }
       questions_posees: transcript.map(function (t) { return t.q; }).join(' | ')
     };
     if (infos.fonction) contenu.fonction = infos.fonction;
-    fetch('https://formspree.io/f/mnjogblz', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(contenu)
-    })
-      .then(function (r) { done(r.ok); })
-      .catch(function () { done(false); });
+    var donnees = new FormData();
+    Object.keys(contenu).forEach(function (k) { donnees.append(k, contenu[k]); });
+    var secours = 'https://formspree.io/f/mnjogblz';
+    var envoi = window.civikEnvoyer
+      ? window.civikEnvoyer(FORMULAIRE_ROUTE[infos.source] || 'demo_formulaire', donnees, secours)
+      : fetch(secours, { method: 'POST', headers: { 'Accept': 'application/json' }, body: donnees })
+          .then(function (r) { return { ok: r.ok, accuse: false }; });
+    envoi
+      .then(function (res) { done(res.ok, res.accuse); })
+      .catch(function () { done(false, false); });
   }
 
   var captureForm = document.getElementById('capture-form');
@@ -973,8 +975,14 @@ img { max-width: 100%; height: auto; display: block; }
     if (!email) { document.getElementById('capture-email').focus(); return; }
     var gotcha = captureForm.querySelector('[name="_gotcha"]').value;
     if (gotcha) return;
-    envoyerLead({ email: email, source: 'formulaire', commune: document.getElementById('capture-commune').value.trim() }, function (ok) {
+    // jusqu'à 19 s d'attente (route puis Formspree) : un second clic ne relance rien
+    var boutonCapture = captureForm.querySelector('button[type="submit"]');
+    if (boutonCapture.disabled) return;
+    boutonCapture.disabled = true;
+    envoyerLead({ email: email, source: 'formulaire', commune: document.getElementById('capture-commune').value.trim() }, function (ok, accuse) {
+      boutonCapture.disabled = false;
       if (ok) {
+        if (accuse) document.getElementById('capture-accuse').textContent = ' Un accusé de réception vous est envoyé par courriel.';
         track('generate_lead', { lead_source: 'demo' });
         captureForm.style.display = 'none';
         document.querySelector('.capture .fine').style.display = 'none';

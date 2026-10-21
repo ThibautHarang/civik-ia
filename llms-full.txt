@@ -2470,7 +2470,7 @@ Cible principale
 Toutes tailles
 Petites-moyennes
 Collectivités (interne)
-Rurales &rarr; Régions
+Rurales → Régions
 Prix (commune rurale)
 ~1 750 €/an
 ~744 €/an
@@ -2935,100 +2935,100 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil
 /
 Communes Rurales
-Commune rurale : un chatbot IA qui repond a vos habitants 24 h/24
-Nouveau mandat 2026 ? Offrez a vos 800, 2 000 ou 4 500 habitants un accueil numerique 24 h/24, qui repond a partir du site officiel de la commune et cite la page de chaque reponse.
+Commune rurale : un chatbot IA qui répond à vos habitants 24 h/24
+Nouveau mandat 2026 ? Offrez à vos 800, 2 000 ou 4 500 habitants un accueil numérique 24 h/24, qui répond à partir du site officiel de la commune et cite la page de chaque réponse.
 Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Voir la démo d’une commune rurale
 Demander un devis
 Le quotidien d’une mairie rurale
-Mardi, 14h15. La secretaire de mairie est seule. Le telephone sonne pour la 12eme fois de la journee. C’est Mme Durand qui veut conna&icirc;tre les jours de collecte des dechets verts. Pendant ce temps, M. Martin attend au comptoir pour un certificat d’urbanisme. Et le DGS prepare le conseil municipal de jeudi.
-Dans 87 % des communes rurales francaises , la mairie fonctionne avec 1 a 3 agents. Le secretaire de mairie est a la fois standardiste, urbaniste, etat civil, comptable.
-Les trois m&ecirc;mes questions reviennent chaque jour : les horaires, les dechets, les demarches administratives . Des reponses simples, mais qui consomment un temps precieux : celui que vos agents devraient consacrer a l’accueil humain, aux situations complexes, aux administres fragiles.
-Et si votre mairie pouvait repondre a ces questions repetitives, automatiquement, 24 h/24, m&ecirc;me le dimanche a 22h47 ?
-Deux faces d’un m&ecirc;me outil
+Mardi, 14h15. La secrétaire de mairie est seule. Le téléphone sonne pour la 12ème fois de la journée. C’est Mme Durand qui veut connaître les jours de collecte des déchets verts. Pendant ce temps, M. Martin attend au comptoir pour un certificat d’urbanisme. Et le DGS prépare le conseil municipal de jeudi.
+Dans 87 % des communes rurales françaises , la mairie fonctionne avec 1 à 3 agents. Le secrétaire de mairie est à la fois standardiste, urbaniste, état civil, comptable.
+Les trois mêmes questions reviennent chaque jour : les horaires, les déchets, les démarches administratives . Des réponses simples, mais qui consomment un temps précieux : celui que vos agents devraient consacrer à l’accueil humain, aux situations complexes, aux administrés fragiles.
+Et si votre mairie pouvait répondre à ces questions répétitives, automatiquement, 24 h/24, même le dimanche à 22h47 ?
+Deux faces d’un même outil
 Marianne pour les habitants, et l’espace mairie dès son ouverture pour la commune.
-Le Chatbot IA : Votre agent d’accueil numerique
+Le Chatbot IA : Votre agent d’accueil numérique
 Répond à partir des données de votre commune (PLU, horaires, déchets, associations, état civil)
-Repond aux citoyens 24 h/24, 365 jours par an
+Répond aux citoyens 24 h/24, 365 jours par an
 Sans inscription, sans compte, le citoyen pose sa question, point
 Page dédiée mise en ligne par nos soins, partageable par lien ou QR code (module à insérer dans les pages du site : à venir)
 L’espace mairie : le tableau de bord de la commune
 Les questions des habitants et les sujets qui reviennent
-Les reponses justes et les erreurs connues, corrigees puis remesurees
-Ce que le site ne dit pas, pour completer vos pages
+Les réponses justes et les erreurs connues, corrigées puis remesurées
+Ce que le site ne dit pas, pour compléter vos pages
 Les sources de Marianne
-Adapte aux besoins de chaque commune
-Avant l’ouverture aux habitants, une mise en service unique mesure les reponses de Marianne sur 300 questions de test, jugees contre leur page source. Le detail des six etapes .
+Adapté aux besoins de chaque commune
+Avant l’ouverture aux habitants, une mise en service unique mesure les réponses de Marianne sur 300 questions de test, jugées contre leur page source. Le détail des six étapes .
 3 exemples concrets
-Des scenarios realistes pour des communes rurales comme la v&ocirc;tre.
+Des scénarios réalistes pour des communes rurales comme la vôtre.
 Commune de 1 200 hab.
-Reduire la charge telephonique
-La mairie recoit 40 appels par semaine. Les 3 questions les plus frequentes : horaires d’ouverture, jours de collecte des dechets, numero de l’ecole. Avec Civik-ia, ces questions sont traitees automatiquement, 24 h/24.
-Resultat : la secretaire de mairie gagne 6 heures par semaine.
+Réduire la charge téléphonique
+La mairie reçoit 40 appels par semaine. Les 3 questions les plus fréquentes : horaires d’ouverture, jours de collecte des déchets, numéro de l’école. Avec Civik-ia, ces questions sont traitées automatiquement, 24 h/24.
+Résultat : la secrétaire de mairie gagne 6 heures par semaine.
 Commune de 3 500 hab.
 Ouvrir sans mauvaise surprise
-Avant l’ouverture, les agents relisent les fiches ecrites a la main et jugent des reponses de Marianne sur un export o&ugrave; chaque reponse porte sa page source. Les reponses non justes sont corrigees puis remesurees.
-Les habitants decouvrent un outil deja verifie par leurs agents.
+Avant l’ouverture, les agents relisent les fiches écrites à la main et jugent des réponses de Marianne sur un export où chaque réponse porte sa page source. Les réponses non justes sont corrigées puis remesurées.
+Les habitants découvrent un outil déjà vérifié par leurs agents.
 Commune de 4 800 hab.
-Completer le site la o&ugrave; il se tait
-Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notee. La mairie publie les dates sur son site, et Marianne les reprend des la nuit suivante. Les sept étapes pour préparer les données d’une petite commune sont décrites sur une page à part.
-Resultat : une reponse juste des le lendemain.
-Nouveau mandat 2026 : vos priorites numeriques
-Les elections municipales de mars 2026 ont renouvele des milliers de conseils municipaux. Avec un nouveau mandat vient un nouveau projet communal.
+Compléter le site là où il se tait
+Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notée. La mairie publie les dates sur son site, et Marianne les reprend dès la nuit suivante. Les sept étapes pour préparer les données d’une petite commune sont décrites sur une page à part.
+Résultat : une réponse juste dès le lendemain.
+Nouveau mandat 2026 : vos priorités numériques
+Les élections municipales de mars 2026 ont renouvelé des milliers de conseils municipaux. Avec un nouveau mandat vient un nouveau projet communal.
 1
-Accessibilite des services publics
-Un accueil disponible 24 h/24, y compris le soir, le week-end et les jours feries. Multicanal : web, mobile, widget.
+Accessibilité des services publics
+Un accueil disponible 24 h/24, y compris le soir, le week-end et les jours fériés. Multicanal : web, mobile, widget.
 2
 Transparence
-Des reponses qui citent leur source officielle, et une mairie qui sait ce que ses habitants demandent. Construire la confiance elu-citoyen.
+Des réponses qui citent leur source officielle, et une mairie qui sait ce que ses habitants demandent. Construire la confiance élu-citoyen.
 3
-Ma&icirc;trise du budget
-Des solutions abordables, concues pour rester sous le seuil des marches publics (60 000 € HT, dispense de procedure, R. 2122-8, depuis le 01/04/2026). Pas de co&ucirc;ts caches, pas de mauvaises surprises.
+Maîtrise du budget
+Des solutions abordables, conçues pour rester sous le seuil des marchés publics (60 000 € HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026). Pas de coûts cachés, pas de mauvaises surprises.
 4
-Souverainete numerique
+Souveraineté numérique
 Hébergement dans l’Union européenne, chez OVHcloud ; modèle de Mistral AI, société française ; aucun compte demandé à l’habitant.
-Civik-ia repond a ces 4 priorites dans un seul outil, avec un abonnement à partir de 69 € HT par mois, selon la taille de la commune.
-Comment ca marche concretement ?
-Une mise en service unique, en six etapes, avant l’ouverture aux habitants. En voici l’essentiel.
+Civik-ia répond à ces 4 priorités dans un seul outil, avec un abonnement à partir de 69 € HT par mois, selon la taille de la commune.
+Comment ça marche concrètement ?
+Une mise en service unique, en six étapes, avant l’ouverture aux habitants. En voici l’essentiel.
 1
-Inventaire et cadre ecrit
-Nous recensons les pages et les documents de votre site officiel. Vous confirmez par ecrit le perimetre des sources et la regle sur les personnes nommees.
+Inventaire et cadre écrit
+Nous recensons les pages et les documents de votre site officiel. Vous confirmez par écrit le périmètre des sources et la règle sur les personnes nommées.
 2
 Base, mesure, validation
-Le site est lu chaque nuit, les fiches que le site ne tranche pas sont ecrites a la main, 300 questions de test sont jugees contre leur page source, puis vos agents valident. Le detail des six etapes .
+Le site est lu chaque nuit, les fiches que le site ne tranche pas sont écrites à la main, 300 questions de test sont jugées contre leur page source, puis vos agents valident. Le détail des six étapes .
 3
 Ouverture aux habitants
-Page dediee partageable par lien, QR code ou bulletin municipal. Marianne repond 24 h/24 et cite sa source ; le site est relu chaque nuit, les vraies questions chaque semaine. L’espace mairie, dès son ouverture, vous montrera ce que vos habitants demandent.
+Page dédiée partageable par lien, QR code ou bulletin municipal. Marianne répond 24 h/24 et cite sa source ; le site est relu chaque nuit, les vraies questions chaque semaine. L’espace mairie, dès son ouverture, vous montrera ce que vos habitants demandent.
 Budget : 69 € HT par mois
-Un investissement ma&icirc;trise, concu pour rester sous le seuil des marches publics.
+Un investissement maîtrisé, conçu pour rester sous le seuil des marchés publics.
 Commune rurale < 5 000 hab.
 Abonnement Marianne
 69 €
 HT par mois, abonnement annuel
 Mise en service :
 à partir de 999 € HT, sur devis, une seule fois
-Abonnement et mise en service concus pour rester sous le seuil des marches publics (60 000 € HT, dispense de procedure, R. 2122-8, depuis le 01/04/2026)
-Chatbot IA personnalise sur les donnees de votre commune
+Abonnement et mise en service conçus pour rester sous le seuil des marchés publics (60 000 € HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026)
+Chatbot IA personnalisé sur les données de votre commune
 Accueil citoyen 24 h/24, 365 j/an, sans inscription
 Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance
 Page dédiée (civik-ia.fr/votre-commune) ; module à insérer dans les pages du site : à venir
 Hébergement chez OVHcloud, serveur en Allemagne
-RGPD : aucun compte demande aux habitants
-Support par email, mises a jour incluses
+RGPD : aucun compte demandé aux habitants
+Support par email, mises à jour incluses
 Demander un devis
-Mise en service : à partir de 999 € HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturee une seule fois, à votre validation écrite de la version de référence, avant l’ouverture aux habitants.
-Questions frequentes
-Les reponses aux questions que se posent les maires et DGS de communes rurales.
+Mise en service : à partir de 999 € HT, sur devis selon le travail à réaliser (taille de votre site, documents à intégrer, fiches à écrire, ateliers avec vos agents). Facturée une seule fois, à votre validation écrite de la version de référence, avant l’ouverture aux habitants.
+Questions fréquentes
+Les réponses aux questions que se posent les maires et DGS de communes rurales.
 Un chatbot est-il utile pour une commune de moins de 1 000 habitants ?
-Oui. Plus la commune est petite, plus le secretaire de mairie est sollicite sur des questions repetitives (horaires, dechets, etat civil). Un chatbot IA prend en charge ces demandes 24 h/24, y compris le soir et le week-end, sans mobiliser de personnel supplementaire. L’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
+Oui. Plus la commune est petite, plus le secrétaire de mairie est sollicité sur des questions répétitives (horaires, déchets, état civil). Un chatbot IA prend en charge ces demandes 24 h/24, y compris le soir et le week-end, sans mobiliser de personnel supplémentaire. L’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Faut-il un site internet pour avoir un chatbot Civik-ia ?
 Non. Que votre commune ait un site internet ou non, Civik-ia fournit une page dédiée accessible via une URL simple ( civik-ia.fr/votre-commune ) que vous pouvez diffuser par lien, QR code ou bulletin municipal. Un module à insérer dans les pages de votre site (WordPress, Joomla, HTML) est à venir.
-Comment le chatbot conna&icirc;t-il les informations de ma commune ?
+Comment le chatbot connaît-il les informations de ma commune ?
 Nous créons une base de connaissances personnalisée à partir des données publiques de votre commune (PLU, horaires, associations, services, numéros utiles) et des informations que vous nous transmettez. Marianne répond à partir de ces seules données vérifiées, retrouvées au moment de la question ; le modèle n’est pas entraîné sur elles. Si le chatbot ne connaît pas la réponse, il oriente le citoyen vers le secrétariat de mairie.
-Le chatbot fonctionne-t-il le week-end et les jours feries ?
-Oui, le chatbot Civik-ia fonctionne 24 heures sur 24, 365 jours par an, y compris les week-ends, jours feries et periodes de vacances. Vos habitants obtiennent une reponse immediate m&ecirc;me quand la mairie est fermee, c’est l’un des avantages les plus apprecies par les elus ruraux.
-Votre commune merite un accueil 24 h/24
-Rejoignez les premieres communes rurales a offrir un accueil numerique intelligent et une democratie participative a leurs habitants.
+Le chatbot fonctionne-t-il le week-end et les jours fériés ?
+Oui, le chatbot Civik-ia fonctionne 24 heures sur 24, 365 jours par an, y compris les week-ends, jours fériés et périodes de vacances. Vos habitants obtiennent une réponse immédiate même quand la mairie est fermée, c’est l’un des avantages les plus appréciés par les élus ruraux.
+Votre commune mérite un accueil 24 h/24
+Rejoignez les premières communes rurales à offrir un accueil numérique intelligent et une démocratie participative à leurs habitants.
 Tester la démo
 Demander un devis
 Civik-ia
@@ -4983,11 +4983,11 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 22:47
 Un citoyen a une question.
 Votre mairie est fermée.
-Decouvrir
+Découvrir
 Maintenant, elle ne ferme plus.
-Decouvrez ce que vos citoyens verront.
+Découvrez ce que vos citoyens verront.
 Votre mairie, accessible 24 h/24
-Un assistant IA qui conna&icirc;t votre commune. Horaires, dechets, urbanisme, etat civil... il repond instantanement.
+Un assistant IA qui connaît votre commune. Horaires, déchets, urbanisme, état civil… il répond instantanément.
 C
 Civik-ia : Assistant de votre mairie
 En ligne 24 h/24
@@ -4995,10 +4995,10 @@ Bonjour ! Je suis l’assistant de votre mairie. Comment puis-je vous aider ?
 Horaires de la mairie
 Jour des poubelles
 Inscription scolaire
-Pr&ecirc;t a ouvrir votre mairie 24 h/24 ?
+Prêt à ouvrir votre mairie 24 h/24 ?
 Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, selon la taille de la commune. Hébergement chez OVHcloud, serveur en Allemagne.
-Tester la demo complete
-Demander une demo personnalisee
+Tester la démo complète
+Demander une démo personnalisée
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site

@@ -74,7 +74,8 @@ Marianne est en test sur des communes de test. Aucune commune n'est cliente ni n
 - [22h47](https://civik-ia.fr/22h47.html) : la campagne « votre mairie est fermée, un habitant a une question ».
 - [Centre d'aide et FAQ](https://civik-ia.fr/aide.html) : réponses aux questions fréquentes des mairies sur l'assistant, le RGPD, l'intégration, les tarifs et la souveraineté.
 - [Conditions générales de vente](https://civik-ia.fr/legal/conditions-generales-vente.html) : le cadre contractuel de Marianne pour les collectivités.
-- [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, sous-traitants, conservation (texte des questions effacé de la base au bout de 90 jours, questions reconnues comme sensibles non écrites dans la base).
+- [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, juridictions et accès des autorités, sous-traitants, conservation (texte des questions effacé de la base au bout de 90 jours, questions reconnues comme sensibles non écrites dans la base).
+- [Données exportables de Marianne](https://civik-ia.fr/legal/donnees-exportables-marianne.html) : registre des fichiers, champs et formats (CSV et JSON en UTF-8) de l'archive remise à une collectivité qui demande ses données, article 14 des CGV.
 
 ## Contenu intégral
 

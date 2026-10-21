@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marianne et le RGPD : données et hébergement · Civik-ia</title>
-    <meta name="description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, durées de conservation, violations de données.">
+    <meta name="description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, juridictions, durées de conservation, violations de données.">
     <style>
         :root {
             --primary-gov: #000091;
@@ -128,7 +128,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://civik-ia.fr/legal/conformite-rgpd.html">
     <meta property="og:title" content="Marianne et le RGPD : données et hébergement · Civik-ia">
-    <meta property="og:description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, durées de conservation, violations de données.">
+    <meta property="og:description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, juridictions, durées de conservation, violations de données.">
     <meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
     <meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -145,7 +145,7 @@
     <meta name="twitter:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
     <meta name="twitter:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
     <meta name="twitter:title" content="Marianne et le RGPD : données et hébergement · Civik-ia">
-    <meta name="twitter:description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, durées de conservation, violations de données.">
+    <meta name="twitter:description" content="Rôles de la mairie et de Civik-ia, serveur OVHcloud en Allemagne, Mistral AI et autres sous-traitants, juridictions, durées de conservation, violations de données.">
 <!-- tete-commune -->
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#f7f4ed">
@@ -240,6 +240,36 @@
 <div class="warning-box">
     <strong>Transparence :</strong> Civik-ia décrit les flux de données dans l'accord sur le traitement des données remis à chaque collectivité et notifie à ses collectivités clientes toute évolution de son infrastructure.
 </div>
+
+<h3 id="juridictions">4.4. Juridictions et accès des autorités</h3>
+<p class="legal-ref">Articles 28 et 32 du règlement (UE) 2023/2854 sur les données</p>
+<p>Cette section indique, pour chaque service de Civik-ia, la juridiction dont relève l'infrastructure qui traite ses données, et les mesures prises contre l'accès d'une autorité d'un pays tiers aux données détenues dans l'Union européenne. L'accord sur le traitement des données de Marianne y renvoie.</p>
+
+<p><strong>Marianne, pour les collectivités</strong></p>
+<ul>
+    <li><strong>Serveur, base de données et sauvegardes :</strong> serveur virtuel loué à OVH SAS, société de droit français, dans un centre de données situé en Allemagne. Juridictions : Allemagne et France, dans l'Union européenne.</li>
+    <li><strong>Copie hors site des sauvegardes :</strong> poste de travail de Civik-ia, en France, sur un disque chiffré. Juridiction : France.</li>
+    <li><strong>Moteur d'intelligence artificielle :</strong> Mistral AI, société de droit français. Civik-ia l'appelle par son point d'accès général, pour lequel Mistral AI ne s'engage sur aucun lieu de calcul. Selon Mistral AI, les données sont hébergées par défaut dans l'Union européenne et peuvent, selon les fonctions, être transférées temporairement hors de l'Union. Mistral AI recourt à ses propres sous-traitants, dont elle publie la liste. Juridictions : France, et celles du lieu de calcul et des sous-traitants que retient Mistral AI.</li>
+    <li><strong>Courriels de l'espace mairie, à son ouverture :</strong> Sendinblue SAS (Brevo), société de droit français. Le lieu de ses serveurs est communiqué par écrit à la collectivité avant l'ouverture. Juridiction : France.</li>
+    <li><strong>Outils de travail de Civik-ia :</strong> Civik-ia garde des copies de travail de la base de connaissances de chaque commune, bâtie à partir des informations qu'elle publie, avec l'historique des versions et les réglages de la commune, dans son dépôt de code et ses outils de développement. Pendant la mise en service, avant l'ouverture au public, des questions posées sur la page de test peuvent figurer dans les courriels internes de Civik-ia et, tronquées et masquées, dans sa relecture des réponses. Ces outils et cette messagerie sont fournis par des sociétés établies aux États-Unis ou rattachées à des groupes de ce pays : ils peuvent traiter ces données aux États-Unis et relever du droit de ce pays. Après l'ouverture au public, ni ces courriels ni cette relecture ne reprennent le texte des questions et des réponses.</li>
+</ul>
+
+<p><strong>Comitia, pour les associations</strong></p>
+<ul>
+    <li><strong>Serveur, base de données et sauvegardes :</strong> les mêmes que pour Marianne, chez OVH SAS en Allemagne, avec la copie hors site en France.</li>
+    <li><strong>Courriels aux membres :</strong> Sendinblue SAS (Brevo), société de droit français. Juridiction : France.</li>
+    <li><strong>Notifications :</strong> transmises au téléphone ou à l'ordinateur du membre par le service de notification de l'éditeur de son navigateur ou de son système (Apple, Google ou Mozilla), qui peut relever du droit des États-Unis. Le contenu de chaque notification est chiffré pour le seul appareil du membre.</li>
+    <li><strong>Outils de travail de Civik-ia :</strong> copies de travail du code et des contenus publiés par l'association, dans les mêmes outils que pour Marianne.</li>
+</ul>
+<p>Comitia n'appelle aucun moteur d'intelligence artificielle.</p>
+
+<p><strong>Mesures contre l'accès des autorités d'un pays tiers</strong></p>
+<ul>
+    <li><strong>Techniques :</strong> les données des services sont hébergées sur le serveur situé en Allemagne, administré par clé cryptographique par le seul président de Civik-ia. Les index de recherche et la lecture des documents scannés sont calculés sur ce serveur, sans service extérieur. Les échanges sont chiffrés (HTTPS). La copie hors site des sauvegardes reste en France, sur un disque chiffré.</li>
+    <li><strong>Organisationnelles :</strong> Civik-ia est une société de droit français, sans établissement ni filiale hors de l'Union européenne. Son hébergeur et le fournisseur du moteur d'intelligence artificielle de Marianne sont des sociétés de droit français. Le président de Civik-ia est la seule personne de la société qui accède aux données.</li>
+    <li><strong>Contractuelles :</strong> Civik-ia ne donne suite à une décision d'une juridiction ou d'une autorité d'un pays tiers exigeant l'accès à des données détenues dans l'Union européenne, ou leur transfert, que si elle est fondée sur un accord international en vigueur avec l'Union européenne ou la France (article 48 du RGPD). Pour les données à caractère non personnel, à défaut d'un tel accord, elle n'y donne suite que dans les conditions de l'article 32, paragraphe 3, du règlement sur les données. Elle peut solliciter l'avis de l'autorité nationale compétente, rejette la demande qui ne remplit pas ces conditions et ne communique que le volume minimal de données admissible. Elle informe le client avant d'y donner suite, sauf si la demande sert des fins répressives, aussi longtemps que cela est nécessaire. L'accord sur le traitement des données de Marianne, version du 21 octobre 2026, reprend ces engagements (article 10.4).</li>
+    <li><strong>Portée :</strong> ces mesures protègent les données détenues sur le serveur et dans la copie hors site. Les copies et les échanges décrits aux points « Outils de travail de Civik-ia » et « Notifications » peuvent relever du droit des États-Unis.</li>
+</ul>
 
 <h2>5. Mesures de sécurité techniques et organisationnelles</h2>
 <p class="legal-ref">Article 32 du RGPD : Sécurité du traitement</p>

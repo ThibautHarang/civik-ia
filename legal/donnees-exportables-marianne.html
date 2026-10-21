@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr" data-couche="legale">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Données exportables de Marianne : structures et formats · Civik-ia</title>
+    <link rel="canonical" href="https://civik-ia.fr/legal/donnees-exportables-marianne.html">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Registre des données remises à une collectivité qui quitte Marianne ou change de fournisseur : fichiers, champs, formats CSV et JSON en UTF-8, limites et exclusions.">
+    <style>
+        :root {
+            --primary-gov: #000091;
+            --secondary-innov: #007BFF;
+            --accent-teal: #2EC4B6;
+            --text-main: #1B2A4A;
+            --text-light: #4A5568;
+            --bg-warm: #F9FAFB;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+            background: var(--bg-warm);
+            line-height: 1.8;
+        }
+        .legal-header {
+            background: var(--primary-gov);   /* passe P3 : aplat de la palette (bleu de la maison), plus de dégradé */
+            color: white;
+            padding: 60px 40px 50px;
+            text-align: center;
+        }
+        .legal-header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .legal-header p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        .legal-nav {
+            background: white;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .legal-nav a {
+            color: var(--primary-gov);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .legal-nav a:hover { color: var(--secondary-innov); }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+        }
+        .legal-content h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-gov);
+            margin: 40px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(0,0,145,0.08);
+        }
+        .legal-content h2:first-child { margin-top: 0; }
+        .legal-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 24px 0 10px;
+        }
+        .legal-content p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 14px;
+        }
+        .legal-content ul {
+            margin: 10px 0 14px 24px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        .legal-content ul li { margin-bottom: 6px; }
+        .legal-content strong { color: var(--text-main); }
+        .info-box {
+            background: rgba(46,196,182,0.06);
+            border-left: 4px solid var(--accent-teal);
+            padding: 16px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .warning-box {
+            background: rgba(244,162,97,0.08);
+            border-left: 4px solid #F4A261;
+            padding: 16px 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .legal-ref {
+            font-size: 12px;
+            color: #888;
+            font-style: italic;
+            margin-top: -8px;
+            margin-bottom: 14px;
+        }
+        .legal-content code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 13px;
+            color: var(--text-main);
+            background: rgba(0,0,145,0.05);
+            padding: 1px 5px;
+            border-radius: 4px;
+            overflow-wrap: anywhere;
+        }
+        .legal-content a { color: var(--primary-gov); }
+        .legal-footer {
+            background: #1B2A4A;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 30px;
+            font-size: 12px;
+        }
+        .legal-footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        @media (max-width: 768px) {
+            .legal-header { padding: 40px 20px 30px; }
+            .legal-header h1 { font-size: 24px; }
+            .legal-content { padding: 30px 20px 60px; }
+        }
+    </style>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Civik-ia">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://civik-ia.fr/legal/donnees-exportables-marianne.html">
+    <meta property="og:title" content="Données exportables de Marianne : structures et formats · Civik-ia">
+    <meta property="og:description" content="Registre des données remises à une collectivité qui quitte Marianne ou change de fournisseur : fichiers, champs, formats CSV et JSON en UTF-8, limites et exclusions.">
+    <meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+    <meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+    <meta property="og:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+    <meta property="og:image:secure_url" content="https://civik-ia.fr/assets/partage/home-2026-10-19-1080.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village et la fontaine de sa place.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://civik-ia.fr/assets/partage/home-2026-10-19.jpg">
+    <meta name="twitter:image:alt" content="Gravure à la plume bleue sur papier crème : la mairie d'un village, son horloge et son drapeau, la fontaine sur la place pavée, la route qui monte vers les vignes.">
+    <meta name="twitter:title" content="Données exportables de Marianne : structures et formats · Civik-ia">
+    <meta name="twitter:description" content="Registre des données remises à une collectivité qui quitte Marianne ou change de fournisseur : fichiers, champs, formats CSV et JSON en UTF-8, limites et exclusions.">
+<!-- tete-commune -->
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="icon" href="/assets/icones/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/assets/icones/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icones/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/assets/icones/site.webmanifest">
+<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/polices.css?v=20261021">
+<link rel="stylesheet" href="/css/jetons.css?v=20261021">
+<link rel="stylesheet" href="/css/couche-commune.css?v=20261021">
+<script src="/js/cookies.js?v=20261021" defer></script>
+<!-- /tete-commune -->
+</head>
+<body>
+    <!-- barre-commune -->
+<div class="cc cc-barre">
+<nav class="cc-barre__nav" aria-label="Navigation principale">
+<a class="cc-barre__signe" href="/" aria-label="Civik-ia, accueil"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg><span class="cc-barre__nom">Civik-<b>ia</b></span></a>
+<ul class="cc-barre__liens"><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/#contact">Contact</a></li></ul>
+<a class="cc-barre__action" href="/demo">Tester Marianne</a>
+<details class="cc-barre__menu"><summary class="cc-barre__ouvrir" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<div class="cc-tiroir"><a href="/">Accueil</a><a href="/marianne/">Marianne</a><a href="/conseil/">Conseil</a><a href="/atelier/">Atelier</a><a href="/#contact">Contact</a><button type="button" data-cookies-gerer>Gérer les cookies</button></div>
+</details>
+</nav>
+</div>
+<div class="cc cc-place" aria-hidden="true"></div>
+<!-- /barre-commune -->
+    <header class="legal-header">
+        <h1>Données exportables de Marianne</h1>
+        <p>Registre des structures et formats de données, version du 21 octobre 2026</p>
+    </header>
+    <main class="legal-content">
+
+<p>Cette page tient le registre des structures et formats de données prévu à l'article 26, point b), du règlement (UE) 2023/2854 du 13 décembre 2023 sur les données. Elle décrit l'archive remise à une collectivité qui demande ses données en fin de contrat ou pour changer de fournisseur, dans les conditions de l'article 14 des <a href="/legal/conditions-generales-vente.html#a14">conditions générales de vente</a>.</p>
+
+<h2 id="remise">L'archive remise</h2>
+<p>La collectivité demande ses données par courrier électronique à <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a> ou par lettre recommandée. La restitution et la mise à disposition des données sont comprises dans l'abonnement, sans frais de changement de fournisseur (article 14.4).</p>
+<p>Civik-ia remet une archive au format ZIP, nommée <code>export-marianne-{commune}-{AAAAMMJJ-HHMM}.zip</code> (date et heure de l'export en temps universel), par un moyen convenu par écrit avec la collectivité, à son référent ou à son délégué à la protection des données. L'empreinte SHA-256 de l'archive est transmise par un autre canal que l'archive.</p>
+<p>Délais : articles 14.1 et 14.2 des conditions générales de vente. Une conversion dans un format propre au nouveau fournisseur fait l'objet d'un devis (article 14.4).</p>
+<p>L'archive contient un dossier par catégorie de données de l'article 14.3 des conditions générales de vente, et quatre fichiers à sa racine :</p>
+<ul>
+    <li><code>LISEZMOI.txt</code> : commune, date de l'export, nombre de lignes de chaque fichier, limites connues et pièces absentes ;</li>
+    <li><code>DESCRIPTION-DES-CHAMPS.csv</code> et <code>DESCRIPTION-DES-CHAMPS.json</code> : pour chaque fichier, le nom, le type et la description de chaque champ ;</li>
+    <li><code>EMPREINTES.sha256</code> : l'empreinte SHA-256 de chaque fichier, au format de la commande <code>shasum -a 256</code>.</li>
+</ul>
+
+<h2 id="regles">Règles communes à tous les fichiers</h2>
+<ul>
+    <li>Encodage UTF-8.</li>
+    <li>Fichiers CSV conformes à la RFC 4180 : séparateur virgule, champs entre guillemets doubles si besoin, fin de ligne CRLF, première ligne d'en-tête. Un fichier sans donnée garde sa ligne d'en-tête.</li>
+    <li>Fichiers JSON conformes à la RFC 8259. Les questions, le comptage et le journal de recherche sont remis aussi en JSON, qui garde les valeurs exactes.</li>
+    <li>Dans un fichier CSV, une cellule de texte qui commence par <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, une tabulation, un retour chariot ou la forme pleine chasse de ces signes est précédée d'une apostrophe, pour qu'un tableur ne la lise pas comme une formule. Le fichier <code>LISEZMOI.txt</code> donne le nombre de ces cellules.</li>
+    <li>Dates et heures en temps universel coordonné, au format RFC 3339 (<code>2026-10-21T13:00:00Z</code>) ; mois au format <code>AAAA-MM</code>.</li>
+    <li>Aucun identifiant interne de la base de données n'est exporté.</li>
+</ul>
+
+<h2 id="base">1. Base de connaissances</h2>
+<h3>1-base-de-connaissances/fiches.json</h3>
+<p>Une entrée par fiche. Les fiches rédigées par Civik-ia viennent d'abord, les fiches tirées du site officiel de la commune ensuite.</p>
+<ul>
+    <li><code>couche</code> : <code>curee</code> pour une fiche rédigée par Civik-ia, <code>site</code> pour une fiche tirée du site officiel ;</li>
+    <li><code>id</code> : identifiant de la fiche ;</li>
+    <li><code>category</code> : rubrique de la fiche ;</li>
+    <li><code>title</code> : titre ;</li>
+    <li><code>content</code> : texte intégral ;</li>
+    <li><code>source</code> : libellé de la source ;</li>
+    <li><code>keywords</code> : mots-clés ;</li>
+    <li>pour une fiche tirée du site officiel, quand ils existent : <code>url</code> (adresse de la page ou du document source), <code>fil_ariane</code>, <code>section</code>, <code>date_publication</code>, <code>date_modification</code>, <code>type_source</code>, <code>page_pdf</code>, <code>type_extraction</code>, <code>version</code> (numéro de version de la fiche), <code>empreinte</code> (empreinte du texte) ;</li>
+    <li>pour une fiche d'acte, quand ils existent : <code>numero_acte</code>, <code>date_signature</code>, <code>categorie_acte</code>, <code>validite_debut</code>, <code>validite_fin</code> et <code>statut_validite</code> (statut de validité de l'acte au jour du passage) ;</li>
+    <li>pour un document déclaré par la commune, quand ils existent : <code>date_seance</code> (date de séance) et <code>nature</code> (nature du document).</li>
+</ul>
+<h3>1-base-de-connaissances/versions.json</h3>
+<p>Une entrée par version conservée d'une fiche. La liste est vide quand l'historique n'est pas tenu pour la commune, ce que précise le fichier <code>LISEZMOI.txt</code>.</p>
+<ul>
+    <li><code>id</code>, <code>version</code>, <code>date</code>, <code>empreinte</code> et <code>url</code> : identifiant de la fiche, numéro, date, empreinte et adresse de la version ;</li>
+    <li><code>supprimee</code> : vrai si la fiche a été retirée à cette version ;</li>
+    <li><code>fiche</code> : contenu de la fiche à cette version (<code>id</code>, <code>category</code>, <code>title</code>, <code>content</code>, <code>source</code>, <code>keywords</code>).</li>
+</ul>
+
+<h3>1-base-de-connaissances/fiche-commune.json</h3>
+<p>Les informations sur la commune que Marianne cite : élus et leurs fonctions, coordonnées, horaires et autres renseignements de la fiche de la commune, avec la date et la source de leur vérification.</p>
+
+<h2 id="questions">2. Questions et réponses</h2>
+<h3>2-questions-et-reponses/conversations.csv et conversations.json</h3>
+<p>Une ligne par question posée sur la page Marianne de la commune, dans l'ordre chronologique.</p>
+<ul>
+    <li><code>conversation</code> : identifiant de la conversation ;</li>
+    <li><code>session</code> : identifiant de session de l'habitant ;</li>
+    <li><code>date</code> : date et heure de la question ;</li>
+    <li><code>canal</code> : canal de la question ;</li>
+    <li><code>theme</code> : thème de la question ;</li>
+    <li><code>theme_sensible</code> : code du thème sensible de la question (<code>urgence</code>, <code>sante</code>, <code>justice</code>, <code>prestations_sociales</code>, <code>emploi</code>, <code>situation_administrative</code>), vide sinon ;</li>
+    <li><code>methode</code> : méthode de réponse ;</li>
+    <li><code>confiance</code> : indice de confiance de la réponse, de 0 à 1 ;</li>
+    <li><code>note</code> : note donnée par l'habitant à la réponse (<code>1</code>, <code>-1</code>, <code>0</code> ou vide) ;</li>
+    <li><code>question</code> : texte de la question ;</li>
+    <li><code>reponse</code> : texte de la réponse.</li>
+</ul>
+
+<h2 id="comptage">3. Données de comptage</h2>
+<h3>3-comptage/comptage.csv et comptage.json</h3>
+<p>Les mêmes lignes que <code>conversations.csv</code>, sans les champs <code>question</code> et <code>reponse</code>. Ce sont les données conservées après l'effacement du texte des questions, y compris pour les questions d'un thème sensible.</p>
+
+<h2 id="journal">4. Journal de recherche</h2>
+<h3>4-journal-de-recherche/journal.csv et journal.json</h3>
+<p>Une ligne par recherche dans la base de connaissances.</p>
+<ul>
+    <li><code>date</code> : date et heure de la recherche ;</li>
+    <li><code>session</code> : identifiant de session de l'habitant ;</li>
+    <li><code>question</code> : question posée ;</li>
+    <li><code>question_reformulee</code> : question reformulée pour la recherche ;</li>
+    <li><code>fiches_retenues</code> : identifiants des fiches retenues, dans l'ordre, séparés par un point-virgule ;</li>
+    <li><code>voie</code> : chemin de la réponse, <code>rag</code> (réponse tirée des fiches retrouvées), <code>llm</code> (réponse rédigée par le modèle de langage) ou <code>plancher</code> (rien de pertinent retrouvé, réponse de repli sans appel au modèle) ;</li>
+    <li><code>methode</code> : méthode de la réponse servie, avec les valeurs du point 2 ;</li>
+    <li><code>sources_citees</code> : pages citées dans la réponse, en liste JSON de titres et d'adresses ;</li>
+    <li><code>duree</code> : durée de traitement de la question, en millisecondes.</li>
+</ul>
+
+<h2 id="statistiques">5. Statistiques d'usage</h2>
+<p>Calculées sur les questions du point 2.</p>
+<h3>5-statistiques/par-mois.csv</h3>
+<ul>
+    <li><code>mois</code> ;</li>
+    <li><code>questions</code> : nombre de questions ;</li>
+    <li><code>sessions</code> : nombre de sessions distinctes ;</li>
+    <li><code>notes_positives</code> et <code>notes_negatives</code> : nombre de réponses notées ;</li>
+    <li><code>questions_theme_sensible</code> : nombre de questions d'un thème sensible.</li>
+</ul>
+<h3>5-statistiques/par-theme.csv</h3>
+<p>Champs <code>mois</code>, <code>theme</code> et <code>questions</code> (nombre de questions du thème dans le mois). Les rapports de statistiques remis à la collectivité, en PDF, sont joints au dossier 8.</p>
+
+<h2 id="comptes">6. Comptes de l'espace mairie</h2>
+<h3>6-comptes/comptes.csv</h3>
+<p>Une ligne par compte, après l'ouverture de l'espace mairie, qui n'est pas encore ouvert à la date de ce registre : <code>nom</code>, <code>adresse_electronique</code>, <code>role</code>, <code>actif</code>, <code>cree_le</code> et <code>derniere_connexion</code>.</p>
+
+<h2 id="reglages">7. Réglages propres à la collectivité</h2>
+<h3>7-reglages/reglages.json</h3>
+<ul>
+    <li><code>commune</code> : identifiant, nom affiché et identifiants historiques inclus dans l'export ;</li>
+    <li><code>page_marianne</code> : adresse de la page Marianne de la commune ;</li>
+    <li><code>site_officiel</code> : adresse du site officiel ;</li>
+    <li><code>habillage</code> : réglages d'affichage (nom, initiales, couleurs quand elles sont réglées) ;</li>
+    <li><code>sources</code> : sources déclarées, sources acceptées et pages exclues ;</li>
+    <li><code>orientation_hors_site</code> : règle d'orientation des questions qui sortent du site officiel ;</li>
+    <li><code>services</code> : services ouverts pour la commune et formule souscrite.</li>
+</ul>
+<p>Les images de l'habillage (logo, images fournies par la collectivité) sont jointes au dossier 8 dans leur format d'origine, et le cadre écrit en PDF.</p>
+
+<h2 id="pieces">8. Pièces jointes</h2>
+<h3>8-pieces-jointes/</h3>
+<p>Fichiers remis tels qu'ils sont conservés, dans leur format d'origine, en cinq sous-dossiers :</p>
+<ul>
+    <li><code>mesure-mise-en-service/</code> : résultats de la mesure de la mise en service (questions de test, réponses, verdicts, pages sources), en CSV, JSON ou PDF ;</li>
+    <li><code>cadre-ecrit/</code> : cadre écrit, en PDF ;</li>
+    <li><code>habillage/</code> : logo et images de l'habillage ;</li>
+    <li><code>accompagnement/</code> : documents remis au titre de l'accompagnement ;</li>
+    <li><code>rapports/</code> : rapports de statistiques remis à la collectivité.</li>
+</ul>
+
+<h2 id="exclusions">Données exclues de l'archive</h2>
+<p>L'article 14.3 des conditions générales de vente exclut de l'archive :</p>
+<ul>
+    <li>l'index de recherche (découpage des fiches et vecteurs calculés) ;</li>
+    <li>les scores et réglages du moteur de recherche ;</li>
+    <li>les consignes de rédaction données au modèle de langage ;</li>
+    <li>la banque de contrôle des réponses ;</li>
+    <li>les journaux techniques du serveur, communs à toutes les collectivités hébergées ;</li>
+    <li>les empreintes de mots de passe et de codes de connexion.</li>
+</ul>
+<p>Le texte intégral de la base de connaissances est remis : l'index se recalcule à partir de lui.</p>
+<p>Au titre de ces exclusions, ne sont pas remis : pour le journal de recherche, les scores, les fiches examinées, les contrôles de la réponse et leurs motifs ; pour les réglages, les paramètres de classement des documents et les règles techniques de masquage et de lecture des actes, dont le cadre écrit joint au dossier 8 porte la décision de la collectivité ; les questions posées par les outils d'essai, de contrôle et de sécurité de Civik-ia, dont le fichier <code>LISEZMOI.txt</code> donne le nombre. Les adresses IP des tentatives de connexion à l'espace mairie, effacées au bout de sept jours, ne sont pas remises.</p>
+
+<h2 id="limites">Limites connues</h2>
+<ul>
+    <li>Le texte des questions et des réponses est effacé au bout de quatre-vingt-dix jours ; le champ <code>question</code> porte alors <code>[purgé RGPD]</code> et le champ <code>reponse</code> est vide.</li>
+    <li>Le texte des questions d'un thème sensible n'est jamais enregistré ; ces lignes portent une phrase fixe à la place de la question et de la réponse.</li>
+    <li>L'historique d'une fiche compte vingt versions au plus. Il est tenu pour les fiches tirées du site officiel de la commune.</li>
+    <li>Une fiche rédigée par Civik-ia indique sa source par un libellé, sans adresse de page.</li>
+    <li>L'identifiant de conversation est vide pour les questions antérieures au 15 octobre 2026.</li>
+    <li>Le journal de recherche ne compte que les questions qui passent par une recherche dans la base de connaissances.</li>
+    <li>L'index de recherche se recalcule à partir de la base de connaissances. Les réponses étant rédigées par un modèle de langage, un autre service ne les reproduira pas à l'identique.</li>
+</ul>
+
+<h2 id="normes">Normes et spécifications</h2>
+<ul>
+    <li>Encodage des caractères : UTF-8, RFC 3629.</li>
+    <li>Fichiers tabulaires : CSV, RFC 4180.</li>
+    <li>Fichiers structurés : JSON, RFC 8259.</li>
+    <li>Dates : RFC 3339, profil de la norme ISO 8601.</li>
+    <li>Archive : ZIP, spécification APPNOTE de PKWARE.</li>
+    <li>Empreintes : SHA-256, norme FIPS 180-4.</li>
+</ul>
+
+<h2 id="versions">Versions de ce registre</h2>
+<p>21 octobre 2026 : première version, avec les conditions générales de vente du même jour.</p>
+
+    </main>
+    <!-- pied-commun -->
+<footer class="cc cc-pied">
+<div class="cc-pied__in">
+<div class="cc-pied__marque"><p class="cc-pied__nom"><span class="cc-pied__cartouche"><svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg></span><span>Civik-<b>ia</b></span></p><p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p><ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux"><li><a href="https://www.linkedin.com/company/civik-ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur LinkedIn (nouvel onglet)" title="Civik-ia sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 3.24L15.52 3.17Q20.72 3.25 20.77 8.38L20.71 15.7Q20.83 20.88 15.6 20.79L8.45 20.83Q3.12 20.76 3.19 15.58L3.27 8.4Q3.22 3.27 8.95 3.35M8.55 10.71L8.69 17M8.2 7.29a.9 .9 0 1 0 .8 .2M11.55 16.94L11.77 10.68M11.65 12.57C12.7 10.28 16.38 10.02 16.57 12.5L16.52 17.01"/></svg></a></li><li><a href="https://x.com/Civik_ia" target="_blank" rel="noopener" aria-label="Civik-ia sur X (nouvel onglet)" title="Civik-ia sur X"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.67 3.18L20.64 3.31L14.14 10.6L21.67 20.75L15.79 20.7L11.07 14.59L5.66 20.81L2.77 20.8L9.74 12.86L2.25 3.31L8.43 3.31L12.74 8.86L17.66 3.28M16.6 19.05L18.22 19.02L7.58 4.94L5.87 4.97L16.52 18.97"/></svg></a></li><li><a href="https://www.instagram.com/civik_ia/" target="_blank" rel="noopener" aria-label="Civik-ia sur Instagram (nouvel onglet)" title="Civik-ia sur Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.08 3.21L15.09 3.3Q20.7 3.23 20.87 8.98L20.82 14.97Q20.86 20.77 14.96 20.91L8.96 20.82Q3.23 20.9 3.17 15.08L3.13 8.92Q3.21 3.13 9.55 3.24M12.1 8.05C14.22 8.03 15.94 9.8 16.11 12.07C16.01 14.34 14.28 16 12.1 16.04C9.75 16.02 8 14.25 8.01 11.96C8.07 9.83 9.86 8.28 12.27 8.16M16.86 6.88a.55 .55 0 1 0 .5 .15"/></svg></a></li><li><a href="https://www.facebook.com/61576248676403/" target="_blank" rel="noopener" aria-label="Civik-ia sur Facebook (nouvel onglet)" title="Civik-ia sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.37 3.28L15.62 3.26Q20.89 3.11 20.89 8.49L20.86 15.68Q20.88 20.74 15.49 20.77L8.45 20.78Q3.22 20.75 3.09 15.55L3.14 8.5Q3.18 3.1 8.9 3.33M15.97 6.5C13.61 6.13 12.57 7.26 12.5 9.51L12.64 20.58M9.66 12.5L15.36 12.26"/></svg></a></li></ul></div>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-site"><h2 id="cc-pied-site">Le site</h2><ul><li><a href="/">Accueil</a></li><li><a href="/marianne/">Marianne</a></li><li><a href="/conseil/">Conseil</a></li><li><a href="/atelier/">Atelier</a></li><li><a href="/demo">Tester Marianne</a></li><li><a href="/22h47.html">22h47, votre mairie est&nbsp;fermée</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+<nav class="cc-pied__col cc-pied__guides" aria-labelledby="cc-pied-guides"><h2 id="cc-pied-guides">Guides pour les mairies</h2><ul><li><a href="/guichet-citoyen-ia.html">Guichet citoyen IA, la définition</a></li><li><a href="/chatbot-mairie.html">Le guide du chatbot de mairie</a></li><li><a href="/chatbot-mairie-prix.html">Prix d’un chatbot de mairie</a></li><li><a href="/chatbot-mairie-gratuit.html">Existe-t-il un chatbot gratuit&nbsp;?</a></li><li><a href="/comparatif-chatbot-mairie-2026.html">Comparatif 2026</a></li><li><a href="/chatbot-commune-rurale.html">Chatbot de commune rurale</a></li><li><a href="/callbot-mairie.html">Callbot ou chatbot</a></li><li><a href="/financement-ia-collectivite.html">Financer l’IA de sa commune</a></li><li><a href="/guide-rgpd-ia-collectivites.html">RGPD et IA en collectivité</a></li><li><a href="/ia-souveraine-mairie-mistral.html">IA souveraine en mairie</a></li><li><a href="/reduire-appels-mairie-chatbot-ia.html">Réduire les appels en mairie</a></li><li><a href="/outils-ia-secretaire-de-mairie.html">Outils IA du secrétariat de mairie</a></li><li><a href="/logiciel-mairie-petite-commune.html">Logiciel de petite commune</a></li><li><a href="/demarches-en-ligne-commune.html">Démarches en ligne d’une commune</a></li><li><a href="/comment-communiquer-avec-ses-citoyens.html">Communiquer avec ses citoyens</a></li><li><a href="/livre-blanc.html">Livre blanc, l’IA en mairie</a></li><li><a href="/guides.html">Tous les guides</a></li></ul></nav>
+<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul><li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li><li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li><li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li><li><a href="/aide.html">Centre d’aide</a></li></ul></nav>
+</div>
+<div class="cc-pied__bande"><p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p><ul class="cc-pied__legal" aria-label="Informations légales"><li><a href="/legal/conditions-utilisation.html">Mentions légales et conditions d’utilisation</a></li><li><a href="/legal/politique-confidentialite.html">Confidentialité</a></li><li><a href="/legal/conditions-generales-vente.html">CGV</a></li><li><a href="/legal/conformite-rgpd.html">RGPD</a></li><li><a href="/legal/accessibilite-rgaa.html">Accessibilité</a></li><li><button type="button" data-cookies-gerer>Gérer les cookies</button></li></ul></div>
+</footer>
+<!-- /pied-commun -->
+</body>
+</html>

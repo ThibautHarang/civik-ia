@@ -69,6 +69,9 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 .field input:focus,.field select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(46,196,182,0.15)}
 .form-card button{width:100%;background:var(--p);color:#fff;border:0;padding:16px;border-radius:9999px;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:8px;letter-spacing:0.02em;box-shadow:0 8px 20px rgba(0,0,145,0.25);transition:transform 0.15s,box-shadow 0.15s}
 .form-card button:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,145,0.32)}
+.field-case{display:flex;gap:10px;align-items:flex-start;margin:4px 0 12px}
+.field-case input{width:18px;height:18px;margin:2px 0 0;flex-shrink:0;accent-color:var(--p);cursor:pointer}
+.field-case label{font-size:13px;color:var(--tx-soft);line-height:1.45;cursor:pointer}
 .consent{font-size:11px;color:var(--tx-light);margin-top:12px;line-height:1.5}
 .consent a{color:var(--p);text-decoration:underline}
 
@@ -157,7 +160,7 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
 
     <div class="form-card" id="form-card">
       <h2>Téléchargez votre exemplaire</h2>
-      <p class="sub">Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).</p>
+      <p class="sub">Renseignez vos coordonnées professionnelles pour télécharger le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).</p>
 
       <form id="lead-form" action="https://formspree.io/f/mnjogblz" method="POST">
         <input type="hidden" name="_subject" value="Téléchargement Livre Blanc 2026">
@@ -195,15 +198,20 @@ h1{font-size:clamp(32px,4vw,46px);font-weight:800;color:var(--p);letter-spacing:
           <label for="commune">Commune / EPCI</label>
           <input type="text" id="commune" name="commune" autocomplete="organization" placeholder="Nom de votre commune ou intercommunalité">
         </div>
+        <!-- 21/10/2026 (avis DAJF du 20/10, article 7.4 du RGPD) : le refus des nouveautés se donne au formulaire, case décochée par défaut -->
+        <div class="field-case">
+          <input type="checkbox" id="sans-nouveautes" name="nouveautes" value="refusées">
+          <label for="sans-nouveautes">Je ne souhaite pas recevoir les nouveautés de Civik-ia</label>
+        </div>
 
         <button type="submit">Télécharger le PDF (12 pages)</button>
 
-        <p class="consent">En cliquant, vous acceptez que vos coordonnées soient utilisées par Civik-ia pour vous transmettre le Livre Blanc et, occasionnellement, vous informer de nos nouveautés. Vous pouvez vous désinscrire à tout moment. <a href="/legal/politique-confidentialite.html">Politique de confidentialité</a>.</p>
+        <p class="consent">Vos coordonnées servent à vous donner accès au livre blanc. Civik-ia pourra aussi vous écrire à l’occasion sur ses nouveautés en rapport avec votre fonction, sauf si vous cochez la case ci-dessus. Vous pourrez refuser ces messages à tout moment en répondant à l’un d’eux ou en écrivant à <a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a>. <a href="/legal/politique-confidentialite.html">Politique de confidentialité</a>.</p>
       </form>
 
       <div id="success">
         <h2>Merci&nbsp;!</h2>
-        <p>Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par courriel.</p>
+        <p>Votre Livre Blanc se télécharge automatiquement.</p>
         <a href="/assets/Livre-Blanc-Civik-ia-2026.pdf" download id="manual-download">Cliquez ici si le téléchargement n’a pas démarré</a>
       </div>
     </div>
@@ -278,6 +286,8 @@ document.getElementById('lead-form').addEventListener('submit', async function(e
 
   try {
     const formData = new FormData(form);
+    // la case cochée envoie « refusées » ; laissée vide, le courriel le dit aussi
+    if (!formData.has('nouveautes')) formData.set('nouveautes', 'non refusées (case laissée vide)');
     const response = await fetch(form.action, {
       method: 'POST',
       body: formData,

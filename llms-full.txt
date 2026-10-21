@@ -967,7 +967,7 @@ Elle le dit, sans inventer, et oriente vers le bon service de la mairie. La ques
 Recevez la démonstration pour votre commune
 Laissez votre adresse email : nous revenons vers vous avec une démonstration au nom de votre commune et un dossier à présenter à votre conseil municipal.
 Recevoir ma démonstration
-Sans engagement. Vos coordonnées servent uniquement à vous répondre.
+Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. Politique de confidentialité .
 Merci. Votre demande est bien envoyée : nous revenons vers vous avec la démonstration au nom de votre commune.
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -3183,7 +3183,7 @@ Non , souvent dessus
 Oui
 Sources : sites officiels des éditeurs, témoignages clients publics, plateforme UGAP, comptes annuels disponibles via pappers.fr (consulté le 16 mai 2026). Offre Civik-ia à jour au 14 octobre 2026. ± : partiel ou selon offre.
 Vous comparez pour votre commune ? Le Livre Blanc 2026 reprend ce comparatif avec le calcul de ROI par strate de commune, la checklist RGPD et la grille de décision, en PDF à garder.
-Recevoir le Livre Blanc
+Télécharger le Livre Blanc
 Poser votre question à Civik-ia
 Analyse détaillée par solution
 1. Civik-ia : la solution née pour les mairies rurales
@@ -4539,7 +4539,7 @@ Thibaut HARANG
 Fondateur Civik-ia · SASU SIREN 103 568 416
 Document mis à jour le 30 septembre 2026 · Textes de loi vérifiés à cette date
 Téléchargez votre exemplaire
-Renseignez vos coordonnées professionnelles pour recevoir le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).
+Renseignez vos coordonnées professionnelles pour télécharger le Livre Blanc 2026 (PDF, 12 pages, 0,9 Mo).
 Prénom *
 Nom *
 Courriel professionnel *
@@ -4556,10 +4556,11 @@ Prestataire / Consultant
 Journaliste / Presse
 Autre
 Commune / EPCI
+Je ne souhaite pas recevoir les nouveautés de Civik-ia
 Télécharger le PDF (12 pages)
-En cliquant, vous acceptez que vos coordonnées soient utilisées par Civik-ia pour vous transmettre le Livre Blanc et, occasionnellement, vous informer de nos nouveautés. Vous pouvez vous désinscrire à tout moment. Politique de confidentialité .
+Vos coordonnées servent à vous donner accès au livre blanc. Civik-ia pourra aussi vous écrire à l’occasion sur ses nouveautés en rapport avec votre fonction, sauf si vous cochez la case ci-dessus. Vous pourrez refuser ces messages à tout moment en répondant à l’un d’eux ou en écrivant à contact@civik-ia.fr . Politique de confidentialité .
 Merci !
-Votre Livre Blanc se télécharge automatiquement. Vous l’avez aussi reçu par courriel.
+Votre Livre Blanc se télécharge automatiquement.
 Cliquez ici si le téléchargement n’a pas démarré
 Ce que vous allez lire
 1. La question de 22 h 47

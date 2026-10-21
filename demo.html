@@ -235,6 +235,7 @@ img { max-width: 100%; height: auto; display: block; }
 .capture button { padding: 15px 32px; border-radius: 9999px; border: 0; background: var(--teal); color: var(--ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: transform .15s ease; }
 .capture button:hover { transform: translateY(-1px); }
 .capture .fine { font-size: 12.5px; color: rgba(255, 253, 248, 0.65); }
+.capture .fine a, .gate-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .capture .ok-panel { display: none; background: rgba(123, 227, 216, 0.12); border: 1px solid rgba(123, 227, 216, 0.5); border-radius: 16px; padding: 20px 24px; font-size: 15px; }
 .capture .ok-panel.on { display: block; }
 
@@ -464,7 +465,7 @@ img { max-width: 100%; height: auto; display: block; }
       <input type="text" name="commune" id="capture-commune" placeholder="Votre commune" aria-label="Votre commune">
       <button type="submit">Recevoir ma démonstration</button>
     </form>
-    <p class="fine">Sans engagement. Vos coordonnées servent uniquement à vous répondre.</p>
+    <p class="fine">Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. <a href="/legal/politique-confidentialite.html">Politique de confidentialité</a>.</p>
     <div class="ok-panel" id="capture-ok" role="status">Merci. Votre demande est bien envoyée&nbsp;: nous revenons vers vous avec la démonstration au nom de votre commune.</div>
   </div>
 </section>
@@ -708,8 +709,8 @@ img { max-width: 100%; height: auto; display: block; }
     return d;
   }
 
-  function enregistrerEchange(q, reponseTexte) {
-    transcript.push({ q: q, a: String(reponseTexte || '').slice(0, 240) });
+  function enregistrerEchange(q) {
+    transcript.push({ q: q });   // la réponse n'est plus gardée : seules les questions partent avec l'adresse
     if (transcript.length > 12) transcript = transcript.slice(-12);
   }
 
@@ -736,10 +737,10 @@ img { max-width: 100%; height: auto; display: block; }
     card.innerHTML =
       '<div class="gate-tete">Vous avez utilisé vos 3 questions de démonstration</div>' +
       '<div class="gate-corps">' +
-      '<p>Pour continuer à tester Marianne, laissez votre adresse email. Vous recevrez aussi cette conversation et le dossier de présentation pour votre conseil municipal' +
+      '<p>Pour continuer à tester Marianne, laissez votre adresse email. Vous recevrez aussi le dossier de présentation pour votre conseil municipal' +
       (nomCommune ? ', préparé pour ' + esc(nomCommune) : '') + '.</p>' +
       '<form novalidate><input type="email" required placeholder="votre.email@mairie.fr" aria-label="Votre adresse email"><button type="submit">Continuer la démonstration</button></form>' +
-      '<p class="gate-note">Sans engagement. Vos coordonnées servent uniquement à vous répondre.</p>' +
+      '<p class="gate-note">Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. <a href="/legal/politique-confidentialite.html" target="_blank" rel="noopener">Politique de confidentialité</a>.</p>' +
       '</div>';
     chatBody.appendChild(card);
     chatBody.scrollTop = chatBody.scrollHeight;
@@ -792,8 +793,8 @@ img { max-width: 100%; height: auto; display: block; }
     track('generate_lead', { lead_source: 'demo_gate' });
     var nomCommune = chosenCommune ? chosenCommune.nom : '';
     corps.innerHTML =
-      '<p class="gate-ok">Merci. Vous recevrez la conversation et le dossier' +
-      (nomCommune ? ', préparés pour ' + esc(nomCommune) : '') + '. La démonstration continue : 5 questions de plus.</p>' +
+      '<p class="gate-ok">Merci. Vous recevrez le dossier' +
+      (nomCommune ? ', préparé pour ' + esc(nomCommune) : '') + '. La démonstration continue : 5 questions de plus.</p>' +
       '<div class="fonction-ligne"><input type="text" id="gate-fonction" placeholder="Votre fonction à la mairie (facultatif)" aria-label="Votre fonction à la mairie">' +
       '<button type="button" id="gate-fonction-ok">Préciser</button></div>';
     verrouiller(false);
@@ -815,9 +816,10 @@ img { max-width: 100%; height: auto; display: block; }
     if (finAffichee) return;
     finAffichee = true;
     verrouiller(true, 'Démonstration terminée. Poursuivons de vive voix.');
-    addMsg('bot', 'Nous avons bien échangé : vous avez fait le tour de la démonstration publique. Votre conversation est transmise à notre équipe, qui revient vers vous' +
-      (etat.email ? '' : ' si vous laissez vos coordonnées dans <a href="#capture">le formulaire en bas de page</a>') +
-      '. Pour une présentation complète de Marianne, <a href="#capture">demandez votre démonstration personnalisée</a>.');
+    /* 21/10/2026 : seules les questions partent chez Formspree, et seulement avec une adresse laissée */
+    addMsg('bot', 'Nous avons bien échangé : vous avez fait le tour de la démonstration publique. ' +
+      (etat.email ? 'Nous revenons vers vous à l\'adresse que vous avez laissée. ' : '') +
+      'Pour une présentation complète de Marianne, <a href="#capture">demandez votre démonstration personnalisée</a>.');
     track('cta_click', { cta_name: 'demo_fin_quota' });
   }
 
@@ -849,7 +851,7 @@ img { max-width: 100%; height: auto; display: block; }
         var enEchec = /difficult\u00e9 technique/i.test(resp) || !resp.trim();
         if (enEchec && FALLBACK[question]) {
           addMsg('bot', neutraliserNomDemo(FALLBACK[question]) + '<span class="src">Réponse enregistrée de la démonstration</span>');
-          enregistrerEchange(question, FALLBACK[question].replace(/<[^>]+>/g, ' '));
+          enregistrerEchange(question);
           pending = false;
           apresReponse();
           return;
@@ -858,7 +860,7 @@ img { max-width: 100%; height: auto; display: block; }
         if (enEchec) { pending = false; return; }
         history.push({ query: question, response: String(resp).slice(0, 1200) });
         if (history.length > 2) history = history.slice(-2);
-        enregistrerEchange(question, resp);
+        enregistrerEchange(question);
         pending = false;
         apresReponse();
       })
@@ -868,7 +870,7 @@ img { max-width: 100%; height: auto; display: block; }
         var canned = FALLBACK[question];
         if (canned) {
           addMsg('bot', neutraliserNomDemo(canned) + '<span class="src">Réponse enregistrée de la démonstration (connexion directe momentanément indisponible)</span>');
-          enregistrerEchange(question, canned.replace(/<[^>]+>/g, ' '));
+          enregistrerEchange(question);
           pending = false;
           apresReponse();
         } else {
@@ -941,14 +943,14 @@ img { max-width: 100%; height: auto; display: block; }
   }
 
   /* ============ Capture de lead (Formspree, envoi sans quitter la page) ============ */
+  /* 21/10/2026 (avis DAJF du 20/10) : les questions seules, sans les réponses de la commune fictive */
   function envoyerLead(infos, done) {
     var contenu = {
       _subject: 'Lead démo en ligne (' + (infos.source || 'formulaire') + ')',
       _source: 'demo-' + (infos.source || 'formulaire'),
       email: infos.email,
       commune: infos.commune || (chosenCommune ? chosenCommune.nom + ' (' + chosenCommune.codeDepartement + ')' : ''),
-      questions_posees: transcript.map(function (t) { return t.q; }).join(' | '),
-      conversation: transcript.map(function (t) { return 'Q : ' + t.q + '\nR : ' + t.a; }).join('\n\n')
+      questions_posees: transcript.map(function (t) { return t.q; }).join(' | ')
     };
     if (infos.fonction) contenu.fonction = infos.fonction;
     fetch('https://formspree.io/f/mnjogblz', {

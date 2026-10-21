@@ -1025,7 +1025,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA
 Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
 Un guichet citoyen IA répond aux habitants d’une commune à partir des sources officielles de la mairie, cite la page d’où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l’a en service.
-Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Le guichet citoyen IA prend en charge, par écrit et à toute heure, les questions d’information que reçoit l’accueil d’une mairie : horaires, pièces à fournir, collecte des déchets, inscriptions scolaires, règles d’urbanisme. Les demandes qui engagent la commune, comme un dossier, une réclamation ou une situation personnelle, restent traitées par les agents.
 L’expression est récente et aucun texte officiel ne la définit. Cette page en propose une définition et six critères qu’une mairie peut vérifier elle-même, sur l’outil de Civik-ia comme sur un autre.
 Définition et limites
@@ -1167,7 +1167,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › Base de connaissances
 Base de connaissances d’une mairie : sources validées et mise à jour
 La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est relue chaque nuit et validée par la mairie avant l’ouverture.
-Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Un assistant municipal ne répond pas mieux que sa base. Cette page décrit ce que contient celle de Marianne, qui en valide les sources, comment elle se tient à jour et ce qu’elle ne garantit pas.
 Ce que contient la base
 Une fiche est un extrait d’une page ou d’un document, avec l’adresse et la date de sa source. Sur une commune de test d’environ 11 000 habitants, la base comptait au 8 octobre 2026 4 126 fiches, dont 89 écrites et vérifiées à la main, tirées de 644 pages et de 272 actes (relevé de Civik-ia).
@@ -1276,7 +1276,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › RAG
 RAG pour une mairie : une IA qui cherche avant de répondre
 Le RAG fait chercher l’IA dans des documents choisis avant qu’elle rédige : la réponse s’appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l’habitant sous la réponse.
-Mis à jour le 19 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 RAG est le sigle anglais de « retrieval-augmented generation », en français génération augmentée par récupération. La méthode a été décrite en 2020 par des chercheurs de Facebook AI Research, d’University College London et de New York University ( Lewis et al., arXiv 2005.11401 ). La CNIL la cite parmi les façons de déployer une IA générative dans une organisation.
 Pourquoi une IA sans recherche invente
 Un modèle de langage écrit le texte le plus probable à partir de ce qu’il a lu pendant son entraînement. Il ne connaît ni les horaires de votre mairie, ni la date de la prochaine collecte des encombrants, ni le tarif de la cantine de cette année. Interrogé sans document, il peut produire une réponse plausible et fausse, sur le même ton qu’une réponse juste. La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « Ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
@@ -1470,7 +1470,7 @@ Le portail MesServicesCyber de l’ANSSI propose aux collectivités un diagnosti
 Le 17Cyber aide pendant un incident (page consultée le 20 octobre 2026).
 Chez Marianne
 Marianne est en test : aucune commune ne l’a en service.
-Voici ce que Civik-ia a mis en place sur son serveur, tel que la page Conformité RGPD le décrit au 16 octobre 2026.
+Voici ce que Civik-ia a mis en place sur son serveur, tel que la page Conformité RGPD le décrit au 20 octobre 2026.
 Les échanges entre le navigateur et la plateforme sont chiffrés (HTTPS).
 L’accès d’administration au serveur se fait par clé cryptographique, réservée au président de Civik-ia.
 Les sauvegardes sont quotidiennes sur le serveur, avec une copie hors site en France.
@@ -2436,43 +2436,32 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil
 /
 Chatbot Mairie
-Chatbot mairie : le guide complet pour les DGS et secretaires de mairie
-Votre standard sonne dans le vide. Vos agents croulent sous les questions repetitives. Ce guide vous donne les cles pour choisir le bon chatbot IA, au bon prix, avec les bonnes garanties de souverainete.
-Tester la demo
+Chatbot mairie : le guide complet pour les DGS et secrétaires de mairie
+Un chatbot de mairie répond par écrit aux questions des habitants, à toute heure, à partir des informations publiées par la commune. Pour le choisir, vérifiez d’où viennent ses réponses et s’il cite la page source, ce qu’il dit quand il ne sait pas, où sont hébergées les données, son prix complet et la façon dont il se pose sur le site de la mairie.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Tester la démo
 Le prix d’un chatbot
 Pourquoi un chatbot en mairie ?
-Les chiffres parlent d’eux-memes. Le service public fait face a un defi structurel que la technologie peut resoudre.
-70 %
-Questions repetitives
-Horaires, dechets, etat civil, urbanisme : la majorite des appels en mairie portent sur des informations deja disponibles.
-58 %
-Preference pour le digital
-Plus d’un Francais sur deux prefere un canal numerique pour ses demarches administratives plutot que le telephone ou le guichet.
-22h47
-Heure de pointe des recherches
-Les citoyens cherchent des informations communales le soir, quand la mairie est fermee. Le chatbot repond a leur place.
--40 %
-Appels telephoniques
-Objectif retenu par Civik-ia pour la premiere annee, ordre de grandeur a confirmer sur le volume d’appels reel de la commune. Du temps libere pour l’accueil social et le lien humain.
-Pour une commune rurale de 1 500 habitants avec une secretaire de mairie a mi-temps, chaque appel telephonique consomme un temps precieux. Quand 7 appels sur 10 concernent les horaires d’ouverture, le calendrier de collecte des dechets ou les pieces a fournir pour un acte de naissance, c’est autant de temps qui n’est pas consacre a l’accompagnement des administres fragiles, au montage de dossiers ou a la gestion des deliberations.
-Un chatbot ne remplace pas l’agent de mairie. Il absorbe le flux de questions repetitives pour que l’humain se concentre sur ce qui compte : le lien social, l’ecoute, le conseil personnalise. Et il le fait 24 heures sur 24, 7 jours sur 7, y compris a 22h47, quand un citoyen se demande comment obtenir un permis de construire modificatif.
-Les criteres essentiels pour choisir un chatbot mairie
-Six points de vigilance pour les DGS et secretaires de mairie. Chaque critere a un impact direct sur la reussite du projet.
-Souverainete et RGPD
+Horaires, collecte des déchets, état civil, urbanisme : une grande part des appels porte sur des informations déjà publiées. Comptez-les une semaine à votre standard avant de choisir un outil.
+Pour une commune rurale de 1 500 habitants avec une secrétaire de mairie à mi-temps, chaque appel téléphonique consomme un temps précieux. Quand une bonne part des appels concerne les horaires d’ouverture, le calendrier de collecte des déchets ou les pièces à fournir pour un acte de naissance, c’est autant de temps qui n’est pas consacré à l’accompagnement des administrés fragiles, au montage de dossiers ou à la gestion des délibérations. Beaucoup d’habitants font aussi leurs démarches en ligne et cherchent ces informations le soir, quand la mairie est fermée. L’effet sur le standard se mesure ensuite sur le volume d’appels réel de la commune, avant et après l’ouverture.
+Un chatbot ne remplace pas l’agent de mairie. Il absorbe le flux de questions répétitives pour que l’humain se concentre sur ce qui compte : le lien social, l’écoute, le conseil personnalisé. Et il le fait 24 heures sur 24, 7 jours sur 7, y compris à 22h47, quand un citoyen se demande comment obtenir un permis de construire modificatif.
+Les critères essentiels pour choisir un chatbot mairie
+Six points de vigilance pour les DGS et secrétaires de mairie. Chaque critère a un impact direct sur la réussite du projet.
+Souveraineté et RGPD
 Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Chez Civik-ia : serveur chez OVHcloud, en Allemagne ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
-Prix sous le seuil des marches publics
-En dessous de 60 000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considerablement la decision.
+Prix sous le seuil des marchés publics
+En dessous de 60 000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considérablement la décision.
 Personnalisation communale
-Un chatbot generique qui repond a cote detruit la confiance des citoyens. L’IA doit etre formee sur les donnees specifiques de votre commune : arrets municipaux, PLU, horaires d’ouverture, associations locales, calendrier des evenements.
-Facilite d’integration
-Votre prestataire web ne devrait pas facturer une journee de developpement pour brancher le chatbot. Une page dediee cle en main, mise en ligne par nos soins avec un simple lien a poser, ou demain un widget a copier-coller sur le site existant : c’est le standard a exiger. Chez Civik-ia, la mise en service est faite par nos soins : sur le site de la mairie, il reste un lien ou un QR code à poser.
+Un chatbot générique qui répond à côté détruit la confiance des citoyens. L’IA doit répondre à partir des données spécifiques de votre commune, retrouvées au moment de la question : arrêtés municipaux, PLU, horaires d’ouverture, associations locales, calendrier des événements.
+Facilite d’intégration
+Votre prestataire web ne devrait pas facturer une journée de développement pour brancher le chatbot. Une page dédiée clé en main, mise en ligne par nos soins avec un simple lien à poser, ou demain un widget à copier-coller sur le site existant : c’est le standard à exiger. Chez Civik-ia, la mise en service est faite par nos soins : sur le site de la mairie, il reste un lien ou un QR code à poser.
 Support et accompagnement
-La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement a l’onboarding, pas juste un lien de documentation.
+La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement à l’onboarding, pas juste un lien de documentation.
 Une justesse mesurée
 Demandez comment les réponses sont vérifiées avant l’ouverture : sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe. La page tester un chatbot de mairie décrit la méthode, des questions réelles aux quatre verdicts.
-Les principales offres du marche en un coup d’oeil
-Un panorama factuel des principales offres disponibles pour les collectivites territoriales en 2026.
-Critere
+Les principales offres du marché en un coup d’œil
+Un panorama factuel des principales offres disponibles pour les collectivités territoriales en 2026.
+Critère
 dydu
 Citia
 Delibia
@@ -2480,12 +2469,12 @@ Civik-ia
 Cible principale
 Toutes tailles
 Petites-moyennes
-Collectivites (interne)
-Rurales &rarr; Regions
+Collectivités (interne)
+Rurales &rarr; Régions
 Prix (commune rurale)
 ~1 750 €/an
 ~744 €/an
-1 licence gratuite (secretaire de mairie), puis sur devis
+1 licence gratuite (secrétaire de mairie), puis sur devis
 69 € HT par mois, soit 828 € HT par an
 Chatbot citoyen 24 h/24
 Oui
@@ -2493,9 +2482,9 @@ Oui
 Non (usage interne)
 Oui
 Hébergement
-Non precise
-Non precise
-Non precise
+Non précisé
+Non précisé
+Non précisé
 OVHcloud, serveur en Allemagne
 Sans inscription citoyen
 Partiel
@@ -2506,23 +2495,23 @@ Intégration sans développement
 Non
 Partiel
 N/A
-Oui (lien ou QR code ; widget en construction)
-Sous seuil marches publics
+Oui (lien ou QR code ; module à insérer dans les pages du site : à venir)
+Sous seuil marchés publics
 À vérifier sur la durée du contrat
 Oui
 Oui
 Oui, conçu pour y rester
-Ce tableau reflète les informations publiquement disponibles en avril 2026. Chaque projet de collectivite est unique : nous vous recommandons de demander une demonstration personnalisee avant toute decision. Pour l’analyse detaillee solution par solution, voir le comparatif chatbot mairie 2026 .
-Ce qui differencie Civik-ia
+Ce tableau reflète les informations publiquement disponibles en avril 2026. Chaque projet de collectivité est unique : nous vous recommandons de demander une démonstration personnalisée avant toute décision. Pour l’analyse détaillée solution par solution, voir le comparatif chatbot mairie 2026 .
+Ce qui différencie Civik-ia
 Trois choix qui comptent pour une mairie : une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant.
 Une source, une page citée
 Marianne répond à partir du site officiel de la commune , relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer. Ce que contient cette base, et qui la valide, est détaillé sur notre page sur la base de connaissances d’une mairie .
 Une mise en service mesurée
 Avant l’ouverture aux habitants : inventaire du site, base de connaissances, 300 questions de test jugées contre leur page source, validation par vos agents. Une seule fois ; le détail des six étapes est sur notre page prix .
-Zero friction citoyen
-Pas d’inscription. Pas de compte. Pas de cookie de suivi. Le citoyen arrive sur le chatbot, pose sa question, obtient sa reponse. Point. C’est une decision strategique fondamentale : chaque obstacle a l’entree fait perdre des utilisateurs. Un chatbot que personne n’utilise ne sert a rien. L’accessibilite universelle est la condition de la reussite du projet.
+Zéro friction citoyen
+Pas d’inscription. Pas de compte. Pas de cookie de suivi. Le citoyen arrive sur le chatbot, pose sa question, obtient sa réponse. Point. C’est une décision stratégique fondamentale : chaque obstacle à l’entrée fait perdre des utilisateurs. Un chatbot que personne n’utilise ne sert à rien. L’accessibilité universelle est la condition de la réussite du projet.
 Un chatbot sur le site de la mairie : comment l’intégrer
-Avec ou sans site internet communal, le deploiement s’adapte a votre situation.
+Avec ou sans site internet communal, le déploiement s’adapte à votre situation.
 Marianne se propose aux habitants de cinq façons, toutes mises en place par Civik-ia. La commune n’a rien à développer ni à installer.
 Une page dédiée , à l’adresse civik-ia.fr/nom-de-la-commune : c’est l’adresse que la mairie partage.
 Un lien ou un bouton sur le site de la mairie, qui mène à cette page. Il fonctionne avec tous les outils de publication, WordPress, Joomla ou un site fait à la main.
@@ -2531,38 +2520,38 @@ Une application que l’habitant installe sur l’écran d’accueil de son tél
 Un cadre (iframe) dans une page du site municipal, sur demande.
 Un module à insérer dans toutes les pages du site, sous forme de bouton flottant, n’est pas encore disponible. Marianne sur WhatsApp et sur Messenger est à venir.
 Si votre commune n’a pas de site internet, la page dédiée en tient lieu : elle se partage par QR code et devient souvent le premier service en ligne de la mairie, disponible 24 h/24. Le prix d’un chatbot de mairie est conçu pour rester sous le seuil de dispense de procédure. Si votre question porte sur le téléphone, voir callbot mairie ou chatbot : que choisir .
-Chatbot pour une ville : quelles differences avec une petite commune
-Le même moteur, dimensionne selon la population et l’organisation des services.
-Pour une ville de 5 000 a 20 000 habitants, le volume de sollicitations change d’echelle : plusieurs services municipaux (etat civil, urbanisme, scolaire, technique) recoivent chacun leurs demandes. Marianne répond pour tous ces services à partir du même site officiel, et la mise en service associe les agents de chaque service à la validation des réponses.
+Chatbot pour une ville : quelles différences avec une petite commune
+Le même moteur, dimensionné selon la population et l’organisation des services.
+Pour une ville de 5 000 à 20 000 habitants, le volume de sollicitations change d’échelle : plusieurs services municipaux (état civil, urbanisme, scolaire, technique) reçoivent chacun leurs demandes. Marianne répond pour tous ces services à partir du même site officiel, et la mise en service associe les agents de chaque service à la validation des réponses.
 Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune. Ce qui fait le prix d’un chatbot de mairie est détaillé sur notre page dédiée. Dans tous les cas, le socle est identique : modèle de Mistral AI, société française, hébergement chez OVHcloud, aucun compte demandé à l’habitant.
 Agent conversationnel, assistant virtuel : de quoi parle-t-on ?
 Les mots changent d’un fournisseur à l’autre pour désigner des outils proches. Un chatbot, un agent conversationnel ou un assistant virtuel est un programme qui dialogue par écrit avec une personne. Ce qui les distingue tient moins au nom qu’à trois choses : d’où viennent les réponses, si la source est donnée, et ce que l’outil fait quand il ne sait pas.
 Dans une mairie, « agent municipal » désigne d’abord un fonctionnaire ou un contractuel de la commune. Un agent municipal IA est un programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l’agent du guichet. Il n’instruit aucun dossier et ne délivre aucun acte.
 Un guichet citoyen IA est la forme de ces outils qui s’engage sur ses sources : il répond à partir des sources officielles de la mairie, cite la page de chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi, pour les habitants. L’espace mairie, réservé aux agents et aux élus, n’est pas encore ouvert.
 Le mot « agent » a aussi pris un sens technique : un programme d’IA qui enchaîne des actions seul, comme remplir un formulaire ou envoyer un courriel. Marianne n’agit pas ainsi : elle répond et donne sa source, et les démarches restent faites par l’habitant ou par la mairie.
-Questions frequentes
-Les reponses aux questions que se posent les DGS et secretaires de mairie avant de deployer un chatbot.
+Questions fréquentes
+Les réponses aux questions que se posent les DGS et secrétaires de mairie avant de déployer un chatbot.
 Qu’est-ce qu’un agent conversationnel pour une mairie ?
 +
 Un agent conversationnel pour une mairie est un programme qui répond par écrit aux questions des habitants, au nom de la mairie, sans prendre de décision et sans remplacer les agents. Celui qui répond à partir des sources officielles de la commune, cite la page de chaque réponse et dit quand il ne sait pas correspond à la définition d’un guichet citoyen IA.
 Qu’est-ce qu’un chatbot IA pour mairie ?
 +
-Un chatbot IA pour mairie est un assistant virtuel intelligent, accessible 24 h/24 sur le site internet de la commune ou via une page dediee. Il repond automatiquement aux questions les plus frequentes des citoyens (horaires d’ouverture, collecte des dechets, etat civil, urbanisme) en s’appuyant sur une base de connaissances personnalisee. Contrairement à un chatbot générique, il répond à partir des documents publiés par votre commune (pages du site, arrêtés municipaux, PLU, délibérations), retrouvés au moment de la question, sans que le modèle soit entraîné sur ces documents.
-Combien coute un chatbot pour une commune rurale ?
+Un chatbot IA pour mairie est un assistant virtuel intelligent, accessible 24 h/24 sur le site internet de la commune ou via une page dédiée. Il répond automatiquement aux questions les plus fréquentes des citoyens (horaires d’ouverture, collecte des déchets, état civil, urbanisme) en s’appuyant sur une base de connaissances personnalisée. Contrairement à un chatbot générique, il répond à partir des documents publiés par votre commune (pages du site, arrêtés municipaux, PLU, délibérations), retrouvés au moment de la question, sans que le modèle soit entraîné sur ces documents.
+Combien coûte un chatbot pour une commune rurale ?
 +
-Chez Civik-ia, l’abonnement d’un chatbot IA pour une commune rurale de moins de 5 000 habitants est de 69 € HT par mois, abonnement annuel. Abonnement et mise en service sont conçus pour rester sous le seuil des marchés publics (60 000 euros HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026), ce qui signifie alors qu’un simple bon de commande suffit, pas d’appel d’offres, pas de procedure complexe. L’abonnement comprend Marianne pour les habitants, disponible 24 h/24 à partir du site officiel de la commune, et l’espace mairie dès son ouverture, tableau de bord de la commune. La mise en service coûte à partir de 999 € HT, sur devis selon le travail à réaliser (taille du site, documents à intégrer, fiches à écrire, ateliers avec les agents) ; elle est facturée une seule fois, à la validation écrite de la version de référence, avant l’ouverture aux habitants.
+Chez Civik-ia, l’abonnement d’un chatbot IA pour une commune rurale de moins de 5 000 habitants est de 69 € HT par mois, abonnement annuel. Abonnement et mise en service sont conçus pour rester sous le seuil des marchés publics (60 000 euros HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026), ce qui signifie alors qu’un simple bon de commande suffit, pas d’appel d’offres, pas de procédure complexe. L’abonnement comprend Marianne pour les habitants, disponible 24 h/24 à partir du site officiel de la commune, et l’espace mairie dès son ouverture, tableau de bord de la commune. La mise en service coûte à partir de 999 € HT, sur devis selon le travail à réaliser (taille du site, documents à intégrer, fiches à écrire, ateliers avec les agents) ; elle est facturée une seule fois, à la validation écrite de la version de référence, avant l’ouverture aux habitants.
 Le chatbot remplace-t-il les agents de mairie ?
 +
-Non, et c’est un point fondamental. Le chatbot prend en charge les questions repetitives qui representent environ 70 % des sollicitations : horaires, dechets, urbanisme, pieces a fournir. Les agents sont ainsi liberes pour se concentrer sur l’accueil social, l’accompagnement des personnes fragiles et les dossiers complexes qui necessitent un contact humain. C’est un outil de soutien, pas de remplacement. Aucun poste n’est supprime : les agents recuperent chaque semaine les heures que ces questions repetitives dévoraient.
+Non, et c’est un point fondamental. Le chatbot prend en charge les questions répétitives qui représentent une grande part des sollicitations : horaires, déchets, urbanisme, pièces à fournir. Les agents sont ainsi libérés pour se concentrer sur l’accueil social, l’accompagnement des personnes fragiles et les dossiers complexes qui nécessitent un contact humain. C’est un outil de soutien, pas de remplacement. Aucun poste n’est supprimé : les agents récupèrent chaque semaine les heures que ces questions répétitives dévoraient.
 Comment installer le chatbot sur le site de la mairie ?
 +
-Le deploiement standard se fait par une page dediee a l’adresse civik-ia.fr/nom-de-la-commune, mise en ligne par nos soins et immediatement partageable depuis le site de la mairie (lien ou bouton), par QR code ou dans le bulletin municipal. Une integration en cadre (iframe) dans une page du site municipal est possible sur demande. Aucune competence technique n’est requise cote mairie : la mise en service est realisee par Civik-ia. Les habitants peuvent aussi installer Marianne sur l’écran d’accueil de leur téléphone. Un module à insérer dans toutes les pages du site n’est pas encore disponible.
+Le déploiement standard se fait par une page dédiée à l’adresse civik-ia.fr/nom-de-la-commune, mise en ligne par nos soins et immédiatement partageable depuis le site de la mairie (lien ou bouton), par QR code ou dans le bulletin municipal. Une intégration en cadre (iframe) dans une page du site municipal est possible sur demande. Aucune compétence technique n’est requise côté mairie : la mise en service est réalisée par Civik-ia. Les habitants peuvent aussi installer Marianne sur l’écran d’accueil de leur téléphone. Un module à insérer dans toutes les pages du site n’est pas encore disponible.
 Le chatbot est-il conforme RGPD ?
 +
 La mairie, responsable du traitement, en juge avec son délégué à la protection des données ; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom ; les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours. Le serveur est chez OVHcloud, en Allemagne ; les réponses sont rédigées par Mistral AI, société française. Le détail est dans notre guide RGPD et IA en collectivité .
-Pret a moderniser l’accueil de votre mairie ?
-Posez vos questions à Marianne sur une commune fictive et ouvrez les sources de ses réponses. Demonstration interactive, sans engagement.
-Tester la demo gratuite
+Prêt à moderniser l’accueil de votre mairie ?
+Posez vos questions à Marianne sur une commune fictive et ouvrez les sources de ses réponses. Démonstration interactive, sans engagement.
+Tester la démo gratuite
 Demander un devis
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -2623,15 +2612,15 @@ Chatbot Mairie
 /
 Prix
 Chatbot mairie : quel prix en 2026 ?
-De gratuit a 1 750 €/an : le vrai cout d’un assistant virtuel pour votre commune. Et comment rester sous le seuil des marches publics.
+De gratuit à 1 750 €/an : le vrai coût d’un assistant virtuel pour votre commune. Et comment rester sous le seuil des marchés publics.
 Voir la grille de prix
 Demander un devis
 En bref
-En 2026, un chatbot de mairie coute de 0 € (solutions gratuites limitees) a environ 1 750 €/an pour les offres haut de gamme. Chez Civik-ia, solution française souveraine, l’abonnement suit la taille de la commune (69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus, abonnement annuel), et la mise en service, facturée une seule fois, se chiffre à partir de 999 € HT ; l’ensemble est conçu pour rester sous le seuil des marchés publics. Le prix depend de la population, des fonctionnalites et du niveau de souverainete. Calculez le prix pour votre commune .
-Le vrai cout d’un chatbot de mairie
-Le marche des chatbots pour collectivites offre un large eventail de prix. Voici ce que vous devez savoir pour faire le bon choix, sans mauvaise surprise.
+En 2026, un chatbot de mairie coûte de 0 € (solutions gratuites limitées) à environ 1 750 €/an pour les offres haut de gamme. Chez Civik-ia, solution française souveraine, l’abonnement suit la taille de la commune (69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus, abonnement annuel), et la mise en service, facturée une seule fois, se chiffre à partir de 999 € HT ; l’ensemble est conçu pour rester sous le seuil des marchés publics. Le prix dépend de la population, des fonctionnalités et du niveau de souveraineté. Calculez le prix pour votre commune .
+Le vrai coût d’un chatbot de mairie
+Le marché des chatbots pour collectivités offre un large éventail de prix. Voici ce que vous devez savoir pour faire le bon choix, sans mauvaise surprise.
 0 €
-Gratuit (limite)
+Gratuit (limité)
 70 €/mois
 Offres spécialisées
 150 €+
@@ -2640,23 +2629,23 @@ Solutions moyennes
 Solutions premium
 Gratuit
 Solutions gratuites
-Quelques acteurs proposent un volet gratuit. C’est le cas de Delibia, qui offre une licence gratuite aux secretaires de mairie (constate sur delibia.fr en juillet 2026). Attention cependant : l’editeur le presente comme un outil interne pour les agents (recherche sur les donnees publiques, assistants IA), et son site ne decrit pas de chatbot conversationnel accessible aux citoyens 24 h/24 (constate le 21/09/2026). Pour ouvrir un guichet citoyen permanent, il faut une solution dediee.
+Quelques acteurs proposent un volet gratuit. C’est le cas de Delibia, qui offre une licence gratuite aux secrétaires de mairie (constaté sur delibia.fr en juillet 2026). Attention cependant : l’éditeur le présente comme un outil interne pour les agents (recherche sur les données publiques, assistants IA), et son site ne décrit pas de chatbot conversationnel accessible aux citoyens 24 h/24 (constaté le 21/09/2026). Pour ouvrir un guichet citoyen permanent, il faut une solution dédiée.
 Autour de 70 €/mois
-Entree de gamme specialisee
-Les solutions specialisees pour les collectivites debutent autour de 70 €/mois. Citia.io propose une offre autour de 70 €/mois : chatbot IA personnalisé, tableau de bord pour l’élu et consultations citoyennes incluses. Chez Civik-ia, l’abonnement coûte 69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus. Ces niveaux de prix sont conçus pour rester sous le seuil des marches publics.
+Entrée de gamme spécialisée
+Les solutions spécialisées pour les collectivités débutent autour de 70 €/mois. Citia.io propose une offre autour de 70 €/mois : chatbot IA personnalisé, tableau de bord pour l’élu et consultations citoyennes incluses. Chez Civik-ia, l’abonnement coûte 69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus. Ces niveaux de prix sont conçus pour rester sous le seuil des marchés publics.
 150 - 250 €/mois
-Solutions intermediaires
-A ce niveau de prix, on trouve des plateformes plus completes avec des fonctionnalites avancees (analytics, multilinguisme, integrations CRM). C’est le segment des communes moyennes et des intercommunalites qui recherchent un outil plus structure. Les frais de mise en service sont souvent factures en supplement (500 a 2 000 €, ordre de grandeur).
+Solutions intermédiaires
+À ce niveau de prix, on trouve des plateformes plus complètes avec des fonctionnalités avancées (analytics, multilinguisme, intégrations CRM). C’est le segment des communes moyennes et des intercommunalités qui recherchent un outil plus structuré. Les frais de mise en service sont souvent facturés en supplément (500 à 2 000 €, ordre de grandeur).
 1 750 €+/an
 Solutions premium
-Les acteurs historiques du chatbot comme dydu positionnent leurs offres au-dela de 1 750 €/an pour les collectivites. Ces solutions incluent generalement un accompagnement projet complet, mais les couts de setup et de maintenance s’ajoutent au tarif de base. Le coût total sur toute la durée du contrat, mise en service et maintenance comprises, est celui qui se compare au seuil de dispense de procédure (60 000 € HT).
+Les acteurs historiques du chatbot comme dydu positionnent leurs offres au-delà de 1 750 €/an pour les collectivités. Ces solutions incluent généralement un accompagnement projet complet, mais les coûts de setup et de maintenance s’ajoutent au tarif de base. Le coût total sur toute la durée du contrat, mise en service et maintenance comprises, est celui qui se compare au seuil de dispense de procédure (60 000 € HT).
 Comparatif des prix 2026
-Un tableau clair pour comparer les solutions du marche. Tous les prix sont exprimes hors taxes.
+Un tableau clair pour comparer les solutions du marché. Tous les prix sont exprimés hors taxes.
 Solution
 Prix rural (<5 000 hab.)
 Prix moyen (5-20k)
 Setup
-Sous seuil marches publics
+Sous seuil marchés publics
 Civik-ia
 69 €/mois (828 €/an, abonnement annuel)
 69 à 218 €/mois, abonnement annuel (69 € plus un centime par mois pour chaque habitant au-delà de 5 000)
@@ -2664,8 +2653,8 @@ Civik-ia
 Conçu pour y rester
 Citia.io
 70 €/mois (840 €/an)
-Non precise
-Non precise
+Non précisé
+Non précisé
 Oui
 dydu
 ~146 €/mois (1 750 €/an)
@@ -2673,25 +2662,25 @@ Sur devis
 Sur devis
 À vérifier sur la durée du contrat
 Delibia
-1 licence gratuite (secretaire de mairie)
+1 licence gratuite (secrétaire de mairie)
 Sur devis
-Non precise
+Non précisé
 Oui
-Botnation (generique)
+Botnation (générique)
 39 €/mois
 39 €/mois
 0 €
 Oui
-Delibia est un outil interne pour les agents et les elus (recherche, assistants IA), pas un chatbot citoyen accessible 24 h/24 ; la licence gratuite est offerte aux secretaires de mairie, les formules superieures sont sur devis. Botnation est un outil generique non specialise pour les mairies (pas de base de connaissances propre à la commune). Les prix sont indicatifs et susceptibles d’evoluer. Derniere mise a jour : juillet 2026.
-Le seuil des marches publics : pourquoi c’est crucial
-En dessous de 60 000 € HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procedure formalisee . Pas d’appel d’offres, pas de publication au BOAMP, pas de commission d’attribution.
-Concretement, votre DGS signe un bon de commande et c’est parti. La procedure est simplifiee au maximum, ce qui permet un deploiement rapide sans lourdeur administrative.
+Delibia est un outil interne pour les agents et les élus (recherche, assistants IA), pas un chatbot citoyen accessible 24 h/24 ; la licence gratuite est offerte aux secrétaires de mairie, les formules supérieures sont sur devis. Botnation est un outil générique non spécialisé pour les mairies (pas de base de connaissances propre à la commune). Les prix sont indicatifs et susceptibles d’évoluer. Dernière mise à jour : juillet 2026.
+Le seuil des marchés publics : pourquoi c’est crucial
+En dessous de 60 000 € HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procédure formalisée . Pas d’appel d’offres, pas de publication au BOAMP, pas de commission d’attribution.
+Concrètement, votre DGS signe un bon de commande et c’est parti. La procédure est simplifiée au maximum, ce qui permet un déploiement rapide sans lourdeur administrative.
 Civik-ia pour une commune : un abonnement de 69 € HT par mois jusqu’à 4 999 habitants, puis de 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus (abonnement annuel), et une mise en service à partir de 999 € HT, facturée une seule fois. Le devis, mise en service et abonnement compris sur toute la durée du contrat, reconductions comprises, est conçu pour rester sous le seuil de 60 000 € HT.
 69 €
 Par mois sous 5 000 habitants
 abonnement annuel
 60 000 €
-Seuil marches
+Seuil marchés
 publics
 à partir de 999 €
 Mise en service
@@ -2703,10 +2692,10 @@ Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel, 
 Sans compte ni inscription pour les habitants
 L’espace mairie dès son ouverture : le tableau de bord de la commune (questions des habitants, sujets, réponses justes et erreurs connues, ce que le site ne dit pas, sources), adapté aux besoins de chaque commune
 Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance
-Hebergement souverain OVHcloud Union Europeenne
-Page dediee prete a partager, widget a integrer en construction
+Hébergement chez OVHcloud, serveur en Allemagne
+Page dédiée prête à partager ; module à insérer dans les pages du site : à venir
 Support par courriel
-Conformite RGPD native , sans compte pour les habitants
+Conformité RGPD native , sans compte pour les habitants
 Combien coûte Marianne pour votre commune ?
 Écrivez le nom de votre commune sur le panneau.
 La grille de prix
@@ -2752,40 +2741,40 @@ Civik-ia refait une mesure complète après les corrections et pose le garde-fou
 Chaque mesure est datée et dit ce qu’elle mesure : « justesse mesurée sur N questions de test le JJ/MM ; ce n’est pas un taux sur vos habitants ». Nous publions la méthode, jamais un taux promis.
 Avant l’ouverture aux habitants : à partir de 999 € HT, selon la taille de la commune (999 € HT jusqu’à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000 : calculer le prix pour votre commune ). Facturée une seule fois, à votre validation écrite de la version de référence. Elle ne se renouvelle pas.
 Ensuite, la base vit avec l’usage de Marianne : le site est relu chaque nuit, les vraies questions sont relues chaque semaine, chaque réponse non juste est corrigée puis remesurée. La mairie suivra tout cela dans son espace mairie, dès son ouverture.
-Les couts caches a surveiller
-Au-dela du tarif mensuel affiche, plusieurs postes de depense peuvent alourdir la facture. Voici les six points a verifier avant de signer.
+Les coûts cachés à surveiller
+Au-delà du tarif mensuel affiché, plusieurs postes de dépense peuvent alourdir la facture. Voici les six points à vérifier avant de signer.
 Frais de mise en service
 Certains prestataires facturent entre 2 000 € et 5 000 € (ordre de grandeur) rien que pour l’installation et la configuration initiale. Ces frais entrent dans le coût total sur la durée du contrat, celui qui se compare au seuil de dispense de procédure.
 Chez Civik-ia : à partir de 999 € HT, facturée une seule fois
-Maintenance et mises a jour
-Les mises a jour de l’IA, les corrections de bugs et l’evolution des fonctionnalites sont parfois facturees en supplement, sous forme de contrat de maintenance annuel.
+Maintenance et mises à jour
+Les mises à jour de l’IA, les corrections de bugs et l’évolution des fonctionnalités sont parfois facturées en supplément, sous forme de contrat de maintenance annuel.
 Chez Civik-ia : incluses dans l’abonnement
-Cout par conversation
-Attention aux modeles qui facturent a la conversation ou au message. Plus vos citoyens utilisent le chatbot, plus la facture grimpe. Un comble pour un outil cense encourager l’usage.
-Chez Civik-ia : zero cout par message
+Coût par conversation
+Attention aux modèles qui facturent à la conversation ou au message. Plus vos citoyens utilisent le chatbot, plus la facture grimpe. Un comble pour un outil censé encourager l’usage.
+Chez Civik-ia : zéro coût par message
 Formation des agents
-La prise en main de l’outil et la formation des équipes municipales representent un cout souvent oublie. Certains prestataires le facturent entre 500 € et 1 500 € (ordre de grandeur).
+La prise en main de l’outil et la formation des équipes municipales représentent un coût souvent oublié. Certains prestataires le facturent entre 500 € et 1 500 € (ordre de grandeur).
 Chez Civik-ia : formation incluse
-Verrouillage des donnees
-Si vous changez de prestataire, vos donnees (historique des conversations, knowledge base) peuvent etre difficiles a recuperer. Verifiez la clause de reversibilite avant de signer.
-Chez Civik-ia : vos donnees restent les votres
-Options et modules supplementaires
+Verrouillage des données
+Si vous changez de prestataire, vos données (historique des conversations, knowledge base) peuvent être difficiles à récupérer. Vérifiez la clause de réversibilité avant de signer.
+Chez Civik-ia : vos données restent les vôtres
+Options et modules supplémentaires
 Tableau de bord, formation, mises à jour : ces éléments sont souvent vendus en option payante chez d’autres éditeurs.
 Chez Civik-ia : compris dans l’abonnement
 Chez Civik-ia, le devis fixe avant toute commande le prix de la mise en service et celui de l’abonnement, sans frais cachés.
-Questions frequentes sur les prix
-Les reponses aux questions que se posent les DGS et les elus avant de choisir un chatbot pour leur mairie.
+Questions fréquentes sur les prix
+Les réponses aux questions que se posent les DGS et les élus avant de choisir un chatbot pour leur mairie.
 Existe-t-il un chatbot gratuit pour les mairies ?
-Quelques solutions proposent un volet gratuit. C’est le cas de Delibia, qui offre une licence gratuite aux secretaires de mairie (constate en juillet 2026). Toutefois, ces offres gratuites sont presentees par leurs editeurs comme des outils internes pour les agents (recherche, assistants IA), sans chatbot conversationnel decrit pour les citoyens. Pour un assistant IA côté habitants, les offres spécialisées qui publient un prix débutent autour de 70 €/mois. Notre page dediee, Existe-t-il un chatbot gratuit pour une mairie ? , detaille ce qui est reellement disponible gratuitement en 2026.
-Combien coute un chatbot Civik-ia pour une commune rurale ?
-Pour une commune de moins de 5 000 habitants, l’abonnement Marianne coûte 69 € HT par mois (abonnement annuel, soit 828 € HT par an) et la mise en service 999 € HT, facturée une seule fois, à votre validation écrite de la version de référence, avant l’ouverture aux habitants. Au-delà, l’abonnement est de 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus, et la mise en service de 999 € plus 30 centimes pour chaque habitant au-delà de 5 000 : calculer le prix pour votre commune . Ces prix sont estimatifs et hors taxes : une première réunion de trente minutes les fixe. L’offre comprend Marianne pour les habitants (réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse), l’hébergement souverain OVHcloud en Union européenne, la conformité RGPD et le support par courriel. Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance.
-Faut-il passer par un marche public pour acheter un chatbot ?
-Non, pas necessairement. En dessous de 60 000 € HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procédure formalisée. Un simple bon de commande signe par le maire ou le DGS suffit. Le devis de Civik-ia pour une commune, mise en service et abonnement compris sur toute la durée du contrat, reconductions comprises, est conçu pour rester sous ce seuil.
-Quels sont les couts caches d’un chatbot de mairie ?
-Les principaux couts caches a surveiller sont les frais de setup (jusqu’a 5 000 € chez certains prestataires), la maintenance et les mises a jour parfois facturees en supplement, les couts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, la mise en service suit la taille de la commune (à partir de 999 € HT selon la population, facturée une seule fois à la validation écrite de la version de référence) et le devis la fixe avant toute commande ; tout le reste est compris dans l’abonnement, celui du devis, sans frais cachés.
+Quelques solutions proposent un volet gratuit. C’est le cas de Delibia, qui offre une licence gratuite aux secrétaires de mairie (constaté en juillet 2026). Toutefois, ces offres gratuites sont présentées par leurs éditeurs comme des outils internes pour les agents (recherche, assistants IA), sans chatbot conversationnel décrit pour les citoyens. Pour un assistant IA côté habitants, les offres spécialisées qui publient un prix débutent autour de 70 €/mois. Notre page dédiée, Existe-t-il un chatbot gratuit pour une mairie ? , détaille ce qui est réellement disponible gratuitement en 2026.
+Combien coûte un chatbot Civik-ia pour une commune rurale ?
+Pour une commune de moins de 5 000 habitants, l’abonnement Marianne coûte 69 € HT par mois (abonnement annuel, soit 828 € HT par an) et la mise en service 999 € HT, facturée une seule fois, à votre validation écrite de la version de référence, avant l’ouverture aux habitants. Au-delà, l’abonnement est de 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, 500 € HT par mois au plus, et la mise en service de 999 € plus 30 centimes pour chaque habitant au-delà de 5 000 : calculer le prix pour votre commune . Ces prix sont estimatifs et hors taxes : une première réunion de trente minutes les fixe. L’offre comprend Marianne pour les habitants (réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse), l’hébergement chez OVHcloud, sur un serveur situé en Allemagne, la conformité RGPD et le support par courriel. Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance.
+Faut-il passer par un marché public pour acheter un chatbot ?
+Non, pas nécessairement. En dessous de 60 000 € HT (dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026), une commune peut acheter un logiciel sans procédure formalisée. Un simple bon de commande signé par le maire ou le DGS suffit. Le devis de Civik-ia pour une commune, mise en service et abonnement compris sur toute la durée du contrat, reconductions comprises, est conçu pour rester sous ce seuil.
+Quels sont les coûts cachés d’un chatbot de mairie ?
+Les principaux coûts cachés à surveiller sont les frais de setup (jusqu’à 5 000 € chez certains prestataires), la maintenance et les mises à jour parfois facturées en supplément, les coûts par conversation ou par message, la formation des agents, et les frais de migration en cas de changement de prestataire. Chez Civik-ia, la mise en service suit la taille de la commune (à partir de 999 € HT selon la population, facturée une seule fois à la validation écrite de la version de référence) et le devis la fixe avant toute commande ; tout le reste est compris dans l’abonnement, celui du devis, sans frais cachés.
 Demandez votre devis en 2 minutes
-Decouvrez comment Marianne peut transformer la relation entre votre mairie et vos citoyens.
-Tester la demo
+Découvrez comment Marianne peut transformer la relation entre votre mairie et vos citoyens.
+Tester la démo
 Demander un devis
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -2847,6 +2836,7 @@ La question revient souvent, et la réponse honnête est nuancée : oui, plusieu
 Cible : maire, DGS, secrétaire de mairie
 Lecture : 5 minutes
 Vérifié le : 24/08/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Oui, du gratuit existe. Delibia offre une licence à toutes les secrétaires de mairie de France, mais son offre payante est décrite par l’éditeur comme des « licences illimitées pour les agents et élus de votre collectivité » : l’éditeur le présente comme un outil de travail interne, et son site ne décrit pas d’assistant destiné aux habitants. PanneauPocket est offert aux communes de 100 habitants ou moins, et diffuse des informations sans répondre aux questions. Les créateurs de chatbot généralistes ont une entrée gratuite, mais le contenu communal est à saisir et à tenir soi-même. Un guichet citoyen qui répond 24 h/24 à partir d’une base de connaissances vérifiée reste payant. Constaté sur les sites des éditeurs le 24 août 2026.
 Delibia est-il gratuit ?
@@ -2932,7 +2922,7 @@ Gérer les cookies
 
 ## Chatbot commune rurale · Civik-ia
 URL : https://civik-ia.fr/chatbot-commune-rurale.html
-Resume : Commune rurale : un accueil numérique 24h/24 qui répond à partir du site officiel de la commune, page citée à chaque réponse. Chatbot IA souverain UE, RGPD natif, sans inscription. Abonnement à partir de 69 € HT par mois, selon la taille de la commune.
+Resume : Commune rurale : un assistant qui répond aux habitants 24 h/24 à partir du site officiel et cite la page. Dès 69 € HT par mois, sans compte à créer.
 
 Chatbot commune rurale · Civik-ia
 Civik-ia
@@ -2947,7 +2937,8 @@ Accueil
 Communes Rurales
 Commune rurale : un chatbot IA qui repond a vos habitants 24 h/24
 Nouveau mandat 2026 ? Offrez a vos 800, 2 000 ou 4 500 habitants un accueil numerique 24 h/24, qui repond a partir du site officiel de la commune et cite la page de chaque reponse.
-Voir la demo d’une commune rurale
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Voir la démo d’une commune rurale
 Demander un devis
 Le quotidien d’une mairie rurale
 Mardi, 14h15. La secretaire de mairie est seule. Le telephone sonne pour la 12eme fois de la journee. C’est Mme Durand qui veut conna&icirc;tre les jours de collecte des dechets verts. Pendant ce temps, M. Martin attend au comptoir pour un certificat d’urbanisme. Et le DGS prepare le conseil municipal de jeudi.
@@ -2957,10 +2948,10 @@ Et si votre mairie pouvait repondre a ces questions repetitives, automatiquement
 Deux faces d’un m&ecirc;me outil
 Marianne pour les habitants, et l’espace mairie dès son ouverture pour la commune.
 Le Chatbot IA : Votre agent d’accueil numerique
-Forme sur les donnees de votre commune (PLU, horaires, dechets, associations, etat civil)
+Répond à partir des données de votre commune (PLU, horaires, déchets, associations, état civil)
 Repond aux citoyens 24 h/24, 365 jours par an
 Sans inscription, sans compte, le citoyen pose sa question, point
-Page dediee mise en ligne par nos soins, partageable par lien ou QR code (widget a integrer en construction)
+Page dédiée mise en ligne par nos soins, partageable par lien ou QR code (module à insérer dans les pages du site : à venir)
 L’espace mairie : le tableau de bord de la commune
 Les questions des habitants et les sujets qui reviennent
 Les reponses justes et les erreurs connues, corrigees puis remesurees
@@ -3020,8 +3011,8 @@ Abonnement et mise en service concus pour rester sous le seuil des marches publi
 Chatbot IA personnalise sur les donnees de votre commune
 Accueil citoyen 24 h/24, 365 j/an, sans inscription
 Pilotage avec vos équipes, compris dans l’abonnement : l’espace mairie dès son ouverture, la relecture, avec vos agents, des questions types et des corrections, la formation à distance
-Page dediee (civik-ia.fr/votre-commune), widget a integrer en construction
-Hebergement souverain UE (OVHcloud)
+Page dédiée (civik-ia.fr/votre-commune) ; module à insérer dans les pages du site : à venir
+Hébergement chez OVHcloud, serveur en Allemagne
 RGPD : aucun compte demande aux habitants
 Support par email, mises a jour incluses
 Demander un devis
@@ -3031,14 +3022,14 @@ Les reponses aux questions que se posent les maires et DGS de communes rurales.
 Un chatbot est-il utile pour une commune de moins de 1 000 habitants ?
 Oui. Plus la commune est petite, plus le secretaire de mairie est sollicite sur des questions repetitives (horaires, dechets, etat civil). Un chatbot IA prend en charge ces demandes 24 h/24, y compris le soir et le week-end, sans mobiliser de personnel supplementaire. L’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Faut-il un site internet pour avoir un chatbot Civik-ia ?
-Non. Que votre commune ait un site internet ou non, Civik-ia fournit une page dediee accessible via une URL simple ( civik-ia.fr/votre-commune ) que vous pouvez diffuser par lien, QR code ou bulletin municipal. Un widget a inserer en une ligne de code sur votre site (WordPress, Joomla, HTML) est en construction.
+Non. Que votre commune ait un site internet ou non, Civik-ia fournit une page dédiée accessible via une URL simple ( civik-ia.fr/votre-commune ) que vous pouvez diffuser par lien, QR code ou bulletin municipal. Un module à insérer dans les pages de votre site (WordPress, Joomla, HTML) est à venir.
 Comment le chatbot conna&icirc;t-il les informations de ma commune ?
-Nous creons une base de connaissances personnalisee a partir des donnees publiques de votre commune (PLU, horaires, associations, services, numeros utiles) et des informations que vous nous transmettez. L’IA est entra&icirc;nee exclusivement sur ces donnees verifiees. Si le chatbot ne conna&icirc;t pas la reponse, il oriente le citoyen vers le secretariat de mairie.
+Nous créons une base de connaissances personnalisée à partir des données publiques de votre commune (PLU, horaires, associations, services, numéros utiles) et des informations que vous nous transmettez. Marianne répond à partir de ces seules données vérifiées, retrouvées au moment de la question ; le modèle n’est pas entraîné sur elles. Si le chatbot ne connaît pas la réponse, il oriente le citoyen vers le secrétariat de mairie.
 Le chatbot fonctionne-t-il le week-end et les jours feries ?
 Oui, le chatbot Civik-ia fonctionne 24 heures sur 24, 365 jours par an, y compris les week-ends, jours feries et periodes de vacances. Vos habitants obtiennent une reponse immediate m&ecirc;me quand la mairie est fermee, c’est l’un des avantages les plus apprecies par les elus ruraux.
 Votre commune merite un accueil 24 h/24
 Rejoignez les premieres communes rurales a offrir un accueil numerique intelligent et une democratie participative a leurs habitants.
-Tester la demo
+Tester la démo
 Demander un devis
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -3097,7 +3088,7 @@ Accueil › Chatbots mairie › Comparatif 2026
 Mis à jour le 8 juin 2026
 Comparatif chatbot mairie 2026 : 5 solutions IA passées au crible
 Vous cherchez un assistant virtuel pour votre mairie ou votre intercommunalité ? Cet article compare objectivement les cinq solutions principales du marché français en 2026 (fonctionnalités, prix, conformité RGPD, souveraineté technologique) pour vous aider à choisir.
-Auteur : Thibaut Harang, fondateur Civik-ia
+Par Thibaut Harang , fondateur de Civik-ia
 Lecture : 9 minutes
 Mis à jour : 08/06/2026
 En bref
@@ -3321,6 +3312,7 @@ Comment mieux communiquer avec ses citoyens en 2026 ?
 Cible : maire, adjoint, DGS, secrétaire de mairie
 Lecture : 8 minutes
 Mis à jour : 08/06/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Pour communiquer avec ses citoyens, une mairie combine trois types d’outils : un site web (information de référence), un canal d’alerte comme un panneau numérique ou une application (diffusion), et un chatbot IA pour répondre individuellement 24 h/24. Le bon choix dépend du besoin : informer ou dialoguer. Pour créer un lien réel et alléger le secrétariat, un assistant conversationnel souverain comme Civik-ia répond directement à chaque administré, sans inscription.
 Le vrai enjeu : informer ne suffit plus, il faut répondre
@@ -3814,6 +3806,7 @@ Votre secrétariat de mairie répète les mêmes informations 50 à 200 fois par
 Cible : DGS, secrétaire de mairie, maire
 Lecture : 7 minutes
 Mis à jour : 08/06/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Un chatbot IA bien paramétré peut absorber une part importante des demandes répétitives reçues par une mairie (horaires, état civil, déchets, tarifs de salle), 24 h/24 et sans inscription. Notre calcul de ROI retient un objectif prudent de 40 % la première année. Le secrétariat se recentre sur les dossiers complexes. Chez Civik-ia, solution souveraine française, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Ce que coûte vraiment un appel en mairie
@@ -3953,6 +3946,7 @@ Une petite mairie n’a ni le budget ni le temps d’une grande collectivité. V
 Cible : maire, secrétaire de mairie, conseiller municipal
 Lecture : 6 minutes
 Mis à jour : 24/06/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Pour une commune de moins de 5 000 habitants, deux familles de logiciels coexistent : la gestion interne (état civil, paie, comptabilité, fournie par des éditeurs historiques) et la relation aux citoyens (site, application, assistant en ligne). Le bon choix repose sur trois critères : simplicité d’usage pour une équipe non technique, coût maîtrisé, et hébergement souverain conforme au RGPD. Chez Civik-ia, assistant citoyen souverain, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Deux familles de logiciels qu’il ne faut pas confondre
@@ -4068,6 +4062,7 @@ Le secrétariat de mairie est le poste le plus polyvalent de France : accueil, �
 Cible : secrétaire de mairie, maire, DGS
 Lecture : 6 minutes
 Mis à jour : 05/07/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Trois familles d’outils d’IA servent un secrétariat de mairie en 2026 : les assistants internes pour l’agent (recherche réglementaire, rédaction, comme Delibia qui offre une licence gratuite aux secrétaires de mairie), les assistants citoyens qui répondent aux questions des citoyens 24 h/24 (comme Marianne de Civik-ia, à partir de 69 € HT par mois selon la taille de la commune), et les IA généralistes (Le Chat de Mistral, ChatGPT) à réserver aux tâches sans aucune donnée personnelle. La règle d’or RGPD : jamais de données de citoyens dans un outil grand public non contractualisé.
 Pourquoi le secrétariat de mairie est le premier bénéficiaire de l’IA
@@ -4168,7 +4163,7 @@ Gérer les cookies
 
 ## Callbot mairie ou chatbot · Civik-ia
 URL : https://civik-ia.fr/callbot-mairie.html
-Resume : Callbot téléphonique ou chatbot écrit pour votre mairie ? Différences, coûts, limites et cas d'usage : le guide pour choisir le bon canal en 2026.
+Resume : Coût d'un callbot de mairie : intégration téléphonique, prix au volume d'appels, souvent sur devis. Chatbot écrit chez Civik-ia : dès 69 € HT par mois.
 
 Callbot mairie ou chatbot · Civik-ia
 Civik-ia
@@ -4185,6 +4180,7 @@ Le standard téléphonique sature et les citoyens appellent pour des questions d
 Cible : maire, DGS, secrétaire de mairie
 Lecture : 5 minutes
 Mis à jour : 19/07/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Un callbot répond à la voix au téléphone de la mairie ; un chatbot répond par écrit sur le site de la commune. Le callbot cible la saturation du standard, mais suppose une intégration téléphonique et des coûts liés au volume d’appels, le plus souvent sur devis. Le chatbot écrit est plus simple à déployer, disponible 24 h/24 depuis un lien ou un QR code ; chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics. Beaucoup de communes commencent par l’écrit, qui évite une partie des appels à la source.
 Callbot et chatbot : deux réponses au même problème
@@ -4282,6 +4278,7 @@ Depuis mai 2026, une collectivité qui veut s’équiper d’une intelligence ar
 Cible : maire, DGS, secrétaire de mairie, agent d’EPCI
 Lecture : 7 minutes
 Mis à jour : 03/08/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Le programme Territoires d’IA , lancé le 21 mai 2026 par la Banque des Territoires avec l’État et Mistral AI, comporte un guichet de cofinancement ouvert en continu . Il s’adresse à toutes les collectivités et EPCI et couvre l’achat de licences, l’abonnement hors tokens et les solutions logicielles d’IA souveraine, ainsi que l’accompagnement à la prise en main. Le taux est de 30 % , porté à 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs, avec des bonifications cumulables plafonnées à 50 % au titre des territoires fragiles et de l’IA frugale. À l’inverse, les appels à projets France 2030 sur l’IA sont hors de portée d’une commune : l’appel « Démonstrateurs d’IA frugale dans les territoires » demandait 600 000 euros de dépenses éligibles minimum et il est clos depuis le 1er décembre 2023.
 Le guichet Territoires d’IA, le seul dispositif vraiment accessible
@@ -4413,6 +4410,7 @@ Dématérialiser les démarches d’une petite commune n’impose pas de tout re
 Cible : maire, secrétaire de mairie, agent d’accueil
 Lecture : 6 minutes
 Mis à jour : 24/06/2026
+Par Thibaut Harang , fondateur de Civik-ia
 En bref
 Pour une commune, proposer des démarches en ligne consiste surtout à orienter les habitants vers les bons téléservices (Service-Public.gouv.fr, plateformes d’urbanisme, inscriptions) et à répondre à leurs questions en continu. Beaucoup de démarches sont déjà nationales et dématérialisées. Le vrai gain pour une petite mairie vient d’un assistant citoyen qui guide vers le bon formulaire 24 h/24, sans inscription, et allège le secrétariat sur les questions répétitives.
 Le vrai sujet : orienter, plus que dématérialiser
@@ -4517,7 +4515,7 @@ Gérer les cookies
 
 ## Livre blanc, IA en mairie · Civik-ia
 URL : https://civik-ia.fr/livre-blanc.html
-Resume : Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pour mairies. Sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser.
+Resume : Le guide du chatbot IA pour mairies : sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser. Téléchargement gratuit.
 
 Livre blanc, IA en mairie · Civik-ia
 Civik-ia
@@ -4625,7 +4623,7 @@ Gérer les cookies
 
 ## Marianne sur WhatsApp · Civik-ia
 URL : https://civik-ia.fr/marianne-whatsapp.html
-Resume : Bientôt, l'IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, orientation vers le bon service, bascule vers vos agents. Canal à venir, moteur souverain déjà disponible en démonstration. RGPD natif.
+Resume : Marianne sur WhatsApp, canal à venir : les habitants poseront leurs questions sur le WhatsApp de la mairie, réponses tirées du site officiel, page citée.
 
 Marianne sur WhatsApp · Civik-ia
 Civik-ia
@@ -4758,7 +4756,7 @@ Le canal WhatsApp de Civik-ia est en préparation ; son ouverture est prévue pr
 
 ## Marianne sur Messenger · Civik-ia
 URL : https://civik-ia.fr/marianne-messenger.html
-Resume : Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal à venir, moteur souverain déjà disponible en démonstration. RGPD natif.
+Resume : Marianne sur Messenger, canal à venir : la page Facebook de la mairie répondra à partir du site officiel de la commune, page citée à chaque réponse.
 
 Marianne sur Messenger · Civik-ia
 Civik-ia
@@ -4984,7 +4982,7 @@ Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 22:47
 Un citoyen a une question.
-Votre mairie est fermee.
+Votre mairie est fermée.
 Decouvrir
 Maintenant, elle ne ferme plus.
 Decouvrez ce que vos citoyens verront.
@@ -4998,7 +4996,7 @@ Horaires de la mairie
 Jour des poubelles
 Inscription scolaire
 Pr&ecirc;t a ouvrir votre mairie 24 h/24 ?
-Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, selon la taille de la commune. Cloud souverain UE.
+Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, selon la taille de la commune. Hébergement chez OVHcloud, serveur en Allemagne.
 Tester la demo complete
 Demander une demo personnalisee
 Civik-ia

@@ -65,7 +65,7 @@ article strong{color:var(--p);font-weight:700}
 .checklist li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px}
 .checklist li::before{content:"";position:absolute;left:2px;top:.3em;width:14px;height:14px;border:1.5px solid var(--p);border-radius:3px}   /* passe P3 : la case est dessinée, plus d’émoji */
 @media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:28px}article h2{font-size:24px}article p,article li{font-size:16px}.cta-block{padding:24px}}
-.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}
+.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}.tableau:focus-visible{outline:2px solid var(--nuit);outline-offset:3px}
 .tableau table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);font-size:15px}
 .tableau thead{background:var(--p);color:#fff}
 .tableau th{padding:12px 14px;text-align:left;font-weight:700;font-size:12px;letter-spacing:0.04em;text-transform:uppercase}
@@ -232,7 +232,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     Une question réécrite proprement par un agent teste moins bien l’outil.</p>
     <p>Les questions ne contiennent ni nom ni coordonnée&nbsp;: si une question réelle en porte une, elle est réécrite sans elle avant d’entrer dans le jeu de test.</p>
     <h2>Sept types de questions à prévoir</h2>
-    <div class="tableau">
+    <div class="tableau" tabindex="0" role="region" aria-label="Tableau : Sept types de questions à prévoir">
     <table>
       <thead><tr><th scope="col">Type</th><th scope="col">Ce qu’il vérifie</th><th scope="col">Réponse attendue</th></tr></thead>
       <tbody>

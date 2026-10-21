@@ -65,7 +65,7 @@ article strong{color:var(--p);font-weight:700}
 .checklist li{list-style:none;padding-left:32px;position:relative;margin-bottom:10px}
 .checklist li::before{content:"";position:absolute;left:2px;top:.3em;width:14px;height:14px;border:1.5px solid var(--p);border-radius:3px}   /* passe P3 : la case est dessinée, plus d’émoji */
 @media(max-width:640px){main{padding:32px 20px 60px}h1{font-size:28px}article h2{font-size:24px}article p,article li{font-size:16px}.cta-block{padding:24px}}
-.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}
+.tableau{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0 32px}.tableau:focus-visible{outline:2px solid var(--nuit);outline-offset:3px}
 .tableau table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm);font-size:15px}
 .tableau thead{background:var(--p);color:#fff}
 .tableau th{padding:12px 14px;text-align:left;font-weight:700;font-size:12px;letter-spacing:0.04em;text-transform:uppercase}
@@ -223,7 +223,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     Un assistant en ligne, qu’il soit humain ou automatique, rencontre le même problème&nbsp;: où se trouve la version qui fait foi, et comment la montrer à l’habitant&nbsp;?
     Cette page classe six sources officielles, dit ce que chacune garantit et ce que sa licence demande de citer.</p>
     <h2>Une source par type de question</h2>
-    <div class="tableau">
+    <div class="tableau" tabindex="0" role="region" aria-label="Tableau : Une source par type de question">
     <table class="large">
       <thead><tr><th scope="col">Question de l’habitant</th><th scope="col">Source qui fait foi</th><th scope="col">Ce qu’elle garantit</th><th scope="col">Ce qu’il faut citer</th></tr></thead>
       <tbody>

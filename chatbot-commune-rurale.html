@@ -142,6 +142,7 @@
             --primary-light: #1a1a6e;
             --secondary-innov: #2b6fd6;
             --accent-teal: #2EC4B6;
+            --teal-texte: #06706a; /* teal assombri pour le texte sur fond clair, contraste 5,3 minimum, Lighthouse du 22/10/2026 */
             --accent-gold: #F4A261;
             --text-main: #1E1E1E;
             --text-light: #5a5a5a;
@@ -258,6 +259,20 @@
             transition: color 0.3s ease;
         }
 
+        .diff-bridge a,
+        .scenario-card p a,
+        .step-card p a {
+            color: var(--teal-texte);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .diff-bridge a:hover,
+        .scenario-card p a:hover,
+        .step-card p a:hover {
+            color: var(--primary-gov);
+        }
+
         a:hover {
             color: var(--secondary-innov);
         }
@@ -370,7 +385,7 @@
         }
 
         .breadcrumb span {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .hero-section h1 {
@@ -695,7 +710,7 @@
             padding-top: 16px;
             border-top: 1px solid rgba(140, 120, 80, 0.1);
             font-weight: 600;
-            color: var(--accent-teal) !important;
+            color: var(--teal-texte) !important;
             font-size: 14px;
         }
 
@@ -757,7 +772,7 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .priority-text h4 {
+        .priority-text h3 {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 4px;
@@ -1369,28 +1384,28 @@
                 <div class="priority-item">
                     <div class="priority-number">1</div>
                     <div class="priority-text">
-                        <h4>Accessibilit&eacute; des services publics</h4>
+                        <h3>Accessibilit&eacute; des services publics</h3>
                         <p>Un accueil disponible 24&nbsp;h/24, y compris le soir, le week-end et les jours f&eacute;ri&eacute;s. Multicanal&nbsp;: web, mobile, widget.</p>
                     </div>
                 </div>
                 <div class="priority-item">
                     <div class="priority-number">2</div>
                     <div class="priority-text">
-                        <h4>Transparence</h4>
+                        <h3>Transparence</h3>
                         <p>Des r&eacute;ponses qui citent leur source officielle, et une mairie qui sait ce que ses habitants demandent. Construire la confiance &eacute;lu-citoyen.</p>
                     </div>
                 </div>
                 <div class="priority-item">
                     <div class="priority-number">3</div>
                     <div class="priority-text">
-                        <h4>Ma&icirc;trise du budget</h4>
+                        <h3>Ma&icirc;trise du budget</h3>
                         <p>Des solutions abordables, con&ccedil;ues pour rester sous le seuil des march&eacute;s publics (60&nbsp;000&nbsp;€ HT, dispense de proc&eacute;dure, R. 2122-8, depuis le 01/04/2026). Pas de co&ucirc;ts cach&eacute;s, pas de mauvaises surprises.</p>
                     </div>
                 </div>
                 <div class="priority-item">
                     <div class="priority-number">4</div>
                     <div class="priority-text">
-                        <h4>Souverainet&eacute; num&eacute;rique</h4>
+                        <h3>Souverainet&eacute; num&eacute;rique</h3>
                         <p>Hébergement dans l’Union européenne, chez OVHcloud&nbsp;; modèle de Mistral AI, société française&nbsp;; aucun compte demandé à l’habitant.</p>
                     </div>
                 </div>

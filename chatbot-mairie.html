@@ -120,6 +120,22 @@
             "@type": "Answer",
             "text": "La mairie, responsable du traitement, en juge avec son délégué à la protection des données ; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom ; les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours. Le serveur est chez OVHcloud, en Allemagne ; les réponses sont rédigées par Mistral AI, société française."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Un chatbot de mairie doit-il dire qu’il est une IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation (article 50 du règlement (UE) 2024/1689). L’obligation pèse sur le fournisseur de l’outil. Chez Civik-ia, la bulle d’accueil de Marianne le dit dès le premier message. Ce que le règlement européen sur l’IA change pour une mairie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour ouvrir un chatbot de mairie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aucun délai type n’existe. L’ouverture aux habitants suit la validation écrite de la version de référence par la mairie, au terme des six étapes de la mise en service : inventaire des sources, cadre écrit, base de connaissances, mesure avant ouverture, validation par les agents, version de référence."
+          }
         }
       ]
     }
@@ -1170,6 +1186,20 @@
     </section>
 
     <!-- ============================================
+         CHATBOT IA OU CHATBOT A REGLES (23/10/2026)
+         ============================================ -->
+    <section class="section-pourquoi" id="chatbot-ia-ou-regles">
+        <div class="container">
+            <h2 class="section-title fade-in">Chatbot IA ou chatbot à règles&nbsp;: ce qui change pour une mairie</h2>
+            <div class="pourquoi-text fade-in">
+                <p>Un chatbot à règles associe la phrase de l’habitant à l’une des intentions qu’on lui a décrites à l’avance. Selon Le Monde Informatique (7 septembre 2020), le chatbot d’une ville de Seine-Saint-Denis, en ligne depuis janvier 2019, reconnaît 300 intentions et 2&nbsp;700 tournures de questions. Quand la phrase n’entre dans aucune intention, l’outil ne comprend pas, et l’habitant le voit tout de suite.</p>
+                <p>Un chatbot IA rédige sa réponse à partir de documents. Il comprend des phrases que personne n’avait prévues. Son défaut est moins visible&nbsp;: la CNIL rappelle que ces systèmes «&nbsp;peuvent générer des résultats inexacts qui peuvent, pourtant, paraître plausibles&nbsp;» (<a href="https://www.cnil.fr/fr/les-questions-reponses-de-la-cnil-sur-lutilisation-dun-systeme-dia-generative">questions-réponses du 18 juillet 2024</a>).</p>
+                <p>Pour une mairie, la question à poser change. Avec un chatbot à règles, elle demande quelles phrases sont prévues. Avec un chatbot IA, elle demande d’où vient la réponse et ce que fait l’outil quand il ne sait pas. Les critères ci-dessous répondent à la seconde&nbsp;: une source citée, un refus quand elle manque, un test avant l’ouverture. La page <a href="/tester-un-chatbot-de-mairie.html">tester un chatbot de mairie</a> décrit la méthode.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
          LES CRITERES ESSENTIELS
          ============================================ -->
     <section class="section-criteres" id="criteres">
@@ -1180,7 +1210,7 @@
             <div class="criteres-grid">
                 <div class="critere-card fade-in">
                     <h3>Souveraineté et RGPD</h3>
-                    <p>Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Chez Civik-ia&nbsp;: serveur chez OVHcloud, en Allemagne&nbsp;; modèle de Mistral AI, société française&nbsp;; lieu de calcul du modèle non fixé par contrat.</p>
+                    <p>Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Les <a href="/souverainete-numerique-commune.html">six questions à poser à un fournisseur</a> sont détaillées sur une page dédiée. Chez Civik-ia&nbsp;: serveur chez OVHcloud, en Allemagne&nbsp;; modèle de Mistral AI, société française&nbsp;; lieu de calcul du modèle non fixé par contrat.</p>
                 </div>
                 <div class="critere-card fade-in">
                     <h3>Prix sous le seuil des marchés publics</h3>
@@ -1188,10 +1218,10 @@
                 </div>
                 <div class="critere-card fade-in">
                     <h3>Personnalisation communale</h3>
-                    <p>Un chatbot générique qui répond à côté détruit la confiance des citoyens. L’IA doit répondre à partir des données spécifiques de votre commune, retrouvées au moment de la question&nbsp;: arrêtés municipaux, PLU, horaires d’ouverture, associations locales, calendrier des événements.</p>
+                    <p>Un chatbot générique qui répond à côté détruit la confiance des citoyens. L’IA doit répondre à partir des données spécifiques de votre commune, retrouvées au moment de la question&nbsp;: arrêtés municipaux, PLU, horaires d’ouverture, associations locales, calendrier des événements. La page <a href="/sources-officielles-mairie-quelle-source-fait-foi.html">quelle source officielle fait foi</a> dit laquelle l’emporte quand deux sources se contredisent.</p>
                 </div>
                 <div class="critere-card fade-in">
-                    <h3>Facilite d’intégration</h3>
+                    <h3>Facilité d’intégration</h3>
                     <p>Votre prestataire web ne devrait pas facturer une journée de développement pour brancher le chatbot. Une page dédiée clé en main, mise en ligne par nos soins avec un simple lien à poser, ou demain un widget à copier-coller sur le site existant&nbsp;: c’est le standard à exiger. Chez Civik-ia, la mise en service est faite par nos soins&nbsp;: sur le site de la mairie, il reste un lien ou un QR code à poser.</p>
                 </div>
                 <div class="critere-card fade-in">
@@ -1202,6 +1232,20 @@
                     <h3>Une justesse mesurée</h3>
                     <p>Demandez comment les réponses sont vérifiées avant l’ouverture&nbsp;: sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe. La page <a href="/tester-un-chatbot-de-mairie.html">tester un chatbot de mairie</a> décrit la méthode, des questions réelles aux quatre verdicts.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RETOURS D'EXPERIENCE PUBLIES (23/10/2026)
+         ============================================ -->
+    <section class="section-pourquoi" id="retours">
+        <div class="container">
+            <h2 class="section-title fade-in">Ce que mesurent les retours d’expérience publiés</h2>
+            <div class="pourquoi-text fade-in">
+                <p>Les retours publiés sur les chatbots de mairie rapportent des volumes. Le Monde Informatique (7 septembre 2020) cite 2&nbsp;500 utilisateurs uniques par mois et un taux de compréhension de 74&nbsp;% pour une ville de Seine-Saint-Denis, chiffres donnés par un ancien élu de la ville. Localtis (27 mars 2023) rapporte, pour le standard d’une ville des Yvelines, 500 appels par jour en moyenne&nbsp;; l’éditeur annonce la moitié des demandes résolue en moins de deux minutes. L’Essentiel de l’éco (14 juillet 2026) donne, pour la même ville, des appels perdus ramenés de 60 à 65&nbsp;% à 8&nbsp;%, sans citer de source.</p>
+                <p>Aucun de ces articles ne décrit un jeu de questions de test ni un taux de réponses justes, et aucun ne dit comment le taux de compréhension se mesure. Le coût n’apparaît qu’une fois, pour un callbot&nbsp;: un prix de départ de quelques centaines d’euros par mois, selon le prestataire.</p>
+                <p>Ces retours disent ce qui se mesure. Ils ne disent pas si l’outil conviendrait à votre commune. Demandez la méthode derrière chaque chiffre avant de vous en servir.</p>
             </div>
         </div>
     </section>
@@ -1268,7 +1312,7 @@
     <section class="section-differenciateurs" id="differenciateurs">
         <div class="container">
             <h2 class="section-title fade-in">Ce qui différencie Civik-ia</h2>
-            <p class="section-subtitle fade-in">Trois choix qui comptent pour une mairie&nbsp;: une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant.</p>
+            <p class="section-subtitle fade-in">Trois choix qui comptent pour une mairie&nbsp;: une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant. Marianne est en test&nbsp;: aucune commune ne l’a en service.</p>
 
             <div class="diff-grid">
                 <div class="diff-card fade-in">
@@ -1312,6 +1356,11 @@
             <div class="pourquoi-text fade-in">
                 <p>Pour une ville de 5&nbsp;000 à 20&nbsp;000 habitants, le volume de sollicitations change d’échelle&nbsp;: plusieurs services municipaux (état civil, urbanisme, scolaire, technique) reçoivent chacun leurs demandes. Marianne répond pour tous ces services à partir du même site officiel, et la mise en service associe les agents de chaque service à la validation des réponses.</p>
                 <p>Chez Civik-ia, l’abonnement coûte à partir de 69&nbsp;€ HT par mois, selon la taille de la commune. Ce qui fait le <a href="chatbot-mairie-prix.html">prix d’un chatbot de mairie</a> est détaillé sur notre page dédiée. Dans tous les cas, le socle est identique&nbsp;: modèle de Mistral AI, société française, hébergement chez OVHcloud, aucun compte demandé à l’habitant.</p>
+            </div>
+
+            <h2 class="section-title fade-in" style="margin-top:56px;">Chatbot pour une collectivité ou un service public</h2>
+            <div class="pourquoi-text fade-in">
+                <p>Pour une intercommunalité, un département ou une région, la difficulté change&nbsp;: les compétences se répartissent entre plusieurs collectivités, et l’habitant pose souvent sa question à la mauvaise structure. Trois choix décident&nbsp;: la source qui fait foi pour chaque compétence, la personne qui valide les réponses, l’orientation vers la collectivité compétente. Un syndicat ou un établissement public qui ouvre un chatbot à ses usagers se pose les mêmes questions. Marianne est conçue pour une commune.</p>
             </div>
         </div>
     </section>
@@ -1397,6 +1446,26 @@
                     </div>
                     <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                         <span itemprop="text">La mairie, responsable du traitement, en juge avec son délégué à la protection des données&nbsp;; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom&nbsp;; les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours. Le serveur est chez OVHcloud, en Allemagne&nbsp;; les réponses sont rédigées par Mistral AI, société française. Le détail est dans notre <a href="guide-rgpd-ia-collectivites.html">guide RGPD et IA en collectivité</a>.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name" onclick="toggleFaq(this.parentElement)" role="button" tabindex="0" aria-expanded="false">
+                        <span>Un chatbot de mairie doit-il dire qu’il est une IA&nbsp;?</span>
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Oui. Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation (article 50 du <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">règlement (UE) 2024/1689</a>). L’obligation pèse sur le fournisseur de l’outil. Chez Civik-ia, la bulle d’accueil de Marianne le dit dès le premier message. <a href="/ai-act-collectivites.html">Ce que le règlement européen sur l’IA change pour une mairie</a>.</span>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="faq-question" itemprop="name" onclick="toggleFaq(this.parentElement)" role="button" tabindex="0" aria-expanded="false">
+                        <span>Combien de temps faut-il pour ouvrir un chatbot de mairie&nbsp;?</span>
+                        <span class="faq-toggle" aria-hidden="true">+</span>
+                    </div>
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <span itemprop="text">Aucun délai type n’existe. L’ouverture aux habitants suit la validation écrite de la version de référence par la mairie, au terme des six étapes de la mise en service&nbsp;: inventaire des sources, cadre écrit, base de connaissances, mesure avant ouverture, validation par les agents, version de référence.</span>
                     </div>
                 </div>
             </div>

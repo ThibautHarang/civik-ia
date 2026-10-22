@@ -14,7 +14,8 @@
 #   Base de connaissances municipale : fiches courtes et datées de ce que la commune publie et que son assistant
 #     a le droit de citer (pages du site officiel, documents, actes, fiches écrites à la main).
 #   RAG appliqué à une commune : l'IA cherche dans les documents de la mairie avant de rédiger, et donne la page source.
-#   Fraîcheur des données : chez Marianne, le site officiel est relu chaque nuit.
+#   Fraîcheur des données : chez Marianne, un site officiel sous WordPress est relu chaque nuit ; pour les autres outils
+#     de publication, dont TYPO3, le lecteur est en test.
 #   Souveraineté : Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s'appuie sur Mistral AI,
 #     société française. Le lieu de calcul du modèle n'est pas fixé par contrat.
 # État : Marianne est en test ; aucune commune n'est cliente ni ne l'a en service.
@@ -1040,7 +1041,7 @@ le site de la mairie : il lit le site existant, dont la refonte reste un chantie
 Assistant virtuel, agent conversationnel, agent municipal IA
 Ces mots désignent souvent le même outil. Un assistant virtuel, ou agent conversationnel, est un programme qui dialogue par écrit. Dans une mairie, « agent municipal » désigne d’abord un fonctionnaire ou un contractuel de la commune ; un agent municipal IA est un programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l’agent du guichet. Le guichet citoyen IA est la forme de ces outils qui s’engage sur ses sources. Le guide du chatbot de mairie détaille ces termes.
 Six critères à vérifier
-Chaque critère se vérifie avant de signer, sur une démonstration ou par une question écrite au fournisseur.
+Chaque critère se vérifie avant de signer, sur une démonstration ou par une question écrite au fournisseur. Les clauses à écrire se trouvent dans le cahier des charges d’un chatbot de mairie .
 1. Il ne répond qu’à partir des sources de la mairie
 Une source validée est un document que la mairie publie ou approuve et que l’assistant a le droit de citer : page du site officiel, document mis en ligne, fiche relue par les agents. Ce qui n’en fait pas partie n’entre pas dans la base. Voir la base de connaissances d’une mairie .
 2. Chaque réponse donne sa page source
@@ -1048,7 +1049,7 @@ L’habitant doit pouvoir ouvrir la source et lire le texte officiel. Une répon
 3. Il dit quand il ne sait pas
 Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme service-public.gouv.fr ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.
 4. Il se tient à jour sans ressaisie
-La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, un site officiel sous WordPress est relu chaque nuit : une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place ; celui des autres outils de publication, dont TYPO3, est en test.
 5. La mairie valide avant l’ouverture
 Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des six étapes de la mise en service .
 6. La justesse est mesurée avant l’ouverture
@@ -1081,7 +1082,7 @@ Le règlement européen sur l’IA ( règlement (UE) 2024/1689 ) impose depuis l
 Prix et financement
 Chez Civik-ia, l’abonnement à Marianne coûte 69 € HT par mois jusqu’à 4 999 habitants, puis 69 € plus un centime par mois pour chaque habitant au-delà de 5 000, et 500 € HT par mois au plus. La mise en service, facturée une seule fois, coûte à partir de 999 € HT. Si le site de la mairie n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. Ces prix sont estimatifs, hors taxes, et fixés en première réunion ; le calculateur de la page prix donne celui de votre commune.
 Le plancher de 69 € vaut pour 32 683 communes sur 34 969 (population municipale INSEE 2023, relevée le 14 octobre 2026).
-Le guichet du programme Territoires d’IA de la Banque des Territoires cofinance de 30 à 50 % des dépenses éligibles, dont l’achat de licences et l’abonnement à une solution d’IA souveraine, hors jetons. Il est ouvert en continu aux collectivités territoriales et aux EPCI ( page des offres de Territoires d’IA , consultée le 19 octobre 2026). L’éligibilité est instruite par la Banque des Territoires, et un éditeur ne peut pas la promettre : voir financer l’IA de sa commune .
+Les aides ouvertes aux collectivités sont décrites, d’après leurs textes officiels, sur la page financer l’IA de sa commune . Elle ne dit pas qu’une solution particulière en relève : l’instruction appartient à la Banque des Territoires pour le guichet Territoires d’IA, à la préfecture pour la DETR et la DSIL, à la région pour les fonds européens.
 Voir Marianne répondre
 La démonstration tourne sur une commune fictive, sans inscription : vous posez vos questions et vous ouvrez les sources citées.
 Tester Marianne
@@ -1096,7 +1097,7 @@ De la base de connaissances de la commune : pages du site officiel, documents pu
 Que se passe-t-il quand l’information n’existe pas ?
 Marianne est conçue pour dire que le site ne publie pas l’information et pour indiquer comment joindre la mairie, sans compléter avec la mémoire générale du modèle.
 Comment les informations restent-elles à jour ?
-Le site officiel de la commune est relu chaque nuit. Une page publiée dans la journée est prise en compte le lendemain. Pour les sites qui ne sont pas sous WordPress, le lecteur est en test.
+Un site officiel sous WordPress est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain. Pour les autres outils de publication, dont TYPO3, le lecteur est en test.
 Un guichet citoyen IA est-il conforme au RGPD ?
 La conformité se juge traitement par traitement, par la mairie et son délégué à la protection des données. Pour Marianne, avec une commune cliente : la mairie est responsable du traitement, Civik-ia est sous-traitant avec un accord écrit, aucun compte n’est demandé, les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours.
 Combien coûte un guichet citoyen IA pour une petite commune ?
@@ -1110,6 +1111,7 @@ Les données qu’une mairie n’envoie jamais à un modèle d’IA
 Tester un chatbot de mairie avant l’ouverture
 Constituer une base de données fiable pour l’IA d’une mairie
 Souveraineté numérique d’une commune : six questions à poser
+Chatbot IA pour une collectivité ou un service public : ce qui change hors d’une commune
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -1166,7 +1168,7 @@ Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › Base de connaissances
 Base de connaissances d’une mairie : sources validées et mise à jour
-La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est relue chaque nuit et validée par la mairie avant l’ouverture.
+La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est validée par la mairie avant l’ouverture. Un site sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
 Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Un assistant municipal ne répond pas mieux que sa base. Cette page décrit ce que contient celle de Marianne, qui en valide les sources, comment elle se tient à jour et ce qu’elle ne garantit pas.
 Ce que contient la base
@@ -1191,14 +1193,14 @@ la validation par les agents de la mairie, qui relisent les réponses et corrige
 la version de référence, validée par écrit par la mairie.
 Rien n’est ouvert aux habitants avant la sixième étape. Le détail et le prix de chaque étape sont sur la page prix . Pour préparer ses données avant une IA , quel que soit l’outil, une commune peut suivre sept étapes.
 Comment la base reste à jour
-La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit : une page publiée dans la journée entre en général dans la base le lendemain, sans ressaisie par les agents.
+La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, un site officiel sous WordPress est relu chaque nuit : une page publiée dans la journée entre en général dans la base le lendemain, sans ressaisie par les agents. Pour les autres outils de publication, dont TYPO3, le lecteur est en test.
 Des contrôles se jouent avant toute écriture. Si la relecture de la nuit constate une suppression massive de fiches ou un effondrement du volume lu, rien n’est écrit et la base de la veille reste servie, le temps qu’une personne regarde.
 Le lecteur des sites WordPress est en place. Celui des autres outils de publication, dont TYPO3, est en test. Après l’ouverture, les réponses jugées fausses ou incomplètes sont corrigées dans la base, puis remesurées.
 Ce que la base ne garantit pas
 La base ne vaut que sa source. Si le site publie une information périmée, la réponse le sera aussi : la mise en service relève ces écarts et les signale à la mairie, et une collecte des informations peut être commandée quand le site n’est pas à jour.
 Une fiche juste ne suffit pas toujours. Le modèle qui rédige peut prendre un chiffre dans une fiche voisine de la bonne. Ce risque, et la façon de le mesurer, sont décrits sur la page RAG pour une mairie .
 Ce que coûte la constitution de la base
-Chez Civik-ia, la mise en service, qui comprend la constitution de la base, coûte à partir de 999 € HT : 999 € jusqu’à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000. Elle est facturée une seule fois, à la validation écrite de la version de référence. Si le site n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. L’abonnement, qui comprend la relecture de chaque nuit, coûte 69 € HT par mois jusqu’à 4 999 habitants. Prix estimatifs, hors taxes, fixés en première réunion.
+Chez Civik-ia, la mise en service, qui comprend la constitution de la base, coûte à partir de 999 € HT : 999 € jusqu’à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000. Elle est facturée une seule fois, à la validation écrite de la version de référence. Si le site n’est pas à jour, la collecte des informations s’ajoute, à partir de 499 € HT. L’abonnement, qui comprend la relecture du site (chaque nuit pour un site sous WordPress), coûte 69 € HT par mois jusqu’à 4 999 habitants. Prix estimatifs, hors taxes, fixés en première réunion.
 Pour voir une base en action, la démonstration tourne sur une commune fictive, sans inscription.
 Tester Marianne
 La définition complète du guichet citoyen IA et ses six critères sont sur la page dédiée ; le produit est présenté sur la page Marianne .
@@ -1208,7 +1210,7 @@ La base de connaissances d’une mairie rassemble, en fiches courtes et datées,
 Qui écrit les fiches ?
 La plupart viennent de la lecture automatique du site et des documents de la mairie. Civik-ia écrit à la main les fiches qui manquent, avec leur source, et les agents de la mairie les relisent pendant la mise en service.
 Que se passe-t-il quand le site de la mairie change ?
-Le site est relu chaque nuit. Une page publiée ou modifiée dans la journée entre dans la base le lendemain. Si la relecture constate une anomalie de volume, la base de la veille reste servie.
+Un site sous WordPress est relu chaque nuit : une page publiée ou modifiée dans la journée entre dans la base le lendemain. Pour les autres outils de publication, dont TYPO3, le lecteur est en test. Si la relecture constate une anomalie de volume, la base de la veille reste servie.
 Et si la réponse n’est pas dans la base ?
 Marianne est conçue pour dire que le site ne publie pas l’information et pour indiquer comment joindre la mairie. La question sans réponse est un signal utile : elle montre ce que le site de la commune ne dit pas.
 Combien de temps prend la mise en service ?
@@ -2328,11 +2330,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## AI Act et collectivités : ce qui change pour une mairie
+## AI Act et collectivités : ce qui change pour une mairie · Civik-ia
 URL : https://civik-ia.fr/ai-act-collectivites.html
 Resume : Ce que le règlement européen sur l’IA change pour une mairie : rôle de déployeur, calendrier de 2025 à 2030, assistant des habitants, haut risque, agents.
 
-AI Act et collectivités : ce qui change pour une mairie
+AI Act et collectivités : ce qui change pour une mairie · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -2568,11 +2570,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## AI Act et haut risque en collectivité : usages, date de 2027
+## AI Act et haut risque en collectivité : usages, date de 2027 · Civik-ia
 URL : https://civik-ia.fr/ia-haut-risque-collectivite-annexe-iii.html
 Resume : Quels usages d’IA d’une collectivité relèvent de l’annexe III du règlement européen, quelles obligations pour le déployeur, et à partir de quelle date.
 
-AI Act et haut risque en collectivité : usages, date de 2027
+AI Act et haut risque en collectivité : usages, date de 2027 · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -2728,11 +2730,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Article 4 AI Act : maîtrise de l’IA des agents de mairie
+## Article 4 AI Act : maîtrise de l’IA des agents de mairie · Civik-ia
 URL : https://civik-ia.fr/article-4-ai-act-maitrise-ia-agents-mairie.html
 Resume : Ce que l’article 4 du règlement européen sur l’IA demande à une mairie pour ses agents : mesures attendues, preuves à garder, rédaction du 27 juillet 2026.
 
-Article 4 AI Act : maîtrise de l’IA des agents de mairie
+Article 4 AI Act : maîtrise de l’IA des agents de mairie · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -2986,7 +2988,7 @@ En fin de contrat, sur demande, les données et la base sont restituées dans le
 Avant l’ouverture, 300 questions de test sont jugées contre leur page source, et la mairie valide une version de référence
 Civik-ia ne publie aucun taux de justesse
 Cette page ne classe pas Marianne au regard de l’annexe III : pour elle comme pour tout outil, le classement se juge sur ce qu’elle fait dans chaque commune.
-L’abonnement commence à 69 € HT par mois et la mise en service à 999 € HT, facturée une seule fois ( grille de prix ).
+L’abonnement commence à 69 € HT par mois, avec une mise en service à partir de 999 € HT, facturée une seule fois ( grille de prix ).
 Le produit est présenté sur la page Marianne .
 Questions fréquentes
 Un cahier des charges est-il obligatoire pour acheter un chatbot de mairie ?
@@ -3440,7 +3442,7 @@ publics
 à partir de 999 €
 Mise en service
 une seule fois
-Et si une partie de cette dépense était cofinancée ? Depuis mai 2026, le guichet du programme Territoires d’IA, porté par la Banque des Territoires, couvre 30 à 50 % de l’achat de licences ou d’abonnements de solutions d’IA souveraine, en continu et sans date limite de dépôt. L’éligibilité est instruite par la Banque des Territoires, jamais promise par un éditeur : le détail des taux, des bonifications et de ce qui n’est pas accessible à une commune figure sur notre page financer l’IA de sa commune .
+Les aides ouvertes aux collectivités sont décrites, d’après leurs textes officiels, sur notre page financer l’IA de sa commune . Elle ne dit pas qu’une solution particulière en relève : l’instruction appartient à la Banque des Territoires pour le guichet Territoires d’IA, à la préfecture pour la DETR et la DSIL, à la région pour les fonds européens.
 Ce que comprend l’abonnement
 Marianne, éditée par Civik-ia, répond à vos habitants 24 h sur 24 à partir de votre site officiel. Un seul produit pour toutes les communes : la taille de la commune fait le prix. Marianne est un guichet citoyen IA : elle répond à partir de vos sources officielles et cite sa page.
 Marianne pour les habitants : réponses 24 h sur 24 à partir du site officiel, page citée à chaque réponse
@@ -3480,7 +3482,7 @@ Civik-ia rédige le cadre : périmètre des sources, règle sur les personnes no
 Étape C
 La base de connaissances
 La mairie admet, un par un, les sites complémentaires à lire (théâtre, intercommunalité, office de tourisme).
-Civik-ia lit le site chaque nuit et écrit à la main, page source à l’appui, les fiches sur ce que le site ne tranche pas. Ce qu’elle contient : voir la base de connaissances d’une mairie .
+Civik-ia lit le site et écrit à la main, page source à l’appui, les fiches sur ce que le site ne tranche pas. Un site sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test. Ce qu’elle contient : voir la base de connaissances d’une mairie .
 Étape D
 La mesure avant ouverture
 La mairie reçoit un rapport de mesure daté, lisible par la direction générale.
@@ -3495,7 +3497,7 @@ La mairie fait essayer Marianne par ses agents d’accueil, valide par écrit la
 Civik-ia refait une mesure complète après les corrections et pose le garde-fou sur les personnes nommées.
 Chaque mesure est datée et dit ce qu’elle mesure : « justesse mesurée sur N questions de test le JJ/MM ; ce n’est pas un taux sur vos habitants ». Nous publions la méthode, jamais un taux promis.
 Avant l’ouverture aux habitants : à partir de 999 € HT, selon la taille de la commune (999 € HT jusqu’à 4 999 habitants, puis 999 € plus 30 centimes pour chaque habitant au-delà de 5 000 : calculer le prix pour votre commune ). Facturée une seule fois, à votre validation écrite de la version de référence. Elle ne se renouvelle pas.
-Ensuite, la base vit avec l’usage de Marianne : le site est relu chaque nuit, les vraies questions sont relues chaque semaine, chaque réponse non juste est corrigée puis remesurée. La mairie suivra tout cela dans son espace mairie, dès son ouverture.
+Ensuite, la base vit avec l’usage de Marianne : un site sous WordPress est relu chaque nuit, les vraies questions sont relues chaque semaine, chaque réponse non juste est corrigée puis remesurée. Pour les autres outils de publication, dont TYPO3, le lecteur est en test. La mairie suivra tout cela dans son espace mairie, dès son ouverture.
 Les coûts cachés à surveiller
 Au-delà du tarif mensuel affiché, plusieurs postes de dépense peuvent alourdir la facture. Voici les six points à vérifier avant de signer.
 Frais de mise en service
@@ -3726,7 +3728,7 @@ Avant l’ouverture, les agents relisent les fiches écrites à la main et jugen
 Les habitants découvrent un outil déjà vérifié par leurs agents.
 Commune de 4 800 hab.
 Compléter le site là où il se tait
-Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notée. La mairie publie les dates sur son site, et Marianne les reprend dès la nuit suivante. Les sept étapes pour préparer les données d’une petite commune sont décrites sur une page à part.
+Des habitants demandent les dates d’inscription scolaire, que le site ne donne pas. Marianne le dit et oriente vers la mairie ; la question est notée. La mairie publie les dates sur son site, et Marianne les reprend dès la nuit suivante si le site est sous WordPress ; pour les autres outils de publication, dont TYPO3, le lecteur est en test. Les sept étapes pour préparer les données d’une petite commune sont décrites sur une page à part.
 Résultat : une réponse juste dès le lendemain.
 Nouveau mandat 2026 : vos priorités numériques
 Les élections municipales de mars 2026 ont renouvelé des milliers de conseils municipaux. Avec un nouveau mandat vient un nouveau projet communal.
@@ -3750,10 +3752,10 @@ Inventaire et cadre écrit
 Nous recensons les pages et les documents de votre site officiel. Vous confirmez par écrit le périmètre des sources et la règle sur les personnes nommées.
 2
 Base, mesure, validation
-Le site est lu chaque nuit, les fiches que le site ne tranche pas sont écrites à la main, 300 questions de test sont jugées contre leur page source, puis vos agents valident. Le détail des six étapes .
+Un site sous WordPress est lu chaque nuit (pour les autres outils de publication, dont TYPO3, le lecteur est en test), les fiches que le site ne tranche pas sont écrites à la main, 300 questions de test sont jugées contre leur page source, puis vos agents valident. Le détail des six étapes .
 3
 Ouverture aux habitants
-Page dédiée partageable par lien, QR code ou bulletin municipal. Marianne répond 24 h/24 et cite sa source ; le site est relu chaque nuit, les vraies questions chaque semaine. L’espace mairie, dès son ouverture, vous montrera ce que vos habitants demandent.
+Page dédiée partageable par lien, QR code ou bulletin municipal. Marianne répond 24 h/24 et cite sa source ; un site sous WordPress est relu chaque nuit (pour les autres outils de publication, dont TYPO3, le lecteur est en test), les vraies questions chaque semaine. L’espace mairie, dès son ouverture, vous montrera ce que vos habitants demandent.
 Budget : 69 € HT par mois
 Un investissement maîtrisé, conçu pour rester sous le seuil des marchés publics.
 Commune rurale < 5 000 hab.
@@ -4105,7 +4107,7 @@ Un panneau d’affichage numérique coûte plusieurs milliers d’euros à l’a
 Créer du lien, ce n’est pas seulement répondre
 Répondre aux questions désengorge le standard, mais le lien se construit aussi dans la durée : c’est savoir ce que les habitants demandent et compléter ce que le site ne dit pas. Deux pratiques y contribuent directement :
 Lire les questions des habitants : les sujets qui reviennent disent ce qui préoccupe la commune, sans sondage ni fichier nominatif.
-Compléter le site là où il se tait : une question restée sans réponse est une page à écrire. Publiée sur le site officiel, l’information est reprise par l’assistant de la commune dès la nuit suivante.
+Compléter le site là où il se tait : une question restée sans réponse est une page à écrire. Publiée sur le site officiel, l’information est reprise par l’assistant de la commune dès la nuit suivante si le site est sous WordPress ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
 C’est cette boucle (répondre, lire les questions, compléter le site) qui transforme un simple outil de communication en véritable lien continu entre la mairie et ses habitants.
 En pratique : par où commencer ?
 Identifiez votre besoin dominant (informer vs répondre) en regardant ce qui sature aujourd’hui : le standard, ou la diffusion d’infos ?
@@ -5903,6 +5905,7 @@ Oui, par choix de service : un numéro, des horaires et un agent joignable reste
 Cette page ne cite aucun texte qui l’impose.
 Pour aller plus loin
 Six questions pour juger la souveraineté d’un outil numérique
+Guichet citoyen IA : la définition et six critères à vérifier
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -6035,6 +6038,7 @@ Combien coûte un chatbot de mairie d’après ces retours ?
 Un seul article donne un prix, pour un callbot : quelques centaines d’euros par mois, selon le volume d’appels (Localtis, 27 mars 2023).
 Pour un chatbot écrit, la grille de Civik-ia commence à 69 € HT par mois, avec une mise en service à partir de 999 € HT : voir la page prix d’un chatbot de mairie.
 Pour aller plus loin
+Guichet citoyen IA : la définition et six critères à vérifier
 Le RAG, ou comment une IA cite la page de la mairie
 Chatbot IA pour une collectivité ou un service public
 Civik-ia
@@ -6078,11 +6082,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Territoires d’IA : dossier de cofinancement, mode d’emploi
+## Territoires d’IA : dossier de cofinancement, mode d’emploi · Civik-ia
 URL : https://civik-ia.fr/territoires-d-ia-dossier-cofinancement.html
 Resume : Déposer une demande au guichet Territoires d’IA : inscription, pièces, fiche IA souveraine, instruction, convention, versement. Cahier de juillet 2026.
 
-Territoires d’IA : dossier de cofinancement, mode d’emploi
+Territoires d’IA : dossier de cofinancement, mode d’emploi · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -6261,11 +6265,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Mutualiser l’IA entre communes : cofinancement à 40 %
+## Mutualiser l’IA entre communes : cofinancement à 40 % · Civik-ia
 URL : https://civik-ia.fr/mutualiser-ia-intercommunalite-cofinancement.html
 Resume : Demande mutualisée au guichet Territoires d’IA : entité porteuse, trois autres bénéficiaires, taux de 40 à 50 %, groupement de commandes. Mode d’emploi.
 
-Mutualiser l’IA entre communes : cofinancement à 40 %
+Mutualiser l’IA entre communes : cofinancement à 40 % · Civik-ia
 Civik-ia
 Marianne
 Conseil

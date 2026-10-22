@@ -104,6 +104,7 @@ const PAGES = [
   ['article-50-ai-act-chatbot-mairie.html', { couche: 'ancienne', place: true }],
   // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
   // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
+  ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true }],
   ['guides.html', { couche: 'ancienne', place: true }],
 ];
 

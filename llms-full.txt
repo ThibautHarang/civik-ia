@@ -21,7 +21,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 34 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 37 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : Marianne, Conseil, Atelier
@@ -1428,6 +1428,7 @@ Les interventions des administrateurs et les anomalies sont enregistrées aussi.
 Les traces se conservent sur une période glissante de six mois à un an, avec des exceptions possibles (obligation légale, contentieux, analyse après incident).
 Elles sont protégées contre les modifications non autorisées et ne contiennent jamais de mot de passe.
 Les agents sont informés que la journalisation existe, et les prestataires sont tenus par contrat de journaliser et de signaler les incidents ( CNIL, « Sécurité : Tracer les opérations » , 14 mars 2024).
+À partir du 2 décembre 2027, un système d’IA à haut risque aura ses propres règles de conservation : voir les journaux qu’exigera l’AI Act pour un système à haut risque .
 Mesure 5 : chiffrer et mettre à jour
 La CNIL cite des algorithmes reconnus, comme AES pour le chiffrement et bcrypt, scrypt, Argon2 ou PBKDF2 pour stocker les mots de passe, et proscrit DES, 3DES, MD5 et SHA-1.
 Les clés se protègent par des droits d’accès restrictifs et se gèrent selon une procédure écrite ( CNIL, « Sécurité : Chiffrement, hachage, signature » , 14 mars 2024).
@@ -1810,6 +1811,7 @@ Une charte d’usage de l’IA est-elle obligatoire pour une mairie ?
 Je n’ai trouvé aucune obligation légale à ce sujet (recherche du 20 octobre 2026).
 La CNIL recommande de définir par écrit les usages autorisés et interdits.
 Plusieurs collectivités ont adopté une charte en 2025 et 2026.
+Une charte peut compter parmi les mesures de maîtrise de l’IA attendues des mairies : voir ce que l’article 4 de l’AI Act demande pour les agents .
 Que devient la question d’un habitant posée à un assistant de mairie ?
 Elle part chez l’éditeur du modèle pour rédiger la réponse, et elle peut être conservée dans la base du service.
 La mairie lit dans l’accord sur le traitement des données la durée de conservation, les sous-traitants, le lieu de calcul et la réutilisation éventuelle des questions.
@@ -2320,6 +2322,545 @@ RGPD
 Accessibilité
 Gérer les cookies
 
+## AI Act et collectivités : ce qui change pour une mairie
+URL : https://civik-ia.fr/ai-act-collectivites.html
+Resume : Ce que le règlement européen sur l’IA change pour une mairie : rôle de déployeur, calendrier de 2025 à 2030, assistant des habitants, haut risque, agents.
+
+AI Act et collectivités : ce qui change pour une mairie
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › AI Act et collectivités
+AI Act et collectivités : ce qui change pour une mairie, date par date
+Une mairie, comme toute collectivité qui utilise un système d’IA, est déployeur au sens de l’AI Act, le règlement (UE) 2024/1689.
+Elle doit déjà veiller à la maîtrise de l’IA par ses agents et, sauf relecture éditoriale, signaler les textes d’information générés par IA qu’elle publie.
+Les règles du haut risque s’appliqueront le 2 décembre 2027.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Le règlement européen sur l’intelligence artificielle, souvent appelé AI Act, est en vigueur depuis le 1er août 2024.
+Ses obligations s’appliquent par étapes.
+Le règlement (UE) 2026/1744 du 8 juillet 2026, en vigueur depuis le 27 juillet 2026, en a déplacé plusieurs et en a réécrit d’autres.
+Une commune est concernée dès qu’elle utilise un outil d’IA : un assistant qui répond aux habitants, un outil de rédaction pour les agents, un logiciel qui trie des demandes.
+Cette page donne l’état du droit au 22 octobre 2026, date par date, avec l’article du règlement qui fonde chaque règle.
+Fournisseur et déployeur : la place de la mairie
+Le règlement attache chaque obligation à un rôle.
+Le déployeur est « une autorité publique [...] utilisant sous sa propre autorité un système d’IA » (article 3, point 4).
+Une mairie qui ouvre un assistant aux habitants, ou qui met un outil d’IA à la disposition de ses agents, est donc déployeur.
+L’éditeur qui conçoit l’outil et le propose aux communes est fournisseur (article 3, point 3).
+Les deux rôles n’ont pas les mêmes obligations.
+L’information de l’habitant qui dialogue avec une IA pèse sur le fournisseur.
+Le signalement des textes publiés pèse sur la mairie.
+La maîtrise de l’IA pèse sur les deux.
+Le calendrier au 22 octobre 2026
+Les dates qui suivent viennent du règlement (UE) 2024/1689 , article 113, et du règlement (UE) 2026/1744 , article 1.
+Ce second texte, adopté le 8 juillet 2026 et publié au Journal officiel de l’Union européenne le 24 juillet 2026, a reporté le haut risque, réécrit l’article 4 et ajouté deux interdictions.
+La colonne de droite dit ce que chaque date change pour une commune.
+Une ligne marquée « pas encore applicable » est adoptée et s’appliquera à la date indiquée.
+Date Ce qui s’applique Pour une commune
+1er août 2024 Entrée en vigueur du règlement (UE) 2024/1689 Aucune obligation à cette date
+2 février 2025 Définitions, maîtrise de l’IA (article 4), pratiques interdites (article 5) En vigueur : mesures de maîtrise de l’IA pour les agents ; pratiques de l’article 5 interdites
+2 août 2025 Gouvernance, modèles d’IA à usage général, régime des sanctions En vigueur ; aucune loi française n’a encore désigné les autorités de contrôle
+27 juillet 2026 Entrée en vigueur du règlement (UE) 2026/1744 Article 4 réécrit, haut risque reporté
+2 août 2026 Application générale, dont la transparence (article 50) En vigueur : l’assistant dit qu’il est une IA ; la mairie signale ses textes d’information générés par IA
+2 décembre 2026 Deux interdictions nouvelles (images intimes sans consentement, contenus pédocriminels) ; marquage des contenus générés (article 50, paragraphe 2) pour les systèmes mis sur le marché avant le 2 août 2026 Pas encore applicable ; le marquage pèse sur le fournisseur
+2 décembre 2027 Haut risque de l’annexe III, dont les articles 26 et 27 Pas encore applicable : obligations de la mairie qui utilise un système à haut risque
+2 août 2028 Haut risque lié aux produits de l’annexe I Pas encore applicable
+2 août 2030 Date limite pour les systèmes à haut risque destinés aux autorités publiques et déjà en service Pas encore applicable
+Le texte de 2024 faisait partir le haut risque de l’annexe III le 2 août 2026.
+Le règlement de 2026 a remplacé cette date par le 2 décembre 2027.
+Le 2 août 2027 n’est plus une échéance pour une commune.
+Cette date ne vaut plus que pour les modèles d’IA à usage général mis sur le marché avant le 2 août 2025 (article 111, paragraphe 3).
+Un second volet de simplification, qui toucherait au RGPD, aux données et aux cookies, reste une proposition de la Commission du 19 novembre 2025.
+Au 22 octobre 2026, elle attend une décision de commission au Parlement européen.
+Quatre niveaux d’usage dans une mairie
+Le règlement classe les usages selon le risque qu’ils font courir aux personnes.
+Une commune peut rencontrer quatre niveaux, du plus strict au plus léger.
+Le classement dépend de ce que fait l’outil : un même logiciel peut informer les habitants dans un service et trier des demandes dans un autre.
+Le classement se fait donc usage par usage, service par service.
+Le tableau donne des exemples pour chaque niveau ; les sections suivantes détaillent les règles et leurs dates.
+Niveau Exemples dans une commune Règle Depuis
+Interdit Notation sociale des habitants menant à un traitement défavorable ; inférence des émotions des agents au travail Article 5 2 février 2025
+Haut risque Évaluer l’éligibilité à une aide sociale ; trier des candidatures ; affecter des élèves dans un établissement ; trier des appels d’urgence Annexe III, articles 26 et 27 2 décembre 2027
+Transparence Assistant qui dialogue avec les habitants ; texte d’information généré par IA et publié par la mairie Article 50 2 août 2026
+Autres usages Aide à la rédaction d’un courrier ; résumé d’un document publié Article 4 et RGPD 2 février 2025 pour l’article 4
+Les pratiques interdites depuis le 2 février 2025
+L’article 5 du règlement interdit certaines pratiques d’IA depuis le 2 février 2025.
+Six d’entre elles peuvent concerner une commune, dans ses services, ses écoles ou la gestion de son personnel.
+Deux interdictions nouvelles, sur les images intimes sans consentement et les contenus pédocriminels, s’ajouteront le 2 décembre 2026.
+La Commission a publié des lignes directrices sur ces pratiques (C(2025) 5052) : elles ne sont pas contraignantes et donnent sa lecture du texte.
+la notation sociale des personnes, quand elle conduit à les traiter défavorablement (point c) ;
+la prédiction du risque qu’une personne commette une infraction, fondée sur son seul profilage (point d) ;
+les bases de reconnaissance faciale constituées par moissonnage non ciblé d’images d’internet ou de vidéosurveillance (point e) ;
+l’inférence des émotions sur le lieu de travail et dans les établissements d’enseignement, sauf raison médicale ou de sécurité (point f) ;
+la catégorisation biométrique qui déduit l’origine, les opinions, la religion ou l’orientation sexuelle (point g) ;
+l’identification biométrique à distance en temps réel dans l’espace public à des fins répressives, sauf dans les cas limités que le règlement énumère et qu’une loi nationale peut autoriser (point h, et paragraphe 5).
+L’assistant qui répond aux habitants
+Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA (article 50, paragraphe 1).
+L’information est donnée au plus tard au premier échange, de façon claire et accessible (paragraphe 5).
+L’obligation pèse sur le fournisseur, qui conçoit l’outil pour qu’il le dise.
+La mairie peut le vérifier sur une démonstration, avant de signer.
+Selon la Commission, l’exception prévue quand il est évident qu’on parle à une IA s’interprète de façon restrictive (questions-réponses sur l’article 50, mise à jour du 24 juillet 2026).
+Cette information ne remplace pas celle du RGPD.
+L’article 13 du RGPD demande à la mairie, responsable du traitement, d’informer les habitants sur le traitement de leurs questions, dans des mentions distinctes.
+Les deux peuvent se trouver au même endroit : la bulle d’accueil dit que l’outil est une IA, et un lien mène aux mentions de la mairie.
+Les critères d’un assistant qui répond à partir des seules sources de la mairie sont décrits sur la page guichet citoyen IA .
+Les textes que la mairie publie
+L’article 50, paragraphe 4, vise la mairie elle-même.
+Un texte généré ou modifié par IA, publié pour informer le public sur une question d’intérêt public, doit indiquer qu’il a été généré par IA.
+L’obligation tombe quand le texte a fait l’objet d’une relecture humaine ou d’un contrôle éditorial, et qu’une personne en assume la responsabilité éditoriale.
+Selon la Commission, une correction d’orthographe ou de grammaire ne compte pas comme relecture.
+Un article du bulletin municipal rédigé avec un outil d’IA peut donc relever de cette règle, s’il porte sur une question d’intérêt public.
+Je recommande une règle interne simple : aucun texte publié par la mairie sans relecture de fond par une personne nommée, qui en répond.
+Cette règle évite de trancher, texte par texte, si un sujet relève de l’intérêt public.
+Le schéma de contrôle annoncé par la Direction générale des entreprises le 9 septembre 2025, qui n’est pas encore une loi, confierait ces textes à l’Arcom.
+Les usages à haut risque, à partir du 2 décembre 2027
+L’annexe III, point 5, a, vise les systèmes utilisés par ou pour les autorités publiques « pour évaluer l’éligibilité des personnes physiques aux prestations et services d’aide sociale essentiels [...] ainsi que pour octroyer, réduire, révoquer ou récupérer ces prestations ».
+Une commune touche aussi d’autres points de l’annexe : le tri des candidatures (point 4, a), l’affectation dans un établissement d’enseignement (point 3, a), le tri des appels d’urgence (point 5, d).
+Un assistant qui informe les habitants et cite ses sources n’y figure pas.
+Le classement change probablement si l’outil dit à quelqu’un qu’il a droit ou non, calcule un montant, pré-instruit, trie ou priorise des demandes.
+À partir du 2 décembre 2027, la mairie qui utilise un système à haut risque aura les obligations de l’article 26.
+Elle suivra la notice d’utilisation, confiera le contrôle humain à des personnes formées et habilitées, surveillera le fonctionnement et gardera les journaux au moins six mois.
+Elle informera les représentants du personnel et les personnes visées par une décision, et enregistrera son usage.
+Avant le premier usage, elle réalisera une analyse d’impact sur les droits fondamentaux (article 27).
+Les systèmes à haut risque destinés aux autorités publiques et déjà en service ont jusqu’au 2 août 2030.
+Le droit français s’applique déjà, sans attendre 2027.
+Toute décision individuelle prise sur le fondement d’un traitement algorithmique porte une mention explicite qui en informe la personne.
+L’administration lui communique, à sa demande, les règles qui définissent ce traitement et les principales modalités de sa mise en œuvre (article L311-3-1 du code des relations entre le public et l’administration).
+Une administration d’au moins 50 agents publie en ligne les règles des principaux traitements qui fondent des décisions individuelles (article L312-1-3).
+Les agents et l’article 4
+L’article 4, dans sa rédaction du 27 juillet 2026, s’adresse aux fournisseurs et aux déployeurs.
+Ils prennent des mesures pour favoriser la maîtrise de l’IA de leur personnel et des personnes qui utilisent les systèmes pour leur compte.
+Ces mesures tiennent compte des connaissances de chacun et du contexte d’usage.
+Aucun niveau précis n’est exigé.
+Selon la Commission, aucun format de formation n’est imposé et aucun certificat n’est demandé ; faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
+Une organisation peut tenir un registre interne de ses formations et de ses autres actions (questions-réponses sur la maîtrise de l’IA, mise à jour du 20 octobre 2026).
+Je recommande à une mairie trois gestes sans budget.
+Le premier est une heure de présentation pour les agents qui utilisent un outil d’IA : ce qu’il fait, pourquoi il peut se tromper, ce que la mairie autorise.
+Le deuxième est une charte d’usage d’une page, avec la liste des outils autorisés et celle des données qu’un agent n’envoie pas à un outil d’IA .
+Le troisième est un registre des présentations faites et des agents présents, mis à jour à chaque nouvel outil.
+Six questions à poser à un fournisseur
+Avant de signer, une mairie peut poser six questions écrites au fournisseur d’un outil d’IA.
+Cinq renvoient à un article du règlement européen ou du RGPD ; la sixième porte sur la qualité des réponses.
+Les réponses se gardent au dossier du marché, avec leur date.
+Elles montrent sur quels faits la mairie a choisi l’outil, et elles servent de base au contrôle après l’ouverture.
+Comment l’outil dit-il qu’il est une IA, et à quel moment ? La réponse attendue montre la phrase et l’écran du premier message (article 50, paragraphes 1 et 5).
+L’outil évalue-t-il un droit, calcule-t-il un montant, trie-t-il ou priorise-t-il des demandes ? Si oui, il relève probablement de l’annexe III : demander au fournisseur son analyse de classement et la notice d’utilisation prévue pour le 2 décembre 2027.
+Les contenus générés sont-ils marqués comme tels, dans un format lisible par machine ? L’article 50, paragraphe 2, l’impose aux fournisseurs d’IA générative depuis le 2 août 2026, et à partir du 2 décembre 2026 pour les systèmes mis sur le marché avant cette date.
+Quelle documentation le fournisseur remet-il aux agents ? Elle nourrit les mesures de maîtrise de l’IA que la mairie prend au titre de l’article 4.
+Quels sous-traitants reçoivent les données, et où les traitent-ils ? Le contrat de sous-traitance de l’article 28 du RGPD les liste ; le lieu de calcul du modèle se lit au contrat.
+Comment les réponses ont-elles été testées avant l’ouverture ? La méthode pour tester un chatbot de mairie avant de l’ouvrir aux habitants vaut pour tout fournisseur.
+Sanctions et autorités en France
+Le règlement fixe, à l’article 99, des plafonds d’amende par catégorie de manquement.
+Chaque plafond combine un montant et un pourcentage du chiffre d’affaires, pensé pour les entreprises.
+Pour une autorité publique, l’article 99, paragraphe 8, laisse chaque État décider dans quelle mesure elle peut recevoir une amende.
+Au 22 octobre 2026, la France ne l’a pas fait.
+Le projet de loi portant diverses dispositions d’adaptation au droit de l’Union européenne a été adopté par le Sénat le 18 février 2026.
+Il est en commission à l’Assemblée nationale ( dossier du projet de loi n° 2518 ).
+Aucune amende ne se chiffre donc aujourd’hui pour une commune.
+La Direction générale des entreprises a publié le 9 septembre 2025, sous réserve du vote du Parlement, un partage des rôles.
+La DGCCRF serait le point de contact unique.
+La CNIL contrôlerait la notation sociale avec la DGCCRF, cinq autres pratiques interdites et des systèmes à haut risque de l’annexe III.
+La DGCCRF et l’Arcom contrôleraient l’information de l’article 50, paragraphe 1, et l’Arcom les textes de l’article 50, paragraphe 4.
+La version adoptée par le Sénat élargit le rôle de la CNIL.
+Aucune autorité n’est encore désignée par la loi.
+Le RGPD reste entier
+Le règlement sur l’IA s’ajoute au RGPD sans le modifier : son article 2, paragraphe 7, dans la rédaction de 2026, laisse le RGPD intact, hors deux dispositions particulières.
+La commune reste responsable du traitement des données de ses habitants.
+Elle signe un contrat de sous-traitance avec l’éditeur (article 28 du RGPD), inscrit le traitement à son registre (article 30) et informe les habitants (article 13).
+Le délégué à la protection des données est obligatoire pour une autorité publique (article 37).
+Une analyse d’impact est présumée nécessaire quand le traitement remplit au moins deux des neuf critères retenus par la CNIL.
+Le détail est dans le guide RGPD et IA en collectivité .
+Chez Marianne
+Marianne, l’assistante que Civik-ia propose aux mairies, est en test : aucune commune ne l’a en service.
+Marianne se présente comme une IA dès le premier message et renvoie à la page d’où vient la réponse.
+Sa bulle d’accueil dit, au 22 octobre 2026 : « Bonjour !
+Je suis Marianne, l’assistante d’intelligence artificielle de la mairie.
+Posez-moi vos questions ou choisissez un sujet ci-dessous. » C’est le type de phrase qu’une mairie peut demander à voir chez tout fournisseur, avant de signer.
+Cette page ne classe pas Marianne au regard de l’annexe III : pour elle comme pour tout outil, le classement se juge sur ce qu’elle fait dans chaque commune.
+Le produit est présenté sur la page Marianne .
+Questions fréquentes
+Une mairie est-elle concernée par l’AI Act ?
+Oui, dès qu’elle utilise un système d’IA.
+Le règlement (UE) 2024/1689 appelle déployeur toute autorité publique qui utilise un système d’IA sous sa propre autorité (article 3, point 4).
+Depuis le 2 février 2025, elle prend des mesures pour la maîtrise de l’IA de ses agents (article 4).
+Depuis le 2 août 2026, elle signale les textes d’information générés par IA qu’elle publie, sauf relecture éditoriale (article 50, paragraphe 4).
+Quand les règles du haut risque s’appliquent-elles aux collectivités ?
+Au 22 octobre 2026, les règles des systèmes à haut risque de l’annexe III s’appliqueront le 2 décembre 2027 (règlement (UE) 2026/1744).
+Elles visent par exemple un outil qui évalue l’éligibilité à une aide sociale ou qui trie des candidatures.
+Les systèmes à haut risque destinés aux autorités publiques et déjà en service ont jusqu’au 2 août 2030.
+Le haut risque lié aux produits de l’annexe I suit au 2 août 2028.
+Un chatbot de mairie doit-il dire qu’il est une IA ?
+Oui, depuis le 2 août 2026.
+Un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA.
+L’information est donnée au plus tard au premier échange, de façon claire et accessible (article 50, paragraphes 1 et 5).
+L’obligation pèse sur le fournisseur de l’outil.
+La mairie peut le vérifier sur une démonstration, avant d’ouvrir l’outil aux habitants.
+Une mairie doit-elle former ses agents à l’IA ?
+Elle doit prendre des mesures pour favoriser la maîtrise de l’IA de ses agents et des personnes qui utilisent ses outils pour elle (article 4, rédaction du 27 juillet 2026).
+Aucun niveau précis n’est exigé.
+Selon la Commission, aucun format de formation n’est imposé et aucun certificat n’est demandé ; faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
+Une présentation aux agents, une charte d’usage et un registre des actions menées sont des mesures possibles.
+Un assistant qui informe les habitants est-il à haut risque ?
+Un assistant qui informe et cite ses sources ne figure pas dans l’annexe III.
+Le point 5, a, de cette annexe vise l’évaluation de l’éligibilité des personnes aux prestations et services d’aide sociale essentiels, par ou pour une autorité publique.
+Il vise aussi l’octroi, la réduction, la révocation ou la récupération de ces prestations.
+Le classement change probablement si l’outil dit à quelqu’un qu’il a droit ou non, calcule un montant, trie ou priorise des demandes.
+Quelle amende risque une commune ?
+Aucune amende ne se chiffre aujourd’hui pour une commune.
+L’article 99, paragraphe 8, laisse chaque État décider dans quelle mesure une autorité publique peut être mise à l’amende.
+Au 22 octobre 2026, aucune loi française ne l’a fait : le projet de loi n° 2518, adopté par le Sénat le 18 février 2026, est en commission à l’Assemblée nationale.
+Aucune autorité de contrôle n’est encore désignée par la loi.
+L’AI Act remplace-t-il le RGPD ?
+Non.
+Le RGPD reste entier : l’article 2, paragraphe 7, du règlement sur l’IA, dans sa rédaction de 2026, le laisse intact, hors deux dispositions particulières.
+La mairie reste responsable du traitement des données de ses habitants, signe un contrat de sous-traitance avec l’éditeur et informe les habitants.
+Le règlement sur l’IA ajoute ses propres obligations : maîtrise de l’IA, transparence et, à partir de 2027, celles du haut risque.
+Pour aller plus loin
+Les usages à haut risque d’une collectivité, annexe III
+Article 4 : la maîtrise de l’IA par les agents
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## AI Act et haut risque en collectivité : usages, date de 2027
+URL : https://civik-ia.fr/ia-haut-risque-collectivite-annexe-iii.html
+Resume : Quels usages d’IA d’une collectivité relèvent de l’annexe III du règlement européen, quelles obligations pour le déployeur, et à partir de quelle date.
+
+AI Act et haut risque en collectivité : usages, date de 2027
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › IA à haut risque en collectivité
+IA à haut risque en collectivité : les usages de l’annexe III et les obligations de 2027
+Au sens de l’AI Act, un système d’IA qu’une collectivité utilise pour évaluer l’éligibilité à une aide sociale essentielle, ou pour l’octroyer, la réduire, la révoquer ou la récupérer, est en principe à haut risque (annexe III, point 5, a).
+Les obligations du déployeur, dont le contrôle humain et les journaux, s’appliqueront le 2 décembre 2027 (règlement (UE) 2026/1744).
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Le règlement européen sur l’IA classe les usages, outil par outil.
+L’annexe III liste les domaines où un système d’IA est à haut risque, et l’article 6 dit quand un système de cette liste peut en sortir.
+Pour une commune, ces règles visent des outils précis : ceux qui décident, ou préparent une décision, sur une aide, un recrutement, une affectation scolaire ou un appel d’urgence.
+Cette page les passe en revue au 22 octobre 2026, avec les obligations de la mairie et le droit français déjà en vigueur.
+Le calendrier complet du règlement est sur la page AI Act et collectivités .
+Comment un usage devient haut risque
+Un système d’IA mentionné à l’annexe III du règlement (UE) 2024/1689 est à haut risque (article 6, paragraphe 2).
+L’article 6, paragraphe 3, ouvre des dérogations : un système de l’annexe III sort du haut risque s’il ne présente pas de risque important pour la santé, la sécurité ou les droits fondamentaux des personnes, notamment parce qu’il ne pèse pas de façon significative sur le résultat de la décision.
+Il doit aussi remplir l’une des quatre conditions du texte, par exemple exécuter une tâche procédurale étroite ou une tâche préparatoire à une évaluation.
+Le fournisseur qui s’en prévaut documente son évaluation avant la mise sur le marché (article 6, paragraphe 4).
+Ces dérogations ne jouent jamais pour un système qui fait du profilage de personnes physiques : il reste à haut risque (article 6, paragraphe 3, dernier alinéa).
+Le classement part donc de ce que l’outil fait dans le service.
+Les usages d’une commune visés par l’annexe III
+Quatre points de l’annexe III peuvent toucher une commune.
+Le premier concerne l’action sociale.
+Le point 5, a, vise les systèmes utilisés par ou pour les autorités publiques « pour évaluer l’éligibilité des personnes physiques aux prestations et services d’aide sociale essentiels [...] ainsi que pour octroyer, réduire, révoquer ou récupérer ces prestations ».
+Les trois autres portent sur le recrutement, l’école et les appels d’urgence.
+Le tableau donne un exemple pour chacun.
+Chaque exemple illustre un usage type.
+Point de l’annexe III Usage visé Exemple dans une commune
+5, a Évaluer l’éligibilité aux prestations et services d’aide sociale essentiels ; les octroyer, réduire, révoquer ou récupérer Un outil du centre communal d’action sociale qui dit si une demande d’aide est recevable, ou qui en calcule le montant
+4, a Recrutement, dont le tri des candidatures Un logiciel qui classe les candidatures à un poste de la mairie
+3, a Accès ou affectation dans un établissement d’enseignement Un outil qui propose l’affectation des enfants dans les écoles de la commune
+5, d Tri des appels d’urgence Un outil qui classe par priorité des appels d’urgence reçus par un service de la commune
+Un assistant qui informe les habitants et cite ses sources ne figure pas dans l’annexe III.
+Le classement change probablement quand l’outil franchit une étape.
+C’est le cas s’il dit à quelqu’un qu’il a droit ou non à une aide, calcule un montant, pré-instruit un dossier, trie ou priorise des demandes, ou adapte sa réponse au profil de la personne.
+D’autres usages s’apprécient au cas par cas : l’orientation personnalisée vers une aide, le pré-remplissage d’un formulaire, le résumé d’un dossier pour l’agent qui l’instruit.
+Ils peuvent relever des dérogations de l’article 6, paragraphe 3, s’ils ne font aucun profilage et ne pèsent pas de façon significative sur la décision.
+Les obligations de la mairie (article 26)
+À partir du 2 décembre 2027, une commune qui utilise un système à haut risque aura les obligations du déployeur, fixées à l’article 26.
+Elles se préparent avec le fournisseur, dont la notice d’utilisation fixe l’usage prévu de l’outil, et avec le délégué à la protection des données.
+Plusieurs supposent une organisation écrite : la personne qui contrôle, celle qui garde les journaux, celle qui informe.
+Le tableau les reprend une par une, avec ce que la mairie fait.
+Obligation Ce que la mairie fait
+Usage Utiliser l’outil selon la notice d’utilisation du fournisseur
+Contrôle humain Confier le contrôle à des personnes formées et habilitées
+Données d’entrée Veiller à la pertinence des données d’entrée
+Surveillance Surveiller le fonctionnement de l’outil
+Journaux Conserver les journaux de l’outil au moins six mois
+Personnel Informer les représentants du personnel
+Enregistrement Enregistrer son usage, en tant qu’autorité publique (article 26, paragraphe 8)
+Personnes concernées Informer les personnes visées par une décision (article 26, paragraphe 11)
+L’analyse d’impact sur les droits fondamentaux (article 27)
+Une commune est un organisme de droit public.
+Avant le premier usage d’un système à haut risque, elle réalisera une analyse d’impact sur les droits fondamentaux, puis la notifiera à l’autorité de surveillance du marché (article 27).
+Les systèmes du point 2 de l’annexe III en sont exclus.
+L’analyse peut s’appuyer sur l’analyse d’impact relative à la protection des données menée au titre du RGPD (article 27, paragraphe 4, modifié en 2026).
+La mairie la prépare donc avec son délégué à la protection des données.
+Le guide RGPD et IA en collectivité rappelle quand l’analyse du RGPD est nécessaire.
+Les dates : 2 décembre 2027 et 2 août 2030
+Le règlement (UE) 2026/1744 a reporté les règles du haut risque de l’annexe III au 2 décembre 2027 ( texte au Journal officiel de l’Union européenne ).
+Le texte de 2024 les faisait partir du 2 août 2026.
+Au 22 octobre 2026, ces règles sont adoptées et pas encore applicables.
+Les systèmes à haut risque destinés aux autorités publiques et déjà en service ont jusqu’au 2 août 2030.
+Le haut risque lié aux produits de l’annexe I est reporté au 2 août 2028.
+Le droit français, déjà en vigueur
+Sans attendre 2027, le droit français encadre les décisions administratives prises avec un algorithme.
+Toute décision individuelle prise sur le fondement d’un traitement algorithmique porte une mention explicite qui en informe la personne.
+L’administration lui communique, à sa demande, les règles qui définissent ce traitement et les principales modalités de sa mise en œuvre ( article L311-3-1 du code des relations entre le public et l’administration ).
+Une administration d’au moins 50 agents publie aussi en ligne les règles des principaux traitements qui fondent des décisions individuelles (article L312-1-3).
+Le RGPD encadre en plus les décisions fondées exclusivement sur un traitement automatisé (article 22).
+Quatre gestes dès 2026
+Les obligations de 2027 se préparent avant la date.
+Je recommande quatre gestes, possibles dès 2026 et sans budget particulier.
+Ils servent aussi le droit français déjà en vigueur, qui demande d’expliquer une décision algorithmique à la personne qui la reçoit.
+Le premier, l’inventaire, conditionne les trois autres : une mairie ne contrôle que les outils qu’elle a listés.
+Faire l’inventaire des usages. Lister chaque outil d’IA de la commune, le service qui l’emploie et ce qu’il fait : informer, rédiger, trier, calculer ou décider.
+Écarter un outil de score sans documentation. Un outil qui note ou classe des personnes, et dont le fournisseur ne dit pas comment il calcule, ne se prête ni au contrôle humain ni à l’explication due à la personne.
+Écrire le circuit du contrôle humain. Qui relit la proposition de l’outil, qui signe la décision, et comment la personne concernée obtient les règles du traitement.
+Garder les journaux. Demander au fournisseur ce que l’outil enregistre, où et combien de temps ; l’article 26 demandera au moins six mois.
+Les mesures de traçabilité d’une base de données sont sur la page sécuriser la base de données d’une collectivité .
+Questions fréquentes
+Un chatbot de mairie est-il un système d’IA à haut risque ?
+Un assistant qui informe les habitants et cite ses sources ne figure pas dans l’annexe III du règlement européen sur l’IA.
+Le point 5, a, vise l’évaluation de l’éligibilité aux prestations d’aide sociale essentielles, et leur octroi, leur réduction, leur révocation ou leur récupération.
+Le classement change probablement si l’outil dit à quelqu’un qu’il a droit ou non, calcule un montant, trie ou priorise des demandes.
+À partir de quand les obligations du haut risque s’appliquent-elles aux collectivités ?
+Au 22 octobre 2026, les règles des systèmes à haut risque de l’annexe III s’appliqueront le 2 décembre 2027 (règlement (UE) 2026/1744).
+Elles devaient partir le 2 août 2026 dans le texte de 2024.
+Les systèmes à haut risque destinés aux autorités publiques et déjà en service ont jusqu’au 2 août 2030 pour respecter ces règles.
+Qu’est-ce que l’analyse d’impact sur les droits fondamentaux ?
+C’est l’analyse qu’un organisme de droit public, une commune par exemple, réalise avant le premier usage d’un système à haut risque (article 27 du règlement européen sur l’IA).
+Elle est notifiée à l’autorité de surveillance du marché.
+Elle peut s’appuyer sur l’analyse d’impact relative à la protection des données menée au titre du RGPD.
+L’obligation s’appliquera à partir du 2 décembre 2027.
+Combien de temps garder les journaux d’un système à haut risque ?
+Au moins six mois, selon l’article 26 du règlement européen sur l’IA, à partir du 2 décembre 2027.
+Les journaux sont ceux que le système génère.
+La mairie demande au fournisseur, avant la signature, ce que l’outil enregistre, où les journaux sont stockés et comment elle y accède.
+Elle note la durée retenue dans la liste de ses outils d’IA.
+Une décision prise avec un algorithme doit-elle être signalée à l’habitant ?
+Oui, dès aujourd’hui.
+L’article L311-3-1 du code des relations entre le public et l’administration impose une mention explicite sur toute décision individuelle prise sur le fondement d’un traitement algorithmique.
+L’administration communique à la personne qui le demande les règles qui définissent le traitement et les principales modalités de sa mise en œuvre.
+Un logiciel qui trie les candidatures à la mairie est-il concerné ?
+Oui.
+L’annexe III, point 4, a, vise les systèmes d’IA utilisés pour le recrutement, dont le tri des candidatures.
+Une mairie qui utilise un tel outil sera déployeur d’un système à haut risque à partir du 2 décembre 2027.
+Elle devra confier le contrôle humain à des personnes formées, garder les journaux, informer les représentants du personnel et les candidats visés par une décision.
+Pour aller plus loin
+Former les agents qui contrôleront un outil à haut risque
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Article 4 AI Act : maîtrise de l’IA des agents de mairie
+URL : https://civik-ia.fr/article-4-ai-act-maitrise-ia-agents-mairie.html
+Resume : Ce que l’article 4 du règlement européen sur l’IA demande à une mairie pour ses agents : mesures attendues, preuves à garder, rédaction du 27 juillet 2026.
+
+Article 4 AI Act : maîtrise de l’IA des agents de mairie
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Article 4 de l’AI Act
+Article 4 de l’AI Act : la maîtrise de l’IA par les agents d’une mairie
+L’article 4 de l’AI Act demande aux fournisseurs et aux déployeurs d’IA, mairies comprises, de prendre des mesures pour favoriser la maîtrise de l’IA des agents et des personnes qui utilisent ces outils pour leur compte.
+Aucun niveau précis n’est exigé et, selon la Commission, aucun format de formation n’est imposé.
+Cette rédaction est en vigueur depuis le 27 juillet 2026.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+La maîtrise de l’IA, que la Commission appelle aussi littératie en matière d’IA, compte parmi les premières règles du règlement européen sur l’IA à s’appliquer : elle vaut depuis le 2 février 2025.
+Le règlement (UE) 2026/1744 l’a réécrite, et la nouvelle rédaction est en vigueur depuis le 27 juillet 2026.
+Dans une mairie, elle concerne chaque agent qui utilise un outil d’IA dans son travail.
+Elle vise par exemple la secrétaire de mairie qui reformule un courrier, l’agent d’accueil qui suit les réponses d’un assistant ou le service qui essaie un logiciel de tri.
+Cette page dit ce que le texte demande au 22 octobre 2026, et ce qu’une petite commune peut faire sans budget.
+Le texte en vigueur depuis le 27 juillet 2026
+Dans sa rédaction issue du règlement (UE) 2026/1744 , l’article 4 s’adresse aux fournisseurs et aux déployeurs.
+Ils prennent des mesures pour favoriser la maîtrise de l’IA de leur personnel et des autres personnes qui utilisent les systèmes d’IA pour leur compte.
+Ces mesures tiennent compte des connaissances de chacun et du contexte d’usage.
+Aucun niveau individuel n’est exigé.
+Selon la Commission, l’obligation demeure et aucun niveau précis n’est plus imposé ( questions-réponses de la Commission sur la maîtrise de l’IA , mise à jour du 20 octobre 2026).
+Elle ajoute que le cadre vaut pour les acteurs publics comme pour les acteurs privés.
+Le texte confie aussi un rôle à d’autres acteurs.
+La Commission et les États membres soutiennent les efforts des fournisseurs et des déployeurs, en particulier des PME, et la Commission publie des exemples pratiques (article 4, paragraphe 2).
+Le Comité européen de l’intelligence artificielle adopte des recommandations pour aider la Commission et les États à promouvoir la maîtrise de l’IA, en tenant compte des cadres européens de compétences (paragraphe 3).
+La Commission tient aussi un répertoire de pratiques.
+Elle précise que reproduire une pratique de ce répertoire ne vaut pas, à elle seule, présomption de respect de l’article 4.
+Pour une commune, ces documents servent de repères.
+Qui est visé dans une mairie
+L’obligation porte d’abord sur le personnel de la mairie qui utilise un outil d’IA : à l’accueil, au secrétariat, dans les services techniques ou sociaux.
+Elle porte aussi sur les autres personnes qui utilisent les outils pour le compte de la mairie.
+La Commission range dans cette seconde catégorie des personnes placées dans le périmètre de l’organisation sans en être salariées, par exemple un prestataire, un fournisseur de services ou un client.
+Un prestataire qui gère l’assistant de la commune peut donc entrer dans le champ.
+Les outils d’un secrétariat de mairie sont décrits dans le guide des outils d’IA pour secrétaire de mairie .
+Ce qu’une mairie peut faire sans budget
+La Commission décrit une approche minimale en quatre temps : assurer une compréhension générale de l’IA dans l’organisation, tenir compte de son rôle de fournisseur ou de déployeur, tenir compte des risques des systèmes utilisés, puis bâtir les actions sur cette analyse, selon les connaissances de chacun et le contexte d’usage.
+Elle ajoute qu’il n’existe pas de solution unique et qu’aucun format de formation n’est imposé.
+Elle note aussi que faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
+Une petite commune peut donc construire sa réponse avec ses moyens, à partir des outils qu’elle utilise.
+Je recommande trois gestes, à la portée d’une commune de quelques agents.
+Une heure de présentation pour les agents qui utilisent un outil d’IA. Ce qu’est un modèle de langage, pourquoi il peut se tromper avec assurance, et quels outils la mairie autorise.
+Une charte d’usage d’une page. Les outils autorisés, les usages permis, les données qu’un agent n’envoie pas à un outil d’IA , et la personne à qui signaler un doute.
+La liste des outils d’IA de la commune. Pour chacun : le service qui l’emploie, ce qu’il fait, le fournisseur, et la date de la présentation faite aux agents.
+Les preuves à garder
+Selon la Commission, aucun certificat n’est nécessaire.
+Une organisation peut tenir un registre interne de ses formations et de ses autres actions.
+Pour une mairie, ce registre tient sur une page : la date de chaque présentation, les agents présents, la version de la charte d’usage, la liste des outils autorisés.
+Il se met à jour à chaque nouvel outil et à chaque arrivée d’un agent concerné.
+En cas de question d’une autorité ou d’un habitant, il montre les mesures prises au titre de l’article 4 et leur date.
+Contrôle et sanctions
+L’article 4 ne figure pas dans la liste des manquements dont l’article 99, paragraphe 4, fixe le plafond d’amende.
+Selon la Commission, les autorités nationales de surveillance du marché contrôlent l’article 4 depuis le 2 août 2026.
+Elles peuvent prendre des sanctions fondées sur le droit national, de façon proportionnée.
+En France, au 22 octobre 2026, aucune loi n’a encore désigné ces autorités.
+Le projet de loi n° 2518, adopté par le Sénat le 18 février 2026, est en commission à l’Assemblée nationale ( dossier législatif ).
+Aucune sanction ne se chiffre donc aujourd’hui pour une commune.
+Les agents qui contrôleront un outil à haut risque
+À partir du 2 décembre 2027, une commune qui utilise un système à haut risque devra confier son contrôle humain à des personnes formées et habilitées (article 26).
+C’est le cas, par exemple, d’un outil qui évalue l’éligibilité à une aide sociale.
+La Commission rappelle que cette obligation demeure, à côté de l’article 4 réécrit.
+Ces agents travaillent avec la notice d’utilisation de l’outil, que l’article 26 demande de suivre.
+Le calendrier complet du règlement et les usages à haut risque d’une commune sont sur la page AI Act et collectivités .
+Questions fréquentes
+Une mairie doit-elle former ses agents à l’IA ?
+Elle doit prendre des mesures pour favoriser la maîtrise de l’IA de ses agents et des personnes qui utilisent ses outils d’IA pour elle.
+C’est l’article 4 du règlement européen sur l’IA, dans sa rédaction du 27 juillet 2026.
+Aucun niveau précis n’est exigé.
+Selon la Commission, aucun format de formation n’est imposé et aucun certificat n’est demandé ; faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
+Une présentation aux agents, une charte d’usage et un registre des actions menées sont des mesures possibles.
+Depuis quand l’article 4 s’applique-t-il ?
+Depuis le 2 février 2025, avec les pratiques interdites de l’article 5.
+Sa rédaction a changé le 27 juillet 2026, avec l’entrée en vigueur du règlement (UE) 2026/1744 : l’obligation demeure, et aucun niveau précis n’est plus imposé.
+Selon la Commission, les autorités nationales de surveillance du marché le contrôlent depuis le 2 août 2026.
+Quelles preuves une mairie doit-elle garder ?
+Selon la Commission, aucun certificat n’est nécessaire, et une organisation peut tenir un registre interne de ses formations et de ses autres actions.
+Pour une mairie, une page suffit : les dates des présentations, les agents présents, la charte d’usage en vigueur et la liste des outils autorisés.
+Le registre se met à jour à chaque nouvel outil.
+Les prestataires de la mairie sont-ils concernés ?
+Ils peuvent l’être, quand ils utilisent un outil d’IA pour le compte de la mairie.
+L’article 4 vise le personnel du déployeur et les autres personnes qui utilisent les systèmes pour son compte.
+La Commission cite comme exemples un prestataire, un fournisseur de services ou un client.
+La mairie peut demander à ses prestataires comment ils forment leurs propres équipes.
+Quelle sanction en cas de manquement à l’article 4 ?
+Aucune ne se chiffre aujourd’hui pour une commune.
+L’article 4 ne figure pas dans la liste des manquements plafonnés par l’article 99, paragraphe 4.
+Selon la Commission, les sanctions relèvent du droit national.
+Au 22 octobre 2026, aucune loi française ne les a prévues : le projet de loi n° 2518 est en commission à l’Assemblée nationale.
+Pour aller plus loin
+Sécuriser les comptes et les droits des agents
+Les usages à haut risque d’une collectivité et leur date
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
 ## Guides IA et données pour les collectivités · Civik-ia
 URL : https://civik-ia.fr/guides.html
 Resume : Guichet citoyen IA, chatbot de mairie, données, sources officielles, sécurité, RGPD, souveraineté : les guides de Civik-ia pour les collectivités.
@@ -2334,11 +2875,12 @@ Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guides
 Guides IA et données pour les collectivités
-Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
-Mis à jour le 21 octobre 2026 . 26 pages, classées en 5 rubriques.
+Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD, au règlement européen sur l’IA et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
+Mis à jour le 23 octobre 2026 . 29 pages, classées en 6 rubriques.
 Le guichet citoyen IA et le chatbot de mairie
 Les données et les sources officielles
 La sécurité et le RGPD
+Le règlement européen sur l’IA
 La souveraineté
 Les outils, les canaux et le financement
 Le guichet citoyen IA et le chatbot de mairie
@@ -2364,6 +2906,11 @@ Protéger les bases de données de la mairie, savoir quelles données ne partent
 Sécuriser la base de données d’une collectivité Sept mesures pour sécuriser les bases de données d’une mairie : sauvegardes, comptes, droits, journaux, prestataires, attaque. Sources CNIL et ANSSI.
 IA en mairie : les données à ne pas envoyer Données personnelles, sensibles, documents internes : ce qu’une mairie n’envoie pas à un modèle d’IA, et ce que change la pseudonymisation.
 RGPD et IA en collectivité Votre mairie utilise ou envisage une IA ? Base légale, AIPD, hébergement des données : les 7 points que la CNIL vérifie, expliqués simplement, avec la checklist prête à l’emploi.
+Le règlement européen sur l’IA
+Ce que l’AI Act demande à une mairie, date par date, les usages d’IA à haut risque d’une collectivité et la maîtrise de l’IA par les agents.
+AI Act et collectivités Ce que le règlement européen sur l’IA change pour une mairie : rôle de déployeur, calendrier de 2025 à 2030, assistant des habitants, haut risque, agents.
+IA à haut risque en collectivité Quels usages d’IA d’une collectivité relèvent de l’annexe III du règlement européen, quelles obligations pour le déployeur, et à partir de quelle date.
+Article 4 de l’AI Act, la maîtrise de l’IA des agents Ce que l’article 4 du règlement européen sur l’IA demande à une mairie pour ses agents : mesures attendues, preuves à garder, rédaction du 27 juillet 2026.
 La souveraineté
 Les questions à poser à un fournisseur et ce que souverain veut dire pour l’IA d’une mairie.
 Souveraineté numérique d’une commune Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de l’IA, réversibilité : les six questions pour juger la souveraineté d’un outil.
@@ -3504,6 +4051,7 @@ La réponse doit nommer l’hébergeur, le pays du serveur, l’éditeur du mod�
 Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). L’information prévue par l’article 13 du RGPD nomme la mairie, son délégué à la protection des données et les droits des habitants. Pour Marianne, la bulle d’accueil le dit dès le premier message ; l’information de l’article 13 se rédige avec la mairie pendant la mise en service.
 5. Faut-il une analyse d’impact (AIPD) ?
 Pour un assistant qui informe sur les horaires et les démarches, elle n’est en général pas obligatoire ; elle le devient si l’outil traite des données sensibles de façon systématique, croise des fichiers ou profile les habitants. La mairie en décide. Pour Marianne, Civik-ia remet avant l’ouverture les éléments de cette analyse : description du traitement, mesures de sécurité, risques identifiés.
+Pour certains systèmes d’IA à haut risque, le règlement européen sur l’IA demandera aussi à la commune, à partir du 2 décembre 2027, une analyse d’impact sur les droits fondamentaux .
 La différence entre un chatbot généraliste et un outil qui répond à partir des seules sources de la mairie est décrite sur la page guichet citoyen IA .
 Les pièges spécifiques de l’IA générative
 Attention : un assistant grand public utilisé tel quel (ChatGPT, Claude, Gemini) n’est pas conçu pour répondre au nom d’une mairie. Ses conditions, ses lieux de traitement et ses éventuels transferts hors de l’Union européenne s’examinent avant tout usage sur des données d’habitants ; la CNIL demande des garanties supplémentaires pour tout transfert hors de l’Union (questions-réponses du 18 juillet 2024). Voir aussi quelles données ne jamais envoyer à un modèle .
@@ -3552,7 +4100,7 @@ Source citée : chaque réponse donne la page officielle d’où elle vient.
 À retenir : le RGPD fixe ce qu’une mairie doit savoir de son outil avant de l’ouvrir. Un outil qui répond sans compte, cite ses sources et dit par écrit où il traite les données se contrôle plus facilement.
 Questions fréquentes
 Que change le règlement européen sur l’IA pour un chatbot de mairie ?
-Depuis le 2 août 2026, un système d’IA qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). Les obligations des systèmes à haut risque de l’annexe III s’appliqueront à partir du 2 décembre 2027 (règlement (UE) 2026/1744). Un assistant qui informe les habitants doit donc le dire dès son premier message.
+Depuis le 2 août 2026, un système d’IA qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). Les obligations des systèmes à haut risque de l’annexe III s’appliqueront à partir du 2 décembre 2027 (règlement (UE) 2026/1744). Un assistant qui informe les habitants doit donc le dire dès son premier message. Le calendrier complet, date par date, est sur la page AI Act et collectivités .
 Un chatbot IA en mairie est-il conforme au RGPD ?
 Il peut l’être, et la mairie, responsable du traitement, en juge avec son délégué à la protection des données. Cinq points comptent : un contrat de sous-traitance avec l’éditeur (article 28 du RGPD), une information claire des habitants (article 13), une collecte limitée au nécessaire, un usage sans création de compte, et des lieux de traitement écrits au contrat, calcul du modèle compris. Depuis le 2 août 2026, l’outil doit aussi dire qu’il est une IA (article 50 du règlement européen sur l’IA).
 Une AIPD est-elle obligatoire pour un chatbot de mairie ?
@@ -3722,6 +4270,7 @@ Si vous évaluez un éditeur de chatbot pour votre mairie, posez ces trois quest
 « Quel modèle d’IA utilisez-vous pour générer les réponses ? » : si la réponse contient « OpenAI », « ChatGPT », « Claude » ou « Gemini » sans précision sur l’architecture, c’est un signal d’alerte.
 « Où est le serveur, et chez quel hébergeur ? » : la réponse attendue nomme l’hébergeur, le pays et le contrat.
 « Où le modèle calcule-t-il, et est-ce écrit au contrat ? » : la réponse attendue dit quel point d’accès est employé et ce que le contrat fixe, ou ne fixe pas.
+D’autres questions au fournisseur découlent du règlement européen sur l’IA ; elles sont réunies sur la page consacrée à l’AI Act, date par date .
 Si vous voulez voir comment Civik-ia répond à ces questions, demandez-nous une démo. Nous vous montrerons la chaîne technique complète sans langue de bois.
 Questions fréquentes
 Qu’est-ce qu’une IA souveraine pour une mairie ?
@@ -3952,14 +4501,14 @@ Pour une commune de moins de 5 000 habitants, deux familles de logiciels coexist
 Deux familles de logiciels qu’il ne faut pas confondre
 Quand un maire cherche un « logiciel pour sa commune », il parle en réalité de deux besoins très différents, qu’il vaut mieux séparer pour ne pas payer deux fois pour la même chose.
 1. Les logiciels de gestion interne
-Ce sont les outils du secrétariat : état civil, comptabilité M57, paie, gestion des élections, cimetière, facturation de l’eau . Ce marché est dominé par des éditeurs historiques comme Berger-Levrault , JVS-Mairistem ou Cosoluce . Ces logiciels sont indispensables et souvent déjà en place dans votre mairie. Ils ne concernent pas la relation avec les habitants.
+Ce sont les outils du secrétariat : état civil, comptabilité M57, paie, gestion des élections, cimetière, facturation de l’eau . Ce marché est dominé par des éditeurs historiques comme Berger-Levrault , JVS-Mairistem ou Cosoluce . Ces logiciels sont indispensables et souvent déjà en place dans votre mairie. Ils ne concernent pas la relation avec les habitants. Quand l’un d’eux emploie l’IA pour trier des candidatures ou calculer une aide, voir les règles du haut risque pour une collectivité .
 2. Les outils de relation aux citoyens
 Ce sont les outils tournés vers l’extérieur : site internet de la commune, application d’information, panneau d’alerte, assistant en ligne qui répond aux questions . C’est là que se joue la qualité du service rendu et l’image de la commune. C’est aussi là que les petites communes sont souvent les moins bien équipées, faute de temps ou de budget.
 Civik-ia se positionne sur cette seconde famille, avec un assistant en ligne souverain qui répond aux citoyens 24 h/24, sans remplacer vos logiciels métier.
 Les vrais critères de choix pour une petite commune
 Une grande collectivité peut s’offrir un déploiement long et un service informatique dédié. Une commune rurale, non. Voici les critères qui comptent réellement à cette échelle.
 Simplicité d’usage
-Le secrétariat d’une petite mairie est polyvalent et souvent à temps partiel. Un outil qui exige une formation lourde ou un informaticien finit oublié. Le bon réflexe : demander une démonstration et vérifier qu’une personne sans compétence technique peut faire vivre l’outil seule.
+Le secrétariat d’une petite mairie est polyvalent et souvent à temps partiel. Un outil qui exige une formation lourde ou un informaticien finit oublié. Le bon réflexe : demander une démonstration et vérifier qu’une personne sans compétence technique peut faire vivre l’outil seule. Pour un outil d’IA, voir aussi ce que l’AI Act attend d’une mairie pour ses agents .
 Coût maîtrisé et sans surprise
 Méfiez-vous des grilles tarifaires opaques et des frais de mise en service élevés. Pour une petite commune, l’objectif est un abonnement lisible, sans clause piégeuse, et idéalement sous le seuil des marchés publics (60 000 € HT de dispense de procédure, article R. 2122-8 du Code de la commande publique, depuis le 01/04/2026, valeur calculée sur toute la durée du contrat), ce qui simplifie la procédure d’achat.
 Souveraineté et RGPD
@@ -4097,7 +4646,8 @@ Pour le détail des tarifs des assistants citoyens du marché, voir combien coû
 Les trois règles RGPD avant d’utiliser une IA au secrétariat
 Séparer les usages. Données personnelles de citoyens : uniquement dans des outils dédiés aux collectivités, hébergés dans l’Union européenne, avec contrat de sous-traitance. Rédaction générique : les IA généralistes suffisent.
 Vérifier l’hébergement et le modèle. Demander à chaque éditeur où sont traitées les conversations et quel modèle d’IA il utilise. Civik-ia, par exemple, s’appuie sur le modèle français Mistral AI et un hébergement OVHcloud en Union européenne.
-Informer et garder la main. Les citoyens doivent savoir qu’ils parlent à une IA, et le secrétariat doit pouvoir corriger une réponse erronée lui-même. Le détail des obligations est dans notre guide RGPD de l’IA en collectivité .
+Informer et garder la main. Les citoyens doivent savoir qu’ils parlent à une IA, et le secrétariat doit pouvoir corriger une réponse erronée lui-même. Le détail des obligations est dans notre guide RGPD de l’IA en collectivité . Ce que le règlement européen sur l’IA demande à une mairie est détaillé, date par date, sur une page à part.
+Pour les agents qui utilisent ces outils, l’article 4 du même règlement demande à la mairie des mesures adaptées : voir la maîtrise de l’IA par les agents d’une mairie .
 Les mesures pour sécuriser les données de la commune (sauvegardes, comptes, droits, journaux) sont réunies sur une page à part.
 Questions fréquentes
 Quels outils d’IA pour une secrétaire de mairie en 2026 ?

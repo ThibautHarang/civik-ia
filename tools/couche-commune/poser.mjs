@@ -96,6 +96,10 @@ const PAGES = [
   ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true }],
   ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true }],
   ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true }],
+  // grappe AI Act (23/10/2026) : le pilier et deux articles, même famille et même naissance (marqueurs vides)
+  ['ai-act-collectivites.html', { couche: 'ancienne', place: true }],
+  ['ia-haut-risque-collectivite-annexe-iii.html', { couche: 'ancienne', place: true }],
+  ['article-4-ai-act-maitrise-ia-agents-mairie.html', { couche: 'ancienne', place: true }],
   // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
   // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
   ['guides.html', { couche: 'ancienne', place: true }],

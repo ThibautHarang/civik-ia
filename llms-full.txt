@@ -21,7 +21,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 37 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 40 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : Marianne, Conseil, Atelier
@@ -1219,6 +1219,7 @@ Pour aller plus loin
 Préparer les données de la commune pour une IA : sept étapes
 Quelle source fait foi, du site de la commune à Légifrance
 Tester les réponses d’un chatbot de mairie avant de l’ouvrir
+Chatbot mairie : le guide pour choisir un chatbot de mairie
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -1321,8 +1322,10 @@ Quel modèle d’IA utilise Marianne ?
 Mistral Small, de Mistral AI, société française, dans une version datée choisie par Civik-ia. Le serveur de Marianne est chez OVHcloud, en Allemagne ; le lieu de calcul du modèle n’est pas fixé par contrat.
 Pour aller plus loin
 La méthode de test d’un chatbot de mairie, question par question
+Ce que mesurent les retours d’expérience de chatbots de mairie
 Une base de données fiable pour l’IA d’une mairie
 Les six sources officielles d’une réponse à un habitant
+Chatbot mairie ou ville : les six critères pour choisir
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
@@ -1657,6 +1660,7 @@ Mais un assistant qui reprend le contenu d’une fiche doit en citer la source e
 Pour aller plus loin
 Le RAG, ou comment une IA cite la page de la mairie
 Les sept étapes d’une base de données fiable pour l’IA
+Chatbot IA pour une collectivité : une source qui fait foi par compétence
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site
@@ -1883,7 +1887,7 @@ Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Un chatbot de mairie peut répondre avec assurance une information fausse : un délai, un tarif, une pièce à fournir.
 La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
 L’ANSSI recommande des tests de performance et de qualité des réponses avant la mise en production, et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement lors des déploiements (recommandation R24 du guide ANSSI-PA-102, 29 avril 2024).
-Cette page décrit comment une mairie construit ces tests, avec n’importe quel outil.
+Cette page décrit comment une mairie construit ces tests, avec n’importe quel outil ; le choix de l’outil est détaillé dans le guide du chatbot mairie .
 Deux mesures à ne pas confondre
 La première mesure dit si la fiche qui porte la réponse figure parmi celles que l’outil a retrouvées.
 La seconde dit si la réponse rédigée est juste.
@@ -2044,6 +2048,7 @@ Elle recense le site de la commune et les documents mis en ligne (bulletin munic
 Elle ajoute les actes (arrêtés, délibérations), les sites que la mairie veut voir lus (une salle de spectacle, une médiathèque) et les informations que seuls les agents détiennent, comme le service à appeler pour une question précise.
 Chaque source reçoit un responsable dans la mairie, celui qui sait si elle est à jour.
 Une source sans responsable n’est pas lue : l’ANSSI recommande, pour tout système d’IA, de cartographier les sources de données externes utilisées et d’évaluer leur niveau de confiance (recommandation R4 du guide ANSSI-PA-102, 29 avril 2024).
+Dans une intercommunalité, un département ou une région, un responsable se nomme aussi pour chaque compétence : voir le chatbot IA pour une collectivité ou un service public .
 Étape 2 : ne garder que ce qui est déjà public
 Un assistant ouvert à tous les habitants n’a pas de droits d’accès par utilisateur : tout ce que contient sa base peut ressortir dans une réponse.
 La base ne reçoit donc que des documents déjà publiés ou approuvés pour l’être.
@@ -2092,6 +2097,7 @@ Après l’ouverture, une réponse jugée fausse ou incomplète se corrige dans 
 Une base se juge sur des questions, pas sur son volume.
 La méthode (questions réelles, questions pièges, quatre verdicts, banque de contrôle écrite à part) est décrite sur la page tester un chatbot de mairie .
 La mairie valide par écrit une version de référence avant tout accès des habitants.
+Le choix de l’outil est détaillé dans le guide du chatbot mairie .
 Une base sécurisée, et un modèle qui ne l’apprend pas
 Deux précisions complètent ces étapes.
 La base se protège comme toute base de la commune : sauvegardes, comptes individuels, droits limités, journaux.
@@ -2861,6 +2867,203 @@ RGPD
 Accessibilité
 Gérer les cookies
 
+## Cahier des charges chatbot mairie : 12 exigences · Civik-ia
+URL : https://civik-ia.fr/cahier-des-charges-chatbot-mairie.html
+Resume : Cahier des charges d’un chatbot IA de mairie : sources, hébergement, test, information de l’habitant, réversibilité, prix complet. Douze exigences.
+
+Cahier des charges chatbot mairie : 12 exigences · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Cahier des charges d’un chatbot de mairie
+Cahier des charges d’un chatbot IA de mairie : douze exigences à écrire
+Le cahier des charges d’un chatbot de mairie fixe ce que l’outil doit prouver avant l’achat.
+Douze exigences, chacune avec sa source : l’origine des réponses, l’hébergement et le lieu de calcul, le test, l’information de l’habitant sur l’IA, la réversibilité, le prix complet.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Ce texte sert de base à une consultation, une lettre de commande ou un bon de commande, et la mairie l’adapte à son besoin.
+Chaque exigence tient en une clause, une preuve à demander et une source.
+Les clauses 1, 2, 7, 8, 9 et 11, et l’accueil humain de la clause 12, sont des choix de la mairie : aucun texte ne les impose.
+Les textes sont lus dans leur état du 22 octobre 2026.
+Aucune clause ne désigne un produit : chacune se vérifie sur preuve, quelle que soit l’offre.
+Pour choisir entre des offres, voir le guide du chatbot mairie .
+Les douze exigences en un tableau
+N° Exigence Preuve à demander
+1 Chaque réponse cite la page d’où elle vient Dix questions en démonstration, page ouverte à chaque réponse
+2 Un refus quand la source manque, et un rôle écrit Questions pièges et questions sur un droit
+3 Pays du serveur, éditeur du modèle et lieu de calcul écrits au contrat Le contrat signé
+4 Liste des sous-traitants et préavis de changement L’accord sur le traitement des données
+5 Durée de conservation des questions La durée en jours, au contrat
+6 Information de l’habitant : IA, responsable, finalités La première bulle et la page d’information
+7 Test avant l’ouverture, avec une banque de contrôle Le rapport de test remis par écrit
+8 Validation écrite par les agents d’une version de référence Le compte rendu de validation
+9 Mise à jour du site de la commune à rythme fixe Le calendrier de relecture
+10 Restitution des données et de la base en fin de contrat Format et délai au contrat
+11 Prix complet sur toute la durée, reconductions comprises Un devis chiffré ligne par ligne
+12 Accessibilité et accueil humain joignable La déclaration d’accessibilité et un test hors périmètre
+Les réponses
+1. Chaque réponse cite la page d’où elle vient
+À écrire : « Chaque réponse indique la page publiée par la commune d’où elle est tirée. »
+Preuve à demander : une démonstration où chaque réponse ouvre sa page source, sur dix questions que vos agents choisissent.
+Source : la CNIL rappelle que ces systèmes « peuvent générer des résultats inexacts qui peuvent, pourtant, paraître plausibles » ( questions-réponses du 18 juillet 2024 ).
+Une réponse sans page citée ne se vérifie ni par l’habitant ni par la mairie.
+2. Un refus quand la source manque, et un rôle écrit
+À écrire : « Quand la source ne contient pas l’information, l’outil le dit et oriente vers la mairie.
+L’outil informe et oriente : il n’évalue aucun droit et n’instruit aucune demande. »
+Preuve à demander : des questions pièges dont la seule réponse juste est un refus, et des questions sur une aide ou une prestation où l’outil renvoie vers la page officielle sans conclure.
+Source : l’annexe III, point 5 a, du règlement (UE) 2024/1689 vise les systèmes utilisés par ou pour les autorités publiques « pour évaluer l’éligibilité des personnes physiques aux prestations et services d’aide sociale essentiels ».
+Au 22 octobre 2026, les règles des systèmes à haut risque de l’annexe III s’appliqueront le 2 décembre 2027 ( règlement (UE) 2026/1744 ).
+Les données
+3. Pays du serveur, éditeur du modèle et lieu de calcul écrits au contrat
+À écrire : « Le titulaire indique le pays du serveur, la société qui édite le modèle d’IA, le lieu où ce modèle calcule et le droit applicable, et signale tout changement avant sa mise en œuvre. »
+Preuve à demander : ces quatre informations écrites dans le contrat.
+Source : le RGPD encadre les transferts de données hors de l’Union européenne (articles 44 à 46), et la CNIL demande de sécuriser le recours à une infrastructure externe par un contrat de sous-traitance.
+Aucun texte lu n’impose à une commune un hébergeur qualifié SecNumCloud : voir souveraineté numérique d’une commune .
+4. Liste des sous-traitants et préavis de changement
+À écrire : « Le titulaire remet la liste de ses sous-traitants (hébergeur, éditeur du modèle d’IA, services d’envoi), leur pays de traitement et le délai de préavis avant tout changement. »
+Preuve à demander : l’accord sur le traitement des données joint au devis.
+Source : la mairie est responsable du traitement et l’éditeur sous-traitant.
+L’article 28, paragraphe 2, du RGPD interdit au sous-traitant de recruter un autre sous-traitant sans l’autorisation écrite préalable, spécifique ou générale, du responsable du traitement ( texte du RGPD publié par la CNIL ).
+5. Durée de conservation des questions
+À écrire : « Le contrat fixe la durée de conservation des questions et des réponses, et dit si les questions sensibles sont conservées. »
+Preuve à demander : la durée, en jours, dans le contrat et dans la page d’information destinée aux habitants.
+Source : l’article 5, paragraphe 1, point e, du RGPD limite la conservation à une durée n’excédant pas celle nécessaire aux finalités ( chapitre II ).
+L’article 13, paragraphe 2, demande d’indiquer cette durée à la personne, ou les critères pour la fixer.
+6. Information de l’habitant : IA, responsable, finalités
+À écrire : « L’outil se présente comme une intelligence artificielle dès son premier message.
+Un texte d’information, accessible depuis l’outil, donne l’identité du responsable du traitement, les finalités, les destinataires et la durée de conservation. »
+Preuve à demander : la première bulle de la démonstration et la page d’information.
+Source : depuis le 2 août 2026, l’article 50 du règlement (UE) 2024/1689 demande qu’un système d’IA conçu pour dialoguer avec des personnes les informe qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation.
+Cette obligation pèse sur le fournisseur de l’outil ; la mairie, qui le déploie, la vérifie dans la démonstration.
+L’article 13 du RGPD fixe le contenu de l’information sur les données ( chapitre III ).
+Le détail est dans le guide RGPD de l’IA en collectivité .
+Le test et la vie de l’outil
+7. Test avant l’ouverture, avec une banque de contrôle
+À écrire : « Avant l’ouverture aux habitants, le titulaire remet par écrit le résultat d’un test sur plusieurs centaines de questions, jugées contre leur page source, et d’une banque de contrôle écrite à part par la mairie. »
+Preuve à demander : un rapport qui donne le nombre de questions, les quatre verdicts (juste, partielle, fausse, refus) et la liste des réponses non justes avec leur cause.
+Source : le guide ANSSI-PA-102 du 29 avril 2024 recommande des tests de performance et de qualité des réponses avant la mise en production (R24) et des audits de sécurité (R23).
+Aucun seuil officiel de justesse ni nombre de questions n’a été trouvé au 20 octobre 2026 : la mairie fixe les siens.
+La méthode est décrite sur la page tester un chatbot de mairie .
+8. Validation écrite par les agents d’une version de référence
+À écrire : « Les agents de la mairie relisent les réponses aux questions courantes, le titulaire les forme à l’outil, la mairie valide par écrit une version de référence, et rien n’est ouvert aux habitants avant cette validation. »
+Preuve à demander : le compte rendu de validation, signé par la mairie.
+Source : l’article 4 du règlement (UE) 2024/1689, dans sa rédaction issue du règlement (UE) 2026/1744, demande au déployeur de prendre des mesures pour favoriser la maîtrise de l’IA de ses agents, selon leurs connaissances et le contexte d’usage.
+9. Mise à jour du site de la commune à rythme fixe
+À écrire : « Le titulaire indique à quelle fréquence il relit le site de la commune, ce qui se passe quand une page disparaît ou change, et comment une réponse signalée comme fausse est corrigée puis mesurée de nouveau. »
+Preuve à demander : le calendrier de relecture et la procédure de correction, par écrit.
+Source : aucun texte lu ne fixe cette fréquence, la mairie la choisit.
+La page constituer une base de données fiable décrit l’étape « mettre à jour à rythme fixe ».
+10. Restitution des données et de la base en fin de contrat
+À écrire : « À la fin du contrat, le titulaire restitue les données de la commune et sa base de connaissances dans un format ouvert, dans un délai écrit, puis les supprime et le confirme par écrit. »
+Preuve à demander : le format (CSV, JSON ou PDF, par exemple) et le délai, écrits au contrat.
+Source : l’article 28, paragraphe 3, point g, du RGPD : au choix du responsable du traitement, le sous-traitant supprime les données ou les renvoie au terme de la prestation, et détruit les copies existantes.
+Le sujet est la sixième question de la page souveraineté numérique d’une commune .
+Le prix et l’accès
+11. Prix complet sur toute la durée, reconductions comprises
+À écrire : « Le prix comprend l’abonnement, la mise en service, la formation, la maintenance, l’hébergement et la sortie, sur toute la durée du contrat, reconductions comprises. »
+Preuve à demander : un devis qui chiffre chaque ligne, avec le total sur la durée.
+Source : l’article R. 2122-8 du code de la commande publique dispense de publicité et de mise en concurrence les achats de fournitures et de services de moins de 60 000 € HT, pour les consultations engagées depuis le 1er avril 2026 (décret n° 2025-1386).
+L’acheteur choisit une offre pertinente, utilise bien les deniers publics et ne contracte pas systématiquement avec le même opérateur ( Légifrance ).
+La valeur à comparer au seuil est la valeur estimée du besoin : le montant total hors taxes sur toute la durée, options et reconductions comprises (article R. 2121-1).
+12. Accessibilité et accueil humain joignable
+À écrire : « L’outil respecte les règles d’accessibilité applicables aux services en ligne des collectivités, et le titulaire fournit les informations nécessaires à la déclaration d’accessibilité de la mairie.
+Quand l’outil ne sait pas répondre, il renvoie vers un numéro, des horaires et un agent joignable. »
+Preuve à demander : la déclaration d’accessibilité de l’outil ou du site qui l’héberge, et la réponse de l’outil à une question hors de son périmètre.
+Source : l’article 47 de la loi n° 2005-102 du 11 février 2005 impose l’accessibilité aux personnes handicapées des services de communication publique en ligne de l’État, des collectivités territoriales et des établissements publics qui en dépendent ( Légifrance ).
+Le décret n° 2019-768 du 24 juillet 2019, modifié par le décret n° 2026-816 du 24 août 2026, en fixe les règles.
+Cette page ne cite aucun texte sur l’accueil humain à côté d’un chatbot : c’est un choix de service.
+Chez Marianne
+Marianne est en test : aucune commune ne l’a en service.
+Voici où elle en est, au 22 octobre 2026, sur plusieurs de ces exigences.
+Chaque réponse cite sa page source, et quand le site ne dit rien, elle le dit et oriente vers la mairie
+Elle se présente comme une intelligence artificielle dès son premier message
+Le serveur est chez OVHcloud, en Allemagne ; le modèle est celui de Mistral AI, société française, et son lieu de calcul n’est pas fixé par contrat
+Le texte des questions est effacé de la base au bout de 90 jours
+En fin de contrat, sur demande, les données et la base sont restituées dans les trente jours, puis supprimées
+Avant l’ouverture, 300 questions de test sont jugées contre leur page source, et la mairie valide une version de référence
+Civik-ia ne publie aucun taux de justesse
+Cette page ne classe pas Marianne au regard de l’annexe III : pour elle comme pour tout outil, le classement se juge sur ce qu’elle fait dans chaque commune.
+L’abonnement commence à 69 € HT par mois et la mise en service à 999 € HT, facturée une seule fois ( grille de prix ).
+Le produit est présenté sur la page Marianne .
+Questions fréquentes
+Un cahier des charges est-il obligatoire pour acheter un chatbot de mairie ?
+Sous 60 000 € HT, l’article R. 2122-8 du code de la commande publique dispense l’achat de publicité et de mise en concurrence, pour les consultations engagées depuis le 1er avril 2026.
+L’acheteur doit choisir une offre pertinente, bien utiliser les deniers publics et ne pas contracter systématiquement avec le même opérateur.
+Un cahier des charges écrit permet de le justifier.
+À partir de quel montant faut-il mettre en concurrence ?
+À partir de 60 000 € HT de valeur estimée pour une fourniture ou un service, options et reconductions comprises (article R. 2121-1), quand la consultation est engagée depuis le 1er avril 2026.
+Au-dessus de ce seuil, le choix de la procédure se fait avec le service des marchés de la commune ou son conseil juridique.
+Un chatbot de mairie doit-il être hébergé en France ?
+Le RGPD n’impose pas la France : il encadre les transferts de données hors de l’Union européenne (articles 44 à 46).
+Aucun texte lu n’impose non plus à une commune un hébergeur qualifié SecNumCloud.
+La mairie écrit au contrat le pays du serveur, la société qui édite le modèle et le lieu où il calcule.
+Faut-il exiger un taux de réponses justes ?
+Aucun seuil officiel n’a été trouvé au 20 octobre 2026.
+La mairie fixe le sien avant le test et l’écrit.
+Une règle simple à écrire : aucune réponse fausse sur un délai, un tarif ou une démarche.
+La méthode est décrite sur la page tester un chatbot de mairie.
+Un chatbot de mairie doit-il dire qu’il est une IA ?
+Oui, depuis le 2 août 2026 (article 50 du règlement (UE) 2024/1689), sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation.
+L’information est donnée au plus tard à la première interaction.
+L’obligation pèse sur le fournisseur de l’outil, et la mairie la vérifie dans la démonstration avant de signer.
+Un chatbot de mairie est-il un système d’IA à haut risque ?
+L’annexe III du règlement liste les systèmes à haut risque.
+Son point 5 a vise ceux qui évaluent l’éligibilité des personnes aux prestations d’aide sociale essentielles.
+Un assistant qui renvoie vers la page officielle sans évaluer d’éligibilité n’entre pas dans cette description.
+Un outil qui conclut qu’une personne a droit ou non à une prestation peut en relever : un juriste l’examine avant l’achat.
+Ces règles s’appliqueront le 2 décembre 2027.
+Qui rédige le cahier des charges, la mairie ou l’éditeur ?
+La mairie, qui est l’acheteur.
+Une clause écrite par un éditeur pour sa propre offre ne départage pas les offres.
+Les douze exigences de cette page sont proposées par Civik-ia, qui édite Marianne : la mairie les adapte à son besoin, et chacune se vérifie sur preuve, quelle que soit l’offre (démonstration, contrat, rapport de test).
+Pour aller plus loin
+Quelle source officielle fait foi pour répondre aux habitants
+Sept mesures pour sécuriser les bases de données de la commune
+Ce que contient la base de connaissances d’une mairie
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
 ## Guides IA et données pour les collectivités · Civik-ia
 URL : https://civik-ia.fr/guides.html
 Resume : Guichet citoyen IA, chatbot de mairie, données, sources officielles, sécurité, RGPD, souveraineté : les guides de Civik-ia pour les collectivités.
@@ -2876,8 +3079,9 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guides
 Guides IA et données pour les collectivités
 Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD, au règlement européen sur l’IA et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
-Mis à jour le 23 octobre 2026 . 29 pages, classées en 6 rubriques.
+Mis à jour le 23 octobre 2026 . 32 pages, classées en 7 rubriques.
 Le guichet citoyen IA et le chatbot de mairie
+Acheter un chatbot de mairie
 Les données et les sources officielles
 La sécurité et le RGPD
 Le règlement européen sur l’IA
@@ -2895,6 +3099,11 @@ Callbot mairie ou chatbot Callbot téléphonique ou chatbot écrit pour votre ma
 Réduire les appels en mairie Comment un chatbot IA peut libérer le secrétariat de mairie : ordres de grandeur, calcul de ROI et objectif chiffré.
 Livre blanc, IA en mairie Téléchargez le Livre Blanc Civik-ia 2026 : le guide du chatbot IA pour mairies. Sept exigences, check-list RGPD du DPO, budget et commande publique, douze questions à poser.
 22h47, mairie fermée 22h47. Un citoyen a une question. Votre mairie est fermée.
+Acheter un chatbot de mairie
+Ce qu’il faut écrire et vérifier avant d’acheter un chatbot, pour une mairie ou une autre collectivité.
+Cahier des charges d’un chatbot de mairie Cahier des charges d’un chatbot IA de mairie : sources, hébergement, test, information de l’habitant, réversibilité, prix complet. Douze exigences.
+Chatbot IA pour une collectivité ou un service public Chatbot IA d’une collectivité ou d’un service public : source qui fait foi, validation, orientation. Ce qui change hors d’une commune.
+Retours d’expérience de chatbots de mairie Chatbots de mairie : cinq retours publiés de 2018 à 2026, avec leur date et leur source. Usage, appels évités, et ce qui reste à demander.
 Les données et les sources officielles
 Ce que l’IA d’une mairie lit, qui valide ses sources, quelle source fait foi et comment préparer les données avant l’ouverture.
 Base de connaissances de mairie Ce que contient la base de connaissances d’une mairie, qui valide ses sources et comment elle reste à jour : la méthode de mise en service de Marianne.
@@ -2967,11 +3176,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Chatbot mairie, le guide · Civik-ia
+## Chatbot mairie ou ville : 6 critères pour choisir · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie.html
-Resume : Choisir un chatbot pour une mairie, une ville ou une collectivité : à quoi il sert, les critères qui comptent, et ce qui change selon la taille de la commune.
+Resume : Chatbot pour une mairie ou une ville : sources citées, hébergement, prix dès 69 € HT par mois, intégration au site, test avant ouverture. Guide pour DGS.
 
-Chatbot mairie, le guide · Civik-ia
+Chatbot mairie ou ville : 6 critères pour choisir · Civik-ia
 Aller au contenu principal
 Civik-ia
 Marianne
@@ -2985,74 +3194,63 @@ Accueil
 Chatbot Mairie
 Chatbot mairie : le guide complet pour les DGS et secrétaires de mairie
 Un chatbot de mairie répond par écrit aux questions des habitants, à toute heure, à partir des informations publiées par la commune. Pour le choisir, vérifiez d’où viennent ses réponses et s’il cite la page source, ce qu’il dit quand il ne sait pas, où sont hébergées les données, son prix complet et la façon dont il se pose sur le site de la mairie.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
 Tester la démo
 Le prix d’un chatbot
 Pourquoi un chatbot en mairie ?
 Horaires, collecte des déchets, état civil, urbanisme : une grande part des appels porte sur des informations déjà publiées. Comptez-les une semaine à votre standard avant de choisir un outil.
 Pour une commune rurale de 1 500 habitants avec une secrétaire de mairie à mi-temps, chaque appel téléphonique consomme un temps précieux. Quand une bonne part des appels concerne les horaires d’ouverture, le calendrier de collecte des déchets ou les pièces à fournir pour un acte de naissance, c’est autant de temps qui n’est pas consacré à l’accompagnement des administrés fragiles, au montage de dossiers ou à la gestion des délibérations. Beaucoup d’habitants font aussi leurs démarches en ligne et cherchent ces informations le soir, quand la mairie est fermée. L’effet sur le standard se mesure ensuite sur le volume d’appels réel de la commune, avant et après l’ouverture.
 Un chatbot ne remplace pas l’agent de mairie. Il absorbe le flux de questions répétitives pour que l’humain se concentre sur ce qui compte : le lien social, l’écoute, le conseil personnalisé. Et il le fait 24 heures sur 24, 7 jours sur 7, y compris à 22h47, quand un citoyen se demande comment obtenir un permis de construire modificatif.
+Chatbot IA ou chatbot à règles : ce qui change pour une mairie
+Un chatbot à règles associe la phrase de l’habitant à l’une des intentions qu’on lui a décrites à l’avance. Selon Le Monde Informatique (7 septembre 2020), le chatbot d’une ville de Seine-Saint-Denis, en ligne depuis janvier 2019, reconnaît 300 intentions et 2 700 tournures de questions. Quand la phrase n’entre dans aucune intention, l’outil ne comprend pas, et l’habitant le voit tout de suite.
+Un chatbot IA rédige sa réponse à partir de documents. Il comprend des phrases que personne n’avait prévues. Son défaut est moins visible : la CNIL rappelle que ces systèmes « peuvent générer des résultats inexacts qui peuvent, pourtant, paraître plausibles » ( questions-réponses du 18 juillet 2024 ).
+Pour une mairie, la question à poser change. Avec un chatbot à règles, elle demande quelles phrases sont prévues. Avec un chatbot IA, elle demande d’où vient la réponse et ce que fait l’outil quand il ne sait pas. Les critères ci-dessous répondent à la seconde : une source citée, un refus quand elle manque, un test avant l’ouverture. La page tester un chatbot de mairie décrit la méthode.
 Les critères essentiels pour choisir un chatbot mairie
-Six points de vigilance pour les DGS et secrétaires de mairie. Chaque critère a un impact direct sur la réussite du projet.
+Six points de vigilance pour les DGS et secrétaires de mairie. Chaque critère a un impact direct sur la réussite du projet. Pour les écrire dans une consultation ou une lettre de commande, voir le cahier des charges d’un chatbot de mairie .
 Souveraineté et RGPD
-Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Chez Civik-ia : serveur chez OVHcloud, en Allemagne ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
+Demandez par écrit où est le serveur, quelle société édite le modèle d’IA, où ce modèle calcule et sous quel droit. Les six questions à poser à un fournisseur sont détaillées sur une page dédiée. Chez Civik-ia : serveur chez OVHcloud, en Allemagne ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
 Prix sous le seuil des marchés publics
 En dessous de 60 000 euros HT (dispense de procédure, R. 2122-8, depuis le 01/04/2026), la commune peut passer commande sans appel d’offres. Chez Civik-ia, mise en service et abonnement sont conçus pour rester dans ce cadre, ce qui simplifie considérablement la décision.
 Personnalisation communale
-Un chatbot générique qui répond à côté détruit la confiance des citoyens. L’IA doit répondre à partir des données spécifiques de votre commune, retrouvées au moment de la question : arrêtés municipaux, PLU, horaires d’ouverture, associations locales, calendrier des événements.
-Facilite d’intégration
+Un chatbot générique qui répond à côté détruit la confiance des citoyens. L’IA doit répondre à partir des données spécifiques de votre commune, retrouvées au moment de la question : arrêtés municipaux, PLU, horaires d’ouverture, associations locales, calendrier des événements. La page quelle source officielle fait foi dit laquelle l’emporte quand deux sources se contredisent.
+Facilité d’intégration
 Votre prestataire web ne devrait pas facturer une journée de développement pour brancher le chatbot. Une page dédiée clé en main, mise en ligne par nos soins avec un simple lien à poser, ou demain un widget à copier-coller sur le site existant : c’est le standard à exiger. Chez Civik-ia, la mise en service est faite par nos soins : sur le site de la mairie, il reste un lien ou un QR code à poser.
 Support et accompagnement
 La technologie ne suffit pas. Les agents doivent être formés à l’outil et associés à la validation des réponses avant l’ouverture aux habitants. Un bon prestataire propose un accompagnement à l’onboarding, pas juste un lien de documentation.
 Une justesse mesurée
 Demandez comment les réponses sont vérifiées avant l’ouverture : sur quelles questions de test, jugées contre quelle source, avec quelle liste d’erreurs connues. Un chatbot qui ne mesure pas ses réponses ne sait pas où il se trompe. La page tester un chatbot de mairie décrit la méthode, des questions réelles aux quatre verdicts.
-Les principales offres du marché en un coup d’œil
-Un panorama factuel des principales offres disponibles pour les collectivités territoriales en 2026.
+Ce que mesurent les retours d’expérience publiés
+Les retours publiés sur les chatbots de mairie rapportent des volumes. Le Monde Informatique (7 septembre 2020) cite 2 500 utilisateurs uniques par mois et un taux de compréhension de 74 % pour une ville de Seine-Saint-Denis, chiffres donnés par un ancien élu de la ville. Localtis (27 mars 2023) rapporte, pour le standard d’une ville des Yvelines, 500 appels par jour en moyenne ; l’éditeur annonce la moitié des demandes résolue en moins de deux minutes. L’Essentiel de l’éco (14 juillet 2026) donne, pour la même ville, des appels perdus ramenés de 60 à 65 % à 8 %, sans citer de source.
+Aucun de ces articles ne décrit un jeu de questions de test ni un taux de réponses justes, et aucun ne dit comment le taux de compréhension se mesure. Le coût n’apparaît qu’une fois, pour un callbot : un prix de départ de quelques centaines d’euros par mois, selon le prestataire.
+Ces retours disent ce qui se mesure. Ils ne disent pas si l’outil conviendrait à votre commune. Demandez la méthode derrière chaque chiffre avant de vous en servir. Le détail, retour par retour, est dans l’article ce que mesurent les retours d’expérience de chatbots de mairie .
+Grille de lecture d’une offre de chatbot de mairie
+Six lignes à remplir pour chaque offre reçue. Les réponses se demandent par écrit.
 Critère
-dydu
-Citia
-Delibia
-Civik-ia
-Cible principale
-Toutes tailles
-Petites-moyennes
-Collectivités (interne)
-Rurales → Régions
-Prix (commune rurale)
-~1 750 €/an
-~744 €/an
-1 licence gratuite (secrétaire de mairie), puis sur devis
-69 € HT par mois, soit 828 € HT par an
-Chatbot citoyen 24 h/24
-Oui
-Oui
-Non (usage interne)
-Oui
-Hébergement
-Non précisé
-Non précisé
-Non précisé
-OVHcloud, serveur en Allemagne
-Sans inscription citoyen
-Partiel
-Partiel
-N/A
-Oui
-Intégration sans développement
-Non
-Partiel
-N/A
-Oui (lien ou QR code ; module à insérer dans les pages du site : à venir)
-Sous seuil marchés publics
-À vérifier sur la durée du contrat
-Oui
-Oui
-Oui, conçu pour y rester
-Ce tableau reflète les informations publiquement disponibles en avril 2026. Chaque projet de collectivité est unique : nous vous recommandons de demander une démonstration personnalisée avant toute décision. Pour l’analyse détaillée solution par solution, voir le comparatif chatbot mairie 2026 .
+Question à poser
+Où lire la réponse
+Souveraineté et RGPD
+Où est le serveur ? Quelle société édite le modèle, où calcule-t-il, sous quel droit ? L’habitant est-il informé dès le premier message qu’il parle à une IA ?
+Le contrat, l’accord sur le traitement des données (article 28 du RGPD), la démonstration
+Prix sous le seuil des marchés publics
+Combien sur toute la durée du contrat : abonnement, mise en service, formation, maintenance, reconductions comprises ?
+Le devis, comparé au seuil de 60 000 € HT (R. 2122-8)
+Personnalisation communale
+De quelles pages de la commune viennent les réponses, et chaque réponse cite-t-elle sa page ?
+La démonstration, sur des questions que vos agents choisissent
+Facilité d’intégration
+Que faut-il poser sur le site de la mairie, et qui le fait ?
+Le devis et la démonstration sur le site de la commune
+Support et accompagnement
+Qui forme les agents, et qui valide les réponses avant l’ouverture ?
+Le plan de mise en service écrit
+Une justesse mesurée
+Combien de questions de test, jugées contre quelle source, par qui, avec quelle banque de contrôle ?
+Le rapport de test remis par écrit
+Demandez une démonstration sur les pages de votre commune avant toute décision. Pour comparer des offres nommées, avec leur date de relevé, voir le comparatif chatbot mairie 2026 .
 Ce qui différencie Civik-ia
-Trois choix qui comptent pour une mairie : une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant.
+Trois choix qui comptent pour une mairie : une source officielle, une mesure avant l’ouverture, aucune friction pour l’habitant. Marianne est en test : aucune commune ne l’a en service.
 Une source, une page citée
-Marianne répond à partir du site officiel de la commune , relu chaque nuit, et cite la page de chaque réponse. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer. Ce que contient cette base, et qui la valide, est détaillé sur notre page sur la base de connaissances d’une mairie .
+Marianne répond à partir du site officiel de la commune , et cite la page de chaque réponse. Un site sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test. Quand le site ne dit rien, elle le dit et oriente vers la mairie, sans inventer. Ce que contient cette base, et qui la valide, est détaillé sur notre page sur la base de connaissances d’une mairie .
 Une mise en service mesurée
 Avant l’ouverture aux habitants : inventaire du site, base de connaissances, 300 questions de test jugées contre leur page source, validation par vos agents. Une seule fois ; le détail des six étapes est sur notre page prix .
 Zéro friction citoyen
@@ -3071,6 +3269,8 @@ Chatbot pour une ville : quelles différences avec une petite commune
 Le même moteur, dimensionné selon la population et l’organisation des services.
 Pour une ville de 5 000 à 20 000 habitants, le volume de sollicitations change d’échelle : plusieurs services municipaux (état civil, urbanisme, scolaire, technique) reçoivent chacun leurs demandes. Marianne répond pour tous ces services à partir du même site officiel, et la mise en service associe les agents de chaque service à la validation des réponses.
 Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune. Ce qui fait le prix d’un chatbot de mairie est détaillé sur notre page dédiée. Dans tous les cas, le socle est identique : modèle de Mistral AI, société française, hébergement chez OVHcloud, aucun compte demandé à l’habitant.
+Chatbot pour une collectivité ou un service public
+Pour une intercommunalité, un département ou une région, la difficulté change : les compétences se répartissent entre plusieurs collectivités, et l’habitant pose souvent sa question à la mauvaise structure. Trois choix décident : la source qui fait foi pour chaque compétence, la personne qui valide les réponses, l’orientation vers la collectivité compétente. Un syndicat ou un établissement public qui ouvre un chatbot à ses usagers se pose les mêmes questions. Le détail est dans l’article chatbot IA pour une collectivité ou un service public . Marianne est conçue pour une commune.
 Agent conversationnel, assistant virtuel : de quoi parle-t-on ?
 Les mots changent d’un fournisseur à l’autre pour désigner des outils proches. Un chatbot, un agent conversationnel ou un assistant virtuel est un programme qui dialogue par écrit avec une personne. Ce qui les distingue tient moins au nom qu’à trois choses : d’où viennent les réponses, si la source est donnée, et ce que l’outil fait quand il ne sait pas.
 Dans une mairie, « agent municipal » désigne d’abord un fonctionnaire ou un contractuel de la commune. Un agent municipal IA est un programme qui répond par écrit au nom de la mairie, sans prendre de décision et sans remplacer l’agent du guichet. Il n’instruit aucun dossier et ne délivre aucun acte.
@@ -3089,13 +3289,19 @@ Combien coûte un chatbot pour une commune rurale ?
 Chez Civik-ia, l’abonnement d’un chatbot IA pour une commune rurale de moins de 5 000 habitants est de 69 € HT par mois, abonnement annuel. Abonnement et mise en service sont conçus pour rester sous le seuil des marchés publics (60 000 euros HT, dispense de procédure, R. 2122-8, depuis le 01/04/2026), ce qui signifie alors qu’un simple bon de commande suffit, pas d’appel d’offres, pas de procédure complexe. L’abonnement comprend Marianne pour les habitants, disponible 24 h/24 à partir du site officiel de la commune, et l’espace mairie dès son ouverture, tableau de bord de la commune. La mise en service coûte à partir de 999 € HT, sur devis selon le travail à réaliser (taille du site, documents à intégrer, fiches à écrire, ateliers avec les agents) ; elle est facturée une seule fois, à la validation écrite de la version de référence, avant l’ouverture aux habitants.
 Le chatbot remplace-t-il les agents de mairie ?
 +
-Non, et c’est un point fondamental. Le chatbot prend en charge les questions répétitives qui représentent une grande part des sollicitations : horaires, déchets, urbanisme, pièces à fournir. Les agents sont ainsi libérés pour se concentrer sur l’accueil social, l’accompagnement des personnes fragiles et les dossiers complexes qui nécessitent un contact humain. C’est un outil de soutien, pas de remplacement. Aucun poste n’est supprimé : les agents récupèrent chaque semaine les heures que ces questions répétitives dévoraient.
+Non. Le chatbot prend en charge les questions répétitives qui représentent une grande part des sollicitations : horaires, déchets, urbanisme, pièces à fournir. Les agents sont ainsi libérés pour se concentrer sur l’accueil social, l’accompagnement des personnes fragiles et les dossiers complexes qui nécessitent un contact humain. C’est un outil de soutien, pas de remplacement.
 Comment installer le chatbot sur le site de la mairie ?
 +
 Le déploiement standard se fait par une page dédiée à l’adresse civik-ia.fr/nom-de-la-commune, mise en ligne par nos soins et immédiatement partageable depuis le site de la mairie (lien ou bouton), par QR code ou dans le bulletin municipal. Une intégration en cadre (iframe) dans une page du site municipal est possible sur demande. Aucune compétence technique n’est requise côté mairie : la mise en service est réalisée par Civik-ia. Les habitants peuvent aussi installer Marianne sur l’écran d’accueil de leur téléphone. Un module à insérer dans toutes les pages du site n’est pas encore disponible.
 Le chatbot est-il conforme RGPD ?
 +
 La mairie, responsable du traitement, en juge avec son délégué à la protection des données ; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom ; les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours. Le serveur est chez OVHcloud, en Allemagne ; les réponses sont rédigées par Mistral AI, société française. Le détail est dans notre guide RGPD et IA en collectivité .
+Un chatbot de mairie doit-il dire qu’il est une IA ?
++
+Oui. Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation (article 50 du règlement (UE) 2024/1689 ). L’obligation pèse sur le fournisseur de l’outil. Chez Civik-ia, la bulle d’accueil de Marianne le dit dès le premier message. Ce que le règlement européen sur l’IA change pour une mairie .
+Combien de temps faut-il pour ouvrir un chatbot de mairie ?
++
+Aucun délai type n’existe. L’ouverture aux habitants suit la validation écrite de la version de référence par la mairie, au terme des six étapes de la mise en service : inventaire des sources, cadre écrit, base de connaissances, mesure avant ouverture, validation par les agents, version de référence.
 Prêt à moderniser l’accueil de votre mairie ?
 Posez vos questions à Marianne sur une commune fictive et ouvrez les sources de ses réponses. Démonstration interactive, sans engagement.
 Tester la démo gratuite
@@ -3141,11 +3347,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Prix d’un chatbot mairie · Civik-ia
+## Prix d’un chatbot de mairie : dès 69 € HT par mois · Civik-ia
 URL : https://civik-ia.fr/chatbot-mairie-prix.html
-Resume : Chatbot de mairie en 2026 : ce qui fait le prix, la mise en service, les coûts cachés à vérifier, le seuil de dispense et le comparatif face à dydu, Citia et Delibia.
+Resume : Combien coûte un chatbot de mairie en 2026 ? Abonnement dès 69 € HT par mois, mise en service dès 999 € HT, coûts cachés à vérifier avant de signer.
 
-Prix d’un chatbot mairie · Civik-ia
+Prix d’un chatbot de mairie : dès 69 € HT par mois · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -3410,7 +3616,7 @@ Citia Aucune offre gratuite annoncée sur citia.io, ni sur l’accueil, ni sur l
 Civik-ia Aucune. Abonnement à partir de 69 € HT par mois, selon la taille de la commune Habitants Oui, à partir d’une base de connaissances propre à la commune, vérifiée à la source
 Pourquoi un guichet citoyen n’est pas gratuit
 La licence logicielle n’est pas ce qui coûte. Ce qui coûte, c’est de constituer puis de tenir à jour une base de connaissances propre à la commune, vérifiée à la source, et de faire en sorte que l’assistant refuse de répondre plutôt que d’inventer quand l’information n’y est pas. C’est un travail continu, pas une installation.
-Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et s’ajoute à une mise en service facturée une seule fois, à partir de 999 euros HT ; l’ensemble est conçu pour rester sous le seuil des marchés publics. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie , et la comparaison avec les autres solutions du marché sur le comparatif 2026 .
+Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et s’ajoute à une mise en service facturée une seule fois, à partir de 999 euros HT ; l’ensemble est conçu pour rester sous le seuil des marchés publics. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie , et la comparaison avec les autres solutions du marché sur le comparatif 2026 . Les critères de choix d’un chatbot pour mairie , gratuit ou payant, sont dans le guide.
 Questions fréquentes
 Delibia est-il gratuit ?
 Oui, pour un usage précis. Sur delibia.fr, constaté le 24 août 2026, l’offre « Petites communes » annonce 1 licence offerte à toutes les secrétaires de mairie de France, donnant accès au moteur de recherche national de décisions publiques, au chatbot expert, aux assistants IA personnalisables et aux espaces documentaires. Les paliers supérieurs, « Essentiel » et « Personnalisé », ne publient pas de tarif. L’éditeur décrit lui-même le palier « Essentiel » comme des licences illimitées pour les agents et élus de la collectivité : l’éditeur le présente comme un outil de travail pour les agents et les élus, et son site ne décrit pas d’assistant destiné aux habitants (constaté le 21 septembre 2026).
@@ -3770,7 +3976,7 @@ Si vous avez un service informatique structuré et un budget pour une intégrati
 Le piège à éviter : se laisser séduire par les démonstrations
 Toutes les solutions présentent bien en démo. Pour vraiment juger, demandez systématiquement :
 Une démo sur les données de votre vraie commune , pas une commune fictive de l’éditeur. Si l’éditeur refuse ou demande deux semaines, c’est mauvais signe.
-Le contrat type avec les clauses de réversibilité, de protection des données, de niveau de service (SLA). Lisez avant de signer.
+Le contrat type avec les clauses de réversibilité, de protection des données, de niveau de service (SLA). Lisez avant de signer ; la réversibilité et la protection des données sont détaillées dans les douze exigences d’un cahier des charges .
 Trois références clients comparables à votre commune. Appelez-les directement, sans intermédiaire.
 Le délai réel de mise en production écrit dans le contrat, pas la promesse commerciale orale.
 Notre conviction d’éditeur : le marché du chatbot mairie va exploser entre 2026 et 2028. Les premiers acteurs à proposer des solutions vraiment souveraines, conformes RGPD et conçues pour les particularités du fonctionnement municipal français prendront une avance difficile à rattraper. Mieux vaut choisir un partenaire spécialisé qu’un généraliste qui s’adapte.
@@ -3790,6 +3996,7 @@ Delibia offre une licence gratuite aux secrétaires de mairie (moteur de recherc
 Pour aller plus loin
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Le guide complet du chatbot mairie en 2026 : fonctionnalités, intégration, ROI
+Chatbots de mairie : ce que mesurent les retours d’expérience publiés
 Prix d’un chatbot de mairie : tarifs 2026 , comparatif détaillé et calcul du ROI
 Chatbot pour commune rurale : focus communes de moins de 5 000 habitants
 Guide RGPD : IA et collectivités territoriales : conformité, risques, bonnes pratiques
@@ -3892,7 +4099,7 @@ Le frein numéro un de l’adoption, c’est l' obligation d’installer une app
 3. L’outil respecte-t-il le RGPD et la souveraineté des données ?
 Communiquer avec ses citoyens, c’est traiter leurs données. Demandez à chaque fournisseur, par écrit, où est le serveur, quelle société édite le modèle d’IA et où ce modèle calcule. Chez Civik-ia : serveur chez OVHcloud, modèle de Mistral AI, société française ; le lieu de calcul du modèle n’est pas fixé par contrat. Le détail est dans notre guide RGPD et IA en collectivité .
 4. Quel budget pour quelle valeur ?
-Un panneau d’affichage numérique coûte plusieurs milliers d’euros à l’achat. Une application municipale se facture de quelques dizaines à plusieurs centaines d’euros par mois selon la taille (ordres de grandeur). Pour un chatbot IA pour mairie , l’abonnement Civik-ia coûte à partir de 69 € HT par mois, selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics : la commune peut alors le commander directement.
+Un panneau d’affichage numérique coûte plusieurs milliers d’euros à l’achat. Une application municipale se facture de quelques dizaines à plusieurs centaines d’euros par mois selon la taille (ordres de grandeur). Pour un chatbot IA pour mairie , l’abonnement Civik-ia coûte à partir de 69 € HT par mois ( grille des prix ), selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics : la commune peut alors le commander directement.
 Créer du lien, ce n’est pas seulement répondre
 Répondre aux questions désengorge le standard, mais le lien se construit aussi dans la durée : c’est savoir ce que les habitants demandent et compléter ce que le site ne dit pas. Deux pratiques y contribuent directement :
 Lire les questions des habitants : les sujets qui reviennent disent ce qui préoccupe la commune, sans sondage ni fichier nominatif.
@@ -4266,7 +4473,7 @@ LightOn (France) propose Alfred, un modèle plus petit mais spécialisé sur cer
 Pleias (France) : startup naissante avec un focus open-source sur les contenus du domaine public. Prometteur mais pas encore en production.
 C’est l’éditeur que Civik-ia a retenu en 2026 pour Marianne.
 Comment le vérifier vous-même
-Si vous évaluez un éditeur de chatbot pour votre mairie, posez ces trois questions :
+Si vous évaluez un éditeur de chatbot pour votre mairie , posez ces trois questions :
 « Quel modèle d’IA utilisez-vous pour générer les réponses ? » : si la réponse contient « OpenAI », « ChatGPT », « Claude » ou « Gemini » sans précision sur l’architecture, c’est un signal d’alerte.
 « Où est le serveur, et chez quel hébergeur ? » : la réponse attendue nomme l’hébergeur, le pays et le contrat.
 « Où le modèle calcule-t-il, et est-ce écrit au contrat ? » : la réponse attendue dit quel point d’accès est employé et ce que le contrat fixe, ou ne fixe pas.
@@ -4388,7 +4595,7 @@ Comment un chatbot IA absorbe ces appels
 Une part importante des questions citoyennes se pose hors horaires d’ouverture de la mairie : tôt le matin, le soir après le travail, le week-end. Sans chatbot, ces questions soit s’évaporent (frustration citoyenne), soit reviennent en bloc le lundi matin (saturation du secrétariat).
 Avec un chatbot, elles sont traitées immédiatement, à 22h47 comme à 9h00.
 2. Réponses précises et sourcées
-Un chatbot mairie de qualité (comme Civik-ia avec son skill « cerfa-municipal ») ne se contente pas de paraphraser. Il cite le bon numéro de Cerfa , l' article de loi applicable , le délai légal exact , le contact municipal dédié . C’est ce qui fait la différence entre un gadget et un outil professionnel.
+Un chatbot mairie de qualité ne se contente pas de paraphraser. Il cite le bon numéro de Cerfa , l' article de loi applicable , le délai légal exact , le contact municipal dédié . C’est ce qui fait la différence entre un gadget et un outil professionnel.
 3. Délestage du secrétariat sur les démarches simples
 Quand l’administré arrive en mairie ou téléphone après être passé par le chatbot, sa demande est déjà qualifiée : il sait quels documents apporter, à quelle heure venir, à qui s’adresser. Le temps de l’agent se concentre sur l’instruction, pas sur l’orientation.
 4. Réduction de la pression émotionnelle
@@ -4408,7 +4615,7 @@ Avec un chatbot absorbant 40 % des appels répétitifs (objectif conservateur en
 24 500 €/an d’économie en temps agent
 Abonnement Civik-ia : à partir de 69 € HT par mois , selon la taille de la commune
 Mise en service : à partir de 999 € HT , sur devis selon le travail à réaliser, facturée une seule fois
-Le calcul à faire : 24 500 € d’économie estimée en temps agent, à comparer au devis de la première année (abonnement, et mise en service à partir de 999 € HT, facturée une seule fois). Le gain peut progresser d’année en année si la base de connaissances s’enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d’appels réel de votre commune.
+Le calcul à faire : 24 500 € d’économie estimée en temps agent, à comparer au devis de la première année (abonnement, et mise en service à partir de 999 € HT, facturée une seule fois). Le gain peut progresser d’année en année si la base de connaissances s’enrichit. Ces chiffres sont des estimations indicatives et un objectif, pas un résultat constaté ; ils sont à ajuster au volume d’appels réel de votre commune. Pour les comparer à des chiffres publiés, voir ce que mesurent les retours d’expérience de chatbots de mairie .
 Le piège à éviter : sous-estimer la phase de mise en place
 Un chatbot ne fonctionne bien que s’il connaît vraiment la commune. Le piège fréquent est de signer rapidement avec un éditeur qui livre un produit générique « clé en main », et de constater que les réponses sont fausses ou imprécises pour les spécificités locales (tarifs salle, contact direct, calendrier scolaire).
 Civik-ia prépare un outil de co-design : le DGS adaptera le chatbot lui-même via un formulaire web, sans intervention technique.
@@ -4544,6 +4751,7 @@ Pour aller plus loin
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Chatbot pour commune rurale : le guide
 Combien coûte un chatbot pour mairie ?
+Chatbot mairie : le guide pour choisir
 Financer l’IA de sa commune : cofinancement, dotations, et ce qui n’est pas accessible à une commune
 IA souveraine en mairie avec Mistral
 Conformité RGPD pour l’IA en mairie
@@ -4664,6 +4872,7 @@ Concrètement, une secrétaire de mairie peut activer sa licence gratuite Delibi
 Pour aller plus loin
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Le guide complet du chatbot mairie en 2026
+Cahier des charges d’un chatbot de mairie : douze exigences
 Réduire les appels en mairie grâce à l’IA
 IA en mairie et RGPD : ce qui est permis
 Logiciel pour petite commune : bien choisir
@@ -4711,11 +4920,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Callbot mairie ou chatbot · Civik-ia
+## Callbot mairie : coût, limites et alternative écrite · Civik-ia
 URL : https://civik-ia.fr/callbot-mairie.html
-Resume : Coût d'un callbot de mairie : intégration téléphonique, prix au volume d'appels, souvent sur devis. Chatbot écrit chez Civik-ia : dès 69 € HT par mois.
+Resume : Un callbot décroche le téléphone de la mairie. Intégration, coût au volume d’appels, cas où il se justifie, et alternative écrite dès 69 € HT par mois.
 
-Callbot mairie ou chatbot · Civik-ia
+Callbot mairie : coût, limites et alternative écrite · Civik-ia
 Civik-ia
 Marianne
 Conseil
@@ -4735,7 +4944,7 @@ En bref
 Un callbot répond à la voix au téléphone de la mairie ; un chatbot répond par écrit sur le site de la commune. Le callbot cible la saturation du standard, mais suppose une intégration téléphonique et des coûts liés au volume d’appels, le plus souvent sur devis. Le chatbot écrit est plus simple à déployer, disponible 24 h/24 depuis un lien ou un QR code ; chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics. Beaucoup de communes commencent par l’écrit, qui évite une partie des appels à la source.
 Callbot et chatbot : deux réponses au même problème
 Le problème de départ est identique : dans une commune, la majorité des sollicitations portent sur des informations déjà publiques. Horaires d’ouverture, jours de collecte des déchets, pièces à fournir pour un acte d’état civil, réservation de la salle des fêtes. Chaque appel interrompt le secrétariat ; chaque question sans réponse le soir ou le week-end devient un appel le lundi matin.
-Le callbot attaque le problème côté téléphone : un agent vocal décroche, comprend la demande de l’appelant, répond oralement et transfère à un humain si nécessaire. Le chatbot l’attaque côté écrit : le citoyen pose sa question sur une page en ligne, à toute heure, et obtient une réponse immédiate construite sur les documents officiels de la commune.
+Le callbot attaque le problème côté téléphone : un agent vocal décroche, comprend la demande de l’appelant, répond oralement et transfère à un humain si nécessaire. Un chatbot pour mairie l’attaque côté écrit : le citoyen pose sa question sur une page en ligne, à toute heure, et obtient une réponse immédiate construite sur les documents officiels de la commune.
 Ce qui les distingue concrètement
 Critère Callbot (vocal, téléphone) Chatbot (écrit, en ligne)
 Canal Ligne téléphonique de la mairie Site de la commune, lien direct, QR code
@@ -5550,6 +5759,267 @@ Prêt à ouvrir votre mairie 24 h/24 ?
 Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, selon la taille de la commune. Hébergement chez OVHcloud, serveur en Allemagne.
 Tester la démo complète
 Demander une démo personnalisée
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Chatbot collectivité : EPCI, département, région · Civik-ia
+URL : https://civik-ia.fr/chatbot-ia-collectivite-service-public.html
+Resume : Chatbot IA d’une collectivité ou d’un service public : source qui fait foi, validation, orientation. Ce qui change hors d’une commune.
+
+Chatbot collectivité : EPCI, département, région · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Chatbot IA pour une collectivité ou un service public
+Chatbot IA pour une collectivité ou un service public : ce qui change hors d’une commune
+Un chatbot IA de collectivité répond à partir des sources officielles de la structure qui l’ouvre.
+Pour une intercommunalité, un département ou une région, la difficulté change : plusieurs compétences, plusieurs sites, des publics différents.
+Trois choix décident : la source qui fait foi pour chaque compétence, la personne qui valide les réponses, l’orientation vers la bonne collectivité.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Un syndicat ou un établissement public qui ouvre un chatbot à ses usagers se pose les mêmes questions.
+Pour une commune seule, le guide du chatbot mairie suffit.
+Cette page décrit ce qui s’y ajoute quand plusieurs collectivités se partagent les compétences.
+Les textes cités sont lus dans leur état du 22 octobre 2026.
+Une compétence, une source qui fait foi
+Une commune décide de l’implantation de ses écoles.
+Un département a la charge des collèges et de l’aide sociale.
+Une région a la charge des lycées.
+Un chatbot qui répond pour l’une ne lit pas les sources des autres.
+Le tableau reprend sept compétences, avec la collectivité qui les exerce et le texte que cite le tableau de répartition des compétences de la direction générale des collectivités locales (DGCL).
+Compétence Collectivité compétente Texte cité par le tableau
+Collecte et traitement des ordures ménagères EPCI à fiscalité propre (compétence obligatoire) Article L. 2224-13 du code général des collectivités territoriales
+Création et implantation des écoles maternelles et élémentaires Commune, par décision du conseil municipal Article L. 2121-30 du code général des collectivités territoriales
+Restauration scolaire des écoles Commune ou EPCI (compétence facultative) Rubrique « Enseignement » du tableau
+Collèges Département Article L. 213-2 du code de l’éducation
+Lycées Région Article L. 214-6 du code de l’éducation
+Revenu de solidarité active et aide sociale à l’enfance Département Rubrique « Action sociale et santé » du tableau
+Plan local d’urbanisme Commune ou EPCI Article L. 153-1 du code de l’urbanisme
+Le tableau de la DGCL porte la mention « actualisation juillet 2025 » et se dit « en cours d’actualisation » : la répartition se relit à la source avant de s’y fier.
+Pour chaque compétence, la structure désigne la source qui fait foi, sa propre page publiée ou celle de la collectivité compétente.
+La page quelle source officielle fait foi décrit la hiérarchie des sources.
+Une personne qui valide pour chaque compétence
+Dans une intercommunalité, un département ou une région, plusieurs services écrivent sur le site.
+Un chatbot qui lit tout ce qui s’y publie lit aussi les pages qui se contredisent.
+La structure nomme, pour chaque compétence, une personne qui valide les réponses, puis une personne qui signe la version de référence avant l’ouverture aux habitants.
+La page constituer une base de données fiable décrit sept étapes, dont la première : inventorier les sources et nommer un responsable.
+Orienter vers la bonne collectivité
+Un habitant demande à l’intercommunalité l’horaire d’une école, ou au département le montant d’une aide communale.
+La bonne réponse dit quelle collectivité est compétente et renvoie vers sa page.
+Elle ne reprend pas le contenu à sa place, et elle signale qu’il ne vient pas du site de la structure.
+Une question hors compétence et hors source reçoit un refus qui oriente.
+Garder un accueil humain joignable
+Le chatbot complète l’accueil.
+Un numéro, des horaires et un agent joignable restent affichés, et l’outil y renvoie quand il ne sait pas répondre.
+Cette page ne cite aucun texte sur ce point : c’est un choix de service, que la structure écrit dans son cahier des charges .
+Informer l’habitant
+Deux textes encadrent l’information de l’habitant.
+Depuis le 2 août 2026, l’article 50 du règlement (UE) 2024/1689 demande qu’un système d’IA conçu pour dialoguer avec des personnes les informe qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation.
+Cette obligation pèse sur le fournisseur de l’outil ; la structure, qui le déploie, la vérifie avant l’ouverture.
+Le RGPD demande à la structure, responsable du traitement, d’informer les personnes dont elle collecte les données (article 13).
+Le guide RGPD de l’IA en collectivité détaille les obligations.
+Chez Marianne
+Marianne est conçue pour une commune.
+Elle est en test : aucune commune ne l’a en service.
+Elle n’a pas été déployée pour une intercommunalité, un département ou une région.
+Le produit est présenté sur la page Marianne .
+Questions fréquentes
+Un chatbot de collectivité diffère-t-il d’un chatbot de mairie ?
+Le principe reste le même : des réponses tirées de sources officielles, avec la page citée.
+La difficulté vient du périmètre.
+Une intercommunalité, un département ou une région exercent plusieurs compétences, sur plusieurs sites, pour des publics différents.
+Il faut une source qui fait foi par compétence, une personne qui valide, et une orientation vers la collectivité compétente.
+Quelle collectivité est compétente pour les collèges, le RSA ou la collecte des déchets ?
+Selon le tableau de répartition des compétences de la DGCL (actualisation juillet 2025), le département a la charge des collèges et des prestations légales d’aide sociale, dont le revenu de solidarité active.
+La collecte et le traitement des ordures ménagères sont une compétence obligatoire des EPCI à fiscalité propre.
+Un chatbot de département peut-il dire à une personne qu’elle a droit au RSA ?
+L’annexe III, point 5 a, du règlement (UE) 2024/1689 vise les systèmes utilisés par ou pour les autorités publiques « pour évaluer l’éligibilité des personnes physiques aux prestations et services d’aide sociale essentiels ».
+Un assistant qui renvoie vers la page officielle sans évaluer d’éligibilité n’entre pas dans cette description.
+Un outil qui conclut qu’une personne a droit ou non à une prestation peut en relever : un juriste l’examine avant l’achat.
+Ces règles s’appliqueront le 2 décembre 2027.
+Qui valide les réponses quand plusieurs services écrivent ?
+Chaque compétence a une personne qui valide ses réponses, et la structure signe une version de référence avant l’ouverture aux habitants.
+Sans validation écrite, rien n’est ouvert.
+Faut-il garder un accueil humain à côté du chatbot ?
+Oui, par choix de service : un numéro, des horaires et un agent joignable restent affichés, et le chatbot y renvoie quand il ne sait pas répondre.
+Cette page ne cite aucun texte qui l’impose.
+Pour aller plus loin
+Six questions pour juger la souveraineté d’un outil numérique
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Retours d’expérience chatbot mairie : ce qu’ils mesurent · Civik-ia
+URL : https://civik-ia.fr/chatbots-de-mairie-retours-d-experience.html
+Resume : Chatbots de mairie : cinq retours publiés de 2018 à 2026, avec leur date et leur source. Usage, appels évités, et ce qui reste à demander.
+
+Retours d’expérience chatbot mairie : ce qu’ils mesurent · Civik-ia
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Retours d’expérience de chatbots de mairie
+Chatbots de mairie : ce que mesurent les retours d’expérience publiés
+Les retours d’expérience publiés sur les chatbots de mairie donnent surtout des volumes d’usage et des appels évités.
+Ils disent rarement comment les réponses sont vérifiées, ce que coûte l’outil ou où sont les données.
+Cette page recense cinq retours de presse de 2018 à 2026, avec leur date, leur source et ce que chacun mesure.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Chaque chiffre est celui de l’article, attribué à celui qui le donne.
+Les articles sont lus dans leur état du 22 octobre 2026.
+Aucun éditeur n’est nommé.
+Pour savoir comment une mairie mesure elle-même la justesse d’un outil, voir la page tester un chatbot de mairie .
+Ce que mesure un retour d’expérience
+Un retour d’expérience rapporte ce que l’outil a fait, chiffré par la commune, par son éditeur ou par le journaliste.
+Les articles lus donnent quatre familles de chiffres : le nombre d’utilisateurs ou de requêtes, la part d’appels décrochés ou perdus, des taux de compréhension ou de précision, des délais de réponse.
+Aucun des cinq articles ne décrit un jeu de questions de test ni un taux de réponses justes.
+Cinq retours publiés entre 2018 et 2026
+Le tableau va du plus ancien au plus récent.
+Chaque ligne dit ce que l’article rapporte, qui donne les chiffres et ce qui reste à demander.
+Date et support Ce que l’article rapporte Qui donne les chiffres Ce qui reste à demander
+11 septembre 2018, Localtis Le chatbot de ressources humaines d’Orléans Métropole, lancé fin 2017 pour 3 500 agents : plus de 1 200 requêtes traitées au bout d’un an L’article ne le précise pas Le taux de réponses justes, le temps gagné et le coût : aucun n’est donné
+7 septembre 2020, Le Monde Informatique Le chatbot de Rosny-sous-Bois (Seine-Saint-Denis), en ligne depuis janvier 2019 : 2 500 utilisateurs uniques par mois, 300 intentions et 2 700 tournures reconnues, un taux de compréhension de 74 % et un taux de précision de 0,878 Un ancien élu de la ville pour les usages et les taux ; le journaliste pour les intentions La méthode du taux de compréhension, l’unité du taux de précision, le coût, l’hébergement des données
+27 mars 2023, Localtis Le callbot du standard de Plaisir (Yvelines), à 100 % depuis la rentrée 2022 : 500 appels par jour, 20 à 30 % d’appels décrochés avant l’outil, la moitié des demandes résolue en moins de deux minutes, un prix de départ de quelques centaines d’euros par mois Le journaliste pour le volume et la situation de départ ; l’éditeur pour les deux minutes et le prix La mesure de la justesse et l’hébergement des données ; l’éditeur donne aussi 25 à 30 % de décrochage avant l’outil, sans que l’article tranche
+2 janvier 2024, L’Éclaireur L’assistant d’Issy-les-Moulineaux, accessible depuis le site de la ville 24 h sur 24 ; une réponse a donné comme à venir un événement de décembre 2023 déjà passé Aucun chiffre ; l’exemple d’erreur est rapporté par l’article, et l’outil annonce lui-même ses limites Le processus de vérification, le coût, l’hébergement et le traitement des données
+14 juillet 2026, L’Essentiel de l’éco Plaisir : appels perdus ramenés de 60 à 65 % à 8 % avec la deuxième version de son robot ; Issy-les-Moulineaux : près de 60 000 requêtes en deux ans, assistant interrogeable par SMS depuis 2024 ; Orléans : le robot de ressources humaines répond aux 3 500 agents de la ville et de la métropole L’article ne cite aucune source pour ces chiffres La source des chiffres, le coût, l’hébergement des données
+Pour Plaisir, deux publications donnent deux situations de départ : 20 à 30 % d’appels décrochés selon Localtis en 2023, et 60 à 65 % d’appels perdus selon L’Essentiel de l’éco en 2026.
+Les deux mesures ne sont pas forcément les mêmes, et aucun des deux articles ne cite sa méthode.
+Trois mesures à demander : justesse, source, coût complet
+La justesse.
+Sans définition, un taux de compréhension ou de précision ne dit pas si la réponse donnée était exacte.
+Demandez le nombre de questions de test, la personne qui a jugé chaque réponse et la page de référence.
+La méthode complète est sur la page tester un chatbot de mairie .
+La source.
+Aucun des cinq articles ne dit si l’outil cite la page d’où vient sa réponse.
+Sans page citée, ni l’habitant ni la mairie ne peuvent vérifier.
+L’exigence s’écrit dans un cahier des charges .
+Le coût complet.
+Un seul article donne un prix, pour un callbot : quelques centaines d’euros par mois, selon le volume d’appels.
+Le coût d’un projet comprend aussi la mise en service, la formation, la maintenance et la sortie : voir le prix d’un chatbot de mairie .
+Du chatbot à intentions de 2019 au chatbot IA de 2026
+Les premiers retours portent sur des chatbots à intentions : l’outil reconnaît la question parmi des intentions décrites à l’avance, 300 pour le chatbot de 2019 cité plus haut.
+Un chatbot IA de 2026 rédige sa réponse à partir de documents.
+Sa mesure change : il faut juger le texte produit, pas seulement la question reconnue.
+La CNIL rappelle que ces systèmes « peuvent générer des résultats inexacts qui peuvent, pourtant, paraître plausibles » ( questions-réponses du 18 juillet 2024 ).
+Le guide du chatbot mairie décrit les critères de choix pour ce second cas.
+Cinq questions pour lire un retour d’expérience
+Qui donne le chiffre : la commune, l’éditeur ou le journaliste ?
+Comment est-il mesuré, sur quelle période et sur quel volume ?
+L’outil cite-t-il la page d’où vient la réponse ?
+Qui a jugé les réponses, contre quelle source, avec quel jeu de questions ?
+Quel est le coût complet, et où sont hébergées les données ?
+Chez Marianne
+Civik-ia ne publie aucun retour d’expérience : Marianne est en test, et aucune commune ne l’a en service.
+Avant l’ouverture aux habitants, 300 questions de test sont jugées contre leur page source, une banque de contrôle écrite à part vérifie l’outil, et la mairie valide une version de référence.
+Les mesures portent sur des communes de test, et aucun taux de justesse n’est publié.
+Le produit est présenté sur la page Marianne .
+Questions fréquentes
+Où trouver des retours d’expérience de chatbots de mairie ?
+Dans la presse spécialisée : Localtis, Le Monde Informatique, L’Éclaireur, L’Essentiel de l’éco.
+Cette page en recense cinq, de 2018 à 2026, avec leur date.
+Une commune qui a ouvert un outil peut aussi décrire ce qu’elle a mesuré : posez-lui les cinq questions ci-dessus.
+Quels sont des exemples de chatbots de mairie en France ?
+Les articles cités ici rapportent ceux de Rosny-sous-Bois (2020), de Plaisir (2023 et 2026), d’Issy-les-Moulineaux (2024 et 2026) et le chatbot interne de ressources humaines d’Orléans Métropole (2018 et 2026).
+Chaque exemple a sa date et sa source dans le tableau.
+Que mesure un taux de compréhension ?
+Les articles lus ne le définissent pas.
+Le Monde Informatique (7 septembre 2020) donne 74 % pour le chatbot d’une ville, sans dire comment il est mesuré.
+Avant de comparer un taux, demandez sa définition : nombre de questions, personne qui juge, page de référence.
+Un retour d’expérience prouve-t-il qu’un chatbot convient à ma commune ?
+Non.
+Il décrit une commune, un outil et une période.
+La taille, le site, les services et le public changent d’une commune à l’autre.
+Le test sur vos propres pages avant l’ouverture reste la mesure qui concerne votre commune.
+Un chatbot de mairie peut-il se tromper ?
+Oui.
+L’Éclaireur (2 janvier 2024) rapporte une réponse qui donnait comme à venir un événement de décembre 2023 déjà passé.
+La CNIL rappelle que ces systèmes « peuvent générer des résultats inexacts qui peuvent, pourtant, paraître plausibles » (18 juillet 2024).
+Combien coûte un chatbot de mairie d’après ces retours ?
+Un seul article donne un prix, pour un callbot : quelques centaines d’euros par mois, selon le volume d’appels (Localtis, 27 mars 2023).
+Pour un chatbot écrit, la grille de Civik-ia commence à 69 € HT par mois, avec une mise en service à partir de 999 € HT : voir la page prix d’un chatbot de mairie.
+Pour aller plus loin
+Le RAG, ou comment une IA cite la page de la mairie
+Chatbot IA pour une collectivité ou un service public
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site

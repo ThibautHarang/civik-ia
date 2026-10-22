@@ -36,7 +36,7 @@ Avant l'ouverture aux habitants, une mise en service unique en six étapes : inv
 - Collecte des informations, une seule fois, si le site de la mairie n'est pas à jour ou n'existe pas : 10 centimes par habitant, 499 € HT au minimum.
 - WhatsApp et Messenger, à leur ouverture : 10 € HT par mois chacun, compris à partir de 35 000 habitants.
 - Population de référence : population municipale INSEE, arrondie à la centaine inférieure. Au-delà de 49 999 habitants, intercommunalités et départements : sur devis. Prix estimatifs, fixés en première réunion. Calculateur : https://civik-ia.fr/chatbot-mairie-prix.html#prix
-- Cofinancement possible : le guichet Territoires d'IA de la Banque des Territoires couvre de 30 à 50 % des dépenses éligibles d'achat de solutions d'IA souveraine, après instruction par la Banque des Territoires. Civik-ia n'est ni labellisée ni partenaire de ce programme.
+- Financement : les aides ouvertes aux collectivités sont décrites, d'après leurs textes officiels, sur https://civik-ia.fr/financement-ia-collectivite.html ; la page ne dit pas qu'une solution particulière en relève, l'instruction appartenant à la Banque des Territoires pour le guichet Territoires d'IA, à la préfecture pour la DETR et la DSIL, à la région pour les fonds européens. Civik-ia n'est ni labellisée ni partenaire de ces programmes.
 
 ## État au 21 octobre 2026
 

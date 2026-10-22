@@ -102,14 +102,16 @@ const PAGES = [
   ['ia-haut-risque-collectivite-annexe-iii.html', { couche: 'ancienne', place: true }],
   ['article-4-ai-act-maitrise-ia-agents-mairie.html', { couche: 'ancienne', place: true }],
   ['article-50-ai-act-chatbot-mairie.html', { couche: 'ancienne', place: true }],
-  // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
-  // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
+  // grappes chatbot et financement (23/10/2026) : six articles, même famille et même naissance (marqueurs vides) ; l'article
+  // DETR, DSIL, FCTVA naît en noindex, hors sitemap et lié par aucune page (liste FCTVA et circulaire 2027 attendues)
   ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true }],
   ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true }],
   ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],
   ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true }],
   ['mutualiser-ia-intercommunalite-cofinancement.html', { couche: 'ancienne', place: true }],
   ['detr-dsil-fctva-financer-ia-commune.html', { couche: 'ancienne', place: true }],
+  // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
+  // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
   ['guides.html', { couche: 'ancienne', place: true }],
 ];
 

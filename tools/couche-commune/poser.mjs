@@ -108,6 +108,7 @@ const PAGES = [
   ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true }],
   ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],
   ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true }],
+  ['mutualiser-ia-intercommunalite-cofinancement.html', { couche: 'ancienne', place: true }],
   ['guides.html', { couche: 'ancienne', place: true }],
 ];
 

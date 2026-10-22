@@ -107,6 +107,7 @@ const PAGES = [
   ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true }],
   ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true }],
   ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],
+  ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true }],
   ['guides.html', { couche: 'ancienne', place: true }],
 ];
 

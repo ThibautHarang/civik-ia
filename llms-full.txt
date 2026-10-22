@@ -21,7 +21,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 40 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 42 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : Marianne, Conseil, Atelier
@@ -3079,7 +3079,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guides
 Guides IA et données pour les collectivités
 Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD, au règlement européen sur l’IA et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
-Mis à jour le 23 octobre 2026 . 32 pages, classées en 7 rubriques.
+Mis à jour le 23 octobre 2026 . 34 pages, classées en 7 rubriques.
 Le guichet citoyen IA et le chatbot de mairie
 Acheter un chatbot de mairie
 Les données et les sources officielles
@@ -3130,7 +3130,9 @@ Outils IA pour secrétaire de mairie Quels outils d’IA une secrétaire de mair
 Logiciel de petite commune Quel logiciel pour une petite mairie rurale ? Critères de choix, budget réaliste, souveraineté et RGPD.
 Démarches en ligne d’une commune Comment proposer des démarches en ligne dans une petite commune ? Service-Public, France Connect, formulaires Cerfa et assistant citoyen. Guide pratique pour mairies en 2026.
 Communiquer avec ses citoyens Quel outil pour créer du lien avec ses citoyens ? Panorama 2026 des canaux d’une mairie : site, app, panneau, chatbot IA.
-Financer l’IA de sa commune Le guichet Territoires d’IA cofinance 30 à 50 % d’un abonnement d’IA souveraine, en continu. Ce qui s’applique à une commune rurale, et ce qui n’est pas pour elle.
+Financer l’IA de sa commune Le guichet Territoires d’IA cofinance de 30 à 50 % TTC d’une solution d’IA souveraine, pour un an, sur dossier. Ce qui s’applique à une commune rurale.
+Territoires d’IA, le dossier de cofinancement Déposer une demande au guichet Territoires d’IA : inscription, pièces, fiche IA souveraine, instruction, convention, versement. Cahier de juillet 2026.
+Mutualiser l’IA entre communes Demande mutualisée au guichet Territoires d’IA : entité porteuse, trois autres bénéficiaires, taux de 40 à 50 %, groupement de commandes. Mode d’emploi.
 Marianne sur WhatsApp Bientôt, l’IA citoyenne Civik-ia sur le WhatsApp de votre mairie : réponses 24 h/24 sourcées sur vos documents, orientation vers le bon service, bascule vers vos agents. Canal à venir, moteur souverain déjà disponible en démonstration.
 Marianne sur Messenger Bientôt, la page Facebook de votre mairie répondra 24 h/24 grâce à Marianne : réponses sourcées sur vos documents officiels, et vos agents gardent la main sur chaque conversation. Canal à venir, moteur souverain déjà disponible en démonstration.
 La démonstration de Marianne fonctionne sur une commune fictive, sans inscription.
@@ -4325,6 +4327,7 @@ IA en mairie : les données à ne pas envoyer, classe par classe
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
 Recommandations CNIL sur l’intelligence artificielle
 Financer l’IA de sa commune : cofinancement Territoires d’IA, dotations, ce qui existe vraiment
+Territoires d’IA : déposer une demande de cofinancement, étape par étape
 Comparatif chatbot mairie 2026 : quelle solution choisir
 Guide complet du chatbot mairie : fonctionnement et ROI
 Politique RGPD de Civik-ia : notre approche détaillée
@@ -4495,7 +4498,7 @@ Base de connaissances d’une mairie : sources validées et mise à jour
 Souveraineté numérique d’une commune : six questions
 Données personnelles et IA en mairie : ce qui ne part pas
 Marianne, l’assistante des mairies par Civik-ia : le produit en détail, réponses 24 h/24 sourcées et souveraines
-Financer l’IA de sa commune : le guichet Territoires d’IA cofinance 30 à 50 % de l’abonnement à une solution souveraine
+Financer l’IA de sa commune
 Guide RGPD pour l’IA en collectivité
 Comparatif chatbot mairie 2026
 Guide complet du chatbot mairie
@@ -4753,6 +4756,8 @@ Chatbot pour commune rurale : le guide
 Combien coûte un chatbot pour mairie ?
 Chatbot mairie : le guide pour choisir
 Financer l’IA de sa commune : cofinancement, dotations, et ce qui n’est pas accessible à une commune
+Le dossier de cofinancement Territoires d’IA
+Cofinancer un outil d’IA à plusieurs communes
 IA souveraine en mairie avec Mistral
 Conformité RGPD pour l’IA en mairie
 Outils IA pour secrétaire de mairie : le guide 2026
@@ -5020,7 +5025,7 @@ Gérer les cookies
 
 ## Financer l’IA de sa commune · Civik-ia
 URL : https://civik-ia.fr/financement-ia-collectivite.html
-Resume : Le guichet Territoires d'IA cofinance 30 à 50 % d'un abonnement d'IA souveraine, en continu. Ce qui s'applique à une commune rurale, et ce qui n'est pas pour elle.
+Resume : Le guichet Territoires d’IA cofinance de 30 à 50 % TTC d’une solution d’IA souveraine, pour un an, sur dossier. Ce qui s’applique à une commune rurale.
 
 Financer l’IA de sa commune · Civik-ia
 Civik-ia
@@ -5031,59 +5036,69 @@ Contact
 Tester Marianne
 Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Financer l’IA de sa commune
-Guide de financement · 3 août 2026
+Guide de financement · 23 octobre 2026
 Financer l’IA de sa commune : cofinancement et aides 2026
 Depuis mai 2026, une collectivité qui veut s’équiper d’une intelligence artificielle souveraine peut faire cofinancer une partie de la dépense. Le dispositif n’est pas celui auquel on pense : ce ne sont pas les appels à projets France 2030, hors d’échelle pour une commune, mais un guichet permanent. Voici ce qui existe réellement, ce qui s’applique à une commune rurale, et ce qui ne s’applique pas.
 Cible : maire, DGS, secrétaire de mairie, agent d’EPCI
 Lecture : 7 minutes
-Mis à jour : 03/08/2026
+Mis à jour : 23/10/2026
+État des sources : 22/10/2026 (cahier des charges du guichet, version 1.1 du 10 juillet 2026)
 Par Thibaut Harang , fondateur de Civik-ia
 En bref
-Le programme Territoires d’IA , lancé le 21 mai 2026 par la Banque des Territoires avec l’État et Mistral AI, comporte un guichet de cofinancement ouvert en continu . Il s’adresse à toutes les collectivités et EPCI et couvre l’achat de licences, l’abonnement hors tokens et les solutions logicielles d’IA souveraine, ainsi que l’accompagnement à la prise en main. Le taux est de 30 % , porté à 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs, avec des bonifications cumulables plafonnées à 50 % au titre des territoires fragiles et de l’IA frugale. À l’inverse, les appels à projets France 2030 sur l’IA sont hors de portée d’une commune : l’appel « Démonstrateurs d’IA frugale dans les territoires » demandait 600 000 euros de dépenses éligibles minimum et il est clos depuis le 1er décembre 2023.
+Le guichet Territoires d’IA de la Banque des Territoires cofinance de 30 à 50 % des dépenses éligibles TTC d’une solution d’IA souveraine, pour un an d’accès, sur dossier. Ouvert en continu depuis le 22 mai 2026 pour trois ans, il ne finance aucun achat antérieur à la validation de la demande (cahier des charges, version 1.1 du 10 juillet 2026).
+Subvention IA pour une commune
+Une commune qui cherche une « subvention IA » trouve, en octobre 2026, quatre familles de financement. Le guichet Territoires d’IA de la Banque des Territoires cofinance, sur dossier, l’achat d’une solution d’IA souveraine, abonnements hors tokens compris. La DSIL et la DETR, attribuées par le préfet, financent des investissements : l’achat d’une licence en est un, un abonnement relève en principe du fonctionnement. Les fonds européens (FEDER) passent par les appels à projets des régions. Les appels à projets France 2030 sur l’IA relevés en octobre 2026 sont clos, réservés aux entreprises ou limités aux industries culturelles. Le tableau « Ce qui ne s’applique pas à une commune », plus bas, reprend ces appels, les dotations et le guichet, avec leur état.
 Le guichet Territoires d’IA, le seul dispositif vraiment accessible
-Le 21 mai 2026, la Banque des Territoires a lancé le programme Territoires d’IA , en collaboration avec l’État et avec Mistral AI. L’objectif affiché est d’atteindre 100 000 agents utilisateurs réguliers et 15 cas d’usage opérationnels d’ici 2030. Le programme comporte quatre volets : une « IA Factory » qui construit des cas d’usage avec des collectivités pilotes, un appui en ingénierie, un catalogue de solutions souveraines, et un guichet de cofinancement .
-C’est ce dernier volet qui intéresse directement une commune, parce qu’il ne finance pas de la recherche mais de l’achat de solution .
+Le 21 mai 2026, la Banque des Territoires a lancé le programme Territoires d’IA , en collaboration avec l’État et avec Mistral AI. Le cahier des charges du guichet fixe au programme, d’une durée de trois ans, un objectif de 100 000 premiers utilisateurs réguliers d’ici 2030. Il le décrit en quatre axes : une « IA Factory » qui développe des cas d’usage réplicables (objectif de quinze), un guichet de cofinancement , l’accompagnement de projets d’IA, et le partage avec les partenaires, dont la plateforme Numérique360.
+Le guichet est le volet qui intéresse directement une commune : il finance l’achat d’une solution , pour un an d’accès.
 Point Ce que prévoit le guichet
-Qui peut demander Toutes les collectivités territoriales et les EPCI
-Dépenses couvertes Achat de licences, abonnement (hors tokens) ou solutions logicielles d’IA souveraine, et accompagnement à la prise en main de l’outil
-Taux de base 30 % des dépenses éligibles
+Qui peut demander Les collectivités territoriales, les EPCI avec ou sans fiscalité propre (syndicats compris) et d’autres structures de coopération territoriale
+Dépenses couvertes Achat de licences, d’abonnements (hors tokens) ou de solutions logicielles d’IA souveraine, pour 50 % de la demande au moins ; déploiement, intégration, paramétrage et formation à la prise en main, pour 50 % au plus
+Taux de base 30 % des dépenses éligibles, en euros TTC
 Taux mutualisé 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs
 Bonifications Cumulables dans la limite de 50 % : territoires fragiles, IA frugale
-Calendrier Guichet ouvert en continu, sans fenêtre de dépôt
-Le point le plus important pour une petite commune est le calendrier : il n’y a pas de date limite . Contrairement aux dotations et aux appels à projets, qui obligent à se caler sur une campagne annuelle décidée ailleurs, un guichet permanent se saisit quand le projet est mûr.
-Ce que cette page ne fait pas : promettre un financement. L’éligibilité d’un dossier est instruite par la Banque des Territoires, pas par un éditeur de logiciel. Les montants indiqués ici proviennent de la page d’offres publique du programme ; le cahier des charges du guichet fait foi et doit être lu avant tout engagement.
+Calendrier Ouvert en continu depuis le 22 mai 2026, pour trois ans, dans la limite des crédits du programme ; aucun droit acquis
+Durée couverte Un an d’accès à la solution
+Règle d’achat Après la validation de la demande, sans effet rétroactif ; une seule solution par demande ; procédure conforme au code de la commande publique
+Pour une petite commune, le calendrier compte : le guichet est ouvert en continu depuis le 22 mai 2026, pour trois ans , dans la limite des crédits alloués au programme. Contrairement aux dotations et aux appels à projets, calés sur une campagne annuelle, il se saisit quand le projet est mûr. L’ordre des gestes est fixe : la demande se dépose avec un devis, et l’achat se fait après sa validation, car aucune dépense n’est financée rétroactivement.
+Ce que cette page ne fait pas : promettre un financement. L’éligibilité d’un dossier est instruite par la Banque des Territoires, pas par un éditeur de logiciel. Les conditions indiquées ici viennent du cahier des charges du guichet, version 1.1 du 10 juillet 2026 , lu le 22 octobre 2026 ; il fait foi et se relit avant tout engagement, car sa version change.
+Les dépenses couvertes par le guichet et les dépenses exclues
+Le cahier des charges du guichet Territoires d’IA, dans sa version 1.1 du 10 juillet 2026, retient deux catégories de dépenses. L’achat de licences, d’abonnements (hors tokens) ou de solutions logicielles d’IA souveraine représente au moins 50 % du montant de la demande. Le déploiement, l’intégration, le paramétrage et la formation des utilisateurs à la prise en main en représentent 50 % au plus. Le cahier en donne un exemple : sur 500 euros d’outil et 2 000 euros de déploiement, seuls 1 000 euros sont éligibles, et le cofinancement atteint 500 euros au plus.
+Toute autre dépense est écartée : l’achat d’infrastructures et de matériel, les solutions d’IA non souveraines, les prestations d’accompagnement ou les développements spécifiques hors de ces deux catégories. Une demande ne couvre qu’une seule solution, et l’achat se fait après la validation de la demande, sans effet rétroactif.
 Les deux bonifications, et ce qu’elles veulent dire
 Deux bonifications peuvent porter le taux jusqu’à 50 %. Elles sont cumulables entre elles, dans cette limite.
-Les territoires fragiles. La notion vise les collectivités dont la situation justifie un effort supérieur. Les critères précis relèvent du cahier des charges du guichet et méritent d’être vérifiés dossier par dossier plutôt que supposés : c’est exactement le genre de point où une commune a intérêt à interroger directement sa direction régionale de la Banque des Territoires.
-L’IA frugale. La frugalité désigne une IA conçue pour limiter son empreinte énergétique et sa consommation de ressources. Elle dispose depuis 2024 d’un cadre de référence français, l' AFNOR SPEC 2314 , « Référentiel général pour l’IA frugale », qui regroupe 31 bonnes pratiques réparties en 7 thématiques. Concrètement, une solution qui traite la majorité des requêtes avec de petits modèles exécutés localement, et ne sollicite un modèle de langage que lorsque c’est nécessaire, est plus frugale qu’une solution qui appelle un modèle géant à chaque question. C’est un critère technique vérifiable, pas un argument marketing.
+Les territoires fragiles. Selon la section 3 du cahier des charges, la bonification s’applique si au moins une des collectivités de la demande est située en outre-mer, bénéficie du programme Action Cœur de Ville ou compte plus de 40 % de ses habitants en quartier prioritaire de la politique de la ville. Aucun justificatif n’est demandé. L’annexe 2 du cahier rattache l’outre-mer au demandeur et écrit « au moins 40 % » de la population : une commune proche de ces critères interroge sa direction régionale de la Banque des Territoires.
+L’IA frugale. La frugalité désigne une IA conçue pour limiter son empreinte énergétique et sa consommation de ressources. Elle dispose depuis 2024 d’un cadre de référence français, l' AFNOR SPEC 2314 , « Référentiel général pour l’IA frugale », qui regroupe 31 bonnes pratiques. Pour obtenir la bonification, le cahier demande qu’une démarche d’IA frugale soit engagée et appliquée à la solution cofinancée. Il faut au moins un document recevable : un justificatif d’application des bonnes pratiques du référentiel, des éléments sur l’impact environnemental de l’IA utilisée (consommation énergétique, analyse des ressources, clauses d’achat responsable), ou une charte de sobriété numérique appliquée par la collectivité.
 Le levier mutualisation : pourquoi il faut penser intercommunalité
-Le passage de 30 à 40 % s’obtient par la mutualisation ou par un seuil de 500 utilisateurs. Il faut en tirer une conséquence pratique, et elle mérite d’être dite franchement.
+Le passage de 30 à 40 % s’obtient par la mutualisation ou par un seuil de 500 utilisateurs. Une demande est mutualisée quand l’entité qui la porte, qui représente au moins 10 % des dépenses éligibles, couvre au moins trois autres bénéficiaires éligibles. Il faut en tirer une conséquence pratique, et elle mérite d’être dite franchement.
 Pour une commune rurale prise isolément , l’ordre de grandeur reste modeste : 30 % de l’abonnement d’une petite commune font une aide réelle mais limitée, qui ne justifie pas à soi seul de monter un dossier si le temps de secrétariat disponible est déjà saturé.
-Pour un EPCI qui équipe plusieurs de ses communes , l’équation change : le taux est meilleur, le dossier est unique, l’instruction est mutualisée, et l’outil devient un service intercommunal cohérent plutôt qu’une dépense isolée par mairie. C’est le mode d’entrée le plus logique pour le bloc communal rural, et c’est aussi celui qui correspond au sens du programme, qui valorise explicitement les dynamiques de mutualisation.
+Pour un EPCI qui équipe plusieurs de ses communes , l’équation change : le taux est meilleur, le dossier est unique, l’instruction est mutualisée, et l’outil devient un service intercommunal cohérent plutôt qu’une dépense isolée par mairie. C’est le mode d’entrée le plus logique pour le bloc communal rural, et c’est aussi celui que le cahier des charges encourage : ses seuils de 40 % visent les effets d’échelle, la diffusion des usages et la baisse des coûts unitaires de déploiement. Le montage d’une demande mutualisée au guichet Territoires d’IA , de l’entité porteuse au groupement de commandes, est décrit sur une page à part.
+Le dossier, en cinq étapes
+La collectivité s’inscrit gratuitement au programme Territoires d’IA par un formulaire Démarches Simplifiées et envoie son dossier : formulaire, devis précisant le nombre d’utilisateurs ou de licences, fiche « IA souveraine » signée sur l’honneur d’après les informations de l’éditeur. La Banque des Territoires instruit la demande. Si elle la valide, une convention de cofinancement est signée. La moitié de la subvention est versée à réception de la convention et du devis, le reste sur facture acquittée. La collectivité transmet ensuite des indicateurs d’usage : utilisateurs formés et actifs, heures gagnées par agent et par mois, satisfaction des agents. Le détail, pièce par pièce, est sur la page Territoires d’IA : déposer sa demande de cofinancement .
 Ce qui ne s’applique pas à une commune, et pourquoi le dire
 Beaucoup de contenus laissent croire qu’une petite commune peut « candidater à France 2030 » pour son projet d’IA. C’est faux, et il vaut mieux le savoir avant de perdre des semaines.
-Dispositif État au 3 août 2026 Accessible à une commune ?
-Appel à projets « Pionniers de l’intelligence artificielle » (France 2030, Bpifrance) Ouvert Non : recherche et développement de rupture, porté par des entreprises
+Dispositif État relevé Accessible à une commune ?
+Appel à projets « Pionniers de l’intelligence artificielle » (France 2030, Bpifrance) Clos le 9 juin 2026 (relevé le 23 octobre 2026) Non : recherche et développement de rupture, porté par des entreprises
 Appel à projets « Démonstrateurs d’IA frugale au service de la transition écologique dans les territoires » (40 M€) Clos depuis le 1 er décembre 2023 Non, et hors d’échelle : assiette minimale de 600 000 € de dépenses éligibles
-Appel à projets transition numérique et IA des industries culturelles Ouvert, relèves au 25 novembre 2026 et 16 juin 2027 Non : hors secteur
-DETR et DSIL Campagne 2026 close (pré-dépôt au 31 décembre 2025, complétude au 31 mars 2026) Oui, mais en investissement et sur la campagne 2027
-Guichet de cofinancement Territoires d’IA Ouvert en continu Oui, c’est le dispositif pertinent
+Appel à projets transition numérique et IA des industries culturelles Ouvert jusqu’au 16 juin 2027 (relevé le 23 octobre 2026) Non : hors secteur
+DETR et DSIL Campagne 2026 close en pratique au 22 octobre 2026 : la circulaire du 1er avril 2026 prévoyait la notification de 80 % des crédits avant le 30 juin 2026 Oui, pour un investissement, sur la campagne 2027 de la préfecture ; un abonnement relève en principe du fonctionnement
+Guichet de cofinancement Territoires d’IA Ouvert en continu au 22 octobre 2026, depuis le 22 mai 2026 et pour trois ans Oui, pour l’achat d’une solution d’IA souveraine, sur dossier instruit
 Les dotations classiques : DETR et DSIL
 La dotation d’équipement des territoires ruraux et la dotation de soutien à l’investissement local restent les outils les plus connus des maires ruraux. La DSIL comporte une priorité consacrée au développement du numérique et de la téléphonie mobile , qui peut couvrir un projet numérique communal.
-Deux limites à garder en tête. D’abord elles financent de l’investissement , ce qui s’articule mal avec un abonnement logiciel annuel. Ensuite le calendrier est contraignant : pour 2026, le pré-dépôt était fixé au 31 décembre 2025 et la complétude des dossiers au 31 mars 2026. La campagne est close ; il faut viser 2027 et se rapprocher de sa préfecture, les priorités étant arrêtées département par département.
+Deux limites à garder en tête. D’abord elles financent de l’investissement . En nomenclature M57, un abonnement à un logiciel en mode SaaS s’impute en fonctionnement (compte 65818), l’achat d’une licence en investissement (compte 2051) et son renouvellement annuel en fonctionnement (compte 65818) : un abonnement relève donc en principe du fonctionnement, et le comptable public tranche (guide des imputations M57, septembre 2025). Ensuite le calendrier est contraignant : la circulaire du 1er avril 2026 prévoyait la notification de 80 % des crédits 2026 avant le 30 juin 2026. La campagne est close en pratique ; il faut viser 2027 et se rapprocher de sa préfecture, les priorités étant arrêtées département par département.
+Fonds européens et régions
+Le FEDER, fonds européen de développement régional, peut financer la numérisation au bénéfice des pouvoirs publics (règlement (UE) 2021/1058, article 3). La région, autorité de gestion, ouvre des appels à projets dans son programme 2021-2027. Un exemple au 22 octobre 2026 : la Bourgogne-Franche-Comté a ouvert un appel à projets FEDER sur l’usage de l’IA au service des politiques publiques, du 1er octobre 2026 au 15 janvier 2027 à midi, pour des porteurs publics et des projets situés dans la région. Il fixe une subvention FEDER de 40 000 euros au moins et de 250 000 euros au plus, avec un taux de FEDER de 60 % au plus. Ce format convient à un projet d’investissement d’une certaine taille ; pour l’abonnement d’une petite commune, le guichet Territoires d’IA est mieux adapté. Votre région publie ses appels sur son site consacré aux fonds européens.
 L’articulation avec le seuil des marchés publics
 Une commune qui s’équipe d’un assistant citoyen se pose deux questions en même temps : comment le financer, et comment l’acheter sans procédure lourde. Les deux se répondent.
-En dessous du seuil des marchés publics, une commune peut contracter de gré à gré, sans mise en concurrence formalisée. C’est le cadre dans lequel l’offre de Civik-ia est conçue pour se placer : un abonnement à partir de 69 € HT par mois, selon la taille de la commune, et une mise en service facturée une seule fois, à partir de 999 euros HT. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie . Un cofinancement éventuel vient en déduction d’une dépense déjà modeste, il ne transforme pas un projet inabordable en projet abordable.
+Sous 60 000 euros HT, un marché de fournitures ou de services est dispensé de publicité et de mise en concurrence préalables, pour les consultations engagées depuis le 1er avril 2026 (article R2122-8 du code de la commande publique, décret n° 2025-1386). La valeur comparée à ce seuil est le montant total hors taxes du contrat, options et reconductions comprises (article R2121-1) : un abonnement de plusieurs années se compte sur toute sa durée. L’acheteur choisit alors une offre pertinente, fait une bonne utilisation des deniers publics et ne contracte pas systématiquement avec le même opérateur. C’est le cadre dans lequel l’offre de Civik-ia est conçue pour se placer : un abonnement à partir de 69 € HT par mois, selon la taille de la commune, et une mise en service facturée une seule fois, à partir de 999 euros HT. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie .
 Où en est Civik-ia par rapport à ces dispositifs
 Autant l’écrire noir sur blanc, parce que le sujet se prête aux ambiguïtés et qu’une collectivité a le droit de savoir exactement à qui elle parle.
 Civik-ia n’est pas labellisée, lauréate, sélectionnée ni partenaire de France 2030, du programme Territoires d’IA, de la Banque des Territoires ou de la direction interministérielle du numérique.
-Civik-ia ne figure pas au catalogue des solutions souveraines du programme.
-Civik-ia s’appuie sur le modèle de Mistral AI , éditeur français. Mistral AI est par ailleurs partenaire du programme Territoires d’IA : ce sont deux faits distincts, et le second ne crée aucun lien entre Civik-ia et le programme.
-L’hébergement est assuré chez OVHcloud, en Union européenne , et le traitement des données est conforme au RGPD. Le détail est documenté dans le guide RGPD de l’IA en collectivité .
-L’architecture est conçue dans une logique de sobriété : recherche documentaire et petits modèles exécutés localement, appel à un modèle de langage seulement quand la question l’exige. Cette conception va dans le sens de l’IA frugale, sans qu’une certification soit revendiquée.
-Ce que Civik-ia peut faire pour une collectivité qui monte un dossier, c’est fournir les éléments techniques et contractuels dont elle a besoin : nature de la solution, hébergement, modèle utilisé, conformité, tarif, périmètre exact. La demande, elle, se dépose par la collectivité.
+Civik-ia ne figure sur aucune liste de solutions publiée par le programme.
+Cette page décrit les dispositifs pour toute collectivité, d’après leurs textes officiels. Elle ne dit pas qu’une solution particulière en relève : l’instruction appartient à la Banque des Territoires pour le guichet, à la préfecture pour la DETR et la DSIL, à la région pour les fonds européens.
 Comment vérifier par vous-même
 Aucune de ces informations ne doit être crue sur parole, y compris celles de cette page. Les sources officielles, à consulter directement :
+Le cahier des charges du guichet de cofinancement, version 1.1 du 10 juillet 2026 , le texte qui fait foi
 Le programme Territoires d’IA et la page des offres et du guichet de cofinancement , sur le site de la Banque des Territoires
 Numérique360 , la plateforme d’accompagnement des territoires sur le numérique, la donnée et l’IA
 Les appels à candidatures France 2030 , pour vérifier ce qui est ouvert et pour qui
@@ -5091,22 +5106,24 @@ Le référentiel AFNOR sur l’IA frugale
 Votre préfecture pour la DETR et la DSIL, et votre direction régionale de la Banque des Territoires pour le guichet
 Questions fréquentes
 Existe-t-il une aide pour financer l’IA d’une commune en 2026 ?
-Oui. Le programme Territoires d’IA, lancé le 21 mai 2026 par la Banque des Territoires avec l’État et Mistral AI, comporte un guichet de cofinancement ouvert en continu. Il s’adresse à toutes les collectivités et aux EPCI, et couvre l’achat de licences, d’abonnements hors tokens ou de solutions logicielles d’IA souveraine, ainsi que l’accompagnement à la prise en main. Le taux est de 30 % pour une demande classique, 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs, avec des bonifications cumulables plafonnées à 50 %.
+Oui. Le programme Territoires d’IA, lancé le 21 mai 2026 par la Banque des Territoires avec l’État et Mistral AI, comporte un guichet de cofinancement ouvert en continu depuis le 22 mai 2026, pour trois ans. Il s’adresse à toutes les collectivités et aux EPCI, et couvre l’achat de licences, d’abonnements hors tokens ou de solutions logicielles d’IA souveraine, ainsi que leur déploiement, leur paramétrage et la formation à la prise en main, pour un an d’accès. Le taux est de 30 % des dépenses éligibles TTC pour une demande classique, 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs, avec des bonifications cumulables plafonnées à 50 %.
 Une petite commune rurale peut-elle candidater aux appels à projets IA de France 2030 ?
-En pratique, non. Ces appels visent la recherche et développement portée par des entreprises ou des consortiums. L’appel « Démonstrateurs d’IA frugale au service de la transition écologique dans les territoires » exigeait une assiette minimale de 600 000 euros de dépenses éligibles et il est clos depuis le 1 er décembre 2023. Pour une commune de moins de 5 000 habitants, le dispositif pertinent est le guichet de cofinancement Territoires d’IA.
+En pratique, non. Au 23 octobre 2026, les trois appels France 2030 sur l’IA relevés sur cette page sont clos, réservés aux entreprises ou limités aux industries culturelles. L’appel « Démonstrateurs d’IA frugale au service de la transition écologique dans les territoires », qui réservait le rôle de chef de file aux collectivités et aux établissements publics, exigeait une assiette minimale de 600 000 euros de dépenses éligibles et il est clos depuis le 1 er décembre 2023. Pour une commune de moins de 5 000 habitants, le dispositif pertinent est le guichet de cofinancement Territoires d’IA.
 Un abonnement à un chatbot municipal entre-t-il dans les dépenses éligibles ?
-Les dépenses éligibles au guichet comprennent l’achat de licences, l’abonnement hors tokens et les solutions logicielles d’IA souveraine, ainsi que l’accompagnement à la prise en main. Un abonnement à un assistant citoyen souverain relève de cette catégorie de dépense. L’éligibilité d’un dossier précis reste instruite par la Banque des Territoires : aucun éditeur ne peut la garantir à la place de la collectivité, et le cahier des charges du guichet fait foi.
+Le cahier des charges du guichet, dans sa version 1.1 du 10 juillet 2026, cite parmi les dépenses éligibles l’achat de licences, d’abonnements hors tokens ou de solutions logicielles d’IA souveraine, ainsi que leur déploiement, leur paramétrage et la formation à la prise en main. La solution doit être reconnue comme souveraine, au terme d’une appréciation globale, et l’achat suivre les règles de la commande publique, après la validation de la demande. L’éligibilité d’un dossier précis est instruite par la Banque des Territoires : aucun éditeur ne peut la garantir à la place de la collectivité, et le cahier des charges fait foi.
 Pourquoi passer par l’intercommunalité pour financer une IA ?
-Parce que le taux passe de 30 à 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs. Pour une commune rurale isolée, le montant en jeu reste modeste au regard du travail de dossier. À l’échelle d’un EPCI qui équipe plusieurs communes, le taux est meilleur, le dossier est unique et l’instruction est mutualisée.
+Parce que le taux passe de 30 à 40 % pour une demande mutualisée ou concernant au moins 500 utilisateurs. Une demande est mutualisée quand l’entité qui la porte, qui représente au moins 10 % des dépenses éligibles, couvre au moins trois autres bénéficiaires éligibles. Pour une commune rurale isolée, le montant en jeu reste modeste au regard du travail de dossier. À l’échelle d’un EPCI qui équipe plusieurs communes, le taux est meilleur, le dossier est unique et l’instruction est mutualisée.
 La DETR ou la DSIL peuvent-elles financer un projet d’IA ?
-La DSIL comporte une priorité consacrée au développement du numérique, mais ces dotations financent de l’investissement et suivent un calendrier annuel strict. Pour 2026, le pré-dépôt était fixé au 31 décembre 2025 et la complétude au 31 mars 2026 : la campagne est close. Il faut viser 2027 et se rapprocher de sa préfecture, les priorités étant fixées département par département.
+La DSIL comporte une priorité consacrée au développement du numérique, mais ces dotations financent de l’investissement : un abonnement logiciel relève en principe du fonctionnement (compte 65818 de la M57), et le comptable public tranche. La circulaire du 1er avril 2026 prévoyait la notification de 80 % des crédits 2026 avant le 30 juin 2026 : la campagne 2026 est close en pratique. Il faut viser 2027 et se rapprocher de sa préfecture, les priorités étant fixées département par département.
 Pour aller plus loin
+Territoires d’IA, le dossier de cofinancement étape par étape
+Le guide du chatbot de mairie
 IA souveraine en mairie : pourquoi Mistral AI plutôt qu’OpenAI
 Prix d’un chatbot de mairie : tarifs 2026
 Guide RGPD de l’IA en collectivité
 Logiciel de mairie pour une petite commune
 Comparatif 2026 des solutions pour mairies
-Voir l’outil avant de monter un dossier
+Voir Marianne en démonstration
 Testez Marianne depuis votre téléphone, sans inscription : posez une vraie question de citoyen et jugez la réponse.
 Tester la démo →
 Civik-ia
@@ -6020,6 +6037,323 @@ Pour un chatbot écrit, la grille de Civik-ia commence à 69 € HT par mois, av
 Pour aller plus loin
 Le RAG, ou comment une IA cite la page de la mairie
 Chatbot IA pour une collectivité ou un service public
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Territoires d’IA : dossier de cofinancement, mode d’emploi
+URL : https://civik-ia.fr/territoires-d-ia-dossier-cofinancement.html
+Resume : Déposer une demande au guichet Territoires d’IA : inscription, pièces, fiche IA souveraine, instruction, convention, versement. Cahier de juillet 2026.
+
+Territoires d’IA : dossier de cofinancement, mode d’emploi
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Territoires d’IA : le dossier de cofinancement
+Territoires d’IA : déposer sa demande de cofinancement, étape par étape
+Une collectivité s’inscrit gratuitement au programme Territoires d’IA par un formulaire Démarches Simplifiées, joint un devis et une fiche « IA souveraine », puis la Banque des Territoires instruit sa demande de cofinancement.
+Si elle est validée, une convention est signée et l’achat peut se faire : aucune dépense antérieure n’est financée (cahier des charges, version 1.1 du 10 juillet 2026).
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+État des sources au 22 octobre 2026 : cahier des charges du guichet de cofinancement, version 1.1 du 10 juillet 2026 , lu en entier.
+La Banque des Territoires a lancé le programme Territoires d’IA le 21 mai 2026, pour trois ans, avec un objectif de 100 000 premiers utilisateurs réguliers d’ici 2030.
+Son guichet de cofinancement aide une collectivité à acheter une solution d’IA souveraine.
+Le cahier des charges du guichet tient en onze pages.
+Cette page le suit dans l’ordre d’un dossier : ce qui est financé, qui peut demander, les cinq étapes, les pièces, la fiche « IA souveraine » et la règle d’achat.
+Les autres dispositifs, des dotations de l’État aux fonds européens, sont rassemblés sur la page financer l’IA de sa commune .
+Ce que le guichet finance
+Le guichet Territoires d’IA finance de 30 à 50 % des dépenses éligibles, en euros TTC.
+Le taux de base est de 30 %.
+Il passe à 40 % si la demande est mutualisée ou concerne au moins 500 utilisateurs.
+Deux bonifications, « territoires fragiles » et « IA frugale », ajoutent chacune dix points, dans la limite de 50 %.
+Le cofinancement couvre un an d’accès à la solution, et une demande ne porte que sur une seule solution d’IA souveraine.
+La version 1.0 du cahier, datée du 21 mai 2026, comptait le seuil de 40 % en licences ; la version 1.1 le compte en utilisateurs.
+Une demande réunit deux catégories de dépenses.
+L’achat de licences, d’abonnements (hors tokens) ou de solutions logicielles d’IA souveraine en représente au moins 50 %.
+Le déploiement, l’intégration, le paramétrage et la formation des utilisateurs à la prise en main en représentent 50 % au plus.
+Pour le cahier, une solution d’IA est un logiciel applicatif clé en main, qui intègre de l’IA pour répondre à un besoin métier identifié.
+Le cahier définit aussi la licence d’« IAG généraliste » : un droit d’usage sur une capacité d’IA générique, mise à disposition comme un service transverse.
+Le cahier des charges donne un exemple chiffré.
+Une collectivité dépense 500 euros pour un outil d’IA souveraine et 2 000 euros pour son déploiement, soit 2 500 euros.
+Le déploiement ne peut pas dépasser la moitié de la demande : seuls 500 euros d’outil et 500 euros de déploiement sont éligibles, soit 1 000 euros.
+Selon le taux obtenu, de 30 à 50 %, le cofinancement atteint 500 euros au plus, dont 250 euros pour l’outil et 250 euros pour le déploiement.
+Le cahier écarte toute dépense hors de ces deux catégories.
+Il cite l’achat d’infrastructures et de matériel, l’achat de solutions d’IA non souveraines, et les prestations d’accompagnement ou les développements spécifiques qui n’entrent pas dans le déploiement, l’intégration, le paramétrage ou la formation.
+Un besoin d’accompagnement se traite par une autre porte du programme, l’ingénierie, décrite en fin de page.
+La collectivité reste libre de choisir la licence, l’abonnement ou la solution logicielle, dans le respect de ces conditions.
+Qui peut déposer une demande
+Le guichet de cofinancement est ouvert à toutes les collectivités territoriales : communes, départements, régions et collectivités à statut particulier.
+Il est ouvert aussi aux EPCI avec ou sans fiscalité propre, ce qui comprend les communautés de communes, les communautés d’agglomération, les communautés urbaines, les métropoles et les syndicats (SIVU, SIVOM, syndicats mixtes).
+D’autres structures de coopération territoriale peuvent demander, comme les établissements publics territoriaux, les pôles métropolitains, les pôles d’équilibre territoriaux et ruraux ou les agences techniques départementales.
+Certaines SPL, certains GIP et certaines associations dédiés aux services numériques sont examinés au cas par cas, pour une activité non économique seulement (article 107 du traité sur le fonctionnement de l’Union européenne).
+Une commune peut déposer seule.
+Elle peut aussi entrer dans une demande mutualisée : une seule entité la porte, représente au moins 10 % des dépenses éligibles et couvre au moins trois autres bénéficiaires éligibles.
+Le taux de base passe alors de 30 à 40 %.
+Une intercommunalité, un syndicat ou un département peut porter une telle demande pour plusieurs communes, et le formulaire demande alors le nombre d’utilisateurs de chaque entité.
+Le montage d’une demande à plusieurs communes est détaillé sur la page mutualiser l’IA entre communes .
+Les cinq étapes du dossier
+Le guichet est ouvert en continu depuis le 22 mai 2026, pour une durée de trois ans.
+Le cahier des charges décrit cinq étapes.
+Inscription et demande. La collectivité s’inscrit gratuitement au programme Territoires d’IA par le formulaire Démarches Simplifiées et envoie son dossier : le formulaire de demande et les pièces justificatives.
+Instruction. La Banque des Territoires instruit le dossier.
+Le dépôt ne crée aucun droit acquis : elle accepte ou refuse chaque demande selon les critères d’éligibilité, dans la limite des crédits alloués au programme.
+Convention. Si la demande est validée, la collectivité signe une convention de cofinancement avec la Banque des Territoires et s’engage à en respecter les termes.
+L’achat se fait après cette validation.
+Versement. Après réception de la convention et du devis, la Banque des Territoires verse 50 % de la subvention.
+La collectivité envoie ensuite la facture acquittée, après l’achat effectif et le délai de rétractation, puis reçoit les 50 % restants.
+Indicateurs. La collectivité transmet « de manière biannuelle », selon les mots du cahier, des indicateurs qu’elle obtient auprès de l’opérateur retenu : nombre d’utilisateurs ou de licences et répartition par collectivité, utilisateurs formés, utilisateurs actifs ou taux d’adoption, gain de productivité en heures par agent et par mois, satisfaction des agents.
+Deux conséquences pratiques découlent de ces étapes.
+Le devis se demande avant le dépôt, puisqu’il fait partie du dossier, et la commande se passe après la validation de la demande.
+Les indicateurs se prévoient dès le contrat avec l’éditeur : le cahier demande à la collectivité de se rapprocher de l’opérateur retenu pour les obtenir, et une clause du contrat peut prévoir leur fourniture, au rythme demandé par la Banque des Territoires.
+Les pièces du dossier
+L’annexe 1 du cahier des charges liste les pièces, en précisant que la liste est indicative et préliminaire.
+Le formulaire de demande porte sur l’entité qui dépose, le nombre total d’utilisateurs visés, le montant total de l’achat, la solution et son éditeur, et les critères de bonification remplis.
+En cas de mutualisation, il demande aussi les entités concernées et le nombre d’utilisateurs de chacune.
+Trois pièces s’y joignent :
+un devis qui précise le nombre d’utilisateurs ou de licences, avec un éventuel budget de prise en main de l’outil ;
+la fiche « IA souveraine », sur le modèle de l’annexe 4, accompagnée d’au moins un élément justificatif ;
+les justificatifs des bonifications demandées, sauf pour la bonification « territoires fragiles », qui n’en demande aucun.
+Une description de la démarche peut s’ajouter au dossier : contexte et genèse du projet, objectifs, périmètre, gouvernance et pilotage, détail de la démarche d’IA frugale.
+Elle est facultative.
+Pour la bonification « territoires fragiles », le cahier écrit « plus de 40 % » d’habitants en quartier prioritaire dans sa section 3, et « au moins 40 % » de la population dans son annexe 2.
+Une collectivité proche de ce seuil pose la question à la Banque des Territoires avant de cocher le critère.
+La fiche « IA souveraine », signée par la collectivité
+La fiche « IA souveraine » est une déclaration sur l’honneur.
+Le représentant de la collectivité y certifie que la solution répond à la définition d’IA souveraine du cahier des charges.
+Il indique la solution, l’éditeur, le pays de son siège social, et le lieu d’hébergement et de traitement des données.
+Il certifie ensuite, d’après les informations transmises par l’éditeur, que le droit européen s’applique à la solution et que l’éditeur n’est soumis à aucune juridiction hors de l’Union.
+Au moins un justificatif simple accompagne la fiche : une attestation de l’éditeur, un extrait du contrat ou une clause type, ou une documentation publique sur la sécurité, le cadre légal ou l’hébergement.
+Le cahier apprécie la souveraineté de façon globale, au regard des risques juridiques, techniques et stratégiques ; ses critères ne sont ni cumulatifs ni automatiques.
+À titre indicatif, une solution souveraine traite et stocke les données sur le territoire de l’Union européenne.
+Son modèle vient d’un éditeur européen qui s’engage par contrat à le rendre auditable.
+Les données d’entraînement ou d’inférence ne partent pas vers des serveurs hors de l’Union sans accord explicite.
+Le contrat n’implique aucune soumission à un droit ou à une juridiction hors de l’Union, la réversibilité est garantie, et la solution respecte le règlement européen sur l’IA selon son niveau de risque.
+Je conseille de demander à l’éditeur, par écrit et avant de signer la fiche, les réponses à quatre questions.
+C’est la collectivité qui certifie, sur la foi des informations reçues.
+Dans quel pays les données sont-elles hébergées, et dans quel pays sont-elles traitées, calcul du modèle d’IA compris ?
+Qui édite le modèle d’IA, dans quel pays se trouve son siège, et le contrat prévoit-il un engagement d’auditabilité ?
+Quel droit régit le contrat, et l’éditeur ou l’un de ses sous-traitants est-il soumis à une juridiction hors de l’Union ?
+Comment la collectivité récupère-t-elle ses données et son paramétrage à la fin du contrat ?
+La fiche demande le lieu de traitement des données en plus de leur lieu d’hébergement.
+Un éditeur de modèle d’IA peut proposer plusieurs points d’accès : l’un calcule dans l’Union européenne, un autre ne s’engage sur aucun lieu.
+La réponse se lit dans le contrat.
+Les six questions à poser à tout fournisseur sont détaillées sur la page souveraineté numérique d’une commune , et le lieu de calcul d’un modèle sur la page IA souveraine en mairie .
+Le contrat de sous-traitance exigé par le RGPD s’ajoute à ces réponses : il est décrit dans le guide RGPD de l’IA en collectivité .
+L’achat suit le code de la commande publique
+Le cahier des charges rappelle que les collectivités, en tant qu’acheteurs publics, restent soumises aux obligations de publicité et de mise en concurrence du code de la commande publique.
+Seules les acquisitions issues d’une procédure conforme à ces obligations sont cofinancées, quel que soit le canal d’achat retenu.
+La Banque des Territoires n’intervient pas dans la rédaction des marchés des collectivités et ne leur demande aucune contrepartie.
+Elle garde un droit de contrôle sur la conformité des dépenses présentées et peut refuser le cofinancement en cas d’irrégularité.
+Pour un achat de fournitures ou de services, le code dispense de publicité et de mise en concurrence préalables un marché dont la valeur estimée est inférieure à 60 000 euros HT.
+Cette valeur est le montant total hors taxes du contrat envisagé, options et reconductions comprises (article R2121-1) : un abonnement de plusieurs années se compte sur toute sa durée.
+La règle vaut pour les consultations engagées depuis le 1er avril 2026 ( article R2122-8 du code de la commande publique , dans sa rédaction issue du décret n° 2025-1386).
+L’acheteur choisit alors une offre pertinente, fait une bonne utilisation des deniers publics et ne contracte pas systématiquement avec le même opérateur économique quand plusieurs offres peuvent répondre au besoin.
+Le calendrier se déduit du cahier et du code : demander les devis, déposer la demande avec le devis retenu, attendre la validation, puis passer la commande.
+Pour un cas précis, l’équipe du programme répond à l’adresse territoiresdia@caissedesdepots.fr, et chaque direction régionale de la Banque des Territoires reçoit aussi les questions.
+Les autres portes du programme
+Le programme Territoires d’IA a deux autres volets ouverts aux collectivités.
+L’ingénierie mobilise des experts pour accompagner une expérimentation, ou cofinance une étude confiée à un cabinet extérieur, dans la limite de 50 % du montant TTC de l’étude (80 % en outre-mer).
+Elle s’adresse aux collectivités territoriales, aux intercommunalités et à leurs opérateurs.
+L’IA Factory développe, avec des collectivités pilotes, des cas d’usage d’IA souveraine destinés à être repris par d’autres territoires ; une collectivité peut en proposer un.
+Les deux volets sont présentés sur la page des offres du programme , sans date de mise à jour, consultée le 22 octobre 2026.
+Questions fréquentes
+Quel est le taux du guichet Territoires d’IA ?
+De 30 à 50 % des dépenses éligibles, en euros TTC.
+Le taux de base est de 30 %, et de 40 % pour une demande mutualisée ou qui concerne au moins 500 utilisateurs.
+Chaque bonification, « territoires fragiles » ou « IA frugale », ajoute dix points, dans la limite de 50 % (cahier des charges, version 1.1 du 10 juillet 2026).
+Un achat déjà réalisé peut-il être cofinancé ?
+Non.
+Le cahier des charges demande que l’achat soit réalisé après la validation de la demande de cofinancement, et aucune dépense n’est financée rétroactivement.
+La demande se dépose donc avec un devis, avant la commande.
+Qui signe la fiche « IA souveraine » ?
+Le représentant de la collectivité qui dépose la demande.
+Il certifie sur l’honneur que la solution répond à la définition d’IA souveraine du cahier des charges, et, d’après les informations transmises par l’éditeur, que le droit européen s’applique à la solution et que l’éditeur n’est soumis à aucune juridiction hors de l’Union.
+Au moins un justificatif accompagne la fiche.
+Combien de temps le cofinancement couvre-t-il ?
+Un an d’accès à la solution, selon le cahier des charges.
+Une demande ne porte que sur une seule solution d’IA souveraine.
+Le cahier ne dit rien d’une seconde année : la suite se prévoit dans le budget de la collectivité dès la première.
+Le guichet Territoires d’IA a-t-il une date limite ?
+Il est ouvert en continu depuis le 22 mai 2026, pour une durée de trois ans, dans la limite des crédits alloués au programme.
+Le dépôt d’une demande ne crée aucun droit acquis : la Banque des Territoires accepte ou refuse chaque demande selon les critères d’éligibilité.
+Comment le cofinancement est-il versé ?
+En deux fois.
+La Banque des Territoires verse 50 % de la subvention après réception de la convention signée et du devis.
+La collectivité envoie ensuite la facture acquittée, après l’achat effectif et le délai de rétractation, et reçoit les 50 % restants.
+Civik-ia
+Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Le site
+Accueil
+Marianne
+Conseil
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Mutualiser l’IA entre communes : cofinancement à 40 %
+URL : https://civik-ia.fr/mutualiser-ia-intercommunalite-cofinancement.html
+Resume : Demande mutualisée au guichet Territoires d’IA : entité porteuse, trois autres bénéficiaires, taux de 40 à 50 %, groupement de commandes. Mode d’emploi.
+
+Mutualiser l’IA entre communes : cofinancement à 40 %
+Civik-ia
+Marianne
+Conseil
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil › Mutualiser l’IA entre communes
+Mutualiser l’IA entre communes : le cofinancement du guichet Territoires d’IA à 40 %
+Une demande est mutualisée quand une entité porteuse, qui représente au moins 10 % des dépenses éligibles, la dépose pour au moins trois autres bénéficiaires éligibles.
+Le taux de base passe alors de 30 à 40 %, et jusqu’à 50 % avec une bonification (cahier des charges du guichet Territoires d’IA, version 1.1 du 10 juillet 2026).
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+État des sources au 22 octobre 2026 : cahier des charges du guichet de cofinancement, version 1.1 du 10 juillet 2026 , sections 3 et 4, annexes 1 à 3.
+Une intercommunalité, un syndicat ou un département peut porter une seule demande pour plusieurs communes au guichet de cofinancement Territoires d’IA de la Banque des Territoires.
+Ce choix de mutualisation relève le taux de base du cofinancement, de 30 à 40 %.
+Cette page détaille la règle de la demande mutualisée, l’autre chemin vers 40 %, les deux bonifications, le tableau des taux et la façon d’acheter ensemble.
+Le dossier lui-même, pièce par pièce, est décrit sur la page Territoires d’IA : déposer sa demande de cofinancement .
+La règle de la demande mutualisée
+Une seule entité porte la demande au guichet Territoires d’IA : le cahier des charges l’appelle le « demandeur ».
+Elle doit représenter au moins 10 % des dépenses éligibles totales.
+La demande est mutualisée si elle couvre au moins trois autres bénéficiaires éligibles en plus du demandeur, soit quatre entités au moins.
+Le formulaire demande alors la liste des entités concernées et le nombre d’utilisateurs de chacune.
+Le cahier ne dit pas comment se calcule la part de 10 % du demandeur : une intercommunalité qui veut porter un dossier sans utiliser elle-même l’outil pose la question par écrit à la Banque des Territoires avant de déposer.
+Tout bénéficiaire éligible au guichet peut porter une demande mutualisée : une commune, une communauté de communes ou d’agglomération, une métropole, un syndicat (SIVU, SIVOM, syndicat mixte), un département, ou une autre structure de coopération comme un pôle d’équilibre territorial et rural ou une agence technique départementale.
+Les trois autres bénéficiaires doivent être eux-mêmes éligibles.
+Le cahier ne pose aucune condition de territoire commun entre les bénéficiaires d’une même demande.
+L’autre chemin vers 40 % : 500 utilisateurs
+Une demande qui n’est pas mutualisée obtient aussi un taux de base de 40 % si elle concerne au moins 500 utilisateurs.
+La version 1.0 du cahier des charges, du 21 mai 2026, comptait ce seuil en licences ; la version 1.1, du 10 juillet 2026, le compte en utilisateurs, et le devis joint au dossier précise le nombre d’utilisateurs ou de licences.
+Les deux conditions ne s’additionnent pas : une demande mutualisée de plus de 500 utilisateurs reste à 40 % avant bonification (annexe 3 du cahier).
+Les deux bonifications
+Chaque bonification ajoute dix points au taux de base, dans la limite de 50 % des dépenses éligibles.
+La bonification « territoires fragiles » vise trois situations, selon la section 3 du cahier des charges.
+Elle s’applique si au moins une des collectivités de la demande est située en outre-mer, bénéficie du programme Action Cœur de Ville ou compte plus de 40 % de ses habitants en quartier prioritaire de la politique de la ville.
+Aucun justificatif n’est demandé.
+L’annexe 2 du même cahier formule le critère autrement : c’est « le demandeur » qui est situé en outre-mer, et le seuil est d’« au moins 40 % » de la population.
+Pour une demande à plusieurs, l’écart compte : si l’une des communes est concernée sans être le demandeur, posez la question à la Banque des Territoires.
+La bonification « IA frugale » demande qu’une démarche d’IA frugale soit engagée et appliquée à la solution cofinancée.
+Le cahier reprend la définition du référentiel général pour l’IA frugale de l’AFNOR, publié en 2024 avec le ministère de la Transition écologique : réduire globalement les besoins en ressources matérielles et énergétiques d’un service d’IA, et ses impacts environnementaux.
+Le demandeur fournit au moins un document recevable.
+Le cahier cite un justificatif d’application des bonnes pratiques du référentiel, des éléments sur l’impact environnemental de l’IA utilisée (consommation énergétique, analyse des ressources, clauses d’achat responsable), ou une charte de sobriété numérique appliquée par le demandeur.
+Pour les clauses, il renvoie à la fiche pratique de l’achat responsable de solutions d’IA, publiée en 2025 par la MiNumEco, l’Ecolab du CGDD et la direction des achats de l’État.
+Le tableau des taux
+Demande Aucune bonification Une bonification Deux bonifications
+Mutualisée, ou d’au moins 500 utilisateurs 40 % 50 % 50 % (plafond)
+Non mutualisée, moins de 500 utilisateurs 30 % 40 % 50 %
+Le cahier des charges donne trois exemples.
+Une demande non mutualisée de moins de 500 utilisateurs est cofinancée à 30 %.
+La même demande, déposée par une collectivité d’outre-mer, passe à 40 %.
+Une demande mutualisée avec une démarche d’IA frugale atteint 50 %.
+Les taux s’appliquent aux dépenses éligibles en euros TTC, pour un an d’accès à la solution, et la subvention est versée en deux fois : la moitié à la convention, le reste sur facture acquittée.
+Acheter ensemble
+Le guichet Territoires d’IA ne cofinance que des achats issus d’une procédure conforme au code de la commande publique, quel que soit le canal d’achat.
+Une demande mutualisée oblige donc à décider qui achète.
+Le code permet aux acheteurs de constituer des groupements de commandes « afin de passer conjointement un ou plusieurs marchés » ( article L2113-6 du code de la commande publique ).
+Une convention constitutive, signée par les membres, fixe les règles du groupement ; elle peut confier à l’un d’eux tout ou partie de la procédure, au nom et pour le compte des autres (article L2113-7).
+Les membres sont solidairement responsables des seules opérations menées conjointement en leur nom.
+Le choix entre un groupement de commandes et un achat par l’intercommunalité pour ses communes se fait avec le service juridique de l’intercommunalité, avant le dépôt de la demande.
+Je conseille de confier les deux rôles, demandeur au guichet et coordonnateur du groupement, à la même entité : un seul interlocuteur suit alors le devis, la convention de cofinancement et les factures acquittées.
+L’achat lui-même se fait après la validation de la demande, comme pour une demande déposée par une commune seule.
+Proposer le sujet à son intercommunalité
+Une commune qui veut porter l’idée en conférence des maires ou en bureau communautaire peut arriver avec trois réponses :
+quelles communes sont intéressées, et combien d’utilisateurs chacune déclarerait, puisque le formulaire en demande le détail par entité ;
+quelle entité porte la demande et représente au moins 10 % des dépenses éligibles ;
+comment se fait l’achat, en groupement de commandes ou par l’intercommunalité, et à quelle date, puisque la commande suit la validation de la demande.
+La fiche « IA souveraine » est signée par le représentant du demandeur, d’après les informations transmises par l’éditeur.
+Les questions à poser par écrit à l’éditeur avant de la signer sont détaillées sur la page souveraineté numérique d’une commune .
+Les autres financements, des dotations de l’État aux fonds européens, sont rassemblés sur la page financer l’IA de sa commune .
+Questions fréquentes
+Qu’est-ce qu’une demande mutualisée au guichet Territoires d’IA ?
+Une demande portée par une seule entité, le demandeur, qui représente au moins 10 % des dépenses éligibles et couvre au moins trois autres bénéficiaires éligibles.
+Elle obtient un taux de base de 40 % au lieu de 30 % (cahier des charges, version 1.1 du 10 juillet 2026, section 3).
+Combien de collectivités faut-il pour une demande mutualisée ?
+Quatre au moins : le demandeur et trois autres bénéficiaires éligibles.
+Le demandeur peut être une intercommunalité, un syndicat, un département ou une commune, et les autres bénéficiaires des communes.
+Le formulaire demande le nombre d’utilisateurs de chaque entité.
+Une demande mutualisée peut-elle atteindre 50 % ?
+Oui, avec une bonification.
+Le taux de base d’une demande mutualisée est de 40 %.
+La bonification « territoires fragiles » ou la bonification « IA frugale » ajoute dix points, dans la limite de 50 % des dépenses éligibles en euros TTC.
+Faut-il un groupement de commandes pour une demande mutualisée ?
+Le cahier des charges n’impose pas de forme d’achat.
+Il exige un achat issu d’une procédure conforme au code de la commande publique, quel que soit le canal.
+Le groupement de commandes (articles L2113-6 et L2113-7 du code de la commande publique) permet à plusieurs acheteurs de passer un marché ensemble, sous une convention signée par chacun.
+La bonification « territoires fragiles » s’applique-t-elle à toute la demande ?
+Selon la section 3 du cahier des charges, il suffit qu’une des collectivités de la demande soit en outre-mer, bénéficie d’Action Cœur de Ville ou compte plus de 40 % de ses habitants en quartier prioritaire.
+L’annexe 2 rattache le critère de l’outre-mer au demandeur.
+La Banque des Territoires tranche les cas où les deux rédactions divergent.
 Civik-ia
 Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
 Le site

@@ -133,7 +133,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
           "@type": "DefinedTerm",
           "@id": "https://civik-ia.fr/guichet-citoyen-ia.html#fraicheur-des-donnees",
           "name": "Fraîcheur des données",
-          "description": "Écart entre ce que la mairie publie et ce que l'assistant sait. Chez Marianne, le site officiel est relu chaque nuit.",
+          "description": "Écart entre ce que la mairie publie et ce que l'assistant sait. Chez Marianne, un site officiel sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.",
           "inDefinedTermSet": "https://civik-ia.fr/guichet-citoyen-ia.html#termes"
         }
       ]
@@ -165,7 +165,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
         {
           "@type": "Question",
           "name": "Comment les informations restent-elles à jour ?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Le site officiel de la commune est relu chaque nuit. Une page publiée dans la journée est prise en compte le lendemain. Pour les sites qui ne sont pas sous WordPress, le lecteur est en test." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Un site officiel sous WordPress est relu chaque nuit : une page publiée dans la journée est prise en compte le lendemain. Pour les autres outils de publication, dont TYPO3, le lecteur est en test." }
         },
         {
           "@type": "Question",
@@ -255,7 +255,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h3>3. Il dit quand il ne sait pas</h3>
     <p>Quand le site ne publie pas l’information, la bonne réponse le dit et oriente vers la mairie. Marianne est conçue pour cela. L’orientation vers une information nationale, comme <a href="https://www.service-public.gouv.fr/">service-public.gouv.fr</a> ou les numéros d’urgence, se décide avec chaque mairie, et elle est alors signalée comme ne venant pas du site de la commune.</p>
     <h3>4. Il se tient à jour sans ressaisie</h3>
-    <p>La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, le site officiel est relu chaque nuit&nbsp;: une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place&nbsp;; celui des autres outils de publication, dont TYPO3, est en test.</p>
+    <p>La fraîcheur des données est l’écart entre ce que la mairie publie et ce que l’assistant sait. Chez Marianne, un site officiel sous WordPress est relu chaque nuit&nbsp;: une page publiée dans la journée est en général prise en compte le lendemain, sans ressaisie par les agents. Le lecteur des sites WordPress est en place&nbsp;; celui des autres outils de publication, dont TYPO3, est en test.</p>
     <h3>5. La mairie valide avant l’ouverture</h3>
     <p>Les agents relisent les réponses aux questions courantes, puis la mairie valide par écrit une version de référence. Rien n’est ouvert aux habitants avant cette validation. Chez Civik-ia, c’est la dernière des <a href="/chatbot-mairie-prix.html#mise-en-service">six étapes de la mise en service</a>.</p>
     <h3>6. La justesse est mesurée avant l’ouverture</h3>
@@ -311,7 +311,7 @@ p.meta a{color:var(--p);text-decoration:underline;text-decoration-color:var(--te
     <h3>Que se passe-t-il quand l’information n’existe pas&nbsp;?</h3>
     <p>Marianne est conçue pour dire que le site ne publie pas l’information et pour indiquer comment joindre la mairie, sans compléter avec la mémoire générale du modèle.</p>
     <h3>Comment les informations restent-elles à jour&nbsp;?</h3>
-    <p>Le site officiel de la commune est relu chaque nuit. Une page publiée dans la journée est prise en compte le lendemain. Pour les sites qui ne sont pas sous WordPress, le lecteur est en test.</p>
+    <p>Un site officiel sous WordPress est relu chaque nuit&nbsp;: une page publiée dans la journée est prise en compte le lendemain. Pour les autres outils de publication, dont TYPO3, le lecteur est en test.</p>
     <h3>Un guichet citoyen IA est-il conforme au RGPD&nbsp;?</h3>
     <p>La conformité se juge traitement par traitement, par la mairie et son délégué à la protection des données. Pour Marianne, avec une commune cliente&nbsp;: la mairie est responsable du traitement, Civik-ia est sous-traitant avec un accord écrit, aucun compte n’est demandé, les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours.</p>
     <h3>Combien coûte un guichet citoyen IA pour une petite commune&nbsp;?</h3>

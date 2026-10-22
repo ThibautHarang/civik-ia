@@ -109,6 +109,7 @@ const PAGES = [
   ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],
   ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true }],
   ['mutualiser-ia-intercommunalite-cofinancement.html', { couche: 'ancienne', place: true }],
+  ['detr-dsil-fctva-financer-ia-commune.html', { couche: 'ancienne', place: true }],
   ['guides.html', { couche: 'ancienne', place: true }],
 ];
 

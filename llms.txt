@@ -84,6 +84,7 @@ Marianne est en test sur des communes de test. Aucune commune n'est cliente ni n
 - [Conditions générales de vente](https://civik-ia.fr/legal/conditions-generales-vente.html) : le cadre contractuel de Marianne pour les collectivités.
 - [Conformité RGPD](https://civik-ia.fr/legal/conformite-rgpd.html) : rôles, hébergement, juridictions et accès des autorités, sous-traitants, conservation (texte des questions effacé de la base au bout de 90 jours, questions reconnues comme sensibles non écrites dans la base).
 - [Données exportables de Marianne](https://civik-ia.fr/legal/donnees-exportables-marianne.html) : registre des fichiers, champs et formats (CSV et JSON en UTF-8) de l'archive remise à une collectivité qui demande ses données, article 14 des CGV.
+- [Notice d'utilisation de Marianne](https://civik-ia.fr/legal/notice-utilisation-marianne.html) : destination de Marianne, mention d'intelligence artificielle, marquage des réponses, modèle de Mistral AI, ce qui revient à la commune déployeur (articles 4 et 50 du règlement (UE) 2024/1689), services ouverts.
 
 ## Contenu intégral
 

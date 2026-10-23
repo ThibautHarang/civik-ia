@@ -1,6 +1,6 @@
 # Civik-ia
 
-> Civik-ia, au service des territoires : Marianne, un guichet citoyen IA pour les mairies et les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier qui conçoit des sites, des logiciels et des applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
+> Civik-ia aide les collectivités à adopter l'IA : Marianne, un guichet citoyen IA pour les mairies et les collectivités territoriales, une branche conseil et formation pour les communes et les intercommunalités, et un atelier qui conçoit des sites, des logiciels et des applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
 
 ## Définitions
 
@@ -17,7 +17,7 @@ Les mêmes mots sont employés sur tout le site.
 ## Les trois activités
 
 - [Marianne, le guichet citoyen IA des mairies](https://civik-ia.fr/marianne/) : répond aux habitants 24 h sur 24 à partir des sources officielles de la commune et cite la page de chaque réponse. Sur le site de la mairie (lien, bouton, cadre sur demande), par QR code ou en application installée sur le téléphone ; WhatsApp et Messenger à venir. Hébergement chez OVHcloud, serveur en Allemagne ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat.
-- [Thibaut Harang, conseil en santé, numérique et intelligence artificielle](https://civik-ia.fr/conseil/) : quinze ans dans la santé, dont plus de dix à la direction d'établissements, il aide les entreprises du secteur de la santé, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s'organiser et à conduire leur plan d'action : diagnostic, schéma directeur ou projet médical, accompagnement, formation à l'intelligence artificielle. Proposition écrite après un premier échange de trente minutes, gratuit et sans engagement.
+- [Thibaut Harang, conseil et formation à l'intelligence artificielle pour les collectivités](https://civik-ia.fr/conseil/) : quinze ans dans la santé, dont plus de dix à la direction d'établissements, il aide les communes et les intercommunalités à adopter l'IA : comprendre ce que le droit leur demande, repérer et préparer les financements, former leurs agents et leurs équipes de direction, conduire leur plan d'action. Les questions de droit sont renvoyées au délégué à la protection des données de la collectivité ou à un juriste. Il intervient aussi auprès des établissements de santé. Formations sur devis. Proposition écrite après un premier échange de trente minutes, gratuit et sans engagement.
 - [L'atelier Civik-ia : sites, applications et logiciels, sur devis](https://civik-ia.fr/atelier/) : dessine puis construit des sites, des applications et des logiciels pour les mairies, les acteurs de santé, les entreprises et les associations, sur devis. Marianne a été conçue dans cet atelier.
 
 ## Marianne : ce qu'elle fait

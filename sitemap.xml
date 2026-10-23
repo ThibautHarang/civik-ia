@@ -8,6 +8,8 @@
        n'est pas encore dans la page : le jour où elle est en ligne, lastmod = date de cette mise en ligne -->
   <url><loc>https://civik-ia.fr/marianne/</loc><lastmod>2026-10-21</lastmod></url>
   <url><loc>https://civik-ia.fr/demo</loc><lastmod>2026-10-21</lastmod></url>
+  <!-- page de preuves de la planche légendée (23/10/2026) : les faits de Marianne avec leur preuve datée -->
+  <url><loc>https://civik-ia.fr/marianne/preuves/</loc><lastmod>2026-10-23</lastmod></url>
   <!-- P9 (19/10/2026) : la page pilier du guichet citoyen IA et ses deux pages de fond -->
   <url><loc>https://civik-ia.fr/guichet-citoyen-ia.html</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://civik-ia.fr/base-de-connaissances-mairie.html</loc><lastmod>2026-10-23</lastmod></url>

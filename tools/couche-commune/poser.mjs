@@ -128,6 +128,9 @@ const PAGES = [
   // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
   // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
   ['guides.html', { couche: 'ancienne', place: true }],
+  // page de preuves de la planche légendée (23/10/2026, D211) : famille des guides, même naissance (marqueurs vides), Marianne
+  // marqué comme rubrique courante ; une page de preuves, pas un article (JSON-LD WebPage) : ni mention ni tampon de l'article 50.4
+  ['marianne/preuves/index.html', { couche: 'ancienne', place: true, courant: 'true' }],
 ];
 
 // ---------------------------------------------------------------------------------------------------------------

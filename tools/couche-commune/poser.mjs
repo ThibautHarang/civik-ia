@@ -115,6 +115,8 @@ const PAGES = [
 
 // ---------------------------------------------------------------------------------------------------------------
 // 2. Les gabarits
+// Positionnement (23/10/2026, D201.2 et D201.3 validées amendées, D203 du journal de Projets Thib) : la porte « Conseil » devient
+// « Conseil et formation » ; la santé passe en retrait, la devise vise les communes et les intercommunalités.
 // ---------------------------------------------------------------------------------------------------------------
 const SIGNE = '<svg class="cc-signe" viewBox="2 8 96 84" aria-hidden="true" focusable="false"><path class="cc-signe__arc" d="M5.04 87.67C4 62.65 24.46 40.76 47.01 40.76C49.7 40.76 52.35 41.07 54.94 41.65C49.75 43.78 44.39 45.41 39.61 48.49C31.66 53.62 27.29 62.32 24.11 70.9C22.49 75.34 21.46 80.85 21.4 87.67ZM72.62 87.67C72.43 66.2 62.67 57.76 54.9 54.65C61.03 54.26 66.05 52.9 71.49 49.79C82.34 58.48 89.61 72.5 88.99 87.67Z"/><path class="cc-signe__fleche" d="M95 12.33L67.99 23.63L77.22 30.74C72.9 37.53 68.27 44.6 60.62 47.96C58.7 48.81 56.68 49.43 54.67 50.04C51.65 50.95 48.61 51.8 45.67 52.96C43.33 53.88 40.47 55.13 39 57.29C41.08 56.9 43 55.86 45.12 55.63C46.95 55.44 48.79 55.4 50.63 55.36C55.18 55.25 59.28 55.05 63.72 53.73C73 50.97 80.67 44.61 86.27 36.86L93.65 42.26L95 12.33Z"/></svg>';
 const MENU = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
@@ -164,7 +166,7 @@ function barre(f, c) {
   const contact = c.contact || CONTACT;
   const action = c.action || MARIANNE;
   const marianneCourant = c.courant ? ` aria-current="${c.courant}"` : '';
-  const liens = [['/marianne/', 'Marianne', marianneCourant], ['/conseil/', 'Conseil', ''], ['/atelier/', 'Atelier', ''], [contact, 'Contact', '']];
+  const liens = [['/marianne/', 'Marianne', marianneCourant], ['/conseil/', 'Conseil et formation', ''], ['/atelier/', 'Atelier', ''], [contact, 'Contact', '']];
   let h = '<!-- barre-commune -->\n'
     + `<div class="cc cc-barre${action.libelle.length > 20 ? ' cc-barre--longue' : ''}">\n`
     + '<nav class="cc-barre__nav" aria-label="Navigation principale">\n'
@@ -190,7 +192,7 @@ function barre(f, c) {
 function pied(f, c) {
   const ici = adresse(f);
   const contact = c.contact || CONTACT;
-  const site = [['/', 'Accueil'], ['/marianne/', 'Marianne'], ['/conseil/', 'Conseil'], ['/atelier/', 'Atelier'], ['/demo', 'Tester Marianne'], ['/22h47.html', '22h47, votre mairie est&nbsp;fermée'], [contact, 'Contact']];
+  const site = [['/', 'Accueil'], ['/marianne/', 'Marianne'], ['/conseil/', 'Conseil et formation'], ['/atelier/', 'Atelier'], ['/demo', 'Tester Marianne'], ['/22h47.html', '22h47, votre mairie est&nbsp;fermée'], [contact, 'Contact']];
   const ecrire = '<li><a href="mailto:contact@civik-ia.fr">contact@civik-ia.fr</a></li>'
     + '<li><a href="mailto:thibaut.harang@civik-ia.fr">thibaut.harang@civik-ia.fr</a></li>'
     + '<li><a href="https://www.linkedin.com/in/thibaut-harang/" target="_blank" rel="noopener">LinkedIn de Thibaut Harang</a></li>'
@@ -200,7 +202,7 @@ function pied(f, c) {
     + '<div class="cc-pied__in">\n'
     + '<div class="cc-pied__marque">'
     + `<p class="cc-pied__nom"><span class="cc-pied__cartouche">${SIGNE}</span><span>Civik-<b>ia</b></span></p>`
-    + '<p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.</p>'
+    + '<p class="cc-pied__devise">Communiquer, conseiller, créer. Pour les communes et les intercommunalités.</p>'
     + '<ul class="cc-pied__reseaux" aria-label="Civik-ia sur les réseaux">'
     + RESEAUX.map(([u, n, d]) => `<li><a href="${u}" target="_blank" rel="noopener" aria-label="Civik-ia sur ${n} (nouvel onglet)" title="Civik-ia sur ${n}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${d}"/></svg></a></li>`).join('')
     + '</ul></div>\n'

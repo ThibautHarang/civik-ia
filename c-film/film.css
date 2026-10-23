@@ -544,6 +544,8 @@ html:not(.film-pret) .continuer{display:none}
 .clair{position:relative;z-index:2;background:var(--creme);padding:clamp(72px,9vw,128px) var(--bord-page) clamp(96px,10vw,140px)}
 .clair__in{max-width:1206px}
 .clair__titre{font:700 clamp(30px,3.6vw,48px)/1.08 var(--titre);letter-spacing:-.03em;color:var(--bleu);max-width:20ch}
+/* positionnement du 23/10/2026 (D201.1, D203) : la promesse de la maison sous le H1 visible */
+.clair__chapo{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--encre);max-width:52ch;margin-top:18px}
 .clair__grille{display:grid;grid-template-columns:1fr;gap:var(--esp-carte);margin-top:clamp(36px,4.5vw,60px)}
 .prop{background:var(--papier);border-radius:var(--r-carte);padding:var(--esp-carte);display:flex;flex-direction:column;align-items:flex-start;box-shadow:var(--o-pose)}
 .prop h3{font:800 clamp(30px,2.8vw,40px)/1 var(--titre);letter-spacing:-.035em;color:var(--bleu)}

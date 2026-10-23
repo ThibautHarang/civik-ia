@@ -23,7 +23,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 42 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 43 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : l’IA pour les collectivités
@@ -1000,6 +1000,142 @@ Laissez votre adresse email : nous revenons vers vous avec une démonstration au
 Recevoir ma démonstration
 Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. Politique de confidentialité .
 Merci. Votre demande est bien envoyée : nous revenons vers vous avec la démonstration au nom de votre commune.
+Civik-ia
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
+Le site
+Accueil
+Marianne
+Conseil et formation
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Ce que fait Marianne, preuves à l’appui · Civik-ia
+URL : https://civik-ia.fr/marianne/preuves/
+Resume : Bulle d’IA dès le premier message, pages sources, réponse quand le site ne publie rien, conservation et restitution des données : chaque fait avec sa preuve.
+
+Ce que fait Marianne, preuves à l’appui · Civik-ia
+Civik-ia
+Marianne
+Conseil et formation
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
+Accueil › Marianne › Preuves
+Ce que fait Marianne, preuves à l’appui
+Cette page rassemble des faits sur Marianne.
+Pour chacun : la règle ou l’exigence du cahier des charges qui s’y rapporte, la date à laquelle Civik-ia l’a vérifié pour la dernière fois, et la preuve.
+Quand la démonstration publique le montre, vous pouvez refaire la vérification vous-même.
+Marianne est en test : aucune commune ne l’a en service.
+Les captures viennent de la démonstration publique de Villeneuve-les-Ormes, commune fictive, ou d’un déploiement de test dont le nom est masqué.
+Relevé au 23/10/2026 .
+Sur cette page
+La bulle d’accueil
+Les pages sources
+Quand le site ne publie rien
+La conservation des questions
+La restitution en fin de contrat
+Dans la conversation
+La bulle d’accueil
+Marianne se présente comme une intelligence artificielle dès le premier message, que l’habitant ouvre la conversation ou pose sa question depuis l’écran d’accueil de l’application.
+Règlement (UE) 2024/1689, article 50, paragraphes 1 et 5 .
+Exigence 6 du cahier des charges , première phrase.
+Vérifié le 23/10/2026 .
+Pour le constater
+Ouvrez la démonstration publique de Villeneuve-les-Ormes , commune fictive.
+Touchez « Marianne » en bas de l’écran.
+La conversation s’ouvre sur la bulle « Bonjour ! Je suis Marianne, l’assistante d’intelligence artificielle de la mairie. », et l’en-tête indique « Assistante d’intelligence artificielle ».
+Revenez à l’accueil et posez une question dans le champ « Que puis-je faire pour vous ? ».
+La conversation qui s’ouvre porte la même bulle en tête du fil, au-dessus de votre question : remontez le fil pour la voir.
+Conversation ouverte directement.
+Démonstration publique, capture du 23/10/2026 à 21 h 41, version de l’application 3023116d.
+Ouvrir la capture en grand
+Question posée depuis l’écran d’accueil, fil remonté en haut.
+Les annonces de la démonstration, entre la bulle et la question, sont coupées au trait.
+Capture du 23/10/2026 à 21 h 42, même version.
+Ouvrir la capture en grand
+Les pages sources
+Dans les communes réglées en sources strictes, Marianne affiche sous ses réponses fondées sur le site les pages d’où elles viennent, trois au plus.
+Exigence 1 du cahier des charges .
+Vérifié le 23/10/2026 .
+La preuve
+La démonstration publique ne le montre pas : Villeneuve-les-Ormes, commune fictive, n’est pas réglée en sources strictes, et ses réponses viennent d’une base écrite pour la démonstration.
+Les communes réglées en sources strictes sont des déploiements de test, et leur nom n’est pas donné sur cette page.
+La capture vient de l’un d’eux.
+Sous la réponse, le lien « J’ai besoin d’un acte d’état civil » ouvre la page du site de la ville citée pour cette réponse.
+Déploiement de test réglé en sources strictes.
+Capture du 23/10/2026 à 21 h 41, version de l’application 3023116d, serveur 1ced279.
+Nom de la commune, adresse et téléphone masqués.
+Ouvrir la capture en grand
+Quand le site ne publie rien
+Dans les communes réglées en sources strictes, Marianne a pour consigne de dire quand le site ne publie rien sur une question, et d’orienter vers la mairie.
+Exigence 2 du cahier des charges , première phrase.
+Vérifié le 23/10/2026 .
+La preuve
+Dans ces communes, le modèle qui rédige les réponses reçoit cette consigne.
+La démonstration publique ne le montre pas, pour la même raison que les pages sources.
+La capture vient du même déploiement de test.
+À une question sur le nombre de places d’un parking, Marianne ne donne aucun chiffre, dit ce que le site ne précise pas et renvoie vers la police municipale.
+Ce n’est pas systématique.
+Le 23/10/2026, sur ce même déploiement, une question sur le nombre de bancs publics a reçu « Je n’ai pas cette information. », sans renvoi vers la mairie.
+Même déploiement de test.
+Capture du 23/10/2026 à 21 h 41, version de l’application 3023116d, serveur 1ced279.
+Nom de la commune et téléphone masqués.
+Ouvrir la capture en grand
+Les données de la commune
+La conservation des questions
+Le texte des questions est effacé de la base au bout de 90 jours.
+RGPD, article 5, paragraphe 1, point e .
+Exigence 5 du cahier des charges .
+Vérifié le 23/10/2026 .
+La preuve
+La règle est publiée sur la page Conformité RGPD de Civik-ia , avec celle des sauvegardes : quotidiennes, conservées 14 jours sur le serveur et 30 jours dans une copie hors site en France.
+La restitution en fin de contrat
+En fin de contrat, sur demande, les données et la base de la commune lui sont restituées dans des formats publiés.
+RGPD, article 28, paragraphe 3, point g .
+Exigence 10 du cahier des charges .
+Vérifié le 22/10/2026 .
+La preuve
+Les formats sont publiés sur la page Données exportables de Marianne : une archive ZIP de fichiers CSV et JSON en UTF-8, avec l’empreinte SHA-256 de chaque fichier.
+La collectivité la demande par courrier électronique à contact@civik-ia.fr ou par lettre recommandée ; les délais sont aux articles 14.1 et 14.2 des conditions générales de vente .
+Pour aller plus loin
+Marianne, présentation et prix
+Les douze exigences du cahier des charges d’un chatbot de mairie
+Le règlement européen sur l’IA pour les collectivités
+Le guide RGPD de l’IA en collectivité
+Le texte du règlement (UE) 2024/1689 sur EUR-Lex
 Civik-ia
 Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site

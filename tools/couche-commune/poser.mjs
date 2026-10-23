@@ -93,6 +93,7 @@ const PAGES = [
   ['legal/conditions-utilisation.html', LEGALE],
   ['legal/conformite-rgpd.html', LEGALE],
   ['legal/donnees-exportables-marianne.html', LEGALE],
+  ['legal/notice-utilisation-marianne.html', LEGALE],
   ['legal/politique-confidentialite.html', LEGALE],
   // /marianne/ : la couche seule (D72, verdict le 28/10/2026) ; ses polices et ses icônes (le glyphe de Marianne) restent les siennes
   ['marianne/index.html', { couche: 'marianne', place: false, courant: 'page', contact: '#contact', polices: false, icones: false,

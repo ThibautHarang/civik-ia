@@ -26,18 +26,17 @@
 # 42 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
-## Civik-ia : Marianne, Conseil, Atelier
+## Civik-ia : l’IA pour les collectivités
 URL : https://civik-ia.fr/
-Resume : Civik-ia : Marianne, l'assistant IA des collectivités territoriales, un conseil en santé, numérique et IA, et un atelier de sites et d'applications.
+Resume : Civik-ia aide communes et intercommunalités à adopter l'IA : le droit, les financements, la formation des agents, et Marianne pour vos habitants.
 
-Civik-ia : Marianne, Conseil, Atelier
+Civik-ia : l’IA pour les collectivités
 Passer le film
 Arrêter les animations
-Civik-ia : communiquer, conseiller, créer
 Civik-ia
-Marianne Conseil Atelier Contact
+Marianne Conseil et formation Atelier Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Le film en mots, arrêt par arrêt.
 Communiquer. La nuit, devant la mairie gravée de Villeneuve-les-Ormes, une commune fictive. Sur un téléphone, un habitant écrit à Marianne, l’assistant de la mairie, qui lui répond en citant sa source.
 Un habitant : « Bonsoir, comment inscrire mon fils à la cantine pour septembre ? »
@@ -57,13 +56,14 @@ Vous aider à prendre le bon chemin
 Découvrir le conseil
 Créer
 Des solutions sur mesure adaptées à vos besoins
-Découvrez Civik-ia :
+Civik-ia aide votre collectivité à adopter l’IA
+Pour les communes et les intercommunalités : comprendre ce que le droit leur demande, repérer les financements, former les agents et les équipes de direction.
 Communiquer
-Marianne, l’assistant IA des collectivités territoriales, répond aux habitants 24 h/24 à partir des sources officielles, vérifiées et consolidées de la commune, et les cite toutes, à chaque réponse.
+Marianne, l’assistant IA de Civik-ia, répond à vos habitants 24 h/24 en s’appuyant sur les pages publiées par votre commune.
 Découvrir Marianne
-Conseiller
-Je vous aide à prendre le bon chemin face aux problèmes que vous rencontrez en santé, en numérique et en intelligence artificielle. J’audite vos besoins, je recueille les usages et je vous propose un plan d’action.
-Découvrir le conseil
+Conseiller et former
+Je vous aide à adopter l’IA dans votre collectivité : ce que le droit vous demande, les financements possibles, la formation de vos agents et de vos équipes de direction. J’audite vos usages et je vous propose un plan d’action.
+Découvrir le conseil et la formation
 Créer
 L’atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.
 Découvrir l’atelier
@@ -82,10 +82,10 @@ Votre message *
 Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
-Le conseil, pour tous
+Conseil et formation, pour les collectivités
 L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
@@ -117,18 +117,18 @@ Son
 Lancer le film
 Passer le film
 
-## Thibaut Harang, conseil en santé, numérique et intelligence artificielle · Civik-ia
+## Thibaut Harang, conseil et formation à l’IA pour les collectivités · Civik-ia
 URL : https://civik-ia.fr/conseil/
-Resume : Quinze ans dans la santé, dont plus de dix à la direction d’établissements, j’aide les acteurs de santé, les collectivités et les PME à prendre le bon chemin.
+Resume : J’aide les communes et les intercommunalités à adopter l’IA : le droit, les financements, la formation des agents et des directions, le plan d’action.
 
-Thibaut Harang, conseil en santé, numérique et intelligence artificielle · Civik-ia
+Thibaut Harang, conseil et formation à l’IA pour les collectivités · Civik-ia
 Aller au contenu
 Civik-ia
-Marianne Conseil Atelier Contact
+Marianne Conseil et formation Atelier Contact
 Prendre contact avec moi Me contacter
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
-Thibaut Harang, conseil dédié au secteur de la santé, du numérique et de l’intelligence artificielle
-Quinze ans dans la santé, dont plus de dix à la direction d’établissements, j’aide les entreprises du secteur, les collectivités territoriales et les petites et moyennes entreprises à prendre le bon chemin, à s’organiser et à conduire leur plan d’action.
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
+Thibaut Harang, conseil et formation à l’intelligence artificielle pour les collectivités
+J’aide les communes et les intercommunalités à adopter l’IA : comprendre ce que le droit leur demande, repérer et préparer les financements, former leurs agents et leurs équipes de direction, conduire leur plan d’action.
 Trente minutes pour en parler
 nulle part
 de l’autre côté
@@ -137,7 +137,7 @@ Décider seul
 un chemin qui se perd dans la brume, il ne mène nulle part
 un chemin qui mène de l’autre côté, un pont se construit et le jour se lève
 Thibaut Harang
-Conseil en santé, numérique & intelligence artificielle
+Conseil et formation, numérique & intelligence artificielle
 Direction de clinique
 Direction de la transformation numérique en santé
 Direction de la stratégie et du développement en télémédecine
@@ -148,36 +148,65 @@ Lire le CV
 Thibaut Harang
 Ce que je peux vous apporter
 Une vue d’ensemble J’ai dirigé des établissements de tailles différentes, et j’en ai assuré la direction globale : équipes, management, budget, qualité, relations avec les tutelles et avec leur environnement. Votre projet ou votre problématique, je l’analyse dans son contexte, avec tout ce qui l’entoure.
-Des conseils éprouvés sur le terrain Je construis des outils numériques sur mesure. L’expérience m’a appris ce qui fait avancer un projet, et ce qui peut faire échouer même le plus solide. Je conseille à partir de ce que j’ai vu fonctionner sur le terrain, avec recul et analyse.
-Santé, collectivités territoriales et numérique Trois mondes que je pratique depuis quinze ans, et que j’ai souvent su faire travailler ensemble avec efficacité.
+Des conseils éprouvés sur le terrain L’expérience m’a appris ce qui fait avancer un projet, et ce qui peut faire échouer même le plus solide. Je conseille à partir de ce que j’ai vu fonctionner sur le terrain, avec recul et analyse.
+Collectivités territoriales, santé et numérique Trois mondes que je pratique depuis quinze ans, et que j’ai souvent su faire travailler ensemble avec efficacité.
 Du sur-mesure Chaque mission part de votre situation, de vos besoins et de vos moyens. Je m’adapte, et je vous propose le format le plus juste.
 La franchise Si je ne suis pas la bonne personne pour vous aider, je vous le dis, en toute franchise.
 Trois domaines, un seul besoin
-J’interviens sur trois domaines qui se croisent de plus en plus : la santé, les collectivités territoriales et l’intelligence artificielle. Le besoin, lui, est toujours le même : décider juste, puis tenir le cap.
+J’interviens sur trois domaines qui se croisent de plus en plus : les collectivités territoriales, l’intelligence artificielle et la santé. Le besoin, lui, est toujours le même : décider juste, puis tenir le cap.
 i.
-Santé
-Aide à la gestion et à l’optimisation des services et de l’établissement
-Projet médical et projet d’établissement
-Aide à la mise en place de solutions innovantes
-Transformation et conduite du changement
-Coopérations avec les tutelles, les élus et l’écosystème du territoire
-ii.
 Collectivités territoriales
-Services numériques aux habitants : accueil, information, démarches
-Recherche de financements et réponse aux appels à projets
-Mise en place de solutions innovantes (IA, digitalisation, etc.)
-Accès aux soins : maison de santé, centre de santé, télémédecine
-Projet de santé du territoire et coopération avec les professionnels de santé
-iii.
+Adoption de l’IA dans les services, de la charte d’usage au plan d’action
+Schéma directeur numérique et plan d’ensemble
+Recherche et préparation des financements, réponse aux appels à projets
+Formation des agents et des équipes de direction
+Projets mutualisés entre les communes d’une intercommunalité
+ii.
 Intelligence artificielle
-Audit des usages et des besoins : le bon outil au bon endroit, pour les agents comme pour les citoyens
-Schéma directeur et plan d’ensemble
-Conception d’outils sur mesure
-Formation des équipes et cadre réglementaire : RGPD, règlement européen sur l’IA
-Recherche de financements
+Audit des usages et des besoins : le bon outil au bon endroit, pour les agents comme pour les habitants
+Charte d’usage et données qu’on ne confie jamais à une IA
+Organisation : le rôle de chacun autour de l’IA
+Cas d’usage prioritaires, service par service
+Suivi des usages et indicateurs simples, choisis avec vous
+iii.
+Santé et collectivités territoriales
+Établissements de santé : gestion et organisation des services
+Projet médical et projet d’établissement
+Transformation et conduite du changement
+Accès aux soins : maison de santé, centre de santé, télémédecine
+Projet de santé du territoire, coopération avec les tutelles et les professionnels de santé
+Communes De la commune rurale à la ville, ses directions et ses agents
+Intercommunalités Communautés de communes et d’agglomération, avec leurs communes membres
 Établissements de santé Cliniques, soins de suite et de réadaptation, structures médico-sociales
-Collectivités Communes, intercommunalités, départements
-Entreprises TPE et PME qui veulent savoir ce que l’IA peut faire pour elles, et créer leurs outils sur mesure
+Former vos agents et vos équipes de direction
+Civik-ia conçoit et anime des formations sur l’IA pour les agents, les encadrants et les équipes de direction des collectivités. Chaque formation part des outils que vos agents utilisent et de votre charte d’usage.
+i.
+Agents : l’IA au poste de travail
+Durée : une ou deux demi-journées
+Selon la taille : une session intercommunale, des groupes par famille de métiers, ou des référents formés en premier
+Ce que l’IA fait et ne fait pas, la charte d’usage, les données qu’on ne saisit jamais
+La consigne, la relecture et la transparence envers l’usager
+L’IA dans le métier de chacun, sur les outils que votre collectivité utilise
+ii.
+Directions et DGS : choisir, acheter et financer une IA
+Durée : une demi-journée
+Selon la taille : les secrétaires de mairie à l’échelle intercommunale, le DGS et ses directeurs, ou le comité de direction
+La charte d’usage, les lignes rouges et le pilotage d’un cas d’usage
+Le calendrier du règlement européen sur l’IA pour une collectivité qui l’utilise, le RGPD et l’analyse d’impact (AIPD)
+L’achat public d’une IA et son cofinancement
+Sur devis Le programme et la durée s’adaptent à la taille de votre collectivité. Le devis suit notre échange de trente minutes.
+L’article 4 du règlement européen sur l’IA Cette formation contribue aux mesures de maîtrise de l’IA que l’article 4 demande à la commune ; elle donne lieu à une attestation de présence, pas à un certificat.
+Le budget de la collectivité Votre collectivité peut acheter une formation sur son budget, en plus de l’offre du CNFPT financée par sa cotisation.
+L’audit des usages de l’IA
+L’audit part de ce que vos agents font déjà avec l’IA. Il se termine par une feuille de route écrite, à amender par vos équipes.
+L’inventaire des outils Les outils d’IA utilisés dans vos services, achetés ou gratuits, et les données qui y passent.
+L’enquête auprès des agents Un questionnaire anonyme sur ce qu’ils font déjà et ce dont ils ont besoin.
+La maturité Une grille, service par service, pour savoir par où commencer.
+L’organisation Qui décide, qui relit, qui suit : le rôle de chacun et la charte d’usage qui l’écrit.
+La feuille de route Les actions dans l’ordre, chacune avec son responsable et ses financements possibles.
+L’audit pose aussi les questions de droit. Chaque point part vers le délégué à la protection des données de votre collectivité ou vers un juriste, qui y répond : je ne conclus pas en droit sur votre situation.
+Un cadrage, un audit des usages ou une feuille de route forment une étude. Quand une collectivité la confie à un cabinet extérieur, l’offre d’ingénierie du programme Territoires d’IA de la Banque des Territoires peut la cofinancer, dans la limite de 50 % de son montant TTC (80 % en outre-mer). Le programme peut aussi mobiliser ses propres experts. La collectivité fait la demande et la Banque décide. Je conseille de déposer avant de passer commande.
+Nos formations et nos audits parlent de besoins et de fonctionnalités, jamais d’une marque, la nôtre comprise.
 Le déroulé d’un conseil
 Du premier appel au bilan, six étapes. Pour chacune : ce que vous recevez, et le temps qu’elle prend, en ordre de grandeur.
 Prise de contact
@@ -219,8 +248,8 @@ Cinq questions, deux minutes. Votre fiche s’écrit à mesure que vous réponde
 Étape 1 sur 5
 Qui êtes-vous ?
 Votre structure
-Établissement de santé
 Collectivité
+Établissement de santé
 Entreprise
 Association
 Autre
@@ -232,15 +261,10 @@ Plus de 1 000
 Votre fonction
 Votre situation
 Le sujet touche
-La santé
 Les collectivités territoriales
 L’intelligence artificielle
-Plusieurs de ces domaines
 La santé
-Un projet médical ou d’établissement à écrire
-Un service ou un site à réorganiser
-Une coopération à préparer
-Une situation financière à redresser
+Plusieurs de ces domaines
 Les collectivités territoriales
 Un projet d’accès aux soins à monter
 Un projet de santé du territoire à écrire
@@ -251,6 +275,11 @@ Comprendre ce que l’IA peut faire pour nous
 Un schéma directeur à écrire
 Un outil acheté qui ne prend pas
 Des équipes à former
+La santé
+Un projet médical ou d’établissement à écrire
+Un service ou un site à réorganiser
+Une coopération à préparer
+Une situation financière à redresser
 En une ou deux phrases
 Ce que vous attendez
 Plusieurs choix possibles
@@ -284,7 +313,7 @@ Fiche de demande N° provisoire
 Structure à préciser
 Étape 1 sur 5 Relire ma fiche
 Fiche de demande
-Conseil, à l’attention de Thibaut Harang
+Conseil et formation, à l’attention de Thibaut Harang
 N° provisoire
 1 Qui vous êtes
 Structure à préciser Taille à préciser Fonction à préciser
@@ -302,9 +331,9 @@ Questions fréquentes
 Combien de temps dure un diagnostic ? En ordre de grandeur, de quelques semaines à quelques mois , selon le besoin et le type de projet. Le délai est écrit dans la proposition.
 Intervenez-vous à distance ? Oui pour la prise de contact, les points de suivi et une partie de l’analyse. Les ateliers avec les équipes se tiennent sur place chaque fois que c’est possible : on décide mieux autour d’une table. Je m’adapte à votre organisation.
 Où intervenez-vous ? Partout en France. Je suis installé à Villenave-d’Ornon, près de Bordeaux ; les déplacements sont prévus dans la proposition écrite.
-Combien coûte une mission ? Chaque mission fait l’objet d’une proposition écrite , au forfait ou à la journée, après un premier échange de trente minutes, gratuit et sans engagement.
-Sous quelle forme travaillez-vous ? Selon le besoin : un diagnostic court sur une question précise, l’écriture d’un schéma directeur ou d’un projet médical, un accompagnement à la journée pendant la mise en œuvre, ou une formation à l’intelligence artificielle sur vos cas réels. Je vous propose le format après notre premier échange de trente minutes ; chaque mission fait l’objet d’une proposition écrite.
-Pouvez-vous former nos équipes à l’intelligence artificielle ? Oui, en demi-journée ou en journée , à partir de vos cas réels. On y voit ce que l’IA fait bien, les erreurs qu’elle commet, ce qu’il ne faut pas lui confier, et les règles qui s’appliquent, dont le RGPD et le règlement européen sur l’IA.
+Combien coûte une mission ou une formation ? Chaque mission fait l’objet d’une proposition écrite , au forfait ou à la journée, et chaque formation d’un devis adapté à la taille de votre collectivité. Les deux suivent un premier échange de trente minutes, gratuit et sans engagement.
+Sous quelle forme travaillez-vous ? Selon le besoin : un diagnostic court sur une question précise, un audit des usages de l’IA, un schéma directeur ou un plan d’action. Je peux aussi vous accompagner à la journée pendant la mise en œuvre, ou former vos agents et vos équipes de direction. Je vous propose le format après notre premier échange de trente minutes ; chaque mission fait l’objet d’une proposition écrite.
+Pouvez-vous former nos équipes à l’intelligence artificielle ? Oui, vos agents et vos équipes de direction , par demi-journée, sur devis. Chaque formation part des outils que vos agents utilisent et de votre charte d’usage. On y voit ce que l’IA fait bien, les erreurs qu’elle commet, ce qu’il ne faut pas lui confier, et les règles qui s’appliquent, dont le RGPD et le règlement européen sur l’IA.
 Que se passe-t-il lors de notre premier entretien ? Vous m’exposez la situation, je pose mes questions, et je vous dis si je peux vous être utile . Si oui, je vous envoie une proposition écrite. Sinon, je vous oriente vers quelqu’un qui le peut.
 Prenons trente minutes pour en parler
 Quatre lignes suffisent. Je vous réponds pour fixer un créneau.
@@ -316,12 +345,12 @@ Courriel *
 Votre besoin, en une phrase *
 Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
-Page mise à jour le 19 octobre 2026, par Thibaut Harang.
+Page mise à jour le 23 octobre 2026.
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
-Le conseil, pour tous
+Conseil et formation, pour les collectivités
 L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
@@ -901,11 +930,11 @@ Resume : Posez une vraie question de citoyen, l'IA répond en direct. Testez Mar
 Tester Marianne en direct · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Réserver une démonstration
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Démonstration en direct · Sans inscription
 Testez Marianne, l’accueil 24 h/24 de votre mairie
 Marianne répond aux citoyens au nom de la mairie, jour et nuit. Posez-lui une vraie question ci-dessous : la réponse est générée en direct par l’intelligence artificielle.
@@ -972,11 +1001,11 @@ Recevoir ma démonstration
 Sans engagement. Votre adresse nous parvient avec les questions que vous avez posées à la démonstration. Elle sert à vous envoyer ce que vous demandez et à revenir vers vous à ce sujet. Politique de confidentialité .
 Merci. Votre demande est bien envoyée : nous revenons vers vous avec la démonstration au nom de votre commune.
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1019,11 +1048,11 @@ Resume : Un guichet citoyen IA répond aux habitants avec les sources officielle
 Guichet citoyen IA pour mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA
 Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
 Un guichet citoyen IA répond aux habitants d’une commune à partir des sources officielles de la mairie, cite la page d’où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l’a en service.
@@ -1115,11 +1144,11 @@ Souveraineté numérique d’une commune : six questions à poser
 Chatbot IA pour une collectivité ou un service public : ce qui change hors d’une commune
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1162,11 +1191,11 @@ Resume : Ce que contient la base de connaissances d&#x27;une mairie, qui valide 
 Base de connaissances de mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › Base de connaissances
 Base de connaissances d’une mairie : sources validées et mise à jour
 La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est validée par la mairie avant l’ouverture. Un site sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
@@ -1225,11 +1254,11 @@ Tester les réponses d’un chatbot de mairie avant de l’ouvrir
 Chatbot mairie : le guide pour choisir un chatbot de mairie
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1272,11 +1301,11 @@ Resume : Le RAG fait chercher l&#x27;IA dans les documents de la mairie avant de
 RAG pour une mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › RAG
 RAG pour une mairie : une IA qui cherche avant de répondre
 Le RAG fait chercher l’IA dans des documents choisis avant qu’elle rédige : la réponse s’appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l’habitant sous la réponse.
@@ -1331,11 +1360,11 @@ Les six sources officielles d’une réponse à un habitant
 Chatbot mairie ou ville : les six critères pour choisir
 Tous les guides de Civik-ia pour les collectivités
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1378,11 +1407,11 @@ Resume : Sept mesures pour sécuriser les bases de données d&#x27;une mairie : 
 Sécuriser la base de données d’une collectivité · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Sécuriser la base de données
 Sécuriser la base de données d’une collectivité territoriale : sept mesures
 Pour sécuriser la base de données d’une collectivité, commencez par des sauvegardes dont une copie hors ligne, testée en restauration.
@@ -1515,11 +1544,11 @@ Le guide RGPD de l’IA en collectivité, obligation par obligation
 Ce qu’un agent ne colle jamais dans un outil d’IA grand public
 Six questions pour juger la souveraineté d’un outil numérique
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1562,11 +1591,11 @@ Resume : Horaires, démarches, loi, urbanisme, adresses : la source officielle q
 Quelle source officielle fait foi en mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Quelle source fait foi
 Quelle source officielle fait foi pour répondre aux habitants d’une commune ?
 Pour répondre à un habitant, la source qui fait foi dépend de la question.
@@ -1665,11 +1694,11 @@ Le RAG, ou comment une IA cite la page de la mairie
 Les sept étapes d’une base de données fiable pour l’IA
 Chatbot IA pour une collectivité : une source qui fait foi par compétence
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1712,11 +1741,11 @@ Resume : Données personnelles, sensibles, documents internes : ce qu&#x27;une m
 IA en mairie : les données à ne pas envoyer · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Données à ne pas envoyer à l’IA
 IA en mairie : quelles données ne jamais envoyer à un modèle de langage ?
 Une mairie n’envoie à un outil d’IA grand public ni donnée personnelle, ni donnée sensible, ni document interne non publié : l’ANSSI le proscrit, la CNIL le déconseille.
@@ -1830,11 +1859,11 @@ Sept mesures pour sécuriser les bases de données de la commune
 IA souveraine pour mairie : hébergeur, modèle, lieu de calcul
 Souveraineté numérique : les questions à poser par écrit à un fournisseur
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -1877,11 +1906,11 @@ Resume : Questions réelles, questions pièges, quatre verdicts, banque de contr
 Tester un chatbot de mairie avant l’ouverture · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Tester un chatbot de mairie
 Tester un chatbot de mairie : constituer ses questions avant l’ouverture
 Tester un chatbot de mairie, c’est lui poser plusieurs centaines de questions prises dans la vie réelle de la mairie, écrire la réponse attendue avant le test, puis juger chaque réponse contre sa page source : juste, partielle, fausse ou refus.
@@ -1985,11 +2014,11 @@ Ce que contient la base de connaissances d’une mairie
 Préparer une base fiable avant de tester l’assistant
 Tester Marianne sur une commune fictive, sans inscription
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2032,11 +2061,11 @@ Resume : Inventaire, tri entre public et non public, fiches datées, mise à jou
 Base de données fiable pour l’IA d’une mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Base de données fiable pour l’IA
 Constituer une base de données fiable pour l’IA d’une mairie : sept étapes
 Une base de données fiable pour l’IA d’une mairie se constitue en sept étapes.
@@ -2130,11 +2159,11 @@ La commune répond de ce qu’elle publie : une page périmée donne une répons
 Le fournisseur de l’assistant répond de la façon dont l’outil reprend ces pages, dans les conditions de son contrat : un modèle peut mal lire une fiche juste, d’où la mesure avant l’ouverture.
 La mise en service relève les écarts entre les pages et les signale à la mairie.
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2177,11 +2206,11 @@ Resume : Hébergeur, accès, sous-traitants, droit applicable, lieu de calcul de
 Souveraineté numérique d’une commune · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Souveraineté numérique d’une commune
 Souveraineté numérique d’une commune : six questions à poser à un fournisseur
 La souveraineté numérique d’une commune se vérifie par écrit, fournisseur par fournisseur : l’hébergeur et le pays du serveur, les accès, les sous-traitants et le droit qui les régit, le lieu de calcul de l’IA, la sortie des données, et les preuves fournies.
@@ -2291,11 +2320,11 @@ Pour aller plus loin
 Les données qu’une mairie garde hors de portée d’un modèle d’IA
 Marianne, le guichet citoyen IA de Civik-ia
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2338,11 +2367,11 @@ Resume : Ce que le règlement européen sur l’IA change pour une mairie : rô
 AI Act et collectivités : ce qui change pour une mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › AI Act et collectivités
 AI Act et collectivités : ce qui change pour une mairie, date par date
 Une mairie, comme toute collectivité qui utilise un système d’IA, est déployeur au sens de l’AI Act, le règlement (UE) 2024/1689.
@@ -2531,11 +2560,11 @@ Pour aller plus loin
 Les usages à haut risque d’une collectivité, annexe III
 Article 4 : la maîtrise de l’IA par les agents
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2578,11 +2607,11 @@ Resume : Quels usages d’IA d’une collectivité relèvent de l’annexe III d
 AI Act et haut risque en collectivité : usages, date de 2027 · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › IA à haut risque en collectivité
 IA à haut risque en collectivité : les usages de l’annexe III et les obligations de 2027
 Au sens de l’AI Act, un système d’IA qu’une collectivité utilise pour évaluer l’éligibilité à une aide sociale essentielle, ou pour l’octroyer, la réduire, la révoquer ou la récupérer, est en principe à haut risque (annexe III, point 5, a).
@@ -2691,11 +2720,11 @@ Elle devra confier le contrôle humain à des personnes formées, garder les jou
 Pour aller plus loin
 Former les agents qui contrôleront un outil à haut risque
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2738,11 +2767,11 @@ Resume : Ce que l’article 4 du règlement européen sur l’IA demande à une 
 Article 4 AI Act : maîtrise de l’IA des agents de mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Article 4 de l’AI Act
 Article 4 de l’AI Act : la maîtrise de l’IA par les agents d’une mairie
 L’article 4 de l’AI Act demande aux fournisseurs et aux déployeurs d’IA, mairies comprises, de prendre des mesures pour favoriser la maîtrise de l’IA des agents et des personnes qui utilisent ces outils pour leur compte.
@@ -2830,11 +2859,11 @@ Pour aller plus loin
 Sécuriser les comptes et les droits des agents
 Les usages à haut risque d’une collectivité et leur date
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -2877,11 +2906,11 @@ Resume : Cahier des charges d’un chatbot IA de mairie : sources, hébergement,
 Cahier des charges chatbot mairie : 12 exigences · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Cahier des charges d’un chatbot de mairie
 Cahier des charges d’un chatbot IA de mairie : douze exigences à écrire
 Le cahier des charges d’un chatbot de mairie fixe ce que l’outil doit prouver avant l’achat.
@@ -3027,11 +3056,11 @@ Quelle source officielle fait foi pour répondre aux habitants
 Sept mesures pour sécuriser les bases de données de la commune
 Ce que contient la base de connaissances d’une mairie
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3074,11 +3103,11 @@ Resume : Guichet citoyen IA, chatbot de mairie, données, sources officielles, s
 Guides IA et données pour les collectivités · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Guides
 Guides IA et données pour les collectivités
 Ces guides s’adressent aux maires, aux directeurs généraux des services et aux secrétaires de mairie qui envisagent une IA pour répondre aux habitants. Ils vont du guichet citoyen IA et du chatbot de mairie aux données, aux sources officielles, à la sécurité, au RGPD, au règlement européen sur l’IA et à la souveraineté. Pour commencer, le guide du guichet citoyen IA donne les définitions des mots employés dans les autres.
@@ -3141,11 +3170,11 @@ Marianne sur Messenger Bientôt, la page Facebook de votre mairie répondra 24 h
 La démonstration de Marianne fonctionne sur une commune fictive, sans inscription.
 Tester Marianne
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3189,11 +3218,11 @@ Chatbot mairie ou ville : 6 critères pour choisir · Civik-ia
 Aller au contenu principal
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil
 /
 Chatbot Mairie
@@ -3312,11 +3341,11 @@ Posez vos questions à Marianne sur une commune fictive et ouvrez les sources de
 Tester la démo gratuite
 Demander un devis
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3359,11 +3388,11 @@ Resume : Combien coûte un chatbot de mairie en 2026 ? Abonnement dès 69 € 
 Prix d’un chatbot de mairie : dès 69 € HT par mois · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil
 /
 Chatbot Mairie
@@ -3528,11 +3557,11 @@ Découvrez comment Marianne peut transformer la relation entre votre mairie et v
 Tester la démo
 Demander un devis
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3575,11 +3604,11 @@ Resume : Du gratuit existe pour une commune, mais pas pour le même besoin : Del
 Chatbot mairie gratuit · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Chatbot mairie gratuit
 Comparatif · 24 août 2026
 Existe-t-il un chatbot gratuit pour une mairie ?
@@ -3632,11 +3661,11 @@ Jugez sur une vraie question
 Testez Marianne depuis votre téléphone, sans inscription : posez la question qu’un habitant poserait un dimanche soir, et regardez la réponse.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3679,11 +3708,11 @@ Resume : Commune rurale : un assistant qui répond aux habitants 24 h/24 à par
 Chatbot commune rurale · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil
 /
 Communes Rurales
@@ -3784,11 +3813,11 @@ Rejoignez les premières communes rurales à offrir un accueil numérique intell
 Tester la démo
 Demander un devis
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -3831,11 +3860,11 @@ Resume : Delibia est-il gratuit ? Oui pour les secrétaires de mairie, mais l'é
 Comparatif chatbot mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Chatbots mairie › Comparatif 2026
 Mis à jour le 8 juin 2026
 Comparatif chatbot mairie 2026 : 5 solutions IA passées au crible
@@ -4007,11 +4036,11 @@ Voir Civik-ia en action sur une vraie commune
 Marianne, notre assistante IA, répond aux questions de la vie courante d’un administré : horaires, démarches, urbanisme, déchets. Testez le chat depuis votre téléphone, comme un habitant.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4054,11 +4083,11 @@ Resume : Quel outil pour créer du lien avec ses citoyens ? Panorama 2026 des ca
 Communiquer avec ses citoyens · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Communiquer avec ses citoyens
 Maire / Élu · 8 juin 2026
 Comment mieux communiquer avec ses citoyens en 2026 ?
@@ -4130,11 +4159,11 @@ Voir le dialogue mairie-citoyen en vrai
 Marianne, l’assistante Civik-ia, répond aux questions des habitants 24 h/24 : horaires, démarches, vie locale. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4177,11 +4206,11 @@ Resume : Votre mairie utilise ou envisage une IA ? Base légale, AIPD, hébergem
 RGPD et IA en collectivité · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Guide RGPD IA collectivités
 Conformité · 19 octobre 2026
 RGPD et IA pour collectivités : guide complet 2026
@@ -4335,11 +4364,11 @@ Une solution conçue pour les mairies françaises
 Marianne, l’assistante Civik-ia, fonctionne sans inscription et cite la source de chaque réponse.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4382,11 +4411,11 @@ Resume : Pourquoi votre mairie devrait utiliser Mistral AI plutôt qu'OpenAI ou 
 IA souveraine en mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › IA souveraine pour mairie
 Souveraineté · 19 octobre 2026
 IA souveraine pour mairie : pourquoi Mistral AI plutôt qu’OpenAI ?
@@ -4507,11 +4536,11 @@ Voir Mistral AI au service de votre commune
 Marianne, l’assistante Civik-ia, fonctionne avec Mistral Small et un hébergement chez OVHcloud. Chaque réponse cite sa source.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4554,11 +4583,11 @@ Resume : Comment un chatbot IA peut libérer le secrétariat de mairie : ordres 
 Réduire les appels en mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Réduire les appels en mairie
 DGS / Secrétariat · 8 juin 2026
 Réduire les appels en mairie avec un chatbot IA : objectif 40 %
@@ -4648,11 +4677,11 @@ Voir l’IA libérer une vraie mairie
 Marianne, l’assistante Civik-ia, répond aux questions répétitives à la place du secrétariat, 24 h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4695,11 +4724,11 @@ Resume : Quel logiciel pour une petite mairie rurale ? Critères de choix, budge
 Logiciel de petite commune · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Logiciel pour petite commune
 Maire / Secrétaire de mairie · 24 juin 2026
 Logiciel pour petite commune : bien choisir en 2026
@@ -4768,11 +4797,11 @@ Voir l’outil sur une vraie commune
 Marianne, l’assistante Civik-ia, répond aux questions des citoyens 24 h/24, sans inscription. Testez le chat depuis votre téléphone.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4815,11 +4844,11 @@ Resume : Quels outils d'IA une secrétaire de mairie peut-elle utiliser en 2026 
 Outils IA pour secrétaire de mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Outils IA pour secrétaire de mairie
 Secrétaire de mairie · 5 juillet 2026
 Outils IA pour secrétaire de mairie : le guide 2026
@@ -4889,11 +4918,11 @@ Voir ce que vos citoyens verraient
 Marianne répond aux questions des citoyens 24 h/24 et décharge le secrétariat des questions répétitives. Testez le chat depuis votre téléphone, sans inscription.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -4936,11 +4965,11 @@ Resume : Un callbot décroche le téléphone de la mairie. Intégration, coût a
 Callbot mairie : coût, limites et alternative écrite · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Callbot mairie ou chatbot
 Guide de choix · 19 juillet 2026
 Callbot mairie ou chatbot : que choisir en 2026
@@ -4988,11 +5017,11 @@ Voir ce que vos citoyens verraient
 Testez Marianne depuis votre téléphone, sans inscription : posez une vraie question de citoyen et jugez la réponse.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5035,11 +5064,11 @@ Resume : Le guichet Territoires d’IA cofinance de 30 à 50 % TTC d’une sol
 Financer l’IA de sa commune · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Financer l’IA de sa commune
 Guide de financement · 23 octobre 2026
 Financer l’IA de sa commune : cofinancement et aides 2026
@@ -5133,11 +5162,11 @@ Voir Marianne en démonstration
 Testez Marianne depuis votre téléphone, sans inscription : posez une vraie question de citoyen et jugez la réponse.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5180,11 +5209,11 @@ Resume : Comment proposer des démarches en ligne dans une petite commune ? Serv
 Démarches en ligne d’une commune · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Démarches en ligne pour une commune
 Maire / Secrétaire de mairie · 24 juin 2026
 Démarches en ligne pour une commune : par où commencer
@@ -5256,11 +5285,11 @@ Voir l’orientation des démarches en action
 Marianne, l’assistante Civik-ia, guide les citoyens vers la bonne démarche et le bon Cerfa, 24 h/24. Testez le chat depuis votre téléphone.
 Tester la démo →
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5303,11 +5332,11 @@ Resume : Le guide du chatbot IA pour mairies : sept exigences, check-list RGPD d
 Livre blanc, IA en mairie · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Livre Blanc · Édition 2026
 Le guide du chatbot IA pour mairies françaises
 Douze pages pour savoir ce qu’un assistant IA de mairie doit faire, ce qu’il coûte, et ce qu’il faut exiger avant de signer. Sans témoignage ni chiffre invérifiable : des exigences, une check-list et des questions à poser
@@ -5365,11 +5394,11 @@ Un scénario construit sur une commune de démonstration. Aucun retour de commun
 9. Marianne en bref
 Fonctionnement, canaux disponibles et à venir, tarifs
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5412,11 +5441,11 @@ Resume : Marianne sur WhatsApp, canal à venir : les habitants poseront leurs qu
 Marianne sur WhatsApp · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Aperçu
 Prix
 Fonctionnalités
@@ -5497,11 +5526,11 @@ Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5545,11 +5574,11 @@ Resume : Marianne sur Messenger, canal à venir : la page Facebook de la mairie 
 Marianne sur Messenger · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Aperçu
 Prix
 Fonctionnalités
@@ -5630,11 +5659,11 @@ Une démo sur votre propre commune, rapidement
 Demander une démo →
 Télécharger le livre blanc
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5679,11 +5708,11 @@ Centre d’aide et FAQ · Civik-ia
 Aller au contenu
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Civik-ia · Centre d’aide
 Comment pouvons-nous vous aider ?
 Trouvez des réponses claires à vos questions, organisées par profil. Si vous ne trouvez pas, écrivez-nous : nous lisons chaque demande et vous répondons par écrit.
@@ -5712,11 +5741,11 @@ WhatsApp professionnel
 Civik-ia , au service des territoires · civik-ia.fr
 Dernière mise à jour du centre d’aide : 18 octobre 2026
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5759,11 +5788,11 @@ Resume : 22h47. Un citoyen a une question. Votre mairie est fermée. Découvrez 
 22h47, mairie fermée · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 22:47
 Un citoyen a une question.
 Votre mairie est fermée.
@@ -5784,11 +5813,11 @@ Mise en ligne en quelques semaines. Abonnement à partir de 69 € HT par mois, 
 Tester la démo complète
 Demander une démo personnalisée
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5831,11 +5860,11 @@ Resume : Chatbot IA d’une collectivité ou d’un service public : source qui 
 Chatbot collectivité : EPCI, département, région · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Chatbot IA pour une collectivité ou un service public
 Chatbot IA pour une collectivité ou un service public : ce qui change hors d’une commune
 Un chatbot IA de collectivité répond à partir des sources officielles de la structure qui l’ouvre.
@@ -5912,11 +5941,11 @@ Pour aller plus loin
 Six questions pour juger la souveraineté d’un outil numérique
 Guichet citoyen IA : la définition et six critères à vérifier
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -5959,11 +5988,11 @@ Resume : Chatbots de mairie : cinq retours publiés de 2018 à 2026, avec leur d
 Retours d’expérience chatbot mairie : ce qu’ils mesurent · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Retours d’expérience de chatbots de mairie
 Chatbots de mairie : ce que mesurent les retours d’expérience publiés
 Les retours d’expérience publiés sur les chatbots de mairie donnent surtout des volumes d’usage et des appels évités.
@@ -6047,11 +6076,11 @@ Guichet citoyen IA : la définition et six critères à vérifier
 Le RAG, ou comment une IA cite la page de la mairie
 Chatbot IA pour une collectivité ou un service public
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -6094,11 +6123,11 @@ Resume : Déposer une demande au guichet Territoires d’IA : inscription, piè
 Territoires d’IA : dossier de cofinancement, mode d’emploi · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Territoires d’IA : le dossier de cofinancement
 Territoires d’IA : déposer sa demande de cofinancement, étape par étape
 Une collectivité s’inscrit gratuitement au programme Territoires d’IA par un formulaire Démarches Simplifiées, joint un devis et une fiche « IA souveraine », puis la Banque des Territoires instruit sa demande de cofinancement.
@@ -6230,11 +6259,11 @@ En deux fois.
 La Banque des Territoires verse 50 % de la subvention après réception de la convention signée et du devis.
 La collectivité envoie ensuite la facture acquittée, après l’achat effectif et le délai de rétractation, et reçoit les 50 % restants.
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -6277,11 +6306,11 @@ Resume : Demande mutualisée au guichet Territoires d’IA : entité porteuse, 
 Mutualiser l’IA entre communes : cofinancement à 40 % · Civik-ia
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Mutualiser l’IA entre communes
 Mutualiser l’IA entre communes : le cofinancement du guichet Territoires d’IA à 40 %
 Une demande est mutualisée quand une entité porteuse, qui représente au moins 10 % des dépenses éligibles, la dépose pour au moins trois autres bénéficiaires éligibles.
@@ -6364,11 +6393,11 @@ Selon la section 3 du cahier des charges, il suffit qu’une des collectivités 
 L’annexe 2 rattache le critère de l’outre-mer au demandeur.
 La Banque des Territoires tranche les cas où les deux rédactions divergent.
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée

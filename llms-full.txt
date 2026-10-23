@@ -1953,7 +1953,6 @@ Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été
 Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence.
 Les banques de test contiennent des questions pièges dont la seule réponse juste est un refus.
 Une batterie d’attaques est rejouée après chaque modification des consignes du modèle, de l’authentification ou du serveur web.
-Marianne se présente comme une intelligence artificielle dès son premier message, comme le prévoit l’article 50 du règlement européen sur l’intelligence artificielle, applicable depuis le 2 août 2026.
 Civik-ia ne publie pas de taux de justesse tant qu’aucune commune n’a Marianne en service : les mesures portent sur des communes de test.
 La page RAG pour une mairie décrit ce que cette mesure prouve et ce qu’elle ne prouve pas ; le cadre est sur la page guichet citoyen IA .
 Questions fréquentes
@@ -2483,7 +2482,7 @@ Une analyse d’impact est présumée nécessaire quand le traitement remplit au
 Le détail est dans le guide RGPD et IA en collectivité .
 Chez Marianne
 Marianne, l’assistante que Civik-ia propose aux mairies, est en test : aucune commune ne l’a en service.
-Marianne se présente comme une IA dès le premier message et renvoie à la page d’où vient la réponse.
+Dans les communes réglées en sources strictes, elle renvoie à la page d’où vient la réponse.
 Sa bulle d’accueil dit, au 22 octobre 2026 : « Bonjour !
 Je suis Marianne, l’assistante d’intelligence artificielle de la mairie.
 Posez-moi vos questions ou choisissez un sujet ci-dessous. » C’est le type de phrase qu’une mairie peut demander à voir chez tout fournisseur, avant de signer.
@@ -2980,8 +2979,7 @@ Cette page ne cite aucun texte sur l’accueil humain à côté d’un chatbot :
 Chez Marianne
 Marianne est en test : aucune commune ne l’a en service.
 Voici où elle en est, au 22 octobre 2026, sur plusieurs de ces exigences.
-Chaque réponse cite sa page source, et quand le site ne dit rien, elle le dit et oriente vers la mairie
-Elle se présente comme une intelligence artificielle dès son premier message
+Dans les communes réglées en sources strictes, chaque réponse cite sa page source, et quand le site ne dit rien, elle le dit et oriente vers la mairie
 Le serveur est chez OVHcloud, en Allemagne ; le modèle est celui de Mistral AI, société française, et son lieu de calcul n’est pas fixé par contrat
 Le texte des questions est effacé de la base au bout de 90 jours
 En fin de contrat, sur demande, les données et la base sont restituées dans les trente jours, puis supprimées

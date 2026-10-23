@@ -2421,7 +2421,7 @@ Un texte généré ou modifié par IA, publié pour informer le public sur une q
 L’obligation tombe quand le texte a fait l’objet d’une relecture humaine ou d’un contrôle éditorial, et qu’une personne en assume la responsabilité éditoriale.
 Selon la Commission, une correction d’orthographe ou de grammaire ne compte pas comme relecture.
 Un article du bulletin municipal rédigé avec un outil d’IA peut donc relever de cette règle, s’il porte sur une question d’intérêt public.
-Je recommande une règle interne simple : aucun texte publié par la mairie sans relecture de fond par une personne nommée, qui en répond.
+Une mairie peut s’en tenir à une règle interne simple : aucun texte publié sans relecture de fond par une personne nommée, qui en répond.
 Cette règle évite de trancher, texte par texte, si un sujet relève de l’intérêt public.
 Le schéma de contrôle annoncé par la Direction générale des entreprises le 9 septembre 2025, qui n’est pas encore une loi, confierait ces textes à l’Arcom.
 Les usages à haut risque, à partir du 2 décembre 2027
@@ -2445,7 +2445,7 @@ Ces mesures tiennent compte des connaissances de chacun et du contexte d’usage
 Aucun niveau précis n’est exigé.
 Selon la Commission, aucun format de formation n’est imposé et aucun certificat n’est demandé ; faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
 Une organisation peut tenir un registre interne de ses formations et de ses autres actions (questions-réponses sur la maîtrise de l’IA, mise à jour du 20 octobre 2026).
-Je recommande à une mairie trois gestes sans budget.
+Une mairie peut commencer par trois gestes sans budget.
 Le premier est une heure de présentation pour les agents qui utilisent un outil d’IA : ce qu’il fait, pourquoi il peut se tromper, ce que la mairie autorise.
 Le deuxième est une charte d’usage d’une page, avec la liste des outils autorisés et celle des données qu’un agent n’envoie pas à un outil d’IA .
 Le troisième est un registre des présentations faites et des agents présents, mis à jour à chaque nouvel outil.
@@ -2651,7 +2651,7 @@ Une administration d’au moins 50 agents publie aussi en ligne les règles des 
 Le RGPD encadre en plus les décisions fondées exclusivement sur un traitement automatisé (article 22).
 Quatre gestes dès 2026
 Les obligations de 2027 se préparent avant la date.
-Je recommande quatre gestes, possibles dès 2026 et sans budget particulier.
+Quatre gestes sont possibles dès 2026, sans budget particulier.
 Ils servent aussi le droit français déjà en vigueur, qui demande d’expliquer une décision algorithmique à la personne qui la reçoit.
 Le premier, l’inventaire, conditionne les trois autres : une mairie ne contrôle que les outils qu’elle a listés.
 Faire l’inventaire des usages. Lister chaque outil d’IA de la commune, le service qui l’emploie et ce qu’il fait : informer, rédiger, trier, calculer ou décider.
@@ -2777,7 +2777,7 @@ La Commission décrit une approche minimale en quatre temps : assurer une compr�
 Elle ajoute qu’il n’existe pas de solution unique et qu’aucun format de formation n’est imposé.
 Elle note aussi que faire seulement lire la notice d’utilisation aux agents est souvent insuffisant.
 Une petite commune peut donc construire sa réponse avec ses moyens, à partir des outils qu’elle utilise.
-Je recommande trois gestes, à la portée d’une commune de quelques agents.
+Trois gestes sont à la portée d’une commune de quelques agents.
 Une heure de présentation pour les agents qui utilisent un outil d’IA. Ce qu’est un modèle de langage, pourquoi il peut se tromper avec assurance, et quels outils la mairie autorise.
 Une charte d’usage d’une page. Les outils autorisés, les usages permis, les données qu’un agent n’envoie pas à un outil d’IA , et la personne à qui signaler un doute.
 La liste des outils d’IA de la commune. Pour chacun : le service qui l’emploie, ce qu’il fait, le fournisseur, et la date de la présentation faite aux agents.
@@ -5977,12 +5977,12 @@ Cinq retours publiés entre 2018 et 2026
 Le tableau va du plus ancien au plus récent.
 Chaque ligne dit ce que l’article rapporte, qui donne les chiffres et ce qui reste à demander.
 Date et support Ce que l’article rapporte Qui donne les chiffres Ce qui reste à demander
-11 septembre 2018, Localtis Le chatbot de ressources humaines d’Orléans Métropole, lancé fin 2017 pour 3 500 agents : plus de 1 200 requêtes traitées au bout d’un an L’article ne le précise pas Le taux de réponses justes, le temps gagné et le coût : aucun n’est donné
-7 septembre 2020, Le Monde Informatique Le chatbot de Rosny-sous-Bois (Seine-Saint-Denis), en ligne depuis janvier 2019 : 2 500 utilisateurs uniques par mois, 300 intentions et 2 700 tournures reconnues, un taux de compréhension de 74 % et un taux de précision de 0,878 Un ancien élu de la ville pour les usages et les taux ; le journaliste pour les intentions La méthode du taux de compréhension, l’unité du taux de précision, le coût, l’hébergement des données
-27 mars 2023, Localtis Le callbot du standard de Plaisir (Yvelines), à 100 % depuis la rentrée 2022 : 500 appels par jour, 20 à 30 % d’appels décrochés avant l’outil, la moitié des demandes résolue en moins de deux minutes, un prix de départ de quelques centaines d’euros par mois Le journaliste pour le volume et la situation de départ ; l’éditeur pour les deux minutes et le prix La mesure de la justesse et l’hébergement des données ; l’éditeur donne aussi 25 à 30 % de décrochage avant l’outil, sans que l’article tranche
-2 janvier 2024, L’Éclaireur L’assistant d’Issy-les-Moulineaux, accessible depuis le site de la ville 24 h sur 24 ; une réponse a donné comme à venir un événement de décembre 2023 déjà passé Aucun chiffre ; l’exemple d’erreur est rapporté par l’article, et l’outil annonce lui-même ses limites Le processus de vérification, le coût, l’hébergement et le traitement des données
-14 juillet 2026, L’Essentiel de l’éco Plaisir : appels perdus ramenés de 60 à 65 % à 8 % avec la deuxième version de son robot ; Issy-les-Moulineaux : près de 60 000 requêtes en deux ans, assistant interrogeable par SMS depuis 2024 ; Orléans : le robot de ressources humaines répond aux 3 500 agents de la ville et de la métropole L’article ne cite aucune source pour ces chiffres La source des chiffres, le coût, l’hébergement des données
-Pour Plaisir, deux publications donnent deux situations de départ : 20 à 30 % d’appels décrochés selon Localtis en 2023, et 60 à 65 % d’appels perdus selon L’Essentiel de l’éco en 2026.
+11 septembre 2018, Localtis Le chatbot de ressources humaines d’une métropole du Loiret, lancé fin 2017 pour 3 500 agents : plus de 1 200 requêtes traitées au bout d’un an L’article ne le précise pas Le taux de réponses justes, le temps gagné et le coût : aucun n’est donné
+7 septembre 2020, Le Monde Informatique Le chatbot d’une ville de Seine-Saint-Denis, en ligne depuis janvier 2019 : 2 500 utilisateurs uniques par mois, 300 intentions et 2 700 tournures reconnues, un taux de compréhension de 74 % et un taux de précision de 0,878 Un ancien élu de la ville pour les usages et les taux ; le journaliste pour les intentions La méthode du taux de compréhension, l’unité du taux de précision, le coût, l’hébergement des données
+27 mars 2023, Localtis Le callbot du standard d’une ville des Yvelines, à 100 % depuis la rentrée 2022 : 500 appels par jour, 20 à 30 % d’appels décrochés avant l’outil, la moitié des demandes résolue en moins de deux minutes, un prix de départ de quelques centaines d’euros par mois Le journaliste pour le volume et la situation de départ ; l’éditeur pour les deux minutes et le prix La mesure de la justesse et l’hébergement des données ; l’éditeur donne aussi 25 à 30 % de décrochage avant l’outil, sans que l’article tranche
+2 janvier 2024, L’Éclaireur L’assistant d’une ville des Hauts-de-Seine, accessible depuis le site de la ville 24 h sur 24 ; une réponse a donné comme à venir un événement de décembre 2023 déjà passé Aucun chiffre ; l’exemple d’erreur est rapporté par l’article, et l’outil annonce lui-même ses limites Le processus de vérification, le coût, l’hébergement et le traitement des données
+14 juillet 2026, L’Essentiel de l’éco La ville des Yvelines : appels perdus ramenés de 60 à 65 % à 8 % avec la deuxième version de son robot ; la ville des Hauts-de-Seine : près de 60 000 requêtes en deux ans, assistant interrogeable par SMS depuis 2024 ; la métropole du Loiret : le robot de ressources humaines répond aux 3 500 agents de la ville et de la métropole L’article ne cite aucune source pour ces chiffres La source des chiffres, le coût, l’hébergement des données
+Pour la ville des Yvelines, deux publications donnent deux situations de départ : 20 à 30 % d’appels décrochés selon Localtis en 2023, et 60 à 65 % d’appels perdus selon L’Essentiel de l’éco en 2026.
 Les deux mesures ne sont pas forcément les mêmes, et aucun des deux articles ne cite sa méthode.
 Trois mesures à demander : justesse, source, coût complet
 La justesse.
@@ -6019,7 +6019,7 @@ Dans la presse spécialisée : Localtis, Le Monde Informatique, L’Éclaireur, 
 Cette page en recense cinq, de 2018 à 2026, avec leur date.
 Une commune qui a ouvert un outil peut aussi décrire ce qu’elle a mesuré : posez-lui les cinq questions ci-dessus.
 Quels sont des exemples de chatbots de mairie en France ?
-Les articles cités ici rapportent ceux de Rosny-sous-Bois (2020), de Plaisir (2023 et 2026), d’Issy-les-Moulineaux (2024 et 2026) et le chatbot interne de ressources humaines d’Orléans Métropole (2018 et 2026).
+Les articles cités ici rapportent ceux d’une ville de Seine-Saint-Denis (2020), d’une ville des Yvelines (2023 et 2026), d’une ville des Hauts-de-Seine (2024 et 2026) et le chatbot interne de ressources humaines d’une métropole du Loiret (2018 et 2026).
 Chaque exemple a sa date et sa source dans le tableau.
 Que mesure un taux de compréhension ?
 Les articles lus ne le définissent pas.
@@ -6172,7 +6172,7 @@ Le cahier apprécie la souveraineté de façon globale, au regard des risques ju
 Son modèle vient d’un éditeur européen qui s’engage par contrat à le rendre auditable.
 Les données d’entraînement ou d’inférence ne partent pas vers des serveurs hors de l’Union sans accord explicite.
 Le contrat n’implique aucune soumission à un droit ou à une juridiction hors de l’Union, la réversibilité est garantie, et la solution respecte le règlement européen sur l’IA selon son niveau de risque.
-Je conseille de demander à l’éditeur, par écrit et avant de signer la fiche, les réponses à quatre questions.
+Avant de signer la fiche, demandez à l’éditeur, par écrit, les réponses à quatre questions.
 C’est la collectivité qui certifie, sur la foi des informations reçues.
 Dans quel pays les données sont-elles hébergées, et dans quel pays sont-elles traitées, calcul du modèle d’IA compris ?
 Qui édite le modèle d’IA, dans quel pays se trouve son siège, et le contrat prévoit-il un engagement d’auditabilité ?
@@ -6328,7 +6328,7 @@ Le code permet aux acheteurs de constituer des groupements de commandes « afin 
 Une convention constitutive, signée par les membres, fixe les règles du groupement ; elle peut confier à l’un d’eux tout ou partie de la procédure, au nom et pour le compte des autres (article L2113-7).
 Les membres sont solidairement responsables des seules opérations menées conjointement en leur nom.
 Le choix entre un groupement de commandes et un achat par l’intercommunalité pour ses communes se fait avec le service juridique de l’intercommunalité, avant le dépôt de la demande.
-Je conseille de confier les deux rôles, demandeur au guichet et coordonnateur du groupement, à la même entité : un seul interlocuteur suit alors le devis, la convention de cofinancement et les factures acquittées.
+Mieux vaut confier les deux rôles, demandeur au guichet et coordonnateur du groupement, à la même entité : un seul interlocuteur suit alors le devis, la convention de cofinancement et les factures acquittées.
 L’achat lui-même se fait après la validation de la demande, comme pour une demande déposée par une commune seule.
 Proposer le sujet à son intercommunalité
 Une commune qui veut porter l’idée en conférence des maires ou en bureau communautaire peut arriver avec trois réponses :

@@ -178,8 +178,8 @@ img{max-width:100%}
 
   <header class="pv-tete">
     <h1>Ce que fait Marianne, preuves à l’appui</h1>
-    <p class="pv-chapo">Cette page rassemble les faits que Civik-ia affiche à côté de Marianne.
-      Pour chacun&nbsp;: la règle ou l’exigence du cahier des charges qui s’y rapporte, la date de sa dernière vérification et la preuve.
+    <p class="pv-chapo">Cette page rassemble des faits sur Marianne.
+      Pour chacun&nbsp;: la règle ou l’exigence du cahier des charges qui s’y rapporte, la date à laquelle Civik-ia l’a vérifié pour la dernière fois, et la preuve.
       Quand la démonstration publique le montre, vous pouvez refaire la vérification vous-même.</p>
     <p class="pv-note">Marianne est en test&nbsp;: aucune commune ne l’a en service.
       Les captures viennent de la démonstration publique de Villeneuve-les-Ormes, commune fictive, ou d’un déploiement de test dont le nom est masqué.
@@ -205,7 +205,7 @@ img{max-width:100%}
         <h3 id="t-bulle">La bulle d’accueil</h3>
         <p class="fait__texte">Marianne se présente comme une intelligence artificielle dès le premier message, que l’habitant ouvre la conversation ou pose sa question depuis l’écran d’accueil de l’application.</p>
         <p class="fait__ref"><a href="/ai-act-collectivites.html">Règlement (UE) 2024/1689, article 50, paragraphes 1 et 5</a>.
-          <a href="/cahier-des-charges-chatbot-mairie.html">Exigence 6 du cahier des charges</a>, première phrase.
+          <a href="/cahier-des-charges-chatbot-mairie.html#exigence-6">Exigence 6 du cahier des charges</a>, première phrase.
           Vérifié le <time class="pv-date" datetime="2026-10-23">23/10/2026</time>.</p>
         <div class="fait__preuve">
           <h4>Pour le constater</h4>
@@ -244,13 +244,13 @@ img{max-width:100%}
     <article class="fait fait--planches" id="sources-strictes" aria-labelledby="t-sources">
       <div>
         <h3 id="t-sources">Les pages sources</h3>
-        <p class="fait__texte">Dans les communes réglées en sources strictes, Marianne affiche sous chaque réponse fondée sur le site les pages d’où elle vient.</p>
-        <p class="fait__ref"><a href="/cahier-des-charges-chatbot-mairie.html">Exigence 1 du cahier des charges</a>.
+        <p class="fait__texte">Dans les communes réglées en sources strictes, Marianne affiche sous ses réponses fondées sur le site les pages d’où elles viennent, trois au plus.</p>
+        <p class="fait__ref"><a href="/cahier-des-charges-chatbot-mairie.html#exigence-1">Exigence 1 du cahier des charges</a>.
           Vérifié le <time class="pv-date" datetime="2026-10-23">23/10/2026</time>.</p>
         <div class="fait__preuve">
           <h4>La preuve</h4>
           <p>La démonstration publique ne le montre pas&nbsp;: Villeneuve-les-Ormes, commune fictive, n’est pas réglée en sources strictes, et ses réponses viennent d’une base écrite pour la démonstration.</p>
-          <p>Les communes réglées en sources strictes sont des déploiements de test, et leur nom n’est pas publié.
+          <p>Les communes réglées en sources strictes sont des déploiements de test, et leur nom n’est pas donné sur cette page.
             La capture vient de l’un d’eux.
             Sous la réponse, le lien «&nbsp;J’ai besoin d’un acte d’état civil&nbsp;» ouvre la page du site de la ville citée pour cette réponse.</p>
         </div>
@@ -273,14 +273,16 @@ img{max-width:100%}
       <div>
         <h3 id="t-refus">Quand le site ne publie rien</h3>
         <p class="fait__texte">Dans les communes réglées en sources strictes, Marianne a pour consigne de dire quand le site ne publie rien sur une question, et d’orienter vers la mairie.</p>
-        <p class="fait__ref"><a href="/cahier-des-charges-chatbot-mairie.html">Exigence 2 du cahier des charges</a>, première phrase.
+        <p class="fait__ref"><a href="/cahier-des-charges-chatbot-mairie.html#exigence-2">Exigence 2 du cahier des charges</a>, première phrase.
           Vérifié le <time class="pv-date" datetime="2026-10-23">23/10/2026</time>.</p>
         <div class="fait__preuve">
           <h4>La preuve</h4>
           <p>Dans ces communes, le modèle qui rédige les réponses reçoit cette consigne.
             La démonstration publique ne le montre pas, pour la même raison que les pages sources.
-            La capture vient du même déploiement de test.</p>
-          <p class="fait__limite">Une capture montre un seul cas&nbsp;: la consigne ne garantit pas la réponse à chaque question.</p>
+            La capture vient du même déploiement de test.
+            À une question sur le nombre de places d’un parking, Marianne ne donne aucun chiffre, dit ce que le site ne précise pas et renvoie vers la police municipale.</p>
+          <p class="fait__limite">Ce n’est pas systématique.
+            Le 23/10/2026, sur ce même déploiement, une question sur le nombre de bancs publics a reçu «&nbsp;Je n’ai pas cette information.&nbsp;», sans renvoi vers la mairie.</p>
         </div>
       </div>
       <div class="planches">
@@ -306,7 +308,7 @@ img{max-width:100%}
         <h3 id="t-conservation">La conservation des questions</h3>
         <p class="fait__texte">Le texte des questions est effacé de la base au bout de 90 jours.</p>
         <p class="fait__ref"><a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre2">RGPD, article 5, paragraphe 1, point e</a>.
-          <a href="/cahier-des-charges-chatbot-mairie.html">Exigence 5 du cahier des charges</a>.
+          <a href="/cahier-des-charges-chatbot-mairie.html#exigence-5">Exigence 5 du cahier des charges</a>.
           Vérifié le <time class="pv-date" datetime="2026-10-23">23/10/2026</time>.</p>
         <div class="fait__preuve">
           <h4>La preuve</h4>
@@ -320,7 +322,7 @@ img{max-width:100%}
         <h3 id="t-restitution">La restitution en fin de contrat</h3>
         <p class="fait__texte">En fin de contrat, sur demande, les données et la base de la commune lui sont restituées dans des formats publiés.</p>
         <p class="fait__ref"><a href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre4">RGPD, article 28, paragraphe 3, point g</a>.
-          <a href="/cahier-des-charges-chatbot-mairie.html">Exigence 10 du cahier des charges</a>.
+          <a href="/cahier-des-charges-chatbot-mairie.html#exigence-10">Exigence 10 du cahier des charges</a>.
           Vérifié le <time class="pv-date" datetime="2026-10-22">22/10/2026</time>.</p>
         <div class="fait__preuve">
           <h4>La preuve</h4>

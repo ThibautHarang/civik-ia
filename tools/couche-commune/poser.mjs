@@ -12,6 +12,13 @@
 //                                                       (polices, jetons, couche) et le bandeau de cookies
 //   <!-- barre-commune --> ... <!-- /barre-commune -->   la barre (et la sous-barre de la page, s'il y en a une)
 //   <!-- pied-commun --> ... <!-- /pied-commun -->       le pied
+//   <!-- mention-ia --> ... <!-- /mention-ia -->         sur les articles seulement (config « article »), dans la ligne d'auteur :
+//                                                       la mention de l'article 50.4 du règlement européen sur l'IA (ligne
+//                                                       visible et tampon, 23/10/2026), et en tête /css/mention-ia.css et
+//                                                       /js/mention-ia.js ; un article de la racine du site sans cette config
+//                                                       met l'outil en échec
+// Premier passage d'une mention : elle se pose juste avant la balise fermante de la ligne d'auteur, trouvée par sa balise
+// d'ouverture (config « article », une seule occurrence exigée, et la ligne doit nommer Thibaut Harang).
 // Premier passage sur une page sans marqueurs : l'ancienne barre et l'ancien pied sont trouvés par leur balise d'ouverture
 // (config « barre » et « pied » de la page, une seule occurrence exigée, l'élément entier est pris jusqu'à sa balise
 // fermante), et remplacés ; les liens vers Google Fonts, l'ancienne couleur de thème, les anciennes icônes et l'ancien
@@ -19,7 +26,7 @@
 // données structurées. Ce que la passe P2 a fait une seule fois en plus (verre, dégradés, émojis, thème sombre) est dans
 // son compte rendu, pas ici.
 // N'écrit que dans les pages de la liste ; ne fait ni git add, ni commit, ni déploiement.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -35,6 +42,9 @@ const V = '20261021';   // appel versionné des feuilles et du script (nginx les
 // l'accueil (/#contact), avec le choix du sujet, sur toutes les pages anciennes ; seule /marianne/ garde son propre contact
 // (#contact de la page, D72) jusqu'au verdict du 28/10
 const CONTACT = '/#contact';
+// mention de l'article 50.4 du règlement européen sur l'IA (23/10/2026, forme choisie par Thibaut Harang le 23/10/2026) : appel
+// versionné de /css/mention-ia.css et /js/mention-ia.js, à changer avec eux
+const V_MENTION = '20261023';
 
 // ---------------------------------------------------------------------------------------------------------------
 // 1. Les pages
@@ -43,6 +53,13 @@ const MARIANNE = { libelle: 'Tester Marianne', href: '/demo' };
 const GUIDE = { couche: 'ancienne', place: true, barre: { ouverture: /<header class="nav">/ }, pied: { ouverture: /<footer>/ } };
 const PRODUIT = { couche: 'ancienne', place: false, pied: { ouverture: /<footer>/ } };
 const LEGALE = { couche: 'legale', place: true, contact: '/#contact', barre: { ouverture: /<nav class="legal-nav">/ }, pied: { ouverture: /<footer class="legal-footer">/ } };
+// les articles (JSON-LD « Article ») : la ligne d'auteur où se pose la mention, et la date à laquelle Thibaut Harang a relu
+// l'article, page par page (méthode du 23/10/2026 : chaque nouvel article porte la mention et sa date de relecture avant sa mise
+// en ligne). Un nouvel article écrit sa propre date, article: { ...AUTEUR, relu: 'JJ/MM/AAAA' } ; il ne reprend pas RELU_23_10.
+const AUTEUR = { ouverture: /<(?:p|div) class="(?:meta|hero-meta|hero-pillar-meta)">/ };
+// les trente articles relus par Thibaut Harang, déclaré en session le 23/10/2026 (« j'ai relu chaque article »)
+const RELU_23_10 = { ...AUTEUR, relu: '23/10/2026' };
+const RELU_23_10_NUIT = { ...RELU_23_10, nuit: true };   // ligne d'auteur sur le bandeau bleu : tampon à l'encre crème
 const OVERLAY = '<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>';
 const MENTION_WA = 'Le canal WhatsApp de Civik-ia est en préparation&nbsp;; son ouverture est prévue prochainement et les conversations présentées sont illustratives. WhatsApp est une marque de Meta Platforms, Inc., citée à des fins d’illustration&nbsp;; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux&nbsp;; WhatsApp serait un canal de transport choisi par la&nbsp;mairie.';
 const MENTION_MS = 'Le canal Messenger de Civik-ia est en préparation&nbsp;; son ouverture est prévue prochainement et les conversations présentées sont illustratives. Ce canal répond aux messages reçus&nbsp;; il ne permet pas d’envoi massif sortant, par politique de la plateforme. Messenger est une marque de Meta Platforms, Inc., citée à des fins d’illustration&nbsp;; Civik-ia n’est pas affilié à Meta. Le moteur d’intelligence de Marianne est souverain (Mistral AI, hébergement OVH, UE) et déjà disponible en démonstration sur nos autres canaux&nbsp;; Messenger serait un canal de transport choisi par la mairie, la conversation y transitant par Meta comme c’est déjà le cas de la messagerie de votre page&nbsp;aujourd’hui.';
@@ -51,24 +68,24 @@ const CANAL = [['#demo', 'Aperçu'], ['#tarifs', 'Prix'], ['#capacites', 'Foncti
 
 const PAGES = [
   ['aide.html', { couche: 'ancienne', place: true, contact: '/#contact', barre: { apres: '<a href="#main" class="sr-only">Aller au contenu</a>\n' }, pied: { avant: '<script>\n(function () {' } }],
-  ['callbot-mairie.html', GUIDE],
-  ['chatbot-commune-rurale.html', { ...PRODUIT, barre: { ouverture: /<nav aria-label="Navigation principale" role="navigation">/, retirer: ['    <!-- Mobile overlay -->\n    ' + OVERLAY + '\n'] } }],
-  ['chatbot-mairie-gratuit.html', GUIDE],
+  ['callbot-mairie.html', { ...GUIDE, article: RELU_23_10 }],
+  ['chatbot-commune-rurale.html', { ...PRODUIT, article: RELU_23_10_NUIT, barre: { ouverture: /<nav aria-label="Navigation principale" role="navigation">/, retirer: ['    <!-- Mobile overlay -->\n    ' + OVERLAY + '\n'] } }],
+  ['chatbot-mairie-gratuit.html', { ...GUIDE, article: RELU_23_10 }],
   ['chatbot-mairie-prix.html', { ...PRODUIT, barre: { ouverture: /<nav aria-label="Navigation principale" role="navigation">/, retirer: ['    <!-- Mobile overlay -->\n    ' + OVERLAY + '\n'] } }],
-  ['chatbot-mairie.html', { ...PRODUIT, barre: { ouverture: /<nav aria-label="Navigation principale" role="navigation">/, retirer: ['    ' + OVERLAY + '\n'] } }],
-  ['comment-communiquer-avec-ses-citoyens.html', GUIDE],
-  ['comparatif-chatbot-mairie-2026.html', GUIDE],
-  ['demarches-en-ligne-commune.html', GUIDE],
+  ['chatbot-mairie.html', { ...PRODUIT, article: RELU_23_10_NUIT, barre: { ouverture: /<nav aria-label="Navigation principale" role="navigation">/, retirer: ['    ' + OVERLAY + '\n'] } }],
+  ['comment-communiquer-avec-ses-citoyens.html', { ...GUIDE, article: RELU_23_10 }],
+  ['comparatif-chatbot-mairie-2026.html', { ...GUIDE, article: RELU_23_10 }],
+  ['demarches-en-ligne-commune.html', { ...GUIDE, article: RELU_23_10 }],
   ['demo.html', { couche: 'ancienne', place: true, courant: 'true', action: { libelle: 'Réserver une démonstration', href: '#capture' }, barre: { ouverture: /<nav class="nav" aria-label="Navigation principale">/ }, pied: { ouverture: /<footer>/ } }],
-  ['financement-ia-collectivite.html', GUIDE],
-  ['guide-rgpd-ia-collectivites.html', GUIDE],
-  ['ia-souveraine-mairie-mistral.html', GUIDE],
+  ['financement-ia-collectivite.html', { ...GUIDE, article: RELU_23_10 }],
+  ['guide-rgpd-ia-collectivites.html', { ...GUIDE, article: RELU_23_10 }],
+  ['ia-souveraine-mairie-mistral.html', { ...GUIDE, article: RELU_23_10 }],
   ['livre-blanc.html', GUIDE],
-  ['logiciel-mairie-petite-commune.html', GUIDE],
+  ['logiciel-mairie-petite-commune.html', { ...GUIDE, article: RELU_23_10 }],
   ['marianne-messenger.html', { couche: 'ancienne', place: false, courant: 'true', sousBarre: CANAL, mention: MENTION_MS, barre: { ouverture: /<nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;/ }, pied: { ouverture: /<footer class="pied">/ } }],
   ['marianne-whatsapp.html', { couche: 'ancienne', place: false, courant: 'true', sousBarre: CANAL, mention: MENTION_WA, barre: { ouverture: /<nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;/ }, pied: { ouverture: /<footer class="pied">/ } }],
-  ['outils-ia-secretaire-de-mairie.html', GUIDE],
-  ['reduire-appels-mairie-chatbot-ia.html', GUIDE],
+  ['outils-ia-secretaire-de-mairie.html', { ...GUIDE, article: RELU_23_10 }],
+  ['reduire-appels-mairie-chatbot-ia.html', { ...GUIDE, article: RELU_23_10 }],
   ['22h47.html', { couche: 'ancienne', place: false, theme: '#0A0F2C', barre: { apres: '<body>\n' }, pied: { ouverture: /<footer class="s-footer">/ } }],
   ['legal/accessibilite-rgaa.html', LEGALE],
   ['legal/bon-de-commande-civik-ia.html', { ...LEGALE, barre: { ouverture: /<nav class="screen-nav">/, retirer: ['    <!-- Screen-only navigation -->\n'] }, pied: { avant: '\n</body>' } }],
@@ -86,28 +103,28 @@ const PAGES = [
     barre: { ouverture: /<header>\n<!-- BANDEAU D'ANNONCE/ }, pied: { ouverture: /<footer class="pied">/ } }],
   ['404.html', { couche: 'ancienne', place: true, contact: '/#contact' }],
   // P9 (19/10/2026) : les trois pages neuves du référencement, de la famille des guides ; elles naissent avec les marqueurs vides
-  ['guichet-citoyen-ia.html', { couche: 'ancienne', place: true }],
-  ['base-de-connaissances-mairie.html', { couche: 'ancienne', place: true }],
-  ['rag-collectivites.html', { couche: 'ancienne', place: true }],
+  ['guichet-citoyen-ia.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['base-de-connaissances-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['rag-collectivites.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
   // grappe données (21/10/2026) : les six articles, même famille et même naissance (marqueurs vides)
-  ['securiser-base-de-donnees-collectivite.html', { couche: 'ancienne', place: true }],
-  ['sources-officielles-mairie-quelle-source-fait-foi.html', { couche: 'ancienne', place: true }],
-  ['donnees-a-ne-pas-envoyer-ia-mairie.html', { couche: 'ancienne', place: true }],
-  ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true }],
-  ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true }],
-  ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true }],
+  ['securiser-base-de-donnees-collectivite.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['sources-officielles-mairie-quelle-source-fait-foi.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['donnees-a-ne-pas-envoyer-ia-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
   // grappe AI Act (23/10/2026) : le pilier et deux articles, même famille et même naissance (marqueurs vides) ; l'article 50,
   // retenu sur la branche contenu-2026-10-23, reprendra sa ligne à sa mise en ligne
-  ['ai-act-collectivites.html', { couche: 'ancienne', place: true }],
-  ['ia-haut-risque-collectivite-annexe-iii.html', { couche: 'ancienne', place: true }],
-  ['article-4-ai-act-maitrise-ia-agents-mairie.html', { couche: 'ancienne', place: true }],
+  ['ai-act-collectivites.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['ia-haut-risque-collectivite-annexe-iii.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['article-4-ai-act-maitrise-ia-agents-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
   // grappes chatbot et financement (23/10/2026) : cinq articles, même famille et même naissance (marqueurs vides) ; l'article
   // DETR, DSIL, FCTVA, retenu sur la branche contenu-2026-10-23, reprendra sa ligne à sa mise en ligne
-  ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true }],
-  ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true }],
-  ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],
-  ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true }],
-  ['mutualiser-ia-intercommunalite-cofinancement.html', { couche: 'ancienne', place: true }],
+  ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['territoires-d-ia-dossier-cofinancement.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
+  ['mutualiser-ia-intercommunalite-cofinancement.html', { couche: 'ancienne', place: true, article: RELU_23_10 }],
   // page moyeu des guides (21/10/2026, mandat de Thibaut du 20/10) : même famille, même naissance (marqueurs vides) ; le pied des
   // guides reçoit « Tous les guides » en dernière ligne (plan de la DDC du 20/10/2026, section 3 : page de rangement)
   ['guides.html', { couche: 'ancienne', place: true }],
@@ -223,6 +240,26 @@ function pied(f, c) {
     + '<!-- /pied-commun -->';
 }
 
+// la mention de l'article 50.4 (23/10/2026) : les mots de Thibaut Harang, à ne pas reformuler ; la phrase dépliée est écrite
+// dans la page (site statique, texte citable), le script ne fait que l'ouvrir et la fermer
+const MIA_LIGNE = 'Une IA a tenu le stylo, j’ai tenu la gomme.';
+const MIA_TAMPON = 'IA à l’écrit, humain au contrôle';
+// la plume gravée du tampon (trait fin, deux hachures à l'ombre, lumière venue de la gauche)
+const PLUME = '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 14.6L4.6 8.4C4.4 6.6 5.3 4.6 6.1 3.2H9.9C10.7 4.6 11.6 6.6 11.4 8.4Z"/><path d="M6.1 3.2V1.6H9.9V3.2M8 14.6V9.4"/><circle cx="8" cy="8.4" r=".95"/><path d="M9.6 4.9L10.4 6.3M9.9 10.3L10.6 9.1"/></svg>';
+
+function mention(f, c) {
+  const a = c.article;
+  if (!/^\d{2}\/\d{2}\/\d{4}$/.test(a.relu || '')) throw new Error('mention IA : date de relecture absente ou mal écrite (article.relu, JJ/MM/AAAA)');
+  return '<!-- mention-ia -->'
+    + `<span class="mia${a.nuit ? ' mia--nuit' : ''}">`
+    + `<span class="mia__ligne">${MIA_LIGNE}</span> `
+    + '<span class="mia__tampon">'
+    + `<button type="button" class="mia__bouton" aria-expanded="false" aria-controls="mia-detail">${PLUME}<span class="mia__texte">${MIA_TAMPON}</span></button>`
+    + ` <span class="mia__detail" id="mia-detail" role="note">Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le ${a.relu}.</span>`
+    + '</span></span>'
+    + '<!-- /mention-ia -->';
+}
+
 function tete(f, c) {
   const l = ['<!-- tete-commune -->', '<meta name="color-scheme" content="light">', `<meta name="theme-color" content="${c.theme || '#f7f4ed'}">`];
   if (c.icones !== false) l.push(
@@ -233,8 +270,11 @@ function tete(f, c) {
   if (c.polices !== false) l.push(
     '<link rel="preload" href="/assets/fonts/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>',
     `<link rel="stylesheet" href="/css/polices.css?v=${V}">`);
-  l.push(`<link rel="stylesheet" href="/css/jetons.css?v=${V}">`, `<link rel="stylesheet" href="/css/couche-commune.css?v=${V}">`,
-    `<script src="/js/cookies.js?v=${V}" defer></script>`, '<!-- /tete-commune -->');
+  l.push(`<link rel="stylesheet" href="/css/jetons.css?v=${V}">`, `<link rel="stylesheet" href="/css/couche-commune.css?v=${V}">`);
+  if (c.article) l.push(`<link rel="stylesheet" href="/css/mention-ia.css?v=${V_MENTION}">`);
+  l.push(`<script src="/js/cookies.js?v=${V}" defer></script>`);
+  if (c.article) l.push(`<script src="/js/mention-ia.js?v=${V_MENTION}" defer></script>`);
+  l.push('<!-- /tete-commune -->');
   return l.join('\n');
 }
 
@@ -281,6 +321,16 @@ function ancien(spec) {
     throw new Error(`${nom} : règle vide`);
   };
 }
+// premier passage d'une mention : juste avant la balise fermante de la ligne d'auteur, qui doit nommer Thibaut Harang
+function ligneAuteur(spec) {
+  return (s, nom) => {
+    const [a, b] = element(s, unique(s, spec.ouverture, nom));
+    const ligne = s.slice(a, b);
+    if (!ligne.includes('Thibaut Harang')) throw new Error(`${nom} : la ligne d'auteur trouvée ne nomme pas Thibaut Harang`);
+    const i = b - /<\/[a-zA-Z0-9]+>$/.exec(ligne)[0].length;
+    return [i, i];
+  };
+}
 // ce qui part de la tête au premier passage (rien d'autre)
 const TETE_RETIRER = [
   /[ \t]*<!-- Mesure d'audience[^>]*-->\n/g,
@@ -317,6 +367,8 @@ for (const [f, c] of PAGES) {
     // la barre et le pied
     s = poser(s, '<!-- barre-commune -->', '<!-- /barre-commune -->', barre(f, c), ancien(c.barre), f + ' (barre)');
     s = poser(s, '<!-- pied-commun -->', '<!-- /pied-commun -->', pied(f, c), ancien(c.pied), f + ' (pied)');
+    if (c.article) s = poser(s, '<!-- mention-ia -->', '<!-- /mention-ia -->', mention(f, c), ligneAuteur(c.article), f + ' (mention IA)');
+    else if (s.includes('<!-- mention-ia -->')) throw new Error('mention IA posée sur une page sans config « article »');
     for (const r of (c.barre && c.barre.retirer) || []) s = s.split(r).join('');
     if (c.barre && c.barre.retirer) for (const r of c.barre.retirer) if (s.includes(r)) throw new Error('reste : ' + r);
     if (/<script src="\/cookie-consent\.js"/.test(s)) throw new Error('/cookie-consent.js encore chargé');
@@ -325,6 +377,13 @@ for (const [f, c] of PAGES) {
   changees++;
   console.log(`${ECRIRE ? 'posée    ' : 'à poser  '} ${f} (${avant.length} → ${s.length} octets)`);
   if (ECRIRE) writeFileSync(chemin, s);
+}
+// un article de la racine du site (JSON-LD « Article ») sans la config « article » met l'outil en échec : chaque nouvel article
+// porte la mention de l'article 50.4 et la date de relecture de Thibaut Harang avant sa mise en ligne (méthode du 23/10/2026)
+const CONFIG = new Map(PAGES);
+for (const f of readdirSync(SITE).filter(n => n.endsWith('.html')).sort()) {
+  if (!/"@type"\s*:\s*(?:\[[^\]]*)?"(?:Article|BlogPosting|NewsArticle|TechArticle|Report|ScholarlyArticle)"/.test(readFileSync(join(SITE, f), 'utf8'))) continue;
+  if (!(CONFIG.get(f) || {}).article) { console.log(`ÉCHEC ${f} : article sans la mention de l'article 50.4 (ajouter la page à la liste, avec article: { ...AUTEUR, relu: 'JJ/MM/AAAA' })`); ko++; }
 }
 console.log(`\n${PAGES.length} pages : ${aJour} à jour, ${changees} ${ECRIRE ? 'posées' : 'à poser'}, ${ko} en échec`);
 process.exit(ko || (VERIFIER && changees) ? 1 : 0);

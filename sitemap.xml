@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Sitemap de civik-ia.fr, refonte en trois branches (Marianne, Conseil, Atelier), mise en ligne du 19/10/2026. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-10-19</lastmod></url>
-  <url><loc>https://civik-ia.fr/conseil/</loc><lastmod>2026-10-21</lastmod></url>
+  <url><loc>https://civik-ia.fr/</loc><lastmod>2026-10-23</lastmod></url>
+  <url><loc>https://civik-ia.fr/conseil/</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://civik-ia.fr/atelier/</loc><lastmod>2026-10-21</lastmod></url>
   <!-- /marianne/ : lastmod 2026-10-13, date de la correction D106 (formule « questions types ») ; la section « Une seule source »
        n'est pas encore dans la page : le jour où elle est en ligne, lastmod = date de cette mise en ligne -->

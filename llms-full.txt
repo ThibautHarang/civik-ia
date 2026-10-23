@@ -1954,6 +1954,7 @@ Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été
 Les agents de la mairie relisent les réponses, et la mesure est remise à la mairie avec la version de référence.
 Les banques de test contiennent des questions pièges dont la seule réponse juste est un refus.
 Une batterie d’attaques est rejouée après chaque modification des consignes du modèle, de l’authentification ou du serveur web.
+Marianne se présente comme une intelligence artificielle dès son premier message, comme le prévoit l’article 50 du règlement européen sur l’intelligence artificielle, applicable depuis le 2 août 2026.
 Civik-ia ne publie pas de taux de justesse tant qu’aucune commune n’a Marianne en service : les mesures portent sur des communes de test.
 La page RAG pour une mairie décrit ce que cette mesure prouve et ce qu’elle ne prouve pas ; le cadre est sur la page guichet citoyen IA .
 Questions fréquentes
@@ -2483,7 +2484,7 @@ Une analyse d’impact est présumée nécessaire quand le traitement remplit au
 Le détail est dans le guide RGPD et IA en collectivité .
 Chez Marianne
 Marianne, l’assistante que Civik-ia propose aux mairies, est en test : aucune commune ne l’a en service.
-Dans les communes réglées en sources strictes, elle renvoie à la page d’où vient la réponse.
+Marianne se présente comme une IA dès le premier message. Dans les communes réglées en sources strictes, elle renvoie à la page d’où vient la réponse.
 Sa bulle d’accueil dit, au 22 octobre 2026 : « Bonjour !
 Je suis Marianne, l’assistante d’intelligence artificielle de la mairie.
 Posez-moi vos questions ou choisissez un sujet ci-dessous. » C’est le type de phrase qu’une mairie peut demander à voir chez tout fournisseur, avant de signer.
@@ -2981,6 +2982,7 @@ Chez Marianne
 Marianne est en test : aucune commune ne l’a en service.
 Voici où elle en est, au 22 octobre 2026, sur plusieurs de ces exigences.
 Dans les communes réglées en sources strictes, chaque réponse cite sa page source, et quand le site ne dit rien, elle le dit et oriente vers la mairie
+Elle se présente comme une intelligence artificielle dès son premier message
 Le serveur est chez OVHcloud, en Allemagne ; le modèle est celui de Mistral AI, société française, et son lieu de calcul n’est pas fixé par contrat
 Le texte des questions est effacé de la base au bout de 90 jours
 En fin de contrat, sur demande, les données et la base sont restituées dans les trente jours, puis supprimées
@@ -3301,7 +3303,7 @@ Le chatbot est-il conforme RGPD ?
 La mairie, responsable du traitement, en juge avec son délégué à la protection des données ; Civik-ia, sous-traitant, lui remet un accord sur le traitement des données. Marianne ne demande ni compte ni nom ; les questions reconnues comme portant sur un thème sensible ne sont pas écrites dans la base, et le texte des autres questions en est effacé au bout de 90 jours. Le serveur est chez OVHcloud, en Allemagne ; les réponses sont rédigées par Mistral AI, société française. Le détail est dans notre guide RGPD et IA en collectivité .
 Un chatbot de mairie doit-il dire qu’il est une IA ?
 +
-Oui. Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation (article 50 du règlement (UE) 2024/1689 ). L’obligation pèse sur le fournisseur de l’outil. Ce que le règlement européen sur l’IA change pour une mairie .
+Oui. Depuis le 2 août 2026, un système d’IA conçu pour dialoguer avec des personnes doit les informer qu’elles échangent avec une IA, au plus tard à la première interaction, sauf si cela ressort clairement du point de vue d’une personne normalement informée et raisonnablement attentive et avisée, compte tenu des circonstances et du contexte d’utilisation (article 50 du règlement (UE) 2024/1689 ). L’obligation pèse sur le fournisseur de l’outil. Chez Civik-ia, la bulle d’accueil de Marianne le dit dès le premier message. Ce que le règlement européen sur l’IA change pour une mairie .
 Combien de temps faut-il pour ouvrir un chatbot de mairie ?
 +
 Aucun délai type n’existe. L’ouverture aux habitants suit la validation écrite de la version de référence par la mairie, au terme des six étapes de la mise en service : inventaire des sources, cadre écrit, base de connaissances, mesure avant ouverture, validation par les agents, version de référence.
@@ -4255,7 +4257,7 @@ Le texte des questions et leur date, le plus souvent. Aucun compte ne devrait ê
 3. Où les données sont-elles traitées, et par qui ?
 La réponse doit nommer l’hébergeur, le pays du serveur, l’éditeur du modèle et le lieu où le modèle calcule, tels que le contrat les fixe. Pour Marianne : serveur chez OVHcloud, en Allemagne ; sauvegardes quotidiennes sur le serveur, avec une copie hors site en France ; modèle de Mistral AI, société française ; lieu de calcul du modèle non fixé par contrat, ce que l’accord dit. Le détail est sur la page guichet citoyen IA , section « Souveraineté ».
 4. L’habitant sait-il qu’il parle à une IA, et qui répond de l’outil ?
-Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). L’information prévue par l’article 13 du RGPD nomme la mairie, son délégué à la protection des données et les droits des habitants. Pour Marianne, l’information de l’article 13 se rédige avec la mairie pendant la mise en service.
+Depuis le 2 août 2026, un système qui dialogue avec le public doit informer la personne qu’elle échange avec une IA (article 50 du règlement (UE) 2024/1689). L’information prévue par l’article 13 du RGPD nomme la mairie, son délégué à la protection des données et les droits des habitants. Pour Marianne, la bulle d’accueil le dit dès le premier message ; l’information de l’article 13 se rédige avec la mairie pendant la mise en service.
 5. Faut-il une analyse d’impact (AIPD) ?
 Pour un assistant qui informe sur les horaires et les démarches, elle n’est en général pas obligatoire ; elle le devient si l’outil traite des données sensibles de façon systématique, croise des fichiers ou profile les habitants. La mairie en décide. Pour Marianne, Civik-ia remet avant l’ouverture les éléments de cette analyse : description du traitement, mesures de sécurité, risques identifiés.
 Pour certains systèmes d’IA à haut risque, le règlement européen sur l’IA demandera aussi à la commune, à partir du 2 décembre 2027, une analyse d’impact sur les droits fondamentaux .

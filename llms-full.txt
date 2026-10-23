@@ -7,6 +7,7 @@
 # Editeur : Civik-ia (SASU), SIREN 103 568 416, Narbonne, France.
 # Registre public : https://annuaire-entreprises.data.gouv.fr/entreprise/103568416
 # Resume court : https://civik-ia.fr/llms.txt
+# Les articles de civik-ia.fr sont préparés avec l'aide d'une IA, relus et signés par Thibaut Harang.
 #
 # Définitions employées sur tout le site :
 #   Guichet citoyen IA : répond aux habitants d'une commune à partir des sources officielles de la mairie,
@@ -1026,7 +1027,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA
 Guichet citoyen IA : ce que c’est et ce qu’il doit prouver
 Un guichet citoyen IA répond aux habitants d’une commune à partir des sources officielles de la mairie, cite la page d’où vient chaque réponse et dit quand il ne sait pas. Marianne, de Civik-ia, est conçue ainsi ; elle est en test, aucune commune ne l’a en service.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Le guichet citoyen IA prend en charge, par écrit et à toute heure, les questions d’information que reçoit l’accueil d’une mairie : horaires, pièces à fournir, collecte des déchets, inscriptions scolaires, règles d’urbanisme. Les demandes qui engagent la commune, comme un dossier, une réclamation ou une situation personnelle, restent traitées par les agents.
 L’expression est récente et aucun texte officiel ne la définit. Cette page en propose une définition et six critères qu’une mairie peut vérifier elle-même, sur l’outil de Civik-ia comme sur un autre.
 Définition et limites
@@ -1169,7 +1170,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › Base de connaissances
 Base de connaissances d’une mairie : sources validées et mise à jour
 La base de connaissances d’une mairie rassemble, en fiches courtes et datées, ce que la commune publie et que son assistant a le droit de citer : pages du site officiel, documents mis en ligne, actes, fiches écrites pour ce que le site ne tranche pas. Chez Marianne, elle est validée par la mairie avant l’ouverture. Un site sous WordPress est relu chaque nuit ; pour les autres outils de publication, dont TYPO3, le lecteur est en test.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Un assistant municipal ne répond pas mieux que sa base. Cette page décrit ce que contient celle de Marianne, qui en valide les sources, comment elle se tient à jour et ce qu’elle ne garantit pas.
 Ce que contient la base
 Une fiche est un extrait d’une page ou d’un document, avec l’adresse et la date de sa source. Sur une commune de test d’environ 11 000 habitants, la base comptait au 8 octobre 2026 4 126 fiches, dont 89 écrites et vérifiées à la main, tirées de 644 pages et de 272 actes (relevé de Civik-ia).
@@ -1279,7 +1280,7 @@ Accueil Marianne Conseil Atelier Contact Gérer les cookies
 Accueil › Guichet citoyen IA › RAG
 RAG pour une mairie : une IA qui cherche avant de répondre
 Le RAG fait chercher l’IA dans des documents choisis avant qu’elle rédige : la réponse s’appuie sur une source citée plutôt que sur la mémoire du modèle. Appliqué à une commune, les documents choisis sont ceux de la mairie, et la page source est donnée à l’habitant sous la réponse.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 RAG est le sigle anglais de « retrieval-augmented generation », en français génération augmentée par récupération. La méthode a été décrite en 2020 par des chercheurs de Facebook AI Research, d’University College London et de New York University ( Lewis et al., arXiv 2005.11401 ). La CNIL la cite parmi les façons de déployer une IA générative dans une organisation.
 Pourquoi une IA sans recherche invente
 Un modèle de langage écrit le texte le plus probable à partir de ce qu’il a lu pendant son entraînement. Il ne connaît ni les horaires de votre mairie, ni la date de la prochaine collecte des encombrants, ni le tarif de la cantine de cette année. Interrogé sans document, il peut produire une réponse plausible et fausse, sur le même ton qu’une réponse juste. La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « Ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
@@ -1387,7 +1388,7 @@ Sécuriser la base de données d’une collectivité territoriale : sept mesures
 Pour sécuriser la base de données d’une collectivité, commencez par des sauvegardes dont une copie hors ligne, testée en restauration.
 Viennent ensuite des comptes individuels avec authentification à plusieurs facteurs, des droits limités à chaque mission, des journaux conservés de six mois à un an et des mises à jour rapides.
 Ces mesures sont celles de la CNIL et de l’ANSSI.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Une mairie tient des bases très différentes : état civil, listes électorales, paie, action sociale, urbanisme, inscriptions scolaires.
 Toutes contiennent des données personnelles.
 L’article 32 du RGPD demande donc au responsable du traitement et à son sous-traitant de mettre en œuvre « les mesures techniques et organisationnelles appropriées afin de garantir un niveau de sécurité adapté au risque » ( CNIL, guide de la sécurité des données personnelles, édition du 26 mars 2024 ).
@@ -1573,7 +1574,7 @@ Le site et les actes de la commune valent pour tout ce qui est local : horaires,
 Service-Public.gouv.fr vaut pour les démarches nationales, Légifrance pour le texte d’une loi, le Géoportail de l’urbanisme pour le PLU.
 Une réponse sérieuse cite la page et sa date.
 Une fiche nationale explique une démarche ; en cas de doute, c’est le texte qu’elle cite qui s’applique.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Un secrétaire de mairie répond chaque jour à des questions qui relèvent de sources différentes.
 Un assistant en ligne, qu’il soit humain ou automatique, rencontre le même problème : où se trouve la version qui fait foi, et comment la montrer à l’habitant ?
 Cette page classe six sources officielles, dit ce que chacune garantit et ce que sa licence demande de citer.
@@ -1721,7 +1722,7 @@ IA en mairie : quelles données ne jamais envoyer à un modèle de langage ?
 Une mairie n’envoie à un outil d’IA grand public ni donnée personnelle, ni donnée sensible, ni document interne non publié : l’ANSSI le proscrit, la CNIL le déconseille.
 Un texte déjà publié peut partir.
 Remplacer un nom par un numéro ne suffit pas : une donnée pseudonymisée reste une donnée personnelle.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Les outils d’IA générative se sont installés dans les services avant les règles.
 Un agent qui colle le courrier d’un habitant dans un outil gratuit pour le reformuler envoie des données personnelles à un tiers.
 Cette page dit quelles données ne partent pas, ce que la pseudonymisation change, et quelles questions poser à un fournisseur.
@@ -1885,7 +1886,7 @@ Accueil › Tester un chatbot de mairie
 Tester un chatbot de mairie : constituer ses questions avant l’ouverture
 Tester un chatbot de mairie, c’est lui poser plusieurs centaines de questions prises dans la vie réelle de la mairie, écrire la réponse attendue avant le test, puis juger chaque réponse contre sa page source : juste, partielle, fausse ou refus.
 Une banque de contrôle, écrite à part, vérifie que l’outil n’a pas été réglé pour les seules questions connues.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Un chatbot de mairie peut répondre avec assurance une information fausse : un délai, un tarif, une pièce à fournir.
 La CNIL le rappelle dans ses questions-réponses sur l’IA générative : « ces systèmes peuvent générer des résultats inexacts » ( CNIL, 18 juillet 2024 ).
 L’ANSSI recommande des tests de performance et de qualité des réponses avant la mise en production, et indique qu’ils peuvent se répéter à une fréquence donnée, pas seulement lors des déploiements (recommandation R24 du guide ANSSI-PA-102, 29 avril 2024).
@@ -2039,7 +2040,7 @@ Accueil › Base de données fiable pour l’IA
 Constituer une base de données fiable pour l’IA d’une mairie : sept étapes
 Une base de données fiable pour l’IA d’une mairie se constitue en sept étapes.
 Inventorier les sources et leur responsable, ne garder que ce qui est déjà public, découper en fiches courtes, dater chaque fiche et garder l’adresse de sa source, régler les contradictions, mettre à jour à rythme fixe, puis mesurer avant l’ouverture.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Un assistant d’IA répond avec ce qu’il trouve.
 Si la base contient une page périmée, deux tarifs différents ou un document qui n’aurait jamais dû sortir, la réponse reprendra l’erreur sur le même ton qu’une réponse juste.
 La commune est la seule à connaître ses sources : cette page décrit le travail qui lui revient, quel que soit l’outil choisi.
@@ -2184,7 +2185,7 @@ Accueil › Souveraineté numérique d’une commune
 Souveraineté numérique d’une commune : six questions à poser à un fournisseur
 La souveraineté numérique d’une commune se vérifie par écrit, fournisseur par fournisseur : l’hébergeur et le pays du serveur, les accès, les sous-traitants et le droit qui les régit, le lieu de calcul de l’IA, la sortie des données, et les preuves fournies.
 Le mot n’a pas de définition légale pour une commune.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Une mairie utilise des logiciels de paie, d’état civil, de gestion des élections, une messagerie, un site, et de plus en plus un assistant d’IA.
 Chacun repose sur un hébergeur, des sous-traitants et parfois un modèle d’IA.
 Cette page dit ce que les textes demandent aujourd’hui à une commune, ce que la qualification SecNumCloud garantit, puis pose six questions qui valent pour n’importe quel outil.
@@ -2346,7 +2347,7 @@ AI Act et collectivités : ce qui change pour une mairie, date par date
 Une mairie, comme toute collectivité qui utilise un système d’IA, est déployeur au sens de l’AI Act, le règlement (UE) 2024/1689.
 Elle doit déjà veiller à la maîtrise de l’IA par ses agents et, sauf relecture éditoriale, signaler les textes d’information générés par IA qu’elle publie.
 Les règles du haut risque s’appliqueront le 2 décembre 2027.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Le règlement européen sur l’intelligence artificielle, souvent appelé AI Act, est en vigueur depuis le 1er août 2024.
 Ses obligations s’appliquent par étapes.
 Le règlement (UE) 2026/1744 du 8 juillet 2026, en vigueur depuis le 27 juillet 2026, en a déplacé plusieurs et en a réécrit d’autres.
@@ -2585,7 +2586,7 @@ Accueil › IA à haut risque en collectivité
 IA à haut risque en collectivité : les usages de l’annexe III et les obligations de 2027
 Au sens de l’AI Act, un système d’IA qu’une collectivité utilise pour évaluer l’éligibilité à une aide sociale essentielle, ou pour l’octroyer, la réduire, la révoquer ou la récupérer, est en principe à haut risque (annexe III, point 5, a).
 Les obligations du déployeur, dont le contrôle humain et les journaux, s’appliqueront le 2 décembre 2027 (règlement (UE) 2026/1744).
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Le règlement européen sur l’IA classe les usages, outil par outil.
 L’annexe III liste les domaines où un système d’IA est à haut risque, et l’article 6 dit quand un système de cette liste peut en sortir.
 Pour une commune, ces règles visent des outils précis : ceux qui décident, ou préparent une décision, sur une aide, un recrutement, une affectation scolaire ou un appel d’urgence.
@@ -2746,7 +2747,7 @@ Article 4 de l’AI Act : la maîtrise de l’IA par les agents d’une mairie
 L’article 4 de l’AI Act demande aux fournisseurs et aux déployeurs d’IA, mairies comprises, de prendre des mesures pour favoriser la maîtrise de l’IA des agents et des personnes qui utilisent ces outils pour leur compte.
 Aucun niveau précis n’est exigé et, selon la Commission, aucun format de formation n’est imposé.
 Cette rédaction est en vigueur depuis le 27 juillet 2026.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 La maîtrise de l’IA, que la Commission appelle aussi littératie en matière d’IA, compte parmi les premières règles du règlement européen sur l’IA à s’appliquer : elle vaut depuis le 2 février 2025.
 Le règlement (UE) 2026/1744 l’a réécrite, et la nouvelle rédaction est en vigueur depuis le 27 juillet 2026.
 Dans une mairie, elle concerne chaque agent qui utilise un outil d’IA dans son travail.
@@ -2884,7 +2885,7 @@ Accueil › Cahier des charges d’un chatbot de mairie
 Cahier des charges d’un chatbot IA de mairie : douze exigences à écrire
 Le cahier des charges d’un chatbot de mairie fixe ce que l’outil doit prouver avant l’achat.
 Douze exigences, chacune avec sa source : l’origine des réponses, l’hébergement et le lieu de calcul, le test, l’information de l’habitant sur l’IA, la réversibilité, le prix complet.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Ce texte sert de base à une consultation, une lettre de commande ou un bon de commande, et la mairie l’adapte à son besoin.
 Chaque exigence tient en une clause, une preuve à demander et une source.
 Les clauses 1, 2, 7, 8, 9 et 11, et l’accueil humain de la clause 12, sont des choix de la mairie : aucun texte ne les impose.
@@ -3196,7 +3197,7 @@ Accueil
 Chatbot Mairie
 Chatbot mairie : le guide complet pour les DGS et secrétaires de mairie
 Un chatbot de mairie répond par écrit aux questions des habitants, à toute heure, à partir des informations publiées par la commune. Pour le choisir, vérifiez d’où viennent ses réponses et s’il cite la page source, ce qu’il dit quand il ne sait pas, où sont hébergées les données, son prix complet et la façon dont il se pose sur le site de la mairie.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Tester la démo
 Le prix d’un chatbot
 Pourquoi un chatbot en mairie ?
@@ -3592,6 +3593,7 @@ Cible : maire, DGS, secrétaire de mairie
 Lecture : 5 minutes
 Vérifié le : 24/08/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Oui, du gratuit existe. Delibia offre une licence à toutes les secrétaires de mairie de France, mais son offre payante est décrite par l’éditeur comme des « licences illimitées pour les agents et élus de votre collectivité » : l’éditeur le présente comme un outil de travail interne, et son site ne décrit pas d’assistant destiné aux habitants. PanneauPocket est offert aux communes de 100 habitants ou moins, et diffuse des informations sans répondre aux questions. Les créateurs de chatbot généralistes ont une entrée gratuite, mais le contenu communal est à saisir et à tenir soi-même. Un guichet citoyen qui répond 24 h/24 à partir d’une base de connaissances vérifiée reste payant. Constaté sur les sites des éditeurs le 24 août 2026.
 Delibia est-il gratuit ?
@@ -3692,7 +3694,7 @@ Accueil
 Communes Rurales
 Commune rurale : un chatbot IA qui répond à vos habitants 24 h/24
 Nouveau mandat 2026 ? Offrez à vos 800, 2 000 ou 4 500 habitants un accueil numérique 24 h/24, qui répond à partir du site officiel de la commune et cite la page de chaque réponse.
-Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 21 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Voir la démo d’une commune rurale
 Demander un devis
 Le quotidien d’une mairie rurale
@@ -3846,6 +3848,7 @@ Vous cherchez un assistant virtuel pour votre mairie ou votre intercommunalité 
 Par Thibaut Harang , fondateur de Civik-ia
 Lecture : 9 minutes
 Mis à jour : 08/06/2026
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 En 2026, cinq solutions se présentent aux mairies françaises : Civik-ia, dydu, Citia.io, Generia et PanneauPocket. Pour une commune de moins de 5 000 habitants, un chatbot IA souverain (modèle français Mistral, hébergement en Europe, chez OVHcloud, abonnement à partir de 69 € HT par mois selon la taille de la commune) répond aux citoyens 24 h/24 sans inscription ; PanneauPocket, lui, diffuse des alertes sans dialoguer. Le bon choix dépend du besoin : répondre aux questions ou informer.
 Avertissement de transparence : nous éditons Civik-ia, l’une des solutions présentées dans cet article. Nous nous engageons à exposer factuellement les forces et les limites de chacun, y compris les nôtres. Toutes les informations sont vérifiables depuis les sites publics des éditeurs et sources publiques (UGAP, comptes annuels, témoignages clients) au 16 mai 2026.
@@ -4069,6 +4072,7 @@ Cible : maire, adjoint, DGS, secrétaire de mairie
 Lecture : 8 minutes
 Mis à jour : 08/06/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Pour communiquer avec ses citoyens, une mairie combine trois types d’outils : un site web (information de référence), un canal d’alerte comme un panneau numérique ou une application (diffusion), et un chatbot IA pour répondre individuellement 24 h/24. Le bon choix dépend du besoin : informer ou dialoguer. Pour créer un lien réel et alléger le secrétariat, un assistant conversationnel souverain comme Civik-ia répond directement à chaque administré, sans inscription.
 Le vrai enjeu : informer ne suffit plus, il faut répondre
@@ -4190,6 +4194,7 @@ Vous voulez équiper votre mairie d’un chatbot ou d’un assistant IA en 2026 
 Auteur : Thibaut Harang , fondateur de Civik-ia
 Lecture : 11 minutes
 Mis à jour : 19/10/2026
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Au 19 octobre 2026, un chatbot de mairie relève du RGPD dès qu’il reçoit des questions d’habitants, et doit dire qu’il est une IA depuis le 2 août 2026 (article 50 du règlement européen sur l’IA). La mairie est responsable du traitement, l’éditeur sous-traitant. Un contrat, une information claire, une collecte minimale et des lieux de traitement écrits au contrat en sont la base.
 Le cadre juridique applicable en 2026
@@ -4394,6 +4399,7 @@ L’intelligence artificielle générative est de plus en plus présente dans le
 Auteur : Thibaut Harang , fondateur Civik-ia
 Lecture : 8 minutes
 Mis à jour : 19/10/2026
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Une IA souveraine pour mairie se juge critère par critère : qui héberge le service, qui édite le modèle, où le modèle calcule, quel droit s’applique. Marianne est hébergée chez OVHcloud, hébergeur français, sur un serveur situé en Allemagne, et s’appuie sur Mistral AI, société française. Le lieu de calcul du modèle n’est pas fixé par contrat.
 Le contexte : la guerre des modèles d’IA en 2026
@@ -4566,6 +4572,7 @@ Cible : DGS, secrétaire de mairie, maire
 Lecture : 7 minutes
 Mis à jour : 08/06/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Un chatbot IA bien paramétré peut absorber une part importante des demandes répétitives reçues par une mairie (horaires, état civil, déchets, tarifs de salle), 24 h/24 et sans inscription. Notre calcul de ROI retient un objectif prudent de 40 % la première année. Le secrétariat se recentre sur les dossiers complexes. Chez Civik-ia, solution souveraine française, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Ce que coûte vraiment un appel en mairie
@@ -4706,6 +4713,7 @@ Cible : maire, secrétaire de mairie, conseiller municipal
 Lecture : 6 minutes
 Mis à jour : 24/06/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Pour une commune de moins de 5 000 habitants, deux familles de logiciels coexistent : la gestion interne (état civil, paie, comptabilité, fournie par des éditeurs historiques) et la relation aux citoyens (site, application, assistant en ligne). Le bon choix repose sur trois critères : simplicité d’usage pour une équipe non technique, coût maîtrisé, et hébergement souverain conforme au RGPD. Chez Civik-ia, assistant citoyen souverain, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune.
 Deux familles de logiciels qu’il ne faut pas confondre
@@ -4825,6 +4833,7 @@ Cible : secrétaire de mairie, maire, DGS
 Lecture : 6 minutes
 Mis à jour : 05/07/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Trois familles d’outils d’IA servent un secrétariat de mairie en 2026 : les assistants internes pour l’agent (recherche réglementaire, rédaction, comme Delibia qui offre une licence gratuite aux secrétaires de mairie), les assistants citoyens qui répondent aux questions des citoyens 24 h/24 (comme Marianne de Civik-ia, à partir de 69 € HT par mois selon la taille de la commune), et les IA généralistes (Le Chat de Mistral, ChatGPT) à réserver aux tâches sans aucune donnée personnelle. La règle d’or RGPD : jamais de données de citoyens dans un outil grand public non contractualisé.
 Pourquoi le secrétariat de mairie est le premier bénéficiaire de l’IA
@@ -4945,6 +4954,7 @@ Cible : maire, DGS, secrétaire de mairie
 Lecture : 5 minutes
 Mis à jour : 19/07/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Un callbot répond à la voix au téléphone de la mairie ; un chatbot répond par écrit sur le site de la commune. Le callbot cible la saturation du standard, mais suppose une intégration téléphonique et des coûts liés au volume d’appels, le plus souvent sur devis. Le chatbot écrit est plus simple à déployer, disponible 24 h/24 depuis un lien ou un QR code ; chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et il est conçu pour rester sous le seuil des marchés publics. Beaucoup de communes commencent par l’écrit, qui évite une partie des appels à la source.
 Callbot et chatbot : deux réponses au même problème
@@ -5044,6 +5054,7 @@ Lecture : 7 minutes
 Mis à jour : 23/10/2026
 État des sources : 22/10/2026 (cahier des charges du guichet, version 1.1 du 10 juillet 2026)
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Le guichet Territoires d’IA de la Banque des Territoires cofinance de 30 à 50 % des dépenses éligibles TTC d’une solution d’IA souveraine, pour un an d’accès, sur dossier. Ouvert en continu depuis le 22 mai 2026 pour trois ans, il ne finance aucun achat antérieur à la validation de la demande (cahier des charges, version 1.1 du 10 juillet 2026).
 Subvention IA pour une commune
@@ -5187,6 +5198,7 @@ Cible : maire, secrétaire de mairie, agent d’accueil
 Lecture : 6 minutes
 Mis à jour : 24/06/2026
 Par Thibaut Harang , fondateur de Civik-ia
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 En bref
 Pour une commune, proposer des démarches en ligne consiste surtout à orienter les habitants vers les bons téléservices (Service-Public.gouv.fr, plateformes d’urbanisme, inscriptions) et à répondre à leurs questions en continu. Beaucoup de démarches sont déjà nationales et dématérialisées. Le vrai gain pour une petite mairie vient d’un assistant citoyen qui guide vers le bon formulaire 24 h/24, sans inscription, et allège le secrétariat sur les questions répétitives.
 Le vrai sujet : orienter, plus que dématérialiser
@@ -5834,7 +5846,7 @@ Chatbot IA pour une collectivité ou un service public : ce qui change hors d’
 Un chatbot IA de collectivité répond à partir des sources officielles de la structure qui l’ouvre.
 Pour une intercommunalité, un département ou une région, la difficulté change : plusieurs compétences, plusieurs sites, des publics différents.
 Trois choix décident : la source qui fait foi pour chaque compétence, la personne qui valide les réponses, l’orientation vers la bonne collectivité.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Un syndicat ou un établissement public qui ouvre un chatbot à ses usagers se pose les mêmes questions.
 Pour une commune seule, le guide du chatbot mairie suffit.
 Cette page décrit ce qui s’y ajoute quand plusieurs collectivités se partagent les compétences.
@@ -5962,7 +5974,7 @@ Chatbots de mairie : ce que mesurent les retours d’expérience publiés
 Les retours d’expérience publiés sur les chatbots de mairie donnent surtout des volumes d’usage et des appels évités.
 Ils disent rarement comment les réponses sont vérifiées, ce que coûte l’outil ou où sont les données.
 Cette page recense cinq retours de presse de 2018 à 2026, avec leur date, leur source et ce que chacun mesure.
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 Chaque chiffre est celui de l’article, attribué à celui qui le donne.
 Les articles sont lus dans leur état du 22 octobre 2026.
 Aucun éditeur n’est nommé.
@@ -6096,7 +6108,7 @@ Accueil › Territoires d’IA : le dossier de cofinancement
 Territoires d’IA : déposer sa demande de cofinancement, étape par étape
 Une collectivité s’inscrit gratuitement au programme Territoires d’IA par un formulaire Démarches Simplifiées, joint un devis et une fiche « IA souveraine », puis la Banque des Territoires instruit sa demande de cofinancement.
 Si elle est validée, une convention est signée et l’achat peut se faire : aucune dépense antérieure n’est financée (cahier des charges, version 1.1 du 10 juillet 2026).
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 État des sources au 22 octobre 2026 : cahier des charges du guichet de cofinancement, version 1.1 du 10 juillet 2026 , lu en entier.
 La Banque des Territoires a lancé le programme Territoires d’IA le 21 mai 2026, pour trois ans, avec un objectif de 100 000 premiers utilisateurs réguliers d’ici 2030.
 Son guichet de cofinancement aide une collectivité à acheter une solution d’IA souveraine.
@@ -6279,7 +6291,7 @@ Accueil › Mutualiser l’IA entre communes
 Mutualiser l’IA entre communes : le cofinancement du guichet Territoires d’IA à 40 %
 Une demande est mutualisée quand une entité porteuse, qui représente au moins 10 % des dépenses éligibles, la dépose pour au moins trois autres bénéficiaires éligibles.
 Le taux de base passe alors de 30 à 40 %, et jusqu’à 50 % avec une bonification (cahier des charges du guichet Territoires d’IA, version 1.1 du 10 juillet 2026).
-Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia.
+Mis à jour le 23 octobre 2026 . Par Thibaut Harang , fondateur de Civik-ia. Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
 État des sources au 22 octobre 2026 : cahier des charges du guichet de cofinancement, version 1.1 du 10 juillet 2026 , sections 3 et 4, annexes 1 à 3.
 Une intercommunalité, un syndicat ou un département peut porter une seule demande pour plusieurs communes au guichet de cofinancement Territoires d’IA de la Banque des Territoires.
 Ce choix de mutualisation relève le taux de base du cofinancement, de 30 à 40 %.

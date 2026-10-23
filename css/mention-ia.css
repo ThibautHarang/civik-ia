@@ -1,0 +1,71 @@
+/* =====================================================================
+   Mention de l'article 50.4 du règlement européen sur l'IA sur les articles de civik-ia.fr (23/10/2026, forme choisie par
+   Thibaut Harang le 23/10/2026). Posée dans la ligne d'auteur de chaque article par tools/couche-commune/poser.mjs (pages
+   « article »), avec /js/mention-ia.js ; appel versionné ?v= (V_MENTION de l'outil), à changer avec ces deux fichiers.
+   Une ligne visible sous l'auteur et la date, et à côté un petit tampon gravé qui déplie la phrase de relecture au survol,
+   au focus clavier et au toucher. La phrase est écrite dans le HTML de la page : sans le script, cette feuille la déplie au
+   survol et au focus ; sans cette feuille, elle se lit en clair à la suite du tampon.
+   Dessin : la famille de la gravure, encre #1b2560 diluée sur la crème #f7f4ed, double filet fin d'un tampon ancien, une
+   plume gravée ; jamais au premier plan, le texte de l'article reste devant.
+   ===================================================================== */
+:is(p,div)>span.mia{
+  --mia-encre:#545b85;            /* #1b2560 à 74 % sur la crème : 5,9:1 sur #f7f4ed */
+  --mia-encre-appui:#1b2560;      /* le tampon appuyé (survol, ouvert) */
+  --mia-filet:rgba(27,37,96,.34); /* le filet intérieur, plus clair */
+  flex:1 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;
+  margin:-6px 0 0;padding:0;text-align:left;
+}
+/* les deux articles à bandeau bleu (chatbot de mairie, commune rurale) : encre crème, au centre comme leur bandeau */
+:is(p,div)>span.mia.mia--nuit{
+  --mia-encre:var(--nuit-txt2);--mia-encre-appui:var(--nuit-txt);--mia-filet:rgba(238,241,251,.34);
+  justify-content:center;margin:12px 0 0;
+}
+.mia .mia__ligne{display:inline;margin:0;padding:0;color:var(--mia-encre)}
+.mia .mia__tampon{position:relative;display:inline-flex;margin:0;padding:0}
+.mia .mia__bouton{
+  -webkit-appearance:none;appearance:none;position:relative;display:inline-flex;align-items:center;gap:6px;
+  margin:0;padding:4px 10px 4px 8px;min-height:24px;
+  background:transparent;border:1px solid var(--mia-encre);border-radius:3px;
+  color:var(--mia-encre);font:600 11px/1.2 var(--f-texte);letter-spacing:.07em;text-transform:uppercase;
+  cursor:pointer;transform:rotate(-1.2deg);-webkit-tap-highlight-color:transparent;
+}
+/* le second filet du tampon, à l'intérieur du premier */
+.mia .mia__bouton::before{content:"";position:absolute;inset:2px;border:1px solid var(--mia-filet);border-radius:1.5px;pointer-events:none}
+/* la cible du doigt : 44 px de haut, rien de visible */
+.mia .mia__bouton::after{content:"";position:absolute;inset:-10px -4px}
+.mia .mia__bouton:hover,.mia .mia__bouton[aria-expanded="true"]{color:var(--mia-encre-appui);border-color:var(--mia-encre-appui)}
+.mia .mia__texte{display:inline;margin:0;padding:0}
+.mia .mia__bouton svg{width:13px;height:13px;flex:none;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
+.mia--nuit .mia__bouton:focus-visible{outline:var(--focus-anneau-nuit);outline-offset:var(--focus-ecart)}
+/* la phrase dépliée : une étiquette de papier sous le tampon, de sa largeur (elle ne déborde jamais de l'écran) */
+.mia .mia__detail{
+  display:none;position:absolute;z-index:30;top:calc(100% + 8px);left:0;right:0;
+  margin:0;padding:9px 12px 10px;
+  background:var(--papier);color:var(--encre);
+  border:1px solid var(--filet-fort);border-radius:var(--r-papier);box-shadow:var(--o-leve);
+  font:500 13px/1.5 var(--f-texte);letter-spacing:0;text-transform:none;text-align:left;white-space:normal;
+}
+/* le pont entre le tampon et l'étiquette : la souris passe de l'un à l'autre sans la refermer */
+.mia .mia__detail::before{content:"";position:absolute;left:-1px;right:-1px;bottom:100%;height:10px}
+.mia .mia__bouton[aria-expanded="true"]+.mia__detail{display:block}
+/* sur les bandeaux bleus, l'étiquette s'ouvre vers le haut : les boutons du bandeau, posés après la ligne d'auteur, ne la
+   recouvrent pas (page de la commune rurale : ligne d'auteur et boutons au même niveau d'empilement) */
+.mia--nuit .mia__detail{top:auto;bottom:calc(100% + 8px)}
+.mia--nuit .mia__detail::before{bottom:auto;top:100%}
+/* une ligne d'auteur à demi transparente (commune rurale, opacité 0,85) passe à l'opacité pleine le temps que l'étiquette est
+   ouverte : sinon le texte de dessous se lirait au travers */
+:is(p,div):has(>span.mia .mia__bouton[aria-expanded="true"]),
+html:not(.mia-js) :is(p,div):has(>span.mia .mia__tampon:hover),
+html:not(.mia-js) :is(p,div):has(>span.mia .mia__bouton:focus-visible){opacity:1}
+html:not(.mia-js) .mia .mia__tampon:hover .mia__detail,
+html:not(.mia-js) .mia .mia__bouton:focus-visible+.mia__detail{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .mia .mia__bouton[aria-expanded="true"]+.mia__detail{animation:mia-deplie 160ms cubic-bezier(.2,.8,.2,1)}
+  .mia--nuit .mia__bouton[aria-expanded="true"]+.mia__detail{animation-name:mia-deplie-haut}
+}
+@keyframes mia-deplie{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}
+@keyframes mia-deplie-haut{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media print{
+  .mia .mia__bouton{transform:none}
+  .mia .mia__detail{display:inline;position:static;padding:0;border:0;box-shadow:none;background:none}
+}

@@ -26,7 +26,9 @@
 // version change pour vider les copies des pages anciennes une fois de plus, comme à chaque passe).
 // v206 (23/10/2026) : grappes AI Act, chatbot et financement (pages neuves, pilier chatbot, pilier du financement,
 // liens, hub des guides) : les copies des pages anciennes se vident une fois de plus.
-const CACHE_NAME = 'civik-ia-v207-article-50-1-2026-10-23';
+// v208 (23/10/2026) : mention de l'article 50.4 du règlement européen sur l'IA sur les trente articles (ligne sous l'auteur et
+// tampon), /css/mention-ia.css et /js/mention-ia.js appelés avec ?v=20261023 : les copies des pages anciennes se vident une fois de plus.
+const CACHE_NAME = 'civik-ia-v208-mention-ia-articles-2026-10-23';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

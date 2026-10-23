@@ -21,7 +21,9 @@ export const LIGNES = ['Direction de clinique', 'Direction de la transformation 
 /* CO-29 (cinquième passe, 07/10/2026) : « Conseil en santé, numérique & intelligence artificielle » (trois domaines : la
    virgule change le sens) ; insécables entre « & », « intelligence » et « artificielle » : la ligne se coupe après
    « numérique », jamais un mot seul sur la seconde ligne (« artificielle » y restait seul avant cette passe) */
-export const TITRE = 'Conseil en santé, numérique & intelligence artificielle';
+/* 23/10/2026 (D203, la porte « Conseil » devient « Conseil et formation », la santé passe en retrait) : même rôle que
+   c-film/js/cv.js */
+export const TITRE = 'Conseil et formation, numérique & intelligence artificielle';
 export const LINKEDIN = 'https://www.linkedin.com/in/thibaut-harang/';
 const MAIN = 'Caveat, cursive', LARGE = 1.17, DROIT = .15, ENCRE_CV = '#16205C';
 /* CO-18 (06/10/2026) : le tracé du logo LinkedIn à la plume est aussi posé par la page sous le parcours (exporté) */

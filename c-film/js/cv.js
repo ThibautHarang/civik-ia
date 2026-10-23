@@ -20,10 +20,12 @@ export const CV_W = 600, CV_H = 848;
 const LIGNES = ['Direction de clinique', 'Direction de la transformation numérique en santé', 'Direction de la stratégie et du développement en télémédecine', 'Direction des affaires publiques'];
 /* Q2 (dix-septième passe, 07/10/2026) : le rôle écrit comme sur la page Conseil (Caveat dessine l'esperluette) */
 /* 07/10/2026 au soir (textes de Thibaut, passe 5 de la page Conseil) : trois domaines, pas la seule « santé numérique » : la virgule */
-const TITRE = 'Conseil en santé, numérique & intelligence artificielle';
+/* 23/10/2026 (D203, la porte « Conseil » devient « Conseil et formation », la santé passe en retrait) : le rôle devient
+   « Conseil et formation, numérique & intelligence artificielle » */
+const TITRE = 'Conseil et formation, numérique & intelligence artificielle';
 /* la coupe voulue du rôle sur la feuille (comme sur la page Conseil) : « artificielle » ne reste pas seul sur sa ligne ; si une
    ligne ne tient pas dans la largeur, la coupe automatique reprend la main */
-const TITRE_LIGNES = ['Conseil en santé, numérique', '& intelligence artificielle'];
+const TITRE_LIGNES = ['Conseil et formation, numérique', '& intelligence artificielle'];
 const LIEN = 'Voir mon parcours sur LinkedIn', LIEN_COURT = 'Mon parcours', LINKEDIN = 'https://www.linkedin.com/in/thibaut-harang/';
 /* G7 : le logo LinkedIn griffonné à la plume, dans un carré unité : le carré aux coins doux, un peu irrégulier, et
    « in » tracé à la main (le même chemin sert au canevas du CV et au lien en bleu, au survol) */

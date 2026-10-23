@@ -96,13 +96,13 @@ const PAGES = [
   ['tester-un-chatbot-de-mairie.html', { couche: 'ancienne', place: true }],
   ['preparer-base-de-donnees-fiable-ia-mairie.html', { couche: 'ancienne', place: true }],
   ['souverainete-numerique-commune.html', { couche: 'ancienne', place: true }],
-  // grappe AI Act (23/10/2026) : le pilier et deux articles, même famille et même naissance (marqueurs vides) ; l'article 50
-  // reçoit la couche aussi, mais il naît en noindex, hors sitemap et lié par aucune page (analyse de l'article 50.2 par la DAJF)
+  // grappe AI Act (23/10/2026) : le pilier et deux articles, même famille et même naissance (marqueurs vides) ; l'article 50,
+  // retenu sur la branche contenu-2026-10-23, reprendra sa ligne à sa mise en ligne
   ['ai-act-collectivites.html', { couche: 'ancienne', place: true }],
   ['ia-haut-risque-collectivite-annexe-iii.html', { couche: 'ancienne', place: true }],
   ['article-4-ai-act-maitrise-ia-agents-mairie.html', { couche: 'ancienne', place: true }],
-  // grappes chatbot et financement (23/10/2026) : six articles, même famille et même naissance (marqueurs vides) ; l'article
-  // DETR, DSIL, FCTVA naît en noindex, hors sitemap et lié par aucune page (liste FCTVA et circulaire 2027 attendues)
+  // grappes chatbot et financement (23/10/2026) : cinq articles, même famille et même naissance (marqueurs vides) ; l'article
+  // DETR, DSIL, FCTVA, retenu sur la branche contenu-2026-10-23, reprendra sa ligne à sa mise en ligne
   ['cahier-des-charges-chatbot-mairie.html', { couche: 'ancienne', place: true }],
   ['chatbot-ia-collectivite-service-public.html', { couche: 'ancienne', place: true }],
   ['chatbots-de-mairie-retours-d-experience.html', { couche: 'ancienne', place: true }],

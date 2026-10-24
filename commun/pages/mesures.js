@@ -54,7 +54,7 @@ export const LISTES = {
   scene_choix: {
     page: ['conseil', 'atelier'],
     scene: ['chemin', 'lampe', 'tiroir'],
-    choix: ['seul', 'accompagne', 'allumee', 'eteinte', 'site', 'app', 'logiciel', 'autre']
+    choix: ['seul', 'accompagne', 'allumee', 'eteinte', 'site', 'app', 'logiciel', 'autre', 'donnees']
   },
   formulaire_etape: { formulaire: FORMULAIRES, etape: nombres(1, 5), sens: ['avant', 'arriere'] },
   formulaire_erreur: {

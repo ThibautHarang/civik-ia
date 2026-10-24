@@ -9,7 +9,7 @@
    Première passe (06/10/2026) : la fiche de Marianne (AT-2), les états
    1 à 3 de la méthode (AT-3), le crayon de la planche du haut (AT-1 bis).
    ===================================================================== */
-import { Dessin, ligne, arcE, perimetre, formeMain, hachures, gribouillis, catmull, rng, clamp, lerp, echantillonnerChemin, GLYPHE } from '../commun/pages/plume.js';
+import { Dessin, ligne, arcE, perimetre, formeMain, hachures, gribouillis, catmull, rng, clamp, lerp, echantillonnerChemin, GLYPHE, reech } from '../commun/pages/plume.js';   /* AT-40 : reech, pour les relations en tirets */
 
 export const ENCRE = '#16205C';
 export const FEUILLE = { w: 1000, h: 690 };
@@ -35,7 +35,8 @@ function glyphe(D, cx, cy, r, g) {
 /* ---------------------------------------------------------------------
    L'emblème selon « pour qui »
    --------------------------------------------------------------------- */
-export const QUI = { mairie: { lab: 'une mairie', nom: 'VOTRE COMMUNE' }, sante: { lab: 'un acteur de santé', nom: 'VOTRE ÉTABLISSEMENT' }, entreprise: { lab: 'une entreprise', nom: 'VOTRE ENTREPRISE' }, association: { lab: 'une association', nom: 'VOTRE ASSOCIATION' } };
+/* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : « une collectivité » (commune ou intercommunalité) au lieu de « une mairie » */
+export const QUI = { mairie: { lab: 'une collectivité', nom: 'VOTRE COMMUNE' }, sante: { lab: 'un acteur de santé', nom: 'VOTRE ÉTABLISSEMENT' }, entreprise: { lab: 'une entreprise', nom: 'VOTRE ENTREPRISE' }, association: { lab: 'une association', nom: 'VOTRE ASSOCIATION' } };
 function embleme(D, qui, x, y, t, g) {
   if (qui === 'mairie') {
     const P = [[x, y], [x + t, y], [x + t, y + t * .5]].concat(catmull([[x + t, y + t * .5], [x + t * .94, y + t * .8], [x + t * .72, y + t * .98], [x + t * .5, y + t * 1.08]], 4)).concat(catmull([[x + t * .5, y + t * 1.08], [x + t * .28, y + t * .98], [x + t * .06, y + t * .8], [x, y + t * .5]], 4)).concat([[x, y]]);
@@ -59,12 +60,17 @@ function embleme(D, qui, x, y, t, g) {
    Les briques par type de projet (libellé de la puce, libellé du dessin)
    --------------------------------------------------------------------- */
 export const BRIQUES = {
-  site: [['pages', 'Des pages'], ['actualites', 'Actualités'], ['agenda', 'Agenda'], ['formulaires', 'Formulaires'], ['paiement', 'Paiement en ligne'], ['adherents', 'Espace adhérents'], ['langues', 'Plusieurs langues'], ['marianne', 'Marianne intégrée']],
+  /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : la base de données, premier type proposé ; « site » reste défini
+     (code dormant, pour un vieux brouillon), il n'est plus proposé */
+  donnees: [['tableurs', 'Reprise de vos tableurs'], ['listes', 'Des listes reliées entre elles'], ['recherche', 'Recherche et filtres'], ['droits', 'Droits par service'], ['historique', 'Historique des modifications'], ['sauvegardes', 'Sauvegardes'], ['ouvertes', 'Publication en données ouvertes'], ['ia', "Lisible par un outil d'IA"]],
+  site:[['pages', 'Des pages'], ['actualites', 'Actualités'], ['agenda', 'Agenda'], ['formulaires', 'Formulaires'], ['paiement', 'Paiement en ligne'], ['adherents', 'Espace adhérents'], ['langues', 'Plusieurs langues'], ['marianne', 'Marianne intégrée']],
   app: [['fil', 'Un fil commun'], ['infos', 'Informations pratiques'], ['evenements', 'Événements'], ['votes', 'Votes et assemblées'], ['cotisations', 'Cotisations'], ['annuaire', 'Annuaire des membres'], ['notifications', 'Notifications'], ['marianne', 'Marianne intégrée']],
   logiciel: [['tableau', 'Tableau de bord'], ['dossiers', 'Suivi de dossiers'], ['planning', 'Planning'], ['automatisations', 'Automatisations'], ['assistant', "Assistant d'IA sur vos documents"], ['exports', 'Exports et rapports'], ['roles', 'Accès par rôle']],
   autre: [['site', 'Un site'], ['app', 'Une application'], ['donnees', 'Des données à rassembler'], ['ia', "De l'intelligence artificielle"], ['paiement', 'Des paiements'], ['interne', 'Un outil interne'], ['inconnu', 'Je ne sais pas encore']]
 };
-export const TYPES = { site: { lab: 'Site web', titre: 'Votre site' }, app: { lab: 'Application', titre: 'Votre application' }, logiciel: { lab: 'Logiciel sur mesure', titre: 'Votre logiciel' }, autre: { lab: 'Autre projet', titre: 'Votre idée' } };
+/* AT-40 : « Votre base de données, pour une collectivité » (612 unités en Caveat 600 à 42, mesuré sur la police du site) tient dans la
+   feuille ; le plus long, « ..., pour un acteur de santé » (676), finit à x 736, au-dessus du cartouche (qui commence à y 120) */
+export const TYPES = { donnees: { lab: 'Base de données', titre: 'Votre base de données' }, site: { lab: 'Site web', titre: 'Votre site' }, app: { lab: 'Application', titre: 'Votre application' }, logiciel: { lab: 'Logiciel métier', titre: 'Votre logiciel' }, autre: { lab: 'Autre projet', titre: 'Votre idée' } };
 
 /* ---------------------------------------------------------------------
    Le site : fenêtre X 60, Y 120, 630 x 540
@@ -160,6 +166,150 @@ const BRIQUE_LOG = {
 };
 
 /* ---------------------------------------------------------------------
+   AT-40 (24/10/2026, atelier repositionné sur les bases de données) :
+   la base de données. La fenêtre du logiciel (X 60, Y 120, 630 x 540,
+   mêmes graines pour le cadre et l'ombre : passer de l'un à l'autre ne
+   la fait pas bouger), une barre d'outils, et dessous un modèle de
+   données : quatre tables (un en-tête, une colonne de clé, des lignes)
+   reliées par des tirets, que la brique « listes » affermit.
+   --------------------------------------------------------------------- */
+const DX = 60, DY = 120, DW = 630, DH = 540;
+const ENT = 26, RG = 22, hautTable = n => ENT + n * RG;   /* l'en-tête et une ligne de table */
+const TABLES = [[DX + 40, DY + 102, 150, 4], [DX + 290, DY + 96, 150, 3], [DX + 176, DY + 270, 160, 5], [DX + 436, DY + 252, 150, 4]];
+/* les relations, de la table « une » vers la table « plusieurs » (points de passage) */
+const LIENS = [
+  [[DX + 190, DY + 139], [DX + 240, DY + 134], [DX + 290, DY + 133]],
+  [[DX + 130, DY + 216], [DX + 130, DY + 244], [DX + 216, DY + 246], [DX + 216, DY + 270]],
+  [[DX + 400, DY + 188], [DX + 400, DY + 220], [DX + 480, DY + 224], [DX + 480, DY + 252]],
+  [[DX + 336, DY + 329], [DX + 386, DY + 318], [DX + 436, DY + 311]]
+];
+/* les places des briques qui ont une case (les autres se posent à côté d'une table) */
+const ZD = { recherche: [DX + 356, DY + 40, 258, 24], tableurs: [DX + 16, DY + 416, 150, 108], sauvegardes: [DX + 250, DY + 420, 150, 104], ouvertes: [DX + 446, DY + 400, 168, 124] };
+function tableDon(D, [x, y, w, n], g) {
+  const h = hautTable(n);
+  boite(D, x, y, w, h, 6, g, DET);
+  trait(D, ligne(x, y + ENT, x + w, y + ENT), g + 3, DET);
+  trait(D, ligne(x + 28, y + ENT, x + 28, y + h), g + 4, FIN, { op: .55 });
+  gribouillis(D, x + 12, y + 18, w * .46, 5, { phase: 'p', wMin: .45, wMax: 1.4, op: .8, graine: g + 5 });
+  for (let i = 0; i < n; i++) {
+    if (i) trait(D, ligne(x + 4, y + ENT + i * RG, x + w - 4, y + ENT + i * RG), g + 6 + i, FIN, { op: .45 });
+    gribouillis(D, x + 38, y + ENT + i * RG + 15, (w - 52) * (i % 2 ? .62 : .86), 3, { phase: 'p', wMin: .3, wMax: .85, op: .55, graine: g + 12 + i });
+  }
+}
+/* un trait en tirets légers (une relation encore à poser) */
+function tirets(D, P, op = .32) { const Q = reech(P, 2); for (let i = 0; i < Q.length - 4; i += 8) D.trait(Q.slice(i, i + 4), { phase: 'p', profil: 'fin', wMin: .3, wMax: .65, op, tremble: 0, vitesse: .3, levee: 1 }); }
+/* les marques d'une relation : la barre au départ (une), la patte d'oie à l'arrivée (plusieurs) ; t, l'échelle */
+function marquesLien(P, t = 1) {
+  const n = P.length, dir = (a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1; return [dx / l, dy / l]; };
+  const [bx, by] = P[n - 1], u = dir(P[n - 2], P[n - 1]), [ax, ay] = P[0], v = dir(P[0], P[1]);
+  const fx = bx - u[0] * 13 * t, fy = by - u[1] * 13 * t, cx = ax + v[0] * 8 * t, cy = ay + v[1] * 8 * t, e = 7 * t, b = 6 * t;
+  return [[[bx - u[1] * e, by + u[0] * e], [fx, fy], [bx + u[1] * e, by - u[0] * e]], [[cx - v[1] * b, cy + v[0] * b], [cx + v[1] * b, cy - v[0] * b]]];
+}
+/* une pointe de flèche au bout d'un chemin */
+function pointe(D, P, g, st = DET, o = {}) { const n = P.length, [x, y] = P[n - 1], [px, py] = P[Math.max(0, n - 4)], l = Math.hypot(x - px, y - py) || 1, ux = (x - px) / l, uy = (y - py) / l; trait(D, [[x - ux * 9 - uy * 5.5, y - uy * 9 + ux * 5.5], [x, y], [x - ux * 9 + uy * 5.5, y - uy * 9 - ux * 5.5]], g, st, o); }
+function cadreDonnees(D) {
+  boite(D, DX, DY, DW, DH, 12, 1, GROS);
+  trait(D, ligne(DX, DY + 30, DX + DW, DY + 30), 2, DET);
+  [16, 32, 48].forEach((dx, i) => D.trait(arcE(DX + dx, DY + 15, 5, 5, 0, Math.PI * 2.1), s(FIN, { graine: 3 + i })));
+  gribouillis(D, DX + 54, DY + 66, 120, 4, { phase: 'p', wMin: .4, wMax: 1.2, op: .72, graine: 1201 });
+  trait(D, ligne(DX, DY + 72, DX + DW, DY + 72), 1202, FIN);
+  TABLES.forEach((T, k) => tableDon(D, T, 1210 + k * 20));
+  LIENS.forEach(P => tirets(D, catmull(P, 8)));
+  Object.values(ZD).forEach(([x, y, w, h], i) => pointilles(D, x, y, w, h, 1291 + i));
+  ombre(D, DX, DY, DW, DH, 60);
+}
+const BRIQUE_DON = {
+  /* une grille de tableur, et la flèche qui la fait entrer dans une table */
+  tableurs(D) {
+    const [x0, y0, w0, h0] = ZD.tableurs, x = x0 + 10, y = y0 + 30, w = w0 - 20, h = 68;
+    boite(D, x0, y0, w0, h0, 8, 1300); etiquette(D, x0 + 10, y0 + 20, 'TABLEURS');
+    boite(D, x, y, w, h, 2, 1303, FIN, { wMax: 1.2 });
+    hachures(D, perimetre(x + 1, y + 1, w - 2, 11, 1), { phase: 'p', pas: 2.6, long: [5, 10], op: .42, graine: 1306, angle: 0 });
+    for (let r = 0; r < 4; r++) trait(D, ligne(x + 2, y + 12 + r * 14, x + w - 2, y + 12 + r * 14), 1307 + r, FIN, { op: .5, wMax: .8 });
+    [18, 55, 92].forEach((dx, c) => trait(D, ligne(x + dx, y + 2, x + dx, y + h - 2), 1311 + c, FIN, { op: .5, wMax: .8 }));
+    [[1, 0], [2, 1], [0, 2], [1, 3]].forEach(([c, r], i) => gribouillis(D, x + [24, 61, 98][c], y + 23 + r * 14, 26, 2.5, { phase: 'p', wMin: .3, wMax: .8, op: .55, graine: 1314 + i }));
+    const F = catmull([[x0 + w0 - 30, y0 - 4], [x0 + w0 - 22, y0 - 36], [DX + 172, DY + 358]], 8);
+    trait(D, F, 1318, DET, { wMax: 1.6 }); pointe(D, F, 1319, DET, { wMax: 1.6 });
+  },
+  /* les relations affermies, avec leurs marques (une, plusieurs) */
+  listes(D) {
+    LIENS.forEach((P, k) => {
+      trait(D, catmull(P, 8), 1320 + k * 3, DET, { wMax: 1.5 });
+      const [patte, barre] = marquesLien(P);
+      trait(D, patte, 1321 + k * 3, DET, { wMax: 1.3 }); trait(D, barre, 1322 + k * 3, DET, { wMax: 1.3 });
+    });
+  },
+  /* le champ de recherche (la loupe), l'entonnoir des filtres, et la ligne trouvée */
+  recherche(D) {
+    const [x, y, w, h] = ZD.recherche;
+    boite(D, x, y, w, h, 12, 1340, DET);
+    D.trait(arcE(x + 18, y + 11, 6, 6, 0, Math.PI * 2.1), s(DET, { graine: 1343 }));
+    trait(D, ligne(x + 22.5, y + 15.5, x + 28.5, y + 21.5), 1344, DET, { wMax: 2.2 });
+    gribouillis(D, x + 38, y + 16, 110, 3.5, { phase: 'p', wMin: .3, wMax: .9, op: .6, graine: 1345 });
+    trait(D, ligne(x + w - 36, y + 5, x + w - 36, y + h - 5), 1346, FIN, { op: .6 });
+    trait(D, [[x + w - 27, y + 6], [x + w - 9, y + 6], [x + w - 16, y + 13], [x + w - 16, y + 19], [x + w - 20, y + 17], [x + w - 20, y + 13], [x + w - 27, y + 6]], 1347, DET, { wMax: 1.4 });
+    const [tx, ty, tw] = TABLES[2];
+    hachures(D, perimetre(tx + 2, ty + ENT + RG + 2, tw - 4, RG - 4, 2), { phase: 'p', pas: 3, long: [6, 12], op: .42, graine: 1348, angle: 45 });
+  },
+  /* un cadenas sur une table, et les services qui y ont droit */
+  droits(D) {
+    const cx = DX + 488, y = DY + 112;
+    D.trait(arcE(cx, y, 8, 9, Math.PI, Math.PI * 2), s(DET, { graine: 1360, wMax: 2 }));
+    boite(D, cx - 12, y, 24, 20, 3, 1361, DET);
+    D.trait(arcE(cx, y + 8, 2.5, 2.5, 0, Math.PI * 2.1), s(FIN, { graine: 1364 }));
+    trait(D, ligne(cx, y + 10, cx, y + 15), 1365, FIN);
+    const [bx, by, bw] = TABLES[1];
+    trait(D, catmull([[bx + bw + 2, by + 13], [bx + bw + 18, by + 16], [cx - 14, y + 8]], 6), 1366, FIN, { op: .5 });
+    etiquette(D, cx + 24, y + 14, 'DROITS');
+    [0, 1].forEach(i => { const px = cx + 32 + i * 26; D.trait(arcE(px, y + 34, 5, 5, 0, Math.PI * 2.1), s(DET, { graine: 1367 + i * 2 })); D.trait(arcE(px, y + 50, 10, 6, Math.PI, Math.PI * 2), s(FIN, { graine: 1368 + i * 2 })); });
+  },
+  /* une petite horloge, et la flèche qui revient en arrière */
+  historique(D) {
+    const cx = DX + 68, cy = DY + 306;
+    D.trait(arcE(cx, cy, 16, 16, 0, Math.PI * 2.1), s(DET, { graine: 1380 }));
+    trait(D, [[cx, cy - 10], [cx, cy], [cx + 8, cy + 4]], 1381, DET, { wMax: 1.6 });
+    const A = arcE(cx, cy, 25, 25, -.6, 4.2).reverse();
+    trait(D, A, 1382, FIN, { wMax: 1.2 }); pointe(D, A, 1383, FIN, { wMax: 1.2 });
+    etiquette(D, cx - 38, cy + 50, 'HISTORIQUE');
+  },
+  /* la base et son double, et la flèche de la copie */
+  sauvegardes(D) {
+    const [x0, y0, w0, h0] = ZD.sauvegardes;
+    boite(D, x0, y0, w0, h0, 8, 1400); etiquette(D, x0 + 10, y0 + 20, 'SAUVEGARDES');
+    const cylindre = (cx, top, g) => {
+      D.trait(arcE(cx, top, 24, 6.5, 0, Math.PI * 2.04), s(DET, { graine: g }));
+      trait(D, ligne(cx - 24, top, cx - 24, top + 30), g + 1, DET); trait(D, ligne(cx + 24, top, cx + 24, top + 30), g + 2, DET);
+      D.trait(arcE(cx, top + 30, 24, 6.5, 0, Math.PI), s(DET, { graine: g + 3 }));
+      D.trait(arcE(cx, top + 15, 24, 6.5, .15, Math.PI - .15), s(FIN, { graine: g + 4, op: .55 }));
+    };
+    cylindre(x0 + 42, y0 + 52, 1403);
+    cylindre(x0 + 106, y0 + 60, 1408);
+    hachures(D, [[x0 + 84, y0 + 68], [x0 + 128, y0 + 68], [x0 + 128, y0 + 88], [x0 + 84, y0 + 88]], { phase: 'p', pas: 3.2, long: [6, 12], op: .3, graine: 1413, angle: 70 });
+    const F = catmull([[x0 + 58, y0 + 40], [x0 + 78, y0 + 31], [x0 + 94, y0 + 46]], 8);
+    trait(D, F, 1414, DET, { wMax: 1.4 }); pointe(D, F, 1415, DET, { wMax: 1.4 });
+  },
+  /* la flèche qui sort d'une table vers un fichier ouvert */
+  ouvertes(D) {
+    const [x0, y0, w0, h0] = ZD.ouvertes, fx = x0 + 96, fy = y0 + 12, fw = 52, fh = 70;
+    boite(D, x0, y0, w0, h0, 8, 1420); etiquette(D, x0 + 10, y0 + h0 - 12, 'DONNÉES OUVERTES', { taille: 10.5 });
+    trait(D, [[fx, fy], [fx + fw - 14, fy], [fx + fw, fy + 14], [fx + fw, fy + fh], [fx, fy + fh], [fx, fy]], 1423, DET);
+    trait(D, [[fx + fw - 14, fy], [fx + fw - 14, fy + 14], [fx + fw, fy + 14]], 1424, FIN);
+    D.texte(fx + fw / 2 - 4, fy + 28, 'CSV', { phase: 'p', taille: 10, ancre: 'middle', op: .7, graisse: 700 });
+    lignes(D, fx + 8, fy + 42, fw - 16, 3, 1425, 3);
+    const [tx, ty, , tn] = TABLES[3], F = catmull([[tx + 44, ty + hautTable(tn) + 4], [tx + 50, y0 + 34], [fx - 6, fy + 38]], 8);
+    trait(D, F, 1429, DET, { wMax: 1.6 }); pointe(D, F, 1430, DET, { wMax: 1.6 });
+  },
+  /* un repère « IA », sobre, qui lit une table */
+  ia(D) {
+    const [tx, ty, tw] = TABLES[3], cx = tx + tw - 20, y = DY + 182;
+    boite(D, cx - 24, y, 48, 24, 12, 1440, DET);
+    D.texte(cx, y + 17, 'IA', { phase: 'p', taille: 12, ancre: 'middle', op: .72, graisse: 700 });
+    tirets(D, ligne(cx, ty - 2, cx, y + 30), .5);
+    trait(D, [[cx - 5.5, y + 35], [cx, y + 29], [cx + 5.5, y + 35]], 1443, DET, { wMax: 1.3 });
+  }
+};
+
+/* ---------------------------------------------------------------------
    Autre chose : une carte d'idées autour de « votre idée »
    --------------------------------------------------------------------- */
 const CX = 375, CY = 392;
@@ -183,12 +333,14 @@ function noeud(D, k, lab, g) {
    --------------------------------------------------------------------- */
 export function dessinCadre(type) {
   const D = new Dessin(null, ENCRE);
-  if (type === 'site') cadreSite(D); else if (type === 'app') cadreApp(D); else if (type === 'logiciel') cadreLogiciel(D); else cadreAutre(D);
+  if (type === 'donnees') cadreDonnees(D);   /* AT-40 */
+  else if (type === 'site') cadreSite(D); else if (type === 'app') cadreApp(D); else if (type === 'logiciel') cadreLogiciel(D); else cadreAutre(D);
   D.planifier(); return D;
 }
 export function dessinBrique(type, k) {
   const D = new Dessin(null, ENCRE);
-  if (type === 'site') BRIQUE_SITE[k] && BRIQUE_SITE[k](D);
+  if (type === 'donnees') BRIQUE_DON[k] && BRIQUE_DON[k](D);   /* AT-40 */
+  else if (type === 'site') BRIQUE_SITE[k] && BRIQUE_SITE[k](D);
   else if (type === 'app') BRIQUE_APP[k] && BRIQUE_APP[k](D);
   else if (type === 'logiciel') BRIQUE_LOG[k] && BRIQUE_LOG[k](D);
   else { const lab = (BRIQUES.autre.find(b => b[0] === k) || [k, k])[1]; noeud(D, k, lab, 500 + Object.keys(NOEUDS).indexOf(k) * 10); }
@@ -198,7 +350,9 @@ export function dessinQui(type, qui) {
   const D = new Dessin(null, ENCRE);
   if (!qui) { D.planifier(); return D; }
   const nom = QUI[qui].nom;
-  if (type === 'site') { embleme(D, qui, SX + 24, SY + 42, 34, 600); etiquette(D, SX + 66, SY + 54, nom, { taille: 11, op: .6 }); }
+  /* AT-40 : dans la barre d'outils de la base, l'emblème puis le nom, au-dessus du nom de la base (le gribouillis du cadre) */
+  if (type === 'donnees') { embleme(D, qui, DX + 16, DY + 40, 28, 600); etiquette(D, DX + 54, DY + 54, nom, { taille: 10, op: .6 }); }
+  else if (type === 'site') { embleme(D, qui, SX + 24, SY + 42, 34, 600); etiquette(D, SX + 66, SY + 54, nom, { taille: 11, op: .6 }); }
   else if (type === 'app') { embleme(D, qui, AX + 26, AY + 56, 34, 600); etiquette(D, AX + 72, AY + 70, nom, { taille: 9.5, op: .6 }); }
   else if (type === 'logiciel') { embleme(D, qui, LX + 18, LY + 46, 30, 600); etiquette(D, LX + 18, LY + 96, nom.replace('VOTRE ', ''), { taille: 9.5, op: .6 }); }
   else { embleme(D, qui, CX - 17, CY - 62, 30, 600); }
@@ -424,6 +578,9 @@ export const MAQUETTE = {
    AT-1 bis : sur la feuille de la planche du haut de page, un trait de
    crayon dessine lentement un site (cadre, bandeau, trois colonnes), puis
    une application. Coordonnées de la feuille (931 x 674).
+   AT-40 (24/10/2026, atelier repositionné sur les bases de données) :
+   la planche sait aussi dessiner une base de données (quatre tables
+   reliées) et un logiciel métier (barre latérale, quatre modules).
    ===================================================================== */
 const CR = { profil: 'fin', wMin: .45, wMax: 1.25, tremble: .55, op: .62 };
 const cr = (o) => Object.assign({}, CR, { phase: 'p' }, o);
@@ -446,6 +603,52 @@ export function dessinPlanche(type, D) {
     const cw = (W - 36 - 28) / 3;
     [0, 1, 2].forEach(c => { const x = X + 18 + c * (cw + 14); formeMain(D, perimetre(x, Y + 214, cw, 128, 7), cr({ graine: 3030 + c * 5 })); gribouillis(D, x + 12, Y + 240, cw * .55, 4, { phase: 'p', wMin: .4, wMax: 1.1, op: .55, graine: 3031 + c * 5 }); for (let i = 0; i < 3; i++) gribouillis(D, x + 12, Y + 272 + i * 20, cw - 26 - (i === 2 ? 30 : 0), 3, { phase: 'p', wMin: .3, wMax: .8, op: .45, graine: 3032 + c * 5 + i }); });
     D.trait(ligne(X + 12, Y + H - 14, X + W - 12, Y + H - 14), cr({ graine: 3050, op: .45 }));
+  } else if (type === 'donnees' || type === 'logiciel') {
+    /* AT-40 : la fenêtre du site, sa barre, ses trois points */
+    const X = 170, Y = 150, W = 590, H = 370, g0 = type === 'donnees' ? 3200 : 3400;
+    formeMain(D, perimetre(X, Y, W, H, 12), cr({ graine: g0 + 1 }));
+    D.trait(ligne(X, Y + 28, X + W, Y + 28), cr({ graine: g0 + 4 }));
+    [16, 31, 46].forEach((dx, i) => D.trait(arcE(X + dx, Y + 14, 4.5, 4.5, 0, Math.PI * 2.1), cr({ graine: g0 + 5 + i, wMax: .9 })));
+    if (type === 'donnees') {
+      /* le nom de la base, la recherche, puis quatre tables (un en-tête, une colonne de clé, des lignes) reliées, avec leurs pattes d'oie */
+      gribouillis(D, X + 26, Y + 56, 140, 5, { phase: 'p', wMin: .4, wMax: 1.2, op: .58, graine: 3208 });
+      formeMain(D, perimetre(X + 360, Y + 40, 200, 20, 10), cr({ graine: 3209, wMax: .8, op: .5 }));
+      D.trait(ligne(X, Y + 74, X + W, Y + 74), cr({ graine: 3212, op: .45 }));
+      const T = [[X + 36, Y + 100, 150, 4], [X + 300, Y + 94, 150, 3], [X + 150, Y + 236, 150, 3], [X + 404, Y + 222, 150, 4]];
+      T.forEach(([x, y, w, n], k) => {
+        const g = 3220 + k * 20, h = 24 + n * 20;
+        formeMain(D, perimetre(x, y, w, h, 6), cr({ graine: g }));
+        D.trait(ligne(x, y + 24, x + w, y + 24), cr({ graine: g + 3 }));
+        D.trait(ligne(x + 26, y + 24, x + 26, y + h), cr({ graine: g + 4, op: .4, wMax: .8 }));
+        gribouillis(D, x + 12, y + 17, w * .45, 4.5, { phase: 'p', wMin: .4, wMax: 1.1, op: .55, graine: g + 5 });
+        for (let i = 0; i < n; i++) { if (i) D.trait(ligne(x + 4, y + 24 + i * 20, x + w - 4, y + 24 + i * 20), cr({ graine: g + 6 + i, op: .35, wMax: .7 })); gribouillis(D, x + 36, y + 38 + i * 20, (w - 50) * (i % 2 ? .6 : .85), 3, { phase: 'p', wMin: .3, wMax: .8, op: .45, graine: g + 12 + i }); }
+      });
+      [[[X + 186, Y + 134], [X + 243, Y + 129], [X + 300, Y + 128]], [[X + 110, Y + 204], [X + 110, Y + 222], [X + 190, Y + 220], [X + 190, Y + 236]], [[X + 390, Y + 178], [X + 390, Y + 200], [X + 470, Y + 202], [X + 470, Y + 222]], [[X + 300, Y + 290], [X + 352, Y + 282], [X + 404, Y + 276]]].forEach((P, k) => {
+        D.trait(catmull(P, 8), cr({ graine: 3300 + k * 3, wMax: 1.1 }));
+        const [patte, barre] = marquesLien(P, .85);
+        D.trait(patte, cr({ graine: 3301 + k * 3 })); D.trait(barre, cr({ graine: 3302 + k * 3 }));
+      });
+    } else {
+      /* la barre latérale et son menu, la recherche, quatre modules : un graphique, des dossiers, un planning, une automatisation */
+      D.trait(ligne(X + 120, Y + 28, X + 120, Y + H), cr({ graine: 3408 }));
+      for (let i = 0; i < 5; i++) gribouillis(D, X + 18, Y + 74 + i * 28, 78 - (i % 2) * 18, 3.5, { phase: 'p', wMin: .35, wMax: .9, op: .5, graine: 3409 + i });
+      D.trait(ligne(X + 120, Y + 66, X + W, Y + 66), cr({ graine: 3414, op: .45 }));
+      formeMain(D, perimetre(X + 136, Y + 38, 180, 17, 8.5), cr({ graine: 3415, wMax: .8, op: .5 }));
+      const x0 = X + 136, cw = (W - 120 - 32 - 12) / 2, ch = 128, M = [0, 1, 2, 3].map(i => [x0 + (i % 2) * (cw + 12), Y + 82 + Math.floor(i / 2) * (ch + 12)]);
+      M.forEach(([x, y], k) => { formeMain(D, perimetre(x, y, cw, ch, 7), cr({ graine: 3420 + k * 30 })); gribouillis(D, x + 12, y + 20, cw * .38, 3.5, { phase: 'p', wMin: .35, wMax: 1, op: .55, graine: 3423 + k * 30 }); });
+      { const [x, y] = M[0];
+        D.trait([[x + 14, y + 34], [x + 14, y + ch - 14], [x + cw - 12, y + ch - 14]], cr({ graine: 3424, op: .5 }));
+        [.45, .75, .55, .9, .65].forEach((v, i) => { const bh = (ch - 58) * v; formeMain(D, perimetre(x + 32 + i * 34, y + ch - 14 - bh, 18, bh, 1.5), cr({ graine: 3425 + i * 3, wMax: .9 })); }); }
+      { const [x, y] = M[1];
+        for (let i = 0; i < 4; i++) { const yy = y + 44 + i * 20; D.trait(arcE(x + 20, yy, 3.5, 3.5, 0, Math.PI * 2.1), cr({ graine: 3454 + i, wMax: 1.1 })); gribouillis(D, x + 32, yy + 3, cw - 100, 3, { phase: 'p', wMin: .3, wMax: .8, op: .45, graine: 3458 + i }); D.trait(ligne(x + cw - 56, yy, x + cw - 16, yy), cr({ graine: 3462 + i, op: .45, wMax: .8 })); } }
+      { const [x, y] = M[2], cp = (cw - 20) / 7;
+        for (let r = 0; r < 4; r++) D.trait(ligne(x + 10, y + 36 + r * 22, x + cw - 10, y + 36 + r * 22), cr({ graine: 3484 + r, op: .3, wMax: .7 }));
+        for (let c = 1; c < 7; c++) D.trait(ligne(x + 10 + c * cp, y + 36, x + 10 + c * cp, y + ch - 12), cr({ graine: 3487 + c, op: .28, wMax: .7 }));
+        [[1, 0, 3], [3, 1, 2], [0, 2, 4]].forEach(([c, r, l], i) => formeMain(D, perimetre(x + 12 + c * cp, y + 39 + r * 22, l * cp - 4, 15, 4), cr({ graine: 3494 + i * 3 }))); }
+      { const [x, y] = M[3], bx = [x + 16, x + cw / 2 - 24, x + cw - 64], by = [y + 62, y + 44, y + 62];
+        bx.forEach((xx, i) => formeMain(D, perimetre(xx, by[i], 48, 30, 6), cr({ graine: 3514 + i * 3 })));
+        [[bx[0] + 48, by[0] + 15, bx[1], by[1] + 15], [bx[1] + 48, by[1] + 15, bx[2], by[2] + 15]].forEach(([a, b, c, d], i) => { D.trait(catmull([[a, b], [(a + c) / 2, (b + d) / 2 - 6], [c, d]], 6), cr({ graine: 3524 + i * 2 })); D.trait([[c - 8, d - 6], [c, d], [c - 9, d + 3]], cr({ graine: 3525 + i * 2 })); }); }
+    }
   } else {
     const X = 350, Y = 120, W = 220, H = 440;
     formeMain(D, perimetre(X, Y, W, H, 34), cr({ graine: 3101, wMax: 1.4 }));

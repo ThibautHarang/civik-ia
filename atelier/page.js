@@ -17,7 +17,7 @@
 import { $, $$, clamp, reduit, chargerImage, demarrer, observer, Fiche, verifierChamp, formulaireCourt, copier, AUJOURDHUI, dort, envoiReel, envoyerFiche, brouillon } from '../commun/pages/pages.js';   /* S1 : envoiReel, envoyerFiche (contrat R7) */
 import { Dessin, ligne, arcE, perimetre, formeMain, hachures, catmull, rng, eEntree } from '../commun/pages/plume.js';
 import { mesurer } from '../commun/pages/mesures.js';   /* P4 : formulaire_etape, valeurs fermées */
-import { ENCRE, FEUILLE, BRIQUES, TYPES, QUI, ANNOT_APP, posAnnotApp, CARTOUCHE, dessinCadre, dessinBrique, dessinQui, dessinCartouche, couleurSite, couleurMarianne, realisation, ZONES, dessinEtat, MOTS_ECOUTE, NOTES_CROQUIS, MAQUETTE, GRAPHITE, GRIS, dessinPlanche } from './croquis.js';
+import { ENCRE, FEUILLE, BRIQUES, TYPES, QUI, ANNOT_APP, posAnnotApp, CARTOUCHE, dessinCadre, dessinBrique, dessinQui, dessinCartouche, couleurSite, couleurMarianne, realisation, ZONES, dessinEtat, MOTS_ECOUTE, NOTES_CROQUIS, MAQUETTE, GRAPHITE, GRIS, dessinPlanche } from './croquis.js?v=20261024';   /* AT-40 : appel versionné, le serveur garde les .js de l'atelier une heure */
 
 demarrer();
 const DOSSIER = '../commun/img/c/';
@@ -328,12 +328,15 @@ async function entree() {
    AT-1 bis : sur la feuille de la planche, un trait de crayon dessine
    lentement un site, l'efface au bout d'une vingtaine de secondes, puis
    une application. Il s'arrête lampe éteinte (et hors de la vue).
+   AT-40 (24/10/2026, atelier repositionné sur les bases de données) :
+   une base de données, puis un logiciel métier, puis une application
+   (même rythme, même gomme) ; le site n'est plus dessiné.
    --------------------------------------------------------------------- */
 function dessinTable(sec) {
   const svg = $('[data-dessin-table]', sec); if (!svg) return;
-  const types = ['site', 'app'];
+  const types = ['donnees', 'logiciel', 'app'];
   let i = 0, D = null, u = 0, phase = 'trace', attente = 0, allume = false, vue = true, raf = 0, dernier = 0, pair = false;
-  const monter = () => { svg.innerHTML = ''; svg.classList.remove('gomme'); D = new Dessin(svg, '#4b4c52'); dessinPlanche(types[i % 2], D); D.monter(); D.rendre({ p: 0 }); u = 0; phase = 'trace'; };
+  const monter = () => { svg.innerHTML = ''; svg.classList.remove('gomme'); D = new Dessin(svg, '#4b4c52'); dessinPlanche(types[i % types.length], D); D.monter(); D.rendre({ p: 0 }); u = 0; phase = 'trace'; };
   if (reduit()) { monter(); D.rendre({ p: 1 }); return; }
   const DUREE = 9500, POSE = 9000;
   const boucle = t => {
@@ -447,7 +450,9 @@ function meuble() {
       const iFiche = I.traits.length, FICHE = [[px, dh], [px + 8, 14], [px + pw - 8, 14], [px + pw, dh]];
       I.trait(FICHE, od(DET, { graine: 62 + i }));
       const cx = dw / 2;
-      if (type === 'site') { I.trait(perimetre(cx - 60, 22, 120, 30, 3), od(FIN, { graine: 63 })); I.trait(ligne(cx - 60, 29, cx + 60, 29), od(FIN, { graine: 64 })); I.trait(ligne(cx - 46, 38, cx + 6, 38), od(FIN, { graine: 65 })); }
+      /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : deux tables (un en-tête, des lignes) reliées par un trait */
+      if (type === 'donnees') { I.trait(perimetre(cx - 58, 22, 44, 30, 2), od(FIN, { graine: 76 })); I.trait(ligne(cx - 58, 29, cx - 14, 29), od(FIN, { graine: 77 })); I.trait(ligne(cx - 55, 40, cx - 17, 40), od(FIN, { graine: 78, op: .55 })); I.trait(perimetre(cx + 14, 26, 44, 26, 2), od(FIN, { graine: 79 })); I.trait(ligne(cx + 14, 33, cx + 58, 33), od(FIN, { graine: 80 })); I.trait(ligne(cx + 17, 43, cx + 55, 43), od(FIN, { graine: 81, op: .55 })); I.trait(catmull([[cx - 14, 35], [cx, 33], [cx + 14, 38]], 6), od(DET, { graine: 82 })); }
+      else if (type === 'site') { I.trait(perimetre(cx - 60, 22, 120, 30, 3), od(FIN, { graine: 63 })); I.trait(ligne(cx - 60, 29, cx + 60, 29), od(FIN, { graine: 64 })); I.trait(ligne(cx - 46, 38, cx + 6, 38), od(FIN, { graine: 65 })); }
       else if (type === 'app') { I.trait(perimetre(cx - 30, 20, 26, 34, 5), od(FIN, { graine: 66 })); I.trait(perimetre(cx + 6, 20, 26, 34, 5), od(FIN, { graine: 67 })); }
       else if (type === 'logiciel') { I.trait(perimetre(cx - 60, 22, 120, 30, 3), od(FIN, { graine: 68 })); I.trait(ligne(cx - 34, 22, cx - 34, 52), od(FIN, { graine: 69 })); [0, 1, 2].forEach(k => I.trait(ligne(cx - 20 + k * 22, 48, cx - 20 + k * 22, 40 - k * 4), od(DET, { graine: 70 + k }))); }
       else { I.trait(catmull([[cx - 10, 30], [cx - 8, 22], [cx + 2, 19], [cx + 10, 24], [cx + 8, 32], [cx, 37], [cx, 43]], 6), od(DET, { graine: 74, wMax: 2.2 })); I.trait(arcE(cx, 49, 2, 2, 0, Math.PI * 2.1), od(DET, { graine: 75 })); }
@@ -1075,6 +1080,8 @@ function pageBlanche() {
   /* ---- les choix ---- */
   const val = n => { const c = $$(`[name="${n}"]`, form).filter(x => x.checked).map(x => x.value); return c.join(', '); };
   const libBrique = k => (BRIQUES[type] || []).find(b => b[0] === k)?.[1] || k;
+  /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : « le fil du club » pour une association seulement ; sinon « le fil commun » */
+  const annotApp = k => k === 'fil' && qui !== 'association' ? 'le fil commun' : ANNOT_APP[k];
   const majTitre = () => { if (!type) { effacer('titre'); return; } ecrire('titre', `${TYPES[type].titre}${qui ? ', pour ' + QUI[qui].lab : ''}`, 60, 80, 42, { graisse: 600, rot: -.012 }); };
   const majCartouche = () => {
     if (!type) return;
@@ -1092,7 +1099,7 @@ function pageBlanche() {
     (BRIQUES[type] || []).forEach(([k]) => {
       const cle = 'b:' + type + ':' + k, on = choisies.has(k);
       if (on) poserPiece(cle, () => dessinBrique(type, k)); else if (pieces.has(cle)) pieces.get(cle).cible = 0;
-      if (type === 'app') { if (on) ecrire('a:' + k, ANNOT_APP[k], ...posAnnotApp(k), 22, { op: .85, vite: 1.8 }); else effacer('a:' + k); }
+      if (type === 'app') { if (on) ecrire('a:' + k, annotApp(k), ...posAnnotApp(k), 22, { op: .85, vite: 1.8 }); else effacer('a:' + k); }
     });
     demander(); majDesc();
     fiche.ecrire('briques', (BRIQUES[type] || []).filter(([k]) => choisies.has(k)).map(([, l]) => l.toLowerCase()).join(', ').replace(/^./, c => c.toUpperCase()));
@@ -1201,6 +1208,9 @@ function pageBlanche() {
   form.addEventListener('input', memo.suivre); form.addEventListener('change', memo.suivre);
   const rendreBrouillon = async () => {
     const v = memo.lire(); if (!v || typeof v !== 'object') return;
+    /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : un brouillon d'avant dont le type n'est plus proposé (« site »,
+       sa case a disparu) est oublié en entier : la feuille reste blanche, avec son invitation, à l'étape 1 */
+    if (Array.isArray(v.type) && !$(`[name="type"][value="${CSS.escape(String(v.type[0]))}"]`, form)) { memo.oublier(); try { sessionStorage.removeItem(CLE_ETAPE); } catch (e) { /* rien */ } return; }
     const cocher = (nom, val) => { const r = $(`[name="${nom}"][value="${CSS.escape(val)}"]`, form); if (r) r.checked = true; return r; };
     if (Array.isArray(v.type) && cocher('type', v.type[0])) await changerType(v.type[0]);
     if (Array.isArray(v.qui) && cocher('qui', v.qui[0])) changerQui(v.qui[0]);
@@ -1216,7 +1226,7 @@ function pageBlanche() {
   /* l'étape gardée avec le brouillon (à chaque passage d'une étape à l'autre) */
   form.addEventListener('submit', () => setTimeout(garderEtape, 0));
   retour.addEventListener('click', () => setTimeout(garderEtape, 0));
-  /* ---- depuis un tiroir : « Demander un devis » (site web, application, logiciel sur mesure) ou « Dessiner mon projet »
+  /* ---- depuis un tiroir : « Demander un devis » (base de données, logiciel métier, application ; AT-40) ou « Dessiner mon projet »
      (autre projet) mènent à la page blanche, la demande de devis de l'atelier (M3, P4), et préremplissent le type de projet : la
      feuille se dessine, la fiche s'écrit, l'étape 2 s'ouvre. Même page, aucun rechargement (l'ancre #page-blanche fait défiler).
      « Autre projet » prend en plus le crayon. Une fiche déjà envoyée ne change plus. */

@@ -1080,8 +1080,10 @@ function pageBlanche() {
   /* ---- les choix ---- */
   const val = n => { const c = $$(`[name="${n}"]`, form).filter(x => x.checked).map(x => x.value); return c.join(', '); };
   const libBrique = k => (BRIQUES[type] || []).find(b => b[0] === k)?.[1] || k;
-  /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : « le fil du club » pour une association seulement ; sinon « le fil commun » */
-  const annotApp = k => k === 'fil' && qui !== 'association' ? 'le fil commun' : ANNOT_APP[k];
+  /* AT-40 (24/10/2026, atelier repositionné sur les bases de données) : les annotations du club (« le fil du club », « sorties,
+     tournois », « les membres ») pour une association seulement ; pour les autres, les mots d'une commune ou d'une entreprise */
+  const HORS_ASSO = { fil: 'le fil commun', evenements: 'les événements', annuaire: "l'annuaire" };
+  const annotApp = k => qui !== 'association' && HORS_ASSO[k] || ANNOT_APP[k];
   const majTitre = () => { if (!type) { effacer('titre'); return; } ecrire('titre', `${TYPES[type].titre}${qui ? ', pour ' + QUI[qui].lab : ''}`, 60, 80, 42, { graisse: 600, rot: -.012 }); };
   const majCartouche = () => {
     if (!type) return;

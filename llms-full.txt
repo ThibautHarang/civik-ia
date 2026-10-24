@@ -374,68 +374,67 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## L'atelier : sites, applications, logiciels sur mesure · Civik-ia
+## Bases de données, logiciels et applications pour collectivités · Civik-ia
 URL : https://civik-ia.fr/atelier/
-Resume : L'atelier Civik-ia construit votre site, votre application ou votre logiciel sur mesure : mairies, acteurs de santé, entreprises, associations. Sur devis.
+Resume : L'atelier Civik-ia conçoit bases de données, logiciels métier et applications pour les communes, les intercommunalités, les associations et les entreprises. Sur devis.
 
-L'atelier : sites, applications, logiciels sur mesure · Civik-ia
+Bases de données, logiciels et applications pour collectivités · Civik-ia
 Aller au contenu
 Civik-ia
-Marianne Conseil Atelier Contact
+Marianne Conseil et formation Atelier Contact
 Parler de mon projet Mon projet
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 tirez
 Créer
-L'atelier Civik-ia : sites, applications, logiciels sur mesure
-L’atelier Civik-ia vous aide à construire votre propre projet, site web, application ou logiciel, pour les mairies, les acteurs de santé, les entreprises et les associations.
+L'atelier Civik-ia : bases de données, logiciels, applications
+L’atelier conçoit la base de données de votre service, puis le logiciel ou l’application qui s’en sert : des informations rangées et tenues à jour, que vos agents retrouvent et qu’un outil d’IA peut lire. Pour les communes et les intercommunalités, sur devis.
 Dessiner mon projet
 Ouvrez un tiroir
 Chaque tiroir range un type de projet : ce qu’il peut contenir, pour qui, comment nous travaillons. Le dernier laisse libre cours à votre imagination.
-Site web
+Base de données
+Logiciel métier
 Application
-Logiciel sur mesure
 Autre projet
 ouvrez-en un
-Site web
-Pour qui Mairies, établissements de santé, entreprises, associations.
-Ce qu’il peut contenir Des pages claires, des actualités, un agenda, des formulaires, le paiement en ligne, un espace réservé aux adhérents ; pour une mairie, Marianne, l’assistant IA des collectivités territoriales, y est intégrée.
-Comment nous travaillons Un croquis d’abord, puis une maquette que vous validez, puis la construction. Vous gardez la main sur vos contenus et sur votre design system.
-Un exemple Ce site, civik-ia.fr ; d’autres sites sont en passe d’être mis en ligne.
+Base de données
+Pour qui Les services d’une commune ou d’une intercommunalité dont les informations vivent dans des tableurs, des classeurs ou plusieurs logiciels qui ne se parlent pas ; les associations et les entreprises qui en sont au même point.
+Ce qu’elle peut contenir Les associations, les salles et les équipements, l’agenda, les demandes reçues, les documents publiés ; des listes reliées entre elles, des droits par service, un historique des modifications, des sauvegardes, des exports en données ouvertes.
+Comment nous travaillons Un inventaire de ce que vous avez déjà, puis un modèle que le service valide, puis la reprise de vos tableurs. Vos données et vos contenus restent les vôtres.
+Un cas type Dans une commune : les associations, les salles et l’agenda rangés dans une seule base, d’où partiraient le planning des salles et l’agenda du site.
+À lire Constituer une base de données fiable pour l’IA d’une mairie ; sécuriser la base de données d’une collectivité .
+Demander un devis
+Logiciel métier
+Pour qui Un service dont le travail ne rentre dans aucun outil du marché : la vie associative, les services techniques, l’enfance et la jeunesse, l’accueil du public ; une entreprise ou une association dans le même cas.
+Ce qu’il peut contenir Le suivi des demandes et des dossiers, le planning des salles ou du matériel, un tableau de bord, des exports et des rapports, des accès par service, un assistant d’IA pour les agents, à partir de vos documents.
+Comment nous travaillons Un cadrage d’abord, qui dit ce que l’outil fera et ce qu’il ne fera pas ; puis un devis ; puis la construction par étapes, que vous testez à chaque fois.
+Un cas type Dans une commune : le planning des salles municipales, relié à la liste des associations, avec un tableau de bord pour le service.
+À lire Logiciel pour petite commune : bien choisir en 2026 .
 Demander un devis
 Application
-Pour qui Les associations et les clubs, de la plus modeste amicale au plus grand club ; les collectivités ; les entreprises.
-Ce qu’elle peut contenir Pour une association : de quoi réunir les membres autour d’un fil commun, informer, organiser les sorties, les tournois et les assemblées, décider ensemble avec l’ordre du jour et les votes. Elle porte vos couleurs et votre nom.
-Comment nous travaillons Nous la construisons avec quelques membres, sur vos besoins réels. Elle s’installe sur le téléphone depuis un simple lien.
-Un exemple Une application pour un club de golf, en service depuis juillet 2026, environ 270 adhérents.
-Demander un devis
-Logiciel sur mesure
-Pour qui Établissements de santé, collectivités et entreprises dont le métier ne rentre dans aucun outil du marché.
-Ce qu’il peut contenir Un tableau de bord, le suivi des dossiers, un planning, un outil de recrutement, des automatisations, un assistant d’intelligence artificielle, et bien d’autres idées encore qui répondent à vos besoins, à partir de vos documents et de votre façon de travailler.
-Comment nous travaillons Un cadrage d’abord, qui dit ce que l’outil fera et ce qu’il ne fera pas ; puis un devis ; puis la construction par étapes, que vous testez à chaque fois.
-Un exemple Marianne, l’assistant IA des collectivités territoriales, a été conçue et construite dans cet atelier. Découvrir Marianne
+Pour qui Les communes, pour leurs habitants ou leurs agents ; les associations et les clubs, de la plus modeste amicale au plus grand club ; les entreprises.
+Ce qu’elle peut contenir Pour une commune : l’agenda, les inscriptions, le suivi d’une demande. Pour une association : un fil commun, les informations pratiques, les sorties et les tournois, l’annuaire des membres. Elle porte vos couleurs et votre nom.
+Comment nous travaillons Nous la construisons avec quelques utilisateurs, sur vos besoins réels. Elle s’installe sur le téléphone depuis un simple lien. Pour les associations, une même application peut servir chaque club, à ses couleurs.
+Un exemple Une application pour une association sportive, construite avec le club, en service depuis juillet 2026. Démonstration sur données fictives, sur demande.
 Demander un devis
 Autre projet
 Laissez libre cours à votre imagination.
-Un outil pour un service, une idée pour vos usagers, un projet qui ne rentre dans aucune case : racontez-le, ou dessinez-le.
+Le site internet d’une commune qui n’en a pas, un outil pour une entreprise, une idée pour vos usagers, un projet qui ne rentre dans aucune case : racontez-le, ou dessinez-le.
 Dessiner mon projet
 Ce qui est déjà sorti de l’atelier
+Applications
+Une application pour une association sportive
+Construite avec le club, en service depuis juillet 2026.
+Démonstration sur données fictives, sur demande
+1 sur 1
+Assistant IA
+Marianne, l’assistant IA des communes
+Un produit de Civik-ia développé dans l’atelier. Elle répond à vos habitants en s’appuyant sur les pages publiées par votre commune.
+Pour répondre à vos habitants : Marianne
+1 sur 1
 Sites internet
 civik-ia.fr
-Le site vitrine, socle de toute notre activité.
+Le site de Civik-ia, conçu et mis en ligne dans l’atelier.
 Voir le site
-Un site et une boutique pour un métallier
-La vitrine du métallier, et ses pièces en vente en ligne.
-Présenté sur demande
-1 sur 1
-Applications
-Une application pour un club de golf
-En service depuis juillet 2026, environ 270 adhérents.
-Présenté sur demande
-1 sur 1
-Chatbot IA
-Marianne, l’assistant IA des collectivités territoriales
-Un chatbot d’intelligence artificielle qui répond aux habitants 24 h/24 à partir des documents officiels de la commune, et cite toutes ses sources. Conçue et construite dans cet atelier.
-Découvrir Marianne
 1 sur 1
 Dessiner mon projet
 Partez d’une page blanche
@@ -446,15 +445,15 @@ Effacer mon dessin
 Télécharger le croquis
 Étape 1 sur 5
 Votre projet
-Un site web
+Une base de données
+Un logiciel métier
 Une application
-Un logiciel sur mesure
 Autre chose
 Pour qui ?
-Une mairie
-Un acteur de santé
-Une entreprise
+Une commune ou une intercommunalité
 Une association
+Une entreprise
+Un acteur de santé
 Les briques
 Chaque brique se dessine sur la feuille. Plusieurs choix possibles.
 Les contraintes
@@ -470,8 +469,7 @@ Moins de 3 000 €
 Plus de 30 000 €
 À définir ensemble
 L’hébergement
-En France
-En Europe
+Dans l’Union européenne
 Pas de préférence
 L’accessibilité
 Exigée (RGAA)
@@ -499,7 +497,7 @@ Nom à préciser Structure à préciser Courriel à préciser
 Prochaine étape : un échange, puis un croquis au propre et un devis.
 Télécharger le croquis
 Copier ma fiche
-Du croquis à la mise en ligne
+Du croquis à la mise en service
 Six étapes, toujours dans le même ordre. Le calendrier de chacune est écrit dans le devis.
 1
 Écoute
@@ -509,25 +507,31 @@ Exemple sur Villeneuve-les-Ormes (commune fictive), notre commune de démonstrat
 1 Écoute
 Un premier échange pour comprendre votre projet, vos besoins, et à qui il s’adresse.
 2 Croquis
-Un dessin rapide de l’idée, pour se mettre d’accord avant de construire.
+Un dessin rapide de l’outil et de ses données, pour se mettre d’accord avant de construire.
 3 Maquette
 Les écrans principaux, hiérarchisés et dessinés au propre, que vous validez.
 4 Construction
-Une ébauche fidèle du site, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l’atelier.
-5 Mise en ligne
-À la date et selon le calendrier décidés ensemble, à l’adresse de votre choix. Hébergée en Europe.
+Une ébauche fidèle de l’outil, construite par étapes courtes que vous voyez avancer et que vous testez en direct, dans un outil de modification créé par l’atelier.
+5 Mise en service
+À la date et selon le calendrier décidés ensemble. Hébergement dans l’Union européenne, chez OVHcloud.
 6 Suivi
-Corrections, mises à jour, adaptations : l’outil continue de vivre selon vos besoins (compris dans l’abonnement).
+Corrections, mises à jour, adaptations : l’outil continue de vivre selon vos besoins, selon le contrat de suivi.
 Demander un devis
-Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit.
+Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit. L’atelier mène un projet à la fois.
 Demander un devis
 Questions fréquentes
-Combien coûte un site ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l’est aussi.
-Combien de temps faut-il pour construire un projet ? Cela dépend du projet. Le calendrier est écrit dans le devis et tenu à jour avec vous pendant la construction ; les premiers livrables arrivent en général au bout de quelques semaines.
-Faut-il un cahier des charges ? Non. Un échange et un croquis suffisent pour commencer ; ce qu’il faut écrire, nous l’écrivons ensemble, au fur et à mesure.
-Où sont hébergés vos sites et vos applications ? En Europe, chez OVHcloud , comme Marianne, l’assistant IA des collectivités territoriales.
-Pouvez-vous intégrer Marianne, l’assistant IA des collectivités territoriales, au site d’une mairie ? Oui. Marianne s’intègre au site de la mairie et répond aux habitants à partir des sources officielles de la commune. Elle reste une offre à part, avec ses propres conditions : découvrir Marianne .
-Construisez-vous des applications pour les associations ? Oui : réunir les membres, informer, organiser les sorties et les assemblées, préparer les votes. Une application est en service pour un club de golf depuis juillet 2026, avec environ 270 adhérents.
+Combien coûte une base de données, un logiciel ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l’est aussi.
+Une collectivité peut-elle vous confier un projet ? Oui. Le montant et la nature du projet déterminent sa procédure d’achat ; la collectivité définit son besoin, et nous répondons à sa consultation.
+Faut-il un cahier des charges ? Pour une collectivité, c’est elle qui définit son besoin , avant de consulter. Pour une association ou une entreprise, un échange et un croquis suffisent pour commencer.
+Combien de temps faut-il pour construire un projet ? Cela dépend du projet. Le calendrier est écrit au devis et tenu à jour avec vous pendant la construction.
+Où sont hébergées vos bases de données et vos applications ? Dans l’Union européenne, chez OVHcloud. Les services tiers d’un projet (messagerie, paiement, IA) sont listés au devis, avec leur lieu de traitement.
+À qui appartiennent les données et le code ? Vos données et vos contenus restent les vôtres. Les droits sur le code et la documentation sont écrits au devis. Si le projet traite des données personnelles, Civik-ia agit comme sous-traitant de votre structure : un accord écrit (article 28 du RGPD) fixe les rôles avant la mise en service.
+Un projet peut-il contenir de l’intelligence artificielle ? Oui. Le devis dit quel système d’IA est utilisé, où il tourne, comment l’utilisateur sait qu’il s’adresse à une IA (article 50 du règlement européen sur l’IA) et qui porte quelles obligations.
+Faites-vous des sites internet ? Oui, pour une commune qui n’en a pas. Marianne peut s’y ajouter, sur une page dédiée ou dans un cadre intégré : découvrir Marianne .
+Construisez-vous des applications pour les associations ? Oui : une même application peut servir chaque club, à ses couleurs, pour réunir les membres, informer, organiser les sorties et les tournois. Une association sportive s’en sert depuis juillet 2026 ; démonstration sur données fictives, sur demande.
+Travaillez-vous pour les entreprises ? Oui, sur devis : une base de données, un outil interne ou une application, avec le même déroulé, de l’écoute au suivi.
+Travaillez-vous avec les établissements de santé ? Oui, sur demande. Des données de santé exigent un hébergeur HDS : il est nommé au devis.
+Vos outils sont-ils accessibles ? Le niveau d’accessibilité visé (RGAA) est écrit au devis ; aucun outil n’est annoncé accessible sans audit daté.
 Que devient le croquis que je dessine sur cette page ? Il reste dans votre navigateur. Vous pouvez le télécharger en image et nous l’envoyer avec votre projet.
 Parlons de votre projet
 Quatre lignes suffisent pour commencer. Nous revenons vers vous pour fixer un premier échange.
@@ -539,15 +543,16 @@ Courriel *
 Votre besoin, en une phrase *
 Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
-Page mise à jour le 19 octobre 2026.
+Page mise à jour le 24 octobre 2026.
 Civik-ia
-Civik-ia, au service des territoires : un assistant IA pour les collectivités territoriales, une branche conseil pour le secteur de la santé et les collectivités territoriales, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
-Le conseil, pour tous
+Conseil et formation, pour les collectivités
 L’atelier, pour vos besoins
 Nous joindre
 contact@civik-ia.fr
+LinkedIn de Thibaut Harang
 Guides pour les mairies
 Guichet citoyen IA, la définition
 Le guide du chatbot de mairie

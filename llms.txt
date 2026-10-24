@@ -1,6 +1,6 @@
 # Civik-ia
 
-> Civik-ia aide les collectivités à adopter l'IA : Marianne, un guichet citoyen IA pour les mairies et les collectivités territoriales, une branche conseil et formation pour les communes et les intercommunalités, et un atelier qui conçoit des sites, des logiciels et des applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
+> Civik-ia aide les collectivités à adopter l'IA : Marianne, un guichet citoyen IA pour les mairies et les collectivités territoriales, une branche conseil et formation pour les communes et les intercommunalités, et un atelier qui conçoit des bases de données, des logiciels et des applications. Société française (SASU), SIREN 103 568 416, fondée en 2026 par Thibaut Harang.
 
 ## Définitions
 

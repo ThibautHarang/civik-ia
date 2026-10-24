@@ -65,7 +65,7 @@ Conseiller et former
 Je vous aide à adopter l’IA dans votre collectivité : ce que le droit vous demande, les financements possibles, la formation de vos agents et de vos équipes de direction. J’audite vos usages et je vous propose un plan d’action.
 Découvrir le conseil et la formation
 Créer
-L’atelier Civik-ia écoute, accompagne, dessine, puis construit des solutions sur mesure (site web, application mobile, logiciel SaaS) adaptées à vos besoins. À chacun sa solution, unique et inédite.
+L’atelier Civik-ia conçoit la base de données de votre service, puis le logiciel ou l’application qui s’en sert. Un croquis d’abord, puis un devis, puis la construction par étapes.
 Découvrir l’atelier
 Nous écrire
 Quatre lignes suffisent. Dites-nous pour quoi vous écrivez, nous revenons vers vous.
@@ -82,7 +82,7 @@ Votre message *
 Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Civik-ia
-Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Conseil et formation, pour les collectivités
@@ -347,7 +347,7 @@ Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Page mise à jour le 23 octobre 2026.
 Civik-ia
-Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Conseil et formation, pour les collectivités
@@ -374,11 +374,11 @@ RGPD
 Accessibilité
 Gérer les cookies
 
-## Bases de données, logiciels et applications pour collectivités · Civik-ia
+## Bases de données, logiciels et applications pour les collectivités · Civik-ia
 URL : https://civik-ia.fr/atelier/
 Resume : L'atelier Civik-ia conçoit bases de données, logiciels métier et applications pour les communes, les intercommunalités, les associations et les entreprises. Sur devis.
 
-Bases de données, logiciels et applications pour collectivités · Civik-ia
+Bases de données, logiciels et applications pour les collectivités · Civik-ia
 Aller au contenu
 Civik-ia
 Marianne Conseil et formation Atelier Contact
@@ -517,7 +517,7 @@ Une ébauche fidèle de l’outil, construite par étapes courtes que vous voyez
 6 Suivi
 Corrections, mises à jour, adaptations : l’outil continue de vivre selon vos besoins, selon le contrat de suivi.
 Demander un devis
-Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit. L’atelier mène un projet à la fois.
+Chaque projet est unique, chaque besoin est spécifique : le devis le sera aussi. Faites-nous part de votre projet, nous revenons vers vous avec un premier échange, un croquis, puis un devis écrit.
 Demander un devis
 Questions fréquentes
 Combien coûte une base de données, un logiciel ou une application ? Sur devis , après un premier échange et un croquis. Chaque projet est unique : le devis l’est aussi.
@@ -545,7 +545,7 @@ Envoyer mon message
 Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Page mise à jour le 24 octobre 2026.
 Civik-ia
-Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier dédié à la construction de sites, de logiciels et d’applications.
+Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.
 Les trois activités
 Marianne, pour les collectivités territoriales
 Conseil et formation, pour les collectivités

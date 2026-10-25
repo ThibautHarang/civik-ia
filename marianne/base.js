@@ -437,7 +437,10 @@ function tic() {
 function finir() {
   const e = joue.e;
   echeances.forEach(x => x[1]()); echeances = []; if (horloge) { horloge.cancel(); horloge = null; }
-  joue = null; affiche = e; dire(e); finRetenue(e); avancer();
+  joue = null; affiche = e; dire(e); finRetenue(e);
+  /* à la butée, un temps fini en deçà du sixième relance le sixième : au bas du document, plus aucun défilement ne viendrait le viser
+     (rechargement au bas, saut d'un coup par l'indicateur de défilement ou la recherche dans la page ; constat du 25/10/2026) */
+  if (e < 5 && cible < 5 && viser && enButee()) viser(5); else avancer();
 }
 function bouger(d, de, vers, t, dur, easing = DEPL, opa) {
   animer(d.el, [{ transform: TD(de) }, { transform: TD(vers) }], t, dur, easing);
@@ -688,7 +691,9 @@ else {
   /* MB-1 : sur ordinateur, un temps est actif quand il passe au milieu de l'écran ; sur téléphone, l'illustration est collée en haut :
      la bande descend juste sous elle, pour que le dessin change quand le titre du temps paraît, pas pendant qu'il est caché */
   const bande = matchMedia('(max-width: 900px)').matches ? '-58% 0px -38% 0px' : '-46% 0px -46% 0px';
-  const io2 = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting && viser) viser(+x.target.dataset.temps); }), { rootMargin: bande });
+  /* à la butée, la cible ne redescend pas : barres de Safari repliées, la bande du bas tombe dans le cinquième temps et le ramènerait
+     après que le défilement a visé le sixième, en coupant celui-ci (constat du 25/10/2026) */
+  const io2 = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting && viser && !(enButee() && +x.target.dataset.temps < cible)) viser(+x.target.dataset.temps); }), { rootMargin: bande });
   $temps.forEach(t => io2.observe(t));
 }
 addEventListener('resize', () => { clearTimeout(calculer._t); calculer._t = setTimeout(() => {
@@ -747,19 +752,20 @@ function lacher(pourLaPage) {
    se lit donc au bas réel du document */
 const bas = () => Math.min(R.L, document.documentElement.scrollHeight - innerHeight);
 /* MB-10 ter : le lecteur attend-il à la butée du bas ? */
-function enButee() { return R.actif && feuille.classList.contains('retenu') && scrollY >= bas() - 2; }
+/* 12 px de marge : au rechargement, le navigateur rend la position à quelques pixels près (3 px de moins que le bas mesurés le 25/10/2026) */
+function enButee() { return R.actif && feuille.classList.contains('retenu') && scrollY >= bas() - 12; }
 /* MB-10 ter : la fin du sixième temps (le téléphone et les dalles posés) lève la butée pour la page 0,5 s plus tard */
 function finRetenue(e) { if (e >= 5) { clearTimeout(R.leve); R.leve = setTimeout(retenir, 500); } }
 /* filet : à la butée sans que rien ne joue (un observateur en retard), la ligne de temps est relancée ; sans suite après 0,8 s, la butée se lève */
 addEventListener('scroll', () => {
   if (joue) regler(vitesseDe(joue.e, cible - joue.e));   /* MB-10 ter : arrivé à la butée (ou reparti), la vitesse suit */
   if (R.suspendu) { clearTimeout(R.attente); R.attente = setTimeout(reprendre, 260); return; }
-  if (!R.actif || !feuille.classList.contains('retenu') || scrollY < bas() - 1 || affiche >= 5) return;
+  if (!enButee() || affiche >= 5) return;
   /* à la butée, le sixième temps est visé même si un temps joue encore : sans cela, un lancer arrivé en bas pendant un temps laissait la
      cible en deçà du sixième, et plus aucun défilement ne venait la relever (au bas du document, le navigateur n'en envoie plus) */
   if (cible < 5 && viser) viser(5); else if (!joue) avancer();
   if (joue) return;   /* la fin du sixième temps lève la butée (finRetenue) */
-  clearTimeout(R.bout); R.bout = setTimeout(() => { if (R.actif && !R.suspendu && scrollY >= bas() - 2 && !joue && affiche < 5) lacher(true); }, 800);
+  clearTimeout(R.bout); R.bout = setTimeout(() => { if (!R.suspendu && enButee() && !joue && affiche < 5) lacher(true); }, 800);
 }, { passive: true });
 /* un lien suspend la butée le temps de son défilement (le navigateur va où il doit), puis elle se repose selon la position */
 function reprendre() { R.suspendu = false; retenir(); }

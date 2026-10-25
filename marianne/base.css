@@ -291,8 +291,10 @@ html.anim-non .temps{opacity:1}
    contenu de la page est rogné juste après le texte du sixième temps : la mise en page ne change pas, la fin du document remonte ; pas de
    rebond tant qu'elle est posée */
 .feuille.retenu{overflow-y:clip}
-/* le pied de page suit <main> : il attend sous la butee, puis revient quand elle se leve */
-html.retenu .pied{display:none}
+/* le pied de page suit <main> : il attend sous la butee, puis revient quand elle se leve. .cc-pied : le pied commun posé le 19/10/2026
+   (a63454d) ; sans lui, le pied restait visible sous la butée (page qui semble finie) et Chrome, en le gardant à l'écran quand la
+   butée se levait, jetait le lecteur au bas de la page (constat du 25/10/2026) */
+html.retenu .pied,html.retenu .cc-pied{display:none}
 html.retenu,html.retenu body{overscroll-behavior-y:none}
 
 /* mouvement réduit : la section à son état final, les six temps lisibles */

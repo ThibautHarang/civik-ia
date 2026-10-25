@@ -742,17 +742,24 @@ function lacher(pourLaPage) {
   feuille.classList.remove('retenu'); feuille.style.maxHeight = ''; document.documentElement.classList.remove('retenu');
   if (pourLaPage) { R.desarme = true; R.actif = false; }
 }
+/* le défilement le plus bas permis par la butée. Elle est posée sur la plus petite hauteur de vue (barres de Safari déployées) : barres
+   repliées, la vue est plus haute et le lecteur s'arrête avant R.L, d'environ 90 px sur iPhone (constat du 25/10/2026) ; « à la butée »
+   se lit donc au bas réel du document */
+const bas = () => Math.min(R.L, document.documentElement.scrollHeight - innerHeight);
 /* MB-10 ter : le lecteur attend-il à la butée du bas ? */
-function enButee() { return R.actif && feuille.classList.contains('retenu') && scrollY >= R.L - 2; }
+function enButee() { return R.actif && feuille.classList.contains('retenu') && scrollY >= bas() - 2; }
 /* MB-10 ter : la fin du sixième temps (le téléphone et les dalles posés) lève la butée pour la page 0,5 s plus tard */
 function finRetenue(e) { if (e >= 5) { clearTimeout(R.leve); R.leve = setTimeout(retenir, 500); } }
 /* filet : à la butée sans que rien ne joue (un observateur en retard), la ligne de temps est relancée ; sans suite après 0,8 s, la butée se lève */
 addEventListener('scroll', () => {
   if (joue) regler(vitesseDe(joue.e, cible - joue.e));   /* MB-10 ter : arrivé à la butée (ou reparti), la vitesse suit */
   if (R.suspendu) { clearTimeout(R.attente); R.attente = setTimeout(reprendre, 260); return; }
-  if (!R.actif || !feuille.classList.contains('retenu') || scrollY < R.L - 1 || joue || affiche >= 5) return;
-  if (cible < 5 && viser) viser(5); else avancer();
-  clearTimeout(R.bout); R.bout = setTimeout(() => { if (R.actif && !R.suspendu && scrollY >= R.L - 2 && !joue && affiche < 5) lacher(true); }, 800);
+  if (!R.actif || !feuille.classList.contains('retenu') || scrollY < bas() - 1 || affiche >= 5) return;
+  /* à la butée, le sixième temps est visé même si un temps joue encore : sans cela, un lancer arrivé en bas pendant un temps laissait la
+     cible en deçà du sixième, et plus aucun défilement ne venait la relever (au bas du document, le navigateur n'en envoie plus) */
+  if (cible < 5 && viser) viser(5); else if (!joue) avancer();
+  if (joue) return;   /* la fin du sixième temps lève la butée (finRetenue) */
+  clearTimeout(R.bout); R.bout = setTimeout(() => { if (R.actif && !R.suspendu && scrollY >= bas() - 2 && !joue && affiche < 5) lacher(true); }, 800);
 }, { passive: true });
 /* un lien suspend la butée le temps de son défilement (le navigateur va où il doit), puis elle se repose selon la position */
 function reprendre() { R.suspendu = false; retenir(); }

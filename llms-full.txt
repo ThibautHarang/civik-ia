@@ -23,7 +23,7 @@
 # Prix (hors taxes, grille du 14/10/2026) : abonnement 69 € par mois jusqu'à 4 999 habitants, puis un centime
 #   par mois et par habitant au-delà de 5 000, 500 € par mois au plus ; mise en service à partir de 999 €.
 #
-# 43 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
+# 44 page(s), aucune page de commune : depuis l'ADR 0045 le sitemap
 # n'en declare aucune, et ce fichier n'a pas d'autre source.
 
 ## Civik-ia : l’IA pour les collectivités
@@ -58,6 +58,9 @@ Créer
 Des solutions sur mesure adaptées à vos besoins
 Civik-ia aide votre collectivité à adopter l’IA
 Pour les communes et les intercommunalités : comprendre ce que le droit leur demande, repérer les financements, former les agents et les équipes de direction.
+Le test IA des collectivités
+Huit questions sur l’IA et le droit en vigueur, une source à chaque réponse.
+Faire le test
 Communiquer
 Marianne, l’assistant IA de Civik-ia, répond à vos habitants 24 h/24 en s’appuyant sur les pages publiées par votre commune.
 Découvrir Marianne
@@ -197,6 +200,8 @@ L’achat public d’une IA et son cofinancement
 Sur devis Le programme et la durée s’adaptent à la taille de votre collectivité. Le devis suit notre échange de trente minutes.
 L’article 4 du règlement européen sur l’IA Cette formation contribue aux mesures de maîtrise de l’IA que l’article 4 demande à la commune ; elle donne lieu à une attestation de présence, pas à un certificat.
 Le budget de la collectivité Votre collectivité peut acheter une formation sur son budget, en plus de l’offre du CNFPT financée par sa cotisation.
+Le test IA des collectivités
+Huit questions sur l’IA et le droit en vigueur, une source à chaque réponse. Faire le test
 L’audit des usages de l’IA
 L’audit part de ce que vos agents font déjà avec l’IA. Il se termine par une feuille de route écrite, à amender par vos équipes.
 L’inventaire des outils Les outils d’IA utilisés dans vos services, achetés ou gratuits, et les données qui y passent.
@@ -2554,6 +2559,8 @@ Le 2 août 2027 n’est plus une échéance pour une commune.
 Cette date ne vaut plus que pour les modèles d’IA à usage général mis sur le marché avant le 2 août 2025 (article 111, paragraphe 3).
 Un second volet de simplification, qui toucherait au RGPD, aux données et aux cookies, reste une proposition de la Commission du 19 novembre 2025.
 Au 22 octobre 2026, elle attend une décision de commission au Parlement européen.
+Le test IA des collectivités
+Huit questions sur l’IA et le droit en vigueur, une source à chaque réponse. Faire le test
 Quatre niveaux d’usage dans une mairie
 Le règlement classe les usages selon le risque qu’ils font courir aux personnes.
 Une commune peut rencontrer quatre niveaux, du plus strict au plus léger.
@@ -2952,6 +2959,8 @@ Trois gestes sont à la portée d’une commune de quelques agents.
 Une heure de présentation pour les agents qui utilisent un outil d’IA. Ce qu’est un modèle de langage, pourquoi il peut se tromper avec assurance, et quels outils la mairie autorise.
 Une charte d’usage d’une page. Les outils autorisés, les usages permis, les données qu’un agent n’envoie pas à un outil d’IA , et la personne à qui signaler un doute.
 La liste des outils d’IA de la commune. Pour chacun : le service qui l’emploie, ce qu’il fait, le fournisseur, et la date de la présentation faite aux agents.
+Le test IA des collectivités
+Huit questions sur l’IA et le droit en vigueur, une source à chaque réponse. Faire le test
 Les preuves à garder
 Selon la Commission, aucun certificat n’est nécessaire.
 Une organisation peut tenir un registre interne de ses formations et de ses autres actions.
@@ -3260,6 +3269,8 @@ La sécurité et le RGPD
 Le règlement européen sur l’IA
 La souveraineté
 Les outils, les canaux et le financement
+Le test IA des collectivités
+Huit questions sur l’IA et le droit en vigueur, une source à chaque réponse. Faire le test
 Le guichet citoyen IA et le chatbot de mairie
 Ce qu’est un guichet citoyen IA, comment choisir un chatbot de mairie, le tester avant l’ouverture et mesurer ce qu’il change au secrétariat.
 Guichet citoyen IA pour mairie Un guichet citoyen IA répond aux habitants avec les sources officielles de la mairie et les cite.
@@ -6533,6 +6544,66 @@ La bonification « territoires fragiles » s’applique-t-elle à toute la deman
 Selon la section 3 du cahier des charges, il suffit qu’une des collectivités de la demande soit en outre-mer, bénéficie d’Action Cœur de Ville ou compte plus de 40 % de ses habitants en quartier prioritaire.
 L’annexe 2 rattache le critère de l’outre-mer au demandeur.
 La Banque des Territoires tranche les cas où les deux rédactions divergent.
+Civik-ia
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
+Le site
+Accueil
+Marianne
+Conseil et formation
+Atelier
+Tester Marianne
+22h47, votre mairie est fermée
+Contact
+Guides pour les mairies
+Guichet citoyen IA, la définition
+Le guide du chatbot de mairie
+Prix d’un chatbot de mairie
+Existe-t-il un chatbot gratuit ?
+Comparatif 2026
+Chatbot de commune rurale
+Callbot ou chatbot
+Financer l’IA de sa commune
+RGPD et IA en collectivité
+IA souveraine en mairie
+Réduire les appels en mairie
+Outils IA du secrétariat de mairie
+Logiciel de petite commune
+Démarches en ligne d’une commune
+Communiquer avec ses citoyens
+Livre blanc, l’IA en mairie
+Tous les guides
+Nous écrire
+contact@civik-ia.fr
+thibaut.harang@civik-ia.fr
+LinkedIn de Thibaut Harang
+Centre d’aide
+© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+Mentions légales et conditions d’utilisation
+Confidentialité
+CGV
+RGPD
+Accessibilité
+Gérer les cookies
+
+## Le test IA des collectivités · 8 questions, 2 minutes · Civik-ia
+URL : https://civik-ia.fr/test-ia/
+Resume : Huit questions sur l’IA et le droit qui s’applique à votre collectivité, deux minutes, une source datée à chaque réponse. Anonyme, sans inscription.
+
+Le test IA des collectivités · 8 questions, 2 minutes · Civik-ia
+Civik-ia
+Marianne
+Conseil et formation
+Atelier
+Contact
+Tester Marianne
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
+Le test IA des collectivités · 8 questions, 2 minutes
+Point du droit au 28 octobre 2026
+Question 1 sur 8
+Selon vous, quelle part des collectivités n’a donné aucune consigne à ses agents sur l’usage de l’IA générative ?
+0 % 100 %
+Anonyme, sans inscription. Une source à chaque réponse.
+Le test se joue avec JavaScript. Sans lui, vous pouvez m’écrire directement : M’écrire
 Civik-ia
 Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site

@@ -56,6 +56,8 @@
   <!-- grappe financement (23/10/2026) -->
   <url><loc>https://civik-ia.fr/territoires-d-ia-dossier-cofinancement.html</loc><lastmod>2026-10-23</lastmod></url>
   <url><loc>https://civik-ia.fr/mutualiser-ia-intercommunalite-cofinancement.html</loc><lastmod>2026-10-23</lastmod></url>
+  <!-- le test IA des collectivités (28/10/2026) : lastmod = date de la mise en ligne, à poser le jour du go -->
+  <url><loc>https://civik-ia.fr/test-ia/</loc><lastmod>2026-10-28</lastmod></url>
   <!-- AUCUNE URL /preview/ NI AUCUNE PAGE DE COMMUNE ICI, ET C'EST VOULU (ADR 0045, 24/08/2026) : aucune mairie n'est
        cliente, une page au nom d'une commune trouvable dans Google se lirait comme une référence. Retirer une URL d'ici ne
        désindexe rien : la désindexation passe par X-Robots-Tag: noindex (nginx) et la meta robots. les anciennes pages de marque

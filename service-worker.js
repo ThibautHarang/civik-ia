@@ -28,7 +28,9 @@
 // liens, hub des guides) : les copies des pages anciennes se vident une fois de plus.
 // v216 (28/10/2026) : indexation, mail Search Console du 26/10 (date et heure complètes dans la page de profil de /conseil/,
 // canonical sur trois pages légales).
-const CACHE_NAME = 'civik-ia-v216-indexation-2026-10-28';
+// v217 (28/10/2026) : le test IA des collectivités (/test-ia/), contourné comme /conseil/ : la page et questions.json
+// passent par le réseau, une mise à jour de la banque ne demande pas de nouvelle version.
+const CACHE_NAME = 'civik-ia-v217-test-ia-2026-10-28';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
@@ -46,7 +48,7 @@ const STATIC_ASSETS = [
 // telephone afficherait l'etat d'avant-hier SANS LE DIRE : caches.match ignore
 // le Cache-Control "no-store" pose par nginx. Le contournement est la seule
 // garde qui tienne.
-const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/', '/c-film/', '/commun/', '/conseil/', '/atelier/'];
+const SW_BYPASS_PREFIXES = ['/preview/', '/app/', '/portrait/', '/interne/', '/c-film/', '/commun/', '/conseil/', '/atelier/', '/test-ia/'];
 const SW_BYPASS_EXACT = ['/demo.html', '/demo', '/', '/index.html'];
 
 // Installation : pr\u00e9-cache des assets statiques

@@ -30,7 +30,8 @@
 // canonical sur trois pages légales).
 // v217 (28/10/2026) : le test IA des collectivités (/test-ia/), contourné comme /conseil/ : la page et questions.json
 // passent par le réseau, une mise à jour de la banque ne demande pas de nouvelle version.
-const CACHE_NAME = 'civik-ia-v217-test-ia-2026-10-28';
+// v218 (29/10/2026) : test IA, la question des dates se répond en touchant la date sous chaque règle.
+const CACHE_NAME = 'civik-ia-v218-test-ia-frise-2026-10-29';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

@@ -28,7 +28,7 @@
 const MESURE_DATALAYER = false;
 const MESURE_DETAILLEE = false;   /* test_profil, test_reponse, test_fin : jamais tant qu'il est éteint (DAJF, 28/10/2026) */
 const COMPTEUR_SERVEUR = false;
-const VERSION = '2026-10-28e';
+const VERSION = '2026-10-29a';
 const CANON = 'https://civik-ia.fr/test-ia/';
 const ROUTE = 'https://api.civik-ia.fr/api/site/contact';
 const DELAI_ROUTE = 9000;
@@ -316,50 +316,46 @@ function widgetEstimation(q) {
       h('button', { type: 'button', class: 'pm', 'aria-label': I.estimation.plus, text: '+', onclick: () => bouger(1) }))
   );
 }
+/* la frise : une carte par règle, ses dates en boutons radio ; une date déjà prise s'échange (29/10/2026) */
 function widgetFrise(q) {
-  const place = {};            /* date -> carte */
-  let choisie = null;          /* la carte en main */
+  const place = {};            /* carte -> date */
   const carteDe = id => q.cartes.find(c => c.id === id), dateDe = id => q.dates.find(d => d.id === id);
-  const etatLu = h('p', { class: 'sr', 'aria-live': 'polite' });   /* lu, pas affiché : la date en attente le montre déjà */
-  const cartes = h('div', { class: 'frise__cartes', role: 'group', 'aria-label': I.frise.regles });
-  const dates = h('ol', { class: 'frise__dates', 'aria-label': I.frise.dates });
+  const lu = h('p', { class: 'sr', 'aria-live': 'polite' });
   const valider = h('button', { type: 'button', class: 'btn btn--plein', text: I.valider, disabled: true });
-  const dateDeCarte = c => Object.keys(place).find(d => place[d] === c);
+  const complet = () => q.cartes.every(c => place[c.id]);
   const rendre = () => {
-    cartes.querySelectorAll('.carte').forEach(b => {
-      const id = b.dataset.carte, posee = !!dateDeCarte(id);
-      b.setAttribute('aria-pressed', choisie === id ? 'true' : 'false');
-      b.classList.toggle('carte--posee', posee);
-      b.querySelector('.carte__ou').textContent = posee ? dateDe(dateDeCarte(id)).libelle : '';
-      b.setAttribute('aria-label', carteDe(id).libelle + (posee ? ', ' + dateDe(dateDeCarte(id)).libelle : ''));
+    groupes.forEach(g => {
+      const b = [...g.children], tab = b.find(x => x.dataset.date === place[g.dataset.carte]) || b[0];
+      b.forEach(x => { x.setAttribute('aria-checked', String(x.dataset.date === place[g.dataset.carte])); x.tabIndex = x === tab ? 0 : -1; });
     });
-    dates.querySelectorAll('.date').forEach(b => {
-      const id = b.dataset.date, c = place[id];
-      b.classList.toggle('date--pleine', !!c); b.classList.toggle('date--attente', !!choisie);
-      b.querySelector('.date__carte').textContent = c ? carteDe(c).libelle : '';
-      b.setAttribute('aria-label', dateDe(id).libelle + (c ? ', ' + carteDe(c).libelle + ', ' + I.frise.retirer : ', ' + I.frise.vide));
-    });
-    valider.disabled = Object.keys(place).length !== q.cartes.length;
+    valider.disabled = !complet();
   };
-  q.cartes.forEach(c => cartes.append(h('button', { type: 'button', class: 'carte', 'data-carte': c.id, 'aria-pressed': 'false', onclick: () => {
-    const d = dateDeCarte(c.id);
-    if (d) { delete place[d]; choisie = c.id; etatLu.textContent = gabarit(I.frise.selection_lue, { carte: c.libelle }); }
-    else if (choisie === c.id) { choisie = null; etatLu.textContent = ''; }
-    else { choisie = c.id; etatLu.textContent = gabarit(I.frise.selection_lue, { carte: c.libelle }); }
+  /* la date va à la règle ; la règle qui l'avait prend l'ancienne date de celle-ci, ou plus rien */
+  const poser = (c, d) => {
+    if (place[c] === d) return;
+    const autre = q.cartes.map(x => x.id).find(k => place[k] === d), ancienne = place[c];
+    place[c] = d;
+    if (autre) { if (ancienne) place[autre] = ancienne; else delete place[autre]; }
+    const v = { carte: carteDe(c).libelle, date: dateDe(d).libelle, autre: autre ? carteDe(autre).libelle : '', ancienne: ancienne ? dateDe(ancienne).libelle : '' };
+    lu.textContent = gabarit(!autre ? I.frise.pose_lue : ancienne ? I.frise.echange_lue : I.frise.deplace_lue, v);
     rendre();
-  } }, h('span', { class: 'carte__t', text: c.libelle }), h('span', { class: 'carte__ou', 'aria-hidden': 'true' }))));
-  q.dates.forEach(d => dates.append(h('li', {}, h('button', { type: 'button', class: 'date', 'data-date': d.id, onclick: () => {
-    if (choisie) {
-      const ancienne = dateDeCarte(choisie); if (ancienne) delete place[ancienne];
-      place[d.id] = choisie; etatLu.textContent = gabarit(I.frise.pose_lue, { carte: carteDe(choisie).libelle, date: d.libelle }); choisie = null;
-    } else if (place[d.id]) {
-      const c = place[d.id]; delete place[d.id]; choisie = c; etatLu.textContent = gabarit(I.frise.selection_lue, { carte: carteDe(c).libelle });
-    }
-    rendre();
-  } }, h('span', { class: 'date__lib', text: d.libelle }), h('span', { class: 'date__carte', 'data-vide': I.frise.vide })))));
-  valider.addEventListener('click', () => { if (Object.keys(place).length !== q.cartes.length) return; valider.disabled = true; repondre(q, Object.fromEntries(Object.entries(place).map(([d, c]) => [c, d]))); });
+  };
+  const groupes = q.cartes.map(c => {
+    const g = h('div', { class: 'carte__dates', role: 'radiogroup', 'aria-labelledby': 'frise-' + c.id, 'data-carte': c.id, onkeydown: e => {
+      const pas = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]; if (!pas) return;
+      e.preventDefault();
+      const b = [...g.children], x = b[(Math.max(0, b.indexOf(document.activeElement)) + pas + b.length) % b.length];
+      x.focus(); poser(c.id, x.dataset.date);
+    } });
+    /* « 2 décembre 2027 » sur deux lignes : les trois dates tiennent sur une ligne à 375 px */
+    q.dates.forEach(d => { const m = /^(.*\S)\s+(\d{4})$/.exec(d.libelle); g.append(h('button', { type: 'button', class: 'date', role: 'radio', 'aria-checked': 'false', 'data-date': d.id, onclick: () => poser(c.id, d.id) }, m ? [h('span', { class: 'date__jour', text: m[1] }), ' ', h('span', { class: 'date__an', text: m[2] })] : d.libelle)); });
+    return g;
+  });
+  valider.addEventListener('click', () => { if (!complet()) return; valider.disabled = true; repondre(q, Object.fromEntries(q.cartes.map(c => [c.id, place[c.id]]))); });
   rendre();
-  return h('div', { class: 'frise' }, cartes, dates, etatLu, h('div', { class: 'ecran__actions' }, valider));
+  return h('div', { class: 'frise' }, h('p', { class: 'consigne', text: I.frise.consigne }),
+    h('div', { class: 'frise__cartes' }, q.cartes.map((c, k) => h('div', { class: 'carte' }, h('p', { class: 'carte__t', id: 'frise-' + c.id, text: c.libelle }), groupes[k]))),
+    lu, h('div', { class: 'ecran__actions' }, valider));
 }
 
 /* ----- la révélation ----- */

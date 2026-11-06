@@ -4082,20 +4082,13 @@ Oui , sans inscription
 Oui
 ± partiel
 Oui
-Conformité urbanisme
-(Cerfa 13703 etc.)
-Oui , 5 Cerfa V1, +5 en V2
+Questions d'urbanisme
+et de démarches
+Oui , à partir du site de la commune, page citée
 ± générique
 ± générique
 ± générique
 Non
-Co-design DGS
-(30 min, sans dev)
-Oui , via outil web
-Non , intégration sur mesure
-Non , intégration sur mesure
-Non , intégration sur mesure
-Sans objet
 Délai déploiement
 quelques semaines (mise en service en six étapes)
 4 à 8 semaines
@@ -4122,15 +4115,13 @@ Poser votre question à Civik-ia
 Analyse détaillée par solution
 1. Civik-ia : la solution née pour les mairies rurales
 Civik-ia a construit sa plateforme spécifiquement pour les collectivités françaises , avec une attention particulière aux communes rurales (moins de 5 000 habitants), un segment moins ciblé par les éditeurs traditionnels orientés vers les grandes villes. L’abonnement, à partir de 69 € HT par mois selon la taille de la commune, est volontairement positionné sous le seuil des marchés publics formalisés.
-Son skill « cerfa-municipal » reconnaît les cinq démarches les plus fréquentes (salle communale, déclaration préalable de travaux, inscription électorale, attestation de domicile, débit de boisson temporaire) et compose des réponses structurées citant le bon numéro de Cerfa, le délai légal exact, l’article du Code de l’urbanisme applicable. Cette précision juridique fait souvent défaut aux chatbots génériques.
-L' outil de co-design , en préparation, permettra au DGS d’adapter Marianne via un formulaire web (tarifs locaux, contacts, règles spécifiques), sans intervention technique.
+Marianne répond à partir du site officiel de la commune et des documents transmis (PLU, arrêtés, délibérations), et cite la page à chaque réponse. Pour une démarche, elle oriente l’habitant vers la bonne page et le bon service ; elle ne remplit pas le dossier et ne le transmet pas à la mairie.
 Limite à connaître : Civik-ia est jeune (immatriculée en avril 2026). Pas encore référencée UGAP, l’éditeur n’a pas le track-record de dydu sur les grandes métropoles. Pour les communes de plus de 50 000 habitants ou les départements, mieux vaut interroger plusieurs prestataires.
 2. dydu : la référence des grandes mairies UGAP
 dydu équipe une centaine de grandes mairies en France via son référencement UGAP. Son moteur de chatbot est mature, son équipe support solide, et son intégration à des systèmes complexes (GED, CRM citoyen) est éprouvée. Le tarif autour de 1 750 € HT par an est cohérent pour une grande collectivité avec un volume d’interactions élevé.
-Limite : la solution est généraliste (assurances, banques, télécoms…), donc le chatbot livré à une mairie ne connaît pas nativement les Cerfa, les articles du Code de l’urbanisme ni les particularités du fonctionnement municipal. L’ensemble doit être paramétré projet par projet (4 à 8 semaines, équipe dédiée).
+Limite : la solution est généraliste (assurances, banques, télécoms…), donc le chatbot livré à une mairie doit apprendre les particularités du fonctionnement municipal. L’ensemble doit être paramétré projet par projet (4 à 8 semaines, équipe dédiée).
 3. Citia.io : l’option multilingue
 Citia est intéressant pour les communes touristiques ou frontalières qui doivent répondre en français, anglais, allemand, espagnol, italien. Le multilinguisme est natif, ce qu’aucun concurrent ne propose à ce niveau. Tarif raisonnable (~70 € HT/mois).
-Limite : pas d’intégration native des Cerfa.
 4. Generia (Civic.ai) : pour les grandes collectivités multi-services
 Solution sur-mesure pour des collectivités avec des besoins variés (urbanisme, état civil, finances, RH) et un budget conséquent (souvent 300 à 500 € HT/mois après devis). Adaptée aux métropoles ou aux conseils départementaux.
 Limite : trop lourde pour une commune rurale de moins de 5 000 habitants. Délai de déploiement long (6 à 12 semaines). Souvent au-dessus du seuil des marchés publics formalisés.
@@ -4152,7 +4143,7 @@ Plus de 50 000 habitants : Generia ou dydu, avec mise en concurrence formelle (m
 Question 2 : avez-vous des contraintes de souveraineté ?
 Si votre mairie veut un modèle d’IA édité par une société française (Mistral AI) et un hébergement chez OVHcloud, sans modèle d’OpenAI, de Google ou de Microsoft pour rédiger les réponses, Civik-ia l’écrit sur son site ; le lieu de calcul du modèle n’y est pas fixé par contrat. Les autres acteurs comparés ne publiaient pas leur architecture technique au relevé du 16 mai 2026.
 Question 3 : qui va paramétrer la solution ?
-Si vous n’avez pas de service informatique interne et que vous voulez que votre DGS puisse adapter le chatbot lui-même → Civik-ia (outil de co-design en 30 min).
+Si vous n’avez pas de service informatique interne et que vous voulez que le paramétrage soit pris en charge → Civik-ia (mise en service en six étapes, validée par vos agents).
 Si vous avez un service informatique structuré et un budget pour une intégration projet → dydu ou Generia.
 Le piège à éviter : se laisser séduire par les démonstrations
 Toutes les solutions présentent bien en démo. Pour vraiment juger, demandez systématiquement :
@@ -4167,7 +4158,7 @@ Il n’existe pas de « meilleur » chatbot universel : le bon choix dépend de 
 Combien coûte un chatbot de mairie ?
 Les tarifs 2026 vont d’environ 70 € HT/mois (Citia.io) à plus de 1 750 € HT/an (dydu, soit ~146 €/mois), jusqu’à 300-500 € HT/mois pour les solutions sur devis comme Generia. Chez Civik-ia, l’abonnement coûte à partir de 69 € HT par mois, selon la taille de la commune, et est conçu pour rester sous le seuil de dispense de procédure des marchés publics (60 000 € HT, R. 2122-8, depuis le 01/04/2026). PanneauPocket, qui n’est pas un chatbot mais un outil de diffusion d’alertes, coûte environ 350 € HT/an.
 Quelle est la différence entre Civik-ia et PanneauPocket ?
-PanneauPocket est un outil de diffusion : la mairie pousse des alertes (travaux, fermetures, événements) vers les smartphones, mais le citoyen ne pose pas de question. Civik-ia est un chatbot conversationnel : le citoyen interroge l’assistante (horaires, état civil, urbanisme, Cerfa…) et reçoit une réponse personnalisée 24 h/24. Les deux sont complémentaires plutôt que concurrents : on diffuse avec PanneauPocket, on répond avec Civik-ia.
+PanneauPocket est un outil de diffusion : la mairie pousse des alertes (travaux, fermetures, événements) vers les smartphones, mais le citoyen ne pose pas de question. Civik-ia est un chatbot conversationnel : le citoyen interroge l’assistante (horaires, état civil, urbanisme…) et reçoit une réponse personnalisée 24 h/24. Les deux sont complémentaires plutôt que concurrents : on diffuse avec PanneauPocket, on répond avec Civik-ia.
 Quel chatbot de mairie est souverain et conforme RGPD ?
 La souveraineté se juge sur l’hébergeur, l’éditeur du modèle d’IA, le lieu de calcul et le droit applicable. Civik-ia s’appuie sur Mistral AI, société française, et sur un hébergement chez OVHcloud, sans compte demandé à l’habitant ; le lieu de calcul du modèle n’est pas fixé par contrat. Les autres éditeurs n’exposent pas toujours leur architecture technique : demandez à chacun quel modèle il utilise, où il calcule et où transitent les conversations.
 En combien de temps déploie-t-on un chatbot de mairie ?

@@ -32,7 +32,8 @@
 // passent par le réseau, une mise à jour de la banque ne demande pas de nouvelle version.
 // v218 (29/10/2026) : test IA, la question des dates se répond en touchant la date sous chaque règle.
 // v219 (02/11/2026) : test IA, compteur serveur allume (COMPTEUR_SERVEUR) et politique de confidentialite qui le decrit.
-const CACHE_NAME = 'civik-ia-v221-comparatif-2026-11-05';
+// v222 (07/11/2026) : textes de confidentialité des formulaires reliés à l'outil interne de suivi, après la v221 du comparatif.
+const CACHE_NAME = 'civik-ia-v222-crm-formulaires-2026-11-07';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,

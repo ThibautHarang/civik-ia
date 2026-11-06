@@ -83,7 +83,7 @@ Nom *
 Courriel *
 Votre message *
 Envoyer mon message
-Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et suivre notre échange, et les supprime au plus tard trois ans après votre dernier message. Vous pouvez vous y opposer, y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Civik-ia
 Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.
 Les trois activités
@@ -310,7 +310,7 @@ Nom *
 Structure
 Courriel *
 Téléphone (facultatif)
-Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et suivre notre échange, et les supprime au plus tard trois ans après votre dernier message. Vous pouvez vous y opposer, y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Retour
 Suivant
 Copier ma fiche
@@ -349,7 +349,7 @@ Structure
 Courriel *
 Votre besoin, en une phrase *
 Envoyer mon message
-Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et suivre notre échange, et les supprime au plus tard trois ans après votre dernier message. Vous pouvez vous y opposer, y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Page mise à jour le 23 octobre 2026.
 Civik-ia
 Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.
@@ -485,7 +485,7 @@ L’idée, en quelques phrases
 Nom *
 Structure
 Courriel *
-Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité . Votre croquis reste dans votre navigateur.
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et suivre notre échange, et les supprime au plus tard trois ans après votre dernier message. Vous pouvez vous y opposer, y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité . Votre croquis reste dans votre navigateur.
 Retour
 Suivant
 Fiche de projet
@@ -547,7 +547,7 @@ Structure
 Courriel *
 Votre besoin, en une phrase *
 Envoyer mon message
-Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et préparer notre échange, et les supprime douze mois après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
+Champs marqués d’un astérisque : obligatoires. Civik-ia utilise ces informations pour vous répondre et suivre notre échange, et les supprime au plus tard trois ans après votre dernier message. Vous pouvez vous y opposer, y accéder, les corriger ou les faire effacer en écrivant à contact@civik-ia.fr . En savoir plus : politique de confidentialité .
 Page mise à jour le 24 octobre 2026.
 Civik-ia
 Civik-ia aide les communes et les intercommunalités à adopter l’IA : Marianne, l’assistant IA qui répond aux habitants, le conseil et la formation, et un atelier qui conçoit des bases de données, des logiciels et des applications.

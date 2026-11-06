@@ -28,7 +28,7 @@
 const MESURE_DATALAYER = false;
 const MESURE_DETAILLEE = false;   /* test_profil, test_reponse, test_fin : jamais tant qu'il est éteint (DAJF, 28/10/2026) */
 const COMPTEUR_SERVEUR = true;
-const VERSION = '2026-11-02a';
+const VERSION = '2026-11-06a';
 const CANON = 'https://civik-ia.fr/test-ia/';
 const ROUTE = 'https://api.civik-ia.fr/api/site/contact';
 const DELAI_ROUTE = 9000;

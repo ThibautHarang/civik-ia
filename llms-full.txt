@@ -104,7 +104,7 @@ Financer l’IA de sa commune
 Livre blanc
 Centre d’aide
 22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 € · Hébergement OVHcloud (UE)
 Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
@@ -371,7 +371,7 @@ Financer l’IA de sa commune
 Livre blanc
 Centre d’aide
 22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 € · Hébergement OVHcloud (UE)
 Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
@@ -569,7 +569,7 @@ Financer l’IA de sa commune
 Livre blanc
 Centre d’aide
 22h47, votre mairie est fermée
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne · Hébergement OVHcloud (UE)
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 € · Hébergement OVHcloud (UE)
 Mentions légales et conditions d’utilisation
 CGV
 Confidentialité
@@ -586,11 +586,11 @@ Aller au contenu
 Arrêter les animations
 Civik-ia
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Contact
 Tester Marianne
-Accueil Marianne Conseil Atelier Contact Gérer les cookies
+Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Fonctionnement
 Canaux
 Démo
@@ -890,11 +890,11 @@ Communiquer avec ses citoyens Panorama 2026 des canaux d'une mairie : site, appl
 Démarches en ligne d'une commune Par où commencer pour proposer des démarches en ligne dans une petite commune
 Page mise à jour le 9 octobre 2026
 Civik-ia
-Communiquer, conseiller, créer. Pour les mairies, les acteurs de santé, les entreprises et les associations.
+Communiquer, conseiller, créer. Pour les communes et les intercommunalités.
 Le site
 Accueil
 Marianne
-Conseil
+Conseil et formation
 Atelier
 Tester Marianne
 22h47, votre mairie est fermée
@@ -920,7 +920,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1043,7 +1043,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1179,7 +1179,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1322,7 +1322,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1432,7 +1432,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1538,7 +1538,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1722,7 +1722,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -1872,7 +1872,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2037,7 +2037,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2192,7 +2192,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2337,7 +2337,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2498,7 +2498,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2740,7 +2740,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -2900,7 +2900,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3041,7 +3041,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3238,7 +3238,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3354,7 +3354,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3741,7 +3741,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3845,7 +3845,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -3997,7 +3997,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4211,7 +4211,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4334,7 +4334,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4539,7 +4539,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4711,7 +4711,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4852,7 +4852,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4972,7 +4972,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -4995,12 +4995,12 @@ Accueil Marianne Conseil et formation Atelier Contact Gérer les cookies
 Accueil › Outils IA pour secrétaire de mairie
 Secrétaire de mairie · 5 juillet 2026
 Outils IA pour secrétaire de mairie : le guide 2026
-Le secrétariat de mairie est le poste le plus polyvalent de France : accueil, état civil, urbanisme, comptabilité, conseil municipal. Voici ce que l’intelligence artificielle peut réellement prendre en charge en 2026, avec quels outils, à quel prix, et dans quelles limites RGPD.
+Le secrétariat de mairie est le poste le plus polyvalent de France : accueil, état civil, urbanisme, comptabilité, conseil municipal. Voici ce que l’intelligence artificielle peut réellement prendre en charge en 2026, avec quels outils, à quel prix, et dans quelles limites RGPD. Si vous cherchez un logiciel pour secrétaire de mairie, la grille de lecture plus bas relie chaque besoin à une famille d’outils.
 Cible : secrétaire de mairie, maire, DGS
 Lecture : 6 minutes
-Mis à jour : 05/07/2026
+Mis à jour : 13/11/2026
 Par Thibaut Harang , fondateur de Civik-ia
-Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
+Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 13/11/2026.
 En bref
 Trois familles d’outils d’IA servent un secrétariat de mairie en 2026 : les assistants internes pour l’agent (recherche réglementaire, rédaction, comme Delibia qui offre une licence gratuite aux secrétaires de mairie), les assistants citoyens qui répondent aux questions des citoyens 24 h/24 (comme Marianne de Civik-ia, à partir de 69 € HT par mois selon la taille de la commune), et les IA généralistes (Le Chat de Mistral, ChatGPT) à réserver aux tâches sans aucune donnée personnelle. La règle d’or RGPD : jamais de données de citoyens dans un outil grand public non contractualisé.
 Pourquoi le secrétariat de mairie est le premier bénéficiaire de l’IA
@@ -5018,7 +5018,7 @@ Ces outils ne parlent pas aux citoyens : ils travaillent pour l’agent, à l’
 Le Chat de Mistral, ChatGPT ou Claude rendent service pour reformuler un courrier, structurer une note ou préparer un discours de cérémonie. Deux réserves importantes pour un usage en mairie :
 Jamais de données personnelles de citoyens dans un outil grand public : ni nom, ni adresse, ni situation familiale ou fiscale. Ces données peuvent être traitées hors de l’Union européenne, sans contrat de sous-traitance RGPD.
 Toujours vérifier les réponses réglementaires : une IA généraliste ne connaît ni votre PLU, ni vos tarifs de salle, ni vos arrêtés. Elle peut se tromper avec assurance.
-Quel outil pour quel besoin : la grille de lecture
+Logiciel pour secrétaire de mairie : la grille de lecture par besoin
 Besoin du secrétariat Famille d’outil Exemple Ordre de prix
 Réduire les appels et questions répétitives des citoyens Assistant citoyen Marianne (Civik-ia) à partir de 69 € HT par mois, selon la taille de la commune
 Chercher dans la réglementation, analyser des documents Assistant interne Delibia 1 licence gratuite (secrétaire de mairie), puis sur devis
@@ -5041,6 +5041,8 @@ Les mesures pour sécuriser les données de la commune (sauvegardes, comptes, dr
 Questions fréquentes
 Quels outils d’IA pour une secrétaire de mairie en 2026 ?
 Trois familles d’outils coexistent. Les assistants internes pour l’agent, comme Delibia, qui aident à chercher dans la réglementation et à rédiger (une licence gratuite est offerte aux secrétaires de mairie). Les assistants citoyens, comme Marianne de Civik-ia, qui répondent directement aux questions des citoyens 24 h/24 et allègent le téléphone du secrétariat (abonnement à partir de 69 € HT par mois, selon la taille de la commune). Et les IA généralistes comme Le Chat de Mistral ou ChatGPT, utiles pour rédiger, à condition de ne jamais y saisir de données personnelles.
+Quel logiciel conseiller à une secrétaire de mairie ?
+Cela dépend du besoin du secrétariat. Pour chercher dans la réglementation et analyser des documents, un assistant interne comme Delibia. Pour rédiger sans données personnelles, une IA généraliste comme Le Chat de Mistral. Pour les questions répétitives des citoyens, un assistant citoyen comme Marianne de Civik-ia. Ces familles se cumulent, à condition de ne saisir aucune donnée personnelle dans un outil grand public non contractualisé.
 Une IA peut-elle répondre aux citoyens à la place du secrétariat ?
 Oui, pour les questions répétitives : horaires, état civil, urbanisme, collecte des déchets, salle communale. Un assistant citoyen comme Marianne de Civik-ia répond 24 h/24, sans inscription, avec des réponses construites sur les documents officiels de la commune. Les demandes complexes ou sensibles restent orientées vers le secrétariat, qui garde la main.
 ChatGPT est-il autorisé dans une mairie ?
@@ -5093,7 +5095,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5192,7 +5194,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5218,7 +5220,7 @@ Financer l’IA de sa commune : cofinancement et aides 2026
 Depuis mai 2026, une collectivité qui veut s’équiper d’une intelligence artificielle souveraine peut faire cofinancer une partie de la dépense. Le dispositif n’est pas celui auquel on pense : ce ne sont pas les appels à projets France 2030, hors d’échelle pour une commune, mais un guichet permanent. Voici ce qui existe réellement, ce qui s’applique à une commune rurale, et ce qui ne s’applique pas.
 Cible : maire, DGS, secrétaire de mairie, agent d’EPCI
 Lecture : 7 minutes
-Mis à jour : 23/10/2026
+Mis à jour : 13/11/2026
 État des sources : 22/10/2026 (cahier des charges du guichet, version 1.1 du 10 juillet 2026)
 Par Thibaut Harang , fondateur de Civik-ia
 Une IA a tenu le stylo, j’ai tenu la gomme. IA à l’écrit, humain au contrôle Préparé avec l’aide d’une IA, relu et signé par Thibaut Harang le 23/10/2026.
@@ -5268,7 +5270,7 @@ Fonds européens et régions
 Le FEDER, fonds européen de développement régional, peut financer la numérisation au bénéfice des pouvoirs publics (règlement (UE) 2021/1058, article 3). La région, autorité de gestion, ouvre des appels à projets dans son programme 2021-2027. Un exemple au 22 octobre 2026 : la Bourgogne-Franche-Comté a ouvert un appel à projets FEDER sur l’usage de l’IA au service des politiques publiques, du 1er octobre 2026 au 15 janvier 2027 à midi, pour des porteurs publics et des projets situés dans la région. Il fixe une subvention FEDER de 40 000 euros au moins et de 250 000 euros au plus, avec un taux de FEDER de 60 % au plus. Ce format convient à un projet d’investissement d’une certaine taille ; pour l’abonnement d’une petite commune, le guichet Territoires d’IA est mieux adapté. Votre région publie ses appels sur son site consacré aux fonds européens.
 L’articulation avec le seuil des marchés publics
 Une commune qui s’équipe d’un assistant citoyen se pose deux questions en même temps : comment le financer, et comment l’acheter sans procédure lourde. Les deux se répondent.
-Sous 60 000 euros HT, un marché de fournitures ou de services est dispensé de publicité et de mise en concurrence préalables, pour les consultations engagées depuis le 1er avril 2026 (article R2122-8 du code de la commande publique, décret n° 2025-1386). La valeur comparée à ce seuil est le montant total hors taxes du contrat, options et reconductions comprises (article R2121-1) : un abonnement de plusieurs années se compte sur toute sa durée. L’acheteur choisit alors une offre pertinente, fait une bonne utilisation des deniers publics et ne contracte pas systématiquement avec le même opérateur. C’est le cadre dans lequel l’offre de Civik-ia est conçue pour se placer : un abonnement à partir de 69 € HT par mois, selon la taille de la commune, et une mise en service facturée une seule fois, à partir de 999 euros HT. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie .
+Sous 60 000 euros HT, un marché de fournitures ou de services est dispensé de publicité et de mise en concurrence préalables, pour les consultations engagées depuis le 1er avril 2026 (article R2122-8 du code de la commande publique, décret n° 2025-1386). La valeur comparée à ce seuil est le montant total hors taxes du contrat, options et reconductions comprises (article R2121-1) : un abonnement de plusieurs années se compte sur toute sa durée. L’acheteur choisit alors une offre pertinente, fait une bonne utilisation des deniers publics et ne contracte pas systématiquement avec le même opérateur. C’est le cadre dans lequel l’offre de Civik-ia est conçue pour se placer : un abonnement à partir de 69 € HT par mois, selon la taille de la commune, et une mise en service facturée une seule fois, à partir de 999 euros HT. Ce qui fait le prix est détaillé sur la page prix d’un chatbot de mairie . Avant de signer, l’usage lui-même a son cadre : les obligations d’une mairie qui déploie une IA sont détaillées dans notre page sur l’ AI Act et les collectivités .
 Où en est Civik-ia par rapport à ces dispositifs
 Autant l’écrire noir sur blanc, parce que le sujet se prête aux ambiguïtés et qu’une collectivité a le droit de savoir exactement à qui elle parle.
 Civik-ia n’est pas labellisée, lauréate, sélectionnée ni partenaire de France 2030, du programme Territoires d’IA, de la Banque des Territoires ou de la direction interministérielle du numérique.
@@ -5337,7 +5339,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5460,7 +5462,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5569,7 +5571,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5701,7 +5703,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5834,7 +5836,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5916,7 +5918,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -5988,7 +5990,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -6116,7 +6118,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -6251,7 +6253,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -6434,7 +6436,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -6568,7 +6570,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV
@@ -6628,7 +6630,7 @@ contact@civik-ia.fr
 thibaut.harang@civik-ia.fr
 LinkedIn de Thibaut Harang
 Centre d’aide
-© 2026 Civik-ia · SASU au capital de 1 000 € · SIREN 103 568 416 · RCS Narbonne
+© 2026 Civik-ia · SASU · SIREN 103 568 416 · RCS Narbonne · capital social de 1 000 €
 Mentions légales et conditions d’utilisation
 Confidentialité
 CGV

@@ -84,7 +84,7 @@ const PAGES = [
   ['logiciel-mairie-petite-commune.html', { ...GUIDE, article: RELU_23_10 }],
   ['marianne-messenger.html', { couche: 'ancienne', place: false, courant: 'true', sousBarre: CANAL, mention: MENTION_MS, barre: { ouverture: /<nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;/ }, pied: { ouverture: /<footer class="pied">/ } }],
   ['marianne-whatsapp.html', { couche: 'ancienne', place: false, courant: 'true', sousBarre: CANAL, mention: MENTION_WA, barre: { ouverture: /<nav style="position:fixed;top:0;left:0;width:100%;z-index:1000;height:78px;/ }, pied: { ouverture: /<footer class="pied">/ } }],
-  ['outils-ia-secretaire-de-mairie.html', { ...GUIDE, article: RELU_23_10 }],
+  ['outils-ia-secretaire-de-mairie.html', { ...GUIDE, article: { ...AUTEUR, relu: '13/11/2026' } }],   // FAQ, chapeau et H2 du 13/11 relus par Thibaut Harang en session le 13/11/2026
   ['reduire-appels-mairie-chatbot-ia.html', { ...GUIDE, article: RELU_23_10 }],
   ['22h47.html', { couche: 'ancienne', place: false, theme: '#0A0F2C', barre: { apres: '<body>\n' }, pied: { ouverture: /<footer class="s-footer">/ } }],
   ['legal/accessibilite-rgaa.html', LEGALE],
@@ -234,7 +234,7 @@ function pied(f, c) {
     + '<nav class="cc-pied__col" aria-labelledby="cc-pied-ecrire"><h2 id="cc-pied-ecrire">Nous écrire</h2><ul>' + ecrire + '</ul></nav>\n'
     + '</div>\n'
     + '<div class="cc-pied__bande">'
-    + '<p class="cc-pied__officiel">© 2026 Civik-ia · SASU au capital de 1&nbsp;000&nbsp;€ · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne</p>'
+    + '<p class="cc-pied__officiel">© 2026 Civik-ia · SASU · SIREN 103&nbsp;568&nbsp;416 · RCS Narbonne · capital social de 1&nbsp;000&nbsp;€</p>'
     + '<ul class="cc-pied__legal" aria-label="Informations légales">'
     + LEGAL.map(([h, t]) => `<li><a href="${h}"${courant(h, ici)}>${t}</a></li>`).join('')
     + '<li><button type="button" data-cookies-gerer>Gérer les cookies</button></li>' + (c.legalEnPlus || '') + '</ul>'

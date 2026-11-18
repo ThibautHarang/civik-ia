@@ -35,7 +35,7 @@
 // v222 (07/11/2026) : textes de confidentialité des formulaires reliés à l'outil interne de suivi, après la v221 du comparatif.
 // v226 (13/11/2026) : le PDF des conditions générales du 24/10 est remplacé par un tirage sur fond blanc (même adresse, texte
 // inchangé) ; sans nouvelle version, un visiteur qui a déjà le PDF crème le garderait, ce cache sert les PDF en premier.
-const CACHE_NAME = 'civik-ia-v226-cgv-pdf-blanc-2026-11-13';
+const CACHE_NAME = 'civik-ia-v227-politique-marches-2026-11-18';
 const STATIC_ASSETS = [
   '/site-civik-ia.html',
   // /demo.html et /demo retirés du précache v19 : page prospection avec iframes live,
